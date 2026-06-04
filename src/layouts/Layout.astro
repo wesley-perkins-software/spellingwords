@@ -30,17 +30,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
 
     <!--
-      Google Fonts: Inter (body) + Poppins (display).
-      Note for future consideration: local font hosting via @fontsource packages or
-      Astro's built-in font optimization (astro.config fonts option, available in Astro 5+)
-      would eliminate the render-blocking Google Fonts request, improve Core Web Vitals
-      (LCP, CLS), and remove the external network dependency — preferred for production.
-      For this foundation PR, Google Fonts is acceptable.
+      Google Fonts: Nunito (body) + Fredoka (display).
+      Nunito: rounded letterforms, warm and readable — ideal for educational UI.
+      Fredoka: friendly rounded headlines, approachable without being childish.
+      Note for future: local @fontsource hosting preferred for Core Web Vitals / LCP.
     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Nunito:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 

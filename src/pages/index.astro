@@ -1,0 +1,115 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { featuredWord, featuredList } from '@/data/fixtures/sampleLists';
+---
+
+<Layout
+  title="SpellingWords"
+  description="Curated word lists, phonics patterns, and contextual hints for confident, lasting spelling skills."
+>
+  <!-- ── Hero ──────────────────────────────────────────────────────────── -->
+  <section class="max-w-3xl mx-auto px-6 pt-24 pb-20">
+
+    <!-- Ruled ornament -->
+    <div class="flex items-center gap-4 mb-14">
+      <div class="h-px flex-1 bg-app-leather/25"></div>
+      <span class="text-app-leather/50 text-xs tracking-[0.3em] uppercase font-sans select-none">
+        Spelling Practice
+      </span>
+      <div class="h-px flex-1 bg-app-leather/25"></div>
+    </div>
+
+    <!-- Wordmark -->
+    <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-app-charcoal leading-tight mb-6">
+      Spelling<span class="text-app-sage">Words</span>
+    </h1>
+
+    <!-- Value proposition -->
+    <p class="text-lg md:text-xl text-app-charcoal/65 font-sans leading-relaxed max-w-xl mb-10">
+      Curated word lists, phonics patterns, and contextual hints — everything
+      a learner needs to build confident, lasting spelling skills.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+      <a
+        href="/lists"
+        class="inline-block bg-app-sage text-white font-sans font-semibold
+               px-7 py-3 rounded-sm tracking-wide text-sm
+               hover:bg-app-sage/90 focus:outline-none focus:ring-2
+               focus:ring-app-sage focus:ring-offset-2 focus:ring-offset-app-cream
+               transition-colors duration-150"
+      >
+        Browse Word Lists
+      </a>
+      <a
+        href="/about"
+        class="text-app-charcoal/55 font-sans text-sm
+               underline underline-offset-4 decoration-app-leather/40
+               hover:text-app-charcoal hover:decoration-app-leather
+               focus:outline-none focus:text-app-charcoal
+               transition-colors duration-150"
+      >
+        How it works
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Spelling Card Preview ─────────────────────────────────────────── -->
+  <section class="max-w-3xl mx-auto px-6 pb-28" aria-label="Word preview example">
+
+    <p class="text-xs tracking-[0.25em] uppercase text-app-leather font-sans mb-5 select-none">
+      Word Preview
+    </p>
+
+    <article
+      class="border border-app-leather/20 bg-white/60 rounded-sm p-8 md:p-10
+             shadow-sm max-w-lg"
+      aria-label={`Example word: ${featuredWord.word}`}
+    >
+      <!-- Word + list category -->
+      <header class="flex items-baseline justify-between mb-3">
+        <h2 class="font-display text-4xl font-bold text-app-charcoal tracking-tight">
+          {featuredWord.word}
+        </h2>
+        <span class="text-xs text-app-leather/60 font-sans uppercase tracking-widest ml-4 shrink-0">
+          {featuredList.category.replace('-', ' ')}
+        </span>
+      </header>
+
+      <!-- Accent rule -->
+      <div class="h-px w-10 bg-app-leather/30 mb-5"></div>
+
+      <!-- Hint -->
+      {featuredWord.hint && (
+        <p class="text-sm text-app-charcoal/60 font-sans italic leading-relaxed mb-4">
+          {featuredWord.hint}
+        </p>
+      )}
+
+      <!-- Example sentence -->
+      {featuredWord.exampleSentence && (
+        <blockquote
+          class="border-l-2 border-app-sage/50 pl-4
+                 text-app-charcoal/75 font-sans text-base leading-relaxed"
+        >
+          {featuredWord.exampleSentence}
+        </blockquote>
+      )}
+
+      <!-- Phonics patterns (conditionally rendered) -->
+      {featuredWord.phonicsPattern && featuredWord.phonicsPattern.length > 0 && (
+        <div class="mt-5 flex flex-wrap gap-2" aria-label="Phonics patterns">
+          {featuredWord.phonicsPattern.map((pattern) => (
+            <span
+              class="text-xs font-sans font-medium text-app-leather
+                     border border-app-leather/30 px-2 py-0.5 rounded-sm"
+            >
+              {pattern}
+            </span>
+          ))}
+        </div>
+      )}
+    </article>
+  </section>
+</Layout>

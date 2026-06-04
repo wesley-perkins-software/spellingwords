@@ -9,231 +9,299 @@ const exampleWords = sampleLists[2].words.slice(0, 5);
   title="SpellingWords"
   description="Paste your spelling words and start practicing instantly — spelling tests, word practice, and printable worksheets."
 >
-  <div class="min-h-screen flex flex-col">
 
-    <!-- ── Top bar ───────────────────────────────────────────────────────── -->
-    <header class="border-b border-app-leather/15 px-6 py-4">
-      <div class="max-w-4xl mx-auto flex items-center justify-between">
-        <span class="font-display font-bold text-lg text-app-charcoal tracking-tight">
-          Spelling<span class="text-app-sage">Words</span>
-        </span>
-        <span class="text-xs text-app-leather font-sans">Free. No account needed.</span>
-      </div>
-    </header>
+<style is:global>
+  /* DM Serif Display — distinctive headline font for this page only */
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 
-    <!-- ── Main tool area ────────────────────────────────────────────────── -->
-    <main class="flex-1 max-w-4xl mx-auto w-full px-6 py-12 md:py-16">
+  /* Dot-grid paper texture on the page background */
+  body {
+    background-image: radial-gradient(circle, rgba(140, 120, 98, 0.18) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
 
-      <!-- Headline -->
-      <div class="mb-8">
-        <h1 class="font-display text-3xl md:text-4xl font-bold text-app-charcoal mb-2">
-          Paste your spelling words
-        </h1>
-        <p class="text-app-charcoal/55 font-sans text-base">
-          One word per line. Start a test, practice at your own pace, or print a worksheet.
-        </p>
-      </div>
+  /* Composition-notebook ruled lines inside the textarea parent */
+  .notebook-lines {
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent calc(1.75rem - 1px),
+      rgba(140, 120, 98, 0.14) calc(1.75rem - 1px),
+      rgba(140, 120, 98, 0.14) 1.75rem
+    );
+    background-size: 100% 1.75rem;
+    background-position: 0 3.25rem; /* offset below the panel header */
+  }
 
-      <!-- Input + actions layout -->
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6 items-start">
+  #word-input {
+    line-height: 1.75rem;
+    background: transparent;
+  }
 
-        <!-- Textarea panel -->
-        <div
-          class="border border-app-leather/25 rounded bg-white shadow-sm
-                 focus-within:border-app-sage focus-within:ring-1 focus-within:ring-app-sage
-                 transition-colors duration-150"
-        >
-          <!-- Panel header -->
-          <div class="flex items-center justify-between px-4 py-2.5 border-b border-app-leather/15">
-            <span class="text-xs font-sans font-medium text-app-leather uppercase tracking-widest">
-              Word List
-            </span>
-            <button
-              type="button"
-              class="text-xs font-sans text-app-leather/60 hover:text-app-charcoal
-                     transition-colors duration-100 cursor-pointer"
-              aria-label="Clear word list"
-            >
-              Clear
-            </button>
-          </div>
+  /* Staggered entrance animations */
+  @keyframes sw-enter {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
 
-          <!-- The textarea itself -->
-          <textarea
-            id="word-input"
-            name="words"
-            rows="10"
-            placeholder="always&#10;would&#10;people&#10;their&#10;where&#10;because&#10;different&#10;through"
-            aria-label="Enter spelling words, one per line"
-            class="w-full px-4 py-4 font-sans text-base text-app-charcoal
-                   placeholder:text-app-leather/35 bg-transparent resize-none
-                   focus:outline-none leading-relaxed"
-          ></textarea>
+  .sw-animate {
+    opacity: 0;
+    animation: sw-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .sw-delay-0  { animation-delay: 0ms;   }
+  .sw-delay-1  { animation-delay: 80ms;  }
+  .sw-delay-2  { animation-delay: 160ms; }
+  .sw-delay-3  { animation-delay: 240ms; }
+  .sw-delay-4  { animation-delay: 320ms; }
 
-          <!-- Word count footer -->
-          <div class="px-4 py-2.5 border-t border-app-leather/10">
-            <span
-              id="word-count"
-              class="text-xs font-sans text-app-leather/50"
-              aria-live="polite"
-            >
-              0 words
-            </span>
-          </div>
+  /* Tactile press effect on primary CTA */
+  #btn-start {
+    box-shadow: 0 4px 0 0 rgba(78, 110, 80, 0.55);
+    transition: box-shadow 80ms, transform 80ms, background-color 150ms;
+  }
+  #btn-start:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 0 rgba(78, 110, 80, 0.55);
+  }
+
+  /* Chip hover: subtle upward float */
+  .example-chip {
+    transition: transform 100ms ease, border-color 100ms, color 100ms, background-color 100ms;
+  }
+  .example-chip:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Secondary buttons: inset press */
+  .btn-secondary:active {
+    transform: translateY(1px);
+  }
+</style>
+
+<div class="min-h-screen flex flex-col">
+
+  <!-- ── Header ─────────────────────────────────────────────────────────── -->
+  <header class="sw-animate sw-delay-0 border-b border-app-leather/12 px-6 py-4 bg-app-cream/80 backdrop-blur-sm sticky top-0 z-10">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <span class="font-display font-bold text-lg text-app-charcoal tracking-tight select-none">
+        Spelling<span class="text-app-sage">Words</span>
+      </span>
+      <span class="hidden sm:block text-xs text-app-leather/70 font-sans tabular-nums">
+        Free &middot; No account needed
+      </span>
+    </div>
+  </header>
+
+  <!-- ── Main ───────────────────────────────────────────────────────────── -->
+  <main class="flex-1 max-w-5xl mx-auto w-full px-6 py-10 md:py-14">
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-x-10 gap-y-8 items-start">
+
+      <!-- ── Left: headline + notebook input ──────────────────────────── -->
+      <div>
+
+        <!-- Headline -->
+        <div class="sw-animate sw-delay-1 mb-6">
+          <h1 class="leading-[1.1] mb-3 text-app-charcoal" style="font-family: 'DM Serif Display', serif; font-size: clamp(2.25rem, 5vw, 3.5rem);">
+            Your words.<br/>
+            <em class="not-italic text-app-leather">Your</em> test.
+          </h1>
+          <p class="text-app-charcoal/50 font-sans text-sm leading-relaxed max-w-sm">
+            Type or paste one word per line. Then start a test, practice at your
+            own pace, or print a worksheet.
+          </p>
         </div>
 
-        <!-- Right column: actions + example chips -->
-        <div class="flex flex-col gap-4">
-
-          <!-- Primary CTA -->
-          <button
-            type="button"
-            class="w-full bg-app-sage text-white font-sans font-semibold
-                   px-6 py-3.5 rounded text-sm tracking-wide
-                   hover:bg-app-sage/90 active:bg-app-sage/80
-                   focus:outline-none focus:ring-2 focus:ring-app-sage focus:ring-offset-2
-                   focus:ring-offset-app-cream transition-colors duration-150
-                   flex items-center justify-center gap-2"
-            aria-label="Start a spelling test"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-            Start a Spelling Test
-          </button>
-
-          <!-- Secondary actions -->
-          <div class="flex flex-col gap-2">
-            <button
-              type="button"
-              class="w-full border border-app-leather/30 text-app-charcoal font-sans
-                     font-medium px-6 py-3 rounded text-sm
-                     hover:border-app-leather/60 hover:bg-app-charcoal/[0.03]
-                     focus:outline-none focus:ring-2 focus:ring-app-charcoal/30
-                     focus:ring-offset-1 transition-colors duration-150"
-              aria-label="Practice words"
-            >
-              Practice Words
-            </button>
-            <button
-              type="button"
-              class="w-full border border-app-leather/30 text-app-charcoal font-sans
-                     font-medium px-6 py-3 rounded text-sm
-                     hover:border-app-leather/60 hover:bg-app-charcoal/[0.03]
-                     focus:outline-none focus:ring-2 focus:ring-app-charcoal/30
-                     focus:ring-offset-1 transition-colors duration-150
-                     flex items-center justify-center gap-2"
-              aria-label="Print worksheet"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
+        <!-- Notebook input panel -->
+        <div
+          class="sw-animate sw-delay-2 notebook-lines
+                 border border-app-leather/22 rounded-md bg-white/75 shadow-md
+                 focus-within:border-app-sage/60 focus-within:shadow-lg
+                 focus-within:ring-2 focus-within:ring-app-sage/20
+                 transition-all duration-200 overflow-hidden"
+        >
+          <!-- Panel header -->
+          <div class="flex items-center justify-between px-4 py-3 bg-white/90 border-b border-app-leather/12">
+            <div class="flex items-center gap-2">
+              <!-- Decorative notebook spine dots -->
+              <span class="flex gap-1" aria-hidden="true">
+                <span class="w-2 h-2 rounded-full bg-app-leather/20"></span>
+                <span class="w-2 h-2 rounded-full bg-app-leather/20"></span>
+                <span class="w-2 h-2 rounded-full bg-app-leather/20"></span>
+              </span>
+              <span class="text-xs font-sans font-semibold text-app-leather uppercase tracking-[0.15em]">
+                Word List
+              </span>
+            </div>
+            <div class="flex items-center gap-4">
+              <span
+                id="word-count"
+                class="text-xs font-sans font-medium text-app-sage tabular-nums"
+                aria-live="polite"
               >
-                <polyline points="6 9 6 2 18 2 18 9"></polyline>
-                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                <rect x="6" y="14" width="12" height="8"></rect>
-              </svg>
-              Print Worksheet
-            </button>
-          </div>
-
-          <!-- Divider -->
-          <div class="flex items-center gap-3 py-1">
-            <div class="h-px flex-1 bg-app-leather/15"></div>
-            <span class="text-xs text-app-leather/40 font-sans">or try an example</span>
-            <div class="h-px flex-1 bg-app-leather/15"></div>
-          </div>
-
-          <!-- Example word chips -->
-          <div aria-label="Example word list: Dolch Sight Words">
-            <p class="text-xs font-sans text-app-leather/60 mb-2.5 uppercase tracking-widest">
-              Dolch Sight Words
-            </p>
-            <div class="flex flex-wrap gap-1.5">
-              {exampleWords.map((w) => (
-                <button
-                  type="button"
-                  data-word={w.word}
-                  class="example-chip text-xs font-sans font-medium
-                         text-app-charcoal/70 bg-app-leather/8 border border-app-leather/20
-                         px-2.5 py-1 rounded-full
-                         hover:border-app-sage/50 hover:text-app-sage hover:bg-app-sage/5
-                         focus:outline-none focus:ring-1 focus:ring-app-sage
-                         transition-colors duration-100 cursor-pointer"
-                  aria-label={`Add example word: ${w.word}`}
-                >
-                  {w.word}
-                </button>
-              ))}
+                0 words
+              </span>
               <button
                 type="button"
-                id="load-example-list"
-                class="text-xs font-sans font-medium text-app-leather/60
-                       border border-dashed border-app-leather/25 px-2.5 py-1 rounded-full
-                       hover:border-app-leather hover:text-app-leather
-                       focus:outline-none focus:ring-1 focus:ring-app-leather
+                id="btn-clear"
+                class="text-xs font-sans text-app-leather/50 hover:text-app-charcoal
                        transition-colors duration-100 cursor-pointer"
-                aria-label="Load full example list"
+                aria-label="Clear word list"
               >
-                Load all →
+                Clear
               </button>
             </div>
           </div>
 
+          <!-- The textarea -->
+          <textarea
+            id="word-input"
+            name="words"
+            rows="11"
+            placeholder={`always\nwould\npeople\ntheir\nwhere`}
+            aria-label="Enter spelling words, one per line"
+            class="w-full px-5 py-4 font-sans text-[15px] text-app-charcoal
+                   placeholder:text-app-leather/28 resize-none
+                   focus:outline-none"
+          ></textarea>
         </div>
-      </div>
-    </main>
 
-    <!-- ── Footer ────────────────────────────────────────────────────────── -->
-    <footer class="border-t border-app-leather/10 px-6 py-5">
-      <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p class="text-xs text-app-leather/40 font-sans">
-          SpellingWords &mdash; free spelling practice for every learner
-        </p>
-        <nav aria-label="Footer links">
-          <a
-            href="/about"
-            class="text-xs text-app-leather/40 font-sans hover:text-app-charcoal
-                   transition-colors duration-100 underline underline-offset-2"
+      </div>
+
+      <!-- ── Right: actions + example words ───────────────────────────── -->
+      <div class="flex flex-col gap-5 lg:pt-[7.5rem]">
+
+        <!-- Primary CTA -->
+        <button
+          id="btn-start"
+          type="button"
+          class="sw-animate sw-delay-2 w-full bg-app-sage text-white font-display font-semibold
+                 px-6 py-4 rounded-md text-[15px] tracking-wide
+                 hover:bg-app-sage/92
+                 focus:outline-none focus:ring-2 focus:ring-app-sage focus:ring-offset-2
+                 focus:ring-offset-app-cream
+                 flex items-center justify-center gap-2.5"
+          aria-label="Start a spelling test"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+               fill="currentColor" aria-hidden="true">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          Start Spelling Test
+        </button>
+
+        <!-- Secondary actions -->
+        <div class="sw-animate sw-delay-3 flex flex-col gap-2">
+          <button
+            type="button"
+            class="btn-secondary w-full border border-app-leather/28 text-app-charcoal/80
+                   font-sans font-medium px-6 py-3 rounded-md text-sm
+                   hover:border-app-leather/55 hover:bg-app-charcoal/[0.025]
+                   focus:outline-none focus:ring-2 focus:ring-app-charcoal/20
+                   transition-colors duration-120 cursor-pointer"
+            aria-label="Practice words"
           >
-            About
-          </a>
-        </nav>
-      </div>
-    </footer>
+            Practice Words
+          </button>
+          <button
+            type="button"
+            class="btn-secondary w-full border border-app-leather/28 text-app-charcoal/80
+                   font-sans font-medium px-6 py-3 rounded-md text-sm
+                   hover:border-app-leather/55 hover:bg-app-charcoal/[0.025]
+                   focus:outline-none focus:ring-2 focus:ring-app-charcoal/20
+                   transition-colors duration-120 cursor-pointer
+                   flex items-center justify-center gap-2"
+            aria-label="Print worksheet"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 6 2 18 2 18 9"/>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+              <rect x="6" y="14" width="12" height="8"/>
+            </svg>
+            Print Worksheet
+          </button>
+        </div>
 
-  </div>
+        <!-- Divider -->
+        <div class="sw-animate sw-delay-3 flex items-center gap-3">
+          <div class="h-px flex-1 bg-app-leather/15"></div>
+          <span class="text-[11px] text-app-leather/40 font-sans whitespace-nowrap">try an example</span>
+          <div class="h-px flex-1 bg-app-leather/15"></div>
+        </div>
+
+        <!-- Example chips -->
+        <div class="sw-animate sw-delay-4" aria-label="Example list: Dolch Sight Words">
+          <p class="text-[10px] font-sans font-semibold text-app-leather/55 mb-2.5 uppercase tracking-[0.18em]">
+            Dolch Sight Words
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            {exampleWords.map((w) => (
+              <button
+                type="button"
+                data-word={w.word}
+                class="example-chip text-[12px] font-sans font-medium
+                       text-app-charcoal/65 bg-app-cream border border-app-leather/25
+                       px-3 py-1 rounded-full shadow-sm
+                       hover:border-app-sage/60 hover:text-app-sage hover:bg-app-sage/6
+                       focus:outline-none focus:ring-1 focus:ring-app-sage
+                       cursor-pointer"
+                aria-label={`Add word: ${w.word}`}
+              >
+                {w.word}
+              </button>
+            ))}
+            <button
+              type="button"
+              id="load-example-list"
+              class="example-chip text-[12px] font-sans font-medium text-app-leather/55
+                     border border-dashed border-app-leather/30 px-3 py-1 rounded-full
+                     hover:border-app-leather hover:text-app-leather
+                     focus:outline-none focus:ring-1 focus:ring-app-leather
+                     cursor-pointer"
+              aria-label="Load full example list"
+            >
+              Load all →
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────────────────── -->
+  <footer class="border-t border-app-leather/10 px-6 py-4">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-[11px] text-app-leather/35 font-sans">
+        SpellingWords &mdash; free spelling practice for every learner
+      </p>
+      <nav aria-label="Footer links">
+        <a
+          href="/about"
+          class="text-[11px] text-app-leather/35 font-sans hover:text-app-charcoal
+                 transition-colors duration-100 underline underline-offset-2"
+        >
+          About
+        </a>
+      </nav>
+    </div>
+  </footer>
+
+</div>
 </Layout>
 
 <script>
-  // Live word count
   const textarea = document.getElementById('word-input') as HTMLTextAreaElement | null;
   const counter = document.getElementById('word-count');
+  const clearBtn = document.getElementById('btn-clear');
 
   function countWords(value: string): number {
     return value.split('\n').map((l) => l.trim()).filter((l) => l.length > 0).length;
   }
 
-  function updateCount() {
+  function updateCount(): void {
     if (!textarea || !counter) return;
     const n = countWords(textarea.value);
     counter.textContent = n === 1 ? '1 word' : `${n} words`;
@@ -241,7 +309,13 @@ const exampleWords = sampleLists[2].words.slice(0, 5);
 
   textarea?.addEventListener('input', updateCount);
 
-  // Example word chips — append the word to the textarea
+  clearBtn?.addEventListener('click', () => {
+    if (!textarea) return;
+    textarea.value = '';
+    updateCount();
+    textarea.focus();
+  });
+
   document.querySelectorAll<HTMLButtonElement>('.example-chip').forEach((btn) => {
     btn.addEventListener('click', () => {
       if (!textarea) return;
@@ -255,14 +329,12 @@ const exampleWords = sampleLists[2].words.slice(0, 5);
     });
   });
 
-  // Load all example words at once
-  const loadBtn = document.getElementById('load-example-list');
-  loadBtn?.addEventListener('click', () => {
+  document.getElementById('load-example-list')?.addEventListener('click', () => {
     if (!textarea) return;
-    const allWords = Array.from(document.querySelectorAll<HTMLButtonElement>('.example-chip'))
+    const words = Array.from(document.querySelectorAll<HTMLButtonElement>('.example-chip'))
       .map((b) => b.dataset.word ?? '')
       .filter(Boolean);
-    textarea.value = allWords.join('\n');
+    textarea.value = words.join('\n');
     updateCount();
     textarea.focus();
   });

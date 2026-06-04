@@ -1,0 +1,57 @@
+---
+import type { SpellingWord } from '@/types/spelling';
+
+interface Props {
+  words: SpellingWord[];
+}
+
+const { words } = Astro.props;
+
+// Show a representative preview subset
+const previewWords = words.slice(0, 8);
+---
+
+<div
+  class="rounded-2xl border border-app-leather/30 bg-white shadow-md overflow-hidden"
+  role="figure"
+  aria-label="Example word list preview"
+>
+  <!-- Panel header -->
+  <div class="flex items-center justify-between border-b border-app-leather/20 px-5 py-3">
+    <span class="text-xs font-medium text-app-leather uppercase tracking-wide">
+      Example list preview
+    </span>
+    <span
+      class="rounded-full bg-app-sage/10 px-2.5 py-0.5 text-xs font-semibold text-app-sage"
+      aria-label={`${previewWords.length} words`}
+    >
+      {previewWords.length} words
+    </span>
+  </div>
+
+  <!-- Word list -->
+  <ol class="divide-y divide-app-leather/10 px-5" aria-label="Example spelling words">
+    {
+      previewWords.map((item: SpellingWord, index: number) => (
+        <li class="flex items-center gap-3 py-3">
+          <span class="w-5 text-right text-xs text-app-leather/50 tabular-nums select-none">
+            {index + 1}
+          </span>
+          <span class="font-medium text-app-charcoal">{item.word}</span>
+          {item.phonicsPattern && item.phonicsPattern.length > 0 && (
+            <span class="ml-auto rounded-full bg-classroom-blue/10 px-2 py-0.5 text-xs text-classroom-blue">
+              {item.phonicsPattern[0]}
+            </span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+
+  <!-- Panel footer -->
+  <div class="border-t border-app-leather/20 bg-app-cream/60 px-5 py-3">
+    <p class="text-xs text-app-leather">
+      Paste your own words to get started &rarr;
+    </p>
+  </div>
+</div>

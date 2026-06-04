@@ -1,0 +1,108 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import HeroWordPanel from '@/components/HeroWordPanel.astro';
+import CategoryChip from '@/components/CategoryChip.astro';
+import { grade2Essentials } from '@/data/fixtures/sampleLists';
+---
+
+<Layout
+  title="spellingwords — Turn spelling words into practice"
+  description="Paste any word list to create a spelling test, practice session, or printable worksheet. Free, no account needed."
+>
+  <!-- Site header -->
+  <header class="border-b border-app-leather/15 bg-app-cream/80 backdrop-blur-sm sticky top-0 z-10">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+      <a href="/" class="font-display text-lg font-semibold text-app-charcoal tracking-tight">
+        spelling<span class="text-app-sage">words</span>
+      </a>
+      <nav aria-label="Site navigation">
+        <ul class="flex items-center gap-6 text-sm font-medium text-app-charcoal/70">
+          <li>
+            <a href="#" class="hover:text-app-charcoal transition-colors">How it works</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content">
+    <!-- Hero section -->
+    <section
+      class="mx-auto max-w-5xl px-6 py-16 md:py-24"
+      aria-labelledby="hero-heading"
+    >
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-start">
+
+        <!-- Left: copy + CTAs -->
+        <div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-4">
+            <h1
+              id="hero-heading"
+              class="font-display text-4xl font-bold leading-tight text-app-charcoal md:text-5xl"
+            >
+              Turn spelling words into practice.
+            </h1>
+            <p class="text-lg leading-relaxed text-app-charcoal/70">
+              Paste any word list to create a spelling test, practice session, or printable
+              worksheet. Free, no account needed.
+            </p>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4">
+            <button
+              type="button"
+              class="rounded-xl bg-app-sage px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-app-sage/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-sage"
+              aria-label="Start a spelling test"
+            >
+              Start Spelling Test
+            </button>
+            <a
+              href="#"
+              class="text-sm font-medium text-app-sage underline-offset-4 hover:underline"
+            >
+              Practice Words
+            </a>
+            <a
+              href="#"
+              class="text-sm font-medium text-app-charcoal/60 underline-offset-4 hover:underline"
+            >
+              Print Worksheet
+            </a>
+          </div>
+
+          <!-- Category chips -->
+          <div>
+            <p class="mb-3 text-xs font-medium uppercase tracking-wide text-app-leather">
+              Try a built-in list
+            </p>
+            <div class="flex flex-wrap gap-2" role="list" aria-label="Example word list categories">
+              <div role="listitem"><CategoryChip label="2nd Grade" variant="blue" /></div>
+              <div role="listitem"><CategoryChip label="Sight Words" variant="sage" /></div>
+              <div role="listitem"><CategoryChip label="Silent E" variant="amber" /></div>
+              <div role="listitem"><CategoryChip label="Spelling Bee" variant="coral" /></div>
+            </div>
+          </div>
+
+          <!-- Trust microcopy -->
+          <p class="text-xs text-app-leather">
+            Free &middot; No account needed &middot; Works on Chromebooks and iPads
+          </p>
+        </div>
+
+        <!-- Right: word panel preview -->
+        <div>
+          <HeroWordPanel words={grade2Essentials.words} />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site footer -->
+  <footer class="border-t border-app-leather/15 mt-auto">
+    <div class="mx-auto max-w-5xl px-6 py-8 text-center text-xs text-app-leather">
+      &copy; {new Date().getFullYear()} spellingwords.app &mdash; Free spelling practice for every classroom.
+    </div>
+  </footer>
+</Layout>

@@ -1,0 +1,21 @@
+---
+interface Props {
+  label: string;
+  variant?: 'blue' | 'amber' | 'coral' | 'sage';
+}
+
+const { label, variant = 'blue' } = Astro.props;
+
+const variantClasses: Record<NonNullable<Props['variant']>, string> = {
+  blue: 'bg-classroom-blue/10 text-classroom-blue border-classroom-blue/20',
+  amber: 'bg-classroom-amber/10 text-classroom-amber border-classroom-amber/20',
+  coral: 'bg-classroom-coral/10 text-classroom-coral border-classroom-coral/20',
+  sage: 'bg-app-sage/10 text-app-sage border-app-sage/20',
+};
+---
+
+<span
+  class={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium ${variantClasses[variant]}`}
+>
+  {label}
+</span>

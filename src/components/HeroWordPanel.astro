@@ -7,39 +7,63 @@ interface Props {
 
 const { words } = Astro.props;
 
-// Show a representative preview subset
 const previewWords = words.slice(0, 8);
+
+// Cycle dot colors per word row for a friendly worksheet feel
+const dotColors = [
+  'bg-classroom-blue',
+  'bg-classroom-green',
+  'bg-classroom-yellow',
+  'bg-classroom-coral',
+];
 ---
 
 <div
-  class="rounded-2xl border border-app-leather/30 bg-white shadow-md overflow-hidden"
+  class="overflow-hidden rounded-3xl bg-white shadow-xl ring-1 ring-black/5"
   role="figure"
   aria-label="Example word list preview"
 >
+  <!-- Colored top bar — notebook tab feel -->
+  <div class="h-2 w-full bg-classroom-blue"></div>
+
   <!-- Panel header -->
-  <div class="flex items-center justify-between border-b border-app-leather/20 px-5 py-3">
-    <span class="text-xs font-medium text-app-leather uppercase tracking-wide">
-      Example list preview
-    </span>
+  <div class="flex items-center justify-between bg-classroom-blue/5 px-6 py-4 border-b border-classroom-blue/10">
+    <div class="flex items-center gap-2.5">
+      <!-- Small pencil icon (SVG, decorative) -->
+      <span aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9.5 4.5l2 2" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="text-sm font-semibold text-classroom-blue">
+        Grade 2 Essentials
+      </span>
+    </div>
     <span
-      class="rounded-full bg-app-sage/10 px-2.5 py-0.5 text-xs font-semibold text-app-sage"
+      class="rounded-full bg-classroom-yellow/30 px-3 py-0.5 text-xs font-bold text-amber-700"
       aria-label={`${previewWords.length} words`}
     >
       {previewWords.length} words
     </span>
   </div>
 
-  <!-- Word list -->
-  <ol class="divide-y divide-app-leather/10 px-5" aria-label="Example spelling words">
+  <!-- Word rows — lined worksheet style -->
+  <ol class="px-6 py-2" aria-label="Example spelling words">
     {
       previewWords.map((item: SpellingWord, index: number) => (
-        <li class="flex items-center gap-3 py-3">
-          <span class="w-5 text-right text-xs text-app-leather/50 tabular-nums select-none">
-            {index + 1}
+        <li class="flex items-center gap-4 border-b border-slate-100 py-3 last:border-0">
+          <!-- Colored dot index -->
+          <span
+            aria-hidden="true"
+            class={`h-2 w-2 flex-shrink-0 rounded-full ${dotColors[index % dotColors.length]}`}
+          />
+          <!-- Word -->
+          <span class="flex-1 font-display text-base font-semibold text-app-charcoal">
+            {item.word}
           </span>
-          <span class="font-medium text-app-charcoal">{item.word}</span>
           {item.phonicsPattern && item.phonicsPattern.length > 0 && (
-            <span class="ml-auto rounded-full bg-classroom-blue/10 px-2 py-0.5 text-xs text-classroom-blue">
+            <span class="rounded-xl bg-classroom-blue/10 px-2.5 py-0.5 text-xs font-semibold text-classroom-blue">
               {item.phonicsPattern[0]}
             </span>
           )}
@@ -49,9 +73,9 @@ const previewWords = words.slice(0, 8);
   </ol>
 
   <!-- Panel footer -->
-  <div class="border-t border-app-leather/20 bg-app-cream/60 px-5 py-3">
-    <p class="text-xs text-app-leather">
-      Paste your own words to get started &rarr;
+  <div class="bg-slate-50 px-6 py-3">
+    <p class="text-xs font-medium text-slate-400">
+      Example list preview &mdash; paste your own words to get started
     </p>
   </div>
 </div>

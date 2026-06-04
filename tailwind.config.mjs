@@ -9,9 +9,10 @@ export default {
         'app-leather': '#8C7862',
         'app-sage': '#6E8870',
         classroom: {
-          blue: '#4A90D9',
-          amber: '#F5A623',
-          coral: '#E8735A',
+          blue: '#3B82F6',
+          yellow: '#FBBF24',
+          coral: '#F06449',
+          green: '#2DBD7E',
         },
       },
       fontFamily: {

@@ -9,15 +9,15 @@ import type {
  * Applied as baseline scoring regardless of caller preferences.
  */
 const PRIORITY_VOICE_NAMES = [
-  'Samantha',
-  'Siri',
   'Google US English',
+  'Samantha',
+  'Alex',
   'Microsoft Aria',
   'Microsoft Jenny',
   'Microsoft Zira',
   'Microsoft David',
   'Microsoft Mark',
-  'Alex',
+  'Siri',
   'Karen',
   'Moira',
   'Tessa',
@@ -28,9 +28,24 @@ const LOW_QUALITY_PATTERNS = ['espeak', 'festival', 'mbrola'];
 
 /**
  * Patterns that disqualify a voice from the recommended list.
- * Includes low-quality engines and explicitly compact/low-fidelity variants.
+ * Includes low-quality engines, compact/low-fidelity variants, and novelty voices.
  */
-const DISQUALIFY_PATTERNS = [...LOW_QUALITY_PATTERNS, 'compact'];
+const DISQUALIFY_PATTERNS = [
+  ...LOW_QUALITY_PATTERNS,
+  'compact',
+  'bad news',
+  'bahh',
+  'bells',
+  'boing',
+  'bubbles',
+  'cellos',
+  'good news',
+  'organ',
+  'pipe organ',
+  'trinoids',
+  'whisper',
+  'zarvox',
+];
 
 export function getAvailableVoices(
   synthesis: SpeechSynthesisAdapter,
@@ -112,7 +127,7 @@ export function selectPreferredVoice(
  */
 export function getRecommendedVoices(
   voices: SpeechSynthesisVoiceAdapter[],
-  maxCount = 8,
+  maxCount = 3,
 ): SpeechSynthesisVoiceAdapter[] {
   // Step 1 — English only
   const english = voices.filter((v) => v.lang.toLowerCase().startsWith('en'));

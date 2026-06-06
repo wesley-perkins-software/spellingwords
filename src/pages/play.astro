@@ -205,11 +205,11 @@ import Layout from '@/layouts/Layout.astro';
                   min="0.6"
                   max="1.2"
                   step="0.05"
-                  value="0.85"
+                  value="0.78"
                   class="flex-1 accent-classroom-blue"
                   aria-label="Speech speed"
                 />
-                <span id="speed-label" class="text-xs font-medium text-app-charcoal/40 w-10 text-right">0.85×</span>
+                <span id="speed-label" class="text-xs font-medium text-app-charcoal/40 w-10 text-right">0.78×</span>
               </div>
 
               <!-- Test voice -->
@@ -367,7 +367,7 @@ import Layout from '@/layouts/Layout.astro';
 
   // Voice settings state — no persistence; resets on page load
   let selectedVoice: SpeechSynthesisVoiceAdapter | null = null;
-  let currentRate = 0.85;
+  let currentRate = 0.78;
 
   // --- Screen management ---
   function showScreen(target: HTMLElement): void {
@@ -399,7 +399,7 @@ import Layout from '@/layouts/Layout.astro';
       for (const v of recommended) {
         const opt = document.createElement('option');
         opt.value = v.name;
-        opt.textContent = v.name;
+        opt.textContent = v.name === 'Google US English' ? '⭐ Recommended' : v.name;
         if (best && v.name === best.name) opt.selected = true;
         voiceSelect.appendChild(opt);
       }

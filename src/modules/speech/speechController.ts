@@ -10,7 +10,7 @@ import type {
 
 const DEFAULT_OPTIONS = {
   lang: 'en-US',
-  rate: 0.85,
+  rate: 0.78,
   pitch: 1,
   volume: 1,
 } as const;

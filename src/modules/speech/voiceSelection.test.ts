@@ -136,10 +136,10 @@ describe('selectPreferredVoice — priority voice list', () => {
     expect(selectPreferredVoice([generic, google])).toBe(google);
   });
 
-  it('ranks Samantha above Google US English (priority list order)', () => {
+  it('ranks Google US English above Samantha (priority list order)', () => {
     const google = makeVoice('Google US English', 'en-US');
     const samantha = makeVoice('Samantha', 'en-US');
-    expect(selectPreferredVoice([google, samantha])).toBe(samantha);
+    expect(selectPreferredVoice([samantha, google])).toBe(google);
   });
 
   it('applies enhanced quality bonus', () => {
@@ -215,6 +215,18 @@ describe('getRecommendedVoices', () => {
     expect(getRecommendedVoices([mbrola, plain])).not.toContain(mbrola);
   });
 
+  it('removes novelty voices (Zarvox, Boing, Whisper, etc.)', () => {
+    const zarvox = makeVoice('Zarvox', 'en-US');
+    const boing = makeVoice('Boing', 'en-US');
+    const whisper = makeVoice('Whisper', 'en-US');
+    const good = makeVoice('Samantha', 'en-US');
+    const result = getRecommendedVoices([zarvox, boing, whisper, good]);
+    expect(result).not.toContain(zarvox);
+    expect(result).not.toContain(boing);
+    expect(result).not.toContain(whisper);
+    expect(result).toContain(good);
+  });
+
   it('removes compact voices', () => {
     const compact = makeVoice('Samantha (Compact)', 'en-US');
     const enhanced = makeVoice('Samantha (Enhanced)', 'en-US');
@@ -245,11 +257,18 @@ describe('getRecommendedVoices', () => {
     expect(getRecommendedVoices(voices, 5)).toHaveLength(5);
   });
 
-  it('uses default cap of 8', () => {
-    const voices = Array.from({ length: 20 }, (_, i) =>
+  it('uses default cap of 3', () => {
+    const voices = Array.from({ length: 10 }, (_, i) =>
       makeVoice(`Voice ${i}`, 'en-US'),
     );
-    expect(getRecommendedVoices(voices).length).toBeLessThanOrEqual(8);
+    expect(getRecommendedVoices(voices).length).toBeLessThanOrEqual(3);
+  });
+
+  it('places Google US English first in results', () => {
+    const generic = makeVoice('System Voice', 'en-US');
+    const google = makeVoice('Google US English', 'en-US');
+    const result = getRecommendedVoices([generic, google]);
+    expect(result[0]).toBe(google);
   });
 
   it('places Samantha before a generic en-US voice in results', () => {

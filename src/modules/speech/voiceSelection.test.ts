@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { selectPreferredVoice, getAvailableVoices, loadVoices } from './voiceSelection.js';
+import { selectPreferredVoice, getAvailableVoices, loadVoices, getRecommendedVoices } from './voiceSelection.js';
 import type { SpeechSynthesisAdapter, SpeechSynthesisVoiceAdapter } from './types.js';
 
 function makeVoice(
@@ -176,6 +176,93 @@ describe('selectPreferredVoice — priority voice list', () => {
     const generic = makeVoice('System Voice', 'en-US');
     const alex = makeVoice('Alex', 'en-US');
     expect(selectPreferredVoice([generic, alex])).toBe(alex);
+  });
+});
+
+describe('getRecommendedVoices', () => {
+  it('returns an empty array when given no voices', () => {
+    expect(getRecommendedVoices([])).toEqual([]);
+  });
+
+  it('returns an empty array when no English voices exist', () => {
+    const voices = [makeVoice('Thomas', 'fr-FR'), makeVoice('Juan', 'es-ES')];
+    expect(getRecommendedVoices(voices)).toEqual([]);
+  });
+
+  it('filters out non-English voices', () => {
+    const en = makeVoice('Samantha', 'en-US');
+    const fr = makeVoice('Thomas', 'fr-FR');
+    const result = getRecommendedVoices([en, fr]);
+    expect(result).toContain(en);
+    expect(result).not.toContain(fr);
+  });
+
+  it('removes espeak voices', () => {
+    const espeak = makeVoice('espeak English', 'en-US');
+    const plain = makeVoice('Samantha', 'en-US');
+    expect(getRecommendedVoices([espeak, plain])).not.toContain(espeak);
+  });
+
+  it('removes festival voices', () => {
+    const festival = makeVoice('festival English', 'en-US');
+    const plain = makeVoice('Samantha', 'en-US');
+    expect(getRecommendedVoices([festival, plain])).not.toContain(festival);
+  });
+
+  it('removes mbrola voices', () => {
+    const mbrola = makeVoice('mbrola-en1', 'en-US');
+    const plain = makeVoice('Samantha', 'en-US');
+    expect(getRecommendedVoices([mbrola, plain])).not.toContain(mbrola);
+  });
+
+  it('removes compact voices', () => {
+    const compact = makeVoice('Samantha (Compact)', 'en-US');
+    const enhanced = makeVoice('Samantha (Enhanced)', 'en-US');
+    const result = getRecommendedVoices([compact, enhanced]);
+    expect(result).not.toContain(compact);
+    expect(result).toContain(enhanced);
+  });
+
+  it('deduplicates plain and enhanced variants of the same voice, keeping enhanced', () => {
+    const plain = makeVoice('Daniel', 'en-GB');
+    const enhanced = makeVoice('Daniel (Enhanced)', 'en-GB');
+    const result = getRecommendedVoices([plain, enhanced]);
+    expect(result).toHaveLength(1);
+    expect(result[0]).toBe(enhanced);
+  });
+
+  it('does not merge voices with the same base name in different languages', () => {
+    const enUS = makeVoice('Fiona', 'en-US');
+    const enGB = makeVoice('Fiona', 'en-GB');
+    const result = getRecommendedVoices([enUS, enGB]);
+    expect(result).toHaveLength(2);
+  });
+
+  it('returns at most maxCount voices', () => {
+    const voices = Array.from({ length: 15 }, (_, i) =>
+      makeVoice(`Voice ${i}`, 'en-US'),
+    );
+    expect(getRecommendedVoices(voices, 5)).toHaveLength(5);
+  });
+
+  it('uses default cap of 8', () => {
+    const voices = Array.from({ length: 20 }, (_, i) =>
+      makeVoice(`Voice ${i}`, 'en-US'),
+    );
+    expect(getRecommendedVoices(voices).length).toBeLessThanOrEqual(8);
+  });
+
+  it('places Samantha before a generic en-US voice in results', () => {
+    const generic = makeVoice('System Voice', 'en-US');
+    const samantha = makeVoice('Samantha', 'en-US');
+    const result = getRecommendedVoices([generic, samantha]);
+    expect(result[0]).toBe(samantha);
+  });
+
+  it('returns a single-element array when only one voice qualifies', () => {
+    const samantha = makeVoice('Samantha', 'en-US');
+    const fr = makeVoice('Thomas', 'fr-FR');
+    expect(getRecommendedVoices([samantha, fr])).toEqual([samantha]);
   });
 });
 

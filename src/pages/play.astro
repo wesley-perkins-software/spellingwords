@@ -175,26 +175,10 @@ import Layout from '@/layouts/Layout.astro';
               role="group"
               aria-label="Voice settings"
             >
-              <!-- Shown when no recommended voices found -->
-              <p id="voice-quality-note" class="hidden text-xs italic text-app-charcoal/50">
-                Voice quality depends on your browser and device.
+              <!-- Auto-selected voice status -->
+              <p class="text-xs text-app-charcoal/50">
+                Voice: <span id="voice-name-display">best available</span>
               </p>
-
-              <!-- Shown when exactly 1 recommended voice -->
-              <div id="voice-single-row" class="hidden items-center gap-2 flex">
-                <span class="text-xs font-medium text-app-charcoal/50 whitespace-nowrap">Recommended voice:</span>
-                <span id="voice-single-name" class="text-xs font-medium text-app-charcoal/70"></span>
-              </div>
-
-              <!-- Shown when 2+ recommended voices -->
-              <div id="voice-selector-row" class="hidden items-center gap-3 flex">
-                <label for="voice-select" class="text-xs font-medium text-app-charcoal/50 whitespace-nowrap">Recommended voice</label>
-                <select
-                  id="voice-select"
-                  class="flex-1 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-sm text-app-charcoal focus:border-classroom-blue focus:outline-none"
-                  aria-label="Select recommended voice"
-                ></select>
-              </div>
 
               <!-- Speed slider -->
               <div class="flex items-center gap-3">
@@ -203,7 +187,7 @@ import Layout from '@/layouts/Layout.astro';
                   id="speed-range"
                   type="range"
                   min="0.6"
-                  max="1.2"
+                  max="1.1"
                   step="0.05"
                   value="0.78"
                   class="flex-1 accent-classroom-blue"
@@ -223,7 +207,7 @@ import Layout from '@/layouts/Layout.astro';
 
               <!-- Helper text -->
               <p class="text-xs italic leading-relaxed text-app-charcoal/35">
-                For the clearest sound, use Safari on Apple devices or a modern browser with high-quality system voices.
+                Voice quality depends on your browser and device.
               </p>
             </div>
           </div>
@@ -304,7 +288,7 @@ import Layout from '@/layouts/Layout.astro';
 
 <script>
   import { decodeWordList } from '@/lib/words';
-  import { createSpeechController, getRecommendedVoices, selectPreferredVoice } from '@/modules/speech';
+  import { createSpeechController, selectPreferredVoice } from '@/modules/speech';
   import type { SpeechSynthesisVoiceAdapter } from '@/modules/speech';
   import {
     spellingTestReducer,
@@ -351,11 +335,7 @@ import Layout from '@/layouts/Layout.astro';
   // Voice controls
   const btnVoiceToggle = $('btn-voice-toggle') as HTMLButtonElement;
   const voiceSettingsPanel = $('voice-settings-panel');
-  const voiceQualityNote = $('voice-quality-note');
-  const voiceSingleRow = $('voice-single-row');
-  const voiceSingleName = $('voice-single-name');
-  const voiceSelectorRow = $('voice-selector-row');
-  const voiceSelect = $('voice-select') as HTMLSelectElement;
+  const voiceNameDisplay = $('voice-name-display');
   const speedRange = $('speed-range') as HTMLInputElement;
   const speedLabel = $('speed-label');
   const btnTestVoice = $('btn-test-voice') as HTMLButtonElement;
@@ -384,29 +364,9 @@ import Layout from '@/layouts/Layout.astro';
   // --- Voice controls setup ---
   async function initVoiceControls(): Promise<void> {
     const allVoices = await speech.loadVoices();
-    const recommended = getRecommendedVoices(allVoices);
-
-    // Fall back to overall best voice when recommended list is empty
-    const best = recommended[0] ?? selectPreferredVoice(allVoices) ?? null;
-    selectedVoice = best;
-
-    if (recommended.length === 0) {
-      voiceQualityNote.classList.remove('hidden');
-    } else if (recommended.length === 1) {
-      voiceSingleName.textContent = recommended[0].name;
-      voiceSingleRow.classList.remove('hidden');
-    } else {
-      for (const v of recommended) {
-        const opt = document.createElement('option');
-        opt.value = v.name;
-        opt.textContent = v.name === 'Google US English' ? '⭐ Recommended' : v.name;
-        if (best && v.name === best.name) opt.selected = true;
-        voiceSelect.appendChild(opt);
-      }
-      voiceSelectorRow.classList.remove('hidden');
-      voiceSelect.addEventListener('change', () => {
-        selectedVoice = recommended.find((v) => v.name === voiceSelect.value) ?? null;
-      });
+    selectedVoice = selectPreferredVoice(allVoices);
+    if (selectedVoice) {
+      voiceNameDisplay.textContent = selectedVoice.name;
     }
   }
 

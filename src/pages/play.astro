@@ -157,6 +157,60 @@ import Layout from '@/layouts/Layout.astro';
               Submit Answer
             </button>
           </div>
+
+          <!-- Voice settings (collapsed by default) -->
+          <div class="mt-2">
+            <button
+              id="btn-voice-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="voice-settings-panel"
+              class="text-xs text-app-charcoal/35 transition-colors hover:text-app-charcoal/60"
+            >
+              Voice settings ▾
+            </button>
+            <div
+              id="voice-settings-panel"
+              class="hidden mt-3 rounded-2xl border border-slate-100 bg-slate-50 p-4 flex flex-col gap-3"
+              role="group"
+              aria-label="Voice settings"
+            >
+              <!-- Auto-selected voice status -->
+              <p class="text-xs text-app-charcoal/50">
+                Voice: <span id="voice-name-display">best available</span>
+              </p>
+
+              <!-- Speed slider -->
+              <div class="flex items-center gap-3">
+                <label for="speed-range" class="text-xs font-medium text-app-charcoal/50 whitespace-nowrap w-10">Speed</label>
+                <input
+                  id="speed-range"
+                  type="range"
+                  min="0.6"
+                  max="1.1"
+                  step="0.05"
+                  value="0.78"
+                  class="flex-1 accent-classroom-blue"
+                  aria-label="Speech speed"
+                />
+                <span id="speed-label" class="text-xs font-medium text-app-charcoal/40 w-10 text-right">0.78×</span>
+              </div>
+
+              <!-- Test voice -->
+              <button
+                id="btn-test-voice"
+                type="button"
+                class="self-start rounded-xl border border-slate-200 bg-white px-4 py-2 text-xs font-medium text-app-charcoal/60 transition-colors hover:border-classroom-blue/30 hover:text-classroom-blue"
+              >
+                Test voice
+              </button>
+
+              <!-- Helper text -->
+              <p class="text-xs italic leading-relaxed text-app-charcoal/35">
+                Voice quality depends on your browser and device.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -234,7 +288,8 @@ import Layout from '@/layouts/Layout.astro';
 
 <script>
   import { decodeWordList } from '@/lib/words';
-  import { createSpeechController } from '@/modules/speech/speechController';
+  import { createSpeechController, selectPreferredVoice } from '@/modules/speech';
+  import type { SpeechSynthesisVoiceAdapter } from '@/modules/speech';
   import {
     spellingTestReducer,
     createInitialState,
@@ -277,10 +332,22 @@ import Layout from '@/layouts/Layout.astro';
   const btnReviewMissed = $('btn-review-missed') as HTMLButtonElement;
   const errorMessage = $('error-message');
 
+  // Voice controls
+  const btnVoiceToggle = $('btn-voice-toggle') as HTMLButtonElement;
+  const voiceSettingsPanel = $('voice-settings-panel');
+  const voiceNameDisplay = $('voice-name-display');
+  const speedRange = $('speed-range') as HTMLInputElement;
+  const speedLabel = $('speed-label');
+  const btnTestVoice = $('btn-test-voice') as HTMLButtonElement;
+
   // --- Module state ---
   const speech = createSpeechController();
   let state: TestState = createInitialState();
   let originalWords: string[] = [];
+
+  // Voice settings state — no persistence; resets on page load
+  let selectedVoice: SpeechSynthesisVoiceAdapter | null = null;
+  let currentRate = 0.78;
 
   // --- Screen management ---
   function showScreen(target: HTMLElement): void {
@@ -292,6 +359,15 @@ import Layout from '@/layouts/Layout.astro';
   function showError(message: string): void {
     errorMessage.textContent = message;
     showScreen(screenError);
+  }
+
+  // --- Voice controls setup ---
+  async function initVoiceControls(): Promise<void> {
+    const allVoices = await speech.loadVoices();
+    selectedVoice = selectPreferredVoice(allVoices);
+    if (selectedVoice) {
+      voiceNameDisplay.textContent = selectedVoice.name;
+    }
   }
 
   // --- Initialization ---
@@ -321,9 +397,16 @@ import Layout from '@/layouts/Layout.astro';
     const count = originalWords.length;
     beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'} loaded`;
     showScreen(screenBegin);
+
+    // Load voices in the background — does not require a user gesture
+    initVoiceControls();
   }
 
   // --- Render helpers ---
+  function speechOptions() {
+    return { voice: selectedVoice, rate: currentRate };
+  }
+
   function renderQuestion(): void {
     const current = state.words[state.currentIndex];
     const total = state.words.length;
@@ -336,7 +419,7 @@ import Layout from '@/layouts/Layout.astro';
     showScreen(screenQuestion);
     requestAnimationFrame(() => answerInput.focus());
 
-    speech.speakWord(current.word);
+    speech.speakWord(current.word, speechOptions());
   }
 
   function renderFeedback(): void {
@@ -407,7 +490,7 @@ import Layout from '@/layouts/Layout.astro';
   });
 
   btnRepeat.addEventListener('click', () => {
-    speech.repeatWord();
+    speech.repeatWord(speechOptions());
   });
 
   answerInput.addEventListener('keydown', (e) => {
@@ -436,6 +519,22 @@ import Layout from '@/layouts/Layout.astro';
     // reviewMissed transitions directly to awaitingAnswer — call in click handler (iOS-safe)
     state = spellingTestReducer(state, reviewMissed());
     renderQuestion();
+  });
+
+  // Voice settings toggle
+  btnVoiceToggle.addEventListener('click', () => {
+    const open = voiceSettingsPanel.classList.toggle('hidden') === false;
+    btnVoiceToggle.setAttribute('aria-expanded', String(open));
+    btnVoiceToggle.textContent = open ? 'Voice settings ▴' : 'Voice settings ▾';
+  });
+
+  speedRange.addEventListener('input', () => {
+    currentRate = parseFloat(speedRange.value);
+    speedLabel.textContent = `${currentRate.toFixed(2).replace(/0$/, '')}×`;
+  });
+
+  btnTestVoice.addEventListener('click', () => {
+    speech.speakWord('because', speechOptions());
   });
 
   // --- Boot ---

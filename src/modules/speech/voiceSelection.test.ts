@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { selectPreferredVoice, getAvailableVoices, loadVoices, getRecommendedVoices } from './voiceSelection.js';
+import { selectPreferredVoice, getAvailableVoices, loadVoices, getRecommendedVoices, getRankedVoices } from './voiceSelection.js';
 import type { SpeechSynthesisAdapter, SpeechSynthesisVoiceAdapter } from './types.js';
 
 function makeVoice(
@@ -52,13 +52,13 @@ describe('selectPreferredVoice', () => {
   });
 
   it('scores preferred name substrings — earlier name in array wins', () => {
-    const samantha = makeVoice('Samantha', 'en-US');
-    const google = makeVoice('Google US English', 'en-US');
-    const result = selectPreferredVoice([google, samantha], {
-      langs: ['en-US'],
-      preferredNames: ['Samantha', 'Google US English'],
+    const daniel = makeVoice('Daniel', 'en-GB');
+    const fiona = makeVoice('Fiona', 'en-GB');
+    const result = selectPreferredVoice([fiona, daniel], {
+      langs: ['en-GB'],
+      preferredNames: ['Daniel', 'Fiona'],
     });
-    expect(result).toBe(samantha);
+    expect(result).toBe(daniel);
   });
 
   it('name match is case-insensitive', () => {
@@ -140,6 +140,29 @@ describe('selectPreferredVoice — priority voice list', () => {
     const google = makeVoice('Google US English', 'en-US');
     const samantha = makeVoice('Samantha', 'en-US');
     expect(selectPreferredVoice([samantha, google])).toBe(google);
+  });
+
+  it('Google US English beats Samantha even when Samantha is local and default', () => {
+    const google = makeVoice('Google US English', 'en-US', false, false);
+    const samantha = makeVoice('Samantha', 'en-US', true, true);
+    expect(selectPreferredVoice([samantha, google])).toBe(google);
+  });
+
+  it('selects Google US English when available', () => {
+    const voices = [
+      makeVoice('Alex', 'en-US'),
+      makeVoice('Samantha', 'en-US', true, true),
+      makeVoice('Google US English', 'en-US', false),
+    ];
+    expect(selectPreferredVoice(voices)).toBe(voices[2]);
+  });
+
+  it('selects Samantha only when higher-priority voices are absent', () => {
+    const voices = [
+      makeVoice('Samantha', 'en-US', true, true),
+      makeVoice('Unknown Voice', 'en-US'),
+    ];
+    expect(selectPreferredVoice(voices)).toBe(voices[0]);
   });
 
   it('applies enhanced quality bonus', () => {
@@ -227,6 +250,22 @@ describe('getRecommendedVoices', () => {
     expect(result).toContain(good);
   });
 
+  it('removes additional novelty voices (Aaron, Albert, Hysterical, Junior, Princess)', () => {
+    const aaron = makeVoice('Aaron', 'en-US');
+    const albert = makeVoice('Albert', 'en-US');
+    const hysterical = makeVoice('Hysterical', 'en-US');
+    const junior = makeVoice('Junior', 'en-US');
+    const princess = makeVoice('Princess', 'en-US');
+    const good = makeVoice('Samantha', 'en-US');
+    const result = getRecommendedVoices([aaron, albert, hysterical, junior, princess, good]);
+    expect(result).not.toContain(aaron);
+    expect(result).not.toContain(albert);
+    expect(result).not.toContain(hysterical);
+    expect(result).not.toContain(junior);
+    expect(result).not.toContain(princess);
+    expect(result).toContain(good);
+  });
+
   it('removes compact voices', () => {
     const compact = makeVoice('Samantha (Compact)', 'en-US');
     const enhanced = makeVoice('Samantha (Enhanced)', 'en-US');
@@ -282,6 +321,64 @@ describe('getRecommendedVoices', () => {
     const samantha = makeVoice('Samantha', 'en-US');
     const fr = makeVoice('Thomas', 'fr-FR');
     expect(getRecommendedVoices([samantha, fr])).toEqual([samantha]);
+  });
+});
+
+describe('getRankedVoices', () => {
+  it('returns a RankedVoice entry for each voice', () => {
+    const voices = [makeVoice('Google US English', 'en-US'), makeVoice('Samantha', 'en-US')];
+    const ranked = getRankedVoices(voices);
+    expect(ranked).toHaveLength(2);
+    ranked.forEach((r) => {
+      expect(r).toHaveProperty('voice');
+      expect(r).toHaveProperty('score');
+      expect(r).toHaveProperty('reasons');
+    });
+  });
+
+  it('includes reason "preferred: Google US English" for that voice', () => {
+    const google = makeVoice('Google US English', 'en-US');
+    const [entry] = getRankedVoices([google]);
+    expect(entry.reasons).toContain('preferred: Google US English');
+  });
+
+  it('includes reason "preferred: Samantha" for Samantha', () => {
+    const samantha = makeVoice('Samantha', 'en-US');
+    const [entry] = getRankedVoices([samantha]);
+    expect(entry.reasons).toContain('preferred: Samantha');
+  });
+
+  it('includes "exact language match" for en-US voices', () => {
+    const voice = makeVoice('Test Voice', 'en-US');
+    const [entry] = getRankedVoices([voice]);
+    expect(entry.reasons).toContain('exact language match');
+  });
+
+  it('includes "local service" for local voices', () => {
+    const local = makeVoice('Test Voice', 'en-US', true);
+    const [entry] = getRankedVoices([local]);
+    expect(entry.reasons).toContain('local service');
+  });
+
+  it('includes "penalized novelty voice" reason for novelty voices', () => {
+    const novelty = makeVoice('Zarvox', 'en-US');
+    const [entry] = getRankedVoices([novelty]);
+    expect(entry.reasons).toContain('penalized novelty voice');
+  });
+
+  it('includes "penalized compact voice" reason for compact voices', () => {
+    const compact = makeVoice('Samantha (Compact)', 'en-US');
+    const [entry] = getRankedVoices([compact]);
+    expect(entry.reasons).toContain('penalized compact voice');
+  });
+
+  it('Google US English scores higher than Samantha', () => {
+    const google = makeVoice('Google US English', 'en-US');
+    const samantha = makeVoice('Samantha', 'en-US');
+    const ranked = getRankedVoices([google, samantha]);
+    const googleEntry = ranked.find((r) => r.voice === google)!;
+    const samanthaEntry = ranked.find((r) => r.voice === samantha)!;
+    expect(googleEntry.score).toBeGreaterThan(samanthaEntry.score);
   });
 });
 

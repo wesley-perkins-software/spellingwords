@@ -1,0 +1,443 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout
+  title="Spelling Test — spellingwords"
+  description="Take your custom spelling test. Hear each word spoken aloud and type your answer."
+>
+  <!-- Site header -->
+  <header class="sticky top-0 z-10 border-b border-classroom-blue/10 bg-white/90 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+      <a
+        href="/"
+        class="flex items-center gap-2 font-display text-lg font-bold text-app-charcoal tracking-tight"
+        aria-label="spellingwords home"
+      >
+        <span
+          aria-hidden="true"
+          class="flex h-7 w-7 items-center justify-center rounded-xl bg-classroom-blue text-white"
+        >
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.5 4.5l2 2" stroke="white" stroke-width="1.75" stroke-linecap="round"/>
+          </svg>
+        </span>
+        spelling<span class="text-classroom-blue">words</span>
+      </a>
+      <a
+        href="/"
+        class="rounded-xl px-3 py-1.5 text-sm font-medium text-app-charcoal/55 transition-colors hover:bg-classroom-blue/8 hover:text-classroom-blue"
+      >
+        ← New list
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="mx-auto max-w-xl px-6 py-12 md:py-16">
+
+      <!-- Error screen -->
+      <section id="screen-error" class="hidden text-center" aria-labelledby="error-heading">
+        <div class="flex flex-col items-center gap-6">
+          <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-red-100 text-3xl" aria-hidden="true">✗</div>
+          <div class="flex flex-col gap-2">
+            <h1 id="error-heading" class="font-display text-2xl font-bold text-app-charcoal">
+              No word list found
+            </h1>
+            <p id="error-message" class="text-base text-app-charcoal/60"></p>
+          </div>
+          <a
+            href="/"
+            class="rounded-2xl bg-classroom-blue px-6 py-3 text-sm font-bold text-white shadow-md shadow-classroom-blue/25 transition hover:bg-blue-600"
+          >
+            ← Enter new words
+          </a>
+        </div>
+      </section>
+
+      <!-- Unsupported browser screen -->
+      <section id="screen-unsupported" class="hidden text-center" aria-labelledby="unsupported-heading">
+        <div class="flex flex-col items-center gap-6">
+          <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-classroom-yellow/20 text-3xl" aria-hidden="true">🔇</div>
+          <div class="flex flex-col gap-2">
+            <h1 id="unsupported-heading" class="font-display text-2xl font-bold text-app-charcoal">
+              Audio not supported
+            </h1>
+            <p class="text-base text-app-charcoal/60">
+              Audio spelling tests are not supported in this browser.<br />
+              Please try a modern browser with speech support.
+            </p>
+          </div>
+          <a
+            href="/"
+            class="rounded-2xl bg-classroom-blue px-6 py-3 text-sm font-bold text-white shadow-md shadow-classroom-blue/25 transition hover:bg-blue-600"
+          >
+            ← Go back
+          </a>
+        </div>
+      </section>
+
+      <!-- Begin screen -->
+      <section id="screen-begin" class="hidden text-center" aria-labelledby="begin-heading">
+        <div class="flex flex-col items-center gap-8">
+          <div class="flex flex-col items-center gap-3">
+            <h1 id="begin-heading" class="font-display text-3xl font-bold text-app-charcoal">
+              Ready to spell?
+            </h1>
+            <p id="begin-word-count" class="text-base text-app-charcoal/60"></p>
+            <p class="text-sm text-app-charcoal/40">Each word will be spoken aloud. Type what you hear.</p>
+          </div>
+          <button
+            id="btn-begin"
+            type="button"
+            class="rounded-2xl bg-classroom-blue px-8 py-4 text-base font-bold text-white shadow-md shadow-classroom-blue/25 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-classroom-blue active:scale-95"
+          >
+            Begin Test
+          </button>
+        </div>
+      </section>
+
+      <!-- Question screen -->
+      <section id="screen-question" class="hidden" aria-labelledby="question-heading">
+        <div class="flex flex-col gap-8">
+          <!-- Progress -->
+          <div class="flex items-center justify-between">
+            <p
+              id="progress"
+              class="text-sm font-bold uppercase tracking-widest text-app-charcoal/40"
+              aria-live="polite"
+              aria-atomic="true"
+            ></p>
+            <button
+              id="btn-repeat"
+              type="button"
+              class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-app-charcoal/60 shadow-sm transition hover:border-classroom-blue/30 hover:bg-classroom-blue/5 hover:text-classroom-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-classroom-blue"
+              aria-label="Repeat the word"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+              Repeat Word
+            </button>
+          </div>
+
+          <!-- Instruction and answer area -->
+          <div class="flex flex-col gap-4">
+            <h1 id="question-heading" class="sr-only">Type the word you hear</h1>
+            <p class="text-base text-app-charcoal/60">
+              Listen carefully and type the word you hear.
+            </p>
+            <div class="flex flex-col gap-2">
+              <input
+                id="answer-input"
+                type="text"
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="false"
+                placeholder="Type the word…"
+                class="w-full rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 text-lg font-medium text-app-charcoal placeholder:text-slate-300 transition focus:border-classroom-blue focus:outline-none"
+                aria-label="Your answer"
+              />
+              <p
+                id="answer-error"
+                class="min-h-[1.25rem] px-1 text-sm text-red-500"
+                aria-live="polite"
+                role="alert"
+              ></p>
+            </div>
+            <button
+              id="btn-submit"
+              type="button"
+              class="w-full rounded-2xl bg-classroom-blue px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-classroom-blue/25 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-classroom-blue active:scale-95"
+            >
+              Submit Answer
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feedback screen -->
+      <section id="screen-feedback" class="hidden text-center" aria-labelledby="feedback-heading" aria-live="assertive">
+        <div class="flex flex-col items-center gap-8">
+          <div id="feedback-icon" class="flex h-20 w-20 items-center justify-center rounded-2xl text-4xl" aria-hidden="true"></div>
+          <div class="flex flex-col gap-2">
+            <h1 id="feedback-heading" class="font-display text-2xl font-bold text-app-charcoal"></h1>
+            <p id="feedback-detail" class="text-base text-app-charcoal/60"></p>
+          </div>
+          <button
+            id="btn-next"
+            type="button"
+            class="rounded-2xl bg-classroom-blue px-8 py-3.5 text-sm font-bold text-white shadow-md shadow-classroom-blue/25 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-classroom-blue active:scale-95"
+          >
+            Next Word →
+          </button>
+        </div>
+      </section>
+
+      <!-- Results screen -->
+      <section id="screen-results" class="hidden" aria-labelledby="results-heading">
+        <div class="flex flex-col gap-8">
+          <div class="text-center">
+            <h1 id="results-heading" class="font-display text-3xl font-bold text-app-charcoal">
+              Test Complete!
+            </h1>
+            <p id="results-score" class="mt-3 text-xl font-semibold text-app-charcoal/70"></p>
+          </div>
+
+          <!-- Missed words — hidden when score is perfect -->
+          <div id="results-missed-section" class="hidden rounded-2xl border border-slate-200 bg-white p-6">
+            <h2 class="mb-3 text-sm font-bold uppercase tracking-widest text-app-charcoal/40">
+              Missed words
+            </h2>
+            <ul id="results-missed-list" class="flex flex-wrap gap-2" aria-label="Words you missed"></ul>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex flex-col gap-3">
+            <button
+              id="btn-retry"
+              type="button"
+              class="w-full rounded-2xl bg-classroom-blue px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-classroom-blue/25 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-classroom-blue active:scale-95"
+            >
+              Try Again
+            </button>
+            <button
+              id="btn-review-missed"
+              type="button"
+              class="hidden w-full rounded-2xl border-2 border-classroom-coral/40 bg-classroom-coral/8 px-6 py-3.5 text-sm font-bold text-classroom-coral transition hover:bg-classroom-coral/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-classroom-coral active:scale-95"
+            >
+              Review Missed Words
+            </button>
+            <a
+              href="/"
+              class="w-full rounded-2xl px-6 py-3.5 text-center text-sm font-semibold text-app-charcoal/50 transition hover:bg-slate-100 hover:text-app-charcoal"
+            >
+              Enter New Words
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-100 bg-white/60">
+    <div class="mx-auto max-w-3xl px-6 py-8 text-center text-xs text-app-charcoal/35">
+      &copy; {new Date().getFullYear()} spellingwords.app &mdash; Free spelling practice for every classroom.
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  import { decodeWordList } from '@/lib/words';
+  import { createSpeechController } from '@/modules/speech/speechController';
+  import {
+    spellingTestReducer,
+    createInitialState,
+    initializeTest,
+    startTest,
+    submitAnswer,
+    nextWord,
+    resetTest,
+    reviewMissed,
+  } from '@/modules/spellingTest/stateMachine';
+  import type { TestState } from '@/modules/spellingTest/types';
+
+  // --- DOM refs ---
+  const $ = (id: string) => document.getElementById(id)!;
+
+  const screenError = $('screen-error');
+  const screenUnsupported = $('screen-unsupported');
+  const screenBegin = $('screen-begin');
+  const screenQuestion = $('screen-question');
+  const screenFeedback = $('screen-feedback');
+  const screenResults = $('screen-results');
+
+  const allScreens = [screenError, screenUnsupported, screenBegin, screenQuestion, screenFeedback, screenResults];
+
+  const beginWordCount = $('begin-word-count');
+  const progressEl = $('progress');
+  const answerInput = $('answer-input') as HTMLInputElement;
+  const answerError = $('answer-error');
+  const feedbackIcon = $('feedback-icon');
+  const feedbackHeading = $('feedback-heading');
+  const feedbackDetail = $('feedback-detail');
+  const resultsScore = $('results-score');
+  const resultsMissedSection = $('results-missed-section');
+  const resultsMissedList = $('results-missed-list');
+  const btnBegin = $('btn-begin') as HTMLButtonElement;
+  const btnRepeat = $('btn-repeat') as HTMLButtonElement;
+  const btnSubmit = $('btn-submit') as HTMLButtonElement;
+  const btnNext = $('btn-next') as HTMLButtonElement;
+  const btnRetry = $('btn-retry') as HTMLButtonElement;
+  const btnReviewMissed = $('btn-review-missed') as HTMLButtonElement;
+  const errorMessage = $('error-message');
+
+  // --- Module state ---
+  const speech = createSpeechController();
+  let state: TestState = createInitialState();
+  let originalWords: string[] = [];
+
+  // --- Screen management ---
+  function showScreen(target: HTMLElement): void {
+    for (const screen of allScreens) {
+      screen.classList.toggle('hidden', screen !== target);
+    }
+  }
+
+  function showError(message: string): void {
+    errorMessage.textContent = message;
+    showScreen(screenError);
+  }
+
+  // --- Initialization ---
+  function init(): void {
+    const params = new URLSearchParams(window.location.search);
+    const payload = params.get('list');
+
+    if (!payload) {
+      showError('No word list found. Please go back and enter your words.');
+      return;
+    }
+
+    const decoded = decodeWordList(payload);
+    if (!decoded.ok) {
+      showError('The word list could not be loaded. Please go back and try again.');
+      return;
+    }
+
+    if (!speech.isSpeechSupported()) {
+      showScreen(screenUnsupported);
+      return;
+    }
+
+    originalWords = decoded.words;
+    state = spellingTestReducer(createInitialState(), initializeTest(originalWords));
+
+    const count = originalWords.length;
+    beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'} loaded`;
+    showScreen(screenBegin);
+  }
+
+  // --- Render helpers ---
+  function renderQuestion(): void {
+    const current = state.words[state.currentIndex];
+    const total = state.words.length;
+    const pos = state.currentIndex + 1;
+
+    progressEl.textContent = `Word ${pos} of ${total}`;
+    answerInput.value = '';
+    answerError.textContent = '';
+
+    showScreen(screenQuestion);
+    requestAnimationFrame(() => answerInput.focus());
+
+    speech.speakWord(current.word);
+  }
+
+  function renderFeedback(): void {
+    const correct = state.lastAnswerCorrect;
+    const currentWord = state.words[state.currentIndex].word;
+
+    if (correct) {
+      feedbackIcon.textContent = '✓';
+      feedbackIcon.className = 'flex h-20 w-20 items-center justify-center rounded-2xl bg-classroom-green/15 text-4xl text-classroom-green';
+      feedbackHeading.textContent = 'Correct!';
+      feedbackHeading.className = 'font-display text-2xl font-bold text-classroom-green';
+      feedbackDetail.textContent = '';
+    } else {
+      feedbackIcon.textContent = '✗';
+      feedbackIcon.className = 'flex h-20 w-20 items-center justify-center rounded-2xl bg-classroom-coral/15 text-4xl text-classroom-coral';
+      feedbackHeading.textContent = 'Not quite';
+      feedbackHeading.className = 'font-display text-2xl font-bold text-classroom-coral';
+      feedbackDetail.textContent = `The word was: ${currentWord}`;
+    }
+
+    const isLast = state.currentIndex === state.words.length - 1;
+    btnNext.textContent = isLast ? 'See Results →' : 'Next Word →';
+
+    showScreen(screenFeedback);
+  }
+
+  function renderResults(): void {
+    const result = state.result!;
+    const pct = result.percentage;
+
+    resultsScore.textContent = `You got ${result.correct} out of ${result.total} correct (${pct}%)`;
+
+    if (result.missedWords.length > 0) {
+      resultsMissedList.textContent = '';
+      for (const w of result.missedWords) {
+        const li = document.createElement('li');
+        li.textContent = w.word;
+        li.className = 'rounded-xl bg-classroom-coral/10 px-3 py-1.5 text-sm font-medium text-classroom-coral';
+        resultsMissedList.appendChild(li);
+      }
+      resultsMissedSection.classList.remove('hidden');
+      btnReviewMissed.classList.remove('hidden');
+    } else {
+      resultsMissedSection.classList.add('hidden');
+      btnReviewMissed.classList.add('hidden');
+    }
+
+    showScreen(screenResults);
+  }
+
+  // --- Event handlers ---
+  function handleSubmit(): void {
+    const answer = answerInput.value.trim();
+
+    if (!answer) {
+      answerError.textContent = 'Please type your answer.';
+      answerInput.focus();
+      return;
+    }
+
+    state = spellingTestReducer(state, submitAnswer(answer, Date.now()));
+    renderFeedback();
+  }
+
+  btnBegin.addEventListener('click', () => {
+    state = spellingTestReducer(state, startTest(Date.now()));
+    renderQuestion();
+  });
+
+  btnRepeat.addEventListener('click', () => {
+    speech.repeatWord();
+  });
+
+  answerInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleSubmit();
+  });
+
+  btnSubmit.addEventListener('click', handleSubmit);
+
+  btnNext.addEventListener('click', () => {
+    state = spellingTestReducer(state, nextWord(Date.now()));
+    if (state.status === 'awaitingAnswer') {
+      renderQuestion();
+    } else if (state.status === 'complete') {
+      renderResults();
+    }
+  });
+
+  btnRetry.addEventListener('click', () => {
+    state = spellingTestReducer(resetTest(), initializeTest(originalWords));
+    const count = originalWords.length;
+    beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'} loaded`;
+    showScreen(screenBegin);
+  });
+
+  btnReviewMissed.addEventListener('click', () => {
+    // reviewMissed transitions directly to awaitingAnswer — call in click handler (iOS-safe)
+    state = spellingTestReducer(state, reviewMissed());
+    renderQuestion();
+  });
+
+  // --- Boot ---
+  init();
+</script>

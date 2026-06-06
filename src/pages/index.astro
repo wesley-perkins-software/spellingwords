@@ -1,6 +1,5 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import WordEntryPreview from '@/components/WordEntryPreview.astro';
 import CategoryChip from '@/components/CategoryChip.astro';
 
 const sampleWords = [
@@ -13,6 +12,8 @@ const sampleWords = [
   'always',
   'again',
 ];
+
+const placeholderText = sampleWords.join('\n');
 ---
 
 <Layout
@@ -61,7 +62,7 @@ const sampleWords = [
       class="relative mx-auto max-w-3xl px-6 py-12 md:py-16"
       aria-labelledby="hero-heading"
     >
-      <!-- Subtle background accent (yellow only — no coral decoratively) -->
+      <!-- Subtle background accent -->
       <div aria-hidden="true" class="pointer-events-none select-none">
         <div class="absolute -top-10 right-0 h-40 w-40 rounded-full bg-classroom-yellow/20 blur-3xl"></div>
         <div class="absolute bottom-0 -left-8 h-32 w-32 rounded-full bg-classroom-blue/10 blur-3xl"></div>
@@ -69,7 +70,7 @@ const sampleWords = [
 
       <div class="relative flex flex-col gap-8">
 
-        <!-- Headline block — utility-first, not marketing -->
+        <!-- Headline block -->
         <div class="flex flex-col gap-2">
           <h1
             id="hero-heading"
@@ -82,32 +83,74 @@ const sampleWords = [
           </p>
         </div>
 
-        <!-- Central word-entry panel -->
-        <WordEntryPreview words={sampleWords} />
+        <!-- Word entry panel -->
+        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg">
+          <!-- Label bar -->
+          <div class="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-5 py-3">
+            <label
+              for="word-input"
+              class="text-xs font-bold uppercase tracking-widest text-app-charcoal/40"
+            >
+              Enter one word per line
+            </label>
+            <span
+              id="word-count"
+              class="rounded-full bg-classroom-blue/12 px-3 py-0.5 text-xs font-bold text-classroom-blue"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              {sampleWords.length} words
+            </span>
+          </div>
 
-        <!-- Primary actions — directly under the panel -->
+          <!-- Textarea -->
+          <textarea
+            id="word-input"
+            name="words"
+            rows="9"
+            class="w-full resize-none px-5 py-4 font-sans text-base text-app-charcoal placeholder:text-slate-300 focus:outline-none"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Spelling words, one per line"
+          >{placeholderText}</textarea>
+
+          <!-- Status footer -->
+          <div class="border-t border-slate-100 bg-slate-50/80 px-5 py-2.5">
+            <p
+              id="word-status"
+              class="text-xs text-slate-400"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              {sampleWords.length} words ready
+            </p>
+          </div>
+        </div>
+
+        <!-- Primary actions -->
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
           <button
+            id="btn-start-test"
             type="button"
-            class="flex-1 rounded-2xl bg-classroom-blue px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-classroom-blue/25 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-classroom-blue active:scale-95 sm:flex-none"
+            class="flex-1 rounded-2xl bg-classroom-blue px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-classroom-blue/25 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-classroom-blue active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 sm:flex-none"
             aria-label="Start a spelling test"
           >
             Start Spelling Test →
           </button>
           <button
             type="button"
-            class="flex-1 rounded-2xl border-2 border-classroom-green/40 bg-classroom-green/8 px-6 py-3.5 text-sm font-bold text-classroom-green transition hover:bg-classroom-green/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-classroom-green active:scale-95 sm:flex-none"
-            aria-label="Practice words"
+            disabled
+            class="flex-1 rounded-2xl border-2 border-classroom-green/40 bg-classroom-green/8 px-6 py-3.5 text-sm font-bold text-classroom-green opacity-40 sm:flex-none"
+            aria-label="Practice words — coming soon"
           >
             Practice Words
           </button>
-          <a
-            href="#"
-            class="flex-1 rounded-2xl px-6 py-3.5 text-center text-sm font-semibold text-app-charcoal/50 transition hover:bg-slate-100 hover:text-app-charcoal sm:flex-none"
-            aria-label="Print a worksheet"
+          <span
+            class="flex-1 rounded-2xl px-6 py-3.5 text-center text-sm font-semibold text-app-charcoal/30 sm:flex-none"
+            aria-hidden="true"
           >
             Print Worksheet
-          </a>
+          </span>
         </div>
 
         <!-- Divider with label -->
@@ -152,3 +195,57 @@ const sampleWords = [
     </div>
   </footer>
 </Layout>
+
+<script>
+  import { parseWordInput, encodeWordList } from '@/lib/words';
+
+  const textarea = document.getElementById('word-input') as HTMLTextAreaElement;
+  const wordCountEl = document.getElementById('word-count')!;
+  const statusEl = document.getElementById('word-status')!;
+  const startBtn = document.getElementById('btn-start-test') as HTMLButtonElement;
+
+  function getWords(): string[] {
+    return parseWordInput(textarea.value);
+  }
+
+  function updateStatus(): void {
+    const words = getWords();
+    const count = words.length;
+
+    if (count === 0) {
+      wordCountEl.textContent = '0 words';
+      statusEl.textContent = 'Enter at least one word to get started.';
+      startBtn.disabled = true;
+    } else if (count > 200) {
+      wordCountEl.textContent = `${count} words`;
+      statusEl.textContent = 'Maximum 200 words. Please remove some words.';
+      startBtn.disabled = true;
+    } else {
+      wordCountEl.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
+      statusEl.textContent = `${count} ${count === 1 ? 'word' : 'words'} ready`;
+      startBtn.disabled = false;
+    }
+  }
+
+  function handleStart(): void {
+    const words = getWords();
+    if (words.length === 0 || words.length > 200) return;
+
+    const result = encodeWordList(words);
+    if (!result.ok) {
+      statusEl.textContent =
+        result.code === 'payload_too_long'
+          ? 'Word list is too long to encode. Please shorten some words.'
+          : 'Could not create test. Please check your word list.';
+      return;
+    }
+
+    window.location.href = `/play?list=${result.payload}`;
+  }
+
+  textarea.addEventListener('input', updateStatus);
+  startBtn.addEventListener('click', handleStart);
+
+  // Set initial state
+  updateStatus();
+</script>

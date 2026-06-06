@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { selectPreferredVoice, getAvailableVoices } from './voiceSelection.js';
+import { selectPreferredVoice, getAvailableVoices, loadVoices } from './voiceSelection.js';
 import type { SpeechSynthesisAdapter, SpeechSynthesisVoiceAdapter } from './types.js';
 
 function makeVoice(
@@ -120,5 +120,122 @@ describe('getAvailableVoices', () => {
   it('returns an empty array when getVoices returns []', () => {
     const synthesis = makeSynthesis([]);
     expect(getAvailableVoices(synthesis)).toEqual([]);
+  });
+});
+
+describe('selectPreferredVoice — priority voice list', () => {
+  it('prefers Samantha over a generic en-US voice', () => {
+    const generic = makeVoice('Unknown Voice', 'en-US');
+    const samantha = makeVoice('Samantha', 'en-US');
+    expect(selectPreferredVoice([generic, samantha])).toBe(samantha);
+  });
+
+  it('prefers Google US English over a generic en-US voice', () => {
+    const generic = makeVoice('Unknown Voice', 'en-US');
+    const google = makeVoice('Google US English', 'en-US');
+    expect(selectPreferredVoice([generic, google])).toBe(google);
+  });
+
+  it('ranks Samantha above Google US English (priority list order)', () => {
+    const google = makeVoice('Google US English', 'en-US');
+    const samantha = makeVoice('Samantha', 'en-US');
+    expect(selectPreferredVoice([google, samantha])).toBe(samantha);
+  });
+
+  it('applies enhanced quality bonus', () => {
+    const plain = makeVoice('Daniel', 'en-GB');
+    const enhanced = makeVoice('Daniel (Enhanced)', 'en-GB');
+    expect(selectPreferredVoice([plain, enhanced], { langs: ['en-GB'] })).toBe(enhanced);
+  });
+
+  it('applies premium quality bonus', () => {
+    const plain = makeVoice('Fiona', 'en-GB');
+    const premium = makeVoice('Fiona Premium', 'en-GB');
+    expect(selectPreferredVoice([plain, premium], { langs: ['en-GB'] })).toBe(premium);
+  });
+
+  it('penalises espeak voices below a plain fallback', () => {
+    const espeak = makeVoice('espeak English', 'en-US');
+    const plain = makeVoice('Generic Voice', 'en-US');
+    expect(selectPreferredVoice([espeak, plain])).toBe(plain);
+  });
+
+  it('penalises festival voices below a plain fallback', () => {
+    const festival = makeVoice('festival English', 'en-US');
+    const plain = makeVoice('Generic Voice', 'en-US');
+    expect(selectPreferredVoice([festival, plain])).toBe(plain);
+  });
+
+  it('penalises mbrola voices below a plain fallback', () => {
+    const mbrola = makeVoice('mbrola-en1', 'en-US');
+    const plain = makeVoice('Generic Voice', 'en-US');
+    expect(selectPreferredVoice([mbrola, plain])).toBe(plain);
+  });
+
+  it('includes Alex in priority list', () => {
+    const generic = makeVoice('System Voice', 'en-US');
+    const alex = makeVoice('Alex', 'en-US');
+    expect(selectPreferredVoice([generic, alex])).toBe(alex);
+  });
+});
+
+describe('loadVoices', () => {
+  it('resolves immediately when voices are already available', async () => {
+    const voices = [makeVoice('Samantha', 'en-US')];
+    const synthesis = makeSynthesis(voices);
+    const result = await loadVoices(synthesis);
+    expect(result).toEqual(voices);
+  });
+
+  it('resolves after voiceschanged fires when initially empty', async () => {
+    const voices = [makeVoice('Google US English', 'en-US')];
+    let fireEvent: (() => void) | undefined;
+    const synthesis: SpeechSynthesisAdapter = {
+      speaking: false,
+      speak: vi.fn(),
+      cancel: vi.fn(),
+      getVoices: vi.fn()
+        .mockReturnValueOnce([])     // empty on first call
+        .mockReturnValue(voices),     // populated after event
+      addEventListener: vi.fn((_event, handler) => { fireEvent = handler; }),
+      removeEventListener: vi.fn(),
+    };
+
+    const promise = loadVoices(synthesis, 500);
+    fireEvent!();
+    const result = await promise;
+    expect(result).toEqual(voices);
+  });
+
+  it('resolves via timeout fallback when voiceschanged never fires', async () => {
+    const voices = [makeVoice('Samantha', 'en-US')];
+    const synthesis: SpeechSynthesisAdapter = {
+      speaking: false,
+      speak: vi.fn(),
+      cancel: vi.fn(),
+      getVoices: vi.fn()
+        .mockReturnValueOnce([])
+        .mockReturnValue(voices),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    };
+
+    const result = await loadVoices(synthesis, 0);
+    expect(result).toEqual(voices);
+    expect(synthesis.removeEventListener).toHaveBeenCalled();
+  });
+
+  it('returns an empty array when voices never populate', async () => {
+    const synthesis: SpeechSynthesisAdapter = {
+      speaking: false,
+      speak: vi.fn(),
+      cancel: vi.fn(),
+      getVoices: vi.fn().mockReturnValue([]),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    };
+
+    const result = await loadVoices(synthesis, 0);
+    expect(result).toEqual([]);
   });
 });

@@ -1,4 +1,4 @@
-import { selectPreferredVoice, getAvailableVoices } from './voiceSelection.js';
+import { selectPreferredVoice, getAvailableVoices, loadVoices as loadVoicesFromAdapter } from './voiceSelection.js';
 import type {
   BrowserSpeechController,
   SpeechAdapterFactory,
@@ -84,11 +84,17 @@ export function createSpeechController(
     return getAvailableVoices(synthesis);
   }
 
+  function loadVoices(timeoutMs?: number): Promise<SpeechSynthesisVoiceAdapter[]> {
+    if (!synthesis) return Promise.resolve([]);
+    return loadVoicesFromAdapter(synthesis, timeoutMs);
+  }
+
   return {
     isSpeechSupported,
     speakWord,
     repeatWord,
     cancelSpeech,
     getAvailableVoices: getAvailableVoicesList,
+    loadVoices,
   };
 }

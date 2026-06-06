@@ -125,4 +125,11 @@ export interface BrowserSpeechController {
    * call in browsers where the voiceschanged event has not yet fired.
    */
   getAvailableVoices(): SpeechSynthesisVoiceAdapter[];
+
+  /**
+   * Resolves with the voice list, waiting for the voiceschanged event when
+   * voices are not yet populated (common in Chrome). Falls back after timeoutMs.
+   * Safe to call on page load — does not require a user gesture.
+   */
+  loadVoices(timeoutMs?: number): Promise<SpeechSynthesisVoiceAdapter[]>;
 }

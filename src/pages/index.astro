@@ -21,24 +21,24 @@ const placeholderText = sampleWords.join('\n');
   description="Paste your spelling words to create a spelling test, practice session, or printable worksheet. Free, no account needed."
 >
   <!-- Site header -->
-  <header class="sticky top-0 z-10 border-b border-classroom-blue/10 bg-white/90 backdrop-blur-sm">
+  <header class="sticky top-0 z-10 border-b border-app-hairline bg-app-cream/90 backdrop-blur-sm">
     <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
       <!-- Logo -->
       <a
         href="/"
-        class="flex items-center gap-2 font-display text-lg font-bold text-app-charcoal tracking-tight"
+        class="flex items-center gap-2 font-display text-lg font-semibold text-app-charcoal tracking-tight"
         aria-label="spellingwords home"
       >
         <span
           aria-hidden="true"
-          class="flex h-7 w-7 items-center justify-center rounded-xl bg-classroom-blue text-white"
+          class="flex h-7 w-7 items-center justify-center rounded-md bg-app-charcoal text-app-cream"
         >
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9.5 4.5l2 2" stroke="white" stroke-width="1.75" stroke-linecap="round"/>
+            <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.5 4.5l2 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
           </svg>
         </span>
-        spelling<span class="text-classroom-blue">words</span>
+        spelling<span class="text-app-sage">words</span>
       </a>
 
       <nav aria-label="Site navigation">
@@ -46,7 +46,7 @@ const placeholderText = sampleWords.join('\n');
           <li>
             <a
               href="#"
-              class="rounded-xl px-3 py-1.5 text-app-charcoal/55 transition-colors hover:bg-classroom-blue/8 hover:text-classroom-blue"
+              class="rounded-md px-3 py-1.5 text-app-charcoal/55 transition-colors hover:bg-app-sage/10 hover:text-app-sage"
             >
               How it works
             </a>
@@ -62,19 +62,13 @@ const placeholderText = sampleWords.join('\n');
       class="relative mx-auto max-w-3xl px-6 py-12 md:py-16"
       aria-labelledby="hero-heading"
     >
-      <!-- Subtle background accent -->
-      <div aria-hidden="true" class="pointer-events-none select-none">
-        <div class="absolute -top-10 right-0 h-40 w-40 rounded-full bg-classroom-yellow/20 blur-3xl"></div>
-        <div class="absolute bottom-0 -left-8 h-32 w-32 rounded-full bg-classroom-blue/10 blur-3xl"></div>
-      </div>
-
-      <div class="relative flex flex-col gap-8">
+      <div class="relative flex flex-col gap-9">
 
         <!-- Headline block -->
-        <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-3">
           <h1
             id="hero-heading"
-            class="font-display text-2xl font-bold text-app-charcoal md:text-3xl"
+            class="font-display text-3xl font-semibold text-app-charcoal md:text-4xl"
           >
             Create a spelling test in seconds
           </h1>
@@ -84,18 +78,18 @@ const placeholderText = sampleWords.join('\n');
         </div>
 
         <!-- Word entry panel -->
-        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg">
+        <div class="overflow-hidden rounded-xl border border-app-hairline bg-white">
           <!-- Label bar -->
-          <div class="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-5 py-3">
+          <div class="flex items-center justify-between border-b border-app-hairline px-5 py-3">
             <label
               for="word-input"
-              class="text-xs font-bold uppercase tracking-widest text-app-charcoal/40"
+              class="text-xs font-semibold uppercase tracking-widest text-app-charcoal/40"
             >
               Enter one word per line
             </label>
             <span
               id="word-count"
-              class="rounded-full bg-classroom-blue/12 px-3 py-0.5 text-xs font-bold text-classroom-blue"
+              class="rounded-md bg-app-sage/10 px-3 py-0.5 font-mono text-xs font-medium text-app-sage"
               aria-live="polite"
               aria-atomic="true"
             >
@@ -108,17 +102,17 @@ const placeholderText = sampleWords.join('\n');
             id="word-input"
             name="words"
             rows="9"
-            class="w-full resize-none px-5 py-4 font-sans text-base text-app-charcoal placeholder:text-slate-300 focus:outline-none"
+            class="w-full resize-none px-5 py-4 font-sans text-base text-app-charcoal placeholder:text-app-charcoal/25 focus:outline-none"
             autocomplete="off"
             spellcheck="false"
             aria-label="Spelling words, one per line"
           >{placeholderText}</textarea>
 
           <!-- Status footer -->
-          <div class="border-t border-slate-100 bg-slate-50/80 px-5 py-2.5">
+          <div class="border-t border-app-hairline px-5 py-2.5">
             <p
               id="word-status"
-              class="text-xs text-slate-400"
+              class="text-xs text-app-charcoal/40"
               aria-live="polite"
               aria-atomic="true"
             >
@@ -132,7 +126,7 @@ const placeholderText = sampleWords.join('\n');
           <button
             id="btn-start-test"
             type="button"
-            class="flex-1 rounded-2xl bg-classroom-blue px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-classroom-blue/25 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-classroom-blue active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 sm:flex-none"
+            class="flex-1 rounded-lg bg-app-charcoal px-6 py-3.5 text-sm font-semibold text-app-cream transition hover:bg-app-charcoal/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-sage active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 sm:flex-none"
             aria-label="Start a spelling test"
           >
             Start Spelling Test →
@@ -140,13 +134,13 @@ const placeholderText = sampleWords.join('\n');
           <button
             type="button"
             disabled
-            class="flex-1 rounded-2xl border-2 border-classroom-green/40 bg-classroom-green/8 px-6 py-3.5 text-sm font-bold text-classroom-green opacity-40 sm:flex-none"
+            class="flex-1 rounded-lg border border-app-sage/30 bg-app-sage/5 px-6 py-3.5 text-sm font-semibold text-app-sage opacity-50 sm:flex-none"
             aria-label="Practice words — coming soon"
           >
             Practice Words
           </button>
           <span
-            class="flex-1 rounded-2xl px-6 py-3.5 text-center text-sm font-semibold text-app-charcoal/30 sm:flex-none"
+            class="flex-1 rounded-lg px-6 py-3.5 text-center text-sm font-medium text-app-charcoal/30 sm:flex-none"
             aria-hidden="true"
           >
             Print Worksheet
@@ -155,11 +149,11 @@ const placeholderText = sampleWords.join('\n');
 
         <!-- Divider with label -->
         <div class="flex items-center gap-3">
-          <div class="h-px flex-1 bg-slate-200"></div>
-          <span class="text-xs font-bold uppercase tracking-widest text-app-charcoal/35">
+          <div class="h-px flex-1 bg-app-hairline"></div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-app-charcoal/35">
             or try a built-in list
           </span>
-          <div class="h-px flex-1 bg-slate-200"></div>
+          <div class="h-px flex-1 bg-app-hairline"></div>
         </div>
 
         <!-- Category chips -->
@@ -177,18 +171,18 @@ const placeholderText = sampleWords.join('\n');
         <!-- Library bridge -->
         <p class="text-sm text-app-charcoal/55">
           Looking for ready-made lists?
-          <a href="/spelling-lists" class="font-semibold text-classroom-blue hover:underline">
+          <a href="/spelling-lists" class="font-semibold text-app-sage hover:underline">
             Browse the curated spelling lists library →
           </a>
         </p>
 
         <!-- Trust microcopy -->
-        <div class="flex items-center gap-2 text-xs text-app-charcoal/40">
-          <span aria-hidden="true" class="inline-block h-1.5 w-1.5 rounded-full bg-classroom-green"></span>
+        <div class="flex flex-wrap items-center gap-2 text-xs text-app-charcoal/40">
+          <span aria-hidden="true" class="inline-block h-1.5 w-1.5 rounded-full bg-app-sage"></span>
           Free
-          <span aria-hidden="true" class="text-slate-300">·</span>
+          <span aria-hidden="true" class="text-app-charcoal/20">·</span>
           No account needed
-          <span aria-hidden="true" class="text-slate-300">·</span>
+          <span aria-hidden="true" class="text-app-charcoal/20">·</span>
           Works on Chromebooks &amp; iPads
         </div>
 
@@ -197,7 +191,7 @@ const placeholderText = sampleWords.join('\n');
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-100 bg-white/60">
+  <footer class="border-t border-app-hairline">
     <div class="mx-auto max-w-3xl px-6 py-8 text-center text-xs text-app-charcoal/35">
       &copy; {new Date().getFullYear()} spellingwords.app &mdash; Free spelling practice for every classroom.
     </div>

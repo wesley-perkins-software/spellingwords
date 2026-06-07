@@ -4,20 +4,34 @@ export default {
   theme: {
     extend: {
       colors: {
-        'app-cream': '#FDFBF7',
-        'app-charcoal': '#1E2022',
+        'app-cream': '#F7F3EC',
+        'app-charcoal': '#3A332E',
         'app-leather': '#8C7862',
         'app-sage': '#6E8870',
-        classroom: {
-          blue: '#3B82F6',
-          yellow: '#FBBF24',
-          coral: '#F06449',
-          green: '#2DBD7E',
+        'app-hairline': '#E5DFD3',
+        accent: {
+          moss: '#6B8064',
+          rust: '#B17F4A',
+          indigo: '#6B7CA0',
+          plum: '#8A6B7E',
+        },
+        feedback: {
+          correct: '#2DBD7E',
+          incorrect: '#E0664B',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['"Public Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Source Serif 4"', 'ui-serif', 'Georgia', 'serif'],
+        mono: ['"Courier Prime"', 'ui-monospace', 'monospace'],
+      },
+      borderRadius: {
+        DEFAULT: '6px',
+        md: '6px',
+        lg: '8px',
+        xl: '8px',
+        '2xl': '8px',
+        '3xl': '10px',
       },
     },
   },

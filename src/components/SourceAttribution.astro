@@ -1,0 +1,26 @@
+---
+interface Props {
+  source?: {
+    name: string;
+    tier?: string;
+    url?: string;
+  };
+}
+
+const { source } = Astro.props;
+---
+
+{source && (
+  <p class="text-xs text-app-charcoal/40">
+    Based on {source.name}
+    {source.tier && <> ({source.tier})</>}
+    {source.url && (
+      <>
+        {' '}&mdash;{' '}
+        <a href={source.url} class="font-semibold text-classroom-blue hover:underline" target="_blank" rel="noopener noreferrer">
+          source
+        </a>
+      </>
+    )}
+  </p>
+)}

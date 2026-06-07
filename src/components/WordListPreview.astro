@@ -1,0 +1,21 @@
+---
+interface Props {
+  words: Array<{ word: string }>;
+}
+
+const { words } = Astro.props;
+---
+
+<div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <div class="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-5 py-3">
+    <span class="text-xs font-bold uppercase tracking-widest text-app-charcoal/40">Word list</span>
+    <span class="rounded-full bg-classroom-blue/12 px-3 py-0.5 text-xs font-bold text-classroom-blue">
+      {words.length} words
+    </span>
+  </div>
+  <ul class="grid grid-cols-2 gap-x-4 gap-y-2 px-5 py-4 sm:grid-cols-3" aria-label="Words in this list">
+    {words.map((word) => (
+      <li class="font-sans text-sm font-medium text-app-charcoal">{word.word}</li>
+    ))}
+  </ul>
+</div>

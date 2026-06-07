@@ -4,10 +4,13 @@ import '@/styles/global.css';
 interface Props {
   title: string;
   description: string;
+  ogType?: 'website' | 'article';
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogType = 'website', jsonLd } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
+const jsonLdBlocks = jsonLd === undefined ? [] : Array.isArray(jsonLd) ? jsonLd : [jsonLd];
 ---
 
 <!doctype html>
@@ -19,7 +22,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spelling
     <meta name="generator" content={Astro.generator} />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -28,6 +31,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spelling
     <link rel="canonical" href={canonicalURL} />
 
     <title>{title}</title>
+
+    <!-- Structured data -->
+    {jsonLdBlocks.map((block) => (
+      <script type="application/ld+json" set:html={JSON.stringify(block)} />
+    ))}
   </head>
   <body class="bg-app-cream text-app-charcoal font-sans">
     <a

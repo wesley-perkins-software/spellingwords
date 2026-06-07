@@ -1,7 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ListMetadataBadges from '@/components/ListMetadataBadges.astro';
+import WordListPreview from '@/components/WordListPreview.astro';
+import RelatedListCards from '@/components/RelatedListCards.astro';
+import SourceAttribution from '@/components/SourceAttribution.astro';
 import { isPublished, resolveListRefs, toPlayableWords } from '@/lib/content/spellingLists';
+import { categoryLabels } from '@/lib/content/categoryMeta';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('spelling-lists')).filter(isPublished);
@@ -15,22 +21,7 @@ export async function getStaticPaths() {
 const { entry, allEntries } = Astro.props;
 const { data } = entry;
 
-const difficultyLabels: Record<string, string> = {
-  beginner: 'Beginner',
-  developing: 'Developing',
-  intermediate: 'Intermediate',
-  advanced: 'Advanced',
-  challenge: 'Challenge',
-};
-
-const categoryLabels: Record<string, string> = {
-  'sight-words': 'Sight Words',
-  phonics: 'Phonics',
-  'grade-level': 'Grade-Level',
-  challenge: 'Challenge',
-  theme: 'Theme',
-  seasonal: 'Seasonal',
-};
+const { Content } = await entry.render();
 
 const related = resolveListRefs(data.relatedLists, allEntries);
 const prerequisites = resolveListRefs(data.prerequisiteLists, allEntries);
@@ -42,9 +33,36 @@ const playWordsJson = JSON.stringify(playWords);
 function listLink(e: (typeof allEntries)[number]) {
   return `/spelling-lists/${e.data.category}/${e.data.urlSlug}`;
 }
+
+const categoryLabel = categoryLabels[data.category] ?? data.category;
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Spelling Lists Library', href: '/spelling-lists' },
+  { label: categoryLabel },
+  { label: data.title },
+];
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
 ---
 
-<Layout title={`${data.title} — spellingwords`} description={data.description}>
+<Layout
+  title={`${data.title} — spellingwords`}
+  description={data.description}
+  ogType="article"
+  jsonLd={breadcrumbJsonLd}
+>
   <header class="sticky top-0 z-10 border-b border-classroom-blue/10 bg-white/90 backdrop-blur-sm">
     <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
       <a
@@ -68,11 +86,9 @@ function listLink(e: (typeof allEntries)[number]) {
 
   <main id="main-content">
     <section class="mx-auto max-w-3xl px-6 py-12 md:py-16">
-      <p class="mb-4 text-xs font-bold uppercase tracking-widest text-app-charcoal/40">
-        <a href="/spelling-lists" class="hover:text-classroom-blue">Spelling Lists Library</a>
-        <span aria-hidden="true"> / </span>
-        {categoryLabels[data.category] ?? data.category}
-      </p>
+      <div class="mb-4">
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
 
       <div class="flex flex-col gap-3">
         <h1 class="font-display text-2xl font-bold text-app-charcoal md:text-3xl">{data.title}</h1>
@@ -84,22 +100,16 @@ function listLink(e: (typeof allEntries)[number]) {
         )}
       </div>
 
-      <div class="mt-5 flex flex-wrap items-center gap-2 text-xs font-semibold">
-        <span class="rounded-full bg-classroom-blue/12 px-3 py-1 text-classroom-blue">
-          {categoryLabels[data.category] ?? data.category}
-        </span>
-        <span class="rounded-full bg-classroom-yellow/20 px-3 py-1 text-amber-700">
-          {difficultyLabels[data.difficulty] ?? data.difficulty}
-        </span>
-        <span class="rounded-full bg-app-sage/15 px-3 py-1 text-app-sage">
-          ~{data.estimatedDurationMinutes} min
-        </span>
-        <span class="rounded-full bg-classroom-coral/12 px-3 py-1 text-classroom-coral">
-          {data.words.length} words
-        </span>
+      <div class="mt-5">
+        <ListMetadataBadges
+          category={data.category}
+          difficulty={data.difficulty}
+          durationMinutes={data.estimatedDurationMinutes}
+          wordCount={data.words.length}
+        />
       </div>
 
-      <!-- Primary / secondary actions -->
+      <!-- Practice options -->
       <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
         <button
           id="btn-start-test"
@@ -128,41 +138,35 @@ function listLink(e: (typeof allEntries)[number]) {
       <p id="start-test-status" class="mt-2 text-xs text-classroom-coral" aria-live="polite" aria-atomic="true"></p>
 
       <!-- Word preview -->
-      <div class="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <div class="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-5 py-3">
-          <span class="text-xs font-bold uppercase tracking-widest text-app-charcoal/40">Word list</span>
-          <span class="rounded-full bg-classroom-blue/12 px-3 py-0.5 text-xs font-bold text-classroom-blue">
-            {data.words.length} words
-          </span>
-        </div>
-        <ul class="grid grid-cols-2 gap-x-4 gap-y-2 px-5 py-4 sm:grid-cols-3" aria-label="Words in this list">
-          {data.words.map((word) => (
-            <li class="font-sans text-sm font-medium text-app-charcoal">{word.word}</li>
-          ))}
-        </ul>
+      <div class="mt-10">
+        <WordListPreview words={data.words} />
       </div>
 
-      <!-- Related / prerequisite / next lists -->
-      {[
-        { heading: 'Prerequisite lists', items: prerequisites },
-        { heading: 'Related lists', items: related },
-        { heading: 'Where to go next', items: next },
-      ].filter((section) => section.items.length > 0).map((section) => (
+      <!-- What this list practices -->
+      {data.skillTags.length > 0 && (
         <div class="mt-8">
-          <h2 class="mb-3 font-display text-base font-bold text-app-charcoal">{section.heading}</h2>
-          <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-            {section.items.map((linked) => (
-              <a
-                href={listLink(linked)}
-                class="flex-1 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm transition hover:border-classroom-blue/30 hover:shadow-sm sm:flex-none sm:min-w-[14rem]"
-              >
-                <span class="block font-display font-bold text-app-charcoal">{linked.data.title}</span>
-                <span class="mt-0.5 block text-xs text-app-charcoal/50">{linked.data.description}</span>
-              </a>
+          <h2 class="mb-3 font-display text-base font-bold text-app-charcoal">What this list practices</h2>
+          <div class="flex flex-wrap gap-2">
+            {data.skillTags.map((tag) => (
+              <span class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-app-charcoal/60">
+                {tag}
+              </span>
             ))}
           </div>
         </div>
-      ))}
+      )}
+
+      <!-- Why these words matter -->
+      <div class="prose prose-sm mt-8 max-w-2xl text-app-charcoal/70">
+        <h2 class="mb-3 font-display text-base font-bold text-app-charcoal">Why these words matter</h2>
+        <Content />
+      </div>
+
+      <SourceAttribution source={data.canonicalSource} />
+
+      <RelatedListCards heading="Prerequisite lists" items={prerequisites} listLink={listLink} />
+      <RelatedListCards heading="Related lists" items={related} listLink={listLink} />
+      <RelatedListCards heading="Where to go next" items={next} listLink={listLink} />
     </section>
   </main>
 

@@ -38,7 +38,7 @@ export interface SpeechOptions {
   /** BCP-47 language tag. Defaults to "en-US". */
   lang?: string;
   /**
-   * Speech rate (0.1–10). Defaults to 0.85 — slightly slower than normal,
+   * Speech rate (0.1–10). Defaults to 0.5 — noticeably slower than normal,
    * appropriate for children hearing a spelling word for the first time.
    */
   rate?: number;

@@ -59,12 +59,12 @@ const placeholderText = sampleWords.join('\n');
   <!-- Main content -->
   <main id="main-content">
 
-    <!-- Hero: start a test -->
+    <!-- Hero: two ways to start -->
     <section
-      class="relative mx-auto max-w-3xl px-6 py-12 md:py-16"
+      class="relative mx-auto max-w-3xl px-6 pt-12 pb-6 md:pt-16"
       aria-labelledby="hero-heading"
     >
-      <div class="relative flex flex-col gap-8">
+      <div class="relative flex flex-col gap-5">
 
         <!-- Headline block -->
         <div class="flex flex-col gap-3">
@@ -72,17 +72,44 @@ const placeholderText = sampleWords.join('\n');
             id="hero-heading"
             class="font-display text-4xl font-bold text-ink md:text-5xl"
           >
-            Create a spelling <span class="text-brand-blue">test</span> in seconds
+            Spelling <span class="text-brand-blue">practice</span>, your way
           </h1>
           <p class="text-lg leading-relaxed text-ink-soft">
-            Paste your spelling words below. Practice, test, or print with no account.
+            Paste your own words, or choose a ready-made list from the library. Both take seconds — no account needed.
           </p>
-          <p class="flex flex-wrap items-center gap-2 text-sm font-semibold text-ink-soft">
-            <span>Hear it</span>
-            <span aria-hidden="true" class="text-ink-soft/40">→</span>
-            <span>Spell it</span>
-            <span aria-hidden="true" class="text-ink-soft/40">→</span>
-            <span>Review it</span>
+        </div>
+
+        <!-- Two-path wayfinding -->
+        <nav aria-label="Choose how to start" class="flex flex-wrap gap-2">
+          <a
+            href="#custom-words"
+            class="rounded-full border-2 border-brand-blue px-5 py-2.5 text-sm font-bold text-brand-blue transition hover:bg-brand-blue hover:text-white"
+          >
+            ↓ Start with your own words
+          </a>
+          <a
+            href="#spelling-library"
+            class="rounded-full border-2 border-line px-5 py-2.5 text-sm font-bold text-ink-soft transition hover:border-brand-blue hover:text-brand-blue"
+          >
+            ↓ Choose a spelling list
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Path 1: start with your own words -->
+    <section
+      id="custom-words"
+      class="mx-auto max-w-3xl px-6 py-6 md:py-8 scroll-mt-20"
+      aria-labelledby="custom-words-heading"
+    >
+      <div class="flex flex-col gap-5">
+        <div class="flex flex-col gap-1">
+          <h2 id="custom-words-heading" class="font-display text-xl font-bold text-ink">
+            Start with your own words
+          </h2>
+          <p class="text-sm text-ink-soft">
+            Paste this week&rsquo;s spelling list and jump straight into practice.
           </p>
         </div>
 
@@ -158,39 +185,49 @@ const placeholderText = sampleWords.join('\n');
       </div>
     </section>
 
-    <!-- Popular spelling lists -->
+    <!-- Path 2: choose a spelling list -->
     <section
-      class="border-y border-line bg-app-cloud"
-      aria-labelledby="lists-heading"
+      id="spelling-library"
+      class="mx-auto max-w-3xl px-6 py-6 md:py-8 scroll-mt-20"
+      aria-labelledby="spelling-library-heading"
     >
-      <div class="mx-auto flex max-w-3xl flex-col gap-4 px-6 py-10 md:py-12">
+      <div class="flex flex-col gap-5">
         <div class="flex flex-col gap-1">
-          <h2 id="lists-heading" class="font-display text-xl font-bold text-ink">
-            Popular spelling lists
+          <h2 id="spelling-library-heading" class="font-display text-xl font-bold text-ink">
+            Choose a spelling list
           </h2>
           <p class="text-sm text-ink-soft">
-            Don&rsquo;t have a list ready? Pick one and start practicing right away.
+            Practice ready-made lists by grade, phonics pattern, sight words, and more.
           </p>
         </div>
 
-        <div class="flex flex-col gap-4 rounded-3xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)]">
-          <div
-            class="flex flex-wrap gap-2"
-            role="list"
-            aria-label="Built-in word list categories"
-          >
-            <div role="listitem"><CategoryChip label="2nd Grade" variant="blue" /></div>
-            <div role="listitem"><CategoryChip label="Sight Words" variant="green" /></div>
-            <div role="listitem"><CategoryChip label="Silent E" variant="yellow" /></div>
-            <div role="listitem"><CategoryChip label="Spelling Bee" variant="sage" /></div>
+        <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-[0_4px_16px_-6px_rgba(31,41,55,0.08)]">
+          <!-- Label bar -->
+          <div class="flex items-center justify-between rounded-t-3xl bg-app-cloud px-5 py-3">
+            <span class="text-sm font-semibold text-ink-soft">
+              Browse by category
+            </span>
           </div>
 
-          <p class="text-sm text-ink-soft">
-            Looking for more?
-            <a href="/spelling-lists" class="font-bold text-brand-blue hover:underline">
+          <div class="flex flex-col gap-4 px-5 py-5">
+            <div
+              class="flex flex-wrap gap-2"
+              role="list"
+              aria-label="Built-in word list categories"
+            >
+              <div role="listitem"><CategoryChip label="2nd Grade" variant="blue" /></div>
+              <div role="listitem"><CategoryChip label="Sight Words" variant="green" /></div>
+              <div role="listitem"><CategoryChip label="Silent E" variant="yellow" /></div>
+              <div role="listitem"><CategoryChip label="Spelling Bee" variant="sage" /></div>
+            </div>
+
+            <a
+              href="/spelling-lists"
+              class="inline-flex w-fit items-center gap-1 rounded-full bg-brand-blue px-7 py-4 text-base font-bold text-white shadow-[0_8px_24px_-8px_rgba(47,111,237,0.45)] transition hover:bg-brand-blue-deep active:scale-[0.97]"
+            >
               Browse the curated spelling lists library →
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </section>

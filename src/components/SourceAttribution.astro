@@ -11,13 +11,13 @@ const { source } = Astro.props;
 ---
 
 {source && (
-  <p class="text-xs text-app-charcoal/40">
+  <p class="text-xs text-ink-soft">
     Based on {source.name}
     {source.tier && <> ({source.tier})</>}
     {source.url && (
       <>
         {' '}&mdash;{' '}
-        <a href={source.url} class="font-semibold text-app-sage hover:underline" target="_blank" rel="noopener noreferrer">
+        <a href={source.url} class="font-semibold text-brand-blue hover:underline" target="_blank" rel="noopener noreferrer">
           source
         </a>
       </>

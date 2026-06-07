@@ -6,16 +6,16 @@ interface Props {
 const { words } = Astro.props;
 ---
 
-<div class="overflow-hidden rounded-xl border border-app-hairline bg-white">
-  <div class="flex items-center justify-between border-b border-app-hairline px-5 py-3">
-    <span class="text-xs font-semibold uppercase tracking-widest text-app-charcoal/40">Word list</span>
-    <span class="rounded-md bg-app-sage/10 px-3 py-0.5 font-mono text-xs font-medium text-app-sage">
+<div class="overflow-hidden rounded-3xl border border-line bg-white shadow-[0_4px_16px_-6px_rgba(31,41,55,0.08)]">
+  <div class="flex items-center justify-between border-b border-line px-5 py-3">
+    <span class="text-sm font-semibold text-ink-soft">Word list</span>
+    <span class="rounded-full bg-brand-blue px-3 py-1 font-mono text-xs font-bold text-white">
       {words.length} words
     </span>
   </div>
   <ul class="grid grid-cols-2 gap-x-4 gap-y-2 px-5 py-4 sm:grid-cols-3" aria-label="Words in this list">
     {words.map((word) => (
-      <li class="font-sans text-sm font-medium text-app-charcoal">{word.word}</li>
+      <li class="font-sans text-sm font-medium text-ink">{word.word}</li>
     ))}
   </ul>
 </div>

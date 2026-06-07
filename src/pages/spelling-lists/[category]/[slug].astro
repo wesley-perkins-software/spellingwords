@@ -63,23 +63,23 @@ const breadcrumbJsonLd = {
   ogType="article"
   jsonLd={breadcrumbJsonLd}
 >
-  <header class="sticky top-0 z-10 border-b border-app-hairline bg-app-cream/90 backdrop-blur-sm">
+  <header class="sticky top-0 z-10 border-b border-line bg-white/90 backdrop-blur-sm">
     <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
       <a
         href="/"
-        class="flex items-center gap-2 font-display text-lg font-semibold text-app-charcoal tracking-tight"
+        class="flex items-center gap-2 font-display text-lg font-semibold text-ink tracking-tight"
         aria-label="spellingwords home"
       >
         <span
           aria-hidden="true"
-          class="flex h-7 w-7 items-center justify-center rounded-md bg-app-charcoal text-app-cream"
+          class="flex h-7 w-7 items-center justify-center rounded-2xl bg-brand-blue text-white"
         >
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M9.5 4.5l2 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
           </svg>
         </span>
-        spelling<span class="text-app-sage">words</span>
+        spelling<span class="text-brand-blue">words</span>
       </a>
     </div>
   </header>
@@ -91,10 +91,10 @@ const breadcrumbJsonLd = {
       </div>
 
       <div class="flex flex-col gap-3">
-        <h1 class="font-display text-2xl font-semibold text-app-charcoal md:text-3xl">{data.title}</h1>
-        <p class="max-w-2xl text-base leading-relaxed text-app-charcoal/60">{data.description}</p>
+        <h1 class="font-display text-2xl font-semibold text-ink md:text-3xl">{data.title}</h1>
+        <p class="max-w-2xl text-base leading-relaxed text-ink-soft">{data.description}</p>
         {data.shortAnswer && (
-          <p class="max-w-2xl rounded-xl border border-app-sage/20 bg-app-sage/5 px-4 py-3 text-sm leading-relaxed text-app-charcoal/70">
+          <p class="max-w-2xl rounded-xl border border-brand-blue/20 bg-brand-blue/5 px-4 py-3 text-sm leading-relaxed text-ink-soft">
             {data.shortAnswer}
           </p>
         )}
@@ -115,7 +115,7 @@ const breadcrumbJsonLd = {
           id="btn-start-test"
           type="button"
           data-words={playWordsJson}
-          class="flex-1 rounded-lg bg-app-charcoal px-6 py-3.5 text-sm font-semibold text-app-cream transition hover:bg-app-charcoal/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-sage active:scale-[0.98] sm:flex-none"
+          class="flex-1 rounded-full bg-brand-blue px-7 py-4 text-base font-bold text-white shadow-[0_8px_24px_-8px_rgba(47,111,237,0.45)] transition hover:bg-brand-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97] sm:flex-none"
           aria-label={`Start a spelling test for ${data.title}`}
         >
           Start Spelling Test →
@@ -123,13 +123,13 @@ const breadcrumbJsonLd = {
         <button
           type="button"
           disabled
-          class="flex-1 rounded-lg border border-app-sage/30 bg-app-sage/5 px-6 py-3.5 text-sm font-semibold text-app-sage opacity-50 sm:flex-none"
+          class="flex-1 rounded-full border-2 border-brand-blue bg-white px-7 py-4 text-base font-bold text-brand-blue opacity-40 sm:flex-none"
           aria-label="Practice words — coming soon"
         >
           Practice Words
         </button>
         <span
-          class="flex-1 rounded-lg px-6 py-3.5 text-center text-sm font-medium text-app-charcoal/30 sm:flex-none"
+          class="flex-1 rounded-full px-7 py-4 text-center text-base font-semibold text-ink-soft/50 sm:flex-none"
           aria-hidden="true"
         >
           Print Worksheet
@@ -145,10 +145,10 @@ const breadcrumbJsonLd = {
       <!-- What this list practices -->
       {data.skillTags.length > 0 && (
         <div class="mt-8">
-          <h2 class="mb-3 font-display text-base font-semibold text-app-charcoal">What this list practices</h2>
+          <h2 class="mb-3 font-display text-base font-semibold text-ink">What this list practices</h2>
           <div class="flex flex-wrap gap-2">
             {data.skillTags.map((tag) => (
-              <span class="rounded-md border border-app-hairline bg-white px-3 py-1 text-xs font-medium text-app-charcoal/60">
+              <span class="rounded-full border border-line bg-app-cloud px-3 py-1 text-xs font-semibold text-ink-soft">
                 {tag}
               </span>
             ))}
@@ -157,8 +157,8 @@ const breadcrumbJsonLd = {
       )}
 
       <!-- Why these words matter -->
-      <div class="prose prose-sm mt-8 max-w-2xl text-app-charcoal/70">
-        <h2 class="mb-3 font-display text-base font-semibold text-app-charcoal">Why these words matter</h2>
+      <div class="prose prose-sm mt-8 max-w-2xl text-ink-soft">
+        <h2 class="mb-3 font-display text-base font-semibold text-ink">Why these words matter</h2>
         <Content />
       </div>
 
@@ -170,8 +170,8 @@ const breadcrumbJsonLd = {
     </section>
   </main>
 
-  <footer class="border-t border-app-hairline">
-    <div class="mx-auto max-w-3xl px-6 py-8 text-center text-xs text-app-charcoal/35">
+  <footer class="border-t border-line">
+    <div class="mx-auto max-w-3xl px-6 py-8 text-center text-xs text-ink-soft">
       &copy; {new Date().getFullYear()} spellingwords.app &mdash; Free spelling practice for every classroom.
     </div>
   </footer>

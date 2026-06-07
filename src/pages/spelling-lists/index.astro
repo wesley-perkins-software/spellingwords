@@ -38,23 +38,23 @@ const breadcrumbJsonLd = {
   description="Browse curated, ready-to-use spelling lists organized by sight words, phonics, grade level, and challenge tiers."
   jsonLd={breadcrumbJsonLd}
 >
-  <header class="sticky top-0 z-10 border-b border-app-hairline bg-app-cream/90 backdrop-blur-sm">
+  <header class="sticky top-0 z-10 border-b border-line bg-white/90 backdrop-blur-sm">
     <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
       <a
         href="/"
-        class="flex items-center gap-2 font-display text-lg font-semibold text-app-charcoal tracking-tight"
+        class="flex items-center gap-2 font-display text-lg font-semibold text-ink tracking-tight"
         aria-label="spellingwords home"
       >
         <span
           aria-hidden="true"
-          class="flex h-7 w-7 items-center justify-center rounded-md bg-app-charcoal text-app-cream"
+          class="flex h-7 w-7 items-center justify-center rounded-2xl bg-brand-blue text-white"
         >
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M9.5 4.5l2 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
           </svg>
         </span>
-        spelling<span class="text-app-sage">words</span>
+        spelling<span class="text-brand-blue">words</span>
       </a>
     </div>
   </header>
@@ -66,25 +66,25 @@ const breadcrumbJsonLd = {
       </div>
 
       <div class="flex flex-col gap-3">
-        <h1 id="library-heading" class="font-display text-2xl font-semibold text-app-charcoal md:text-3xl">
+        <h1 id="library-heading" class="font-display text-2xl font-semibold text-ink md:text-3xl">
           The Spelling Lists Library
         </h1>
-        <p class="max-w-2xl text-base leading-relaxed text-app-charcoal/60">
+        <p class="max-w-2xl text-base leading-relaxed text-ink-soft">
           Curated, ready-to-go spelling lists organized by sight words, phonics patterns, grade level, and
           challenge tiers. Pick one and start practicing right away — or head back home to paste in your
           own words instead. Both are first-class ways to use spellingwords.
         </p>
-        <p class="max-w-2xl text-sm leading-relaxed text-app-charcoal/50">
-          <strong class="font-semibold text-app-charcoal/70">Custom lists</strong> let you paste in any words
+        <p class="max-w-2xl text-sm leading-relaxed text-ink-soft">
+          <strong class="font-semibold text-ink-soft">Custom lists</strong> let you paste in any words
           you choose and start practicing immediately — perfect for this week's spelling homework.
-          <strong class="font-semibold text-app-charcoal/70">Library lists</strong> are pre-built, structured
+          <strong class="font-semibold text-ink-soft">Library lists</strong> are pre-built, structured
           progressions — complete with prerequisites and recommended next steps — for students working
           through a skill over time.
         </p>
         <p>
           <a
             href="/"
-            class="inline-flex items-center gap-1 text-sm font-semibold text-app-sage hover:underline"
+            class="inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline"
           >
             ← Back to paste your own words
           </a>
@@ -100,12 +100,12 @@ const breadcrumbJsonLd = {
                 <div class="flex flex-col gap-1">
                   <h2
                     id={`category-${category}-heading`}
-                    class="font-display text-lg font-semibold text-app-charcoal"
+                    class="font-display text-lg font-semibold text-ink"
                   >
                     {categoryLabels[category] ?? category}
                   </h2>
                   {categoryDescriptions[category] && (
-                    <p class="max-w-2xl text-sm leading-relaxed text-app-charcoal/50">
+                    <p class="max-w-2xl text-sm leading-relaxed text-ink-soft">
                       {categoryDescriptions[category]}
                     </p>
                   )}
@@ -114,11 +114,11 @@ const breadcrumbJsonLd = {
                   {lists.map((entry) => (
                     <a
                       href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
-                      class="flex flex-col gap-3 rounded-xl border border-app-hairline bg-white p-5 transition hover:border-app-sage/40"
+                      class="flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
                     >
                       <div class="flex flex-col gap-1">
-                        <h3 class="font-display text-base font-semibold text-app-charcoal">{entry.data.title}</h3>
-                        <p class="text-sm leading-relaxed text-app-charcoal/60">{entry.data.description}</p>
+                        <h3 class="font-display text-base font-semibold text-ink">{entry.data.title}</h3>
+                        <p class="text-sm leading-relaxed text-ink-soft">{entry.data.description}</p>
                       </div>
                       <ListMetadataBadges
                         difficulty={entry.data.difficulty}
@@ -136,8 +136,8 @@ const breadcrumbJsonLd = {
     </section>
   </main>
 
-  <footer class="border-t border-app-hairline">
-    <div class="mx-auto max-w-3xl px-6 py-8 text-center text-xs text-app-charcoal/35">
+  <footer class="border-t border-line">
+    <div class="mx-auto max-w-3xl px-6 py-8 text-center text-xs text-ink-soft">
       &copy; {new Date().getFullYear()} spellingwords.app &mdash; Free spelling practice for every classroom.
     </div>
   </footer>

@@ -1,0 +1,264 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Voice Diagnostics — Dev" description="Internal QA tool for evaluating speech synthesis voices.">
+  <main id="main-content" class="max-w-6xl mx-auto px-4 py-8 font-mono text-sm">
+    <h1 class="text-2xl font-bold mb-1">Voice Diagnostics</h1>
+    <p class="text-xs text-gray-500 mb-6">Internal QA tool · not linked in navigation</p>
+
+    <!-- Device info -->
+    <section class="mb-6 bg-gray-100 rounded-lg p-4">
+      <h2 class="font-bold mb-2 text-base">Device Information</h2>
+      <dl id="device-info" class="grid grid-cols-[max-content_1fr] gap-x-4 gap-y-1">
+        <dt class="text-gray-500">Browser</dt><dd id="di-browser">—</dd>
+        <dt class="text-gray-500">User Agent</dt><dd id="di-ua" class="break-all text-xs">—</dd>
+        <dt class="text-gray-500">Platform</dt><dd id="di-platform">—</dd>
+        <dt class="text-gray-500">Voices detected</dt><dd id="di-count">—</dd>
+        <dt class="text-gray-500">Current selection</dt><dd id="di-selected">—</dd>
+        <dt class="text-gray-500">Default speed</dt><dd>0.78×</dd>
+      </dl>
+    </section>
+
+    <!-- QA checklist -->
+    <section class="mb-6">
+      <h2 class="font-bold mb-2 text-base">Voice QA Checklist</h2>
+      <ul id="qa-checklist" class="grid grid-cols-2 sm:grid-cols-3 gap-1 list-none p-0">
+        {[
+          'Chrome on Mac',
+          'Safari on Mac',
+          'Firefox on Mac',
+          'Chrome on Windows',
+          'Edge on Windows',
+          'Firefox on Windows',
+          'Safari on iPhone',
+          'Chrome on iPhone',
+          'Chrome on Android',
+          'Firefox on Android',
+        ].map((label) => (
+          <li>
+            <label class="flex items-center gap-2 cursor-pointer select-none">
+              <input type="checkbox" class="w-4 h-4 accent-green-600" />
+              <span>{label}</span>
+            </label>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Controls -->
+    <section class="mb-4 flex flex-wrap gap-4 items-end">
+      <div>
+        <label for="test-phrase" class="block text-gray-500 mb-1">Phrase to test</label>
+        <input
+          id="test-phrase"
+          type="text"
+          value="because"
+          class="border border-gray-300 rounded px-2 py-1 w-48 bg-white"
+        />
+      </div>
+      <div>
+        <label for="test-rate" class="block text-gray-500 mb-1">Rate</label>
+        <input
+          id="test-rate"
+          type="number"
+          value="0.78"
+          min="0.1"
+          max="2"
+          step="0.01"
+          class="border border-gray-300 rounded px-2 py-1 w-20 bg-white"
+        />
+      </div>
+      <button
+        id="btn-copy"
+        class="border border-gray-400 rounded px-3 py-1 bg-white hover:bg-gray-50 active:bg-gray-100"
+      >
+        Copy diagnostics
+      </button>
+      <span id="copy-feedback" class="text-green-600 text-xs hidden">Copied!</span>
+    </section>
+
+    <!-- Voice table -->
+    <section>
+      <h2 class="font-bold mb-2 text-base">All Voices</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-xs">
+          <thead>
+            <tr class="bg-gray-200 text-left">
+              <th class="px-2 py-1 font-semibold border border-gray-300">#</th>
+              <th class="px-2 py-1 font-semibold border border-gray-300">Name</th>
+              <th class="px-2 py-1 font-semibold border border-gray-300">Lang</th>
+              <th class="px-2 py-1 font-semibold border border-gray-300">Local</th>
+              <th class="px-2 py-1 font-semibold border border-gray-300">Default</th>
+              <th class="px-2 py-1 font-semibold border border-gray-300">Score</th>
+              <th class="px-2 py-1 font-semibold border border-gray-300">Reasons</th>
+              <th class="px-2 py-1 font-semibold border border-gray-300">Status</th>
+              <th class="px-2 py-1 font-semibold border border-gray-300">Test</th>
+            </tr>
+          </thead>
+          <tbody id="voice-tbody">
+            <tr><td colspan="9" class="px-2 py-3 text-gray-400 text-center">Loading voices…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  import { getRankedVoices } from '@/modules/speech/voiceSelection';
+
+  const DISQUALIFY_PATTERNS = [
+    'espeak', 'festival', 'mbrola', 'compact',
+    'aaron', 'albert', 'bad news', 'bahh', 'bells', 'boing', 'bubbles',
+    'cellos', 'good news', 'hysterical', 'junior', 'organ', 'pipe organ',
+    'princess', 'trinoids', 'whisper', 'zarvox',
+  ];
+
+  function isFiltered(name: string): { filtered: boolean; reason: string } {
+    const n = name.toLowerCase();
+    for (const p of DISQUALIFY_PATTERNS) {
+      if (n.includes(p)) {
+        if (['espeak', 'festival', 'mbrola'].some((q) => n.includes(q))) {
+          return { filtered: true, reason: 'low-quality engine' };
+        }
+        if (n.includes('compact')) return { filtered: true, reason: 'compact voice' };
+        return { filtered: true, reason: 'novelty voice' };
+      }
+    }
+    return { filtered: false, reason: '' };
+  }
+
+  function detectBrowser(): string {
+    const ua = navigator.userAgent;
+    if (ua.includes('Edg/')) return 'Edge ' + (ua.match(/Edg\/([\d.]+)/)?.[1] ?? '');
+    if (ua.includes('Chrome/') && !ua.includes('Chromium')) return 'Chrome ' + (ua.match(/Chrome\/([\d.]+)/)?.[1] ?? '');
+    if (ua.includes('Firefox/')) return 'Firefox ' + (ua.match(/Firefox\/([\d.]+)/)?.[1] ?? '');
+    if (ua.includes('Safari/') && !ua.includes('Chrome')) return 'Safari ' + (ua.match(/Version\/([\d.]+)/)?.[1] ?? '');
+    return ua.slice(0, 60);
+  }
+
+  function loadVoices(timeoutMs = 1500): Promise<SpeechSynthesisVoice[]> {
+    const immediate = speechSynthesis.getVoices();
+    if (immediate.length > 0) return Promise.resolve(immediate);
+    return new Promise((resolve) => {
+      const handler = () => resolve(speechSynthesis.getVoices());
+      speechSynthesis.addEventListener('voiceschanged', handler);
+      setTimeout(() => {
+        speechSynthesis.removeEventListener('voiceschanged', handler);
+        resolve(speechSynthesis.getVoices());
+      }, timeoutMs);
+    });
+  }
+
+  function badge(text: string, color: string) {
+    return `<span class="inline-block rounded px-1 py-0.5 text-xs font-semibold ${color}">${text}</span>`;
+  }
+
+  async function init() {
+    if (!('speechSynthesis' in window)) {
+      document.getElementById('voice-tbody')!.innerHTML =
+        '<tr><td colspan="9" class="px-2 py-3 text-red-500 text-center">speechSynthesis not supported in this browser.</td></tr>';
+      return;
+    }
+
+    const voices = await loadVoices();
+    const ranked = getRankedVoices(voices);
+    ranked.sort((a, b) => b.score - a.score);
+
+    // Best English voice = selected
+    const selected = ranked.find((r) => r.voice.lang.toLowerCase().startsWith('en'))?.voice ?? ranked[0]?.voice;
+
+    // Device info
+    document.getElementById('di-browser')!.textContent = detectBrowser();
+    document.getElementById('di-ua')!.textContent = navigator.userAgent;
+    document.getElementById('di-platform')!.textContent = navigator.platform ?? 'unknown';
+    document.getElementById('di-count')!.textContent = String(voices.length);
+    document.getElementById('di-selected')!.textContent = selected?.name ?? 'none';
+
+    // Voice table
+    const tbody = document.getElementById('voice-tbody')!;
+    tbody.innerHTML = '';
+
+    ranked.forEach(({ voice, score, reasons }, idx) => {
+      const { filtered, reason } = isFiltered(voice.name);
+      const isEn = voice.lang.toLowerCase().startsWith('en');
+      const recommended = isEn && !filtered;
+
+      const tr = document.createElement('tr');
+      tr.className = idx % 2 === 0 ? 'bg-white' : 'bg-gray-50';
+
+      const statusBadges: string[] = [];
+      if (recommended) statusBadges.push(badge('recommended', 'bg-green-100 text-green-800'));
+      if (filtered) statusBadges.push(badge(`Filtered: ${reason}`, 'bg-red-100 text-red-700'));
+      if (!isEn) statusBadges.push(badge('non-English', 'bg-gray-100 text-gray-600'));
+
+      tr.innerHTML = `
+        <td class="px-2 py-1 border border-gray-200 text-gray-400">${idx + 1}</td>
+        <td class="px-2 py-1 border border-gray-200 font-medium">${voice.name}</td>
+        <td class="px-2 py-1 border border-gray-200">${voice.lang}</td>
+        <td class="px-2 py-1 border border-gray-200 text-center">${voice.localService ? '✓' : ''}</td>
+        <td class="px-2 py-1 border border-gray-200 text-center">${voice.default ? '✓' : ''}</td>
+        <td class="px-2 py-1 border border-gray-200 text-right">${score}</td>
+        <td class="px-2 py-1 border border-gray-200 text-gray-600">${reasons.join(', ') || '—'}</td>
+        <td class="px-2 py-1 border border-gray-200">${statusBadges.join(' ') || '—'}</td>
+        <td class="px-2 py-1 border border-gray-200">
+          <button
+            class="test-btn border border-gray-400 rounded px-2 py-0.5 bg-white hover:bg-blue-50 active:bg-blue-100 whitespace-nowrap"
+            data-voice="${voice.name}"
+          >▶ Test</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    // Test button clicks
+    tbody.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest('.test-btn') as HTMLButtonElement | null;
+      if (!btn) return;
+      const voiceName = btn.dataset.voice!;
+      const phrase = (document.getElementById('test-phrase') as HTMLInputElement).value || 'because';
+      const rate = parseFloat((document.getElementById('test-rate') as HTMLInputElement).value) || 0.78;
+      const voice = voices.find((v) => v.name === voiceName) ?? null;
+
+      speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(phrase);
+      utter.voice = voice;
+      utter.rate = rate;
+      speechSynthesis.speak(utter);
+    });
+
+    // Copy diagnostics
+    document.getElementById('btn-copy')!.addEventListener('click', () => {
+      const data = {
+        browser: detectBrowser(),
+        platform: navigator.platform ?? 'unknown',
+        userAgent: navigator.userAgent,
+        selectedVoice: selected?.name ?? 'none',
+        voiceCount: voices.length,
+        voices: ranked.map(({ voice, score, reasons }) => {
+          const { filtered, reason } = isFiltered(voice.name);
+          const recommended = voice.lang.toLowerCase().startsWith('en') && !filtered;
+          return {
+            name: voice.name,
+            lang: voice.lang,
+            localService: voice.localService,
+            default: voice.default,
+            score,
+            reasons,
+            recommended,
+            filtered,
+            filterReason: reason || null,
+          };
+        }),
+      };
+      navigator.clipboard.writeText(JSON.stringify(data, null, 2)).then(() => {
+        const fb = document.getElementById('copy-feedback')!;
+        fb.classList.remove('hidden');
+        setTimeout(() => fb.classList.add('hidden'), 2000);
+      });
+    });
+  }
+
+  init();
+</script>

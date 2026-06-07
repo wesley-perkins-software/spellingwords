@@ -28,7 +28,11 @@ const prerequisites = resolveListRefs(data.prerequisiteLists, allEntries);
 const next = resolveListRefs(data.nextLists, allEntries);
 
 const playWords = toPlayableWords(entry);
-const playWordsJson = JSON.stringify(playWords);
+const DEFAULT_SESSION_SIZE = 10;
+const quickPracticeWords = playWords.slice(0, DEFAULT_SESSION_SIZE);
+const quickPracticeWordsJson = JSON.stringify(quickPracticeWords);
+const fullCollectionWordsJson = JSON.stringify(playWords);
+const showFullCollectionOption = playWords.length > quickPracticeWords.length;
 
 function listLink(e: (typeof allEntries)[number]) {
   return `/spelling-lists/${e.data.category}/${e.data.urlSlug}`;
@@ -106,28 +110,32 @@ const breadcrumbJsonLd = {
           difficulty={data.difficulty}
           durationMinutes={data.estimatedDurationMinutes}
           wordCount={data.words.length}
+          wordCountLabel={`${data.words.length} words in this collection`}
         />
       </div>
 
       <!-- Practice options -->
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">
         <button
           id="btn-start-test"
           type="button"
-          data-words={playWordsJson}
+          data-words={quickPracticeWordsJson}
           class="flex-1 rounded-full bg-brand-blue px-7 py-4 text-base font-bold text-white shadow-[0_8px_24px_-8px_rgba(47,111,237,0.45)] transition hover:bg-brand-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97] sm:flex-none"
-          aria-label={`Start a spelling test for ${data.title}`}
+          aria-label={`Start a ${quickPracticeWords.length}-word spelling practice session for ${data.title}`}
         >
-          Start Spelling Test →
+          Start Spelling Test ({quickPracticeWords.length} words) →
         </button>
-        <button
-          type="button"
-          disabled
-          class="flex-1 rounded-full border-2 border-brand-blue bg-white px-7 py-4 text-base font-bold text-brand-blue opacity-40 sm:flex-none"
-          aria-label="Practice words — coming soon"
-        >
-          Practice Words
-        </button>
+        {showFullCollectionOption && (
+          <button
+            id="btn-start-full-list"
+            type="button"
+            data-words={fullCollectionWordsJson}
+            class="flex-1 rounded-full border-2 border-brand-blue bg-white px-7 py-4 text-base font-bold text-brand-blue transition hover:bg-brand-blue/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97] sm:flex-none"
+            aria-label={`Practice all ${playWords.length} words in ${data.title}`}
+          >
+            Practice all {playWords.length} words
+          </button>
+        )}
         <span
           class="flex-1 rounded-full px-7 py-4 text-center text-base font-semibold text-ink-soft/50 sm:flex-none"
           aria-hidden="true"
@@ -135,6 +143,9 @@ const breadcrumbJsonLd = {
           Print Worksheet
         </span>
       </div>
+      <p class="mt-2 max-w-2xl text-sm text-ink-soft">
+        This collection has {playWords.length} words total. A practice session is a shorter set of {quickPracticeWords.length} words — a more comfortable size for one sitting.
+      </p>
       <p id="start-test-status" class="mt-2 text-xs text-feedback-incorrect" aria-live="polite" aria-atomic="true"></p>
 
       <!-- Word preview -->
@@ -180,21 +191,20 @@ const breadcrumbJsonLd = {
 <script>
   import { encodeWordList } from '@/lib/words';
 
-  const startBtn = document.getElementById('btn-start-test') as HTMLButtonElement | null;
   const statusEl = document.getElementById('start-test-status');
 
-  function getWords(): string[] {
-    if (!startBtn) return [];
+  function getWords(button: HTMLButtonElement): string[] {
     try {
-      const parsed: unknown = JSON.parse(startBtn.dataset.words ?? '[]');
+      const parsed: unknown = JSON.parse(button.dataset.words ?? '[]');
       return Array.isArray(parsed) ? parsed.filter((entry): entry is string => typeof entry === 'string') : [];
     } catch {
       return [];
     }
   }
 
-  function handleStart(): void {
-    const words = getWords();
+  function handleStart(event: Event): void {
+    const button = event.currentTarget as HTMLButtonElement;
+    const words = getWords(button);
     if (words.length === 0) return;
 
     const result = encodeWordList(words);
@@ -211,5 +221,6 @@ const breadcrumbJsonLd = {
     window.location.href = `/play?list=${result.payload}`;
   }
 
-  startBtn?.addEventListener('click', handleStart);
+  document.getElementById('btn-start-test')?.addEventListener('click', handleStart);
+  document.getElementById('btn-start-full-list')?.addEventListener('click', handleStart);
 </script>

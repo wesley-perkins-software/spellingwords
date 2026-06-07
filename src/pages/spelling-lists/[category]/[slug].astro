@@ -1,0 +1,211 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { isPublished, resolveListRefs, toPlayableWords } from '@/lib/content/spellingLists';
+
+export async function getStaticPaths() {
+  const entries = (await getCollection('spelling-lists')).filter(isPublished);
+
+  return entries.map((entry) => ({
+    params: { category: entry.data.category, slug: entry.data.urlSlug },
+    props: { entry, allEntries: entries },
+  }));
+}
+
+const { entry, allEntries } = Astro.props;
+const { data } = entry;
+
+const difficultyLabels: Record<string, string> = {
+  beginner: 'Beginner',
+  developing: 'Developing',
+  intermediate: 'Intermediate',
+  advanced: 'Advanced',
+  challenge: 'Challenge',
+};
+
+const categoryLabels: Record<string, string> = {
+  'sight-words': 'Sight Words',
+  phonics: 'Phonics',
+  'grade-level': 'Grade-Level',
+  challenge: 'Challenge',
+  theme: 'Theme',
+  seasonal: 'Seasonal',
+};
+
+const related = resolveListRefs(data.relatedLists, allEntries);
+const prerequisites = resolveListRefs(data.prerequisiteLists, allEntries);
+const next = resolveListRefs(data.nextLists, allEntries);
+
+const playWords = toPlayableWords(entry);
+const playWordsJson = JSON.stringify(playWords);
+
+function listLink(e: (typeof allEntries)[number]) {
+  return `/spelling-lists/${e.data.category}/${e.data.urlSlug}`;
+}
+---
+
+<Layout title={`${data.title} — spellingwords`} description={data.description}>
+  <header class="sticky top-0 z-10 border-b border-classroom-blue/10 bg-white/90 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+      <a
+        href="/"
+        class="flex items-center gap-2 font-display text-lg font-bold text-app-charcoal tracking-tight"
+        aria-label="spellingwords home"
+      >
+        <span
+          aria-hidden="true"
+          class="flex h-7 w-7 items-center justify-center rounded-xl bg-classroom-blue text-white"
+        >
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.5 4.5l2 2" stroke="white" stroke-width="1.75" stroke-linecap="round"/>
+          </svg>
+        </span>
+        spelling<span class="text-classroom-blue">words</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="mx-auto max-w-3xl px-6 py-12 md:py-16">
+      <p class="mb-4 text-xs font-bold uppercase tracking-widest text-app-charcoal/40">
+        <a href="/spelling-lists" class="hover:text-classroom-blue">Spelling Lists Library</a>
+        <span aria-hidden="true"> / </span>
+        {categoryLabels[data.category] ?? data.category}
+      </p>
+
+      <div class="flex flex-col gap-3">
+        <h1 class="font-display text-2xl font-bold text-app-charcoal md:text-3xl">{data.title}</h1>
+        <p class="max-w-2xl text-base leading-relaxed text-app-charcoal/60">{data.description}</p>
+        {data.shortAnswer && (
+          <p class="max-w-2xl rounded-2xl border border-classroom-blue/15 bg-classroom-blue/5 px-4 py-3 text-sm leading-relaxed text-app-charcoal/70">
+            {data.shortAnswer}
+          </p>
+        )}
+      </div>
+
+      <div class="mt-5 flex flex-wrap items-center gap-2 text-xs font-semibold">
+        <span class="rounded-full bg-classroom-blue/12 px-3 py-1 text-classroom-blue">
+          {categoryLabels[data.category] ?? data.category}
+        </span>
+        <span class="rounded-full bg-classroom-yellow/20 px-3 py-1 text-amber-700">
+          {difficultyLabels[data.difficulty] ?? data.difficulty}
+        </span>
+        <span class="rounded-full bg-app-sage/15 px-3 py-1 text-app-sage">
+          ~{data.estimatedDurationMinutes} min
+        </span>
+        <span class="rounded-full bg-classroom-coral/12 px-3 py-1 text-classroom-coral">
+          {data.words.length} words
+        </span>
+      </div>
+
+      <!-- Primary / secondary actions -->
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <button
+          id="btn-start-test"
+          type="button"
+          data-words={playWordsJson}
+          class="flex-1 rounded-2xl bg-classroom-blue px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-classroom-blue/25 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-classroom-blue active:scale-95 sm:flex-none"
+          aria-label={`Start a spelling test for ${data.title}`}
+        >
+          Start Spelling Test →
+        </button>
+        <button
+          type="button"
+          disabled
+          class="flex-1 rounded-2xl border-2 border-classroom-green/40 bg-classroom-green/8 px-6 py-3.5 text-sm font-bold text-classroom-green opacity-40 sm:flex-none"
+          aria-label="Practice words — coming soon"
+        >
+          Practice Words
+        </button>
+        <span
+          class="flex-1 rounded-2xl px-6 py-3.5 text-center text-sm font-semibold text-app-charcoal/30 sm:flex-none"
+          aria-hidden="true"
+        >
+          Print Worksheet
+        </span>
+      </div>
+      <p id="start-test-status" class="mt-2 text-xs text-classroom-coral" aria-live="polite" aria-atomic="true"></p>
+
+      <!-- Word preview -->
+      <div class="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-5 py-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-app-charcoal/40">Word list</span>
+          <span class="rounded-full bg-classroom-blue/12 px-3 py-0.5 text-xs font-bold text-classroom-blue">
+            {data.words.length} words
+          </span>
+        </div>
+        <ul class="grid grid-cols-2 gap-x-4 gap-y-2 px-5 py-4 sm:grid-cols-3" aria-label="Words in this list">
+          {data.words.map((word) => (
+            <li class="font-sans text-sm font-medium text-app-charcoal">{word.word}</li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Related / prerequisite / next lists -->
+      {[
+        { heading: 'Prerequisite lists', items: prerequisites },
+        { heading: 'Related lists', items: related },
+        { heading: 'Where to go next', items: next },
+      ].filter((section) => section.items.length > 0).map((section) => (
+        <div class="mt-8">
+          <h2 class="mb-3 font-display text-base font-bold text-app-charcoal">{section.heading}</h2>
+          <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+            {section.items.map((linked) => (
+              <a
+                href={listLink(linked)}
+                class="flex-1 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm transition hover:border-classroom-blue/30 hover:shadow-sm sm:flex-none sm:min-w-[14rem]"
+              >
+                <span class="block font-display font-bold text-app-charcoal">{linked.data.title}</span>
+                <span class="mt-0.5 block text-xs text-app-charcoal/50">{linked.data.description}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-100 bg-white/60">
+    <div class="mx-auto max-w-3xl px-6 py-8 text-center text-xs text-app-charcoal/35">
+      &copy; {new Date().getFullYear()} spellingwords.app &mdash; Free spelling practice for every classroom.
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  import { encodeWordList } from '@/lib/words';
+
+  const startBtn = document.getElementById('btn-start-test') as HTMLButtonElement | null;
+  const statusEl = document.getElementById('start-test-status');
+
+  function getWords(): string[] {
+    if (!startBtn) return [];
+    try {
+      const parsed: unknown = JSON.parse(startBtn.dataset.words ?? '[]');
+      return Array.isArray(parsed) ? parsed.filter((entry): entry is string => typeof entry === 'string') : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function handleStart(): void {
+    const words = getWords();
+    if (words.length === 0) return;
+
+    const result = encodeWordList(words);
+    if (!result.ok) {
+      if (statusEl) {
+        statusEl.textContent =
+          result.code === 'payload_too_long'
+            ? 'This list is too long to start automatically. Please try a shorter list.'
+            : 'Could not start this spelling test. Please try again.';
+      }
+      return;
+    }
+
+    window.location.href = `/play?list=${result.payload}`;
+  }
+
+  startBtn?.addEventListener('click', handleStart);
+</script>

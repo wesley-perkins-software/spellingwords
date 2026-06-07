@@ -24,45 +24,10 @@ const PRIORITY_VOICE_NAMES = [
 /** Name substrings that identify known low-quality synthesis engines. */
 const LOW_QUALITY_PATTERNS = ['espeak', 'festival', 'mbrola'];
 
-/**
- * Patterns that disqualify a voice from the recommended list.
- * Includes low-quality engines, compact/low-fidelity variants, and novelty voices.
- */
-const DISQUALIFY_PATTERNS = [
-  ...LOW_QUALITY_PATTERNS,
-  'compact',
-  // Novelty / joke voices
-  'aaron',
-  'albert',
-  'bad news',
-  'bahh',
-  'bells',
-  'boing',
-  'bubbles',
-  'cellos',
-  'good news',
-  'hysterical',
-  'junior',
-  'organ',
-  'pipe organ',
-  'princess',
-  'trinoids',
-  'whisper',
-  'zarvox',
-];
-
-export interface RankedVoice {
+interface RankedVoice {
   voice: SpeechSynthesisVoiceAdapter;
   score: number;
   reasons: string[];
-}
-
-/**
- * Returns all voices with their computed scores and human-readable reasons.
- * Pure function — useful for testing and dev-mode diagnostics.
- */
-export function getRankedVoices(voices: SpeechSynthesisVoiceAdapter[]): RankedVoice[] {
-  return voices.map((voice) => scoreVoiceWithReasons(voice, ['en-US'], [], true));
 }
 
 export function getAvailableVoices(
@@ -107,6 +72,9 @@ export function loadVoices(
  *   voice.default:                         +2  (tie-breaker)
  *
  * Ties are broken by original array position (earlier wins).
+ *
+ * Native browser speech quality varies by browser, OS, and installed voices.
+ * This selector is best-effort.
  */
 export function selectPreferredVoice(
   voices: SpeechSynthesisVoiceAdapter[],
@@ -149,61 +117,6 @@ export function selectPreferredVoice(
   }
 
   return bestVoice;
-}
-
-/**
- * Returns a filtered, deduplicated, ranked list of recommended English voices.
- *
- * Steps:
- *   1. Keep only voices whose lang starts with "en".
- *   2. Remove voices matching disqualifying name patterns (espeak, mbrola, compact…).
- *   3. Deduplicate near-identical variants — e.g. "Samantha" and "Samantha (Enhanced)"
- *      collapse to the higher-quality one.
- *   4. Sort by score descending.
- *   5. Return at most maxCount voices.
- */
-export function getRecommendedVoices(
-  voices: SpeechSynthesisVoiceAdapter[],
-  maxCount = 3,
-): SpeechSynthesisVoiceAdapter[] {
-  // Step 1 — English only
-  const english = voices.filter((v) => v.lang.toLowerCase().startsWith('en'));
-
-  // Step 2 — Remove disqualified voices
-  const qualified = english.filter((v) => {
-    const n = v.name.toLowerCase();
-    return !DISQUALIFY_PATTERNS.some((p) => n.includes(p));
-  });
-
-  // Step 3 — Deduplicate: group by normalised name + first lang segment
-  const groups = new Map<string, { voice: SpeechSynthesisVoiceAdapter; score: number }>();
-  const scoringLangs = ['en-US'];
-  for (const voice of qualified) {
-    const key = normaliseVoiceName(voice.name) + '|' + voice.lang.toLowerCase();
-    const s = scoreVoice(voice, scoringLangs, [], true);
-    const existing = groups.get(key);
-    if (!existing || s > existing.score) {
-      groups.set(key, { voice, score: s });
-    }
-  }
-
-  const deduped = Array.from(groups.values());
-
-  // Step 4 — Sort descending by score
-  deduped.sort((a, b) => b.score - a.score);
-
-  // Step 5 — Cap
-  return deduped.slice(0, maxCount).map(({ voice }) => voice);
-}
-
-/** Strip parenthetical suffixes and quality descriptor words for grouping purposes. */
-function normaliseVoiceName(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/\s*\(.*?\)/g, '')
-    .replace(/\b(enhanced|premium|compact|natural)\b/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
 }
 
 function scoreVoice(

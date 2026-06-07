@@ -12,4 +12,4 @@ export type {
 } from './types.js';
 
 export { createSpeechController } from './speechController.js';
-export { getAvailableVoices, getRecommendedVoices, loadVoices, selectPreferredVoice } from './voiceSelection.js';
+export { getAvailableVoices, loadVoices, selectPreferredVoice } from './voiceSelection.js';

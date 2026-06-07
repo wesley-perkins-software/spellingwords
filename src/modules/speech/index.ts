@@ -8,8 +8,7 @@ export type {
   SpeechSynthesisAdapter,
   SpeechSynthesisUtteranceAdapter,
   SpeechSynthesisVoiceAdapter,
-  VoicePreferences,
 } from './types.js';
 
 export { createSpeechController } from './speechController.js';
-export { getAvailableVoices, getRecommendedVoices, loadVoices, selectPreferredVoice } from './voiceSelection.js';
+export { getAvailableVoices, getRankedVoices, getRecommendedVoices, loadVoices, selectPreferredVoice } from './voiceSelection.js';

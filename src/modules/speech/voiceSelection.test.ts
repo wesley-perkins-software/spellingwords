@@ -32,71 +32,43 @@ describe('selectPreferredVoice', () => {
     expect(selectPreferredVoice([v])).toBe(v);
   });
 
-  it('prefers exact language match over no match', () => {
+  it('prefers an English-locale voice over a non-English voice', () => {
     const enUS = makeVoice('Voice A', 'en-US');
     const frFR = makeVoice('Voice B', 'fr-FR');
-    expect(selectPreferredVoice([frFR, enUS], { langs: ['en-US'] })).toBe(enUS);
+    expect(selectPreferredVoice([frFR, enUS])).toBe(enUS);
   });
 
-  it('prefers earlier lang in prefs.langs over later', () => {
-    const enGB = makeVoice('Voice GB', 'en-GB');
-    const enUS = makeVoice('Voice US', 'en-US');
-    expect(selectPreferredVoice([enGB, enUS], { langs: ['en-US', 'en-GB'] })).toBe(enUS);
+  it('prefers a voice with "neural" or "natural" in its name', () => {
+    const plain = makeVoice('Voice A', 'en-US');
+    const neural = makeVoice('Voice B Neural', 'en-US');
+    expect(selectPreferredVoice([plain, neural])).toBe(neural);
   });
 
-  it('applies language prefix matching ("en" matches "en-US")', () => {
-    const enUS = makeVoice('Voice US', 'en-US');
-    const frFR = makeVoice('Voice FR', 'fr-FR');
-    // "en" should prefix-match "en-US" with +40
-    expect(selectPreferredVoice([frFR, enUS], { langs: ['en'] })).toBe(enUS);
-  });
-
-  it('scores preferred name substrings — earlier name in array wins', () => {
-    const daniel = makeVoice('Daniel', 'en-GB');
-    const fiona = makeVoice('Fiona', 'en-GB');
-    const result = selectPreferredVoice([fiona, daniel], {
-      langs: ['en-GB'],
-      preferredNames: ['Daniel', 'Fiona'],
-    });
-    expect(result).toBe(daniel);
+  it('prefers a known good name over a generic voice', () => {
+    const generic = makeVoice('Unknown Voice', 'en-US');
+    const ava = makeVoice('Ava', 'en-US');
+    expect(selectPreferredVoice([generic, ava])).toBe(ava);
   });
 
   it('name match is case-insensitive', () => {
-    const v = makeVoice('Samantha', 'en-US');
+    const v = makeVoice('samantha', 'en-US');
     const other = makeVoice('Other Voice', 'en-US');
-    expect(
-      selectPreferredVoice([other, v], { preferredNames: ['SAMANTHA'] }),
-    ).toBe(v);
+    expect(selectPreferredVoice([other, v])).toBe(v);
   });
 
-  it('prefers local voices over non-local when preferLocal=true (default)', () => {
+  it('prefers local voices over non-local when otherwise tied', () => {
     const local = makeVoice('Local Voice', 'en-US', true);
     const network = makeVoice('Network Voice', 'en-US', false);
     expect(selectPreferredVoice([network, local])).toBe(local);
   });
 
-  it('does not prefer local voices when preferLocal=false', () => {
-    const local = makeVoice('Local Voice', 'en-US', true);
-    const network = makeVoice('Network Voice', 'en-US', false);
-    // With preferLocal=false and no other differentiators, first voice (network) wins via position
-    expect(selectPreferredVoice([network, local], { preferLocal: false })).toBe(network);
-  });
-
-  it('falls back to first voice when no preferences match anything', () => {
+  it('falls back to first voice when nothing scores higher', () => {
     const a = makeVoice('Unknown A', 'zh-CN');
     const b = makeVoice('Unknown B', 'ja-JP');
-    // Neither matches en-US; first array entry wins tie
-    expect(selectPreferredVoice([a, b], { langs: ['en-US'] })).toBe(a);
-  });
-
-  it('uses default preferences when called with no second argument', () => {
-    const enUS = makeVoice('Samantha', 'en-US', true);
-    const frFR = makeVoice('Thomas', 'fr-FR', true);
-    expect(selectPreferredVoice([frFR, enUS])).toBe(enUS);
+    expect(selectPreferredVoice([a, b])).toBe(a);
   });
 
   it('breaks ties by array position (earlier voice wins)', () => {
-    // Two identical-scoring voices
     const a = makeVoice('Voice A', 'en-US', true, false);
     const b = makeVoice('Voice B', 'en-US', true, false);
     expect(selectPreferredVoice([a, b])).toBe(a);
@@ -105,7 +77,6 @@ describe('selectPreferredVoice', () => {
   it('default voice flag provides a small tie-breaking score', () => {
     const nonDefault = makeVoice('Voice A', 'en-US', true, false);
     const defaultVoice = makeVoice('Voice B', 'en-US', true, true);
-    // defaultVoice gets +2; placed second but should still win
     expect(selectPreferredVoice([nonDefault, defaultVoice])).toBe(defaultVoice);
   });
 });
@@ -123,7 +94,7 @@ describe('getAvailableVoices', () => {
   });
 });
 
-describe('selectPreferredVoice — priority voice list', () => {
+describe('selectPreferredVoice — quality scoring', () => {
   it('prefers Samantha over a generic en-US voice', () => {
     const generic = makeVoice('Unknown Voice', 'en-US');
     const samantha = makeVoice('Samantha', 'en-US');
@@ -136,28 +107,28 @@ describe('selectPreferredVoice — priority voice list', () => {
     expect(selectPreferredVoice([generic, google])).toBe(google);
   });
 
-  it('ranks Google US English above Samantha (priority list order)', () => {
-    const google = makeVoice('Google US English', 'en-US');
+  it('prefers an enhanced/neural voice over a known good name', () => {
     const samantha = makeVoice('Samantha', 'en-US');
-    expect(selectPreferredVoice([samantha, google])).toBe(google);
+    const neural = makeVoice('Generic Neural Voice', 'en-US');
+    expect(selectPreferredVoice([samantha, neural])).toBe(neural);
   });
 
-  it('Google US English beats Samantha even when Samantha is local and default', () => {
+  it('a known-good voice beats a generic one even when the generic is local and default', () => {
     const google = makeVoice('Google US English', 'en-US', false, false);
-    const samantha = makeVoice('Samantha', 'en-US', true, true);
-    expect(selectPreferredVoice([samantha, google])).toBe(google);
+    const generic = makeVoice('Unknown Voice', 'en-US', true, true);
+    expect(selectPreferredVoice([generic, google])).toBe(google);
   });
 
-  it('selects Google US English when available', () => {
+  it('selects an enhanced voice when available', () => {
     const voices = [
       makeVoice('Alex', 'en-US'),
       makeVoice('Samantha', 'en-US', true, true),
-      makeVoice('Google US English', 'en-US', false),
+      makeVoice('Samantha (Enhanced)', 'en-US', false),
     ];
     expect(selectPreferredVoice(voices)).toBe(voices[2]);
   });
 
-  it('selects Samantha only when higher-priority voices are absent', () => {
+  it('selects Samantha only when higher-scoring voices are absent', () => {
     const voices = [
       makeVoice('Samantha', 'en-US', true, true),
       makeVoice('Unknown Voice', 'en-US'),
@@ -165,16 +136,28 @@ describe('selectPreferredVoice — priority voice list', () => {
     expect(selectPreferredVoice(voices)).toBe(voices[0]);
   });
 
-  it('applies enhanced quality bonus', () => {
+  it('applies the enhanced quality bonus', () => {
     const plain = makeVoice('Daniel', 'en-GB');
     const enhanced = makeVoice('Daniel (Enhanced)', 'en-GB');
-    expect(selectPreferredVoice([plain, enhanced], { langs: ['en-GB'] })).toBe(enhanced);
+    expect(selectPreferredVoice([plain, enhanced])).toBe(enhanced);
   });
 
-  it('applies premium quality bonus', () => {
+  it('applies the premium quality bonus', () => {
     const plain = makeVoice('Fiona', 'en-GB');
     const premium = makeVoice('Fiona Premium', 'en-GB');
-    expect(selectPreferredVoice([plain, premium], { langs: ['en-GB'] })).toBe(premium);
+    expect(selectPreferredVoice([plain, premium])).toBe(premium);
+  });
+
+  it('applies the natural quality bonus', () => {
+    const plain = makeVoice('Fiona', 'en-GB');
+    const natural = makeVoice('Fiona Natural', 'en-GB');
+    expect(selectPreferredVoice([plain, natural])).toBe(natural);
+  });
+
+  it('applies the neural quality bonus', () => {
+    const plain = makeVoice('Fiona', 'en-GB');
+    const neural = makeVoice('Fiona Neural', 'en-GB');
+    expect(selectPreferredVoice([plain, neural])).toBe(neural);
   });
 
   it('penalises espeak voices below a plain fallback', () => {
@@ -195,10 +178,22 @@ describe('selectPreferredVoice — priority voice list', () => {
     expect(selectPreferredVoice([mbrola, plain])).toBe(plain);
   });
 
-  it('includes Alex in priority list', () => {
+  it('includes Alex in the known good name list', () => {
     const generic = makeVoice('System Voice', 'en-US');
     const alex = makeVoice('Alex', 'en-US');
     expect(selectPreferredVoice([generic, alex])).toBe(alex);
+  });
+
+  it('includes Microsoft Guy in the known good name list', () => {
+    const generic = makeVoice('System Voice', 'en-US');
+    const guy = makeVoice('Microsoft Guy', 'en-US');
+    expect(selectPreferredVoice([generic, guy])).toBe(guy);
+  });
+
+  it('includes Allison in the known good name list', () => {
+    const generic = makeVoice('System Voice', 'en-US');
+    const allison = makeVoice('Allison', 'en-US');
+    expect(selectPreferredVoice([generic, allison])).toBe(allison);
   });
 });
 
@@ -336,22 +331,28 @@ describe('getRankedVoices', () => {
     });
   });
 
-  it('includes reason "preferred: Google US English" for that voice', () => {
+  it('includes reason "known good voice: Google US English" for that voice', () => {
     const google = makeVoice('Google US English', 'en-US');
     const [entry] = getRankedVoices([google]);
-    expect(entry.reasons).toContain('preferred: Google US English');
+    expect(entry.reasons).toContain('known good voice: Google US English');
   });
 
-  it('includes reason "preferred: Samantha" for Samantha', () => {
+  it('includes reason "known good voice: Samantha" for Samantha', () => {
     const samantha = makeVoice('Samantha', 'en-US');
     const [entry] = getRankedVoices([samantha]);
-    expect(entry.reasons).toContain('preferred: Samantha');
+    expect(entry.reasons).toContain('known good voice: Samantha');
   });
 
-  it('includes "exact language match" for en-US voices', () => {
+  it('includes "high-quality synthesis" reason for neural/natural/enhanced/premium voices', () => {
+    const voice = makeVoice('Test Neural Voice', 'en-US');
+    const [entry] = getRankedVoices([voice]);
+    expect(entry.reasons).toContain('high-quality synthesis (enhanced/premium/natural/neural)');
+  });
+
+  it('includes "English locale" for en-US voices', () => {
     const voice = makeVoice('Test Voice', 'en-US');
     const [entry] = getRankedVoices([voice]);
-    expect(entry.reasons).toContain('exact language match');
+    expect(entry.reasons).toContain('English locale');
   });
 
   it('includes "local service" for local voices', () => {
@@ -372,13 +373,22 @@ describe('getRankedVoices', () => {
     expect(entry.reasons).toContain('penalized compact voice');
   });
 
-  it('Google US English scores higher than Samantha', () => {
+  it('Google US English and Samantha score equally as known-good names', () => {
     const google = makeVoice('Google US English', 'en-US');
     const samantha = makeVoice('Samantha', 'en-US');
     const ranked = getRankedVoices([google, samantha]);
     const googleEntry = ranked.find((r) => r.voice === google)!;
     const samanthaEntry = ranked.find((r) => r.voice === samantha)!;
-    expect(googleEntry.score).toBeGreaterThan(samanthaEntry.score);
+    expect(googleEntry.score).toBe(samanthaEntry.score);
+  });
+
+  it('a neural voice scores higher than a known-good plain voice', () => {
+    const neural = makeVoice('Generic Neural', 'en-US');
+    const samantha = makeVoice('Samantha', 'en-US');
+    const ranked = getRankedVoices([neural, samantha]);
+    const neuralEntry = ranked.find((r) => r.voice === neural)!;
+    const samanthaEntry = ranked.find((r) => r.voice === samantha)!;
+    expect(neuralEntry.score).toBeGreaterThan(samanthaEntry.score);
   });
 });
 

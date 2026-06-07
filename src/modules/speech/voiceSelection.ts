@@ -1,25 +1,25 @@
 import type {
   SpeechSynthesisAdapter,
   SpeechSynthesisVoiceAdapter,
-  VoicePreferences,
 } from './types.js';
 
-/**
- * Known high-quality English voices in priority order.
- * Applied as baseline scoring regardless of caller preferences.
- * Google US English must rank well above Samantha so local/default bonuses
- * for Samantha (max +7) cannot bridge the 35-point priority gap.
- */
-const PRIORITY_VOICE_NAMES = [
-  'Google US English',      // index 0 → +60
-  'Google UK English Female', // index 1 → +55
-  'Google UK English Male',   // index 2 → +50
-  'Microsoft Aria',         // index 3 → +45
-  'Microsoft Jenny',        // index 4 → +40
-  'Microsoft Zira',         // index 5 → +35
-  'Alex',                   // index 6 → +30
-  'Samantha',               // index 7 → +25
-] as const;
+/** Name substrings indicating a higher-fidelity synthesis engine. */
+const HIGH_QUALITY_PATTERNS = ['enhanced', 'premium', 'natural', 'neural'];
+
+/** Known good voice names, regardless of platform. */
+const KNOWN_GOOD_NAMES = [
+  'Google US English',
+  'Microsoft Aria',
+  'Microsoft Jenny',
+  'Microsoft Guy',
+  'Alex',
+  'Ava',
+  'Allison',
+  'Samantha',
+];
+
+/** English locale tags that earn the locale bonus. */
+const ENGLISH_LOCALES = ['en-US', 'en-GB', 'en-CA', 'en-AU'];
 
 /** Name substrings that identify known low-quality synthesis engines. */
 const LOW_QUALITY_PATTERNS = ['espeak', 'festival', 'mbrola'];
@@ -62,7 +62,7 @@ export interface RankedVoice {
  * Pure function — useful for testing and dev-mode diagnostics.
  */
 export function getRankedVoices(voices: SpeechSynthesisVoiceAdapter[]): RankedVoice[] {
-  return voices.map((voice) => scoreVoiceWithReasons(voice, ['en-US'], [], true));
+  return voices.map((voice) => scoreVoiceWithReasons(voice));
 }
 
 export function getAvailableVoices(
@@ -93,36 +93,28 @@ export function loadVoices(
 }
 
 /**
- * Score and rank voices against preferences, returning the best match.
- * Returns null when the voice list is empty.
+ * Scores and ranks all available voices, returning the highest-quality
+ * English voice on the device. Returns null when the voice list is empty.
  *
  * Scoring (additive, higher = better):
- *   Exact lang match langs[i]:            100 - (i * 20)
- *   Lang prefix match ("en" → "en-US"):   +40 (only when no exact match)
- *   Priority voice name list match:        +60 (index 0) down to +25 (index 7)
- *   Name substring match preferredNames:   (n - i) * 10
- *   enhanced / premium in name:            +15
- *   Low-quality engine (espeak etc.):      −50
- *   localService when preferLocal=true:    +5
- *   voice.default:                         +2  (tie-breaker)
+ *   Name contains enhanced/premium/natural/neural: +100
+ *   Known good voice name (Google US English, …):  +50
+ *   English locale (en-US, en-GB, en-CA, en-AU):    +25
+ *   localService:                                    +5
+ *   voice.default:                                   +2
  *
  * Ties are broken by original array position (earlier wins).
  */
 export function selectPreferredVoice(
   voices: SpeechSynthesisVoiceAdapter[],
-  preferences?: VoicePreferences,
 ): SpeechSynthesisVoiceAdapter | null {
   if (voices.length === 0) return null;
 
-  const langs = preferences?.langs ?? ['en-US'];
-  const preferredNames = preferences?.preferredNames ?? [];
-  const preferLocal = preferences?.preferLocal ?? true;
-
   let bestVoice = voices[0];
-  let bestScore = scoreVoice(voices[0], langs, preferredNames, preferLocal);
+  let bestScore = scoreVoice(voices[0]);
 
   for (let i = 1; i < voices.length; i++) {
-    const s = scoreVoice(voices[i], langs, preferredNames, preferLocal);
+    const s = scoreVoice(voices[i]);
     if (s > bestScore) {
       bestScore = s;
       bestVoice = voices[i];
@@ -134,7 +126,7 @@ export function selectPreferredVoice(
       ((import.meta as Record<string, { DEV?: boolean }>).env).DEV) {
     const englishVoices = voices.filter((v) => v.lang.toLowerCase().startsWith('en'));
     const ranked = englishVoices
-      .map((v) => scoreVoiceWithReasons(v, langs, preferredNames, preferLocal))
+      .map((v) => scoreVoiceWithReasons(v))
       .sort((a, b) => b.score - a.score);
     console.group('[VoiceSelection] ranked English voices');
     ranked.forEach(({ voice, score, reasons }) => {
@@ -177,10 +169,9 @@ export function getRecommendedVoices(
 
   // Step 3 — Deduplicate: group by normalised name + first lang segment
   const groups = new Map<string, { voice: SpeechSynthesisVoiceAdapter; score: number }>();
-  const scoringLangs = ['en-US'];
   for (const voice of qualified) {
     const key = normaliseVoiceName(voice.name) + '|' + voice.lang.toLowerCase();
-    const s = scoreVoice(voice, scoringLangs, [], true);
+    const s = scoreVoice(voice);
     const existing = groups.get(key);
     if (!existing || s > existing.score) {
       groups.set(key, { voice, score: s });
@@ -206,60 +197,33 @@ function normaliseVoiceName(name: string): string {
     .trim();
 }
 
-function scoreVoice(
-  voice: SpeechSynthesisVoiceAdapter,
-  langs: string[],
-  preferredNames: string[],
-  preferLocal: boolean,
-): number {
-  return scoreVoiceWithReasons(voice, langs, preferredNames, preferLocal).score;
+function scoreVoice(voice: SpeechSynthesisVoiceAdapter): number {
+  return scoreVoiceWithReasons(voice).score;
 }
 
-function scoreVoiceWithReasons(
-  voice: SpeechSynthesisVoiceAdapter,
-  langs: string[],
-  preferredNames: string[],
-  preferLocal: boolean,
-): RankedVoice {
+function scoreVoiceWithReasons(voice: SpeechSynthesisVoiceAdapter): RankedVoice {
   let score = 0;
   const reasons: string[] = [];
   const nameLower = voice.name.toLowerCase();
+  const langLower = voice.lang.toLowerCase();
 
-  // Language scoring
-  let hasExactMatch = false;
-  for (let i = 0; i < langs.length; i++) {
-    if (voice.lang === langs[i]) {
-      score += 100 - i * 20;
-      hasExactMatch = true;
-      reasons.push('exact language match');
-      break;
-    }
-  }
-  if (!hasExactMatch) {
-    for (const lang of langs) {
-      if (voice.lang.startsWith(lang + '-') || lang.startsWith(voice.lang + '-')) {
-        score += 40;
-        reasons.push('language prefix match');
-        break;
-      }
-    }
+  // High-fidelity synthesis quality signal
+  if (HIGH_QUALITY_PATTERNS.some((p) => nameLower.includes(p))) {
+    score += 100;
+    reasons.push('high-quality synthesis (enhanced/premium/natural/neural)');
   }
 
-  // Priority voice name list — baked-in quality ranking
-  let priorityMatched = false;
-  for (let i = 0; i < PRIORITY_VOICE_NAMES.length; i++) {
-    if (nameLower.includes(PRIORITY_VOICE_NAMES[i].toLowerCase())) {
-      score += 60 - i * 5;
-      reasons.push(`preferred: ${PRIORITY_VOICE_NAMES[i]}`);
-      priorityMatched = true;
-      break;
-    }
+  // Known good voice name
+  const knownGood = KNOWN_GOOD_NAMES.find((n) => nameLower.includes(n.toLowerCase()));
+  if (knownGood) {
+    score += 50;
+    reasons.push(`known good voice: ${knownGood}`);
   }
 
-  // Enhanced/premium quality signal
-  if (nameLower.includes('enhanced') || nameLower.includes('premium')) {
-    score += 15;
-    if (!priorityMatched) reasons.push('enhanced/premium quality');
+  // English locale bonus
+  if (ENGLISH_LOCALES.some((l) => langLower === l.toLowerCase())) {
+    score += 25;
+    reasons.push('English locale');
   }
 
   // Low-quality synthesis engine penalty
@@ -287,19 +251,14 @@ function scoreVoiceWithReasons(
     reasons.push('penalized compact voice');
   }
 
-  // Caller-supplied name preferences (override / supplement the default list)
-  for (let i = 0; i < preferredNames.length; i++) {
-    if (nameLower.includes(preferredNames[i].toLowerCase())) {
-      score += (preferredNames.length - i) * 10;
-      break;
-    }
-  }
-
-  if (preferLocal && voice.localService) {
+  if (voice.localService) {
     score += 5;
     reasons.push('local service');
   }
-  if (voice.default) score += 2;
+  if (voice.default) {
+    score += 2;
+    reasons.push('default voice');
+  }
 
   return { voice, score, reasons };
 }

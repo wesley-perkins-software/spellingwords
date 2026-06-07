@@ -1,0 +1,40 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Voice diagnostics" description="Lists available speech synthesis voices and how they score.">
+  <div class="mx-auto max-w-3xl px-6 py-10">
+    <h1 class="font-display text-2xl font-bold text-app-charcoal">Voice diagnostics</h1>
+    <p class="mt-2 text-sm text-app-charcoal/60">
+      Ranked English voices on this device, with the score and reasons behind each ranking.
+      The highest-scoring voice is the one used during spelling tests.
+    </p>
+    <ul id="voice-list" class="mt-6 flex flex-col gap-2 font-mono text-xs text-app-charcoal/70"></ul>
+  </div>
+</Layout>
+
+<script>
+  import { createSpeechController, getRankedVoices, getRecommendedVoices } from '@/modules/speech';
+
+  const speech = createSpeechController();
+  const list = document.getElementById('voice-list') as HTMLUListElement;
+
+  async function render(): Promise<void> {
+    const voices = await speech.loadVoices();
+    const ranked = getRankedVoices(voices).sort((a, b) => b.score - a.score);
+    const recommended = new Set(getRecommendedVoices(voices));
+
+    list.innerHTML = '';
+    for (const { voice, score, reasons } of ranked) {
+      const item = document.createElement('li');
+      item.className = 'rounded-xl border border-slate-100 bg-slate-50 p-3';
+      const star = recommended.has(voice) ? '★ ' : '';
+      item.textContent =
+        `${star}${score.toString().padStart(4)}  ${voice.name} (${voice.lang})` +
+        ` local=${voice.localService} default=${voice.default} — ${reasons.join(', ')}`;
+      list.appendChild(item);
+    }
+  }
+
+  render();
+</script>

@@ -103,7 +103,7 @@ describe('createSpeechController', () => {
       const controller = createSpeechController(factory);
       controller.speakWord('cat');
       const utterance = (synthesis.speak as ReturnType<typeof vi.fn>).mock.calls[0][0];
-      expect(utterance.rate).toBe(0.78);
+      expect(utterance.rate).toBe(0.5);
       expect(utterance.pitch).toBe(1);
       expect(utterance.volume).toBe(1);
       expect(utterance.lang).toBe('en-US');

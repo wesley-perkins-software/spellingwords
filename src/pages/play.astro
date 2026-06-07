@@ -175,25 +175,20 @@ import Layout from '@/layouts/Layout.astro';
               role="group"
               aria-label="Voice settings"
             >
-              <!-- Auto-selected voice status -->
-              <p class="text-xs text-app-charcoal/50">
-                Voice: <span id="voice-name-display">best available</span>
-              </p>
-
               <!-- Speed slider -->
               <div class="flex items-center gap-3">
                 <label for="speed-range" class="text-xs font-medium text-app-charcoal/50 whitespace-nowrap w-10">Speed</label>
                 <input
                   id="speed-range"
                   type="range"
-                  min="0.6"
-                  max="1.1"
+                  min="0.30"
+                  max="1.00"
                   step="0.05"
-                  value="0.78"
+                  value="0.50"
                   class="flex-1 accent-classroom-blue"
                   aria-label="Speech speed"
                 />
-                <span id="speed-label" class="text-xs font-medium text-app-charcoal/40 w-10 text-right">0.78×</span>
+                <span id="speed-label" class="text-xs font-medium text-app-charcoal/40 w-10 text-right">0.50×</span>
               </div>
 
               <!-- Test voice -->
@@ -335,7 +330,6 @@ import Layout from '@/layouts/Layout.astro';
   // Voice controls
   const btnVoiceToggle = $('btn-voice-toggle') as HTMLButtonElement;
   const voiceSettingsPanel = $('voice-settings-panel');
-  const voiceNameDisplay = $('voice-name-display');
   const speedRange = $('speed-range') as HTMLInputElement;
   const speedLabel = $('speed-label');
   const btnTestVoice = $('btn-test-voice') as HTMLButtonElement;
@@ -347,7 +341,7 @@ import Layout from '@/layouts/Layout.astro';
 
   // Voice settings state — no persistence; resets on page load
   let selectedVoice: SpeechSynthesisVoiceAdapter | null = null;
-  let currentRate = 0.78;
+  let currentRate = 0.5;
 
   // --- Screen management ---
   function showScreen(target: HTMLElement): void {
@@ -365,9 +359,6 @@ import Layout from '@/layouts/Layout.astro';
   async function initVoiceControls(): Promise<void> {
     const allVoices = await speech.loadVoices();
     selectedVoice = selectPreferredVoice(allVoices);
-    if (selectedVoice) {
-      voiceNameDisplay.textContent = selectedVoice.name;
-    }
   }
 
   // --- Initialization ---
@@ -407,6 +398,10 @@ import Layout from '@/layouts/Layout.astro';
     return { voice: selectedVoice, rate: currentRate };
   }
 
+  function spokenPhrase(word: string): string {
+    return `The word is ${word}. ${word}.`;
+  }
+
   function renderQuestion(): void {
     const current = state.words[state.currentIndex];
     const total = state.words.length;
@@ -419,7 +414,7 @@ import Layout from '@/layouts/Layout.astro';
     showScreen(screenQuestion);
     requestAnimationFrame(() => answerInput.focus());
 
-    speech.speakWord(current.word, speechOptions());
+    speech.speakWord(spokenPhrase(current.word), speechOptions());
   }
 
   function renderFeedback(): void {
@@ -534,7 +529,7 @@ import Layout from '@/layouts/Layout.astro';
   });
 
   btnTestVoice.addEventListener('click', () => {
-    speech.speakWord('because', speechOptions());
+    speech.speakWord('The word is because. Because.', speechOptions());
   });
 
   // --- Boot ---

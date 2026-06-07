@@ -50,21 +50,6 @@ export interface SpeechOptions {
   voice?: SpeechSynthesisVoiceAdapter | null;
 }
 
-export interface VoicePreferences {
-  /**
-   * BCP-47 language tags ranked by priority, e.g. ["en-US", "en-GB", "en"].
-   * Defaults to ["en-US"].
-   */
-  langs?: string[];
-  /**
-   * Substrings to match in voice names, ranked by priority.
-   * E.g. ["Samantha", "Google US English", "Microsoft Zira"].
-   */
-  preferredNames?: string[];
-  /** Prefer on-device (local) voices over network voices. Defaults to true. */
-  preferLocal?: boolean;
-}
-
 /**
  * Stable codes describing why a speech operation could not be completed.
  *

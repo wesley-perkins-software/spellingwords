@@ -12,19 +12,19 @@ interface Props {
 const { category, difficulty, durationMinutes, wordCount } = Astro.props;
 ---
 
-<div class="flex flex-wrap items-center gap-2 text-xs font-semibold">
+<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
   {category && (
-    <span class="rounded-full bg-classroom-blue/12 px-3 py-1 text-classroom-blue">
+    <span class="rounded-md bg-accent-indigo/10 px-3 py-1 text-accent-indigo">
       {categoryLabels[category] ?? category}
     </span>
   )}
-  <span class="rounded-full bg-classroom-yellow/20 px-3 py-1 text-amber-700">
+  <span class="rounded-md bg-accent-rust/10 px-3 py-1 text-accent-rust">
     {difficultyLabels[difficulty] ?? difficulty}
   </span>
-  <span class="rounded-full bg-app-sage/15 px-3 py-1 text-app-sage">
+  <span class="rounded-md bg-app-sage/10 px-3 py-1 text-app-sage">
     ~{durationMinutes} min
   </span>
-  <span class="rounded-full bg-classroom-coral/12 px-3 py-1 text-classroom-coral">
+  <span class="rounded-md bg-accent-plum/10 px-3 py-1 text-accent-plum">
     {wordCount} words
   </span>
 </div>

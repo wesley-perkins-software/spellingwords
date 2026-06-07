@@ -63,23 +63,23 @@ const breadcrumbJsonLd = {
   ogType="article"
   jsonLd={breadcrumbJsonLd}
 >
-  <header class="sticky top-0 z-10 border-b border-classroom-blue/10 bg-white/90 backdrop-blur-sm">
+  <header class="sticky top-0 z-10 border-b border-app-hairline bg-app-cream/90 backdrop-blur-sm">
     <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
       <a
         href="/"
-        class="flex items-center gap-2 font-display text-lg font-bold text-app-charcoal tracking-tight"
+        class="flex items-center gap-2 font-display text-lg font-semibold text-app-charcoal tracking-tight"
         aria-label="spellingwords home"
       >
         <span
           aria-hidden="true"
-          class="flex h-7 w-7 items-center justify-center rounded-xl bg-classroom-blue text-white"
+          class="flex h-7 w-7 items-center justify-center rounded-md bg-app-charcoal text-app-cream"
         >
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9.5 4.5l2 2" stroke="white" stroke-width="1.75" stroke-linecap="round"/>
+            <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.5 4.5l2 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
           </svg>
         </span>
-        spelling<span class="text-classroom-blue">words</span>
+        spelling<span class="text-app-sage">words</span>
       </a>
     </div>
   </header>
@@ -91,10 +91,10 @@ const breadcrumbJsonLd = {
       </div>
 
       <div class="flex flex-col gap-3">
-        <h1 class="font-display text-2xl font-bold text-app-charcoal md:text-3xl">{data.title}</h1>
+        <h1 class="font-display text-2xl font-semibold text-app-charcoal md:text-3xl">{data.title}</h1>
         <p class="max-w-2xl text-base leading-relaxed text-app-charcoal/60">{data.description}</p>
         {data.shortAnswer && (
-          <p class="max-w-2xl rounded-2xl border border-classroom-blue/15 bg-classroom-blue/5 px-4 py-3 text-sm leading-relaxed text-app-charcoal/70">
+          <p class="max-w-2xl rounded-xl border border-app-sage/20 bg-app-sage/5 px-4 py-3 text-sm leading-relaxed text-app-charcoal/70">
             {data.shortAnswer}
           </p>
         )}
@@ -115,7 +115,7 @@ const breadcrumbJsonLd = {
           id="btn-start-test"
           type="button"
           data-words={playWordsJson}
-          class="flex-1 rounded-2xl bg-classroom-blue px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-classroom-blue/25 transition hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-classroom-blue active:scale-95 sm:flex-none"
+          class="flex-1 rounded-lg bg-app-charcoal px-6 py-3.5 text-sm font-semibold text-app-cream transition hover:bg-app-charcoal/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-sage active:scale-[0.98] sm:flex-none"
           aria-label={`Start a spelling test for ${data.title}`}
         >
           Start Spelling Test →
@@ -123,19 +123,19 @@ const breadcrumbJsonLd = {
         <button
           type="button"
           disabled
-          class="flex-1 rounded-2xl border-2 border-classroom-green/40 bg-classroom-green/8 px-6 py-3.5 text-sm font-bold text-classroom-green opacity-40 sm:flex-none"
+          class="flex-1 rounded-lg border border-app-sage/30 bg-app-sage/5 px-6 py-3.5 text-sm font-semibold text-app-sage opacity-50 sm:flex-none"
           aria-label="Practice words — coming soon"
         >
           Practice Words
         </button>
         <span
-          class="flex-1 rounded-2xl px-6 py-3.5 text-center text-sm font-semibold text-app-charcoal/30 sm:flex-none"
+          class="flex-1 rounded-lg px-6 py-3.5 text-center text-sm font-medium text-app-charcoal/30 sm:flex-none"
           aria-hidden="true"
         >
           Print Worksheet
         </span>
       </div>
-      <p id="start-test-status" class="mt-2 text-xs text-classroom-coral" aria-live="polite" aria-atomic="true"></p>
+      <p id="start-test-status" class="mt-2 text-xs text-feedback-incorrect" aria-live="polite" aria-atomic="true"></p>
 
       <!-- Word preview -->
       <div class="mt-10">
@@ -145,10 +145,10 @@ const breadcrumbJsonLd = {
       <!-- What this list practices -->
       {data.skillTags.length > 0 && (
         <div class="mt-8">
-          <h2 class="mb-3 font-display text-base font-bold text-app-charcoal">What this list practices</h2>
+          <h2 class="mb-3 font-display text-base font-semibold text-app-charcoal">What this list practices</h2>
           <div class="flex flex-wrap gap-2">
             {data.skillTags.map((tag) => (
-              <span class="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-app-charcoal/60">
+              <span class="rounded-md border border-app-hairline bg-white px-3 py-1 text-xs font-medium text-app-charcoal/60">
                 {tag}
               </span>
             ))}
@@ -158,7 +158,7 @@ const breadcrumbJsonLd = {
 
       <!-- Why these words matter -->
       <div class="prose prose-sm mt-8 max-w-2xl text-app-charcoal/70">
-        <h2 class="mb-3 font-display text-base font-bold text-app-charcoal">Why these words matter</h2>
+        <h2 class="mb-3 font-display text-base font-semibold text-app-charcoal">Why these words matter</h2>
         <Content />
       </div>
 
@@ -170,7 +170,7 @@ const breadcrumbJsonLd = {
     </section>
   </main>
 
-  <footer class="border-t border-slate-100 bg-white/60">
+  <footer class="border-t border-app-hairline">
     <div class="mx-auto max-w-3xl px-6 py-8 text-center text-xs text-app-charcoal/35">
       &copy; {new Date().getFullYear()} spellingwords.app &mdash; Free spelling practice for every classroom.
     </div>

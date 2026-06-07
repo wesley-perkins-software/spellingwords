@@ -7,17 +7,17 @@ const { words } = Astro.props;
 ---
 
 <div
-  class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg"
+  class="overflow-hidden rounded-xl border border-app-hairline bg-white"
   role="figure"
   aria-label="Word entry panel — example preview"
 >
   <!-- Label bar -->
-  <div class="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-5 py-3">
-    <span class="text-xs font-bold uppercase tracking-widest text-app-charcoal/40">
+  <div class="flex items-center justify-between border-b border-app-hairline px-5 py-3">
+    <span class="text-xs font-semibold uppercase tracking-widest text-app-charcoal/40">
       Enter one word per line
     </span>
     <span
-      class="rounded-full bg-classroom-blue/12 px-3 py-0.5 text-xs font-bold text-classroom-blue"
+      class="rounded-md bg-app-sage/10 px-3 py-0.5 font-mono text-xs font-medium text-app-sage"
       aria-label={`${words.length} words`}
     >
       {words.length} words
@@ -31,7 +31,7 @@ const { words } = Astro.props;
   >
     {
       words.map((word: string) => (
-        <div class="flex items-center border-b border-slate-100 py-2.5 last:border-0">
+        <div class="flex items-center border-b border-app-hairline py-2.5 last:border-0">
           <span class="font-sans text-base font-medium text-app-charcoal">{word}</span>
         </div>
       ))
@@ -43,8 +43,8 @@ const { words } = Astro.props;
   </div>
 
   <!-- Preview footer -->
-  <div class="border-t border-slate-100 bg-slate-50/80 px-5 py-2.5">
-    <p class="text-xs text-slate-400">
+  <div class="border-t border-app-hairline px-5 py-2.5">
+    <p class="text-xs text-app-charcoal/40">
       Preview only — paste your own words to get started
     </p>
   </div>
@@ -55,7 +55,7 @@ const { words } = Astro.props;
     display: inline-block;
     width: 2px;
     height: 1.125rem;
-    background-color: #3B82F6;
+    background-color: #6E8870;
     border-radius: 1px;
     vertical-align: middle;
     animation: blink 1.1s step-end infinite;

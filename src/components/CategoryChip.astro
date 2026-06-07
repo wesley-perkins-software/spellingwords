@@ -7,17 +7,17 @@ interface Props {
 const { label, variant = 'blue' } = Astro.props;
 
 const variantClasses: Record<NonNullable<Props['variant']>, string> = {
-  blue: 'bg-classroom-blue/15 text-classroom-blue border-classroom-blue/25 hover:bg-classroom-blue/25',
-  yellow: 'bg-classroom-yellow/20 text-amber-700 border-classroom-yellow/40 hover:bg-classroom-yellow/30',
-  coral: 'bg-classroom-coral/15 text-classroom-coral border-classroom-coral/25 hover:bg-classroom-coral/25',
-  green: 'bg-classroom-green/15 text-classroom-green border-classroom-green/25 hover:bg-classroom-green/25',
-  sage: 'bg-app-sage/15 text-app-sage border-app-sage/25 hover:bg-app-sage/25',
+  blue: 'bg-accent-indigo/10 text-accent-indigo border-accent-indigo/20 hover:bg-accent-indigo/20',
+  yellow: 'bg-accent-rust/10 text-accent-rust border-accent-rust/20 hover:bg-accent-rust/20',
+  coral: 'bg-accent-plum/10 text-accent-plum border-accent-plum/20 hover:bg-accent-plum/20',
+  green: 'bg-accent-moss/10 text-accent-moss border-accent-moss/20 hover:bg-accent-moss/20',
+  sage: 'bg-app-sage/10 text-app-sage border-app-sage/20 hover:bg-app-sage/20',
 };
 ---
 
 <button
   type="button"
-  class={`inline-flex cursor-pointer items-center rounded-2xl border px-4 py-1.5 text-sm font-semibold transition-colors ${variantClasses[variant]}`}
+  class={`inline-flex cursor-pointer items-center rounded-lg border px-4 py-1.5 text-sm font-medium transition-colors ${variantClasses[variant]}`}
 >
   {label}
 </button>

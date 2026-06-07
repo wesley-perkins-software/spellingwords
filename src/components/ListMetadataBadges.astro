@@ -14,17 +14,17 @@ const { category, difficulty, durationMinutes, wordCount } = Astro.props;
 
 <div class="flex flex-wrap items-center gap-2 text-xs font-medium">
   {category && (
-    <span class="rounded-md bg-accent-indigo/10 px-3 py-1 text-accent-indigo">
+    <span class="rounded-full bg-chip-sky px-3 py-1 font-semibold text-white">
       {categoryLabels[category] ?? category}
     </span>
   )}
-  <span class="rounded-md bg-accent-rust/10 px-3 py-1 text-accent-rust">
+  <span class="rounded-full bg-chip-sun px-3 py-1 font-semibold text-white">
     {difficultyLabels[difficulty] ?? difficulty}
   </span>
-  <span class="rounded-md bg-app-sage/10 px-3 py-1 text-app-sage">
+  <span class="rounded-full bg-app-cloud px-3 py-1 font-semibold text-brand-blue">
     ~{durationMinutes} min
   </span>
-  <span class="rounded-md bg-accent-plum/10 px-3 py-1 text-accent-plum">
+  <span class="rounded-full bg-chip-berry px-3 py-1 font-semibold text-white">
     {wordCount} words
   </span>
 </div>

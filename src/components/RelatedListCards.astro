@@ -12,15 +12,15 @@ const { heading, items, listLink } = Astro.props;
 
 {items.length > 0 && (
   <div class="mt-8">
-    <h2 class="mb-3 font-display text-base font-semibold text-app-charcoal">{heading}</h2>
+    <h2 class="mb-3 font-display text-base font-semibold text-ink">{heading}</h2>
     <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
       {items.map((linked) => (
         <a
           href={listLink(linked)}
-          class="flex-1 rounded-xl border border-app-hairline bg-white px-4 py-3 text-sm transition hover:border-app-sage/40 sm:flex-none sm:min-w-[14rem]"
+          class="flex-1 rounded-2xl border border-line bg-white px-4 py-3 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] text-sm transition hover:border-brand-blue/40 sm:flex-none sm:min-w-[14rem]"
         >
-          <span class="block font-display font-semibold text-app-charcoal">{linked.data.title}</span>
-          <span class="mt-0.5 block text-xs text-app-charcoal/50">{linked.data.description}</span>
+          <span class="block font-display font-semibold text-ink">{linked.data.title}</span>
+          <span class="mt-0.5 block text-xs text-ink-soft">{linked.data.description}</span>
         </a>
       ))}
     </div>

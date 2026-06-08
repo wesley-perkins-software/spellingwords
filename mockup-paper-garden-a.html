@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpellingWords — Paper Garden A Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Design tokens ─────────────────────────────────────── */
+    :root {
+      --chalk:       #FBF8F3;
+      --cream:       #F3EDE3;
+      --cream-deep:  #EAE0CC;
+      --bark:        #2B2318;
+      --bark-soft:   #6B5E52;
+      --bark-faint:  #9B8E84;
+      --red:         #C94030;
+      --red-deep:    #A83226;
+      --red-glow:    rgba(201, 64, 48, 0.22);
+      --gold:        #E8A830;
+      --gold-light:  #FFF3D4;
+      --meadow:      #4C9E6A;
+      --meadow-light:#E8F5EE;
+      --sky:         #4A80B4;
+      --sky-light:   #EBF3FB;
+      --border:      rgba(43, 35, 24, 0.11);
+      --border-mid:  rgba(43, 35, 24, 0.18);
+      --shadow-sm:   0 2px 8px  -2px rgba(43, 35, 24, 0.10);
+      --shadow-md:   0 6px 20px -6px rgba(43, 35, 24, 0.14);
+      --shadow-lg:   0 12px 36px -8px rgba(43, 35, 24, 0.18);
+    }
+
+    /* ─── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', system-ui, sans-serif;
+      background-color: var(--chalk);
+      color: var(--bark);
+      min-height: 100vh;
+    }
+
+    /* Subtle paper grain sits above everything */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 280px 280px;
+    }
+
+    /* ─── Layout helpers ─────────────────────────────────────── */
+    .wrap {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ─── Animations ─────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .anim { animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .anim-1 { animation-delay: 0.05s; }
+    .anim-2 { animation-delay: 0.13s; }
+    .anim-3 { animation-delay: 0.21s; }
+    .anim-4 { animation-delay: 0.29s; }
+    .anim-5 { animation-delay: 0.37s; }
+
+    /* ═══════════════════════════════════════════════════════════
+       HEADER
+    ═══════════════════════════════════════════════════════════ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(251, 248, 243, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+
+    .wordmark {
+      font-family: 'Fredoka', system-ui, sans-serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--bark);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .wordmark-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      position: relative;
+      top: 1px;
+    }
+
+    .wordmark em {
+      color: var(--red);
+      font-style: normal;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--bark-soft);
+      text-decoration: none;
+      padding: 7px 15px;
+      border-radius: 100px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background: var(--cream);
+      color: var(--bark);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════════════════ */
+    .hero {
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ruled-paper ghost lines in hero — ultra subtle */
+    .hero::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 640px;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 35px,
+        rgba(43, 35, 24, 0.042) 35px,
+        rgba(43, 35, 24, 0.042) 36px
+      );
+      pointer-events: none;
+    }
+
+    /* Faint decorative word behind the input */
+    .hero-ghost-word {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -52%);
+      font-family: 'Atkinson Hyperlegible', monospace;
+      font-size: clamp(120px, 18vw, 220px);
+      font-weight: 700;
+      color: rgba(43, 35, 24, 0.035);
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+
+    .hero-inner {
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-headline {
+      font-family: 'Fredoka', system-ui, sans-serif;
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 700;
+      color: var(--bark);
+      letter-spacing: -0.025em;
+      line-height: 1.08;
+      margin-bottom: 36px;
+    }
+
+    .hero-headline em {
+      color: var(--red);
+      font-style: normal;
+    }
+
+    /* ─── Input card ─────────────────────────────────────────── */
+    .hero-input-card {
+      max-width: 580px;
+      margin: 0 auto 22px;
+      background: white;
+      border: 1.5px solid var(--border-mid);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: box-shadow 0.2s;
+    }
+
+    .hero-input-card:focus-within {
+      box-shadow: var(--shadow-lg), 0 0 0 3px var(--red-glow);
+    }
+
+    .input-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--cream);
+      padding: 10px 18px;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .input-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--bark-soft);
+      letter-spacing: 0.01em;
+    }
+
+    .word-count-pill {
+      font-family: 'Nunito', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--bark-soft);
+      background: var(--cream-deep);
+      padding: 4px 12px;
+      border-radius: 100px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .word-count-pill.has-words {
+      background: var(--bark);
+      color: var(--chalk);
+    }
+
+    .hero-textarea {
+      width: 100%;
+      min-height: 188px;
+      padding: 16px 20px;
+      background: white;
+      border: none;
+      outline: none;
+      resize: none;
+      font-family: 'Atkinson Hyperlegible', monospace;
+      font-size: 19px;
+      line-height: 1.85;
+      color: var(--bark);
+      letter-spacing: 0.015em;
+    }
+
+    .hero-textarea::placeholder {
+      color: var(--bark-faint);
+    }
+
+    .input-bottom-bar {
+      padding: 8px 18px;
+      border-top: 1.5px solid var(--border);
+      background: var(--cream);
+    }
+
+    .input-status {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--bark-soft);
+    }
+
+    /* ─── CTA button ─────────────────────────────────────────── */
+    .btn-start {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: white;
+      background: var(--red);
+      border: none;
+      border-radius: 100px;
+      padding: 16px 44px 15px;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 8px 28px -6px var(--red-glow);
+    }
+
+    .btn-start:hover {
+      background: var(--red-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px -6px rgba(201, 64, 48, 0.35);
+    }
+
+    .btn-start:active { transform: translateY(0px); }
+
+    .btn-start .arrow {
+      transition: transform 0.15s;
+    }
+
+    .btn-start:hover .arrow { transform: translateX(4px); }
+
+    .hero-or {
+      display: block;
+      margin-top: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--bark-faint);
+    }
+
+    .hero-or a {
+      color: var(--sky);
+      text-decoration: none;
+      font-weight: 700;
+      border-bottom: 1.5px solid rgba(74, 128, 180, 0.35);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .hero-or a:hover { color: #305e8a; border-color: #305e8a; }
+
+    /* ═══════════════════════════════════════════════════════════
+       SECTION DIVIDER
+    ═══════════════════════════════════════════════════════════ */
+    .divider {
+      height: 1.5px;
+      background: var(--border);
+      border: none;
+      margin: 0 28px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       CURATED LISTS
+    ═══════════════════════════════════════════════════════════ */
+    .curated {
+      padding: 68px 0 56px;
+      scroll-margin-top: 72px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 700;
+      color: var(--bark);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--bark-soft);
+      max-width: 460px;
+      line-height: 1.55;
+      margin-bottom: 36px;
+    }
+
+    /* Category cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 720px) {
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 460px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    .cat-card {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 0;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.15s;
+    }
+
+    .cat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(43, 35, 24, 0.22);
+    }
+
+    .cat-card-accent {
+      height: 4px;
+      background: var(--accent-color, var(--sky));
+      flex-shrink: 0;
+    }
+
+    .cat-card-body {
+      padding: 18px 18px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cat-count {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--bark-faint);
+    }
+
+    .cat-name {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--bark);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    .cat-desc {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--bark-soft);
+      line-height: 1.45;
+      margin-top: 2px;
+    }
+
+    .browse-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--sky);
+      text-decoration: none;
+      border-bottom: 2px solid rgba(74, 128, 180, 0.3);
+      padding-bottom: 2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .browse-link:hover { color: #305e8a; border-color: #305e8a; }
+
+    /* Animation delays for cards */
+    .cat-card:nth-child(1) { animation-delay: 0.04s; }
+    .cat-card:nth-child(2) { animation-delay: 0.08s; }
+    .cat-card:nth-child(3) { animation-delay: 0.12s; }
+    .cat-card:nth-child(4) { animation-delay: 0.16s; }
+    .cat-card:nth-child(5) { animation-delay: 0.20s; }
+    .cat-card:nth-child(6) { animation-delay: 0.24s; }
+
+    /* ═══════════════════════════════════════════════════════════
+       TRUST
+    ═══════════════════════════════════════════════════════════ */
+    .trust {
+      border-top: 1.5px solid var(--border);
+      padding: 52px 0 64px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .trust-grid { grid-template-columns: 1fr; }
+    }
+
+    .trust-item {
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 22px 22px 20px;
+    }
+
+    .trust-icon {
+      font-size: 22px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .trust-name {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--bark);
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .trust-desc {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--bark-soft);
+      line-height: 1.45;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════════ */
+    .site-footer {
+      border-top: 1.5px solid var(--border);
+      padding: 28px 0;
+      text-align: center;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--bark-faint);
+    }
+
+    .footer-copy a {
+      color: var(--bark-soft);
+      text-decoration: none;
+    }
+
+    .footer-copy a:hover { color: var(--bark); }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE ADJUSTMENTS
+    ═══════════════════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      .hero { padding: 56px 0 48px; }
+      .hero::before { width: 100%; }
+      .hero-ghost-word { font-size: 80px; }
+      .btn-start { font-size: 19px; padding: 14px 36px 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="wordmark" aria-label="spellingwords home">
+      <span class="wordmark-dot" aria-hidden="true"></span>
+      spelling<em>words</em>
+    </a>
+    <nav aria-label="Site navigation">
+      <ul class="site-nav">
+        <li><a href="#curated-lists" class="nav-link">Spelling Lists</a></li>
+        <li><a href="#" class="nav-link">How it works</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════════════════ -->
+<main id="main-content">
+  <section class="hero" aria-labelledby="hero-heading">
+
+    <!-- Ghost word — purely decorative -->
+    <span class="hero-ghost-word" aria-hidden="true">spelling</span>
+
+    <div class="wrap hero-inner">
+
+      <h1 id="hero-heading" class="hero-headline anim anim-1">
+        Practice <em>spelling</em>,<br>starting now.
+      </h1>
+
+      <!-- Input card -->
+      <div class="hero-input-card anim anim-2">
+        <div class="input-top-bar">
+          <label for="word-input" class="input-label">Enter one word per line</label>
+          <span class="word-count-pill" id="word-count-pill">0 words</span>
+        </div>
+        <textarea
+          id="word-input"
+          class="hero-textarea"
+          rows="7"
+          placeholder="friend&#10;because&#10;different&#10;people&#10;every&#10;school&#10;always"
+          spellcheck="false"
+          autocomplete="off"
+          aria-label="Spelling words, one per line"
+        ></textarea>
+        <div class="input-bottom-bar">
+          <p class="input-status" id="input-status" aria-live="polite">
+            Enter your words above, then press Start.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="anim anim-3">
+        <button class="btn-start" id="btn-start" type="button" aria-label="Start a spelling test">
+          Start Practicing <span class="arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <span class="hero-or anim anim-4">
+        or <a href="#curated-lists">choose from our spelling lists</a>
+      </span>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CURATED LISTS
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="curated wrap" id="curated-lists" aria-labelledby="curated-heading">
+
+    <div class="anim anim-1">
+      <p class="section-eyebrow">Ready-Made Lists</p>
+      <h2 id="curated-heading" class="section-title">Hundreds of spelling lists,<br>ready to use.</h2>
+      <p class="section-desc">
+        Choose by grade level, phonics pattern, sight words, and more —
+        all free, no account needed.
+      </p>
+    </div>
+
+    <div class="card-grid" role="list" aria-label="Spelling list categories">
+
+      <a href="/spelling-lists/grade/1st-grade" class="cat-card anim" role="listitem">
+        <div class="cat-card-accent" style="--accent-color: #5A8FC0;"></div>
+        <div class="cat-card-body">
+          <span class="cat-count">48 words</span>
+          <span class="cat-name">1st Grade</span>
+          <span class="cat-desc">High-frequency sight words for early readers</span>
+        </div>
+      </a>
+
+      <a href="/spelling-lists/grade/2nd-grade" class="cat-card anim" role="listitem">
+        <div class="cat-card-accent" style="--accent-color: #4C9E6A;"></div>
+        <div class="cat-card-body">
+          <span class="cat-count">72 words</span>
+          <span class="cat-name">2nd Grade</span>
+          <span class="cat-desc">Building blocks for confident spellers</span>
+        </div>
+      </a>
+
+      <a href="/spelling-lists/grade/3rd-grade" class="cat-card anim" role="listitem">
+        <div class="cat-card-accent" style="--accent-color: #E8A830;"></div>
+        <div class="cat-card-body">
+          <span class="cat-count">96 words</span>
+          <span class="cat-name">3rd Grade</span>
+          <span class="cat-desc">Compound words, prefixes, and more</span>
+        </div>
+      </a>
+
+      <a href="/spelling-lists/sight-words" class="cat-card anim" role="listitem">
+        <div class="cat-card-accent" style="--accent-color: #C46DB0;"></div>
+        <div class="cat-card-body">
+          <span class="cat-count">220 words</span>
+          <span class="cat-name">Sight Words</span>
+          <span class="cat-desc">Dolch and Fry high-frequency word lists</span>
+        </div>
+      </a>
+
+      <a href="/spelling-lists/phonics/silent-e" class="cat-card anim" role="listitem">
+        <div class="cat-card-accent" style="--accent-color: #C94030;"></div>
+        <div class="cat-card-body">
+          <span class="cat-count">64 words</span>
+          <span class="cat-name">Silent E</span>
+          <span class="cat-desc">Magic-E patterns for stronger phonics</span>
+        </div>
+      </a>
+
+      <a href="/spelling-lists/challenge/spelling-bee" class="cat-card anim" role="listitem">
+        <div class="cat-card-accent" style="--accent-color: #5A8FC0;"></div>
+        <div class="cat-card-body">
+          <span class="cat-count">150 words</span>
+          <span class="cat-name">Spelling Bee</span>
+          <span class="cat-desc">Classic bee words for competitive practice</span>
+        </div>
+      </a>
+
+    </div>
+
+    <a href="/spelling-lists" class="browse-link">
+      Browse the full spelling library →
+    </a>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TRUST
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="trust" aria-labelledby="trust-heading">
+    <div class="wrap">
+      <h2 id="trust-heading" class="sr-only">Why families and teachers choose spellingwords</h2>
+      <div class="trust-grid">
+
+        <div class="trust-item anim anim-1">
+          <span class="trust-icon" aria-hidden="true">📖</span>
+          <p class="trust-name">No account needed</p>
+          <p class="trust-desc">Jump straight in — no login, no email, no setup.</p>
+        </div>
+
+        <div class="trust-item anim anim-2">
+          <span class="trust-icon" aria-hidden="true">🎧</span>
+          <p class="trust-name">Hear every word</p>
+          <p class="trust-desc">Text-to-speech reads each word aloud, just like a real test.</p>
+        </div>
+
+        <div class="trust-item anim anim-3">
+          <span class="trust-icon" aria-hidden="true">💻</span>
+          <p class="trust-name">Works everywhere</p>
+          <p class="trust-desc">Chromebook, iPad, phone, or desktop — it just works.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <p class="footer-copy">
+    &copy; 2025 <a href="/">spellingwords.app</a> — Free spelling practice for every classroom.
+  </p>
+</footer>
+
+<!-- Screen-reader utility -->
+<style>.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }</style>
+
+<script>
+  const textarea = document.getElementById('word-input');
+  const pill     = document.getElementById('word-count-pill');
+  const status   = document.getElementById('input-status');
+  const btn      = document.getElementById('btn-start');
+
+  function parseWords(text) {
+    return text.split('\n').map(w => w.trim()).filter(Boolean);
+  }
+
+  function update() {
+    const words = parseWords(textarea.value);
+    const n = words.length;
+
+    pill.textContent = n === 1 ? '1 word' : `${n} words`;
+    pill.classList.toggle('has-words', n > 0);
+
+    if (n === 0) {
+      status.textContent = 'Enter your words above, then press Start.';
+      btn.disabled = true;
+      btn.style.opacity = '0.45';
+      btn.style.cursor  = 'not-allowed';
+    } else if (n > 200) {
+      status.textContent = 'Maximum 200 words — please remove some.';
+      btn.disabled = true;
+      btn.style.opacity = '0.45';
+      btn.style.cursor  = 'not-allowed';
+    } else {
+      status.textContent = `${n} word${n === 1 ? '' : 's'} ready to practice.`;
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btn.style.cursor  = 'pointer';
+    }
+  }
+
+  textarea.addEventListener('input', update);
+
+  btn.addEventListener('click', () => {
+    const words = parseWords(textarea.value);
+    if (!words.length) { textarea.focus(); return; }
+    // Production: window.location.href = `/play?list=${encodeWordList(words)}`
+    alert(`✓ Starting practice with ${words.length} word${words.length > 1 ? 's' : ''}:\n\n${words.slice(0, 8).join(', ')}${words.length > 8 ? '…' : ''}`);
+  });
+
+  // Initialise
+  update();
+
+  // Intersection observer for scroll-triggered animations on cards
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('anim');
+        io.unobserve(e.target);
+      }
+    }),
+    { threshold: 0.12 }
+  );
+
+  document.querySelectorAll('.cat-card, .trust-item').forEach(el => {
+    el.classList.remove('anim'); // reset so observer drives it
+    io.observe(el);
+  });
+</script>
+
+</body>
+</html>

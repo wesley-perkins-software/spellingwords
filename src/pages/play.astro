@@ -81,35 +81,25 @@ import Layout from '@/layouts/Layout.astro';
       <!-- Begin screen -->
       <section id="screen-begin" class="hidden" aria-labelledby="begin-heading">
 
-        <!-- Page heading -->
-        <div class="mb-6 text-center">
-          <!-- Collection title slot — hidden until collection data is available -->
-          <p id="begin-collection-label" class="hidden mb-1 text-xs font-semibold uppercase tracking-widest text-ink-faint"></p>
-          <h1 id="begin-heading" class="font-display text-3xl font-semibold text-ink">
-            Today's practice
+        <!-- Collection title slot — shown when coming from a curated list -->
+        <p id="begin-collection-label" class="hidden mb-3 text-center text-sm font-semibold uppercase tracking-widest text-ink-soft"></p>
+
+        <!-- Session card -->
+        <div class="rounded-2xl border border-line bg-app-cloud px-7 py-7">
+          <h1 id="begin-heading" class="font-display text-2xl font-semibold text-ink mb-3">
+            Ready to practice?
           </h1>
-        </div>
-
-        <!-- Session card — warm inset, architecture-forward layout -->
-        <div class="rounded-2xl border border-line bg-app-cloud px-6 py-5">
-          <!-- Session stats row -->
-          <div class="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-            <span id="begin-word-count" class="font-semibold text-ink"></span>
-            <span class="text-ink-faint" aria-hidden="true">·</span>
-            <span id="begin-duration" class="text-ink-soft"></span>
-            <span class="text-ink-faint" aria-hidden="true">·</span>
-            <span class="rounded-full border border-line bg-white px-3 py-0.5 text-xs font-semibold text-ink-soft">Listen &amp; spell</span>
-            <!-- Session number slot — hidden until session chunking ships -->
-            <span id="begin-session-meta" class="hidden rounded-full border border-line bg-white px-3 py-0.5 text-xs font-semibold text-ink-faint"></span>
-          </div>
-
-          <!-- What's about to happen — calm, clear, no pressure -->
-          <p class="text-sm leading-relaxed text-ink-soft">
-            Each word will be read aloud. Type what you hear — take your time, and you can always ask to hear it again.
+          <p id="begin-word-count-prose" class="text-base leading-relaxed text-ink mb-5"></p>
+          <p class="text-base leading-relaxed text-ink">
+            Each word will be spoken aloud.<br>
+            Take your time — you can hear any word again.
           </p>
+          <!-- Hidden word count for JS, session meta slot for future chunking -->
+          <span id="begin-word-count" class="hidden"></span>
+          <span id="begin-session-meta" class="hidden"></span>
         </div>
 
-        <!-- Primary CTA — matches homepage coral/red button -->
+        <!-- Primary CTA -->
         <div class="mt-8 flex justify-center">
           <button
             id="btn-begin"
@@ -120,32 +110,31 @@ import Layout from '@/layouts/Layout.astro';
           </button>
         </div>
 
-        <!-- Voice settings — secondary, for parents & teachers only -->
+        <!-- Session settings -->
         <div class="mt-10 border-t border-line pt-6">
           <button
             id="btn-voice-toggle"
             type="button"
             aria-expanded="false"
             aria-controls="voice-settings-panel"
-            class="group flex flex-col gap-0.5 text-left"
+            class="text-left text-sm font-semibold text-ink-soft transition-colors hover:text-ink"
           >
-            <span class="text-xs font-semibold text-ink-soft transition-colors group-hover:text-ink">▾ Voice &amp; speed settings</span>
-            <span class="text-xs text-ink-faint">For parents &amp; teachers</span>
+            ▾ Session settings
           </button>
           <div
             id="voice-settings-panel"
-            class="hidden mt-3 rounded-2xl border border-line bg-white p-4 flex flex-col gap-3"
+            class="hidden mt-4 rounded-2xl border border-line bg-white p-5 flex flex-col gap-4"
             role="group"
-            aria-label="Voice settings"
+            aria-label="Session settings"
           >
-            <!-- Auto-selected voice status -->
-            <p class="text-xs text-ink-soft">
-              Voice: <span id="voice-name-display">best available</span>
+            <!-- Voice status -->
+            <p class="text-sm text-ink">
+              Voice: <span id="voice-name-display" class="font-semibold">best available</span>
             </p>
 
             <!-- Speed slider -->
             <div class="flex items-center gap-3">
-              <label for="speed-range" class="text-xs font-medium text-ink-soft whitespace-nowrap w-10">Speed</label>
+              <label for="speed-range" class="text-sm font-medium text-ink whitespace-nowrap w-12">Speed</label>
               <input
                 id="speed-range"
                 type="range"
@@ -156,22 +145,17 @@ import Layout from '@/layouts/Layout.astro';
                 class="flex-1 accent-brand-red"
                 aria-label="Speech speed"
               />
-              <span id="speed-label" class="text-xs font-medium text-ink-soft w-10 text-right">0.50×</span>
+              <span id="speed-label" class="text-sm font-semibold text-ink w-12 text-right">0.50×</span>
             </div>
 
-            <!-- Test voice -->
+            <!-- Preview voice -->
             <button
               id="btn-test-voice"
               type="button"
-              class="self-start rounded-full border border-line bg-white px-4 py-2 text-xs font-semibold text-ink-soft transition-colors hover:border-brand-red/40 hover:text-brand-red"
+              class="self-start rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink-soft transition-colors hover:border-brand-red/40 hover:text-brand-red"
             >
               Preview voice
             </button>
-
-            <!-- Helper text -->
-            <p class="text-xs italic leading-relaxed text-ink-soft">
-              These settings are saved for this session. Children won't see this panel during practice.
-            </p>
           </div>
         </div>
       </section>
@@ -453,8 +437,8 @@ import Layout from '@/layouts/Layout.astro';
 
     const count = originalWords.length;
     beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
-    const durationMins = Math.ceil(count * 0.5);
-    ($('begin-duration') as HTMLElement).textContent = `about ${durationMins} ${durationMins === 1 ? 'min' : 'min'}`;
+    ($('begin-word-count-prose') as HTMLElement).textContent =
+      `${count} ${count === 1 ? 'word' : 'words'} are waiting.`;
     showScreen(screenBegin);
 
     // Load voices in the background — does not require a user gesture
@@ -585,6 +569,8 @@ import Layout from '@/layouts/Layout.astro';
     state = spellingTestReducer(resetTest(), initializeTest(originalWords));
     const count = originalWords.length;
     beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
+    ($('begin-word-count-prose') as HTMLElement).textContent =
+      `${count} ${count === 1 ? 'word' : 'words'} are waiting.`;
     showScreen(screenBegin);
   });
 
@@ -594,12 +580,11 @@ import Layout from '@/layouts/Layout.astro';
     renderQuestion();
   });
 
-  // Voice settings toggle
+  // Session settings toggle
   btnVoiceToggle.addEventListener('click', () => {
     const open = voiceSettingsPanel.classList.toggle('hidden') === false;
     btnVoiceToggle.setAttribute('aria-expanded', String(open));
-    const label = btnVoiceToggle.querySelector('span:first-child')!;
-    label.textContent = open ? '▴ Voice & speed settings' : '▾ Voice & speed settings';
+    btnVoiceToggle.textContent = open ? '▴ Session settings' : '▾ Session settings';
   });
 
   speedRange.addEventListener('input', () => {

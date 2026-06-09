@@ -1,4 +1,5 @@
 import type { CollectionEntry } from 'astro:content';
+import type { SpellingWord } from '@/types/spelling';
 
 export type SpellingListEntry = CollectionEntry<'spelling-lists'>;
 
@@ -46,7 +47,7 @@ export function resolveListRefs(
   return ids.map((id) => byId.get(id)).filter((entry): entry is SpellingListEntry => entry !== undefined);
 }
 
-/** Maps a content entry's words into the plain string array `/play` expects. */
-export function toPlayableWords(entry: SpellingListEntry): string[] {
-  return entry.data.words.map((word) => word.word);
+/** Returns the full SpellingWord array for a content entry, preserving optional fields like exampleSentence. */
+export function toPlayableWords(entry: SpellingListEntry): SpellingWord[] {
+  return entry.data.words as SpellingWord[];
 }

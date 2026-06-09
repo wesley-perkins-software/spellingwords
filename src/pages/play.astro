@@ -200,20 +200,29 @@ import Layout from '@/layouts/Layout.astro';
               ></p>
             </div>
 
-            <!-- Listen Again — prominent, below input -->
-            <button
-              id="btn-repeat"
-              type="button"
-              class="self-start flex items-center gap-2.5 rounded-full border-2 border-brand-red px-6 py-3 font-semibold text-brand-red transition hover:bg-brand-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
-              aria-label="Listen to the word again"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-              </svg>
-              Listen Again
-            </button>
+            <!-- Listen Again + Speed toggle — inline, unobtrusive -->
+            <div class="flex items-center gap-3">
+              <button
+                id="btn-repeat"
+                type="button"
+                class="flex items-center gap-2.5 rounded-full border-2 border-brand-red px-6 py-3 font-semibold text-brand-red transition hover:bg-brand-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
+                aria-label="Listen to the word again"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </svg>
+                Listen Again
+              </button>
+              <button
+                id="btn-speed"
+                type="button"
+                class="rounded-full border-2 border-line bg-app-cloud px-4 py-3 font-mono text-sm font-semibold text-ink transition hover:border-ink/30 hover:bg-cream-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink"
+                aria-label="Change playback speed"
+                title="Tap to change speed"
+              >0.5×</button>
+            </div>
 
             <button
               id="btn-submit"
@@ -351,6 +360,7 @@ import Layout from '@/layouts/Layout.astro';
   const resultsMissedList = $('results-missed-list');
   const btnBegin = $('btn-begin') as HTMLButtonElement;
   const btnRepeat = $('btn-repeat') as HTMLButtonElement;
+  const btnSpeed = $('btn-speed') as HTMLButtonElement;
   const btnSubmit = $('btn-submit') as HTMLButtonElement;
   const btnNext = $('btn-next') as HTMLButtonElement;
   const btnRetry = $('btn-retry') as HTMLButtonElement;
@@ -377,7 +387,7 @@ import Layout from '@/layouts/Layout.astro';
   // --- Warm, varied feedback copy ---
   // A calm adult helping a child — not a scoreboard. We rotate through these
   // so the same phrase doesn't land twice in a row and start to feel canned.
-  const CORRECT_PHRASES = ['Nice work.', 'Good listening.', "That's it exactly.", 'Well spelled.', "You've got it."];
+  const CORRECT_PHRASES = ['Well spelled.', 'Good listening.', "That's it exactly.", 'Nice work.', "You've got it."];
   const INCORRECT_PHRASES = ['A good attempt.', "That's a tricky one.", 'Close — good effort.', 'Good try.', "Let's come back to this one."];
 
   let lastCorrectPhrase = -1;
@@ -486,9 +496,10 @@ import Layout from '@/layouts/Layout.astro';
     const currentWord = state.words[state.currentIndex].word;
 
     if (correct) {
-      // Icon is the visual anchor for correct answers
-      feedbackIcon.textContent = '✓';
-      feedbackIcon.className = 'flex h-20 w-20 items-center justify-center rounded-xl bg-feedback-correct/12 text-4xl text-feedback-correct';
+      // Large soft circular badge — calm and satisfying, not celebratory.
+      // SVG check is bigger and more refined than an emoji glyph.
+      feedbackIcon.innerHTML = `<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+      feedbackIcon.className = 'flex h-32 w-32 items-center justify-center rounded-full bg-feedback-correct/10 text-feedback-correct';
       feedbackHeading.textContent = pickPhrase(CORRECT_PHRASES, lastCorrectPhrase, (i) => (lastCorrectPhrase = i));
       feedbackHeading.className = 'font-display text-3xl font-semibold text-feedback-correct';
       feedbackWord.textContent = '';
@@ -570,6 +581,24 @@ import Layout from '@/layouts/Layout.astro';
 
   btnRepeat.addEventListener('click', () => {
     speech.repeatWord(speechOptions());
+  });
+
+  // Speed toggle — cycles through three presets so parents can adjust mid-session
+  // without opening the settings panel. Stays in sync with the speed-range slider.
+  const SPEED_PRESETS = [0.5, 0.75, 1.0];
+  let speedPresetIndex = 0;
+
+  function formatSpeed(rate: number): string {
+    return rate === 0.5 ? '0.5×' : rate === 0.75 ? '0.75×' : '1×';
+  }
+
+  btnSpeed.addEventListener('click', () => {
+    speedPresetIndex = (speedPresetIndex + 1) % SPEED_PRESETS.length;
+    currentRate = SPEED_PRESETS[speedPresetIndex];
+    btnSpeed.textContent = formatSpeed(currentRate);
+    // Keep the settings panel slider in sync if it's ever opened
+    speedRange.value = String(currentRate);
+    speedLabel.textContent = `${currentRate.toFixed(2).replace(/0$/, '')}×`;
   });
 
   answerInput.addEventListener('keydown', (e) => {

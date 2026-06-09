@@ -171,8 +171,8 @@ import Layout from '@/layouts/Layout.astro';
               aria-live="polite"
               aria-atomic="true"
             ></p>
-            <div class="h-px rounded-full bg-line overflow-hidden">
-              <div id="progress-bar" class="h-full rounded-full bg-ink-soft transition-[width] duration-300" style="width: 0%"></div>
+            <div class="h-0.5 rounded-full bg-line overflow-hidden">
+              <div id="progress-bar" class="h-full rounded-full bg-brand-red/70 transition-[width] duration-300" style="width: 0%"></div>
             </div>
           </div>
 
@@ -189,7 +189,7 @@ import Layout from '@/layouts/Layout.astro';
                 autocapitalize="off"
                 spellcheck="false"
                 placeholder="Type the word…"
-                class="w-full rounded-2xl border-2 border-line bg-app-cloud px-6 py-6 font-display text-2xl font-semibold text-ink placeholder:text-ink-faint transition focus:border-brand-red focus:bg-white focus:outline-none"
+                class="w-full rounded-2xl border border-amber-200/80 bg-[#FBF6EE] px-6 py-6 font-display text-3xl font-semibold text-ink tracking-wide placeholder:text-ink-faint/60 transition focus:border-brand-red/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/20 focus:shadow-[inset_0_1px_4px_rgba(0,0,0,0.06)]"
                 aria-label="Your answer"
               />
               <p
@@ -200,12 +200,12 @@ import Layout from '@/layouts/Layout.astro';
               ></p>
             </div>
 
-            <!-- Listen Again + Speed toggle — inline, unobtrusive -->
-            <div class="flex items-center gap-3">
+            <!-- Listen Again + Speed toggle — joined pill group -->
+            <div class="inline-flex items-stretch rounded-full border-2 border-brand-red overflow-hidden">
               <button
                 id="btn-repeat"
                 type="button"
-                class="flex items-center gap-2.5 rounded-full border-2 border-brand-red px-6 py-3 font-semibold text-brand-red transition hover:bg-brand-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
+                class="flex items-center gap-2.5 px-5 py-2.5 font-semibold text-brand-red bg-transparent transition hover:bg-brand-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
                 aria-label="Listen to the word again"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -215,11 +215,12 @@ import Layout from '@/layouts/Layout.astro';
                 </svg>
                 Listen Again
               </button>
+              <div class="w-px bg-brand-red/30" aria-hidden="true"></div>
               <button
                 id="btn-speed"
                 type="button"
-                class="rounded-full border-2 border-line bg-app-cloud px-4 py-3 font-mono text-sm font-semibold text-ink transition hover:border-ink/30 hover:bg-cream-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink"
-                aria-label="Change playback speed"
+                class="px-4 py-2.5 font-mono text-sm font-semibold text-brand-red bg-transparent transition hover:bg-brand-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
+                aria-label="Change playback speed (current: 0.5×)"
                 title="Tap to change speed"
               >0.5×</button>
             </div>
@@ -499,7 +500,7 @@ import Layout from '@/layouts/Layout.astro';
       // Large soft circular badge — calm and satisfying, not celebratory.
       // SVG check is bigger and more refined than an emoji glyph.
       feedbackIcon.innerHTML = `<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
-      feedbackIcon.className = 'flex h-32 w-32 items-center justify-center rounded-full bg-feedback-correct/10 text-feedback-correct';
+      feedbackIcon.className = 'flex h-32 w-32 items-center justify-center rounded-full bg-feedback-correct/25 text-feedback-correct';
       feedbackHeading.textContent = pickPhrase(CORRECT_PHRASES, lastCorrectPhrase, (i) => (lastCorrectPhrase = i));
       feedbackHeading.className = 'font-display text-3xl font-semibold text-feedback-correct';
       feedbackWord.textContent = '';
@@ -585,17 +586,21 @@ import Layout from '@/layouts/Layout.astro';
 
   // Speed toggle — cycles through three presets so parents can adjust mid-session
   // without opening the settings panel. Stays in sync with the speed-range slider.
-  const SPEED_PRESETS = [0.5, 0.75, 1.0];
+  const SPEED_PRESETS = [0.5, 0.75, 1.0, 1.25];
   let speedPresetIndex = 0;
 
   function formatSpeed(rate: number): string {
-    return rate === 0.5 ? '0.5×' : rate === 0.75 ? '0.75×' : '1×';
+    if (rate === 0.5)  return '0.5×';
+    if (rate === 0.75) return '0.75×';
+    if (rate === 1.0)  return '1×';
+    return '1.25×';
   }
 
   btnSpeed.addEventListener('click', () => {
     speedPresetIndex = (speedPresetIndex + 1) % SPEED_PRESETS.length;
     currentRate = SPEED_PRESETS[speedPresetIndex];
     btnSpeed.textContent = formatSpeed(currentRate);
+    btnSpeed.setAttribute('aria-label', `Change playback speed (current: ${formatSpeed(currentRate)})`);
     // Keep the settings panel slider in sync if it's ever opened
     speedRange.value = String(currentRate);
     speedLabel.textContent = `${currentRate.toFixed(2).replace(/0$/, '')}×`;

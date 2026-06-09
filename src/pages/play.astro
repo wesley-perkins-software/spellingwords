@@ -200,40 +200,40 @@ import Layout from '@/layouts/Layout.astro';
               ></p>
             </div>
 
-            <!-- Audio controls row -->
-            <div class="flex flex-wrap items-center gap-2">
-              <!-- Listen Again + Speed — joined pill -->
-              <div class="inline-flex items-stretch rounded-full border-2 border-brand-red overflow-hidden">
+            <!-- Audio controls row — cream/ink, secondary feel -->
+            <div class="flex items-stretch gap-2 w-full">
+              <!-- Listen Again + Speed — joined pill, natural width -->
+              <div class="inline-flex items-stretch rounded-full border border-line bg-app-cloud overflow-hidden shrink-0">
                 <button
                   id="btn-repeat"
                   type="button"
-                  class="flex items-center gap-2.5 px-5 py-2.5 font-semibold text-brand-red bg-transparent transition hover:bg-brand-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
+                  class="flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-ink transition hover:bg-[#EDE8DF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
                   aria-label="Listen to the word again"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                     <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                     <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
                   </svg>
                   Listen Again
                 </button>
-                <div class="w-px bg-brand-red/30" aria-hidden="true"></div>
+                <div class="w-px bg-line" aria-hidden="true"></div>
                 <button
                   id="btn-speed"
                   type="button"
-                  class="flex items-center gap-1 px-4 py-2.5 font-mono text-sm font-semibold text-brand-red bg-transparent transition hover:bg-brand-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
+                  class="flex items-center gap-1 px-3 py-2.5 font-mono text-sm font-semibold text-ink transition hover:bg-[#EDE8DF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
                   aria-label="Change playback speed (current: 0.5×)"
                   title="Tap to cycle through speeds"
-                ><span id="btn-speed-label">Speed 0.5×</span> <span aria-hidden="true" class="text-xs opacity-70">▾</span></button>
+                ><span id="btn-speed-label">Speed 0.5×</span> <span aria-hidden="true" class="text-xs opacity-50">▾</span></button>
               </div>
-              <!-- Use in a Sentence — shown only when word has an example sentence -->
+              <!-- Use in a Sentence — fills remaining width; only when word has a sentence -->
               <button
                 id="btn-sentence"
                 type="button"
-                class="hidden items-center gap-2 rounded-full border-2 border-brand-red/60 px-5 py-2.5 font-semibold text-brand-red/80 transition hover:border-brand-red hover:text-brand-red focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
+                class="hidden flex-1 items-center justify-center gap-2 rounded-full border border-line bg-app-cloud px-4 py-2.5 text-sm font-semibold text-ink transition hover:bg-[#EDE8DF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
                 aria-label="Hear the word used in a sentence"
               >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 </svg>
                 Use in a Sentence
@@ -615,8 +615,11 @@ import Layout from '@/layouts/Layout.astro';
     renderQuestion();
   });
 
+  // Always re-speak the current word directly from state — never repeatWord(),
+  // which would replay whatever was last spoken (could be a sentence).
   btnRepeat.addEventListener('click', () => {
-    speech.repeatWord(speechOptions());
+    const word = state.words[state.currentIndex]?.word;
+    if (word) speech.speakWord(word, speechOptions());
   });
 
   // Speed toggle — cycles through three presets so parents can adjust mid-session

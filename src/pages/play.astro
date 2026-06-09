@@ -160,8 +160,10 @@ import Layout from '@/layouts/Layout.astro';
         </div>
       </section>
 
-      <!-- Question screen -->
-      <section id="screen-question" class="hidden" aria-labelledby="question-heading">
+      <!-- Question screen
+           Uses CSS grid (1fr auto) with a shared min-height so the Submit Answer button
+           always occupies the same vertical slot as the Next Word button in the feedback screen. -->
+      <section id="screen-question" class="hidden grid grid-rows-[1fr_auto] gap-6 min-h-[480px]" aria-labelledby="question-heading">
         <div class="flex flex-col gap-10">
           <!-- Progress -->
           <div class="flex flex-col gap-2">
@@ -239,21 +241,24 @@ import Layout from '@/layouts/Layout.astro';
                 Use in a Sentence
               </button>
             </div>
-
-            <button
-              id="btn-submit"
-              type="button"
-              class="w-full rounded-full bg-brand-red px-6 py-4 font-display text-lg font-semibold text-white shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
-            >
-              Submit Answer
-            </button>
           </div>
         </div>
+
+        <!-- Primary action — grid row 2, same slot as Next Word on feedback screen -->
+        <button
+          id="btn-submit"
+          type="button"
+          class="w-full rounded-full bg-brand-red px-6 py-4 font-display text-lg font-semibold text-white shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
+        >
+          Submit Answer
+        </button>
       </section>
 
-      <!-- Feedback screen -->
-      <section id="screen-feedback" class="hidden text-center" aria-labelledby="feedback-heading" aria-live="assertive">
-        <div class="flex flex-col items-center gap-10">
+      <!-- Feedback screen
+           Shares the same grid layout and min-height as the question screen so Next Word
+           lands at the same vertical position as Submit Answer. -->
+      <section id="screen-feedback" class="hidden grid grid-rows-[1fr_auto] gap-6 min-h-[480px] text-center" aria-labelledby="feedback-heading" aria-live="assertive">
+        <div class="flex flex-col items-center justify-center gap-6">
           <!-- Icon — shown for correct; hidden for incorrect so the word takes focus -->
           <div id="feedback-icon" class="flex h-20 w-20 items-center justify-center rounded-2xl text-4xl" aria-hidden="true"></div>
           <div class="flex flex-col items-center gap-4">
@@ -264,14 +269,16 @@ import Layout from '@/layouts/Layout.astro';
             <!-- Closing note — shown only for incorrect -->
             <p id="feedback-detail" class="text-base text-ink"></p>
           </div>
-          <button
-            id="btn-next"
-            type="button"
-            class="rounded-full bg-brand-red px-10 py-4 font-display text-lg font-semibold text-white shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
-          >
-            Next Word →
-          </button>
         </div>
+
+        <!-- Primary action — grid row 2, same slot as Submit Answer on question screen -->
+        <button
+          id="btn-next"
+          type="button"
+          class="w-full rounded-full bg-brand-red px-6 py-4 font-display text-lg font-semibold text-white shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
+        >
+          Next Word →
+        </button>
       </section>
 
       <!-- Results screen -->

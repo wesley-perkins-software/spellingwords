@@ -4,39 +4,58 @@ export default {
   theme: {
     extend: {
       colors: {
-        'app-paper': '#FFFFFF',
-        'app-cloud': '#F4F7FB',
+        // Background surfaces — warm chalk replaces cool white
+        'app-paper':   '#FBF8F3',   // warm chalk (was #FFFFFF)
+        'app-cloud':   '#F3EDE3',   // soft cream (was cool #F4F7FB)
+        'cream-deep':  '#EAE0CC',   // deeper cream, for input toolbars
+
         brand: {
-          blue: '#2F6FED',
-          'blue-deep': '#1E4FBE',
+          // Blue kept intact — used by play page, listing pages, components
+          blue:         '#2F6FED',
+          'blue-deep':  '#1E4FBE',
+          // Red — homepage CTA and primary brand accent
+          red:          '#C94030',
+          'red-deep':   '#A83226',
+          // Sky — homepage links / eyebrows
+          sky:          '#4A80B4',
         },
-        ink: '#1F2937',
-        'ink-soft': '#5B6472',
-        line: '#E2E8F2',
+
+        // Text — warmer tones throughout
+        ink:         '#2B2318',   // deep warm bark (was cool #1F2937)
+        'ink-soft':  '#6B5E52',   // warm umber (was cool #5B6472)
+        'ink-faint': '#9B8E84',   // lightest text, placeholders
+
+        // Border — warmer to match new background
+        line: '#E4E0DA',          // warm border (was cool blue-gray #E2E8F2)
+
         chip: {
-          sun: '#FFB347',
+          sun:   '#FFB347',
           grass: '#4CAF6D',
           berry: '#EF5DA8',
-          sky: '#3FB6E8',
+          sky:   '#3FB6E8',
         },
         feedback: {
-          correct: '#22B36B',
+          correct:   '#22B36B',
           incorrect: '#F0594B',
         },
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['"Baloo 2"', 'ui-rounded', 'system-ui', 'sans-serif'],
-        mono: ['"Courier Prime"', 'ui-monospace', 'monospace'],
+        // Nunito — warm, rounded body font
+        sans:    ['"Nunito"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Fredoka — friendly display font for headlines and wordmark
+        display: ['"Fredoka"', 'ui-rounded', 'system-ui', 'sans-serif'],
+        // Atkinson Hyperlegible — maximally legible for word display and textarea
+        word:    ['"Atkinson Hyperlegible"', 'ui-sans-serif', 'sans-serif'],
+        mono:    ['"Atkinson Hyperlegible"', 'ui-monospace', 'monospace'],
       },
       borderRadius: {
         DEFAULT: '12px',
-        md: '12px',
-        lg: '16px',
-        xl: '16px',
-        '2xl': '20px',
-        '3xl': '24px',
-        '4xl': '28px',
+        md:      '12px',
+        lg:      '16px',
+        xl:      '16px',
+        '2xl':   '20px',
+        '3xl':   '24px',
+        '4xl':   '28px',
       },
     },
   },

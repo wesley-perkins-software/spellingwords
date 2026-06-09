@@ -191,12 +191,17 @@ const breadcrumbJsonLd = {
 <script>
   import { encodeWordList } from '@/lib/words';
 
+  interface SpellingWordData { word: string; hint?: string; exampleSentence?: string; phonicsPattern?: string[] }
+
   const statusEl = document.getElementById('start-test-status');
 
-  function getWords(button: HTMLButtonElement): string[] {
+  function getSpellingWords(button: HTMLButtonElement): SpellingWordData[] {
     try {
       const parsed: unknown = JSON.parse(button.dataset.words ?? '[]');
-      return Array.isArray(parsed) ? parsed.filter((entry): entry is string => typeof entry === 'string') : [];
+      if (!Array.isArray(parsed)) return [];
+      return parsed.filter((e): e is SpellingWordData =>
+        typeof e === 'object' && e !== null && typeof (e as SpellingWordData).word === 'string'
+      );
     } catch {
       return [];
     }
@@ -204,10 +209,10 @@ const breadcrumbJsonLd = {
 
   function handleStart(event: Event): void {
     const button = event.currentTarget as HTMLButtonElement;
-    const words = getWords(button);
+    const words = getSpellingWords(button);
     if (words.length === 0) return;
 
-    const result = encodeWordList(words);
+    const result = encodeWordList(words.map((w) => w.word));
     if (!result.ok) {
       if (statusEl) {
         statusEl.textContent =
@@ -217,6 +222,11 @@ const breadcrumbJsonLd = {
       }
       return;
     }
+
+    // Persist rich word data (with exampleSentence etc.) so play.astro can read it.
+    try {
+      sessionStorage.setItem(`sw:words:${result.payload}`, JSON.stringify(words));
+    } catch { /* quota exceeded or private browsing — non-fatal */ }
 
     window.location.href = `/play?list=${result.payload}`;
   }

@@ -200,29 +200,44 @@ import Layout from '@/layouts/Layout.astro';
               ></p>
             </div>
 
-            <!-- Listen Again + Speed toggle — joined pill group -->
-            <div class="inline-flex items-stretch rounded-full border-2 border-brand-red overflow-hidden">
+            <!-- Audio controls row -->
+            <div class="flex flex-wrap items-center gap-2">
+              <!-- Listen Again + Speed — joined pill -->
+              <div class="inline-flex items-stretch rounded-full border-2 border-brand-red overflow-hidden">
+                <button
+                  id="btn-repeat"
+                  type="button"
+                  class="flex items-center gap-2.5 px-5 py-2.5 font-semibold text-brand-red bg-transparent transition hover:bg-brand-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
+                  aria-label="Listen to the word again"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                  </svg>
+                  Listen Again
+                </button>
+                <div class="w-px bg-brand-red/30" aria-hidden="true"></div>
+                <button
+                  id="btn-speed"
+                  type="button"
+                  class="flex items-center gap-1 px-4 py-2.5 font-mono text-sm font-semibold text-brand-red bg-transparent transition hover:bg-brand-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
+                  aria-label="Change playback speed (current: 0.5×)"
+                  title="Tap to cycle through speeds"
+                ><span id="btn-speed-label">Speed 0.5×</span> <span aria-hidden="true" class="text-xs opacity-70">▾</span></button>
+              </div>
+              <!-- Use in a Sentence — shown only when word has an example sentence -->
               <button
-                id="btn-repeat"
+                id="btn-sentence"
                 type="button"
-                class="flex items-center gap-2.5 px-5 py-2.5 font-semibold text-brand-red bg-transparent transition hover:bg-brand-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
-                aria-label="Listen to the word again"
+                class="hidden items-center gap-2 rounded-full border-2 border-brand-red/60 px-5 py-2.5 font-semibold text-brand-red/80 transition hover:border-brand-red hover:text-brand-red focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
+                aria-label="Hear the word used in a sentence"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 </svg>
-                Listen Again
+                Use in a Sentence
               </button>
-              <div class="w-px bg-brand-red/30" aria-hidden="true"></div>
-              <button
-                id="btn-speed"
-                type="button"
-                class="px-4 py-2.5 font-mono text-sm font-semibold text-brand-red bg-transparent transition hover:bg-brand-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
-                aria-label="Change playback speed (current: 0.5×)"
-                title="Tap to change speed"
-              >0.5×</button>
             </div>
 
             <button
@@ -362,6 +377,8 @@ import Layout from '@/layouts/Layout.astro';
   const btnBegin = $('btn-begin') as HTMLButtonElement;
   const btnRepeat = $('btn-repeat') as HTMLButtonElement;
   const btnSpeed = $('btn-speed') as HTMLButtonElement;
+  const btnSpeedLabel = $('btn-speed-label') as HTMLElement;
+  const btnSentence = $('btn-sentence') as HTMLButtonElement;
   const btnSubmit = $('btn-submit') as HTMLButtonElement;
   const btnNext = $('btn-next') as HTMLButtonElement;
   const btnRetry = $('btn-retry') as HTMLButtonElement;
@@ -458,7 +475,20 @@ import Layout from '@/layouts/Layout.astro';
     }
 
     originalWords = decoded.words;
-    state = spellingTestReducer(createInitialState(), initializeTest(originalWords));
+
+    // Try to recover rich SpellingWord data (with exampleSentence) stored by curated list pages.
+    let richWords: { word: string; exampleSentence?: string }[] | null = null;
+    try {
+      const stored = sessionStorage.getItem(`sw:words:${payload}`);
+      if (stored) {
+        const parsed: unknown = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.every((e) => typeof e?.word === 'string')) {
+          richWords = parsed as { word: string; exampleSentence?: string }[];
+        }
+      }
+    } catch { /* sessionStorage unavailable or parse failed — fall through to plain words */ }
+
+    state = spellingTestReducer(createInitialState(), initializeTest(richWords ?? originalWords));
 
     const count = originalWords.length;
     beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
@@ -485,6 +515,11 @@ import Layout from '@/layouts/Layout.astro';
     questionInstruction.textContent = instructionForIndex(state.currentIndex);
     answerInput.value = '';
     answerError.textContent = '';
+
+    // Show sentence button only when this word has an example sentence
+    const hasSentence = Boolean(current.exampleSentence);
+    btnSentence.classList.toggle('hidden', !hasSentence);
+    btnSentence.classList.toggle('flex', hasSentence);
 
     showScreen(screenQuestion);
     requestAnimationFrame(() => answerInput.focus());
@@ -599,11 +634,16 @@ import Layout from '@/layouts/Layout.astro';
   btnSpeed.addEventListener('click', () => {
     speedPresetIndex = (speedPresetIndex + 1) % SPEED_PRESETS.length;
     currentRate = SPEED_PRESETS[speedPresetIndex];
-    btnSpeed.textContent = formatSpeed(currentRate);
+    btnSpeedLabel.textContent = `Speed ${formatSpeed(currentRate)}`;
     btnSpeed.setAttribute('aria-label', `Change playback speed (current: ${formatSpeed(currentRate)})`);
     // Keep the settings panel slider in sync if it's ever opened
     speedRange.value = String(currentRate);
     speedLabel.textContent = `${currentRate.toFixed(2).replace(/0$/, '')}×`;
+  });
+
+  btnSentence.addEventListener('click', () => {
+    const sentence = state.words[state.currentIndex]?.exampleSentence;
+    if (sentence) speech.speakWord(sentence, speechOptions());
   });
 
   answerInput.addEventListener('keydown', (e) => {

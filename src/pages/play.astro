@@ -6,19 +6,19 @@ import Layout from '@/layouts/Layout.astro';
   title="Spelling Test — spellingwords"
   description="Take your custom spelling test. Hear each word spoken aloud and type your answer."
 >
-  <!-- Site header -->
+  <!-- Site header — intentionally quieter on the play page so the activity dominates -->
   <header class="sticky top-0 z-10 border-b border-line bg-white/90 backdrop-blur-sm">
-    <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+    <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-3">
       <a
         href="/"
-        class="flex items-center gap-2 font-display text-lg font-semibold text-ink tracking-tight"
+        class="flex items-center gap-1.5 font-display text-sm font-semibold text-ink-soft tracking-tight transition-colors hover:text-ink"
         aria-label="spellingwords home"
       >
         <span
           aria-hidden="true"
-          class="flex h-7 w-7 items-center justify-center rounded-2xl bg-brand-blue text-white"
+          class="flex h-6 w-6 items-center justify-center rounded-xl bg-brand-blue text-white"
         >
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M9.5 4.5l2 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
           </svg>
@@ -27,7 +27,7 @@ import Layout from '@/layouts/Layout.astro';
       </a>
       <a
         href="/"
-        class="rounded-full px-4 py-2 text-sm font-semibold text-ink-soft transition-colors hover:bg-app-cloud hover:text-brand-blue"
+        class="rounded-full px-3 py-1.5 text-xs font-semibold text-ink-soft/70 transition-colors hover:bg-app-cloud hover:text-ink-soft"
       >
         ← New list
       </a>
@@ -164,12 +164,17 @@ import Layout from '@/layouts/Layout.astro';
       <section id="screen-question" class="hidden" aria-labelledby="question-heading">
         <div class="flex flex-col gap-10">
           <!-- Progress -->
-          <p
-            id="progress"
-            class="font-mono text-sm font-medium tracking-wide text-ink"
-            aria-live="polite"
-            aria-atomic="true"
-          ></p>
+          <div class="flex flex-col gap-2">
+            <p
+              id="progress"
+              class="font-mono text-base font-semibold tracking-wide text-ink"
+              aria-live="polite"
+              aria-atomic="true"
+            ></p>
+            <div class="h-px rounded-full bg-line overflow-hidden">
+              <div id="progress-bar" class="h-full rounded-full bg-ink-soft transition-[width] duration-300" style="width: 0%"></div>
+            </div>
+          </div>
 
           <!-- Instruction and answer area -->
           <div class="flex flex-col gap-6">
@@ -184,7 +189,7 @@ import Layout from '@/layouts/Layout.astro';
                 autocapitalize="off"
                 spellcheck="false"
                 placeholder="Type the word…"
-                class="w-full rounded-2xl border-2 border-line bg-white px-6 py-6 font-display text-2xl font-medium text-ink placeholder:text-ink-faint transition focus:border-brand-red focus:outline-none"
+                class="w-full rounded-2xl border-2 border-line bg-app-cloud px-6 py-6 font-display text-2xl font-semibold text-ink placeholder:text-ink-faint transition focus:border-brand-red focus:bg-white focus:outline-none"
                 aria-label="Your answer"
               />
               <p
@@ -224,10 +229,15 @@ import Layout from '@/layouts/Layout.astro';
       <!-- Feedback screen -->
       <section id="screen-feedback" class="hidden text-center" aria-labelledby="feedback-heading" aria-live="assertive">
         <div class="flex flex-col items-center gap-10">
+          <!-- Icon — shown for correct; hidden for incorrect so the word takes focus -->
           <div id="feedback-icon" class="flex h-20 w-20 items-center justify-center rounded-2xl text-4xl" aria-hidden="true"></div>
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col items-center gap-4">
+            <!-- Encouragement phrase — coral for incorrect, green for correct -->
             <h1 id="feedback-heading" class="font-display text-3xl font-semibold"></h1>
-            <p id="feedback-detail" class="text-lg text-ink"></p>
+            <!-- Correct spelling — large and dominant for wrong-answer screen -->
+            <p id="feedback-word" class="hidden font-display text-6xl font-bold tracking-tight text-ink leading-none"></p>
+            <!-- Closing note — shown only for incorrect -->
+            <p id="feedback-detail" class="text-base text-ink"></p>
           </div>
           <button
             id="btn-next"
@@ -331,7 +341,9 @@ import Layout from '@/layouts/Layout.astro';
   const answerError = $('answer-error');
   const feedbackIcon = $('feedback-icon');
   const feedbackHeading = $('feedback-heading');
+  const feedbackWord = $('feedback-word');
   const feedbackDetail = $('feedback-detail');
+  const progressBar = $('progress-bar') as HTMLElement;
   const resultsSummary = $('results-summary');
   const resultsMissedSummary = $('results-missed-summary');
   const resultsScore = $('results-score');
@@ -458,6 +470,7 @@ import Layout from '@/layouts/Layout.astro';
     const pos = state.currentIndex + 1;
 
     progressEl.textContent = `Word ${pos} of ${total}`;
+    progressBar.style.width = `${(pos / total) * 100}%`;
     questionInstruction.textContent = instructionForIndex(state.currentIndex);
     answerInput.value = '';
     answerError.textContent = '';
@@ -473,17 +486,24 @@ import Layout from '@/layouts/Layout.astro';
     const currentWord = state.words[state.currentIndex].word;
 
     if (correct) {
+      // Icon is the visual anchor for correct answers
       feedbackIcon.textContent = '✓';
       feedbackIcon.className = 'flex h-20 w-20 items-center justify-center rounded-xl bg-feedback-correct/12 text-4xl text-feedback-correct';
       feedbackHeading.textContent = pickPhrase(CORRECT_PHRASES, lastCorrectPhrase, (i) => (lastCorrectPhrase = i));
       feedbackHeading.className = 'font-display text-3xl font-semibold text-feedback-correct';
+      feedbackWord.textContent = '';
+      feedbackWord.classList.add('hidden');
       feedbackDetail.textContent = '';
     } else {
-      feedbackIcon.textContent = '✗';
-      feedbackIcon.className = 'flex h-20 w-20 items-center justify-center rounded-2xl bg-feedback-incorrect/10 text-4xl text-feedback-incorrect';
+      // For wrong answers: the correct spelling is the dominant visual element.
+      // The icon steps back so the word can own the screen.
+      feedbackIcon.textContent = '';
+      feedbackIcon.className = 'hidden';
       feedbackHeading.textContent = pickPhrase(INCORRECT_PHRASES, lastIncorrectPhrase, (i) => (lastIncorrectPhrase = i));
-      feedbackHeading.className = 'font-display text-3xl font-semibold text-feedback-incorrect';
-      feedbackDetail.textContent = `It's spelled ${currentWord}.`;
+      feedbackHeading.className = 'font-display text-xl font-semibold text-feedback-incorrect';
+      feedbackWord.textContent = currentWord;
+      feedbackWord.classList.remove('hidden');
+      feedbackDetail.textContent = "We'll practice this one again later.";
     }
 
     const isLast = state.currentIndex === state.words.length - 1;

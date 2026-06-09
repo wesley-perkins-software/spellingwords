@@ -162,35 +162,20 @@ import Layout from '@/layouts/Layout.astro';
 
       <!-- Question screen -->
       <section id="screen-question" class="hidden" aria-labelledby="question-heading">
-        <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-10">
           <!-- Progress -->
-          <div class="flex items-center justify-between">
-            <p
-              id="progress"
-              class="font-mono text-sm font-medium tracking-wide text-ink-soft"
-              aria-live="polite"
-              aria-atomic="true"
-            ></p>
-            <button
-              id="btn-repeat"
-              type="button"
-              class="flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink-soft transition hover:border-brand-blue/40 hover:bg-app-cloud hover:text-brand-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-blue"
-              aria-label="Repeat the word"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-              </svg>
-              Repeat Word
-            </button>
-          </div>
+          <p
+            id="progress"
+            class="font-mono text-sm font-medium tracking-wide text-ink"
+            aria-live="polite"
+            aria-atomic="true"
+          ></p>
 
           <!-- Instruction and answer area -->
-          <div class="flex flex-col gap-5">
+          <div class="flex flex-col gap-6">
             <h1 id="question-heading" class="sr-only">Type the word you hear</h1>
-            <p id="question-instruction" class="min-h-[3rem] text-base leading-relaxed text-ink-soft"></p>
-            <div class="flex flex-col gap-2">
+            <p id="question-instruction" class="text-lg leading-relaxed text-ink"></p>
+            <div class="flex flex-col gap-3">
               <input
                 id="answer-input"
                 type="text"
@@ -199,7 +184,7 @@ import Layout from '@/layouts/Layout.astro';
                 autocapitalize="off"
                 spellcheck="false"
                 placeholder="Type the word…"
-                class="w-full rounded-2xl border-2 border-line bg-white px-5 py-4 text-lg font-medium text-ink placeholder:text-ink-soft/50 transition focus:border-brand-blue focus:outline-none"
+                class="w-full rounded-2xl border-2 border-line bg-white px-6 py-6 font-display text-2xl font-medium text-ink placeholder:text-ink-faint transition focus:border-brand-red focus:outline-none"
                 aria-label="Your answer"
               />
               <p
@@ -209,10 +194,26 @@ import Layout from '@/layouts/Layout.astro';
                 role="alert"
               ></p>
             </div>
+
+            <!-- Listen Again — prominent, below input -->
+            <button
+              id="btn-repeat"
+              type="button"
+              class="self-start flex items-center gap-2.5 rounded-full border-2 border-brand-red px-6 py-3 font-semibold text-brand-red transition hover:bg-brand-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red"
+              aria-label="Listen to the word again"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+              Listen Again
+            </button>
+
             <button
               id="btn-submit"
               type="button"
-              class="w-full rounded-full bg-brand-blue px-6 py-3.5 text-sm font-bold text-white shadow-[0_8px_20px_-8px_rgba(47,111,237,0.4)] transition hover:bg-brand-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97]"
+              class="w-full rounded-full bg-brand-red px-6 py-4 font-display text-lg font-semibold text-white shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
             >
               Submit Answer
             </button>
@@ -222,16 +223,16 @@ import Layout from '@/layouts/Layout.astro';
 
       <!-- Feedback screen -->
       <section id="screen-feedback" class="hidden text-center" aria-labelledby="feedback-heading" aria-live="assertive">
-        <div class="flex flex-col items-center gap-8">
+        <div class="flex flex-col items-center gap-10">
           <div id="feedback-icon" class="flex h-20 w-20 items-center justify-center rounded-2xl text-4xl" aria-hidden="true"></div>
-          <div class="flex flex-col gap-2">
-            <h1 id="feedback-heading" class="font-display text-2xl font-semibold text-ink"></h1>
-            <p id="feedback-detail" class="text-base text-ink-soft"></p>
+          <div class="flex flex-col gap-3">
+            <h1 id="feedback-heading" class="font-display text-3xl font-semibold"></h1>
+            <p id="feedback-detail" class="text-lg text-ink"></p>
           </div>
           <button
             id="btn-next"
             type="button"
-            class="rounded-full bg-brand-blue px-8 py-3.5 text-sm font-bold text-white shadow-[0_8px_20px_-8px_rgba(47,111,237,0.4)] transition hover:bg-brand-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97]"
+            class="rounded-full bg-brand-red px-10 py-4 font-display text-lg font-semibold text-white shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
           >
             Next Word →
           </button>
@@ -242,11 +243,11 @@ import Layout from '@/layouts/Layout.astro';
       <section id="screen-results" class="hidden" aria-labelledby="results-heading">
         <div class="flex flex-col gap-8">
           <div class="text-center">
-            <h1 id="results-heading" class="font-display text-3xl font-semibold text-ink">
+            <h1 id="results-heading" class="font-display text-4xl font-semibold text-ink">
               Nice work today.
             </h1>
-            <p id="results-summary" class="mt-3 text-lg font-medium text-ink"></p>
-            <p id="results-missed-summary" class="mt-1 text-base text-ink-soft"></p>
+            <p id="results-summary" class="mt-4 text-xl font-medium text-ink"></p>
+            <p id="results-missed-summary" class="mt-2 text-lg text-ink"></p>
             <p id="results-score" class="mt-4 text-sm text-ink-soft/70"></p>
           </div>
 
@@ -255,7 +256,7 @@ import Layout from '@/layouts/Layout.astro';
             <h2 class="mb-1 text-base font-semibold text-ink">
               Let's look at these together
             </h2>
-            <p class="mb-3 text-sm text-ink-soft">A little more time with these, and they'll feel easy.</p>
+            <p class="mb-3 text-sm text-ink">A little more time with these, and they'll feel easy.</p>
             <ul id="results-missed-list" class="flex flex-wrap gap-2" aria-label="Words to practice again"></ul>
           </div>
 
@@ -264,20 +265,20 @@ import Layout from '@/layouts/Layout.astro';
             <button
               id="btn-review-missed"
               type="button"
-              class="hidden w-full rounded-full bg-brand-blue px-6 py-3.5 text-sm font-bold text-white shadow-[0_8px_20px_-8px_rgba(47,111,237,0.4)] transition hover:bg-brand-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97]"
+              class="hidden w-full rounded-full bg-brand-red px-6 py-4 font-display text-lg font-semibold text-white shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
             >
               Practice the tricky words
             </button>
             <button
               id="btn-retry"
               type="button"
-              class="w-full rounded-full border-2 border-brand-blue bg-white px-6 py-3.5 text-sm font-bold text-brand-blue transition hover:bg-app-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97]"
+              class="w-full rounded-full border-2 border-line bg-white px-6 py-3.5 text-base font-semibold text-ink transition hover:bg-app-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink active:scale-[0.97]"
             >
               Start this list again
             </button>
             <a
               href="/"
-              class="w-full rounded-full px-6 py-3.5 text-center text-sm font-semibold text-ink-soft transition hover:bg-app-cloud hover:text-ink"
+              class="w-full rounded-full px-6 py-3.5 text-center text-base font-semibold text-ink-soft transition hover:bg-app-cloud hover:text-ink"
             >
               Enter New Words
             </a>
@@ -288,7 +289,7 @@ import Layout from '@/layouts/Layout.astro';
     </div>
   </main>
 
-  <footer class="border-t border-line">
+  <footer id="site-footer" class="border-t border-line">
     <div class="mx-auto max-w-3xl px-6 py-8 text-center text-xs text-ink-soft">
       &copy; {new Date().getFullYear()} spellingwords.app &mdash; Free spelling practice for every classroom.
     </div>
@@ -382,19 +383,20 @@ import Layout from '@/layouts/Layout.astro';
   // steps back rather than repeating itself on every single word.
   function instructionForIndex(index: number): string {
     if (index === 0) {
-      return "Listen carefully, then type the word you hear. Take your time — there's no rush.";
+      return "Listen, then type the word you hear.";
     }
-    if (index === 1) {
-      return 'Type the word you hear, whenever you feel ready.';
-    }
-    return "You've got this.";
+    return '';
   }
 
   // --- Screen management ---
+  const siteFooter = document.getElementById('site-footer');
+  const immersiveScreens = [screenQuestion, screenFeedback, screenResults];
+
   function showScreen(target: HTMLElement): void {
     for (const screen of allScreens) {
       screen.classList.toggle('hidden', screen !== target);
     }
+    siteFooter?.classList.toggle('hidden', immersiveScreens.includes(target));
   }
 
   function showError(message: string): void {
@@ -474,13 +476,13 @@ import Layout from '@/layouts/Layout.astro';
       feedbackIcon.textContent = '✓';
       feedbackIcon.className = 'flex h-20 w-20 items-center justify-center rounded-xl bg-feedback-correct/12 text-4xl text-feedback-correct';
       feedbackHeading.textContent = pickPhrase(CORRECT_PHRASES, lastCorrectPhrase, (i) => (lastCorrectPhrase = i));
-      feedbackHeading.className = 'font-display text-2xl font-semibold text-feedback-correct';
+      feedbackHeading.className = 'font-display text-3xl font-semibold text-feedback-correct';
       feedbackDetail.textContent = '';
     } else {
       feedbackIcon.textContent = '✗';
       feedbackIcon.className = 'flex h-20 w-20 items-center justify-center rounded-2xl bg-feedback-incorrect/10 text-4xl text-feedback-incorrect';
       feedbackHeading.textContent = pickPhrase(INCORRECT_PHRASES, lastIncorrectPhrase, (i) => (lastIncorrectPhrase = i));
-      feedbackHeading.className = 'font-display text-2xl font-semibold text-feedback-incorrect';
+      feedbackHeading.className = 'font-display text-3xl font-semibold text-feedback-incorrect';
       feedbackDetail.textContent = `It's spelled ${currentWord}.`;
     }
 
@@ -510,15 +512,15 @@ import Layout from '@/layouts/Layout.astro';
 
       // The most useful next step — practicing the words that need it — leads.
       btnReviewMissed.classList.remove('hidden');
-      btnReviewMissed.className = 'w-full rounded-full bg-brand-blue px-6 py-3.5 text-sm font-bold text-white shadow-[0_8px_20px_-8px_rgba(47,111,237,0.4)] transition hover:bg-brand-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97]';
-      btnRetry.className = 'w-full rounded-full border-2 border-brand-blue bg-white px-6 py-3.5 text-sm font-bold text-brand-blue transition hover:bg-app-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97]';
+      btnReviewMissed.className = 'w-full rounded-full bg-brand-red px-6 py-4 font-display text-lg font-semibold text-white shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0';
+      btnRetry.className = 'w-full rounded-full border-2 border-line bg-white px-6 py-3.5 text-base font-semibold text-ink transition hover:bg-app-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink active:scale-[0.97]';
     } else {
       resultsMissedSummary.textContent = 'Every word was spelled correctly.';
       resultsMissedSection.classList.add('hidden');
 
       // Nothing to review — starting again becomes the one clear option.
       btnReviewMissed.classList.add('hidden');
-      btnRetry.className = 'w-full rounded-full bg-brand-blue px-6 py-3.5 text-sm font-bold text-white shadow-[0_8px_20px_-8px_rgba(47,111,237,0.4)] transition hover:bg-brand-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97]';
+      btnRetry.className = 'w-full rounded-full bg-brand-red px-6 py-4 font-display text-lg font-semibold text-white shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0';
     }
 
     // Score is kept available, but quiet — a footnote, not the headline.

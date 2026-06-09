@@ -79,34 +79,58 @@ import Layout from '@/layouts/Layout.astro';
       </section>
 
       <!-- Begin screen -->
-      <section id="screen-begin" class="hidden text-center" aria-labelledby="begin-heading">
-        <div class="flex flex-col items-center gap-8">
-          <div class="flex flex-col items-center gap-3">
-            <h1 id="begin-heading" class="font-display text-3xl font-semibold text-ink">
-              Ready to spell?
-            </h1>
-            <p id="begin-word-count" class="text-base text-ink-soft"></p>
-            <p class="text-sm text-ink-soft">Each word will be spoken aloud. Take your time, and type what you hear.</p>
+      <section id="screen-begin" class="hidden" aria-labelledby="begin-heading">
+
+        <!-- Page heading -->
+        <div class="mb-6 text-center">
+          <!-- Collection title slot — hidden until collection data is available -->
+          <p id="begin-collection-label" class="hidden mb-1 text-xs font-semibold uppercase tracking-widest text-ink-faint"></p>
+          <h1 id="begin-heading" class="font-display text-3xl font-semibold text-ink">
+            Today's practice
+          </h1>
+        </div>
+
+        <!-- Session card — warm inset, architecture-forward layout -->
+        <div class="rounded-2xl border border-line bg-app-cloud px-6 py-5">
+          <!-- Session stats row -->
+          <div class="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+            <span id="begin-word-count" class="font-semibold text-ink"></span>
+            <span class="text-ink-faint" aria-hidden="true">·</span>
+            <span id="begin-duration" class="text-ink-soft"></span>
+            <span class="text-ink-faint" aria-hidden="true">·</span>
+            <span class="rounded-full border border-line bg-white px-3 py-0.5 text-xs font-semibold text-ink-soft">Listen &amp; spell</span>
+            <!-- Session number slot — hidden until session chunking ships -->
+            <span id="begin-session-meta" class="hidden rounded-full border border-line bg-white px-3 py-0.5 text-xs font-semibold text-ink-faint"></span>
           </div>
+
+          <!-- What's about to happen — calm, clear, no pressure -->
+          <p class="text-sm leading-relaxed text-ink-soft">
+            Each word will be read aloud. Type what you hear — take your time, and you can always ask to hear it again.
+          </p>
+        </div>
+
+        <!-- Primary CTA — matches homepage coral/red button -->
+        <div class="mt-8 flex justify-center">
           <button
             id="btn-begin"
             type="button"
-            class="rounded-full bg-brand-blue px-8 py-4 text-base font-bold text-white shadow-[0_8px_24px_-8px_rgba(47,111,237,0.45)] transition hover:bg-brand-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97]"
+            class="inline-flex items-center gap-2 rounded-full bg-brand-red px-10 py-4 font-display text-[19px] font-semibold text-white tracking-[0.01em] shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
           >
-            Begin Test
+            Start Practice <span aria-hidden="true">→</span>
           </button>
         </div>
 
-        <!-- Voice settings — tucked away for parents & teachers, not part of the child's task -->
-        <div class="mt-10 border-t border-line pt-6 text-left">
+        <!-- Voice settings — secondary, for parents & teachers only -->
+        <div class="mt-10 border-t border-line pt-6">
           <button
             id="btn-voice-toggle"
             type="button"
             aria-expanded="false"
             aria-controls="voice-settings-panel"
-            class="text-xs text-ink-soft transition-colors hover:text-ink-soft"
+            class="group flex flex-col gap-0.5 text-left"
           >
-            For parents &amp; teachers: voice settings ▾
+            <span class="text-xs font-semibold text-ink-soft transition-colors group-hover:text-ink">▾ Voice &amp; speed settings</span>
+            <span class="text-xs text-ink-faint">For parents &amp; teachers</span>
           </button>
           <div
             id="voice-settings-panel"
@@ -129,7 +153,7 @@ import Layout from '@/layouts/Layout.astro';
                 max="1.1"
                 step="0.05"
                 value="0.5"
-                class="flex-1 accent-brand-blue"
+                class="flex-1 accent-brand-red"
                 aria-label="Speech speed"
               />
               <span id="speed-label" class="text-xs font-medium text-ink-soft w-10 text-right">0.50×</span>
@@ -139,9 +163,9 @@ import Layout from '@/layouts/Layout.astro';
             <button
               id="btn-test-voice"
               type="button"
-              class="self-start rounded-full border border-line bg-white px-4 py-2 text-xs font-semibold text-ink-soft transition-colors hover:border-brand-blue/40 hover:text-brand-blue"
+              class="self-start rounded-full border border-line bg-white px-4 py-2 text-xs font-semibold text-ink-soft transition-colors hover:border-brand-red/40 hover:text-brand-red"
             >
-              Test voice
+              Preview voice
             </button>
 
             <!-- Helper text -->
@@ -428,7 +452,9 @@ import Layout from '@/layouts/Layout.astro';
     state = spellingTestReducer(createInitialState(), initializeTest(originalWords));
 
     const count = originalWords.length;
-    beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'} loaded`;
+    beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
+    const durationMins = Math.ceil(count * 0.5);
+    ($('begin-duration') as HTMLElement).textContent = `about ${durationMins} ${durationMins === 1 ? 'min' : 'min'}`;
     showScreen(screenBegin);
 
     // Load voices in the background — does not require a user gesture
@@ -558,7 +584,7 @@ import Layout from '@/layouts/Layout.astro';
   btnRetry.addEventListener('click', () => {
     state = spellingTestReducer(resetTest(), initializeTest(originalWords));
     const count = originalWords.length;
-    beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'} loaded`;
+    beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
     showScreen(screenBegin);
   });
 
@@ -572,9 +598,8 @@ import Layout from '@/layouts/Layout.astro';
   btnVoiceToggle.addEventListener('click', () => {
     const open = voiceSettingsPanel.classList.toggle('hidden') === false;
     btnVoiceToggle.setAttribute('aria-expanded', String(open));
-    btnVoiceToggle.textContent = open
-      ? 'For parents & teachers: voice settings ▴'
-      : 'For parents & teachers: voice settings ▾';
+    const label = btnVoiceToggle.querySelector('span:first-child')!;
+    label.textContent = open ? '▴ Voice & speed settings' : '▾ Voice & speed settings';
   });
 
   speedRange.addEventListener('input', () => {

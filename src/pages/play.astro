@@ -340,6 +340,7 @@ import Layout from '@/layouts/Layout.astro';
 
 <script>
   import { decodeWordList } from '@/lib/words';
+  import { getSentenceBankEntry } from '@/lib/sentenceBank';
   import { createSpeechController, selectPreferredVoice } from '@/modules/speech';
   import type { SpeechSynthesisVoiceAdapter } from '@/modules/speech';
   import {
@@ -495,7 +496,16 @@ import Layout from '@/layouts/Layout.astro';
       }
     } catch { /* sessionStorage unavailable or parse failed — fall through to plain words */ }
 
-    state = spellingTestReducer(createInitialState(), initializeTest(richWords ?? originalWords));
+    // For custom lists (no sessionStorage entry), enrich words from the sentence bank.
+    // Curated list words already carry their exampleSentence inside richWords — never overwrite those.
+    if (!richWords) {
+      richWords = originalWords.map((w) => {
+        const entry = getSentenceBankEntry(w.word);
+        return entry ? { ...w, exampleSentence: entry.exampleSentence } : w;
+      });
+    }
+
+    state = spellingTestReducer(createInitialState(), initializeTest(richWords));
 
     const count = originalWords.length;
     beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;

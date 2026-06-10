@@ -83,11 +83,4 @@ describe('toPlayableWords', () => {
     expect(toPlayableWords(entry)).toEqual([{ word: 'brave' }, { word: 'cake', hint: 'a treat' }]);
   });
 
-  it('preserves spokenPrompt when present', () => {
-    const entry = makeEntry({
-      id: 'b',
-      words: [{ word: 'live', spokenPrompt: 'live, as in: they live in a house' }],
-    });
-    expect(toPlayableWords(entry)[0].spokenPrompt).toBe('live, as in: they live in a house');
-  });
 });

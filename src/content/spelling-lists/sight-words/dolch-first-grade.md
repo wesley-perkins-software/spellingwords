@@ -67,8 +67,7 @@ words:
   - word: let
     exampleSentence: "Please let me carry the bag."
   - word: live
-    spokenPrompt: "live, as in: they live in a small white house"
-    exampleSentence: "They live in a small white house."
+    exampleSentence: "We heard live music at the school fair."
   - word: may
     exampleSentence: "You may sit next to me."
   - word: of

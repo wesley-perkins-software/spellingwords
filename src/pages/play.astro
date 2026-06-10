@@ -531,7 +531,7 @@ import Layout from '@/layouts/Layout.astro';
     showScreen(screenQuestion);
     requestAnimationFrame(() => answerInput.focus());
 
-    speech.speakWord(current.spokenPrompt ?? current.word, speechOptions());
+    speech.speakWord(current.word, speechOptions());
   }
 
   function renderFeedback(): void {
@@ -625,8 +625,8 @@ import Layout from '@/layouts/Layout.astro';
   // Always re-speak the current word directly from state — never repeatWord(),
   // which would replay whatever was last spoken (could be a sentence).
   btnRepeat.addEventListener('click', () => {
-    const current = state.words[state.currentIndex];
-    if (current) speech.speakWord(current.spokenPrompt ?? current.word, speechOptions());
+    const word = state.words[state.currentIndex]?.word;
+    if (word) speech.speakWord(word, speechOptions());
   });
 
   // Speed toggle — cycles through three presets so parents can adjust mid-session

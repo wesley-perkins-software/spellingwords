@@ -1,0 +1,43 @@
+import type { SentenceBankEntry } from './types';
+
+export const SENTENCE_BANK: SentenceBankEntry[] = [
+  // K-1
+  { word: 'cat', exampleSentence: 'The cat sat on the soft rug.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'dog', exampleSentence: 'My dog loves to play in the yard.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'big', exampleSentence: 'The big elephant splashed in the water.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'run', exampleSentence: 'We run to the park after school.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'jump', exampleSentence: 'She can jump over the puddle.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'day', exampleSentence: 'It was a sunny day at the beach.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'night', exampleSentence: 'Stars shine in the sky at night.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'rain', exampleSentence: 'The rain made puddles on the sidewalk.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'snow', exampleSentence: 'We built a snowman in the fluffy snow.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'hand', exampleSentence: 'She raised her hand to answer the question.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'girl', exampleSentence: 'The girl read a book under the tree.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'fish', exampleSentence: 'We saw a colorful fish in the pond.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'bird', exampleSentence: 'A little bird sang outside the window.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'tree', exampleSentence: 'An apple grows on that tall tree.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'help', exampleSentence: 'Can you help me carry these books?', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'like', exampleSentence: 'I like to read before bedtime.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'love', exampleSentence: 'We love spending time with our family.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'want', exampleSentence: 'Do you want a glass of water?', gradeBand: 'K-1', sourceType: 'curated' },
+  // 2-3
+  { word: 'play', exampleSentence: 'The children play outside after lunch.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'book', exampleSentence: 'She borrowed a book from the library.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'water', exampleSentence: 'Remember to drink plenty of water each day.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'small', exampleSentence: 'A small kitten hid under the chair.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'cold', exampleSentence: 'Put on your coat because it is cold outside.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'fast', exampleSentence: 'The fast rabbit reached the finish line first.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'slow', exampleSentence: 'The slow turtle finished the race last.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'flower', exampleSentence: 'She planted a flower in the garden.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'happy', exampleSentence: 'Everyone felt happy on the last day of school.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'learn', exampleSentence: 'We learn something new every day.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'write', exampleSentence: 'Please write your name at the top of the page.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'mother', exampleSentence: 'My mother makes the best soup.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'father', exampleSentence: 'Her father teaches at the school nearby.', gradeBand: '2-3', sourceType: 'curated' },
+  // 4-5
+  { word: 'because', exampleSentence: 'She brought an umbrella because it might rain.', gradeBand: '4-5', sourceType: 'curated' },
+  { word: 'friend', exampleSentence: 'A good friend listens when you need to talk.', gradeBand: '4-5', sourceType: 'curated' },
+  { word: 'school', exampleSentence: 'We walk to school together every morning.', gradeBand: '4-5', sourceType: 'curated' },
+  { word: 'house', exampleSentence: 'Their house has a big garden in the back.', gradeBand: '4-5', sourceType: 'curated' },
+  { word: 'family', exampleSentence: 'Our family gathers for dinner on Sundays.', gradeBand: '4-5', sourceType: 'curated' },
+];

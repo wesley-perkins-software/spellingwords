@@ -500,8 +500,8 @@ import Layout from '@/layouts/Layout.astro';
     // Curated list words already carry their exampleSentence inside richWords — never overwrite those.
     if (!richWords) {
       richWords = originalWords.map((w) => {
-        const entry = getSentenceBankEntry(w.word);
-        return entry ? { ...w, exampleSentence: entry.exampleSentence } : w;
+        const entry = getSentenceBankEntry(w);
+        return entry ? { word: w, exampleSentence: entry.exampleSentence } : { word: w };
       });
     }
 

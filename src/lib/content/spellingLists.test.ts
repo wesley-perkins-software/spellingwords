@@ -78,8 +78,9 @@ describe('resolveListRefs', () => {
 });
 
 describe('toPlayableWords', () => {
-  it('extracts a plain string array from the word objects', () => {
+  it('returns the SpellingWord array, preserving optional fields', () => {
     const entry = makeEntry({ id: 'a', words: [{ word: 'brave' }, { word: 'cake', hint: 'a treat' }] });
-    expect(toPlayableWords(entry)).toEqual(['brave', 'cake']);
+    expect(toPlayableWords(entry)).toEqual([{ word: 'brave' }, { word: 'cake', hint: 'a treat' }]);
   });
+
 });

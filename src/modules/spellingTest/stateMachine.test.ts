@@ -50,6 +50,17 @@ describe('INITIALIZE', () => {
     expect(state.words[0].hint).toBe('a pet');
   });
 
+  it('preserves optional fields (exampleSentence, hint) through the state machine', () => {
+    const words: SpellingWord[] = [
+      { word: 'live', exampleSentence: 'We heard live music at the school fair.' },
+      { word: 'cat' },
+    ];
+    let state = spellingTestReducer(createInitialState(), initializeTest(words));
+    state = spellingTestReducer(state, startTest(T.start));
+    expect(state.words[0].exampleSentence).toBe('We heard live music at the school fair.');
+    expect(state.words[1].exampleSentence).toBeUndefined();
+  });
+
   it('initializes from a WordList by passing its words array', () => {
     const wordList: WordList = {
       id: '1',

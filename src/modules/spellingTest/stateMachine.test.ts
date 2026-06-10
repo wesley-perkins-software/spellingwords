@@ -50,6 +50,18 @@ describe('INITIALIZE', () => {
     expect(state.words[0].hint).toBe('a pet');
   });
 
+  it('preserves spokenPrompt through the state machine', () => {
+    const words: SpellingWord[] = [
+      { word: 'live', spokenPrompt: 'live, as in: they live in a house', exampleSentence: 'They live in a house.' },
+      { word: 'cat' },
+    ];
+    let state = spellingTestReducer(createInitialState(), initializeTest(words));
+    state = spellingTestReducer(state, startTest(T.start));
+    expect(state.words[0].spokenPrompt).toBe('live, as in: they live in a house');
+    expect(state.words[0].exampleSentence).toBe('They live in a house.');
+    expect(state.words[1].spokenPrompt).toBeUndefined();
+  });
+
   it('initializes from a WordList by passing its words array', () => {
     const wordList: WordList = {
       id: '1',

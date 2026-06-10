@@ -6,6 +6,7 @@ const status = z.enum(['draft', 'published', 'archived']);
 
 const spellingWord = z.object({
   word: z.string(),
+  spokenPrompt: z.string().optional(),
   hint: z.string().optional(),
   exampleSentence: z.string().optional(),
   phonicsPattern: z.array(z.string()).optional(),

@@ -2,7 +2,6 @@ import type { SentenceBankEntry } from '../types';
 
 export const GRADE45_ENTRIES: SentenceBankEntry[] = [
   { word: 'although', exampleSentence: 'We went outside although the sky was full of grey clouds.', gradeBand: '4-5', sourceType: 'curated' },
-  { word: 'America', exampleSentence: 'Many different birds fly south across America when winter arrives.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'among', exampleSentence: 'The shy rabbit hid among the tall ferns near the path.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'arrive', exampleSentence: 'We always arrive early so we can find good seats.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'attention', exampleSentence: 'She paid close attention while the teacher explained the new lesson.', gradeBand: '4-5', sourceType: 'curated' },

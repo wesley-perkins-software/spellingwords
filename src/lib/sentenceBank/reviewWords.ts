@@ -128,4 +128,25 @@ export const REVIEW_WORDS: ReviewWordEntry[] = [
     status: 'avoid',
     notes: 'Was briefly added in an expansion pass; removed in audit.',
   },
+  {
+    word: 'Friday',
+    reason: 'Proper noun (day of week). Content standards prohibit proper nouns as spelling targets.',
+    recommendation: 'Skip. Days of the week are capitalized proper nouns.',
+    status: 'avoid',
+    notes: 'Was briefly added in an expansion pass; removed in audit.',
+  },
+  {
+    word: 'Sunday',
+    reason: 'Proper noun (day of week). Same issue as Friday.',
+    recommendation: 'Skip.',
+    status: 'avoid',
+    notes: 'Was briefly added in an expansion pass; removed in audit.',
+  },
+  {
+    word: 'America',
+    reason: 'Proper noun (country name). Content standards prohibit proper nouns.',
+    recommendation: 'Skip.',
+    status: 'avoid',
+    notes: 'Was briefly added in an expansion pass; removed in audit.',
+  },
 ];

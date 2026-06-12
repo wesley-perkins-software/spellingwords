@@ -28,3 +28,15 @@ problematic words are skipped rather than forced in.
 
 These Grade 1 words were already in the bank and were left in place: `big`,
 `cat`, `day`, `dog`, `run`, `like` (K-1), `book`, `play` (2-3).
+
+---
+
+## Grades 3–5
+
+### Skipped — needs review
+
+- **minute** — Heteronym. "Minute" is pronounced _MIN-it_ as a unit of time but
+  _my-NUTE_ when it means tiny, and a single short sentence cannot guarantee the
+  intended pronunciation when the word is spoken aloud on its own. Excluded per
+  the heteronym policy in `docs/SENTENCE_BANK.md` until the architecture supports
+  per-entry pronunciation annotation.

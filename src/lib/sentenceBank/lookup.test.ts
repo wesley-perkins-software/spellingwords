@@ -47,6 +47,29 @@ describe('getSentenceBankEntry', () => {
     const entry = getSentenceBankEntry('school');
     expect(entry?.sourceType).toBe('curated');
   });
+
+  it('returns a curated entry for a Grades 3–5 word', () => {
+    const entry = getSentenceBankEntry('across');
+    expect(entry).toBeDefined();
+    expect(entry?.word).toBe('across');
+    expect(entry?.sourceType).toBe('curated');
+  });
+
+  it('matches a contraction entered with a smart apostrophe', () => {
+    const entry = getSentenceBankEntry('couldn’t');
+    expect(entry).toBeDefined();
+    expect(entry?.word).toBe("couldn't");
+  });
+
+  it('matches a hyphenated word, preserving the hyphen', () => {
+    const entry = getSentenceBankEntry('good-by');
+    expect(entry).toBeDefined();
+    expect(entry?.word).toBe('good-by');
+  });
+
+  it('does not include the skipped heteronym "minute"', () => {
+    expect(getSentenceBankEntry('minute')).toBeUndefined();
+  });
 });
 
 describe('getSentenceForWord', () => {

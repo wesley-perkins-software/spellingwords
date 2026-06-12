@@ -5,3 +5,13 @@ export interface SentenceBankEntry {
   tags?: string[];
   sourceType: 'curated';
 }
+
+export type ReviewStatus = 'needs-review' | 'safe-to-add' | 'avoid';
+
+export interface ReviewWordEntry {
+  word: string;
+  reason: string;
+  recommendation: string;
+  status: ReviewStatus;
+  notes?: string;
+}

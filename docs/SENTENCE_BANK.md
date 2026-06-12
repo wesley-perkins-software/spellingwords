@@ -8,15 +8,66 @@ There is no backend, no database, and no AI involved. Every sentence is hand-wri
 
 ## Why We Start Small
 
-A large, hastily assembled sentence bank would undermine the product's editorial quality. We begin with ~35 carefully chosen words and expand deliberately, using the same criteria each time. It is far better to have 50 accurate, well-suited sentences than 5,000 adequate ones.
+A large, hastily assembled sentence bank would undermine the product's editorial quality. We expand deliberately, using the same criteria each time. It is far better to have accurate, well-suited sentences than thousands of adequate ones. The bank currently holds **861 entries** across three grade bands.
 
 ## Where the Data Lives
 
+The entries are split by grade band so each file stays readable and is independently sortable. `data.ts` is a thin re-export shim, so the public import path (`@/lib/sentenceBank`) is unchanged.
+
 ```
-src/lib/sentenceBank/data.ts   — the seed entries (typed array)
-src/lib/sentenceBank/lookup.ts — getSentenceBankEntry() / getSentenceForWord()
-src/lib/sentenceBank/types.ts  — SentenceBankEntry interface
+src/lib/sentenceBank/data.ts            — re-export shim: export { SENTENCE_BANK } from './data/index'
+src/lib/sentenceBank/data/index.ts      — combines the three grade-band arrays into SENTENCE_BANK
+src/lib/sentenceBank/data/k1.ts         — K1_ENTRIES (gradeBand 'K-1'), sorted alphabetically by word
+src/lib/sentenceBank/data/grade23.ts    — GRADE23_ENTRIES (gradeBand '2-3'), sorted alphabetically by word
+src/lib/sentenceBank/data/grade45.ts    — GRADE45_ENTRIES (gradeBand '4-5'), sorted alphabetically by word
+src/lib/sentenceBank/lookup.ts          — getSentenceBankEntry() / getSentenceForWord()
+src/lib/sentenceBank/types.ts           — SentenceBankEntry, ReviewWordEntry, ReviewStatus
+src/lib/sentenceBank/reviewWords.ts     — REVIEW_WORDS: skipped / problem words with status + rationale
+src/lib/sentenceBank/audit.test.ts      — automated data-integrity checks
 ```
+
+## Automated Audit Rules
+
+`audit.test.ts` enforces the following nine checks against `SENTENCE_BANK` (run with `npm test`):
+
+1. **No duplicate normalized words** — no two entries normalize to the same word.
+2. **Non-empty fields** — every entry has a non-empty `word` and `exampleSentence`.
+3. **`sourceType` is `curated`** — every entry is marked as curated content.
+4. **Valid `gradeBand`** — every entry's `gradeBand` is one of `K-1`, `2-3`, `4-5`.
+5. **Sentence contains the target word** — the `exampleSentence` actually contains the `word` (token match, contraction- and allowlist-aware).
+6. **Sentence length 5–25 words** — every sentence falls within the allowed length window.
+7. **No mojibake** — no `â€œ`/`â€™`-style encoding corruption in any field.
+8. **K-1 entries sorted alphabetically** (case-insensitive) by word.
+9. **Grade 2-3 and Grade 4-5 entries sorted alphabetically** (case-insensitive) by word.
+
+## Heteronym Policy
+
+**Heteronyms are excluded from the bank.** A heteronym changes pronunciation with meaning (`live`, `read`, `wind`, `tear`, `lead`, `row`, `close`, `bow`, `sow`, `wound`, `minute`). Because a custom-list word is spoken aloud in isolation, the bank cannot guarantee TTS will produce the pronunciation a given sentence implies — e.g. "I live on Maple Street" vs "We watched the live show." Until the architecture supports per-entry pronunciation annotation, heteronyms are skipped entirely and recorded in `reviewWords.ts`. Proper nouns (e.g. `Saturday`) are likewise excluded from the `word` field, though they may appear inside sentences.
+
+## Skipped Word Review Process
+
+Words that are deliberately not in the bank — heteronyms, proper nouns, irregular-but-safe candidates — are tracked in `src/lib/sentenceBank/reviewWords.ts` as `REVIEW_WORDS`. Each `ReviewWordEntry` records:
+
+- `word` — the word under consideration.
+- `reason` — why it is problematic (e.g. the specific heteronym pronunciations).
+- `recommendation` — the editorial call (skip, remove, or add with a careful sentence).
+- `status` — one of `avoid`, `needs-review`, or `safe-to-add`.
+- `notes` — optional history (e.g. "was briefly in the bank; removed in audit pass") or a suggested example sentence.
+
+This gives the next editor a documented trail so the same words are not repeatedly re-evaluated or accidentally re-added. Words removed during the audit pass (`live`, `read`, `wind`, `close`, `Saturday`) live here with `status: 'avoid'`.
+
+## Sentence Quality Checklist
+
+Before adding an entry, confirm every point:
+
+1. The sentence is 8–15 words long (hard limit 5–25, enforced by the audit).
+2. The sentence contains the exact target word (not just an inflection).
+3. The word is used naturally in context, never as a definition.
+4. The meaning is immediately understandable at the listed grade band.
+5. The subject matter is warm, positive, neutral, or gently imaginative — no fear, violence, or stress.
+6. There is no cultural specificity that would confuse a non-US child.
+7. The word is not a heteronym or proper noun (check `reviewWords.ts`).
+8. The entry is inserted in correct alphabetical position within its grade-band file, with the right `gradeBand` and `sourceType: 'curated'`.
 
 ## Editorial Standards
 

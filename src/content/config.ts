@@ -4,12 +4,18 @@ const category = z.enum(['grade-level', 'sight-words', 'phonics', 'challenge', '
 const difficulty = z.enum(['beginner', 'developing', 'intermediate', 'advanced', 'challenge']);
 const status = z.enum(['draft', 'published', 'archived']);
 
-const spellingWord = z.object({
-  word: z.string(),
-  hint: z.string().optional(),
-  exampleSentence: z.string().optional(),
-  phonicsPattern: z.array(z.string()).optional(),
-});
+// Words in list frontmatter are plain strings.
+// Optional object form allows hint (etymology notes for challenge lists) and
+// phonicsPattern (per-word phonics tags). exampleSentence always comes from the
+// sentence bank at build time via toPlayableWords() — never stored here.
+const wordEntry = z.union([
+  z.string(),
+  z.object({
+    word: z.string(),
+    hint: z.string().optional(),
+    phonicsPattern: z.array(z.string()).optional(),
+  }),
+]);
 
 const spellingLists = defineCollection({
   type: 'content',
@@ -40,7 +46,7 @@ const spellingLists = defineCollection({
     prerequisiteLists: z.array(z.string()).default([]),
     nextLists: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
-    words: z.array(spellingWord),
+    words: z.array(wordEntry),
   }),
 });
 

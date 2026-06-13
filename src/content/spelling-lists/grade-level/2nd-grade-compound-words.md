@@ -19,36 +19,16 @@ prerequisiteLists: ["grade-2-list-01"]
 nextLists: []
 featured: false
 words:
-  - word: sunshine
-    phonicsPattern: ["compound"]
-    exampleSentence: "The sunshine warmed the garden and made everything glow."
-  - word: backpack
-    phonicsPattern: ["compound"]
-    exampleSentence: "She packed her books and lunch inside her blue backpack."
-  - word: football
-    phonicsPattern: ["compound"]
-    exampleSentence: "They tossed the football around the yard all afternoon."
-  - word: birthday
-    phonicsPattern: ["compound"]
-    exampleSentence: "On her birthday she woke up to balloons on her chair."
-  - word: rainbow
-    phonicsPattern: ["compound"]
-    exampleSentence: "A bright rainbow appeared in the sky after the storm."
-  - word: bedroom
-    phonicsPattern: ["compound"]
-    exampleSentence: "Her bedroom had soft rugs and a cozy reading lamp."
-  - word: notebook
-    phonicsPattern: ["compound"]
-    exampleSentence: "She wrote her spelling words neatly in her new notebook."
-  - word: snowman
-    phonicsPattern: ["compound"]
-    exampleSentence: "We built a snowman with a carrot nose and a hat."
-  - word: weekend
-    phonicsPattern: ["compound"]
-    exampleSentence: "On the weekend we visit the library and the park."
-  - word: cupcake
-    phonicsPattern: ["compound"]
-    exampleSentence: "She put a pink flower on top of each cupcake."
+  - sunshine
+  - backpack
+  - football
+  - birthday
+  - rainbow
+  - bedroom
+  - notebook
+  - snowman
+  - weekend
+  - cupcake
 ---
 
 Recognizing that "sunshine" is just "sun" plus "shine" gives students a powerful spelling strategy: break a big word into smaller, familiar pieces.

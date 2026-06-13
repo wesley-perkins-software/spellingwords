@@ -1,5 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 import type { SpellingWord } from '@/types/spelling';
+import { getSentenceBankEntry } from '@/lib/sentenceBank/lookup';
 
 export type SpellingListEntry = CollectionEntry<'spelling-lists'>;
 
@@ -47,7 +48,33 @@ export function resolveListRefs(
   return ids.map((id) => byId.get(id)).filter((entry): entry is SpellingListEntry => entry !== undefined);
 }
 
-/** Returns the full SpellingWord array for a content entry, preserving optional fields like exampleSentence. */
+/**
+ * Returns all entries for a given grade value (e.g. "K", "1", "2"),
+ * sorted by category alphabetically then by order within each category.
+ */
+export function getListsByGrade(grade: string, entries: SpellingListEntry[]): SpellingListEntry[] {
+  return entries
+    .filter((e) => e.data.grade === grade)
+    .sort((a, b) => {
+      if (a.data.category !== b.data.category) return a.data.category.localeCompare(b.data.category);
+      return a.data.order - b.data.order;
+    });
+}
+
+/**
+ * Converts a list entry's word data to playable SpellingWord objects.
+ * Words are plain strings or objects with hint/phonicsPattern in frontmatter;
+ * exampleSentence is always injected from the sentence bank here.
+ */
 export function toPlayableWords(entry: SpellingListEntry): SpellingWord[] {
-  return entry.data.words as SpellingWord[];
+  return entry.data.words.map((w) => {
+    const wordStr = typeof w === 'string' ? w : w.word;
+    const bankEntry = getSentenceBankEntry(wordStr);
+    return {
+      word: wordStr,
+      exampleSentence: bankEntry?.exampleSentence,
+      ...(typeof w !== 'string' && w.hint !== undefined ? { hint: w.hint } : {}),
+      ...(typeof w !== 'string' && w.phonicsPattern !== undefined ? { phonicsPattern: w.phonicsPattern } : {}),
+    };
+  });
 }

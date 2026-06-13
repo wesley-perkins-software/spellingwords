@@ -20,16 +20,12 @@ featured: false
 words:
   - word: telephone
     hint: "from Greek 'tele' (far) and 'phone' (sound)"
-    exampleSentence: "She answered the telephone on the first ring."
   - word: photograph
     hint: "from Greek 'photo' (light) and 'graph' (write)"
-    exampleSentence: "He took a photograph of the sunset."
   - word: biography
     hint: "from Greek 'bio' (life) and 'graph' (write)"
-    exampleSentence: "We read a biography about a famous inventor."
   - word: democracy
     hint: "from Greek 'demos' (people) and 'kratos' (power)"
-    exampleSentence: "The class voted to decide in a small democracy."
 ---
 
 Tier 2 is authored and ready for review, but intentionally held back as a draft — it stays out of the published library until it has been checked alongside Tier 1, demonstrating how `status: draft` lets content be built incrementally without ever exposing a thin page.

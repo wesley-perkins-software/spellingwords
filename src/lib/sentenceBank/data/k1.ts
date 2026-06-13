@@ -42,6 +42,7 @@ export const K1_ENTRIES: SentenceBankEntry[] = [
   { word: 'boy', exampleSentence: 'The boy kicks the ball.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'bring', exampleSentence: 'Please bring your raincoat to school today.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'brown', exampleSentence: 'A brown rabbit hopped into the garden.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'bug', exampleSentence: 'A tiny bug crawled slowly across the warm garden stone.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'bus', exampleSentence: 'We ride the bus to school every morning.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'but', exampleSentence: 'I want to play, but it is raining.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'by', exampleSentence: 'The dog slept by the warm fireplace.', gradeBand: 'K-1', sourceType: 'curated' },

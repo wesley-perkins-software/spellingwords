@@ -49,6 +49,19 @@ export function resolveListRefs(
 }
 
 /**
+ * Returns all entries for a given grade value (e.g. "K", "1", "2"),
+ * sorted by category alphabetically then by order within each category.
+ */
+export function getListsByGrade(grade: string, entries: SpellingListEntry[]): SpellingListEntry[] {
+  return entries
+    .filter((e) => e.data.grade === grade)
+    .sort((a, b) => {
+      if (a.data.category !== b.data.category) return a.data.category.localeCompare(b.data.category);
+      return a.data.order - b.data.order;
+    });
+}
+
+/**
  * Converts a list entry's word data to playable SpellingWord objects.
  * Words are plain strings or objects with hint/phonicsPattern in frontmatter;
  * exampleSentence is always injected from the sentence bank here.

@@ -8,6 +8,7 @@ import RelatedListCards from '@/components/RelatedListCards.astro';
 import SourceAttribution from '@/components/SourceAttribution.astro';
 import { isPublished, resolveListRefs, toPlayableWords } from '@/lib/content/spellingLists';
 import { categoryLabels } from '@/lib/content/categoryMeta';
+import { getListPath } from '@/lib/content/learningPaths';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('spelling-lists')).filter(isPublished);
@@ -39,6 +40,7 @@ function listLink(e: (typeof allEntries)[number]) {
 }
 
 const categoryLabel = categoryLabels[data.category] ?? data.category;
+const listPath = getListPath(data.id);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -113,6 +115,14 @@ const breadcrumbJsonLd = {
           wordCountLabel={`${data.words.length} words in this collection`}
         />
       </div>
+
+      <!-- Learning path indicator -->
+      {listPath && (
+        <div class="mt-5 inline-flex items-center gap-2 rounded-lg border border-line bg-app-cloud px-3 py-2 text-sm text-ink-soft">
+          <span aria-hidden="true">↗</span>
+          <span>Part of the <a href="/spelling-lists" class="font-semibold text-ink hover:text-brand-blue hover:underline">{listPath.title}</a></span>
+        </div>
+      )}
 
       <!-- Practice options -->
       <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">

@@ -78,9 +78,37 @@ describe('resolveListRefs', () => {
 });
 
 describe('toPlayableWords', () => {
-  it('returns the SpellingWord array, preserving optional fields', () => {
-    const entry = makeEntry({ id: 'a', words: [{ word: 'brave' }, { word: 'cake', hint: 'a treat' }] });
-    expect(toPlayableWords(entry)).toEqual([{ word: 'brave' }, { word: 'cake', hint: 'a treat' }]);
+  it('injects exampleSentence from the sentence bank', () => {
+    const entry = makeEntry({ id: 'a', words: ['brave', 'cake'] });
+    const result = toPlayableWords(entry);
+    expect(result[0].word).toBe('brave');
+    expect(result[0].exampleSentence).toBeTruthy();
+    expect(result[1].word).toBe('cake');
+    expect(result[1].exampleSentence).toBeTruthy();
   });
 
+  it('preserves hint from word object through enrichment', () => {
+    const entry = makeEntry({ id: 'a', words: [{ word: 'brave', hint: 'courageous' }] });
+    const result = toPlayableWords(entry);
+    expect(result[0].word).toBe('brave');
+    expect(result[0].hint).toBe('courageous');
+    expect(result[0].exampleSentence).toBeTruthy();
+  });
+
+  it('returns no exampleSentence for words not in the bank', () => {
+    const entry = makeEntry({ id: 'a', words: ['xyzzy-notaword'] });
+    const result = toPlayableWords(entry);
+    expect(result[0].word).toBe('xyzzy-notaword');
+    expect(result[0].exampleSentence).toBeUndefined();
+  });
+
+  it('handles both string and object word entries in the same list', () => {
+    const entry = makeEntry({ id: 'a', words: ['cat', { word: 'dog', hint: 'a pet' }] });
+    const result = toPlayableWords(entry);
+    expect(result[0].word).toBe('cat');
+    expect(result[0].exampleSentence).toBeTruthy();
+    expect(result[1].word).toBe('dog');
+    expect(result[1].hint).toBe('a pet');
+    expect(result[1].exampleSentence).toBeTruthy();
+  });
 });

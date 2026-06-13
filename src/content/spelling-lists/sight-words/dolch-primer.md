@@ -19,33 +19,21 @@ canonicalSource:
   tier: primer
 relatedLists: ["dolch-pre-primer"]
 prerequisiteLists: ["dolch-pre-primer"]
-nextLists: []
+nextLists: ["dolch-first-grade"]
 featured: false
 words:
-  - word: all
-    exampleSentence: "We eat all of the grapes."
-  - word: am
-    exampleSentence: "I am six years old."
-  - word: are
-    exampleSentence: "The ducks are swimming in the pond."
-  - word: at
-    exampleSentence: "We are at the park."
-  - word: ate
-    exampleSentence: "We ate soup and bread for dinner."
-  - word: be
-    exampleSentence: "I want to be a teacher."
-  - word: black
-    exampleSentence: "The black cat sat on the warm porch."
-  - word: brown
-    exampleSentence: "A brown rabbit hopped into the garden."
-  - word: but
-    exampleSentence: "I want to play, but it is raining."
-  - word: came
-    exampleSentence: "My friend came over to play."
-  - word: did
-    exampleSentence: "I did my homework after lunch."
-  - word: eat
-    exampleSentence: "We eat together as a family every evening."
+  - all
+  - am
+  - are
+  - at
+  - ate
+  - be
+  - black
+  - brown
+  - but
+  - came
+  - did
+  - eat
 ---
 
 Dolch Primer words pick up where Pre-Primer leaves off, adding the next tier of high-frequency words a student should be able to read and spell automatically by the start of first grade.

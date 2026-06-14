@@ -15,8 +15,8 @@ export const LEARNING_PATHS: readonly LearningPath[] = [
   {
     id: 'phonics-patterns',
     title: 'Phonics Patterns Path',
-    description: 'A step-by-step phonics sequence: short vowels first, then the silent-e pattern that turns short vowels into long ones.',
-    listIds: ['short-vowels-cvc-words', 'silent-e-long-a'],
+    description: 'A step-by-step phonics sequence: short vowels, silent-e long vowels, and vowel-team digraphs.',
+    listIds: ['short-vowels-cvc-words', 'silent-e-long-a', 'silent-e-long-i', 'silent-e-long-o', 'vowel-teams-ai-ay', 'vowel-teams-ee-ea'],
   },
 ] as const;
 

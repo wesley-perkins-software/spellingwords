@@ -16,7 +16,7 @@ masteryThreshold: 90
 sourceType: curated
 relatedLists: ["short-vowels-cvc-words"]
 prerequisiteLists: ["short-vowels-cvc-words"]
-nextLists: []
+nextLists: ["silent-e-long-i"]
 featured: false
 words:
   - cake

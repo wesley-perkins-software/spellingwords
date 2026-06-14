@@ -42,7 +42,15 @@ src/lib/sentenceBank/audit.test.ts      — automated data-integrity checks
 
 ## Heteronym Policy
 
-**Heteronyms are excluded from the bank.** A heteronym changes pronunciation with meaning (`live`, `read`, `wind`, `tear`, `lead`, `row`, `close`, `bow`, `sow`, `wound`, `minute`). Because a custom-list word is spoken aloud in isolation, the bank cannot guarantee TTS will produce the pronunciation a given sentence implies — e.g. "I live on Maple Street" vs "We watched the live show." Until the architecture supports per-entry pronunciation annotation, heteronyms are skipped entirely and recorded in `reviewWords.ts`. Proper nouns (e.g. `Saturday`) are likewise excluded from the `word` field, though they may appear inside sentences.
+**Heteronyms are excluded from the bank.** A heteronym changes pronunciation with meaning (`live`, `read`, `wind`, `tear`, `lead`, `row`, `close`, `bow`, `sow`, `wound`, `minute`). Because a custom-list word is spoken aloud in isolation, the bank cannot guarantee TTS will produce the pronunciation a given sentence implies — e.g. "I live on Maple Street" vs "We watched the live show." Until the architecture supports per-entry pronunciation annotation, heteronyms are skipped entirely and recorded in `reviewWords.ts`.
+
+## Proper Noun Policy
+
+The `word` field distinguishes three categories:
+
+- **True heteronyms** — excluded entirely; see Heteronym Policy above.
+- **Arbitrary proper nouns** — excluded. Names, brands, country names, city names, and other one-off proper nouns are not general curriculum vocabulary.
+- **Closed educational proper-noun sets** — allowed. Days of the week (`Monday`–`Sunday`) and months of the year are canonical K–5 curriculum content, universally taught, and carry no dating or cultural specificity risk. They may appear as `word` entries in the bank. Other closed sets (named holidays, seasons) may be considered on a case-by-case basis.
 
 ## Skipped Word Review Process
 
@@ -66,7 +74,7 @@ Before adding an entry, confirm every point:
 4. The meaning is immediately understandable at the listed grade band.
 5. The subject matter is warm, positive, neutral, or gently imaginative — no fear, violence, or stress.
 6. There is no cultural specificity that would confuse a non-US child.
-7. The word is not a heteronym or proper noun (check `reviewWords.ts`).
+7. The word is not a heteronym or arbitrary proper noun (check `reviewWords.ts`). Closed educational sets such as days of the week are allowed.
 8. The entry is inserted in correct alphabetical position within its grade-band file, with the right `gradeBand` and `sourceType: 'curated'`.
 
 ## Editorial Standards
@@ -102,7 +110,7 @@ Good candidates:
 Do not add:
 
 - **Heteronyms** — words whose pronunciation changes with meaning (live, read, wind, tear, lead, row, close). These require disambiguation the bank cannot provide.
-- Proper nouns
+- Arbitrary proper nouns (names, brands, places, country names) — not general curriculum vocabulary. Exception: closed educational sets such as days of the week and months of the year are allowed.
 - Obscure or advanced vocabulary unlikely to appear on a homework list
 - Words where the "right" sentence depends on which definition is being tested
 - Words already covered exhaustively in curated lists with their own sentences

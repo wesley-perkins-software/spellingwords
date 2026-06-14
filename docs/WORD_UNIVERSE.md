@@ -137,9 +137,6 @@ The present vocabulary distribution skews toward general-use vocabulary. Subject
 **Morphology is underrepresented.**
 Prefixes, suffixes, and Greek/Latin roots exist as two challenge lists, but the underlying sentence bank has little metadata to support sorting or filtering by morphological pattern. This limits future list generation.
 
-**The `tags` field is unused.**
-`SentenceBankEntry` includes an optional `tags?: string[]` field, but no current entry uses it. Tags are the natural mechanism for driving category-based list generation in the future, but as of this audit the field is empty across all 914 entries.
-
 ---
 
 ## Categories We Expect to Support
@@ -184,6 +181,7 @@ Review words are never added to the sentence bank automatically. They require a 
 6. **Content quality matters more than quantity.** A smaller bank of well-vetted, well-sentenced words is more valuable than a large bank of low-quality entries.
 7. **New words are added intentionally.** Words are not added to fill gaps quickly or to match competitor word counts. Each addition should serve a clear instructional purpose.
 8. **Curriculum should remain understandable by parents and teachers.** Lists, grades, and categories should map to concepts that adults familiar with elementary education will recognize without explanation.
+9. **Simplicity beats abstraction.** Avoid introducing metadata systems before they are clearly necessary. Build the vocabulary first; add structure when the need is demonstrated.
 
 ---
 
@@ -208,7 +206,7 @@ The path from the current site to a fully metadata-driven curriculum system has 
 
 ### Phase 1 — Vocabulary
 
-Build the complete K–5 vocabulary universe. This means expanding the sentence bank — particularly the thin grade 4–5 band — until it can support a full library of lists at every level without running out of words. No list work should begin in a grade band that lacks sufficient vocabulary coverage.
+Build a sufficiently complete K–5 vocabulary universe. This means expanding the sentence bank — particularly the thin grade 4–5 band — until it can support a full library of lists at every level without running out of words. No list work should begin in a grade band that lacks sufficient vocabulary coverage.
 
 ### Phase 2 — Metadata
 
@@ -221,6 +219,15 @@ Build grade lists, phonics lists, challenge lists, and sight-word lists as queri
 ### Phase 4 — UI
 
 Present the generated views in the library. The UI becomes a rendering layer over curriculum — it displays what the vocabulary system knows, rather than defining what exists.
+
+---
+
+## Current Priorities
+
+1. Expand grade 4–5 vocabulary.
+2. Continue auditing review words.
+3. Increase sentence-bank coverage before creating more lists.
+4. Delay metadata work until the vocabulary universe stabilizes.
 
 ---
 
@@ -343,7 +350,6 @@ None flagged by current tooling. The grade 4–5 file (`data/grade45.ts`) is not
 ### Recommendations for Next Steps
 
 1. **Expand grade 4–5 vocabulary** before authoring new upper-elementary lists. 81 entries is not a sufficient foundation for that band.
-2. **Populate the `tags` field** on existing entries as a prerequisite for metadata-driven list generation. Start with existing categories (phonics patterns, sight-word membership) since those are already known.
-3. **Add `source` attribution** to entries, at minimum distinguishing Dolch, Reading Rockets, and phonics origin. This enables proper source-hierarchy filtering.
-4. **Evaluate `safe-to-add` words** in the review registry. Four words (`does`, `hour`, `eight`, `people`) are already cleared — these could be added to the bank.
-5. **Do not create new lists** until the metadata foundation is stronger. Adding lists without tags or source data increases the manual maintenance burden.
+2. **Continue auditing review words.** Four words (`does`, `hour`, `eight`, `people`) are already cleared as safe-to-add — evaluate whether to bring them into the bank.
+3. **Increase sentence-bank coverage broadly** before creating more lists. The vocabulary universe needs to stabilize before list expansion resumes.
+4. **Delay metadata work** until the vocabulary universe is sufficiently complete. Adding structure prematurely increases maintenance burden without improving curriculum quality.

@@ -21,7 +21,7 @@ Quality and traceability matter more than volume. The safe research workflow:
 1. Identify a source and determine whether it is public, canonical, or proprietary.
 2. Do not copy source content directly into this codebase.
 3. Use the source to identify coverage gaps and confirm word appropriateness.
-4. Write original sentences manually — no AI-generated content.
+4. Write original sentences manually — no AI-generated sentences.
 5. Add words only after editorial review and sentence assignment.
 6. Record source influence at a high level only (this document).
 

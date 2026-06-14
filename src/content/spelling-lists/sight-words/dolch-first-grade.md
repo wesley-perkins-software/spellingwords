@@ -19,7 +19,7 @@ canonicalSource:
   tier: first-grade
 relatedLists: ["dolch-pre-primer", "dolch-primer"]
 prerequisiteLists: ["dolch-primer"]
-nextLists: []
+nextLists: ["dolch-second-grade"]
 featured: false
 words:
   - after

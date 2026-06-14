@@ -1,0 +1,138 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ListMetadataBadges from '@/components/ListMetadataBadges.astro';
+import { isPublished, resolveListRefs } from '@/lib/content/spellingLists';
+import { LEARNING_PATHS } from '@/lib/content/learningPaths';
+
+export async function getStaticPaths() {
+  const allLists = (await getCollection('spelling-lists')).filter(isPublished);
+
+  return LEARNING_PATHS.map((path) => ({
+    params: { slug: path.id },
+    props: { path, allLists },
+  }));
+}
+
+const { path, allLists } = Astro.props;
+
+const steps = resolveListRefs([...path.listIds], allLists);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Spelling Lists Library', href: '/spelling-lists' },
+  { label: path.title },
+];
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
+---
+
+<Layout
+  title={`${path.title} — spellingwords`}
+  description={path.description}
+  jsonLd={breadcrumbJsonLd}
+>
+  <header class="sticky top-0 z-10 border-b border-line bg-app-paper/90 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+      <a
+        href="/"
+        class="flex items-center gap-2 font-display text-lg font-semibold text-ink tracking-tight"
+        aria-label="spellingwords home"
+      >
+        <span
+          aria-hidden="true"
+          class="flex h-7 w-7 items-center justify-center rounded-2xl bg-brand-blue text-white"
+        >
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.5 4.5l2 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+          </svg>
+        </span>
+        spelling<span class="text-brand-blue">words</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="mx-auto max-w-3xl px-6 py-12 md:py-16">
+      <div class="mb-4">
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <h1 class="font-display text-2xl font-semibold text-ink md:text-3xl">{path.title}</h1>
+        <p class="max-w-2xl text-base leading-relaxed text-ink-soft">{path.description}</p>
+      </div>
+
+      <div class="mt-5 inline-flex items-center gap-1 rounded-full border border-line bg-app-cloud px-3 py-1 text-sm text-ink-soft">
+        <span aria-hidden="true">↗</span>
+        {steps.length} steps
+      </div>
+
+      <!-- Step chain -->
+      <div class="mt-10">
+        <h2 class="mb-4 font-display text-base font-semibold text-ink">Steps in this path</h2>
+        <ol class="flex flex-col gap-3" aria-label={`${path.title} steps`}>
+          {steps.map((entry, i) => (
+            <li class="flex items-start gap-4">
+              <!-- Step connector line -->
+              <div class="flex flex-col items-center gap-0">
+                <span
+                  aria-hidden="true"
+                  class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 font-display text-sm font-bold text-brand-blue"
+                >
+                  {i + 1}
+                </span>
+                {i < steps.length - 1 && (
+                  <span aria-hidden="true" class="mt-1 h-full w-px bg-line" style="min-height:1.5rem"></span>
+                )}
+              </div>
+              <a
+                href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                class="mb-3 flex min-w-0 flex-1 flex-col gap-2 rounded-2xl border border-line bg-white p-4 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
+                aria-label={`Step ${i + 1}: ${entry.data.title}`}
+              >
+                <div>
+                  <h3 class="font-display text-base font-semibold text-ink">{entry.data.title}</h3>
+                  <p class="mt-1 text-sm leading-relaxed text-ink-soft">{entry.data.description}</p>
+                </div>
+                <ListMetadataBadges
+                  difficulty={entry.data.difficulty}
+                  durationMinutes={entry.data.estimatedDurationMinutes}
+                  wordCount={entry.data.words.length}
+                />
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div class="mt-8">
+        <a
+          href="/spelling-lists"
+          class="inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline"
+        >
+          ← Browse all spelling lists
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto max-w-3xl px-6 py-8 text-center text-xs text-ink-soft">
+      &copy; {new Date().getFullYear()} spellingwords.app &mdash; Free spelling practice for every classroom.
+    </div>
+  </footer>
+</Layout>

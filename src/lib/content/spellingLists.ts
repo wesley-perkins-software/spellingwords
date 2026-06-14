@@ -3,6 +3,7 @@ import type { SpellingWord } from '@/types/spelling';
 import { getSentenceBankEntry } from '@/lib/sentenceBank/lookup';
 
 export type SpellingListEntry = CollectionEntry<'spelling-lists'>;
+export type SpellingCollectionEntry = CollectionEntry<'spelling-collections'>;
 
 /** Whether a content entry is visible on browse/index/detail surfaces. */
 export function isPublished(entry: SpellingListEntry): boolean {
@@ -59,6 +60,25 @@ export function getListsByGrade(grade: string, entries: SpellingListEntry[]): Sp
       if (a.data.category !== b.data.category) return a.data.category.localeCompare(b.data.category);
       return a.data.order - b.data.order;
     });
+}
+
+/** Returns a Set of list IDs that belong to any published collection. */
+export function getMemberListIds(collections: SpellingCollectionEntry[]): Set<string> {
+  const ids = new Set<string>();
+  for (const c of collections) {
+    if (c.data.status === 'published') {
+      for (const id of c.data.listIds) ids.add(id);
+    }
+  }
+  return ids;
+}
+
+/** Returns the published collection a list belongs to, if any. */
+export function getListCollection(
+  listId: string,
+  collections: SpellingCollectionEntry[],
+): SpellingCollectionEntry | undefined {
+  return collections.find((c) => c.data.status === 'published' && c.data.listIds.includes(listId));
 }
 
 /**

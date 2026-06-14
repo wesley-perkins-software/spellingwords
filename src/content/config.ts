@@ -50,4 +50,23 @@ const spellingLists = defineCollection({
   }),
 });
 
-export const collections = { 'spelling-lists': spellingLists };
+const spellingCollections = defineCollection({
+  type: 'content',
+  schema: z.object({
+    id: z.string(),
+    urlSlug: z.string(),
+    title: z.string(),
+    description: z.string(),
+    shortAnswer: z.string().optional(),
+    category,
+    grade: z.string().optional(),
+    listIds: z.array(z.string()),
+    status,
+    featured: z.boolean().default(false),
+  }),
+});
+
+export const collections = {
+  'spelling-lists': spellingLists,
+  'spelling-collections': spellingCollections,
+};

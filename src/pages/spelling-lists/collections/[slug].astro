@@ -1,0 +1,175 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ListMetadataBadges from '@/components/ListMetadataBadges.astro';
+import { isPublished, resolveListRefs } from '@/lib/content/spellingLists';
+import { categoryLabels } from '@/lib/content/categoryMeta';
+
+export async function getStaticPaths() {
+  const collections = await getCollection('spelling-collections');
+  const allLists = (await getCollection('spelling-lists')).filter(isPublished);
+
+  return collections
+    .filter((c) => c.data.status === 'published')
+    .map((collection) => ({
+      params: { slug: collection.data.urlSlug },
+      props: { collection, allLists },
+    }));
+}
+
+const { collection, allLists } = Astro.props;
+const { data } = collection;
+
+const { Content } = await collection.render();
+
+const memberLists = resolveListRefs(data.listIds, allLists);
+const totalWords = memberLists.reduce((sum, e) => sum + e.data.words.length, 0);
+const categoryLabel = categoryLabels[data.category] ?? data.category;
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Spelling Lists Library', href: '/spelling-lists' },
+  { label: categoryLabel },
+  { label: data.title },
+];
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
+
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: data.title,
+  description: data.description,
+  numberOfItems: memberLists.length,
+  itemListElement: memberLists.map((entry, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: entry.data.title,
+    url: new URL(`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`, canonicalURL.origin).toString(),
+  })),
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
+---
+
+<Layout
+  title={`${data.title} — spellingwords`}
+  description={data.description}
+  ogType="article"
+  jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
+>
+  <header class="sticky top-0 z-10 border-b border-line bg-white/90 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+      <a
+        href="/"
+        class="flex items-center gap-2 font-display text-lg font-semibold text-ink tracking-tight"
+        aria-label="spellingwords home"
+      >
+        <span
+          aria-hidden="true"
+          class="flex h-7 w-7 items-center justify-center rounded-2xl bg-brand-blue text-white"
+        >
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.5 4.5l2 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+          </svg>
+        </span>
+        spelling<span class="text-brand-blue">words</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="mx-auto max-w-3xl px-6 py-12 md:py-16">
+      <div class="mb-4">
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="rounded-md bg-app-cloud px-2 py-0.5 text-xs font-medium text-ink-soft">
+            {categoryLabel}
+          </span>
+          <span class="rounded-md bg-brand-blue/8 px-2 py-0.5 text-xs font-semibold text-brand-blue">
+            {memberLists.length}-part collection
+          </span>
+        </div>
+        <h1 class="font-display text-2xl font-semibold text-ink md:text-3xl">{data.title}</h1>
+        <p class="max-w-2xl text-base leading-relaxed text-ink-soft">{data.description}</p>
+        {data.shortAnswer && (
+          <p class="max-w-2xl rounded-xl border border-brand-blue/20 bg-brand-blue/5 px-4 py-3 text-sm leading-relaxed text-ink-soft">
+            {data.shortAnswer}
+          </p>
+        )}
+      </div>
+
+      <div class="mt-5 flex flex-wrap gap-2 text-sm text-ink-soft">
+        <span class="inline-flex items-center gap-1 rounded-full border border-line bg-app-cloud px-3 py-1">
+          <span aria-hidden="true">📚</span>
+          {memberLists.length} practice sets
+        </span>
+        <span class="inline-flex items-center gap-1 rounded-full border border-line bg-app-cloud px-3 py-1">
+          <span aria-hidden="true">✏️</span>
+          {totalWords} words total
+        </span>
+      </div>
+
+      <!-- Member lists -->
+      <div class="mt-10">
+        <h2 class="mb-4 font-display text-base font-semibold text-ink">Practice sets in this collection</h2>
+        <ol class="flex flex-col gap-4" aria-label={`${data.title} practice sets`}>
+          {memberLists.map((entry, i) => (
+            <li>
+              <a
+                href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                class="flex items-start gap-4 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
+                aria-label={`Practice set ${i + 1}: ${entry.data.title}`}
+              >
+                <span
+                  aria-hidden="true"
+                  class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 font-display text-sm font-bold text-brand-blue"
+                >
+                  {i + 1}
+                </span>
+                <div class="flex min-w-0 flex-col gap-2">
+                  <div>
+                    <h3 class="font-display text-base font-semibold text-ink">{entry.data.title}</h3>
+                    <p class="mt-1 text-sm leading-relaxed text-ink-soft">{entry.data.description}</p>
+                  </div>
+                  <ListMetadataBadges
+                    difficulty={entry.data.difficulty}
+                    durationMinutes={entry.data.estimatedDurationMinutes}
+                    wordCount={entry.data.words.length}
+                  />
+                </div>
+                <span aria-hidden="true" class="ml-auto shrink-0 self-center text-ink-faint">→</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <!-- About this collection -->
+      <div class="prose prose-sm mt-10 max-w-2xl text-ink-soft">
+        <h2 class="mb-3 font-display text-base font-semibold text-ink">About this collection</h2>
+        <Content />
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto max-w-3xl px-6 py-8 text-center text-xs text-ink-soft">
+      &copy; {new Date().getFullYear()} spellingwords.app &mdash; Free spelling practice for every classroom.
+    </div>
+  </footer>
+</Layout>

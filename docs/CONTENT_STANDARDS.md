@@ -49,7 +49,7 @@ When these groups' interests conflict, **children's comprehension comes first.**
 - Obscure dictionary words chosen for novelty or difficulty rather than usefulness.
 - Archaic words that a child will rarely or never encounter in modern reading.
 - Slang, which ages quickly and undermines the "timeless" goal.
-- Proper nouns and brand names, which are not general vocabulary and date a list almost immediately.
+- Proper nouns and brand names, which are not general vocabulary and date a list almost immediately. **Exception:** closed educational proper-noun sets — specifically, days of the week and months of the year — are allowed because they are canonical curriculum content taught at every elementary grade level. Arbitrary proper nouns (place names, people, brands, country names) remain excluded.
 - Words chosen only because they have search volume. If a word's only justification is that people search for it, it does not belong on a list.
 
 ---

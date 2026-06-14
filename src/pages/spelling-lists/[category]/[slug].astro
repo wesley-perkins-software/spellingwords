@@ -6,20 +6,21 @@ import ListMetadataBadges from '@/components/ListMetadataBadges.astro';
 import WordListPreview from '@/components/WordListPreview.astro';
 import RelatedListCards from '@/components/RelatedListCards.astro';
 import SourceAttribution from '@/components/SourceAttribution.astro';
-import { isPublished, resolveListRefs, toPlayableWords } from '@/lib/content/spellingLists';
+import { isPublished, resolveListRefs, toPlayableWords, getListCollection } from '@/lib/content/spellingLists';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { getListPath } from '@/lib/content/learningPaths';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('spelling-lists')).filter(isPublished);
+  const allCollections = await getCollection('spelling-collections');
 
   return entries.map((entry) => ({
     params: { category: entry.data.category, slug: entry.data.urlSlug },
-    props: { entry, allEntries: entries },
+    props: { entry, allEntries: entries, allCollections },
   }));
 }
 
-const { entry, allEntries } = Astro.props;
+const { entry, allEntries, allCollections } = Astro.props;
 const { data } = entry;
 
 const { Content } = await entry.render();
@@ -41,6 +42,7 @@ function listLink(e: (typeof allEntries)[number]) {
 
 const categoryLabel = categoryLabels[data.category] ?? data.category;
 const listPath = getListPath(data.id);
+const listCollection = getListCollection(data.id, allCollections);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -115,6 +117,14 @@ const breadcrumbJsonLd = {
           wordCountLabel={`${data.words.length} words in this collection`}
         />
       </div>
+
+      <!-- Collection indicator -->
+      {listCollection && (
+        <div class="mt-5 inline-flex items-center gap-2 rounded-lg border border-line bg-app-cloud px-3 py-2 text-sm text-ink-soft">
+          <span aria-hidden="true">📚</span>
+          <span>Part of the <a href={`/spelling-lists/collections/${listCollection.data.urlSlug}`} class="font-semibold text-ink hover:text-brand-blue hover:underline">{listCollection.data.title}</a></span>
+        </div>
+      )}
 
       <!-- Learning path indicator -->
       {listPath && (

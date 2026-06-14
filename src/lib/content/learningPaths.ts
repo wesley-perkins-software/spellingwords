@@ -10,7 +10,7 @@ export const LEARNING_PATHS: readonly LearningPath[] = [
     id: 'dolch-sight-words',
     title: 'Dolch Sight Word Path',
     description: 'The classic K–3 sight word sequence, from the most common words a child encounters to the full first-grade reading vocabulary.',
-    listIds: ['dolch-pre-primer', 'dolch-primer', 'dolch-first-grade', 'dolch-second-grade', 'dolch-third-grade'],
+    listIds: ['dolch-pre-primer', 'dolch-primer', 'dolch-first-grade-a', 'dolch-first-grade-b', 'dolch-first-grade-c', 'dolch-second-grade', 'dolch-third-grade'],
   },
   {
     id: 'phonics-patterns',

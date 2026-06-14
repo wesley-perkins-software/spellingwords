@@ -14,9 +14,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["2nd-grade-everyday-words"]
+relatedLists: ["2nd-grade-everyday-words", "2nd-grade-action-words"]
 prerequisiteLists: ["grade-2-list-01"]
-nextLists: []
+nextLists: ["grade-2-list-03"]
 featured: false
 words:
   - sunshine

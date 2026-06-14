@@ -14,9 +14,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["vowel-teams-ai-ay"]
+relatedLists: ["vowel-teams-ai-ay", "vowel-teams-oa-ow"]
 prerequisiteLists: ["vowel-teams-ai-ay"]
-nextLists: []
+nextLists: ["vowel-teams-oa-ow"]
 featured: false
 words:
   - beach

@@ -34,37 +34,13 @@ spellingwords.app is evolving from:
 
 into:
 
-> a vocabulary and curriculum system that happens to have a website attached.
+> a vocabulary and curriculum system that happens to have a website attached to it.
 
 Today, lists are authored individually and words are scattered across Markdown files. The long-term goal is for every list family — grade-level, sight words, phonics, challenge — to be generated as a view over the Word Universe, filtered and ordered by metadata.
 
 **Words are the foundation. Lists are presentations.**
 
 This document tracks the state of that foundation and flags where it needs to grow.
-
----
-
-## Current State of the Word Universe
-
-As of the last audit, the sentence bank contains **914 entries** across three grade bands:
-
-| Grade Band | Entries | Share |
-|------------|---------|-------|
-| K–1        | 347     | 38%   |
-| 2–3        | 486     | 53%   |
-| 4–5        | 81      | 9%    |
-| **Total**  | **914** |       |
-
-**32 published lists** surface approximately **470 words** — roughly **51% of the sentence bank** appears in at least one curated list. The other half of the bank exists as a reserve: words with validated sentences and grade placements, ready to be assigned to future lists.
-
-**20 words** are documented in the review registry (`src/lib/sentenceBank/reviewWords.ts`) and intentionally kept out of automatic use.
-
-What these numbers mean:
-
-- The lower grade bands (K–3) are well populated. The 2–3 band is the largest, which aligns with the heaviest demand from early elementary lists.
-- Grade 4–5 coverage is thin — 81 entries is not enough to build a rich upper-elementary list library.
-- Roughly half the bank is untapped, which means future lists can draw from existing vocabulary without adding new words first.
-- The review registry is small and deliberate, which is healthy.
 
 ---
 
@@ -106,6 +82,30 @@ When a word from a lower-priority source duplicates a word already in the bank f
 
 ---
 
+## Current State of the Word Universe
+
+Current audit results show the sentence bank contains **914 entries** across three grade bands:
+
+| Grade Band | Entries | Share |
+|------------|---------|-------|
+| K–1        | 347     | 38%   |
+| 2–3        | 486     | 53%   |
+| 4–5        | 81      | 9%    |
+| **Total**  | **914** |       |
+
+As of this audit, **32 published lists** surface approximately **470 words** — roughly **51% of the sentence bank** appears in at least one curated list. The remaining half exists as a reserve: words with validated sentences and grade placements, ready to be assigned to future lists without requiring new additions first.
+
+The present vocabulary distribution also shows **20 words** documented in the review registry (`src/lib/sentenceBank/reviewWords.ts`) and intentionally kept out of automatic use.
+
+What these numbers mean:
+
+- The lower grade bands (K–3) are well populated. The 2–3 band is the largest, which aligns with the heaviest demand from early elementary lists.
+- Grade 4–5 coverage is thin — 81 entries is not enough to build a rich upper-elementary list library.
+- Roughly half the bank is untapped, which means near-term lists can draw from existing vocabulary without adding new words first.
+- The review registry is small and deliberate, which is healthy.
+
+---
+
 ## Grade Coverage
 
 The sentence bank uses three grade bands:
@@ -123,22 +123,22 @@ Fourth and fifth grade. Multisyllabic words, academic vocabulary, morphology pat
 
 ## Vocabulary Coverage Gaps
 
-The following gaps are observed from the current data. They are noted here to inform future content decisions, not as immediate action items.
+The following gaps are observed from the present data. They are intentionally identified opportunities for future expansion — not failures. The goal of this section is visibility, not perfection. Knowing where the vocabulary is thin is the prerequisite for expanding it responsibly.
 
 **Grade 4–5 is thin.**
-81 entries versus 347 and 486 in the lower bands. Upper-elementary vocabulary is the biggest structural gap in the current bank. Any future list work targeting grades 4–5 will quickly exhaust available sentence-bank coverage.
+The present distribution shows 81 entries versus 347 and 486 in the lower bands. Upper-elementary vocabulary is the biggest structural gap in the current bank. Any future list work targeting grades 4–5 will quickly exhaust available sentence-bank coverage.
 
 **Challenge vocabulary is sparse.**
-Only 2 published challenge lists exist, and the underlying bank entries supporting that level are limited. Morphological challenge words (roots, prefixes, suffixes) are the primary underrepresented type.
+Current audit results show only 2 published challenge lists, and the underlying bank entries supporting that level are limited. Morphological challenge words (roots, prefixes, suffixes) are the primary underrepresented type.
 
 **Academic and content-area vocabulary is limited.**
-The current bank skews toward general-use vocabulary. Subject-area academic words (science, social studies, math vocabulary) are largely absent.
+The present vocabulary distribution skews toward general-use vocabulary. Subject-area academic words (science, social studies, math vocabulary) are largely absent.
 
 **Morphology is underrepresented.**
 Prefixes, suffixes, and Greek/Latin roots exist as two challenge lists, but the underlying sentence bank has little metadata to support sorting or filtering by morphological pattern. This limits future list generation.
 
 **The `tags` field is unused.**
-`SentenceBankEntry` includes an optional `tags?: string[]` field, but no current entry uses it. Tags are the natural mechanism for driving category-based list generation in the future, but the field is currently empty across all 914 entries.
+`SentenceBankEntry` includes an optional `tags?: string[]` field, but no current entry uses it. Tags are the natural mechanism for driving category-based list generation in the future, but as of this audit the field is empty across all 914 entries.
 
 ---
 
@@ -187,7 +187,7 @@ Review words are never added to the sentence bank automatically. They require a 
 
 ---
 
-## What We Are Not Doing
+## Non-Goals
 
 To keep the vocabulary system maintainable and trustworthy:
 
@@ -200,13 +200,37 @@ To keep the vocabulary system maintainable and trustworthy:
 
 ---
 
+## Expansion Strategy
+
+The path from the current site to a fully metadata-driven curriculum system has four phases. These phases are sequential — each depends on the previous one being complete.
+
+> Vocabulary first. Lists second. UI last.
+
+### Phase 1 — Vocabulary
+
+Build the complete K–5 vocabulary universe. This means expanding the sentence bank — particularly the thin grade 4–5 band — until it can support a full library of lists at every level without running out of words. No list work should begin in a grade band that lacks sufficient vocabulary coverage.
+
+### Phase 2 — Metadata
+
+Introduce structured metadata on sentence bank entries: individual grade levels (not just bands), category tags, difficulty, and source references. This is the phase where the `tags` field gets populated and the `WordEntry` interface evolves from planning artifact to production type.
+
+### Phase 3 — Generated Lists
+
+Build grade lists, phonics lists, challenge lists, and sight-word lists as queries over the metadata rather than hand-authored word arrays. At this stage, adding a new word to the bank automatically makes it available to any list that matches its metadata.
+
+### Phase 4 — UI
+
+Present the generated views in the library. The UI becomes a rendering layer over curriculum — it displays what the vocabulary system knows, rather than defining what exists.
+
+---
+
 ## Sentence Bank Audit
 
 > Findings from inspection of `src/lib/sentenceBank/data/`. The data integrity invariants below are enforced automatically by `src/lib/sentenceBank/audit.test.ts`.
 
 ### Total Entries
 
-**914** — across k1.ts (347), grade23.ts (486), grade45.ts (81).
+Current audit results show **914 entries** — across k1.ts (347), grade23.ts (486), grade45.ts (81).
 
 ### Grade Distribution
 
@@ -218,7 +242,7 @@ To keep the vocabulary system maintainable and trustworthy:
 
 ### Review Word Count
 
-**20 words** in the review registry:
+As of this audit, **20 words** appear in the review registry:
 - 13 flagged `avoid`
 - 4 flagged `safe-to-add`
 - 1 flagged `needs-review`
@@ -242,7 +266,7 @@ To keep the vocabulary system maintainable and trustworthy:
 
 ### Potential Data Problems
 
-**Grade 4–5 is critically thin.** 81 entries is insufficient to support a full upper-elementary list library. This is the most urgent structural gap.
+**Grade 4–5 is critically thin.** As of this audit, 81 entries is insufficient to support a full upper-elementary list library. This is the most urgent structural gap.
 
 **The `tags` field is unused.** `SentenceBankEntry` declares `tags?: string[]` but no entry currently sets it. Without tags, category-based list generation is not possible. Populating tags is the prerequisite for moving from hand-authored lists to metadata-driven lists.
 
@@ -252,7 +276,9 @@ To keep the vocabulary system maintainable and trustworthy:
 
 ## Future Content Model
 
-Before any metadata-driven list generation is possible, the `SentenceBankEntry` type will need to be extended. The current type is:
+Before any metadata-driven list generation is possible, the `SentenceBankEntry` type will need to be extended. A richer future model would include individual grade levels (rather than bands), explicit source attribution, category tags, and difficulty — providing enough signal for a query to assemble a list without manual curation.
+
+The current type is:
 
 ```ts
 interface SentenceBankEntry {
@@ -264,7 +290,7 @@ interface SentenceBankEntry {
 }
 ```
 
-A richer future model might look like:
+A future model might look like:
 
 ```ts
 interface WordEntry {
@@ -285,14 +311,14 @@ interface WordEntry {
 
 **This interface is not implemented and exists purely for planning purposes.**
 
-The expanded `gradeBand` (individual grades instead of bands) and `source` array are the fields most likely to be added first. `categories` and `difficulty` follow naturally once `source` attribution is in place. `status` replaces the current separate `reviewWords.ts` registry with an inline field.
+The expanded `gradeBand` (individual grades instead of bands) and `source` array are the fields most likely to be added first, as they unlock filtering by grade and source hierarchy. `categories` and `difficulty` follow naturally once `source` attribution is in place. `status` would eventually replace the current separate `reviewWords.ts` registry with an inline field.
 
 ---
 
 ## Human Audit Report
 
 ### Current Total Words
-**914** sentence bank entries.
+**914** sentence bank entries, as of this audit.
 
 ### Grade-Band Totals
 - K–1: **347**

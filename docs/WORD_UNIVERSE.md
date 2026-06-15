@@ -8,7 +8,7 @@ The canonical curriculum-planning document for spellingwords.app vocabulary.
 
 The Word Universe represents every approved vocabulary word supported by spellingwords.app.
 
-Words live in the sentence bank (`src/lib/sentenceBank/`). Each word exists once, paired with a hand-written example sentence and a grade band. Nothing else in the repository owns a word outright — curated lists reference words, they do not define them.
+Words live in the sentence bank (`src/lib/sentenceBank/`). Each word exists once and carries a grade band. Most words are paired with a hand-written example sentence; **heteronyms are the exception** — they are spelling-only entries that carry `sentenceOmissionReason: 'heteronym'` instead of a sentence (see the Review Words section and `docs/SENTENCE_BANK.md`). Nothing else in the repository owns a word outright — curated lists reference words, they do not define them.
 
 This hierarchy governs all content decisions:
 
@@ -159,13 +159,13 @@ These categories are not yet encoded in the sentence bank. They would need to be
 
 ## Review Words
 
-The review registry lives at `src/lib/sentenceBank/reviewWords.ts` and documents **20 words** that are intentionally excluded from automatic use. Each entry records the word, a reason, a recommendation, and one of three statuses:
+The review registry lives at `src/lib/sentenceBank/reviewWords.ts` and documents words that are intentionally handled outside the normal "word + sentence" pattern. Each entry records the word, a reason, a recommendation, and one of three statuses:
 
-- **`avoid`** — Do not use. Primary cause: heteronyms (words with multiple pronunciations depending on meaning or part of speech). Examples: `read` (present vs. past tense), `wind` (noun vs. verb), `bow`, `tear`, `lead`. Also covers proper nouns that violate content standards (`Mr.`, `Mrs.`, `Ms.`).
-- **`needs-review`** — Pronunciation varies by dialect or context and needs additional evaluation before use. Example: `row` (rhymes with "go" or "cow" depending on meaning).
-- **`safe-to-add`** — Previously flagged but determined to be acceptable for TTS. Examples: `does`, `hour`, `eight`, `people`.
+- **`avoid`** — Do not use. Covers honorifics and arbitrary proper nouns that violate content standards (`Mr.`, `Mrs.`, `Ms.`, `America`).
+- **`needs-review`** — Needs additional evaluation before use.
+- **`safe-to-add`** — Previously flagged but determined to be acceptable for TTS. Examples: `does`, `hour`, `eight`, `people`, and the days of the week.
 
-**Heteronym policy:** any word whose pronunciation changes based on meaning or grammatical role is flagged as `avoid`. Speech synthesis has no semantic context, so it may mispronounce these words when reading them aloud — which directly undermines the core learning loop.
+**Heteronym policy:** any word whose pronunciation changes based on meaning or grammatical role (`live`, `read`, `wind`, `tear`, `lead`, `row`, `close`, `bow`, `sow`, `wound`, `minute`) is a **first-class, spelling-only word**. It lives in the sentence bank with `sentenceOmissionReason: 'heteronym'` and no example sentence. Speech synthesis has no semantic context, so we never pair a heteronym with a sentence that could imply a conflicting pronunciation; the word is still spelled and spoken in isolation as normal. Heteronyms are therefore no longer tracked in `reviewWords.ts`.
 
 Review words are never added to the sentence bank automatically. They require a manual decision recorded in the registry.
 
@@ -174,7 +174,7 @@ Review words are never added to the sentence bank automatically. They require a 
 ## Guiding Principles
 
 1. **Words exist once.** A word lives in the sentence bank and nowhere else. If a word appears in ten lists, it still has one entry.
-2. **Sentences belong to words.** Example sentences are properties of a word entry, not of the list that happens to use the word.
+2. **Sentences belong to words.** Example sentences are properties of a word entry, not of the list that happens to use the word. A heteronym entry intentionally has no sentence.
 3. **Lists do not own words.** A list is a curated view — a selection of words from the universe. Removing a list does not remove the words.
 4. **Metadata drives lists.** The goal is for list generation to be a query over word metadata, not a hand-authored collection of strings.
 5. **UI follows curriculum.** Interface decisions are shaped by what the vocabulary and curriculum require, not the other way around.
@@ -194,7 +194,7 @@ To keep the vocabulary system maintainable and trustworthy:
 - **No duplicate words.** The audit suite enforces uniqueness at the normalized-word level. A word may not appear twice, even with different capitalization or diacritics.
 - **No list-specific sentence ownership.** Sentences are never written for a specific list. A sentence written for a word in a Dolch list is the same sentence used if that word appears in a grade-level list.
 - **No backend vocabulary service.** The sentence bank is a static TypeScript file. There is no API, database, or external vocabulary lookup.
-- **No vocabulary added without review.** New words require a hand-written sentence, a grade band assignment, and confirmation that the word is not a heteronym or otherwise problematic.
+- **No vocabulary added without review.** New words require a grade band assignment plus either a hand-written sentence or — for a true heteronym — an explicit `sentenceOmissionReason`. Confirm the word is not an arbitrary proper noun or otherwise problematic.
 
 ---
 

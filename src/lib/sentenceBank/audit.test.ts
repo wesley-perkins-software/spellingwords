@@ -57,9 +57,26 @@ describe('sentence bank data integrity', () => {
     expect(duplicates).toEqual([]);
   });
 
-  it('every entry has non-empty word and exampleSentence', () => {
-    const bad = SENTENCE_BANK.filter(e => !e.word.trim() || !e.exampleSentence.trim());
+  it('every entry has a non-empty word', () => {
+    const bad = SENTENCE_BANK.filter(e => !e.word.trim());
     expect(bad.map(e => e.word)).toEqual([]);
+  });
+
+  it('every entry has exactly one of exampleSentence or sentenceOmissionReason', () => {
+    // Discriminated-union invariant: an entry has a real example sentence OR an
+    // explicit omission reason (e.g. a heteronym), never both and never neither.
+    const validOmissionReasons = new Set(['heteronym']);
+    const bad: string[] = [];
+    for (const entry of SENTENCE_BANK) {
+      const hasSentence = Boolean(entry.exampleSentence && entry.exampleSentence.trim());
+      const hasOmission = entry.sentenceOmissionReason !== undefined;
+      if (hasSentence === hasOmission) {
+        bad.push(`"${entry.word}": sentence=${hasSentence}, omission=${hasOmission}`);
+      } else if (hasOmission && !validOmissionReasons.has(entry.sentenceOmissionReason as string)) {
+        bad.push(`"${entry.word}": invalid omission reason "${entry.sentenceOmissionReason}"`);
+      }
+    }
+    expect(bad).toEqual([]);
   });
 
   it('every entry has sourceType curated', () => {
@@ -76,6 +93,7 @@ describe('sentence bank data integrity', () => {
   it('every exampleSentence contains the target word', () => {
     const failing: string[] = [];
     for (const entry of SENTENCE_BANK) {
+      if (!entry.exampleSentence) continue; // spelling-only entries have no sentence
       if (!sentenceContainsWord(entry.word, entry.exampleSentence)) {
         failing.push(`"${entry.word}": "${entry.exampleSentence}"`);
       }
@@ -85,16 +103,21 @@ describe('sentence bank data integrity', () => {
 
   it('all sentences are between 5 and 25 words long', () => {
     const bad = SENTENCE_BANK.filter(e => {
+      if (!e.exampleSentence) return false; // spelling-only entries have no sentence
       const count = e.exampleSentence.trim().split(/\s+/).length;
       return count < 5 || count > 25;
     });
-    expect(bad.map(e => ({ word: e.word, length: e.exampleSentence.split(/\s+/).length }))).toEqual([]);
+    expect(
+      bad.map(e => ({ word: e.word, length: e.exampleSentence!.split(/\s+/).length })),
+    ).toEqual([]);
   });
 
   it('no mojibake characters in any entry', () => {
     const mojibakePattern = /[â€œâ€™]/;
     const bad = SENTENCE_BANK.filter(
-      e => mojibakePattern.test(e.word) || mojibakePattern.test(e.exampleSentence)
+      e =>
+        mojibakePattern.test(e.word) ||
+        (e.exampleSentence !== undefined && mojibakePattern.test(e.exampleSentence))
     );
     expect(bad.map(e => e.word)).toEqual([]);
   });

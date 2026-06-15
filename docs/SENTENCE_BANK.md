@@ -21,40 +21,47 @@ src/lib/sentenceBank/data/k1.ts         — K1_ENTRIES (gradeBand 'K-1'), sorted
 src/lib/sentenceBank/data/grade23.ts    — GRADE23_ENTRIES (gradeBand '2-3'), sorted alphabetically by word
 src/lib/sentenceBank/data/grade45.ts    — GRADE45_ENTRIES (gradeBand '4-5'), sorted alphabetically by word
 src/lib/sentenceBank/lookup.ts          — getSentenceBankEntry() / getSentenceForWord()
-src/lib/sentenceBank/types.ts           — SentenceBankEntry, ReviewWordEntry, ReviewStatus
+src/lib/sentenceBank/types.ts           — SentenceBankEntry, SentenceOmissionReason, ReviewWordEntry, ReviewStatus
 src/lib/sentenceBank/reviewWords.ts     — REVIEW_WORDS: skipped / problem words with status + rationale
 src/lib/sentenceBank/audit.test.ts      — automated data-integrity checks
 ```
 
 ## Automated Audit Rules
 
-`audit.test.ts` enforces the following nine checks against `SENTENCE_BANK` (run with `npm test`):
+`audit.test.ts` enforces the following checks against `SENTENCE_BANK` (run with `npm test`):
 
 1. **No duplicate normalized words** — no two entries normalize to the same word.
-2. **Non-empty fields** — every entry has a non-empty `word` and `exampleSentence`.
-3. **`sourceType` is `curated`** — every entry is marked as curated content.
-4. **Valid `gradeBand`** — every entry's `gradeBand` is one of `K-1`, `2-3`, `4-5`.
-5. **Sentence contains the target word** — the `exampleSentence` actually contains the `word` (token match, contraction- and allowlist-aware).
-6. **Sentence length 5–25 words** — every sentence falls within the allowed length window.
-7. **No mojibake** — no `â€œ`/`â€™`-style encoding corruption in any field.
-8. **K-1 entries sorted alphabetically** (case-insensitive) by word.
-9. **Grade 2-3 and Grade 4-5 entries sorted alphabetically** (case-insensitive) by word.
+2. **Non-empty word** — every entry has a non-empty `word`.
+3. **Exactly one of sentence or omission** — every entry has either a non-empty `exampleSentence` **or** a valid `sentenceOmissionReason` (e.g. `heteronym`), never both and never neither.
+4. **`sourceType` is `curated`** — every entry is marked as curated content.
+5. **Valid `gradeBand`** — every entry's `gradeBand` is one of `K-1`, `2-3`, `4-5`.
+6. **Sentence contains the target word** — when an `exampleSentence` is present, it actually contains the `word` (token match, contraction- and allowlist-aware). Skipped for spelling-only entries.
+7. **Sentence length 5–25 words** — every present sentence falls within the allowed length window. Skipped for spelling-only entries.
+8. **No mojibake** — no `â€œ`/`â€™`-style encoding corruption in any field.
+9. **K-1 entries sorted alphabetically** (case-insensitive) by word.
+10. **Grade 2-3 and Grade 4-5 entries sorted alphabetically** (case-insensitive) by word.
 
 ## Heteronym Policy
 
-**Heteronyms are excluded from the bank.** A heteronym changes pronunciation with meaning (`live`, `read`, `wind`, `tear`, `lead`, `row`, `close`, `bow`, `sow`, `wound`, `minute`). Because a custom-list word is spoken aloud in isolation, the bank cannot guarantee TTS will produce the pronunciation a given sentence implies — e.g. "I live on Maple Street" vs "We watched the live show." Until the architecture supports per-entry pronunciation annotation, heteronyms are skipped entirely and recorded in `reviewWords.ts`.
+**Heteronyms are first-class words in the bank, but they carry no example sentence.** A heteronym changes pronunciation with meaning (`live`, `read`, `wind`, `tear`, `lead`, `row`, `close`, `bow`, `sow`, `wound`, `minute`). Because a word is spoken aloud in isolation, the bank cannot guarantee browser TTS will produce the pronunciation a given sentence implies — e.g. "I live on Maple Street" vs "We watched the live show." Rather than risk a contradictory "Use in a Sentence" experience, a heteronym entry omits the sentence entirely:
+
+```ts
+{ word: 'minute', sentenceOmissionReason: 'heteronym', gradeBand: '2-3', sourceType: 'curated' }
+```
+
+These are **spelling-only entries**. The word exists in the word universe and may appear in curated lists; browser TTS speaks the isolated word and "Listen Again" works normally; but `getSentenceForWord()` returns `undefined`, so the "Use in a Sentence" button stays hidden — exactly matching how a custom word with no sentence behaves. We do **not** invent sentences, use IPA/SSML, or apply any pronunciation hack.
 
 ## Proper Noun Policy
 
 The `word` field distinguishes three categories:
 
-- **True heteronyms** — excluded entirely; see Heteronym Policy above.
+- **True heteronyms** — included as spelling-only entries (no sentence); see Heteronym Policy above.
 - **Arbitrary proper nouns** — excluded. Names, brands, country names, city names, and other one-off proper nouns are not general curriculum vocabulary.
 - **Closed educational proper-noun sets** — allowed. Days of the week (`Monday`–`Sunday`) and months of the year are canonical K–5 curriculum content, universally taught, and carry no dating or cultural specificity risk. They may appear as `word` entries in the bank. Other closed sets (named holidays, seasons) may be considered on a case-by-case basis.
 
 ## Skipped Word Review Process
 
-Words that are deliberately not in the bank — heteronyms, proper nouns, irregular-but-safe candidates — are tracked in `src/lib/sentenceBank/reviewWords.ts` as `REVIEW_WORDS`. Each `ReviewWordEntry` records:
+Words that are deliberately not in the bank — arbitrary proper nouns, honorifics, irregular-but-safe candidates — are tracked in `src/lib/sentenceBank/reviewWords.ts` as `REVIEW_WORDS`. (Heteronyms are no longer listed here; they now live in the bank as spelling-only entries.) Each `ReviewWordEntry` records:
 
 - `word` — the word under consideration.
 - `reason` — why it is problematic (e.g. the specific heteronym pronunciations).
@@ -62,7 +69,7 @@ Words that are deliberately not in the bank — heteronyms, proper nouns, irregu
 - `status` — one of `avoid`, `needs-review`, or `safe-to-add`.
 - `notes` — optional history (e.g. "was briefly in the bank; removed in audit pass") or a suggested example sentence.
 
-This gives the next editor a documented trail so the same words are not repeatedly re-evaluated or accidentally re-added. Words removed during the audit pass (`live`, `read`, `wind`, `close`, `Saturday`) live here with `status: 'avoid'`.
+This gives the next editor a documented trail so the same words are not repeatedly re-evaluated or accidentally re-added. Excluded honorifics (`Mr.`, `Mrs.`, `Ms.`) and arbitrary proper nouns (`America`) live here with `status: 'avoid'`.
 
 ## Sentence Quality Checklist
 
@@ -74,7 +81,7 @@ Before adding an entry, confirm every point:
 4. The meaning is immediately understandable at the listed grade band.
 5. The subject matter is warm, positive, neutral, or gently imaginative — no fear, violence, or stress.
 6. There is no cultural specificity that would confuse a non-US child.
-7. The word is not a heteronym or arbitrary proper noun (check `reviewWords.ts`). Closed educational sets such as days of the week are allowed.
+7. The word is not arbitrary proper noun (check `reviewWords.ts`). Closed educational sets such as days of the week are allowed. Heteronyms are added as spelling-only entries instead (no sentence — see Heteronym Policy).
 8. The entry is inserted in correct alphabetical position within its grade-band file, with the right `gradeBand` and `sourceType: 'curated'`.
 
 ## Editorial Standards
@@ -109,7 +116,7 @@ Good candidates:
 
 Do not add:
 
-- **Heteronyms** — words whose pronunciation changes with meaning (live, read, wind, tear, lead, row, close). These require disambiguation the bank cannot provide.
+- A **sentence** for a heteronym (live, read, wind, tear, lead, row, close, bow, sow, wound, minute). The word itself belongs in the bank, but as a spelling-only entry with `sentenceOmissionReason: 'heteronym'` — never with an invented sentence.
 - Arbitrary proper nouns (names, brands, places, country names) — not general curriculum vocabulary. Exception: closed educational sets such as days of the week and months of the year are allowed.
 - Obscure or advanced vocabulary unlikely to appear on a homework list
 - Words where the "right" sentence depends on which definition is being tested
@@ -117,7 +124,7 @@ Do not add:
 
 ## Heteronym Warning
 
-Adding a heteronym to the sentence bank risks the wrong pronunciation being spoken when the word appears in a custom list. For example, "I live on Maple Street" and "We watched the live concert" are both valid but are pronounced differently. Until the architecture supports per-entry pronunciation annotation, **skip heteronyms entirely**.
+Never write an example sentence for a heteronym. Pairing one risks the wrong pronunciation being spoken: "I live on Maple Street" and "We watched the live concert" are both valid but pronounced differently, and TTS cannot tell which the isolated word should match. Add the word as a **spelling-only entry** (`sentenceOmissionReason: 'heteronym'`, no `exampleSentence`) so it exists in the universe without a contradictory sentence.
 
 ## Expansion Process
 

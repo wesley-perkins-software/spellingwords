@@ -1,83 +1,24 @@
 import type { ReviewWordEntry } from './types';
 
+/**
+ * Words tracked during sentence-bank review.
+ *
+ * NOTE: Heteronyms (minute, live, read, wind, close, tear, lead, row, sow, wound,
+ * bow) are NO LONGER listed here. They are now first-class, spelling-only entries
+ * in the sentence bank, carrying `sentenceOmissionReason: 'heteronym'` instead of an
+ * example sentence. See docs/SENTENCE_BANK.md and docs/WORD_UNIVERSE.md.
+ *
+ * What remains here are words that are either cleared for use with a sentence
+ * (`safe-to-add`) or genuinely excluded for non-pronunciation reasons such as the
+ * proper-noun / honorific rules (`avoid`).
+ */
 export const REVIEW_WORDS: ReviewWordEntry[] = [
-  {
-    word: 'minute',
-    reason: 'Heteronym: "MIN-it" (unit of time) vs "my-NOOT" (very small)',
-    recommendation: 'Skip. TTS will produce "MIN-it" for isolated word; sentence context may force "my-NOOT" reading.',
-    status: 'avoid',
-  },
-  {
-    word: 'live',
-    reason: 'Heteronym: verb "lɪv" (to live somewhere) vs adjective "laɪv" (a live show)',
-    recommendation: 'Skip. Cannot write a single sentence that unambiguously matches TTS isolated pronunciation.',
-    status: 'avoid',
-    notes: 'Was briefly in the bank; removed in audit pass.',
-  },
-  {
-    word: 'read',
-    reason: 'Heteronym: present "reed" vs past tense "red"',
-    recommendation: 'Skip. Sentence would force one pronunciation, but isolated TTS pronunciation is ambiguous.',
-    status: 'avoid',
-    notes: 'Was briefly in the bank (past-tense usage); removed in audit pass.',
-  },
-  {
-    word: 'wind',
-    reason: 'Heteronym: noun "wɪnd" (the wind blows) vs verb "waɪnd" (to wind a clock)',
-    recommendation: 'Skip. Too ambiguous for TTS.',
-    status: 'avoid',
-    notes: 'Was briefly in the bank; removed in audit pass.',
-  },
-  {
-    word: 'close',
-    reason: 'Heteronym: verb "kloʊz" (to close a door) vs adjective "kloʊs" (sitting close)',
-    recommendation: 'Skip. TTS may produce wrong pronunciation.',
-    status: 'avoid',
-    notes: 'Was briefly in the bank; removed in audit pass.',
-  },
   {
     word: 'Saturday',
     reason: 'Proper noun (day of week). Previously avoided under the blanket proper-noun rule.',
     recommendation: 'Safe to add. Days of the week are a closed educational set explicitly taught in K–5 curricula; they are exempt from the general proper-noun exclusion.',
     status: 'safe-to-add',
     notes: 'Policy updated to allow closed educational proper-noun sets. Added to grade23.ts.',
-  },
-  {
-    word: 'tear',
-    reason: 'Heteronym: noun "tɪr" (a tear from crying) vs verb "tɛr" (to tear paper)',
-    recommendation: 'Skip.',
-    status: 'avoid',
-  },
-  {
-    word: 'lead',
-    reason: 'Heteronym: verb "liːd" (to lead the group) vs noun "lɛd" (the metal lead)',
-    recommendation: 'Skip.',
-    status: 'avoid',
-  },
-  {
-    word: 'row',
-    reason: 'Heteronym: noun "roʊ" (a row of seats) vs verb "raʊ" (British: a quarrel)',
-    recommendation: 'Skip in British-aware contexts. US usage "roʊ" only may be safe-to-add with careful sentence.',
-    status: 'needs-review',
-    notes: 'In US curriculum the verb sense (to row a boat) is unambiguous "roʊ". Consider adding with a boat sentence.',
-  },
-  {
-    word: 'wound',
-    reason: 'Heteronym: noun "wuːnd" (an injury) vs past tense "waʊnd" (wound up the clock)',
-    recommendation: 'Skip.',
-    status: 'avoid',
-  },
-  {
-    word: 'bow',
-    reason: 'Heteronym: noun "boʊ" (bow and arrow) vs verb "baʊ" (to bow your head)',
-    recommendation: 'Skip.',
-    status: 'avoid',
-  },
-  {
-    word: 'sow',
-    reason: 'Heteronym: verb "soʊ" (to sow seeds) vs noun "saʊ" (a female pig)',
-    recommendation: 'Skip.',
-    status: 'avoid',
   },
   {
     word: 'does',

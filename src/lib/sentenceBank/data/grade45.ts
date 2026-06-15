@@ -64,6 +64,7 @@ export const GRADE45_ENTRIES: SentenceBankEntry[] = [
   { word: 'rupture', exampleSentence: 'The pipe began to rupture under the pressure.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'school', exampleSentence: 'We walk to school together every morning.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'sentence', exampleSentence: 'He wrote one neat sentence at the top of the page.', gradeBand: '4-5', sourceType: 'curated' },
+  { word: 'sow', sentenceOmissionReason: 'heteronym', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'spectator', exampleSentence: 'Every spectator cheered for the home team.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'stories', exampleSentence: 'Grandpa tells the best stories before we fall asleep.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'student', exampleSentence: 'Each student shared a favorite book with the class.', gradeBand: '4-5', sourceType: 'curated' },
@@ -80,6 +81,7 @@ export const GRADE45_ENTRIES: SentenceBankEntry[] = [
   { word: 'truly', exampleSentence: 'She was truly grateful for her kind helpers.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'turtle', exampleSentence: 'The small turtle sunned itself on a smooth rock.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'village', exampleSentence: 'A tiny village sat at the foot of the hills.', gradeBand: '4-5', sourceType: 'curated' },
+  { word: 'wound', sentenceOmissionReason: 'heteronym', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'writing', exampleSentence: 'She enjoys writing short stories about brave explorers.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'written', exampleSentence: 'He has written a thank-you note to his teacher.', gradeBand: '4-5', sourceType: 'curated' },
 ];

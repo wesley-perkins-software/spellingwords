@@ -67,8 +67,12 @@ describe('getSentenceBankEntry', () => {
     expect(entry?.word).toBe('good-by');
   });
 
-  it('does not include the skipped heteronym "minute"', () => {
-    expect(getSentenceBankEntry('minute')).toBeUndefined();
+  it('includes the heteronym "minute" as a spelling-only entry', () => {
+    const entry = getSentenceBankEntry('minute');
+    expect(entry).toBeDefined();
+    expect(entry?.word).toBe('minute');
+    expect(entry?.sentenceOmissionReason).toBe('heteronym');
+    expect(entry?.exampleSentence).toBeUndefined();
   });
 });
 
@@ -81,6 +85,10 @@ describe('getSentenceForWord', () => {
 
   it('returns undefined for an unknown word', () => {
     expect(getSentenceForWord('xylophone')).toBeUndefined();
+  });
+
+  it('returns undefined for a spelling-only heteronym entry', () => {
+    expect(getSentenceForWord('minute')).toBeUndefined();
   });
 
   it('handles uppercase input', () => {

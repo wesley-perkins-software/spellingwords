@@ -102,6 +102,15 @@ describe('toPlayableWords', () => {
     expect(result[0].exampleSentence).toBeUndefined();
   });
 
+  it('returns no exampleSentence for a heteronym in a curated list (spelling-only)', () => {
+    // `live` is a spelling-only sentence-bank entry; a curated list using it must
+    // enrich to no sentence so the play UI hides "Use in a Sentence".
+    const entry = makeEntry({ id: 'a', words: ['live'] });
+    const result = toPlayableWords(entry);
+    expect(result[0].word).toBe('live');
+    expect(result[0].exampleSentence).toBeUndefined();
+  });
+
   it('handles both string and object word entries in the same list', () => {
     const entry = makeEntry({ id: 'a', words: ['cat', { word: 'dog', hint: 'a pet' }] });
     const result = toPlayableWords(entry);

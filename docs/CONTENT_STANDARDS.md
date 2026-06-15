@@ -84,21 +84,18 @@ Example sentences exist to show a word in natural use — not to demonstrate voc
 
 ### Pronunciation and Heteronyms
 
-The app reads words and sentences aloud using the browser's native text-to-speech (TTS). The TTS pronounces words in isolation without semantic context, so it may produce a different pronunciation of a heteronym than the sentence implies.
+The app reads words and sentences aloud using the browser's native text-to-speech (TTS). The TTS pronounces words in isolation without semantic context, so it may produce a different pronunciation of a heteronym than a sentence implies.
 
-**Rule: example sentences must match the pronunciation that browser TTS produces for the isolated word.**
+**Rule: a true heteronym is added as a spelling-only entry with no example sentence.**
 
-When "live" is spoken in isolation, browser TTS defaults to the /laɪv/ pronunciation (as in "live music"). The example sentence must therefore use that same pronunciation:
+A heteronym changes pronunciation with meaning (`live`, `read`, `wind`, `tear`, `lead`, `row`, `close`, `bow`, `sow`, `wound`, `minute`). For these words there is no single sentence we can trust: when "live" is spoken in isolation, browser TTS defaults to /laɪv/ ("live music"), but a sentence like "They live in a small white house" implies /lɪv/ — a contradictory pair. Rather than gamble on a sentence, the word is added to the sentence bank as a spelling-only entry that carries `sentenceOmissionReason: 'heteronym'` and **no** `exampleSentence`. TTS speaks the isolated word, "Listen Again" works, and the "Use in a Sentence" button stays hidden (see `docs/SENTENCE_BANK.md`).
 
-✓ "We heard live music at the school fair."  
-✗ "They live in a small white house." ← TTS would say /laɪv/ for the word prompt but /lɪv/ in the sentence — conflicting pronunciations.
+For a **non-heteronym** word whose single TTS pronunciation simply needs a matching sentence, the example sentence must use that same pronunciation:
 
-If a word is a heteronym and the browser TTS isolated pronunciation does not match the intended sentence:
+✓ "We heard live music at the school fair." (only valid if "live" were not a heteronym)  
+✗ Pairing two senses of a heteronym in word-prompt vs sentence — never do this; omit the sentence instead.
 
-- **Write the sentence for the TTS pronunciation** — choose a sentence where the word is used in the same sense the TTS will use when speaking it alone.
-- **Choose a different word** — if no natural sentence fits the TTS pronunciation at the target grade level, consider whether the word belongs on this list at all.
-- **Flag the word for editorial review** — if both options above fail, remove the example sentence and mark the word for review rather than leaving a conflicting pair in the content.
-
+**Do not** invent a sentence for a heteronym to "make it fit."  
 **Do not** use IPA, SSML, or phonetic spelling tricks to influence TTS output.  
 **Do not** use AI-generated pronunciation guidance.  
 **Do not** alter the sentence to match a *different* TTS voice — target the default voice selected by `src/modules/speech/voiceSelection.ts` (currently prioritizes Google US English).

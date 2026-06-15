@@ -84,24 +84,26 @@ When a word from a lower-priority source duplicates a word already in the bank f
 
 ## Current State of the Word Universe
 
-Current audit results show the sentence bank contains **914 entries** across three grade bands:
+Current audit results show the sentence bank contains **932 entries** across three grade bands:
 
 | Grade Band | Entries | Share |
 |------------|---------|-------|
-| K–1        | 347     | 38%   |
-| 2–3        | 486     | 53%   |
-| 4–5        | 81      | 9%    |
-| **Total**  | **914** |       |
+| K–1        | 352     | 38%   |
+| 2–3        | 497     | 53%   |
+| 4–5        | 83      | 9%    |
+| **Total**  | **932** |       |
 
-As of this audit, **32 published lists** surface approximately **470 words** — roughly **51% of the sentence bank** appears in at least one curated list. The remaining half exists as a reserve: words with validated sentences and grade placements, ready to be assigned to future lists without requiring new additions first.
+These totals are higher than the original sentence-bank audit recorded. The growth came from three sources: promoting true heteronyms (e.g. *bow*, *read*, *close*) to first-class spelling-only entries, adding closed educational sets such as the days of the week, and ordinary sentence-bank expansion. No words were removed.
+
+As of this audit, **32 published lists** surface approximately **336 words** — roughly **a third of the sentence bank** appears in at least one curated list. The remaining two-thirds exist as a reserve: words with validated sentences and grade placements, ready to be assigned to future lists without requiring new additions first.
 
 The present vocabulary distribution also shows **20 words** documented in the review registry (`src/lib/sentenceBank/reviewWords.ts`) and intentionally kept out of automatic use.
 
 What these numbers mean:
 
 - The lower grade bands (K–3) are well populated. The 2–3 band is the largest, which aligns with the heaviest demand from early elementary lists.
-- Grade 4–5 coverage is thin — 81 entries is not enough to build a rich upper-elementary list library.
-- Roughly half the bank is untapped, which means near-term lists can draw from existing vocabulary without adding new words first.
+- Grade 4–5 coverage is thin — 83 entries is not enough to build a rich upper-elementary list library.
+- Roughly two-thirds of the bank is untapped, which means near-term lists can draw from existing vocabulary without adding new words first.
 - The review registry is small and deliberate, which is healthy.
 
 ---
@@ -110,13 +112,13 @@ What these numbers mean:
 
 The sentence bank uses three grade bands:
 
-**K–1 (347 entries)**
+**K–1 (352 entries)**
 Kindergarten and first grade. High-frequency words, short CVC patterns, common sight words, early phonics. These words support pre-reader and emerging-reader practice.
 
-**2–3 (486 entries)**
+**2–3 (497 entries)**
 Second and third grade. Expanding vocabulary, compound words, inflected endings, more complex phonics patterns. The largest and most developed band.
 
-**4–5 (81 entries)**
+**4–5 (83 entries)**
 Fourth and fifth grade. Multisyllabic words, academic vocabulary, morphology patterns. This band is currently underdeveloped and is the highest-priority area for future expansion (see [Vocabulary Coverage Gaps](#vocabulary-coverage-gaps)).
 
 ---
@@ -126,7 +128,7 @@ Fourth and fifth grade. Multisyllabic words, academic vocabulary, morphology pat
 The following gaps are observed from the present data. They are intentionally identified opportunities for future expansion — not failures. The goal of this section is visibility, not perfection. Knowing where the vocabulary is thin is the prerequisite for expanding it responsibly.
 
 **Grade 4–5 is thin.**
-The present distribution shows 81 entries versus 347 and 486 in the lower bands. Upper-elementary vocabulary is the biggest structural gap in the current bank. Any future list work targeting grades 4–5 will quickly exhaust available sentence-bank coverage.
+The present distribution shows 83 entries versus 352 and 497 in the lower bands. Upper-elementary vocabulary is the biggest structural gap in the current bank. Any future list work targeting grades 4–5 will quickly exhaust available sentence-bank coverage.
 
 **Challenge vocabulary is sparse.**
 Current audit results show only 2 published challenge lists, and the underlying bank entries supporting that level are limited. Morphological challenge words (roots, prefixes, suffixes) are the primary underrepresented type.
@@ -237,15 +239,15 @@ Present the generated views in the library. The UI becomes a rendering layer ove
 
 ### Total Entries
 
-Current audit results show **914 entries** — across k1.ts (347), grade23.ts (486), grade45.ts (81).
+Current audit results show **932 entries** — across k1.ts (352), grade23.ts (497), grade45.ts (83).
 
 ### Grade Distribution
 
 | File | Grade Band | Entries |
 |------|------------|---------|
-| `data/k1.ts` | K–1 | 347 |
-| `data/grade23.ts` | 2–3 | 486 |
-| `data/grade45.ts` | 4–5 | 81 |
+| `data/k1.ts` | K–1 | 352 |
+| `data/grade23.ts` | 2–3 | 497 |
+| `data/grade45.ts` | 4–5 | 83 |
 
 ### Review Word Count
 
@@ -273,7 +275,7 @@ As of this audit, **20 words** appear in the review registry:
 
 ### Potential Data Problems
 
-**Grade 4–5 is critically thin.** As of this audit, 81 entries is insufficient to support a full upper-elementary list library. This is the most urgent structural gap.
+**Grade 4–5 is critically thin.** As of this audit, 83 entries is insufficient to support a full upper-elementary list library. This is the most urgent structural gap.
 
 **The `tags` field is unused.** `SentenceBankEntry` declares `tags?: string[]` but no entry currently sets it. Without tags, category-based list generation is not possible. Populating tags is the prerequisite for moving from hand-authored lists to metadata-driven lists.
 
@@ -325,12 +327,12 @@ The expanded `gradeBand` (individual grades instead of bands) and `source` array
 ## Human Audit Report
 
 ### Current Total Words
-**914** sentence bank entries, as of this audit.
+**932** sentence bank entries, as of this audit.
 
 ### Grade-Band Totals
-- K–1: **347**
-- 2–3: **486**
-- 4–5: **81**
+- K–1: **352**
+- 2–3: **497**
+- 4–5: **83**
 
 ### Number of Review Words
 **20** (13 avoid, 4 safe-to-add, 1 needs-review, 2 other).
@@ -339,7 +341,7 @@ The expanded `gradeBand` (individual grades instead of bands) and `source` array
 **32** across 4 categories: grade-level (12), phonics (10), sight-words (8), challenge (2).
 
 ### Approximate Percentage of Words Surfaced in Lists
-~**51%** (~470 of 914 sentence bank entries appear in at least one list).
+~**36%** (~336 of 932 sentence bank entries appear in at least one list).
 
 ### Duplicates Found
 **None.** The audit suite enforces uniqueness and is currently passing.
@@ -349,7 +351,7 @@ None flagged by current tooling. The grade 4–5 file (`data/grade45.ts`) is not
 
 ### Recommendations for Next Steps
 
-1. **Expand grade 4–5 vocabulary** before authoring new upper-elementary lists. 81 entries is not a sufficient foundation for that band.
+1. **Expand grade 4–5 vocabulary** before authoring new upper-elementary lists. 83 entries is not a sufficient foundation for that band.
 2. **Continue auditing review words.** Four words (`does`, `hour`, `eight`, `people`) are already cleared as safe-to-add — evaluate whether to bring them into the bank.
 3. **Increase sentence-bank coverage broadly** before creating more lists. The vocabulary universe needs to stabilize before list expansion resumes.
 4. **Delay metadata work** until the vocabulary universe is sufficiently complete. Adding structure prematurely increases maintenance burden without improving curriculum quality.

@@ -6,14 +6,14 @@ This document is a human-readable inventory of every vocabulary word currently s
 
 | Band    | Words |
 |---------|------:|
-| K–1     |   347 |
-| Grade 2–3 | 486 |
-| Grade 4–5 |  81 |
-| **Total** | **914** |
+| K–1     |   352 |
+| Grade 2–3 | 497 |
+| Grade 4–5 |  83 |
+| **Total** | **932** |
 
 ---
 
-## K–1 (347 words)
+## K–1 (352 words)
 
 ### A
 
@@ -59,6 +59,7 @@ blue
 boat
 bone
 both
+bow
 bowl
 box
 boy
@@ -230,6 +231,7 @@ light
 like
 line
 little
+live
 load
 long
 look
@@ -315,12 +317,14 @@ rabbit
 rain
 ran
 rat
+read
 red
 rest
 ride
 rock
 room
 rope
+row
 run
 
 ### S
@@ -418,6 +422,7 @@ when
 white
 who
 why
+wind
 wish
 with
 woke
@@ -436,7 +441,7 @@ zoo
 
 ---
 
-## Grade 2–3 (486 words)
+## Grade 2–3 (497 words)
 
 ### A
 
@@ -529,6 +534,7 @@ children
 city
 class
 clear
+close
 cloth
 clothes
 club
@@ -608,6 +614,7 @@ form
 found
 fourth
 free
+Friday
 front
 
 ### G
@@ -688,6 +695,7 @@ largest
 later
 laugh
 lawn
+lead
 learn
 leave
 let's
@@ -713,6 +721,8 @@ middle
 might
 mile
 mind
+minute
+Monday
 money
 month
 morning
@@ -819,6 +829,7 @@ running
 ### S
 
 salt
+Saturday
 says
 scare
 sea
@@ -886,6 +897,7 @@ suddenly
 sugar
 suit
 summer
+Sunday
 sunshine
 supper
 sure
@@ -901,6 +913,7 @@ talking
 teach
 teacher
 team
+tear
 teeth
 tenth
 than
@@ -915,6 +928,7 @@ thought
 threw
 through
 throw
+Thursday
 tired
 together
 tonight
@@ -925,6 +939,7 @@ tried
 trip
 truck
 trying
+Tuesday
 turn
 twelve
 twenty
@@ -955,6 +970,7 @@ we'll
 we're
 wear
 weather
+Wednesday
 week
 weekend
 west
@@ -998,7 +1014,7 @@ young
 
 ---
 
-## Grade 4–5 (81 words)
+## Grade 4–5 (83 words)
 
 ### A
 
@@ -1104,6 +1120,7 @@ rupture
 
 school
 sentence
+sow
 spectator
 stories
 student
@@ -1129,5 +1146,6 @@ village
 
 ### W
 
+wound
 writing
 written

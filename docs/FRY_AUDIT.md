@@ -56,6 +56,13 @@ audit compared against, the comparison is anchored to the documented inventory;
 a small number of recently added words may already cover gaps noted below. The
 documentation should be refreshed in a separate task.
 
+> **Reconciliation note (added after the audit):** The documentation refresh has
+> since been completed. `docs/WORD_UNIVERSE.md` and `docs/WORD_CATALOG.md` now
+> report the live universe of **932** entries (352 K–1, 497 grade 2–3, 83 grade
+> 4–5), so the drift recorded in the table above is resolved. The audit findings
+> below are left unchanged, since they reflect the inventory as it stood when the
+> comparison was made.
+
 Throughout this audit, "covered" means the word (or an obvious inflectional
 relative we already support, e.g. *planet* for *planets*) appears in the current
 catalog.

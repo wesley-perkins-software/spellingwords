@@ -126,7 +126,7 @@ Benchmark Advance is another commonly adopted commercial curriculum. The same ca
 
 ### Grade 4–5 Vocabulary
 
-The highest-priority gap. The word universe currently contains only 81 grade 4–5 words (9% of the total). This tier needs vocabulary that is curriculum-aligned, not just phonetically harder. Reading Rockets and Fry are the recommended starting points for expansion here.
+The highest-priority gap. The word universe currently contains only 83 grade 4–5 words (9% of the total). This tier needs vocabulary that is curriculum-aligned, not just phonetically harder. Reading Rockets and Fry are the recommended starting points for expansion here.
 
 ### Morphology / Roots / Prefixes / Suffixes
 

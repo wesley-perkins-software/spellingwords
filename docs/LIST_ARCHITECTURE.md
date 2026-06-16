@@ -33,13 +33,13 @@ As of this writing, the project has:
 | Words in sentence bank | ~932 |
 | K–1 words | 352 |
 | Grade 2–3 words | 497 |
-| Grade 4–5 words | 83 |
+| Grade 4–5 words | Smallest band (underrepresented relative to lower grades) |
 | Published lists | 32 |
 | Estimated words surfaced | ~38% |
 
 That means roughly **62% of the sentence bank is not yet in any published list.** Most of the undeployed vocabulary sits in the Grade 2–3 band, which has deep coverage but underrepresented list count relative to K–1.
 
-The Grade 4–5 band (83 words) is a known gap — it is thin by design, pending a second vocabulary expansion — but list architecture should not wait on that expansion. The architecture can be planned now and populated incrementally.
+Grade 4–5 remains the smallest band — thin by design, pending a second vocabulary expansion — but list architecture should not wait on that expansion. The architecture can be planned now and populated incrementally.
 
 **Why architecture matters more than word expansion right now:**
 
@@ -230,7 +230,7 @@ Each grade has 5–10 lists of 10–20 words each, organized by theme or skill (
 
 A target of **10–20 words per grade-level list** aligns with the session model: a child can complete one list in a single session without artificial repetition.
 
-**K–5 depth parity:** All six grades do not need equal depth at launch. K–1 content is most frequently searched and most frequently practiced. Grade 4–5 content serves a smaller audience and is more difficult to source well (the current word bank has only 83 Grade 4–5 words). Prioritizing K–3 depth at launch, with Grade 4–5 as a known gap to close, is more honest than spreading thinly across all grades.
+**K–5 depth parity:** All six grades do not need equal depth at launch. K–1 content is most frequently searched and most frequently practiced. Grade 4–5 content serves a smaller audience and is more difficult to source well given the current vocabulary gap in that band. Prioritizing K–3 depth at launch, with Grade 4–5 as a known gap to close, is more honest than spreading thinly across all grades.
 
 ---
 
@@ -295,7 +295,7 @@ The library must not become:
 - **SEO-driven list spam.** A list created primarily to rank for a search query rather than to serve a child practicing spelling is not worth publishing. The CONTENT_STANDARDS editorial constitution forbids this explicitly.
 - **Thousands of tiny categories.** Thematic content (animals, food, sports, colors) can multiply indefinitely with little curriculum payoff. The test is: does this list teach a skill, or does it just group words by a common topic?
 - **Low-quality thematic collections.** "Thanksgiving Words" or "Summer Vocabulary" may generate seasonal traffic but undermine the site's identity as a serious curriculum resource. Seasonal and thematic content should only be published if it meets the same editorial standards as the core library.
-- **Lists with no sentences.** Every word on the site must have a hand-written example sentence. Lists built from words without sentences cannot be published. This constraint protects quality and limits the temptation to expand too fast.
+- **Lists that skip example sentences without reason.** Published lists should primarily consist of words with hand-written example sentences. Spelling-only heteronym entries are the documented exception — all other words require a sentence before they can be published.
 
 The right model is depth over breadth. Twenty well-curated phonics lists are worth more than 200 shallow thematic ones.
 
@@ -311,7 +311,8 @@ These are not new — most are implicit in the existing architecture. Stating th
 4. **Curriculum should be understandable.** Parents and teachers should be able to explain why a word is on a list. If the list rationale is unclear, the list is probably wrong.
 5. **Quality over quantity.** Fewer lists with every word having a sentence and clear rationale is better than many lists with placeholder content.
 6. **Categories should grow gradually.** A category that launches with 2–3 strong lists and expands to 10 over time is more trustworthy than one that launches with 30 mediocre lists at once.
-7. **The library is calm.** Consistent with the product's anti-gamification values, the library should feel like a well-organized workbook, not a marketplace. Lists should not compete for attention through novelty.
+7. **Cross-family overlap is expected and healthy.** A word may appear in both a grade-level list and a phonics list without violating the "words exist once" philosophy. Lists are views; overlap reflects that a word has multiple curriculum contexts, not that it is duplicated.
+8. **The library is calm.** Consistent with the product's anti-gamification values, the library should feel like a well-organized workbook, not a marketplace. Lists should not compete for attention through novelty.
 
 ---
 
@@ -323,15 +324,13 @@ These questions are not resolved in this document. They are the right questions 
 
 2. **Fry tier granularity:** Should Fry words be published as sets of 100 (1–100, 101–200, etc.), grouped by grade-level alignment, or by some other principle? The Fry list was designed for frequency, not instruction — its tier structure requires editorial judgment.
 
-3. **K–5 depth parity target:** When is the Grade 4–5 vocabulary bank large enough to support a full grade-level presence? The current 83 Grade 4–5 words are a thin foundation. A word expansion to 200+ Grade 4–5 words may be a prerequisite for serious Grade 4–5 lists.
+3. **K–5 depth parity target:** When is the Grade 4–5 vocabulary bank large enough to support a full grade-level presence? Grade 4–5 remains the smallest band. A meaningful word expansion in that band may be a prerequisite for serious Grade 4–5 lists.
 
 4. **Phonics progression completeness:** Should the phonics family eventually aim to cover every major phonics pattern in the English spelling system, or should it remain a curated selection of the most important and teachable patterns? A complete progression is more authoritative; a curated selection is more maintainable.
 
 5. **Learning paths design:** When is the right time to begin designing the Learning Paths layer? Should it be designed in parallel with the list library, or after the library reaches a critical mass of content?
 
 6. **Morphology sequencing:** Which morphology categories are most appropriate for the K–5 age range, and in what order should they be introduced? Prefixes and suffixes are likely appropriate by Grade 3. Greek and Latin roots may skew toward Grade 4–5.
-
-7. **Cross-list word caps:** Should there be a policy limiting how many lists a single word can appear in? Or is "words are views, not property" sufficient guidance?
 
 ---
 

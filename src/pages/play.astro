@@ -141,11 +141,11 @@ import Layout from '@/layouts/Layout.astro';
                 min="0.5"
                 max="1.1"
                 step="0.05"
-                value="0.5"
+                value="1.0"
                 class="flex-1 accent-brand-red"
                 aria-label="Speech speed"
               />
-              <span id="speed-label" class="text-sm font-semibold text-ink w-12 text-right">0.50×</span>
+              <span id="speed-label" class="text-sm font-semibold text-ink w-12 text-right">1.00×</span>
             </div>
 
             <!-- Preview voice -->
@@ -224,9 +224,9 @@ import Layout from '@/layouts/Layout.astro';
                   id="btn-speed"
                   type="button"
                   class="flex items-center gap-1 px-3 py-2.5 font-mono text-sm font-semibold text-ink transition hover:bg-[#EDE8DF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
-                  aria-label="Change playback speed (current: 0.5×)"
+                  aria-label="Change playback speed (current: 1×)"
                   title="Tap to cycle through speeds"
-                ><span id="btn-speed-label">Speed 0.5×</span> <span aria-hidden="true" class="text-xs opacity-50">▾</span></button>
+                ><span id="btn-speed-label">Speed 1×</span> <span aria-hidden="true" class="text-xs opacity-50">▾</span></button>
               </div>
               <!-- Use in a Sentence — fills remaining width; only when word has a sentence -->
               <button
@@ -408,7 +408,7 @@ import Layout from '@/layouts/Layout.astro';
 
   // Voice settings state — no persistence; resets on page load
   let selectedVoice: SpeechSynthesisVoiceAdapter | null = null;
-  let currentRate = 0.5;
+  let currentRate = 1.0;
 
   // --- Warm, varied feedback copy ---
   // A calm adult helping a child — not a scoreboard. We rotate through these
@@ -642,7 +642,7 @@ import Layout from '@/layouts/Layout.astro';
   // Speed toggle — cycles through three presets so parents can adjust mid-session
   // without opening the settings panel. Stays in sync with the speed-range slider.
   const SPEED_PRESETS = [0.5, 0.75, 1.0, 1.25];
-  let speedPresetIndex = 0;
+  let speedPresetIndex = 2;
 
   function formatSpeed(rate: number): string {
     if (rate === 0.5)  return '0.5×';

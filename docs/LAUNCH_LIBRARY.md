@@ -18,9 +18,9 @@ There are three risks to launching large:
 
 **Chain breakage.** Lists in the phonics and sight-word families depend on sequencing (`prerequisiteLists`, `nextLists`). A half-authored chain misleads users about what comes next and silently breaks the "Continue Learning" flow designed in `CONTENT_ARCHITECTURE.md`.
 
-**Perception of breadth masking depth.** Forty thin lists look like a resource. Twenty-eight solid lists *are* a resource. The editorial bar is what makes this app credible to parents and teachers; volume does not.
+**Perception of breadth masking depth.** Forty thin lists look like a resource. Thirty-six solid lists *are* a resource. The editorial bar is what makes this app credible to parents and teachers; volume does not.
 
-The target launch size is **32–36 lists**, distributed across four families. That is enough to demonstrate real structure in every family. It is not so many that authoring quality degrades.
+The target launch size is **36 lists**, distributed across four families. That is enough to demonstrate real structure in every family and cover K–5 credibly. It is not so many that authoring quality degrades.
 
 ---
 
@@ -43,9 +43,9 @@ Deletion is not a loss if the replacement is better.
 
 ## 3. Recommended Launch Size
 
-**Target: 32 lists. Ceiling: 36.**
+**Target: 36 lists. Floor: 32.**
 
-The lower bound of 32 is achievable without padding. The ceiling of 36 allows for up to four additional lists if a grade or phonics slot turns out to warrant them after authoring begins — but those slots must earn their place, not be filled speculatively.
+The target of 36 is reached by splitting short vowels into five separate lists (one per vowel) and giving both Grade 4 and Grade 5 two lists each. These are not padding — both decisions are editorially justified. The floor of 32 applies if any lists cannot be authored to standard before launch.
 
 Distribution across families is described in sections 4–7 below.
 
@@ -68,24 +68,30 @@ Recommended list size per list: 12–15 words. Lists in the 10–12 range are ac
 | Grade 2 | 4 | Deepest coverage at launch; includes contractions and long-vowel words |
 | Grade 3 | 3 | Solid entry point; signals the family continues upward |
 | Grade 4 | 2 | e.g. "4th Grade Reading & Writing Words", "4th Grade Everyday Words" |
-| Grade 5 | 1 | e.g. "5th Grade Reading & Writing Words"; minimal but present |
+| Grade 5 | 2 | e.g. "5th Grade Reading & Writing Words", "5th Grade Everyday Words" |
 | **Total** | **16** | |
 
-Grades 4 and 5 carry thinner coverage by design, not by neglect. The word bank for upper grades is less mature. Two Grade 4 lists and one Grade 5 list are enough to signal that the ladder goes all the way up, without overstating what the library currently supports.
+Grades 4 and 5 carry thinner coverage by design, not by neglect. The word bank for upper grades is less mature. Two lists per grade is the minimum that avoids the "one lonely list" problem — a single list at any grade signals an accident, not a curriculum. Grade 4 and Grade 5 are parallel in depth at launch.
 
-If a Grade 5 list cannot be authored to standard before launch, it should be marked `status: draft` and excluded from the public library — not shipped as an underpowered placeholder.
+If either Grade 5 list cannot be authored to standard before launch, it should be marked `status: draft` and excluded from the public library — not shipped as an underpowered placeholder. A "coming soon" signal in the UI is preferable to a weak list.
 
 ---
 
 ## 5. Phonics Family
 
-**Target: 8 lists (Phase 1 only)**
+**Target: 12 lists (Phase 1 only)**
 
-Phase 1 of the phonics progression, as defined in `PHONICS_STRATEGY.md`, covers the foundational patterns that a child encounters in K–2 instruction:
+Phase 1 of the phonics progression, as defined in `PHONICS_STRATEGY.md`, covers the foundational patterns that a child encounters in K–2 instruction.
+
+Short vowels ship as **five separate lists**, one per vowel. Teachers do not teach "all short vowels" as a unit — they teach short A this week, short I next week. A combined CVC list mixes `cat`, `pet`, `pig`, `hot`, and `sun` in a way that serves no instructional goal. It also misses the parent searching for "short a words" specifically. Splitting into five is the correct instructional and navigational choice.
 
 | Pattern | List |
 |---|---|
-| Short vowels (CVC) | 1 |
+| Short A (CVC) | 1 |
+| Short E (CVC) | 1 |
+| Short I (CVC) | 1 |
+| Short O (CVC) | 1 |
+| Short U (CVC) | 1 |
 | Silent E — long A | 1 |
 | Silent E — long I | 1 |
 | Silent E — long O | 1 |
@@ -93,11 +99,9 @@ Phase 1 of the phonics progression, as defined in `PHONICS_STRATEGY.md`, covers 
 | Vowel teams ee / ea | 1 |
 | Vowel teams oa / ow | 1 |
 | R-controlled ar | 1 |
-| **Total** | **8** |
+| **Total** | **12** |
 
 Phase 2 — digraphs, consonant blends, remaining r-controlled vowels (er/ir/ur, or), diphthongs — is **not launched**. Adding Phase 2 patterns before Phase 1 is complete and sequenced correctly would break the chain and mislead teachers who use the phonics family for structured intervention.
-
-The short-vowel CVC slot is listed as a single list above, but whether it ships as one combined list or five separate lists (short-a, short-e, short-i, short-o, short-u) is an open question. See section 10.
 
 All phonics lists must follow the sequence metadata design (`prerequisiteLists`, `nextLists`) so the progression is navigable, not just browsable.
 
@@ -152,7 +156,7 @@ The following families are **not launched** and should not be stubbed, previewed
 
 **Morphology.** Prefix/suffix patterns, soft C/G, and advanced spelling conventions may eventually form their own family. That family has no strategy document yet and is not launched.
 
-**Grade 4–5 depth.** Two Grade 4 lists and one Grade 5 list launch. Additional upper-grade lists are deferred until the word bank matures and authoring quality can be guaranteed.
+**Grade 4–5 depth.** Two Grade 4 lists and two Grade 5 lists launch. Additional upper-grade lists are deferred until the word bank matures and authoring quality can be guaranteed.
 
 ---
 
@@ -161,15 +165,15 @@ The following families are **not launched** and should not be stubbed, previewed
 | Family | Lists |
 |---|---|
 | Grade-Level | 16 |
-| Phonics | 8 |
+| Phonics | 12 |
 | Sight Words | 6 |
 | Challenge | 2 |
 | Theme / Seasonal | 0 |
-| **Total** | **32** |
+| **Total** | **36** |
 
-The ceiling is 36. Four additional slots are available if authoring reveals that a grade or phonics pattern warrants another list — but those lists must be earned, not scheduled.
+The ceiling is 36 — this plan lands at the ceiling, with no slack. Every list must be authored to standard. There is no room for filler.
 
-The floor is 28. If authoring quality cannot be sustained at 32, it is better to launch with 28 solid lists than 32 lists of uneven quality.
+The floor is 32. If any phonics list (most likely one of the short-vowel splits) cannot be authored to quality before launch, it is held rather than shipped underpowered. Four lists held puts the launch at 32, which is still credible.
 
 ---
 
@@ -177,14 +181,11 @@ The floor is 28. If authoring quality cannot be sustained at 32, it is better to
 
 These decisions are not resolved. They should be answered before authoring begins on the affected lists, not during or after.
 
-**Short vowels: one list or five?**
-The Phase 1 phonics slot shows one short-vowel CVC list. Should it ship as a single combined list (all five vowels), or as five separate lists (short-a, short-e, short-i, short-o, short-u)? Five lists give the phonics family more navigability and allow teachers to target a specific vowel. One list is simpler and avoids thin lists if a vowel has fewer strong CVC examples. See `PHONICS_STRATEGY.md` for the tradeoff.
-
 **Kindergarten list size: 10–12 or up to 15?**
 `GRADE_LEVEL_STRATEGY.md` suggests capping Kindergarten lists at 10–12 words given attention span and word density constraints. Is 15 words ever acceptable for K, or is 12 the hard ceiling?
 
-**Grade 5: launch or mark draft?**
-One Grade 5 list is in the plan. If the word bank for Grade 5 is not mature enough to author a defensible list before launch, should it ship as `status: draft` (hidden from public library) or be deferred entirely and represented by a "coming soon" signal in the UI?
+**Grade 5: both lists or hold one?**
+Two Grade 5 lists are in the plan. If the word bank for Grade 5 is not mature enough to author both lists to standard before launch, should the weaker list ship as `status: draft` (hidden), be deferred with a "coming soon" signal, or should Grade 5 launch with one strong list rather than two uneven ones?
 
 **Grade 3 depth: 2 or 3 lists?**
 The plan shows 3 Grade 3 lists. If authoring time is constrained, 2 Grade 3 lists is an acceptable reduction (saving one slot for a stronger Grade 4 second list). Which tradeoff is preferred?

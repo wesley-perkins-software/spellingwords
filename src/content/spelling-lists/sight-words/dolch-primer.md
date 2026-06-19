@@ -11,7 +11,7 @@ skillTags: ["sight-words", "high-frequency"]
 tags: ["dolch", "sight-words", "first-grade", "beginning-readers"]
 order: 2
 estimatedDurationMinutes: 8
-status: published
+status: archived
 masteryThreshold: 90
 sourceType: curated
 canonicalSource:

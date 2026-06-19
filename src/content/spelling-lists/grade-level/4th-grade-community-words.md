@@ -11,7 +11,7 @@ skillTags: ["grade-4", "vocabulary", "community"]
 tags: ["grade-4", "community-words", "vocabulary", "social-studies"]
 order: 2
 estimatedDurationMinutes: 10
-status: published
+status: archived
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["4th-grade-everyday-words"]

@@ -1,7 +1,7 @@
 ---
 id: vowel-teams-oa-ow
 urlSlug: vowel-teams-oa-ow
-title: "Vowel Teams: OA and OW Words"
+title: "OA and OW Words"
 description: "Words that spell the long 'o' sound with two-letter vowel teams — oa in the middle of a word (boat, soap) and ow at the end (snow, know)."
 shortAnswer: "This list practices the OA and OW vowel teams that spell long 'o', as in boat, coat, snow, and know."
 category: phonics

@@ -1,5 +1,5 @@
 ---
-id: kindergarten-list-03
+id: kindergarten-describing-words
 urlSlug: kindergarten-describing-words
 title: "Kindergarten Describing Words"
 description: "Simple adjectives that kindergarteners use every day to describe the world around them — how things look, feel, and move."

@@ -1,7 +1,7 @@
 ---
 id: vowel-teams-oi-oy
 urlSlug: vowel-teams-oi-oy
-title: "Vowel Teams: OI and OY Words"
+title: "OI and OY Words"
 description: "Words with the OI and OY diphthong — a vowel sound that glides from one position to another, as in oil, coin, boy, and enjoy."
 shortAnswer: "This list practices the OI and OY vowel teams that make the diphthong sound heard in oil, coin, boy, and enjoy."
 category: phonics

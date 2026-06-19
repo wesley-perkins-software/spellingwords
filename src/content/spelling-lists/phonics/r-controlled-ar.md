@@ -1,7 +1,7 @@
 ---
 id: r-controlled-ar
 urlSlug: r-controlled-ar
-title: "R-Controlled Vowels: AR Words"
+title: "R-Controlled AR Words"
 description: "Words where the letter R changes the vowel sound that comes before it — the AR pattern heard in car, farm, and dark."
 shortAnswer: "This list practices the AR r-controlled vowel pattern, as in car, farm, dark, and yard."
 category: phonics

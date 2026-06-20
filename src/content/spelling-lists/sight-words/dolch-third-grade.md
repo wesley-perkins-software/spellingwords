@@ -11,7 +11,7 @@ skillTags: ["sight-words", "high-frequency", "third-grade"]
 tags: ["dolch", "sight-words", "third-grade", "fluent-readers"]
 order: 5
 estimatedDurationMinutes: 10
-status: published
+status: archived
 masteryThreshold: 90
 sourceType: curated
 canonicalSource:

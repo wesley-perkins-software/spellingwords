@@ -1,7 +1,7 @@
 ---
 id: vowel-teams-ee-ea
 urlSlug: vowel-teams-ee-ea
-title: "Vowel Teams: EE and EA Words"
+title: "EE and EA Words"
 description: "Words that spell the long 'e' sound with two-letter vowel teams — ee and ea — among the most common spelling patterns in English."
 shortAnswer: "This list practices the EE and EA vowel teams that spell long 'e', as in tree, feel, beach, and clean."
 category: phonics

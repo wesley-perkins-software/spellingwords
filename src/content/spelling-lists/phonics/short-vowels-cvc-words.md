@@ -11,7 +11,7 @@ skillTags: ["short-vowels", "short-a", "short-e", "short-i", "short-o", "short-u
 tags: ["phonics", "cvc", "short-vowels", "early-elementary"]
 order: 1
 estimatedDurationMinutes: 8
-status: published
+status: archived
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["silent-e-long-a"]

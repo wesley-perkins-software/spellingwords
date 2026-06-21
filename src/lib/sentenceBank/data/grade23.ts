@@ -166,6 +166,7 @@ export const GRADE23_ENTRIES: SentenceBankEntry[] = [
   { word: 'gentle', exampleSentence: 'A gentle breeze rustled the leaves on the trees.', gradeBand: '2-3', sourceType: 'curated' },
   { word: 'getting', exampleSentence: 'The days were getting shorter as autumn arrived.', gradeBand: '2-3', sourceType: 'curated' },
   { word: 'given', exampleSentence: 'Each child was given a small pot and seeds to plant.', gradeBand: '2-3', sourceType: 'curated' },
+  { word: 'globe', exampleSentence: 'She spun the globe and pointed to where we live.', gradeBand: '2-3', sourceType: 'curated' },
   { word: 'gold', exampleSentence: 'The autumn leaves turned orange and gold.', gradeBand: '2-3', sourceType: 'curated' },
   { word: 'grade', exampleSentence: 'She moved up to the next grade at school.', gradeBand: '2-3', sourceType: 'curated' },
   { word: 'grandmother', exampleSentence: 'My grandmother taught me how to make her famous soup.', gradeBand: '2-3', sourceType: 'curated' },

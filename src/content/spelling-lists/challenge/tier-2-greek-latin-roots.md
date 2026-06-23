@@ -2,15 +2,15 @@
 id: tier-2-greek-latin-roots
 urlSlug: tier-2-greek-latin-roots
 title: "Challenge Tier 2: Greek and Latin Roots"
-description: "A deeper challenge tier blending Greek and Latin roots for students ready to extend beyond Tier 1's introductory pattern set."
-shortAnswer: "Tier 2 builds on Tier 1 by mixing in Greek roots alongside Latin ones, for students preparing for higher-level spelling competition."
+description: "Five words built from Greek roots — tele, photo, graph, bio, demo, and para — for students ready to explore the origins of everyday English words."
+shortAnswer: "Five words built from Greek roots, from telephone and photograph to democracy and paragraph."
 category: challenge
 difficulty: challenge
 skillTags: ["roots", "etymology", "advanced-patterns", "greek-roots"]
-tags: ["challenge", "spelling-bee", "roots", "etymology", "greek"]
+tags: ["challenge", "roots", "etymology", "greek"]
 order: 2
-estimatedDurationMinutes: 12
-status: draft
+estimatedDurationMinutes: 10
+status: published
 masteryThreshold: 100
 sourceType: curated
 relatedLists: ["tier-1-roots-and-patterns"]
@@ -18,14 +18,13 @@ prerequisiteLists: ["tier-1-roots-and-patterns"]
 nextLists: []
 featured: false
 words:
-  - word: telephone
-    hint: "from Greek 'tele' (far) and 'phone' (sound)"
-  - word: photograph
-    hint: "from Greek 'photo' (light) and 'graph' (write)"
-  - word: biography
-    hint: "from Greek 'bio' (life) and 'graph' (write)"
-  - word: democracy
-    hint: "from Greek 'demos' (people) and 'kratos' (power)"
+  - telephone
+  - photograph
+  - biography
+  - paragraph
+  - democracy
 ---
 
-Tier 2 is authored and ready for review, but intentionally held back as a draft — it stays out of the published library until it has been checked alongside Tier 1, demonstrating how `status: draft` lets content be built incrementally without ever exposing a thin page.
+Ancient Greek gave us some of the most recognisable word-building pieces in English. Once you know that *tele* means far, *photo* means light, *graph* means write, *bio* means life, and *demo* means people, these five words become much easier to spell — and much easier to understand.
+
+The same roots keep appearing in science, history, and everyday reading, so spotting them is a skill that pays off across every subject.

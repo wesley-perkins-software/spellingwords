@@ -72,7 +72,7 @@ export const GRADE45_ENTRIES: SentenceBankEntry[] = [
   { word: 'improve', exampleSentence: 'Practicing every day will improve the way you play the piano.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'include', exampleSentence: 'Remember to include a title and a drawing on your poster.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'information', exampleSentence: 'The map gave us useful information about the hiking trail.', gradeBand: '4-5', sourceType: 'curated' },
-  { word: 'inspect', exampleSentence: 'The inspector came to inspect the building.', gradeBand: '4-5', sourceType: 'curated' },
+  { word: 'inspect', exampleSentence: 'The workers stopped to inspect the bridge for damage.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'interest', exampleSentence: 'She read the map with great interest before the long hike.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'interrupt', exampleSentence: 'Please do not interrupt while someone is speaking.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'introduce', exampleSentence: 'She wanted to introduce her new puppy to the whole family.', gradeBand: '4-5', sourceType: 'curated' },

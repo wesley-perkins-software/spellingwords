@@ -711,235 +711,258 @@ LAUNCH_LIBRARY.md targets 36 lists at launch (16 grade-level, 12 phonics, 6 sigh
 
 ---
 
-## Prioritized Refactoring Roadmap
+## Implementation Philosophy
 
-The phases below are ordered by return on investment. Early phases address foundational issues that affect every page and every visitor. Later phases deliver feature surface. Dependencies are noted where they exist.
+The planning phase is now complete. The documentation — PRODUCT_VISION, DESIGN_SYSTEM, SITE_ARCHITECTURE, UX_ARCHITECTURE, and the page-level specs — is sufficiently mature to guide execution without further elaboration.
+
+**From this point forward, the default activity is implementation.**
+
+New documentation should be created only when a major architectural decision genuinely requires it: a new data model, a significant change to URL structure, a meaningful departure from the tech stack. Routine feature work does not require a planning document. The existing specs are the plan.
+
+Every phase in this roadmap ends with a user-visible improvement that makes the product feel more complete. Phases are organized around the systems and capabilities being built, not the individual pages being touched. Most changes cross page boundaries; organizing by system prevents the false impression that pages can be completed independently.
 
 ---
 
-### Phase 1: Foundation
+## Content: A Parallel Workstream
 
-**Theme:** Fix the things that affect every page and every visitor.
+Content authoring — the 36 lists defined in LAUNCH_LIBRARY.md — is not a phase of implementation. It is a parallel workstream that proceeds alongside all implementation phases.
 
-**1.1 — Footer navigation**
-Add a minimal footer to Layout.astro with links to: Home, Spelling Lists, About (placeholder), Privacy Policy (placeholder). Replaces the current copyright-only footer.
+The frontend and the content library should mature together. UI work in every phase creates containers that content fills. Content work in every phase makes the UI feel real. Waiting until the UI is complete to author content would delay the only thing that gives the library experience its actual value.
 
-- Why it matters: Every page needs a footer. A privacy link is non-negotiable for a children's product.
-- User impact: Trust. Discoverability.
-- SEO impact: Internal linking. Privacy policy signals trustworthiness to crawlers.
+The content target:
+- **16 grade-level lists** (K–5, across all grades)
+- **12 phonics lists** (Phase 1 patterns per PHONICS_STRATEGY)
+- **6 sight word lists** (complete Dolch set per GRADE_LEVEL_STRATEGY)
+- **2 challenge lists**
+
+Each list published during a UI phase improves the testability of that phase's work. Aim to have meaningful content at each grade level before Phase 3 (Discovery) begins, since Grade Hub and Category Hub pages depend on having lists to display.
+
+Content authoring follows CONTENT_STANDARDS and LIST_SPECIFICATIONS. No new lists should be published outside those constraints.
+
+---
+
+## Execution Roadmap
+
+---
+
+### Phase 0 — Visual Design Audit
+
+**Deliverable:** A concrete visual punch list that becomes the reference during all subsequent implementation phases.
+
+Before implementation begins, capture the current visual state of every major page and produce an annotated record of what to keep, what to fix, and what is inconsistent. This is not a redesign — it is a precise inventory of visual debt.
+
+**0.1 — Screenshot every major page state**
+Capture: homepage (above fold, full page), library (with and without lists), list detail (full page), practice session (begin screen, question screen, feedback screen, results screen). Capture both desktop and mobile viewports.
+
+**0.2 — Annotate strengths**
+For each screenshot, identify elements that are already correct and should not be changed during implementation. This is as important as identifying problems — it prevents regressions.
+
+**0.3 — Annotate weaknesses and inconsistencies**
+Mark: spacing inconsistencies, surface color drift (the `app-cloud`/`white`/`cream-deep` ambiguity), heading scale variations, animation artifacts, elements that conflict with DESIGN_SYSTEM, elements that contradict the "calm workbook" aesthetic.
+
+**0.4 — Produce the visual punch list**
+A flat, ordered list of discrete visual corrections — each item small enough to address in a single commit. This list feeds directly into Phase 1.
+
+The Phase 0 output replaces further written analysis. Screenshots annotated with specifics are more useful than prose descriptions during implementation.
+
+---
+
+### Phase 1 — Design Foundation
+
+**Deliverable:** Every existing page feels like it belongs to the same product.
+
+This phase touches `tailwind.config.mjs`, `global.css`, and `Layout.astro` primarily. Changes here propagate to every page automatically. Work within the existing token system — no new colors, no new fonts.
+
+**1.1 — Typographic scale tokens**
+Define named heading scale values in `tailwind.config.mjs`: `text-heading-xl`, `text-heading-lg`, `text-heading-md`, `text-label`. Audit every page and component to use them. Removes inline heading size variation that currently causes drift.
+
 - Complexity: Low.
-- Dependencies: None (placeholder links acceptable initially).
 
-**1.2 — Consistent header nav**
-Add a minimal nav (Home, Spelling Lists) to the library and list detail page headers. Keep the session header session-specific (minimal, "← New list" only).
+**1.2 — Card surface token**
+Define a canonical card surface color — either formalize `app-cloud` as the answer or introduce a named `card` token. Audit all components (`RelatedListCards`, `HeroWordPanel`, the list cards in the library, the category cards on the homepage) to use it consistently. Resolves the `app-cloud`/`white`/`cream-deep` ambiguity.
 
-- Why it matters: Visitors arriving from search have no way to navigate the site from within it.
-- User impact: Orientation. Reduces pogo-sticking back to search.
-- SEO impact: Moderate (internal linking signals).
 - Complexity: Low.
-- Dependencies: None.
 
-**1.3 — Homepage animation reduction**
-Remove or significantly reduce scroll-triggered reveal animations and hover scale transforms on the homepage. Retain a single calm fade-in on page load. Replace scale transforms with border/color hover changes only.
+**1.3 — Section spacing tokens**
+Define 3–4 named section spacing values in `tailwind.config.mjs` — `section-xs`, `section-sm`, `section-md`, `section-lg`. Audit all pages and replace the current `py-8`/`py-12`/`py-16`/`py-20` variation with consistent named values. Gives every page the same vertical rhythm.
 
-- Why it matters: Animations conflict directly with the "calm workbook" product vision.
-- User impact: Calmer first impression. Better mobile performance.
-- SEO impact: Minor (page performance improvement).
 - Complexity: Low.
-- Dependencies: None.
 
-**1.4 — Privacy page (minimal)**
-Create a `/privacy` page with a plain-language privacy statement appropriate for a children's educational tool.
+**1.4 — Motion reduction**
+Remove scroll-triggered `fade-up` reveal animations from the homepage category cards and trust section. Remove hover `scale` transforms from all cards. Retain: a single page-load fade-in on the homepage hero, hover border/color state changes on interactive cards. The motion that remains should be purposeful, not decorative.
 
-- Why it matters: Legal due diligence. Parent trust. Required before broad promotion.
-- User impact: Confidence for parents evaluating the tool.
+- Why it matters: Animations are the most visible conflict with the "calm workbook" product vision. They make the homepage feel like a marketing page.
 - Complexity: Low.
-- Dependencies: None.
 
 **1.5 — Remove ghost watermark**
-Remove the large "spelling" decorative background text from the homepage hero.
+Remove the large decorative "spelling" background text from the homepage hero section. Replace with clean whitespace; the paper grain overlay already provides the tactile background quality this was trying to achieve.
 
-- Why it matters: Watermark reads as a design trend, not a workbook aesthetic.
 - Complexity: Low.
-- Dependencies: None.
+
+**1.6 — Consistent header navigation**
+Add a minimal shared nav (Logo + "Spelling Lists" link) to the library and list detail page headers. The session header remains session-specific ("← New list" only). Establishes a consistent navigation presence on all non-session pages.
+
+- Complexity: Low.
+
+**1.7 — Footer navigation**
+Replace the copyright-only footer in `Layout.astro` with a minimal nav footer: Home, Spelling Lists, About (placeholder), Privacy (placeholder). Every page on the site should offer an exit path to the rest of the product.
+
+- Why it matters: A footer with no navigation links signals a prototype. A privacy link is non-negotiable for a children's product, even as a placeholder.
+- Complexity: Low.
 
 ---
 
-### Phase 2: Homepage
+### Phase 2 — Core Product
 
-**Theme:** Make the homepage feel like the editorial front door to a trusted educational tool.
+**Deliverable:** A complete, polished core spelling practice experience.
 
-**2.1 — Replace emoji trust icons**
-Remove emoji from the three benefit cards. Replace with either a consistent small icon system or pure typographic treatment.
+This phase improves the three pages at the center of every user journey: homepage, list detail, and practice session. By the end of Phase 2, a visitor who arrives at the homepage, finds a list, and completes a practice session should feel like they used a finished product.
 
-- Why it matters: DESIGN_SYSTEM prohibits emoji as icons.
+**2.1 — Homepage: replace emoji trust icons**
+Remove emoji from the three benefit cards. Replace with a consistent small typographic or icon treatment. DESIGN_SYSTEM does not define an emoji-as-icon pattern.
+
 - Complexity: Low.
 
-**2.2 — Library invitation section**
-Upgrade the six category cards section into a genuine editorial section: a short introductory paragraph, cards that only appear if lists exist in that category, and a "Browse all lists →" CTA. Remove or clearly mark cards for categories without content.
+**2.2 — Homepage: library invitation section**
+Replace the six static category cards with a data-driven section that only displays categories with published content. Add a short editorial introduction and a "Browse all lists →" CTA. Cards for empty categories should not appear.
 
-- Why it matters: Current section implies a complete library. It isn't complete, and it looks it.
+- Why it matters: The current section implies a complete library. Displaying all six categories when most have no content creates an impression of incompleteness.
 - Complexity: Low.
 
-**2.3 — SEO-conscious hero copy**
-Revise supporting copy in the hero section to naturally include terms parents search for: "spelling practice for kids," target grades, "free" as appropriate. The headline can stay; the subheading and intro copy should be rewritten with search intent.
+**2.3 — Homepage: SEO-conscious hero copy**
+Revise the hero subheading and introductory copy to naturally include terms parents search for — "spelling practice for kids," grade-level references, "free." The headline ("Practice spelling, starting now") can remain. The supporting copy should be rewritten with search intent alongside user intent.
 
-- Why it matters: Homepage SEO is a primary acquisition channel per PRODUCT_VISION.
 - Complexity: Low (copy change, minimal code).
 
-**2.4 — Returning visitor path**
-Implement a localStorage check on page load. If recent sessions exist, surface a "Pick up where you left off" card above the primary input.
-
-- Why it matters: HOMEPAGE_SPEC makes this a required capability.
-- Complexity: Medium.
-- Dependencies: Phase 5.1 (local progress tracking).
-
----
-
-### Phase 3: Library
-
-**Theme:** Make the library browsable, editorial, and capable of supporting a growing content catalog.
-
-**3.1 — Grade Hub pages**
-Create `/grade/[grade]` pages (K, 1, 2, 3, 4, 5) with dedicated URLs, grade-level editorial introduction, and filtered list display.
-
-- Why it matters: "2nd grade spelling words" is one of the most searched educational queries. There is currently no indexable page targeting it.
-- User impact: Faster navigation for grade-oriented visitors (the majority).
-- SEO impact: Very high.
-- Complexity: Medium (new page type, content required per grade).
-- Dependencies: Sufficient list content per grade (launch library).
-
-**3.2 — Category Hub pages**
-Create `/category/[category]` pages (phonics, sight-words, grade-level, challenge) with category-level editorial introduction and filtered list display.
-
-- Why it matters: Teachers search by method, not by grade. No category-level landing page currently exists.
-- SEO impact: High.
-- Complexity: Medium.
-- Dependencies: None (can launch with sparse content).
-
-**3.3 — Library empty-state design**
-Show only grade sections that have published content. Replace disabled grade chips with a clear "More lists coming soon" message rather than greyed chips.
-
-- Why it matters: Greyed chips signal incompleteness. An honest "coming soon" signals growth.
-- Complexity: Low.
-
-**3.4 — Featured lists section**
-Add a "Start here" section at the top of the library page with 3–5 hand-curated list cards driven by a frontmatter flag.
-
-- Why it matters: Visitors who don't know what they want need a recommendation. SPELLING_LIBRARY_SPEC requires this.
-- Complexity: Low.
-
-**3.5 — Category-first browse path**
-Add tabs or secondary navigation to the library page for browsing by category (phonics, sight words) in addition to the existing by-grade navigation.
-
-- Why it matters: Two distinct user types: parents navigate by grade, teachers by method.
-- Complexity: Medium.
-- Dependencies: 3.2 Category Hubs (for link targets).
-
----
-
-### Phase 4: List Detail
-
-**Theme:** Make each list page the definitive resource for its subject.
-
-**4.1 — Remove or replace disabled Print button**
-Either implement basic print CSS (a minimal print stylesheet) or remove the disabled button entirely until the feature is ready. A disabled button with no explanation is worse than no button.
-
-- Why it matters: Dead-end interactions erode trust.
-- Complexity: Low (removal) or Medium (basic print stylesheet).
-
-**4.2 — AEO prose sentence**
-Add a one-sentence summary to each list detail page that directly answers "what words are on this list?" — in frontmatter or auto-generated from the word list.
-
-- Why it matters: AI systems and parents both benefit from direct, extractable answers.
-- Complexity: Low (content and template change).
-
-**4.3 — Print Worksheet (basic)**
-Implement a print-optimized view: word list, list title, instructional note, and blank lines for writing practice. Use a `@media print` CSS block rather than a separate page.
-
-- Why it matters: Classroom utility differentiator. Teachers expect a print option.
-- User impact: High for teacher audience.
-- Complexity: Medium.
-
-**4.4 — Meta description optimization**
-Update the list detail page meta description template to use search-intent-aware copy rather than the raw `description` frontmatter field directly.
+**2.4 — List Detail: remove disabled Print button**
+Remove the disabled "Print Worksheet" button from the list detail page until the print feature is implemented. A disabled button with no explanation teaches visitors that something is broken.
 
 - Complexity: Low.
 
----
+**2.5 — List Detail: AEO prose sentence**
+Add a one-sentence summary to each list detail page that directly answers "what words are on this list?" Generated from the word list or added to frontmatter. Improves both AI extractability and parent scanning speed.
 
-### Phase 5: Practice Session
+- Complexity: Low (template + content change).
 
-**Theme:** Elevate the session from functional to signature.
+**2.6 — List Detail: meta description optimization**
+Update the list detail page meta description template to produce search-intent-aware copy rather than passing the raw `description` frontmatter field through directly.
 
-**5.1 — Local progress tracking**
-Implement localStorage-based progress persistence: after each session, save missed words and session completion per list ID. Surface this data on the results screen and eventually on the homepage returning-visitor path.
+- Complexity: Low.
 
-- Why it matters: Without persistence, the session is fully stateless. Progress tracking is the clearest path to user retention.
-- User impact: High for returning users.
-- Complexity: Medium (localStorage schema, session integration, no backend required).
+**2.7 — Practice Session: Practice Tray design**
+Implement the Practice Tray as described in DESIGN_SYSTEM: a centered, elevated card surface that contains the word prompt, input field, and audio controls as a unified element. This is the session's signature design moment. The current session is functional but visually undistinguished — the Practice Tray makes it memorable and reinforces the "workbook" metaphor.
 
-**5.2 — Voice label improvement**
-Map browser voice IDs to friendly labels for the voice selection UI (e.g., "US English", "UK English"). Eliminate raw OS voice names.
+- Complexity: Medium (visual redesign of the question screen; no logic changes required).
 
-- Why it matters: Parents cannot meaningfully choose between "Google US English" and "Microsoft Zira."
+**2.8 — Practice Session: voice label improvement**
+Map browser voice IDs to friendly labels for the voice selection UI (e.g., "US English", "UK English"). Eliminate raw OS voice names like "Google US English" and "Microsoft Zira."
+
 - Complexity: Medium (browser voice API + label mapping).
 
-**5.3 — Practice Tray design**
-Implement the Practice Tray as described in DESIGN_SYSTEM: a centered, elevated card surface containing the word prompt, input field, and audio controls as a unified element. This is the session's signature design moment.
+**2.9 — Practice Session: mobile keyboard handling**
+Ensure the submit button remains visible above the virtual keyboard when the input field is focused on mobile. Use `visualViewport` or `env(keyboard-inset-height)` CSS. Children on tablets and phones are a primary audience.
 
-- Why it matters: The current session is functional but visually undistinguished. The Practice Tray makes it memorable and reinforces the "workbook" metaphor.
-- Complexity: Medium (visual redesign of the question screen; no logic changes required).
-- Dependencies: None.
+- Complexity: Medium.
 
-**5.4 — Mobile keyboard handling**
-Ensure the submit button remains visible above the virtual keyboard when the input field is focused on mobile. Use `visualViewport` or `env(keyboard-inset-height)` CSS.
+**2.10 — List Detail: print worksheet (basic)**
+Implement a print-optimized view using a `@media print` CSS block: list title, word list with blank lines for writing practice, and a brief instructional note. Enables the Print button to be re-introduced (enabled) in this phase.
 
-- Why it matters: Children on tablets and phones are a primary audience.
+- Why it matters: Classroom utility. Teachers expect a print option. Differentiates from digital-only tools.
 - Complexity: Medium.
 
 ---
 
-### Phase 6: Authority and Polish
+### Phase 3 — Discovery
 
-**Theme:** Complete the site structure and establish long-term editorial credibility.
+**Deliverable:** Users and search engines can easily discover the library.
 
-**6.1 — About page**
-Create `/about` with the product story, editorial philosophy, and a parent-facing explanation of how the site is free and ad-supported.
+This phase builds the Tier 2 pages that SITE_ARCHITECTURE defines — Grade Hubs and Category Hubs — and improves the library browsing experience. These pages are the primary SEO surface for high-volume queries like "2nd grade spelling words" and "phonics spelling lists." They also complete the navigation architecture the library index page currently implies but doesn't deliver.
 
-- Why it matters: Trust for parents. Differentiates from AI-generated content mills.
+Content dependency: Grade Hub pages need meaningful content at each grade level to be useful. Phase 3 should begin only after the content workstream has published at least 2–3 lists per grade.
+
+**3.1 — Grade Hub pages**
+Create `/grade/[grade]` pages (K, 1, 2, 3, 4, 5) with dedicated URLs, a grade-level editorial introduction (2–3 sentences), and a filtered list display. These pages are the primary landing page for the most-searched educational queries the site targets.
+
+- SEO impact: Very high.
+- Complexity: Medium (new page type + editorial content per grade).
+
+**3.2 — Category Hub pages**
+Create `/category/[category]` pages (phonics, sight-words, grade-level, challenge) with a category-level editorial introduction and filtered list display. Teachers search by method, not by grade. No category-level landing page currently exists.
+
+- SEO impact: High.
+- Complexity: Medium.
+
+**3.3 — Library: featured lists section**
+Add a "Start here" section at the top of the library index page — 3–5 hand-curated list cards identified by a frontmatter flag. Gives first-time visitors without a specific intent a starting recommendation.
+
+- Complexity: Low.
+
+**3.4 — Library: empty-state and honest completeness**
+Show only grade sections with published content. Replace disabled/greyed grade chips with an honest "More lists coming soon" message. Do not expose empty containers.
+
+- Complexity: Low.
+
+**3.5 — Library: category-first browse path**
+Add secondary navigation to the library index page for browsing by category (phonics, sight words) alongside the existing grade-first navigation. The two browse paths — by grade for parents, by method for teachers — are both required per SPELLING_LIBRARY_SPEC.
+
+- Complexity: Medium.
+- Dependencies: 3.2 (Category Hub pages as link targets).
+
+---
+
+### Phase 4 — Trust & Retention
+
+**Deliverable:** Parents trust the product and returning users have a better experience.
+
+This phase builds the trust infrastructure the site currently lacks and introduces persistence that converts one-time visitors into returning users.
+
+**4.1 — Privacy page**
+Create `/privacy` with a plain-language privacy statement appropriate for a children's educational tool. Link from the footer (enabled in Phase 1.7).
+
+- Why it matters: Non-negotiable for a children's product before broad promotion.
+- Complexity: Low.
+
+**4.2 — About page**
+Create `/about` with the product story, editorial philosophy, and a parent-facing explanation of how the site is free and ad-supported. Differentiates from AI-generated content mills by making the human editorial process visible.
+
 - Complexity: Low (static content page).
 
-**6.2 — Teaching guide (first installment)**
-Create one Teaching Guide page (e.g., "How to Practice Spelling with Your Child") as the first Tier 3 authority page.
+**4.3 — Local progress tracking**
+Implement localStorage-based progress persistence: after each session, save missed words and session completion per list ID. Surface on the results screen ("You've practiced this list 3 times"). Schema and storage belong in a new `src/lib/progress/` module following the existing pure-function pattern.
 
-- Why it matters: Long-term organic traffic and AI-system answer authority. Signals editorial investment.
-- Complexity: Low (static content, moderate editorial investment).
+- Why it matters: Without persistence, every visit is a first visit. Progress tracking is the clearest path to user retention.
+- Complexity: Medium (localStorage schema, session integration, no backend required).
 
-**6.3 — Typographic scale formalization**
-Define named heading scale tokens in `tailwind.config.mjs` (`text-heading-xl`, `text-heading-lg`, `text-heading-md`, `text-label`) and audit all pages to use them consistently.
+**4.4 — Returning visitor experience**
+Use the progress data from 4.3 to surface a "Pick up where you left off" card on the homepage for users who have prior sessions. Implement as a client-side localStorage check on page load — no server state required.
 
-- Why it matters: Prevents typographic drift as page count grows.
-- Complexity: Low.
+- Complexity: Medium.
+- Dependencies: 4.3.
 
-**6.4 — Card surface token**
-Define a canonical card surface color in the design system and audit all card components to use it consistently, resolving the current `app-cloud` / `white` / `cream-deep` ambiguity.
+---
 
-- Why it matters: Visual consistency across a growing page count.
-- Complexity: Low.
+### Phase 5 — Authority
 
-**6.5 — Section spacing tokens**
-Define 3–4 named section spacing values in `tailwind.config.mjs` and apply them to page sections, resolving the current variation between `py-8`, `py-12`, `py-16`, `py-20` across pages.
+**Deliverable:** spellingwords.app becomes the definitive spelling resource online.
 
-- Why it matters: Rhythm consistency is a quality signal, especially noticeable when moving between pages.
-- Complexity: Low.
+This phase builds the Tier 3 content that SITE_ARCHITECTURE defines as the long-term SEO and AEO foundation: teaching guides, word-level pages, and broader educational authority content. This is primarily a content investment, not a UI build.
 
-**6.6 — Launch library content**
-Author the 36 lists defined in LAUNCH_LIBRARY.md (16 grade-level, 12 phonics, 6 sight words, 2 challenge). This is primarily a content task.
+**5.1 — Teaching guide (first installment)**
+Create one Teaching Guide page — e.g., "How to Practice Spelling with Your Child" — as the first Tier 3 authority page. Establishes the template and editorial voice for the guide format. Targets the class of questions parents ask that the practice tool alone cannot answer.
 
-- Why it matters: Without content, none of the library architecture delivers its intended value. Content is the product. UI is the delivery mechanism.
-- Complexity: High (significant editorial investment by design).
-- Dependencies: All library UI phases (3.x) benefit from this but can proceed with partial content.
+- SEO impact: High (long-form authority content targeting parent research queries).
+- Complexity: Low (static Astro page, editorial investment).
+
+**5.2 — Teaching guide expansion**
+Publish additional Teaching Guides covering the topics SITE_ARCHITECTURE defines: phonics method explanation, sight word rationale, grade-level progression, how to use spellingwords.app in the classroom. Each guide is a standalone SEO and AEO asset.
+
+- Complexity: Low per guide (editorial investment scales with volume).
+
+**5.3 — Word pages (if warranted)**
+Evaluate whether individual word pages (`/words/[word]`) provide enough SEO value to justify the content investment. This decision depends on traffic data from earlier phases. Do not build speculatively.
+
+- Complexity: Medium to high (content × word count).
+- Dependencies: Traffic evidence from Phase 3 and 4.
 
 ---
 
@@ -953,6 +976,6 @@ The gaps are concentrated in three areas:
 
 **2. Site architecture incompleteness.** No Tier 2 pages (Grade Hubs, Category Hubs), no Tier 3 pages (About, Teaching Guides), no footer navigation, no privacy page. The site is architecturally one tier deep, which limits both SEO reach and visitor trust materially.
 
-**3. Library content volume.** The library UI is designed for a full catalog but operates with a fraction of the intended content. Phase 6.6 — content authoring — is what unlocks the site's full SEO and product potential. UI work in Phases 3 and 4 creates the right containers; content fills them.
+**3. Library content volume.** The library UI is designed for a full catalog but operates with a fraction of the intended content. Content authoring — running as a parallel workstream throughout all phases — is what unlocks the library's full value. UI work creates the containers; content makes them worth visiting.
 
-The implementation roadmap captures early wins (Phase 1 foundation, Phase 2 homepage polish) before investing in larger structural work (Grade Hubs, Category Hubs, print, progress tracking). Each phase delivers visible improvement while building toward the full product vision.
+The phases are ordered so that every merge improves something a real user can see and feel. Phase 0 makes implementation precise. Phase 1 makes the existing pages coherent. Phase 2 completes the core experience. Phase 3 makes the product discoverable. Phase 4 makes it trustworthy and sticky. Phase 5 makes it authoritative.

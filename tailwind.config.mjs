@@ -49,6 +49,7 @@ export default {
         mono:    ['"Atkinson Hyperlegible"', 'ui-monospace', 'monospace'],
       },
       borderRadius: {
+        sm:      '8px',
         DEFAULT: '12px',
         md:      '12px',
         lg:      '16px',
@@ -56,6 +57,19 @@ export default {
         '2xl':   '20px',
         '3xl':   '24px',
         '4xl':   '28px',
+      },
+      maxWidth: {
+        'content-sm': '480px',
+        'content-md': '672px',
+        'content-lg': '960px',
+        'content-xl': '1120px',
+      },
+      boxShadow: {
+        'card':     '0 2px 8px -2px rgba(43, 35, 24, 0.08)',
+        'card-md':  '0 6px 20px -6px rgba(43, 35, 24, 0.12)',
+        'card-lg':  '0 12px 32px -8px rgba(43, 35, 24, 0.18)',
+        'btn-blue': '0 8px 20px -8px rgba(47, 111, 237, 0.45)',
+        'btn-red':  '0 8px 28px -6px rgba(201, 64, 48, 0.22)',
       },
     },
   },

@@ -1,38 +1,13 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
 ---
 
 <Layout
   title="Spelling Test — spellingwords"
   description="Take your custom spelling test. Hear each word spoken aloud and type your answer."
 >
-  <!-- Site header — intentionally quieter on the play page so the activity dominates -->
-  <header class="sticky top-0 z-10 border-b border-line bg-white/90 backdrop-blur-sm">
-    <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-3">
-      <a
-        href="/"
-        class="flex items-center gap-1.5 font-display text-sm font-semibold text-ink-soft tracking-tight transition-colors hover:text-ink"
-        aria-label="spellingwords home"
-      >
-        <span
-          aria-hidden="true"
-          class="flex h-6 w-6 items-center justify-center rounded-xl bg-brand-blue text-white"
-        >
-          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9.5 4.5l2 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
-          </svg>
-        </span>
-        spelling<span class="text-brand-blue">words</span>
-      </a>
-      <a
-        href="/"
-        class="rounded-full px-3 py-1.5 text-xs font-semibold text-ink-soft/70 transition-colors hover:bg-app-cloud hover:text-ink-soft"
-      >
-        ← New list
-      </a>
-    </div>
-  </header>
+  <SiteHeader variant="practice" />
 
   <main id="main-content">
     <div class="mx-auto max-w-xl px-6 py-12 md:py-16">

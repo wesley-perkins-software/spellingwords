@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import ListMetadataBadges from '@/components/ListMetadataBadges.astro';
 import { isPublished, resolveListRefs } from '@/lib/content/spellingLists';
@@ -68,26 +70,7 @@ const breadcrumbJsonLd = {
   ogType="article"
   jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
 >
-  <header class="sticky top-0 z-10 border-b border-line bg-white/90 backdrop-blur-sm">
-    <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
-      <a
-        href="/"
-        class="flex items-center gap-2 font-display text-lg font-semibold text-ink tracking-tight"
-        aria-label="spellingwords home"
-      >
-        <span
-          aria-hidden="true"
-          class="flex h-7 w-7 items-center justify-center rounded-2xl bg-brand-blue text-white"
-        >
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M11.5 2.5l2 2-8 8H3.5v-2l8-8z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9.5 4.5l2 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
-          </svg>
-        </span>
-        spelling<span class="text-brand-blue">words</span>
-      </a>
-    </div>
-  </header>
+  <SiteHeader variant="discovery" currentPath="/spelling-lists" />
 
   <main id="main-content">
     <section class="mx-auto max-w-3xl px-6 py-12 md:py-16">
@@ -167,9 +150,5 @@ const breadcrumbJsonLd = {
     </section>
   </main>
 
-  <footer class="border-t border-line">
-    <div class="mx-auto max-w-3xl px-6 py-8 text-center text-xs text-ink-soft">
-      &copy; {new Date().getFullYear()} spellingwords.app &mdash; Free spelling practice for every classroom.
-    </div>
-  </footer>
+  <SiteFooter />
 </Layout>

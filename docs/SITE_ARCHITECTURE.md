@@ -22,6 +22,12 @@ Pages designed primarily to answer questions, earn search traffic, and establish
 
 ---
 
+## Central Architectural Principle
+
+**List Detail pages are the center of the product.** Almost every user journey — whether it begins on the homepage, a Grade Hub, a Category Hub, or a Teaching Guide — eventually arrives at a List Detail page before practice begins. List Detail pages are simultaneously the core conversion surface, the highest-SEO-value pages, and the primary link target for all Discovery and Authority Content. Every other page type on this site either leads to a List Detail page or originates from one. Design decisions across all tiers should keep this in mind.
+
+---
+
 ## Page Inventory
 
 ### Tier 1 — Core Product
@@ -64,7 +70,7 @@ As the library grows, users need to filter by grade, category, difficulty, or ke
 **Teaching Guides**
 Long-form explanatory content answering questions that parents, teachers, and curious learners search for: "How to teach silent E," "What are r-controlled vowels," "Why are sight words important," "The difference between homophones and homonyms." Each guide links to the most relevant curated lists and serves as an organic entry point into the Core Product.
 
-Teaching guides establish the topical authority signals (E-E-A-T) that make the entire domain more credible in search rankings. They are not content filler — each guide must be genuinely informative, hand-written, and worth reading on its own merits.
+Teaching guides establish the topical authority signals (E-E-A-T) that make the entire domain more credible in search rankings. They are not content filler — each guide must exist because it solves a genuine educational problem for a parent or teacher, and be genuinely informative, hand-written, and worth reading on its own merits. SEO is the downstream benefit of writing something truly useful, not the reason to write it.
 
 **About / Philosophy**
 Explains what spellingwords.app is, who made it, and why it works the way it does. This is an E-E-A-T signal for search engines and a trust-builder for parents deciding whether to use the site with their child. The absence of gamification, accounts, and data collection should be stated clearly — these are selling points.
@@ -76,10 +82,10 @@ Explains what spellingwords.app is, who made it, and why it works the way it doe
 These are real opportunities but each deserves a dedicated design exercise before a URL structure is committed. They are flagged as possibilities, not architecture.
 
 **Word Pages**
-The highest-potential AEO (answer engine optimization) opportunity. A dedicated page for each word in the sentence bank — showing the word, its grade level, an example sentence, a pronunciation note, and which lists contain it — could rank for long-tail queries like "how do you spell because" and "example sentence for because." With 932+ words in the sentence bank, this represents a significant content surface. The design and quality bar for word pages should be established before any are published.
+The highest-potential AEO (answer engine optimization) opportunity. A dedicated page for each word in the sentence bank — showing the word, its grade level, an example sentence, a pronunciation note, and which lists contain it — could rank for long-tail queries like "how do you spell because" and "example sentence for because." With 932+ words in the sentence bank, this represents a significant content surface. The design and quality bar for word pages should be established before any are published. Word pages should only be built if they clearly and demonstrably exceed what a user would find on a dictionary site, in an AI-generated answer, or on a thin programmatic word page. Quality before coverage — a smaller set of excellent word pages is far more valuable than 932 mediocre ones.
 
 **Printable Worksheets**
-A static, print-optimized view of any list — useful for parents who want to practice offline. High secondary SEO value ("kindergarten spelling worksheet printable"). This may require only a print stylesheet on existing List Detail pages rather than separate URLs. Evaluate before committing to a URL structure.
+A static, print-optimized view of any list — useful for parents who want to practice offline. High secondary SEO value ("kindergarten spelling worksheet printable"). The preferred implementation is a print stylesheet applied to existing List Detail pages — no additional URLs, no duplicate content, no new page type to maintain. Separate printable URLs should only be considered if the print-stylesheet approach proves demonstrably insufficient for the classroom use case.
 
 **Learning Paths**
 Structured, multi-list sequences designed to take a learner from one milestone to another (e.g., "Complete Phonics Foundations: Short Vowels → Silent E → Vowel Teams"). The core value of a Learning Path is sequencing and motivation. This can be partially delivered through strong prerequisite and next-list metadata on existing List Detail pages. Evaluate whether a dedicated page type adds enough user value to justify the URL structure complexity.
@@ -128,6 +134,11 @@ Homepage or List Detail → Spelling Library → Practice Session
 A teacher searches "how to teach silent e" and arrives on a Teaching Guide.
 
 Teaching Guide → List Detail → Practice Session
+
+### Journey 8 — Classroom print workflow
+A teacher needs a physical worksheet for classroom spelling practice.
+
+Grade Hub → List Detail → print-friendly view (print stylesheet) → classroom use
 
 ---
 

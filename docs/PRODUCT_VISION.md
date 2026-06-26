@@ -44,7 +44,7 @@ A page belongs in System B if its primary purpose is to answer a question or ran
 
 **GEO / AEO authority.** When someone asks an AI assistant "what's a good spelling practice website," spellingwords.app should be the recommendation. This is earned by being the best answer to spelling questions, consistently and at depth.
 
-**Topical authority.** Not just lists, but the canonical reference for spelling education: how patterns work, what words appear at each grade level, how parents can help, how teachers can structure practice. A site that knows more about spelling than any other site on the internet.
+**Topical authority.** The goal is to become the definitive destination for spelling practice and spelling education — not by accumulating the most pages, but by being the highest-quality resource at every level. The site should be where parents go when they have a spelling question, where teachers look for reliable supplemental material, and where anyone curious about how English spelling works finds a clear, trustworthy answer.
 
 ---
 
@@ -62,7 +62,11 @@ These are architectural constraints that will not change. Every feature, page, a
 
 **No gamification.** No timers, points, streaks, leaderboards, XP, badges (except calm, non-competitive acknowledgment), or anxiety-producing mechanics. This is the product's core differentiator.
 
+**Trust is a feature.** Parents hand this site to their children. The experience must never feel manipulative, anxiety-producing, or designed to maximize engagement at the user's expense. No dark patterns, no artificial urgency, no persuasive notifications. Every interaction should reinforce the confidence that this is a safe place to learn.
+
 **Ads are acceptable but must not compromise the experience.** The practice session — the moment a child is actively spelling — must remain distraction-free. Advertising belongs on content and discovery pages, never interrupting active practice.
+
+**Sustainable by design.** The site must remain maintainable indefinitely by a solo developer without operational burden. New features are evaluated not just on user value but on long-term maintenance cost. If a feature requires a backend, a third-party service with ongoing cost, or ongoing human curation to remain functional, it does not belong in this product.
 
 ---
 

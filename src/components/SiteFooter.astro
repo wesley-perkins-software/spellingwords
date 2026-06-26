@@ -1,0 +1,41 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line bg-app-cloud">
+  <div class="mx-auto max-w-content-xl px-6 py-12">
+
+    <div class="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:justify-between sm:text-left">
+
+      <!-- Wordmark -->
+      <a
+        href="/"
+        class="flex items-center gap-1.5 font-display text-[17px] font-semibold text-ink-faint transition-colors hover:text-ink-soft"
+        aria-label="spellingwords home"
+      >
+        <span
+          class="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink-faint"
+          aria-hidden="true"
+        ></span>
+        spellingwords
+      </a>
+
+      <!-- Nav links -->
+      <nav aria-label="Footer navigation">
+        <ul class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 list-none m-0 p-0 text-sm font-semibold text-ink-faint sm:justify-end">
+          <li><a href="/spelling-lists" class="transition hover:text-ink-soft">Spelling Lists</a></li>
+          <li><a href="/#how-it-works" class="transition hover:text-ink-soft">How it Works</a></li>
+          <li><a href="/privacy" class="transition hover:text-ink-soft">Privacy</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <!-- Tagline + copyright -->
+    <div class="mt-8 border-t border-line/60 pt-6 text-center text-[13px] font-semibold text-ink-faint">
+      <p class="mb-1">No accounts. No timers. Just spelling.</p>
+      <p>&copy; {year} spellingwords.app</p>
+    </div>
+
+  </div>
+</footer>

@@ -4,9 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────────────────────
+   SURFACE HIERARCHY
+   Paper  (#FBF8F3) → page background, the ground
+   Cloud  (#F3EDE3) → card/panel backgrounds, one step deeper
+   Cream  (#EAE0CC) → toolbars, input areas, deepest surface
+   ───────────────────────────────────────────────────────────── */
+
 @layer base {
   html {
     @apply antialiased;
+  }
+
+  body {
+    @apply min-h-screen;
   }
 
   :focus-visible {
@@ -14,7 +25,172 @@
   }
 }
 
-/* Subtle paper grain — sits above all content, never interferes with interaction */
+/* ─────────────────────────────────────────────────────────────
+   COMPONENT UTILITIES
+   ───────────────────────────────────────────────────────────── */
+
+@layer components {
+
+  /* ── Typography scale ──────────────────────────────────────── */
+
+  .text-display-xl {
+    @apply font-display font-bold text-ink tracking-[-0.025em] leading-[1.08];
+    font-size: clamp(36px, 6vw, 56px);
+  }
+
+  .text-display-lg {
+    @apply font-display font-semibold text-ink tracking-[-0.02em] leading-[1.12];
+    font-size: clamp(28px, 4vw, 40px);
+  }
+
+  .text-display-md {
+    @apply font-display font-semibold text-ink tracking-[-0.015em] leading-[1.2];
+    font-size: 24px;
+  }
+
+  .text-body-lg {
+    @apply font-sans font-normal text-ink leading-[1.7];
+    font-size: 18px;
+  }
+
+  .text-body {
+    @apply font-sans font-normal text-ink leading-[1.65];
+    font-size: 16px;
+  }
+
+  .text-caption {
+    @apply font-sans font-semibold text-ink-faint;
+    font-size: 13px;
+  }
+
+  .text-word {
+    @apply font-word font-normal text-ink tracking-[0.015em] leading-[1.6];
+    font-size: 18px;
+  }
+
+  /* ── Button system ─────────────────────────────────────────── */
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           rounded-full bg-brand-blue
+           px-6 py-3 min-h-[44px]
+           font-sans text-sm font-bold text-white
+           shadow-[0_8px_20px_-8px_rgba(47,111,237,0.45)]
+           transition
+           hover:bg-brand-blue-deep hover:-translate-y-px
+           hover:shadow-[0_12px_24px_-8px_rgba(47,111,237,0.55)]
+           active:translate-y-0
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue
+           disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           rounded-full border border-line bg-transparent
+           px-6 py-3 min-h-[44px]
+           font-sans text-sm font-bold text-ink
+           transition
+           hover:bg-app-cloud hover:border-ink/20
+           active:bg-cream-deep
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue
+           disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           rounded-full
+           px-4 py-2 min-h-[44px]
+           font-sans text-sm font-bold text-ink-soft
+           transition
+           hover:bg-app-cloud hover:text-ink
+           active:bg-cream-deep
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue;
+  }
+
+  /* Homepage CTA only — warm red, not reused elsewhere */
+  .btn-action {
+    @apply inline-flex items-center justify-center gap-2
+           rounded-full bg-brand-red
+           px-11 py-4 min-h-[52px]
+           font-display text-[21px] font-semibold text-white tracking-[0.01em]
+           shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)]
+           transition
+           hover:bg-brand-red-deep hover:-translate-y-0.5
+           hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)]
+           active:translate-y-0
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red
+           disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  /* ── Card system ───────────────────────────────────────────── */
+
+  .card {
+    @apply rounded-2xl border border-line bg-app-cloud
+           shadow-[0_2px_8px_-2px_rgba(43,35,24,0.08)];
+  }
+
+  .card-raised {
+    @apply rounded-2xl border border-line bg-app-cloud
+           shadow-[0_6px_20px_-6px_rgba(43,35,24,0.12)];
+  }
+
+  .card-interactive {
+    @apply rounded-2xl border border-line bg-app-cloud
+           shadow-[0_2px_8px_-2px_rgba(43,35,24,0.08)]
+           cursor-pointer transition
+           hover:-translate-y-1
+           hover:shadow-[0_12px_32px_-8px_rgba(43,35,24,0.18)];
+  }
+
+  /* ── Link utilities ────────────────────────────────────────── */
+
+  .link {
+    @apply text-brand-blue underline-offset-2 transition
+           hover:underline hover:text-brand-blue-deep;
+  }
+
+  .link-quiet {
+    @apply text-ink-soft underline-offset-2 transition
+           hover:text-ink hover:underline;
+  }
+
+  /* ── Scroll reveal ─────────────────────────────────────────── */
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity    0.4s ease,
+      transform  0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/* ─────────────────────────────────────────────────────────────
+   KEYFRAME ANIMATIONS
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PAPER GRAIN OVERLAY
+   Sits above all content via z-index; pointer-events: none
+   so it never interferes with interaction
+   ───────────────────────────────────────────────────────────── */
+
 body::after {
   content: '';
   position: fixed;
@@ -26,7 +202,24 @@ body::after {
   background-size: 280px 280px;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* ─────────────────────────────────────────────────────────────
+   REDUCED MOTION
+   When prefers-reduced-motion is set, collapse all animations
+   and transitions to instant. No content depends on animation
+   to be understood — this is safe.
+   ───────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

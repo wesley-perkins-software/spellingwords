@@ -143,6 +143,54 @@ const breadcrumbJsonLd = {
         </div>
       </section>
 
+      <!-- Browse by Category -->
+      <section aria-labelledby="browse-by-category-heading" class="mb-14">
+        <h2 id="browse-by-category-heading" class="mb-4 font-display text-lg font-semibold text-ink">
+          Browse by Category
+        </h2>
+        <p class="mb-5 max-w-2xl text-sm leading-relaxed text-ink-soft">
+          Not looking by grade? Browse by the type of spelling knowledge you want to build.
+        </p>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <a
+            href="/spelling-lists/phonics"
+            class="flex flex-col gap-1 rounded-2xl border border-line bg-white p-4 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
+          >
+            <span class="font-display text-base font-semibold text-ink">Phonics</span>
+            <span class="text-sm leading-relaxed text-ink-soft">
+              Lists organized by sound-letter pattern — blends, digraphs, vowel teams, and more.
+            </span>
+          </a>
+          <a
+            href="/spelling-lists/sight-words"
+            class="flex flex-col gap-1 rounded-2xl border border-line bg-white p-4 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
+          >
+            <span class="font-display text-base font-semibold text-ink">Sight Words</span>
+            <span class="text-sm leading-relaxed text-ink-soft">
+              High-frequency words for reading fluency — Dolch lists from Pre-Primer through Grade 3.
+            </span>
+          </a>
+          <a
+            href="/spelling-lists/grade-level"
+            class="flex flex-col gap-1 rounded-2xl border border-line bg-white p-4 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
+          >
+            <span class="font-display text-base font-semibold text-ink">Grade-Level</span>
+            <span class="text-sm leading-relaxed text-ink-soft">
+              Vocabulary matched to developmental stage, from kindergarten through 5th grade.
+            </span>
+          </a>
+          <a
+            href="/spelling-lists/challenge"
+            class="flex flex-col gap-1 rounded-2xl border border-line bg-white p-4 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
+          >
+            <span class="font-display text-base font-semibold text-ink">Challenge</span>
+            <span class="text-sm leading-relaxed text-ink-soft">
+              Advanced vocabulary and Greek/Latin roots for strong spellers and spelling bee prep.
+            </span>
+          </a>
+        </div>
+      </section>
+
       <!-- Learning paths -->
       {resolvedPaths.length > 0 && (
         <section aria-labelledby="learning-paths-heading" class="mb-14">

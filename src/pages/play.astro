@@ -421,11 +421,8 @@ import SiteHeader from '@/components/SiteHeader.astro';
   // --- Progressive instructions ---
   // Full guidance up front; as the child settles in, the screen quietly
   // steps back rather than repeating itself on every single word.
-  function instructionForIndex(index: number): string {
-    if (index === 0) {
-      return "Listen, then type the word you hear.";
-    }
-    return '';
+  function instructionForIndex(_index: number): string {
+    return "Listen, then type the word.";
   }
 
   // --- Screen management ---

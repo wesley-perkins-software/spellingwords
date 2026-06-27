@@ -203,7 +203,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
                 <button
                   id="btn-repeat"
                   type="button"
-                  class="inline-flex items-center gap-2 rounded-xl border border-line bg-app-cloud px-5 py-3.5 text-base font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
+                  class="inline-flex items-center gap-2 rounded-xl border border-line bg-white px-5 py-3.5 text-base font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
                   aria-label="Hear the word again"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -218,7 +218,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
                 <button
                   id="btn-sentence"
                   type="button"
-                  class="hidden items-center gap-2 rounded-xl border border-line bg-app-cloud px-5 py-3.5 text-base font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
+                  class="hidden items-center gap-2 rounded-xl border border-line bg-white px-5 py-3.5 text-base font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
                   aria-label="Hear the word used in a sentence again"
                 >
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -254,8 +254,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
           <div class="flex flex-col items-center gap-4">
             <!-- Encouragement phrase — coral for incorrect, green for correct -->
             <h1 id="feedback-heading" class="font-display text-3xl font-semibold"></h1>
-            <!-- Label shown above correct spelling on incorrect-answer screen -->
-            <p id="feedback-word-label" class="hidden text-xs font-semibold uppercase tracking-widest text-ink-soft">The correct spelling</p>
             <!-- Correct spelling — large and dominant for wrong-answer screen -->
             <p id="feedback-word" class="hidden font-word text-6xl font-bold tracking-tight text-ink leading-none"></p>
             <!-- Closing note — shown only for incorrect -->
@@ -366,7 +364,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const answerError = $('answer-error');
   const feedbackIcon = $('feedback-icon');
   const feedbackHeading = $('feedback-heading');
-  const feedbackWordLabel = $('feedback-word-label');
   const feedbackWord = $('feedback-word');
   const feedbackDetail = $('feedback-detail');
   const progressBar = $('progress-bar') as HTMLElement;
@@ -417,7 +414,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
   // A calm adult helping a child — not a scoreboard. We rotate through these
   // so the same phrase doesn't land twice in a row and start to feel canned.
   const CORRECT_PHRASES = ['Well spelled.', 'Good listening.', "That's it exactly.", 'Nice work.', "You've got it."];
-  const INCORRECT_PHRASES = ['A good attempt.', "That's a tricky one.", 'Close — good effort.', 'Good try.', "Let's come back to this one."];
+  const INCORRECT_PHRASES = ['A good attempt.', "That's a tricky one.", 'Close — good effort.', 'Good try.', 'Nearly there.'];
 
   let lastCorrectPhrase = -1;
   let lastIncorrectPhrase = -1;
@@ -569,7 +566,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
       feedbackIcon.className = 'flex h-32 w-32 items-center justify-center rounded-full bg-feedback-correct/20 ring-2 ring-inset ring-feedback-correct/25 text-feedback-correct';
       feedbackHeading.textContent = pickPhrase(CORRECT_PHRASES, lastCorrectPhrase, (i) => (lastCorrectPhrase = i));
       feedbackHeading.className = 'font-display text-3xl font-semibold text-feedback-correct';
-      feedbackWordLabel.classList.add('hidden');
       feedbackWord.textContent = '';
       feedbackWord.classList.add('hidden');
       feedbackDetail.textContent = '';
@@ -580,7 +576,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
       feedbackIcon.className = 'hidden';
       feedbackHeading.textContent = pickPhrase(INCORRECT_PHRASES, lastIncorrectPhrase, (i) => (lastIncorrectPhrase = i));
       feedbackHeading.className = 'font-display text-xl font-semibold text-feedback-incorrect';
-      feedbackWordLabel.classList.remove('hidden');
       feedbackWord.textContent = currentWord;
       feedbackWord.classList.remove('hidden');
       feedbackDetail.textContent = "We'll come back to this one.";

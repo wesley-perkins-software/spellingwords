@@ -244,17 +244,18 @@ import SiteHeader from '@/components/SiteHeader.astro';
         </button>
       </section>
 
-      <!-- Feedback screen — content and action grouped together, centered in the space -->
+      <!-- Feedback screen — mirrors question screen grid so content centers between progress and button -->
       <section
         id="screen-feedback"
-        class="hidden flex flex-col items-center justify-center min-h-[420px] text-center"
+        class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[420px] text-center"
         aria-labelledby="feedback-heading"
         aria-live="assertive"
       >
         <!-- Visually hidden heading updated for screen readers -->
         <h1 id="feedback-heading" class="sr-only"></h1>
 
-        <div class="flex flex-col items-center gap-8 w-full">
+        <!-- Content zone — centered vertically in the 1fr row -->
+        <div class="flex flex-col items-center justify-center gap-6">
 
           <!-- Correct answer: word (green + inline checkmark) first, calm phrase below -->
           <div id="feedback-correct-layout" class="hidden flex-col items-center gap-4">
@@ -272,20 +273,21 @@ import SiteHeader from '@/components/SiteHeader.astro';
             <p id="feedback-incorrect-phrase" class="font-display text-xl font-semibold text-feedback-incorrect"></p>
             <p id="feedback-attempt" class="font-word text-xl text-ink-soft"></p>
             <p id="feedback-incorrect-word" class="font-word text-6xl font-bold tracking-tight leading-none text-ink mt-1"></p>
-            <p id="feedback-detail" class="font-sans text-base text-ink-faint mt-1"></p>
+            <p id="feedback-detail" class="font-sans text-base text-ink mt-1"></p>
           </div>
 
-          <!-- Continue button — grouped with feedback content, not anchored to bottom -->
-          <button
-            id="btn-next"
-            type="button"
-            aria-label="Continue to next word"
-            class="w-full rounded-full bg-brand-red px-8 py-4 font-display text-xl font-semibold text-white shadow-btn-red transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0 disabled:opacity-40 disabled:cursor-default disabled:translate-y-0 disabled:shadow-btn-red"
-          >
-            Continue →
-          </button>
-
         </div>
+
+        <!-- Continue button — auto row, anchors at bottom like Submit Answer on question screen -->
+        <button
+          id="btn-next"
+          type="button"
+          aria-label="Continue to next word"
+          class="w-full rounded-full bg-brand-red px-8 py-4 font-display text-xl font-semibold text-white shadow-btn-red transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0 disabled:opacity-40 disabled:cursor-default disabled:translate-y-0 disabled:shadow-btn-red"
+        >
+          Continue →
+        </button>
+
       </section>
 
       <!-- Results screen -->

@@ -24,8 +24,6 @@ const gradeConfig = [
   { grade: '5', label: '5th Grade' },
 ];
 
-// For each grade, build items: collections for that grade first, then standalone lists
-// (lists that belong to a collection are suppressed)
 type GradeItem =
   | { kind: 'collection'; entry: (typeof allCollections)[number] }
   | { kind: 'list'; entry: (typeof entries)[number] };
@@ -44,19 +42,25 @@ const gradeSections = gradeConfig
   })
   .filter(({ items }) => items.length > 0);
 
-// Lists without a grade (e.g. Challenge) shown in a separate section
 const ungradedLists = entries.filter((e) => !e.data.grade && !memberIds.has(e.data.id));
 
-// Learning path data — resolve list entries for each path
 const resolvedPaths = LEARNING_PATHS.map((path) => ({
   path,
   lists: resolveListRefs([...path.listIds], entries),
 })).filter(({ lists }) => lists.length > 0);
 
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Spelling Lists Library' },
-];
+// Editorial featured list definitions — verified against published content
+const featuredListIds = [
+  'kindergarten-first-words',
+  'grade-1-list-01',
+  'grade-2-list-01',
+  'silent-e-long-a',
+  'digraph-th-words',
+] as const;
+
+const featuredLists = featuredListIds
+  .map((id) => entries.find((e) => e.data.id === id))
+  .filter((e): e is (typeof entries)[number] => e !== undefined);
 
 const gradeHubSlugs: Record<string, string> = {
   K: 'kindergarten',
@@ -66,6 +70,11 @@ const gradeHubSlugs: Record<string, string> = {
   '4': '4th-grade',
   '5': '5th-grade',
 };
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Spelling Lists Library' },
+];
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
 
@@ -82,8 +91,8 @@ const breadcrumbJsonLd = {
 ---
 
 <Layout
-  title="Spelling Lists Library — spellingwords"
-  description="Curated spelling lists for every grade — from Dolch sight words and phonics patterns to grade-level vocabulary and challenge tiers. No timers, no pressure."
+  title="Spelling Lists Library — Free, Curated Spelling Words for Grades K–5"
+  description="Browse hundreds of free spelling lists for kindergarten through 5th grade. Organized by grade level and skill type — phonics, sight words, grade-level, and challenge. Audio-supported, no account required."
   jsonLd={breadcrumbJsonLd}
 >
   <SiteHeader variant="discovery" currentPath="/spelling-lists" />
@@ -94,16 +103,17 @@ const breadcrumbJsonLd = {
         <Breadcrumbs items={breadcrumbItems} />
       </div>
 
-      <!-- Page intro -->
-      <div class="mb-12 flex flex-col gap-3">
-        <h1 id="library-heading" class="font-display text-2xl font-semibold text-ink md:text-3xl">
-          The Spelling Lists Library
+      <!-- Hero -->
+      <div class="mb-14">
+        <h1 class="mb-4 font-display text-3xl font-semibold text-ink md:text-4xl">
+          Find the Right Spelling List for Your Child
         </h1>
         <p class="max-w-2xl text-base leading-relaxed text-ink-soft">
-          Curated, ready-to-practice spelling lists for every grade. Pick a list and start — no setup
-          required. Or go back to the homepage to paste in your own words for this week's homework.
+          This library contains hundreds of hand-curated spelling lists for children in kindergarten
+          through 5th grade — organized by grade level and by spelling skill. Every list is free,
+          audio-supported, and ready to practice in seconds. No account required.
         </p>
-        <p>
+        <p class="mt-4">
           <a
             href="/"
             class="inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline"
@@ -113,92 +123,181 @@ const breadcrumbJsonLd = {
         </p>
       </div>
 
-      <!-- Grade navigation chips -->
-      <section aria-labelledby="browse-by-grade-heading" class="mb-14">
-        <h2 id="browse-by-grade-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-          Browse by Grade
-        </h2>
-        <div class="flex flex-wrap gap-2" role="list">
-          {gradeConfig.map(({ grade, label }) => {
-            const hasContent = gradeSections.some((s) => s.grade === grade);
-            const hubHref = `/spelling-lists/${gradeHubSlugs[grade]}`;
-            return hasContent ? (
+      <!-- Primary Decision Area -->
+      <section aria-labelledby="browse-paths-heading" class="mb-14">
+        <h2 id="browse-paths-heading" class="sr-only">Choose How to Browse</h2>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <!-- Browse by Grade -->
+          <div class="flex flex-col gap-4 rounded-2xl border border-line bg-app-cloud p-6">
+            <div>
+              <h2 class="mb-2 font-display text-lg font-semibold text-ink">Browse by Grade</h2>
+              <p class="text-sm leading-relaxed text-ink-soft">
+                Good for parents following weekly school spelling assignments, teachers planning by
+                curriculum year, or anyone who knows their child's grade level.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2" role="list" aria-label="Grade levels">
+              {gradeConfig.map(({ grade, label }) => {
+                const hasContent = gradeSections.some((s) => s.grade === grade);
+                const hubHref = `/spelling-lists/${gradeHubSlugs[grade]}`;
+                return hasContent ? (
+                  <a
+                    href={hubHref}
+                    role="listitem"
+                    class="inline-flex items-center rounded-xl border border-brand-blue/30 bg-white px-3 py-1.5 text-sm font-semibold text-brand-blue transition hover:bg-brand-blue/5 hover:border-brand-blue/50"
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  <span
+                    role="listitem"
+                    title="Coming soon"
+                    class="inline-flex items-center rounded-xl border border-line bg-white px-3 py-1.5 text-sm font-medium text-ink-faint cursor-default select-none"
+                  >
+                    {label}
+                  </span>
+                );
+              })}
+            </div>
+            <a
+              href="/spelling-lists/kindergarten"
+              class="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline"
+            >
+              Browse Kindergarten–5th Grade →
+            </a>
+          </div>
+
+          <!-- Browse by Skill -->
+          <div class="flex flex-col gap-4 rounded-2xl border border-line bg-app-cloud p-6">
+            <div>
+              <h2 class="mb-2 font-display text-lg font-semibold text-ink">Browse by Skill</h2>
+              <p class="text-sm leading-relaxed text-ink-soft">
+                Good for teachers working through a phonics sequence, parents targeting a specific
+                pattern like silent e or vowel teams, or anyone supporting a child with targeted
+                reading practice.
+              </p>
+            </div>
+            <div class="flex flex-col gap-2">
               <a
-                href={hubHref}
-                role="listitem"
-                class="inline-flex items-center rounded-xl border border-brand-blue/30 bg-brand-blue/5 px-4 py-2 text-sm font-semibold text-brand-blue transition hover:bg-brand-blue/10 hover:border-brand-blue/50"
+                href="/spelling-lists/phonics"
+                class="flex items-start gap-3 rounded-xl border border-line bg-white p-3 transition hover:border-brand-blue/30 hover:bg-brand-blue/3"
               >
-                {label}
+                <div>
+                  <div class="font-display text-sm font-semibold text-ink">Phonics</div>
+                  <div class="text-xs leading-relaxed text-ink-soft">Blends, digraphs, vowel teams, silent e, and more</div>
+                </div>
               </a>
-            ) : (
-              <span
-                role="listitem"
-                title="Coming soon"
-                class="inline-flex items-center rounded-xl border border-line bg-app-cloud px-4 py-2 text-sm font-medium text-ink-faint cursor-default select-none"
+              <a
+                href="/spelling-lists/sight-words"
+                class="flex items-start gap-3 rounded-xl border border-line bg-white p-3 transition hover:border-brand-blue/30 hover:bg-brand-blue/3"
               >
-                {label}
-              </span>
-            );
-          })}
+                <div>
+                  <div class="font-display text-sm font-semibold text-ink">Sight Words</div>
+                  <div class="text-xs leading-relaxed text-ink-soft">Dolch high-frequency words, Pre-Primer through Grade 3</div>
+                </div>
+              </a>
+              <a
+                href="/spelling-lists/grade-level"
+                class="flex items-start gap-3 rounded-xl border border-line bg-white p-3 transition hover:border-brand-blue/30 hover:bg-brand-blue/3"
+              >
+                <div>
+                  <div class="font-display text-sm font-semibold text-ink">Grade-Level Vocabulary</div>
+                  <div class="text-xs leading-relaxed text-ink-soft">Core words matched to grade expectations, K–5</div>
+                </div>
+              </a>
+              <a
+                href="/spelling-lists/challenge"
+                class="flex items-start gap-3 rounded-xl border border-line bg-white p-3 transition hover:border-brand-blue/30 hover:bg-brand-blue/3"
+              >
+                <div>
+                  <div class="font-display text-sm font-semibold text-ink">Challenge &amp; Advanced</div>
+                  <div class="text-xs leading-relaxed text-ink-soft">Greek and Latin roots, spelling bee prep, advanced patterns</div>
+                </div>
+              </a>
+            </div>
+            <a
+              href="/spelling-lists/phonics"
+              class="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline"
+            >
+              Browse All Categories →
+            </a>
+          </div>
         </div>
       </section>
 
-      <!-- Browse by Category -->
-      <section aria-labelledby="browse-by-category-heading" class="mb-14">
-        <h2 id="browse-by-category-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-          Browse by Category
+      <!-- Featured Collections -->
+      {featuredLists.length > 0 && (
+        <section aria-labelledby="featured-heading" class="mb-14">
+          <h2 id="featured-heading" class="mb-1 font-display text-lg font-semibold text-ink">
+            A Few Good Places to Start
+          </h2>
+          <p class="mb-5 text-sm leading-relaxed text-ink-soft">
+            Not sure where to begin? These lists represent some of the most useful starting points in the library.
+          </p>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredLists.map((entry) => (
+              <a
+                href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                class="flex flex-col gap-2 rounded-2xl border border-line bg-white p-4 shadow-card transition hover:-translate-y-0.5 hover:shadow-card-md"
+              >
+                <div class="flex flex-col gap-0.5">
+                  <span class="text-xs font-medium text-ink-faint">
+                    {categoryLabels[entry.data.category] ?? entry.data.category}
+                    {entry.data.grade ? ` · ${entry.data.grade === 'K' ? 'Kindergarten' : `Grade ${entry.data.grade}`}` : ''}
+                  </span>
+                  <h3 class="font-display text-sm font-semibold text-ink">{entry.data.title}</h3>
+                </div>
+                <p class="text-xs leading-relaxed text-ink-soft line-clamp-2">{entry.data.description}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Help Choosing -->
+      <section aria-labelledby="help-choosing-heading" class="mb-14">
+        <h2 id="help-choosing-heading" class="mb-1 font-display text-lg font-semibold text-ink">
+          Not Sure Which Path Is Right?
         </h2>
-        <p class="mb-5 max-w-2xl text-sm leading-relaxed text-ink-soft">
-          Not looking by grade? Browse by the type of spelling knowledge you want to build.
+        <p class="mb-5 text-sm leading-relaxed text-ink-soft">
+          Here are a few common situations and where each one usually leads.
         </p>
-        <div class="grid gap-3 sm:grid-cols-2">
-          <a
-            href="/spelling-lists/phonics"
-            class="flex flex-col gap-1 rounded-2xl border border-line bg-white p-4 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
-          >
-            <span class="font-display text-base font-semibold text-ink">Phonics</span>
-            <span class="text-sm leading-relaxed text-ink-soft">
-              Lists organized by sound-letter pattern — blends, digraphs, vowel teams, and more.
-            </span>
-          </a>
-          <a
-            href="/spelling-lists/sight-words"
-            class="flex flex-col gap-1 rounded-2xl border border-line bg-white p-4 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
-          >
-            <span class="font-display text-base font-semibold text-ink">Sight Words</span>
-            <span class="text-sm leading-relaxed text-ink-soft">
-              High-frequency words for reading fluency — Dolch lists from Pre-Primer through Grade 3.
-            </span>
-          </a>
-          <a
-            href="/spelling-lists/grade-level"
-            class="flex flex-col gap-1 rounded-2xl border border-line bg-white p-4 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
-          >
-            <span class="font-display text-base font-semibold text-ink">Grade-Level</span>
-            <span class="text-sm leading-relaxed text-ink-soft">
-              Vocabulary matched to developmental stage, from kindergarten through 5th grade.
-            </span>
-          </a>
-          <a
-            href="/spelling-lists/challenge"
-            class="flex flex-col gap-1 rounded-2xl border border-line bg-white p-4 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
-          >
-            <span class="font-display text-base font-semibold text-ink">Challenge</span>
-            <span class="text-sm leading-relaxed text-ink-soft">
-              Advanced vocabulary and Greek/Latin roots for strong spellers and spelling bee prep.
-            </span>
-          </a>
+        <div class="flex flex-col gap-3">
+          <div class="rounded-xl border border-line bg-app-cloud px-5 py-4">
+            <p class="text-sm leading-relaxed text-ink">
+              <strong class="font-semibold">Your child brings home a weekly spelling list from school.</strong>{' '}
+              <span class="text-ink-soft">Start with Browse by Grade — you'll find lists that match what most schools teach at that level.</span>
+            </p>
+          </div>
+          <div class="rounded-xl border border-line bg-app-cloud px-5 py-4">
+            <p class="text-sm leading-relaxed text-ink">
+              <strong class="font-semibold">You're working on reading and want to reinforce phonics.</strong>{' '}
+              <span class="text-ink-soft">Browse Phonics — the lists are organized by pattern, so you can work through blends, digraphs, and vowel sounds in sequence.</span>
+            </p>
+          </div>
+          <div class="rounded-xl border border-line bg-app-cloud px-5 py-4">
+            <p class="text-sm leading-relaxed text-ink">
+              <strong class="font-semibold">Your child is an early reader learning high-frequency words.</strong>{' '}
+              <span class="text-ink-soft">Browse Sight Words — the Dolch lists cover the most common words in early reading, from Pre-Primer through Grade 3.</span>
+            </p>
+          </div>
+          <div class="rounded-xl border border-line bg-app-cloud px-5 py-4">
+            <p class="text-sm leading-relaxed text-ink">
+              <strong class="font-semibold">You're preparing for a spelling bee or want more challenge.</strong>{' '}
+              <span class="text-ink-soft">Browse Challenge Lists — built around Greek and Latin roots and advanced patterns for strong spellers ready to go further.</span>
+            </p>
+          </div>
         </div>
       </section>
 
-      <!-- Learning paths -->
+      <!-- Learning Paths -->
       {resolvedPaths.length > 0 && (
         <section aria-labelledby="learning-paths-heading" class="mb-14">
           <h2 id="learning-paths-heading" class="mb-1 font-display text-lg font-semibold text-ink">
-            Learning Paths
+            Guided Sequences
           </h2>
           <p class="mb-6 max-w-2xl text-sm leading-relaxed text-ink-soft">
-            Not sure where to start? These curated sequences guide students through a skill step by step.
+            These curated sequences walk through a skill step by step — a good choice when you're not sure which list to tackle next.
           </p>
           <div class="flex flex-col gap-6">
             {resolvedPaths.map(({ path, lists }) => (
@@ -219,7 +318,7 @@ const breadcrumbJsonLd = {
                         </a>
                       </li>
                       {i < lists.length - 1 && (
-                        <li aria-hidden="true" class="text-ink-faint text-sm select-none">→</li>
+                        <li aria-hidden="true" class="select-none text-sm text-ink-faint">→</li>
                       )}
                     </>
                   ))}
@@ -230,26 +329,33 @@ const breadcrumbJsonLd = {
         </section>
       )}
 
-      <!-- All lists — organized by grade -->
+      <!-- Explore Everything -->
       <section aria-labelledby="all-lists-heading" class="flex flex-col gap-12">
-        <h2 id="all-lists-heading" class="sr-only">All Spelling Lists</h2>
+        <div>
+          <h2 id="all-lists-heading" class="mb-1 font-display text-lg font-semibold text-ink">
+            Explore Every List
+          </h2>
+          <p class="text-sm leading-relaxed text-ink-soft">
+            Every list in the library, organized by grade. Start here if you already know what you're looking for.
+          </p>
+        </div>
 
         {gradeSections.map(({ grade, label, items }) => (
           <section id={`grade-${grade}`} aria-labelledby={`grade-${grade}-heading`} class="flex flex-col gap-4 scroll-mt-20">
             <div class="flex items-baseline gap-3">
-              <h2
+              <h3
                 id={`grade-${grade}-heading`}
-                class="font-display text-lg font-semibold text-ink"
+                class="font-display text-base font-semibold text-ink"
               >
                 {label}
-              </h2>
+              </h3>
               <span class="text-sm text-ink-faint">{items.length} {items.length === 1 ? 'item' : 'items'}</span>
             </div>
             <div class="grid gap-4 sm:grid-cols-2">
               {items.map((item) => item.kind === 'collection' ? (
                 <a
                   href={`/spelling-lists/collections/${item.entry.data.urlSlug}`}
-                  class="flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
+                  class="flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 shadow-card transition hover:-translate-y-0.5 hover:shadow-card-md"
                 >
                   <div class="flex flex-col gap-1">
                     <div class="flex items-center gap-2">
@@ -260,14 +366,14 @@ const breadcrumbJsonLd = {
                         {item.entry.data.listIds.length}-part collection
                       </span>
                     </div>
-                    <h3 class="font-display text-base font-semibold text-ink mt-1">{item.entry.data.title}</h3>
+                    <h4 class="mt-1 font-display text-base font-semibold text-ink">{item.entry.data.title}</h4>
                     <p class="text-sm leading-relaxed text-ink-soft">{item.entry.data.description}</p>
                   </div>
                 </a>
               ) : (
                 <a
                   href={`/spelling-lists/${item.entry.data.category}/${item.entry.data.urlSlug}`}
-                  class="flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
+                  class="flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 shadow-card transition hover:-translate-y-0.5 hover:shadow-card-md"
                 >
                   <div class="flex flex-col gap-1">
                     <div class="flex items-center gap-2">
@@ -275,7 +381,7 @@ const breadcrumbJsonLd = {
                         {categoryLabels[item.entry.data.category] ?? item.entry.data.category}
                       </span>
                     </div>
-                    <h3 class="font-display text-base font-semibold text-ink mt-1">{item.entry.data.title}</h3>
+                    <h4 class="mt-1 font-display text-base font-semibold text-ink">{item.entry.data.title}</h4>
                     <p class="text-sm leading-relaxed text-ink-soft">{item.entry.data.description}</p>
                   </div>
                   <ListMetadataBadges
@@ -292,9 +398,9 @@ const breadcrumbJsonLd = {
         {ungradedLists.length > 0 && (
           <section id="challenge" aria-labelledby="challenge-heading" class="flex flex-col gap-4 scroll-mt-20">
             <div class="flex items-baseline gap-3">
-              <h2 id="challenge-heading" class="font-display text-lg font-semibold text-ink">
+              <h3 id="challenge-heading" class="font-display text-base font-semibold text-ink">
                 Challenge &amp; Advanced
-              </h2>
+              </h3>
               <span class="text-sm text-ink-faint">{ungradedLists.length} {ungradedLists.length === 1 ? 'list' : 'lists'}</span>
             </div>
             <p class="max-w-2xl text-sm leading-relaxed text-ink-soft">
@@ -304,10 +410,10 @@ const breadcrumbJsonLd = {
               {ungradedLists.map((entry) => (
                 <a
                   href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
-                  class="flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
+                  class="flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 shadow-card transition hover:-translate-y-0.5 hover:shadow-card-md"
                 >
                   <div class="flex flex-col gap-1">
-                    <h3 class="font-display text-base font-semibold text-ink">{entry.data.title}</h3>
+                    <h4 class="font-display text-base font-semibold text-ink">{entry.data.title}</h4>
                     <p class="text-sm leading-relaxed text-ink-soft">{entry.data.description}</p>
                   </div>
                   <ListMetadataBadges
@@ -321,6 +427,12 @@ const breadcrumbJsonLd = {
           </section>
         )}
       </section>
+
+      <!-- Editorial quality note -->
+      <p class="mt-14 border-t border-line pt-6 text-sm leading-relaxed text-ink-faint">
+        Every list in this library was hand-reviewed for age-appropriateness. Example sentences are
+        human-written, not generated.
+      </p>
     </div>
   </main>
 

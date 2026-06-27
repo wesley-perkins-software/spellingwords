@@ -149,26 +149,26 @@ import SiteHeader from '@/components/SiteHeader.astro';
     <!-- Wider container: question + feedback screens (more workbook-page width on desktop) -->
     <div class="mx-auto max-w-xl md:max-w-content-md px-6 pb-12 md:pb-16">
 
+      <!-- Shared session progress — visible during question AND feedback, hidden otherwise -->
+      <div id="session-progress" class="hidden mb-4 flex flex-col gap-2">
+        <p
+          id="progress"
+          class="font-sans text-sm font-semibold text-ink"
+          aria-live="polite"
+          aria-atomic="true"
+        ></p>
+        <div class="h-1 rounded-full bg-line overflow-hidden">
+          <div id="progress-bar" class="h-full rounded-full bg-brand-red/70 transition-[width] duration-400" style="width: 0%"></div>
+        </div>
+      </div>
+
       <!-- Question screen
            Uses CSS grid (1fr auto) with a shared min-height so the Submit Answer button
-           always occupies the same vertical slot as the Next Word button in the feedback screen. -->
-      <section id="screen-question" class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[460px]" aria-labelledby="question-heading">
+           always occupies a consistent vertical slot. -->
+      <section id="screen-question" class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[420px]" aria-labelledby="question-heading">
 
         <!-- Practice Tray — the focused workbook surface -->
         <div class="rounded-3xl border border-line bg-app-cloud shadow-card px-7 py-8 md:px-8 md:py-9 flex flex-col gap-6">
-
-          <!-- Progress — readable but calm; informational not pressure -->
-          <div class="flex flex-col gap-2">
-            <p
-              id="progress"
-              class="font-sans text-sm font-semibold text-ink"
-              aria-live="polite"
-              aria-atomic="true"
-            ></p>
-            <div class="h-1 rounded-full bg-line overflow-hidden">
-              <div id="progress-bar" class="h-full rounded-full bg-brand-red/70 transition-[width] duration-400" style="width: 0%"></div>
-            </div>
-          </div>
 
           <!-- Instruction and answer area -->
           <div class="flex flex-col gap-4">
@@ -244,31 +244,50 @@ import SiteHeader from '@/components/SiteHeader.astro';
         </button>
       </section>
 
-      <!-- Feedback screen
-           Shares the same grid layout and min-height as the question screen so Next Word
-           lands at the same vertical position as Submit Answer. -->
-      <section id="screen-feedback" class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[460px] text-center" aria-labelledby="feedback-heading" aria-live="assertive">
+      <!-- Feedback screen — mirrors question screen grid so content centers between progress and button -->
+      <section
+        id="screen-feedback"
+        class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[420px] text-center"
+        aria-labelledby="feedback-heading"
+        aria-live="assertive"
+      >
+        <!-- Visually hidden heading updated for screen readers -->
+        <h1 id="feedback-heading" class="sr-only"></h1>
+
+        <!-- Content zone — centered vertically in the 1fr row -->
         <div class="flex flex-col items-center justify-center gap-6">
-          <!-- Icon — shown for correct; hidden for incorrect so the word takes focus -->
-          <div id="feedback-icon" class="flex h-20 w-20 items-center justify-center rounded-2xl text-4xl" aria-hidden="true"></div>
-          <div class="flex flex-col items-center gap-4">
-            <!-- Encouragement phrase — coral for incorrect, green for correct -->
-            <h1 id="feedback-heading" class="font-display text-3xl font-semibold"></h1>
-            <!-- Correct spelling — large and dominant for wrong-answer screen -->
-            <p id="feedback-word" class="hidden font-word text-6xl font-bold tracking-tight text-ink leading-none"></p>
-            <!-- Closing note — shown only for incorrect -->
-            <p id="feedback-detail" class="text-base text-ink"></p>
+
+          <!-- Correct answer: word (green + inline checkmark) first, calm phrase below -->
+          <div id="feedback-correct-layout" class="hidden flex-col items-center gap-4">
+            <div class="flex items-center justify-center gap-3">
+              <span class="text-feedback-correct flex-shrink-0" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <p id="feedback-correct-word" class="font-word text-6xl font-bold tracking-tight leading-none text-feedback-correct"></p>
+            </div>
+            <p id="feedback-correct-phrase" class="font-display text-2xl font-semibold text-ink"></p>
           </div>
+
+          <!-- Incorrect answer: phrase → attempt → correct word (safe ink) → closing note -->
+          <div id="feedback-incorrect-layout" class="hidden flex-col items-center gap-3">
+            <p id="feedback-incorrect-phrase" class="font-display text-xl font-semibold text-feedback-incorrect"></p>
+            <p id="feedback-attempt" class="font-word text-xl text-ink-soft"></p>
+            <p id="feedback-incorrect-word" class="font-word text-6xl font-bold tracking-tight leading-none text-ink mt-1"></p>
+            <p id="feedback-detail" class="font-sans text-base text-ink mt-1"></p>
+          </div>
+
         </div>
 
-        <!-- Primary action — grid row 2, same slot as Submit Answer on question screen -->
+        <!-- Continue button — auto row, anchors at bottom like Submit Answer on question screen -->
         <button
           id="btn-next"
           type="button"
-          class="w-full rounded-full bg-brand-red px-6 py-4 font-display text-xl font-semibold text-white shadow-btn-red transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
+          aria-label="Continue to next word"
+          class="w-full rounded-full bg-brand-red px-8 py-4 font-display text-xl font-semibold text-white shadow-btn-red transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0 disabled:opacity-40 disabled:cursor-default disabled:translate-y-0 disabled:shadow-btn-red"
         >
-          Next Word →
+          Continue →
         </button>
+
       </section>
 
       <!-- Results screen -->
@@ -362,11 +381,17 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const questionInstruction = $('question-instruction');
   const answerInput = $('answer-input') as HTMLInputElement;
   const answerError = $('answer-error');
-  const feedbackIcon = $('feedback-icon');
   const feedbackHeading = $('feedback-heading');
-  const feedbackWord = $('feedback-word');
+  const feedbackCorrectLayout = $('feedback-correct-layout');
+  const feedbackCorrectWord = $('feedback-correct-word');
+  const feedbackCorrectPhrase = $('feedback-correct-phrase');
+  const feedbackIncorrectLayout = $('feedback-incorrect-layout');
+  const feedbackIncorrectPhrase = $('feedback-incorrect-phrase');
+  const feedbackAttempt = $('feedback-attempt');
+  const feedbackIncorrectWord = $('feedback-incorrect-word');
   const feedbackDetail = $('feedback-detail');
   const progressBar = $('progress-bar') as HTMLElement;
+  const sessionProgress = $('session-progress');
   const resultsSummary = $('results-summary');
   const resultsMissedSummary = $('results-missed-summary');
   const resultsScore = $('results-score');
@@ -413,11 +438,15 @@ import SiteHeader from '@/components/SiteHeader.astro';
   // --- Warm, varied feedback copy ---
   // A calm adult helping a child — not a scoreboard. We rotate through these
   // so the same phrase doesn't land twice in a row and start to feel canned.
-  const CORRECT_PHRASES = ['Well spelled.', 'Good listening.', "That's it exactly.", 'Nice work.', "You've got it."];
-  const INCORRECT_PHRASES = ['A good attempt.', "That's a tricky one.", 'Close — good effort.', 'Good try.', 'Nearly there.'];
+  const CORRECT_PHRASES = ['Well spelled.', 'Good listening.', "That's it exactly.", 'Correct.', 'Just right.', "You've got it."];
+  const INCORRECT_PHRASES = ['A good attempt.', "That's a tricky one.", 'Close — good effort.', 'Worth another look.', 'Nearly there.'];
 
   let lastCorrectPhrase = -1;
   let lastIncorrectPhrase = -1;
+
+  // Delay before the Continue button becomes active on incorrect answers —
+  // enforces a brief reading moment without auto-advancing.
+  let nextWordDelayTimeout: ReturnType<typeof setTimeout> | null = null;
 
   function pickPhrase(pool: string[], lastIndex: number, remember: (i: number) => void): string {
     let i = Math.floor(Math.random() * pool.length);
@@ -437,11 +466,18 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const siteFooter = document.getElementById('site-footer');
   const immersiveScreens = [screenQuestion, screenFeedback, screenResults];
 
+  const practiceScreens = [screenQuestion, screenFeedback];
+
   function showScreen(target: HTMLElement): void {
     for (const screen of allScreens) {
       screen.classList.toggle('hidden', screen !== target);
+      screen.classList.remove('screen-entering');
     }
     siteFooter?.classList.toggle('hidden', immersiveScreens.includes(target));
+    sessionProgress.classList.toggle('hidden', !practiceScreens.includes(target));
+    // Trigger reflow so the animation restarts each time
+    void (target as HTMLElement).offsetHeight;
+    target.classList.add('screen-entering');
   }
 
   function showError(message: string): void {
@@ -558,33 +594,66 @@ import SiteHeader from '@/components/SiteHeader.astro';
   function renderFeedback(): void {
     const correct = state.lastAnswerCorrect;
     const currentWord = state.words[state.currentIndex].word;
-
-    if (correct) {
-      // Large soft circular badge — calm and satisfying, not celebratory.
-      // SVG check is bigger and more refined than an emoji glyph.
-      feedbackIcon.innerHTML = `<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
-      feedbackIcon.className = 'flex h-32 w-32 items-center justify-center rounded-full bg-feedback-correct/20 ring-2 ring-inset ring-feedback-correct/25 text-feedback-correct';
-      feedbackHeading.textContent = pickPhrase(CORRECT_PHRASES, lastCorrectPhrase, (i) => (lastCorrectPhrase = i));
-      feedbackHeading.className = 'font-display text-3xl font-semibold text-feedback-correct';
-      feedbackWord.textContent = '';
-      feedbackWord.classList.add('hidden');
-      feedbackDetail.textContent = '';
-    } else {
-      // For wrong answers: the correct spelling is the dominant visual element.
-      // The icon steps back so the word can own the screen.
-      feedbackIcon.textContent = '';
-      feedbackIcon.className = 'hidden';
-      feedbackHeading.textContent = pickPhrase(INCORRECT_PHRASES, lastIncorrectPhrase, (i) => (lastIncorrectPhrase = i));
-      feedbackHeading.className = 'font-display text-xl font-semibold text-feedback-incorrect';
-      feedbackWord.textContent = currentWord;
-      feedbackWord.classList.remove('hidden');
-      feedbackDetail.textContent = "We'll come back to this one.";
-    }
+    const lastAttempt = state.attempts[state.attempts.length - 1];
+    const submittedAnswer = lastAttempt?.answer ?? '';
 
     const isLast = state.currentIndex === state.words.length - 1;
-    btnNext.textContent = isLast ? 'See Results →' : 'Next Word →';
+    const continueLabel = isLast ? 'See results' : 'Continue to next word';
+    btnNext.setAttribute('aria-label', continueLabel);
 
-    showScreen(screenFeedback);
+    // Update shared progress immediately when feedback renders
+    const pos = state.currentIndex + 1;
+    const total = state.words.length;
+    progressEl.textContent = `Word ${pos} of ${total}`;
+    progressBar.style.width = `${(pos / total) * 100}%`;
+
+    if (correct) {
+      // Correct: word first (green + inline checkmark), calm phrase below.
+      feedbackCorrectLayout.classList.remove('hidden');
+      feedbackCorrectLayout.classList.add('flex');
+      feedbackIncorrectLayout.classList.add('hidden');
+      feedbackIncorrectLayout.classList.remove('flex');
+
+      feedbackCorrectWord.textContent = currentWord;
+      const phrase = pickPhrase(CORRECT_PHRASES, lastCorrectPhrase, (i) => (lastCorrectPhrase = i));
+      feedbackCorrectPhrase.textContent = phrase;
+
+      // SR label covers both the outcome and the word
+      feedbackHeading.textContent = `Correct. ${currentWord}. ${phrase}`;
+
+      showScreen(screenFeedback);
+      btnNext.disabled = false;
+      btnNext.textContent = isLast ? 'See Results →' : 'Continue →';
+      requestAnimationFrame(() => btnNext.focus());
+
+    } else {
+      // Incorrect: phrase → attempt → correct word (ink, not punitive red) → closing note.
+      feedbackIncorrectLayout.classList.remove('hidden');
+      feedbackIncorrectLayout.classList.add('flex');
+      feedbackCorrectLayout.classList.add('hidden');
+      feedbackCorrectLayout.classList.remove('flex');
+
+      const phrase = pickPhrase(INCORRECT_PHRASES, lastIncorrectPhrase, (i) => (lastIncorrectPhrase = i));
+      feedbackIncorrectPhrase.textContent = phrase;
+      feedbackAttempt.textContent = submittedAnswer ? `You wrote: ${submittedAnswer}` : '';
+      feedbackIncorrectWord.textContent = currentWord;
+      feedbackDetail.textContent = "We'll come back to this one.";
+
+      // SR label covers outcome, attempt, and correct word
+      feedbackHeading.textContent = `${phrase} You wrote ${submittedAnswer}. The correct spelling is ${currentWord}.`;
+
+      showScreen(screenFeedback);
+
+      // Disable Continue for 600ms — enforces a minimum reading moment
+      btnNext.disabled = true;
+      btnNext.textContent = isLast ? 'See Results →' : 'Continue →';
+      if (nextWordDelayTimeout) clearTimeout(nextWordDelayTimeout);
+      nextWordDelayTimeout = setTimeout(() => {
+        nextWordDelayTimeout = null;
+        btnNext.disabled = false;
+        btnNext.focus();
+      }, 600);
+    }
   }
 
   function renderResults(): void {
@@ -673,7 +742,12 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
   btnSubmit.addEventListener('click', handleSubmit);
 
-  btnNext.addEventListener('click', () => {
+  function handleNext(): void {
+    if (btnNext.disabled) return;
+    if (nextWordDelayTimeout) {
+      clearTimeout(nextWordDelayTimeout);
+      nextWordDelayTimeout = null;
+    }
     cancelPendingSentence();
     speech.cancelSpeech();
     state = spellingTestReducer(state, nextWord(Date.now()));
@@ -681,6 +755,15 @@ import SiteHeader from '@/components/SiteHeader.astro';
       renderQuestion();
     } else if (state.status === 'complete') {
       renderResults();
+    }
+  }
+
+  btnNext.addEventListener('click', handleNext);
+
+  // Right-arrow key advances from feedback screen — keeps hands on keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' && !screenFeedback.classList.contains('hidden')) {
+      handleNext();
     }
   });
 

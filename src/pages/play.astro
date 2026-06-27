@@ -57,80 +57,82 @@ import SiteHeader from '@/components/SiteHeader.astro';
       <section id="screen-begin" class="hidden" aria-labelledby="begin-heading">
 
         <!-- Collection title slot — shown when coming from a curated list -->
-        <p id="begin-collection-label" class="hidden mb-3 text-center text-sm font-semibold uppercase tracking-widest text-ink-soft"></p>
+        <p id="begin-collection-label" class="hidden mb-4 text-center text-sm font-semibold uppercase tracking-widest text-ink-soft"></p>
 
-        <!-- Session card -->
-        <div class="rounded-2xl border border-line bg-app-cloud px-7 py-7">
-          <h1 id="begin-heading" class="font-display text-2xl font-semibold text-ink mb-3">
-            Ready to practice?
-          </h1>
-          <p id="begin-word-count-prose" class="text-base leading-relaxed text-ink mb-5"></p>
-          <p class="text-base leading-relaxed text-ink">
-            Each word will be spoken aloud.<br>
-            Take your time — you can hear any word again.
-          </p>
-          <!-- Hidden word count for JS, session meta slot for future chunking -->
-          <span id="begin-word-count" class="hidden"></span>
-          <span id="begin-session-meta" class="hidden"></span>
-        </div>
-
-        <!-- Primary CTA -->
-        <div class="mt-8 flex justify-center">
-          <button
-            id="btn-begin"
-            type="button"
-            class="inline-flex items-center gap-2 rounded-full bg-brand-red px-10 py-4 font-display text-[19px] font-semibold text-white tracking-[0.01em] shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
-          >
-            Start Practice <span aria-hidden="true">→</span>
-          </button>
-        </div>
-
-        <!-- Session settings -->
-        <div class="mt-10 border-t border-line pt-6">
-          <button
-            id="btn-voice-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="voice-settings-panel"
-            class="text-left text-sm font-semibold text-ink-soft transition-colors hover:text-ink"
-          >
-            ▾ Session settings
-          </button>
-          <div
-            id="voice-settings-panel"
-            class="hidden mt-4 rounded-2xl border border-line bg-white p-5 flex flex-col gap-4"
-            role="group"
-            aria-label="Session settings"
-          >
-            <!-- Voice status -->
-            <p class="text-sm text-ink">
-              Voice: <span id="voice-name-display" class="font-semibold">best available</span>
+        <div class="flex flex-col gap-6">
+          <!-- Session card -->
+          <div class="rounded-2xl border border-line bg-app-cloud px-7 py-7">
+            <h1 id="begin-heading" class="font-display text-2xl font-semibold text-ink mb-3">
+              Ready to practice?
+            </h1>
+            <p id="begin-word-count-prose" class="text-base leading-relaxed text-ink mb-4"></p>
+            <p class="text-base leading-relaxed text-ink">
+              Each word will be spoken aloud — then used in a sentence.<br>
+              Take your time and type what you hear.
             </p>
+            <!-- Hidden word count for JS, session meta slot for future chunking -->
+            <span id="begin-word-count" class="hidden"></span>
+            <span id="begin-session-meta" class="hidden"></span>
+          </div>
 
-            <!-- Speed slider -->
-            <div class="flex items-center gap-3">
-              <label for="speed-range" class="text-sm font-medium text-ink whitespace-nowrap w-12">Speed</label>
-              <input
-                id="speed-range"
-                type="range"
-                min="0.5"
-                max="1.1"
-                step="0.05"
-                value="1.0"
-                class="flex-1 accent-brand-red"
-                aria-label="Speech speed"
-              />
-              <span id="speed-label" class="text-sm font-semibold text-ink w-12 text-right">1.00×</span>
-            </div>
-
-            <!-- Preview voice -->
+          <!-- Primary CTA -->
+          <div class="flex justify-center">
             <button
-              id="btn-test-voice"
+              id="btn-begin"
               type="button"
-              class="self-start rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink-soft transition-colors hover:border-brand-red/40 hover:text-brand-red"
+              class="inline-flex items-center gap-2 rounded-full bg-brand-red px-10 py-4 font-display text-[19px] font-semibold text-white tracking-[0.01em] shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
             >
-              Preview voice
+              Start Practice <span aria-hidden="true">→</span>
             </button>
+          </div>
+
+          <!-- Session settings -->
+          <div class="border-t border-line pt-5">
+            <button
+              id="btn-voice-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="voice-settings-panel"
+              class="text-left text-sm font-semibold text-ink-soft transition-colors hover:text-ink"
+            >
+              ▾ Session settings
+            </button>
+            <div
+              id="voice-settings-panel"
+              class="hidden mt-4 rounded-2xl border border-line bg-white p-5 flex flex-col gap-4"
+              role="group"
+              aria-label="Session settings"
+            >
+              <!-- Voice status -->
+              <p class="text-sm text-ink">
+                Voice: <span id="voice-name-display" class="font-semibold">best available</span>
+              </p>
+
+              <!-- Speed slider -->
+              <div class="flex items-center gap-3">
+                <label for="speed-range" class="text-sm font-medium text-ink whitespace-nowrap w-12">Speed</label>
+                <input
+                  id="speed-range"
+                  type="range"
+                  min="0.5"
+                  max="1.1"
+                  step="0.05"
+                  value="1.0"
+                  class="flex-1 accent-brand-red"
+                  aria-label="Speech speed"
+                />
+                <span id="speed-label" class="text-sm font-semibold text-ink w-12 text-right">1.00×</span>
+              </div>
+
+              <!-- Preview voice -->
+              <button
+                id="btn-test-voice"
+                type="button"
+                class="self-start rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink-soft transition-colors hover:border-brand-red/40 hover:text-brand-red"
+              >
+                Preview voice
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -138,26 +140,30 @@ import SiteHeader from '@/components/SiteHeader.astro';
       <!-- Question screen
            Uses CSS grid (1fr auto) with a shared min-height so the Submit Answer button
            always occupies the same vertical slot as the Next Word button in the feedback screen. -->
-      <section id="screen-question" class="hidden grid grid-rows-[1fr_auto] gap-6 min-h-[480px]" aria-labelledby="question-heading">
-        <div class="flex flex-col gap-10">
+      <section id="screen-question" class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[520px]" aria-labelledby="question-heading">
+
+        <!-- Practice Tray — the focused workbook surface -->
+        <div class="rounded-3xl border border-line bg-app-cloud px-6 py-8 md:px-8 md:py-10 flex flex-col gap-8">
+
           <!-- Progress -->
           <div class="flex flex-col gap-2">
             <p
               id="progress"
-              class="font-mono text-base font-semibold tracking-wide text-ink"
+              class="font-sans text-sm font-semibold tracking-wide text-ink-soft"
               aria-live="polite"
               aria-atomic="true"
             ></p>
             <div class="h-0.5 rounded-full bg-line overflow-hidden">
-              <div id="progress-bar" class="h-full rounded-full bg-brand-red/70 transition-[width] duration-300" style="width: 0%"></div>
+              <div id="progress-bar" class="h-full rounded-full bg-brand-red/60 transition-[width] duration-300" style="width: 0%"></div>
             </div>
           </div>
 
           <!-- Instruction and answer area -->
-          <div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-5">
             <h1 id="question-heading" class="sr-only">Type the word you hear</h1>
-            <p id="question-instruction" class="text-lg leading-relaxed text-ink"></p>
-            <div class="flex flex-col gap-3">
+            <p id="question-instruction" class="text-base leading-relaxed text-ink-soft min-h-[1.5rem]"></p>
+
+            <div class="flex flex-col gap-2">
               <input
                 id="answer-input"
                 type="text"
@@ -165,8 +171,8 @@ import SiteHeader from '@/components/SiteHeader.astro';
                 autocorrect="off"
                 autocapitalize="off"
                 spellcheck="false"
-                placeholder="Type the word…"
-                class="w-full rounded-2xl border border-amber-200/80 bg-[#FBF6EE] px-6 py-6 font-display text-3xl font-semibold text-ink tracking-wide placeholder:text-ink-faint/60 transition focus:border-brand-red/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red/20 focus:shadow-[inset_0_1px_4px_rgba(0,0,0,0.06)]"
+                placeholder="Type the word"
+                class="w-full rounded-2xl border border-amber-200/80 bg-white px-6 py-5 font-word text-3xl font-semibold text-ink tracking-wide placeholder:text-ink-faint/50 transition focus:border-brand-red/50 focus:outline-none focus:ring-2 focus:ring-brand-red/20 focus:shadow-[inset_0_1px_4px_rgba(0,0,0,0.06)]"
                 aria-label="Your answer"
               />
               <p
@@ -177,43 +183,34 @@ import SiteHeader from '@/components/SiteHeader.astro';
               ></p>
             </div>
 
-            <!-- Audio controls row — cream/ink, secondary feel -->
-            <div class="flex items-stretch gap-2 w-full">
-              <!-- Listen Again + Speed — joined pill, natural width -->
-              <div class="inline-flex items-stretch rounded-full border border-line bg-app-cloud overflow-hidden shrink-0">
-                <button
-                  id="btn-repeat"
-                  type="button"
-                  class="flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-ink transition hover:bg-[#EDE8DF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
-                  aria-label="Listen to the word again"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-                  </svg>
-                  Listen Again
-                </button>
-                <div class="w-px bg-line" aria-hidden="true"></div>
-                <button
-                  id="btn-speed"
-                  type="button"
-                  class="flex items-center gap-1 px-3 py-2.5 font-mono text-sm font-semibold text-ink transition hover:bg-[#EDE8DF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
-                  aria-label="Change playback speed (current: 1×)"
-                  title="Tap to cycle through speeds"
-                ><span id="btn-speed-label">Speed 1×</span> <span aria-hidden="true" class="text-xs opacity-50">▾</span></button>
-              </div>
-              <!-- Use in a Sentence — fills remaining width; only when word has a sentence -->
+            <!-- Audio controls — two calm secondary buttons -->
+            <div class="flex items-stretch gap-2 flex-wrap">
+              <!-- Hear word again — primary audio control -->
+              <button
+                id="btn-repeat"
+                type="button"
+                class="inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2.5 text-sm font-semibold text-ink transition hover:bg-app-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
+                aria-label="Hear the word again"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </svg>
+                Hear word again
+              </button>
+
+              <!-- Hear sentence again — secondary; only shown when sentence exists -->
               <button
                 id="btn-sentence"
                 type="button"
-                class="hidden flex-1 items-center justify-center gap-2 rounded-full border border-line bg-app-cloud px-4 py-2.5 text-sm font-semibold text-ink transition hover:bg-[#EDE8DF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
-                aria-label="Hear the word used in a sentence"
+                class="hidden items-center gap-2 rounded-full border border-line bg-white px-4 py-2.5 text-sm font-semibold text-ink-soft transition hover:bg-app-cloud hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
+                aria-label="Hear the word used in a sentence again"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 </svg>
-                Use in a Sentence
+                Hear sentence again
               </button>
             </div>
           </div>
@@ -232,7 +229,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
       <!-- Feedback screen
            Shares the same grid layout and min-height as the question screen so Next Word
            lands at the same vertical position as Submit Answer. -->
-      <section id="screen-feedback" class="hidden grid grid-rows-[1fr_auto] gap-6 min-h-[480px] text-center" aria-labelledby="feedback-heading" aria-live="assertive">
+      <section id="screen-feedback" class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[520px] text-center" aria-labelledby="feedback-heading" aria-live="assertive">
         <div class="flex flex-col items-center justify-center gap-6">
           <!-- Icon — shown for correct; hidden for incorrect so the word takes focus -->
           <div id="feedback-icon" class="flex h-20 w-20 items-center justify-center rounded-2xl text-4xl" aria-hidden="true"></div>
@@ -240,7 +237,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
             <!-- Encouragement phrase — coral for incorrect, green for correct -->
             <h1 id="feedback-heading" class="font-display text-3xl font-semibold"></h1>
             <!-- Correct spelling — large and dominant for wrong-answer screen -->
-            <p id="feedback-word" class="hidden font-display text-6xl font-bold tracking-tight text-ink leading-none"></p>
+            <p id="feedback-word" class="hidden font-word text-6xl font-bold tracking-tight text-ink leading-none"></p>
             <!-- Closing note — shown only for incorrect -->
             <p id="feedback-detail" class="text-base text-ink"></p>
           </div>
@@ -359,8 +356,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const resultsMissedList = $('results-missed-list');
   const btnBegin = $('btn-begin') as HTMLButtonElement;
   const btnRepeat = $('btn-repeat') as HTMLButtonElement;
-  const btnSpeed = $('btn-speed') as HTMLButtonElement;
-  const btnSpeedLabel = $('btn-speed-label') as HTMLElement;
   const btnSentence = $('btn-sentence') as HTMLButtonElement;
   const btnSubmit = $('btn-submit') as HTMLButtonElement;
   const btnNext = $('btn-next') as HTMLButtonElement;
@@ -384,6 +379,16 @@ import SiteHeader from '@/components/SiteHeader.astro';
   // Voice settings state — no persistence; resets on page load
   let selectedVoice: SpeechSynthesisVoiceAdapter | null = null;
   let currentRate = 1.0;
+
+  // Pending auto-sentence timeout handle — cancelled whenever we move to a new word
+  let sentenceTimeout: ReturnType<typeof setTimeout> | null = null;
+
+  function cancelPendingSentence(): void {
+    if (sentenceTimeout !== null) {
+      clearTimeout(sentenceTimeout);
+      sentenceTimeout = null;
+    }
+  }
 
   // --- Warm, varied feedback copy ---
   // A calm adult helping a child — not a scoreboard. We rotate through these
@@ -511,12 +516,25 @@ import SiteHeader from '@/components/SiteHeader.astro';
     // Show sentence button only when this word has an example sentence
     const hasSentence = Boolean(current.exampleSentence);
     btnSentence.classList.toggle('hidden', !hasSentence);
-    btnSentence.classList.toggle('flex', hasSentence);
+    btnSentence.classList.toggle('inline-flex', hasSentence);
 
     showScreen(screenQuestion);
     requestAnimationFrame(() => answerInput.focus());
 
-    speech.speakWord(current.word, speechOptions());
+    // Cancel any pending sentence from the previous word, then speak this word.
+    // After a short natural pause, auto-speak the sentence if one exists.
+    cancelPendingSentence();
+    speech.cancelSpeech();
+
+    const result = speech.speakWord(current.word, speechOptions());
+    if (!result.ok) {
+      answerError.textContent = 'Audio is not available right now. Try "Hear word again", or check your device sound.';
+    } else if (hasSentence) {
+      sentenceTimeout = setTimeout(() => {
+        sentenceTimeout = null;
+        speech.speakWord(current.exampleSentence!, speechOptions());
+      }, 700);
+    }
   }
 
   function renderFeedback(): void {
@@ -598,6 +616,10 @@ import SiteHeader from '@/components/SiteHeader.astro';
       return;
     }
 
+    // Cancel any pending auto-sentence before showing feedback
+    cancelPendingSentence();
+    speech.cancelSpeech();
+
     state = spellingTestReducer(state, submitAnswer(answer, Date.now()));
     renderFeedback();
   }
@@ -611,34 +633,20 @@ import SiteHeader from '@/components/SiteHeader.astro';
   // which would replay whatever was last spoken (could be a sentence).
   btnRepeat.addEventListener('click', () => {
     const word = state.words[state.currentIndex]?.word;
-    if (word) speech.speakWord(word, speechOptions());
-  });
-
-  // Speed toggle — cycles through three presets so parents can adjust mid-session
-  // without opening the settings panel. Stays in sync with the speed-range slider.
-  const SPEED_PRESETS = [0.5, 0.75, 1.0, 1.25];
-  let speedPresetIndex = 2;
-
-  function formatSpeed(rate: number): string {
-    if (rate === 0.5)  return '0.5×';
-    if (rate === 0.75) return '0.75×';
-    if (rate === 1.0)  return '1×';
-    return '1.25×';
-  }
-
-  btnSpeed.addEventListener('click', () => {
-    speedPresetIndex = (speedPresetIndex + 1) % SPEED_PRESETS.length;
-    currentRate = SPEED_PRESETS[speedPresetIndex];
-    btnSpeedLabel.textContent = `Speed ${formatSpeed(currentRate)}`;
-    btnSpeed.setAttribute('aria-label', `Change playback speed (current: ${formatSpeed(currentRate)})`);
-    // Keep the settings panel slider in sync if it's ever opened
-    speedRange.value = String(currentRate);
-    speedLabel.textContent = `${currentRate.toFixed(2).replace(/0$/, '')}×`;
+    if (word) {
+      cancelPendingSentence();
+      speech.cancelSpeech();
+      speech.speakWord(word, speechOptions());
+    }
   });
 
   btnSentence.addEventListener('click', () => {
     const sentence = state.words[state.currentIndex]?.exampleSentence;
-    if (sentence) speech.speakWord(sentence, speechOptions());
+    if (sentence) {
+      cancelPendingSentence();
+      speech.cancelSpeech();
+      speech.speakWord(sentence, speechOptions());
+    }
   });
 
   answerInput.addEventListener('keydown', (e) => {
@@ -648,6 +656,8 @@ import SiteHeader from '@/components/SiteHeader.astro';
   btnSubmit.addEventListener('click', handleSubmit);
 
   btnNext.addEventListener('click', () => {
+    cancelPendingSentence();
+    speech.cancelSpeech();
     state = spellingTestReducer(state, nextWord(Date.now()));
     if (state.status === 'awaitingAnswer') {
       renderQuestion();

@@ -168,7 +168,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
           <!-- Instruction and answer area -->
           <div class="flex flex-col gap-4">
             <h1 id="question-heading" class="sr-only">Type the word you hear</h1>
-            <p id="question-instruction" class="text-base font-medium text-ink leading-relaxed min-h-[1.5rem]"></p>
+            <p id="question-instruction" class="text-base font-medium text-ink leading-relaxed"></p>
 
             <!-- Answer input -->
             <div class="flex flex-col gap-2">
@@ -180,7 +180,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
                 autocapitalize="off"
                 spellcheck="false"
                 placeholder="Type the word"
-                class="w-full rounded-2xl border border-line bg-white px-5 py-4 font-word text-3xl font-semibold text-ink tracking-wide placeholder:text-ink-faint/50 transition focus:border-brand-blue/50 focus:outline-none focus:ring-2 focus:ring-brand-blue/15 focus:shadow-[inset_0_1px_4px_rgba(0,0,0,0.04)]"
+                class="w-full rounded-2xl border border-line bg-white px-5 py-4 font-word text-3xl font-semibold text-ink tracking-wide placeholder:font-normal placeholder:text-ink-faint/50 transition focus:border-brand-blue/50 focus:outline-none focus:ring-2 focus:ring-brand-blue/15 focus:shadow-[inset_0_1px_4px_rgba(0,0,0,0.04)]"
                 aria-label="Your answer"
               />
               <p
@@ -191,8 +191,8 @@ import SiteHeader from '@/components/SiteHeader.astro';
               ></p>
             </div>
 
-            <!-- Audio controls — clearly clickable, secondary to submit -->
-            <div class="flex items-center gap-2 flex-wrap">
+            <!-- Audio controls — centered, clearly clickable, secondary to submit -->
+            <div class="flex items-center justify-center gap-2 flex-wrap">
               <!-- Hear word again — primary audio control -->
               <button
                 id="btn-repeat"
@@ -208,11 +208,11 @@ import SiteHeader from '@/components/SiteHeader.astro';
                 Hear word again
               </button>
 
-              <!-- Hear sentence again — secondary; only shown when sentence exists -->
+              <!-- Hear sentence again — only shown when sentence exists -->
               <button
                 id="btn-sentence"
                 type="button"
-                class="hidden items-center gap-2 rounded-xl border border-line bg-white px-4 py-2 text-sm font-semibold text-ink-soft transition hover:bg-app-paper hover:border-ink-soft/40 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
+                class="hidden items-center gap-2 rounded-xl border border-line bg-white px-4 py-2 text-sm font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
                 aria-label="Hear the word used in a sentence again"
               >
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -220,6 +220,9 @@ import SiteHeader from '@/components/SiteHeader.astro';
                 </svg>
                 Hear sentence again
               </button>
+
+              <!-- Shown only when no example sentence exists for this word -->
+              <p id="no-sentence-note" class="hidden w-full text-center text-xs text-ink-faint" aria-live="polite">No sentence available for this word.</p>
             </div>
           </div>
         </div>
@@ -365,6 +368,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const btnBegin = $('btn-begin') as HTMLButtonElement;
   const btnRepeat = $('btn-repeat') as HTMLButtonElement;
   const btnSentence = $('btn-sentence') as HTMLButtonElement;
+  const noSentenceNote = $('no-sentence-note');
   const btnSubmit = $('btn-submit') as HTMLButtonElement;
   const btnNext = $('btn-next') as HTMLButtonElement;
   const btnRetry = $('btn-retry') as HTMLButtonElement;
@@ -525,6 +529,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
     const hasSentence = Boolean(current.exampleSentence);
     btnSentence.classList.toggle('hidden', !hasSentence);
     btnSentence.classList.toggle('inline-flex', hasSentence);
+    noSentenceNote.classList.toggle('hidden', hasSentence);
 
     showScreen(screenQuestion);
     requestAnimationFrame(() => answerInput.focus());

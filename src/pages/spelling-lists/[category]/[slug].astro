@@ -4,12 +4,11 @@ import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
-import ListMetadataBadges from '@/components/ListMetadataBadges.astro';
 import WordListPreview from '@/components/WordListPreview.astro';
 import RelatedListCards from '@/components/RelatedListCards.astro';
 import SourceAttribution from '@/components/SourceAttribution.astro';
 import { isPublished, resolveListRefs, toPlayableWords, getListCollection } from '@/lib/content/spellingLists';
-import { categoryLabels } from '@/lib/content/categoryMeta';
+import { categoryLabels, difficultyLabels } from '@/lib/content/categoryMeta';
 import { getListPath } from '@/lib/content/learningPaths';
 
 export async function getStaticPaths() {
@@ -43,6 +42,7 @@ function listLink(e: (typeof allEntries)[number]) {
 }
 
 const categoryLabel = categoryLabels[data.category] ?? data.category;
+const difficultyLabel = difficultyLabels[data.difficulty] ?? data.difficulty;
 const listPath = getListPath(data.id);
 const listCollection = getListCollection(data.id, allCollections);
 
@@ -65,6 +65,9 @@ const breadcrumbJsonLd = {
     ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
   })),
 };
+
+const gradeDisplay = data.grade ? (data.grade === 'K' ? 'Kindergarten' : `Grade ${data.grade}`) : null;
+const durationDisplay = `About ${data.estimatedDurationMinutes} ${data.estimatedDurationMinutes === 1 ? 'minute' : 'minutes'}`;
 ---
 
 <Layout
@@ -76,90 +79,170 @@ const breadcrumbJsonLd = {
   <SiteHeader variant="discovery" currentPath="/spelling-lists" />
 
   <main id="main-content">
-    <section class="mx-auto max-w-3xl px-6 py-12 md:py-16">
-      <div class="mb-4">
+    <article class="mx-auto max-w-3xl px-6 py-12 md:py-16">
+
+      <!-- Breadcrumbs -->
+      <div class="mb-6">
         <Breadcrumbs items={breadcrumbItems} />
       </div>
 
-      <div class="flex flex-col gap-3">
+      <!-- List identity -->
+      <header class="mb-6">
+        <div class="mb-2 flex flex-wrap items-center gap-2">
+          {gradeDisplay && (
+            <span class="rounded-full border border-line bg-app-cloud px-2.5 py-0.5 text-xs font-semibold text-ink-soft">
+              {gradeDisplay}
+            </span>
+          )}
+          <span class="rounded-full border border-line bg-app-cloud px-2.5 py-0.5 text-xs font-semibold text-ink-soft">
+            {categoryLabel}
+          </span>
+        </div>
         <h1 class="font-display text-2xl font-semibold text-ink md:text-3xl">{data.title}</h1>
-        <p class="max-w-2xl text-base leading-relaxed text-ink-soft">{data.description}</p>
-        {data.shortAnswer && (
-          <p class="max-w-2xl rounded-xl border border-brand-blue/20 bg-brand-blue/5 px-4 py-3 text-sm leading-relaxed text-ink-soft">
+        <p class="mt-2 max-w-2xl text-base leading-relaxed text-ink-soft">{data.description}</p>
+      </header>
+
+      <!-- Trust ribbon -->
+      <div
+        class="mb-8 flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-t border-line py-3 text-xs font-semibold text-ink-soft"
+        aria-label="List details"
+      >
+        <span>Curated list</span>
+        <span aria-hidden="true" class="text-line">·</span>
+        <span>Audio supported</span>
+        <span aria-hidden="true" class="text-line">·</span>
+        <span>{data.words.length} {data.words.length === 1 ? 'word' : 'words'}</span>
+        <span aria-hidden="true" class="text-line">·</span>
+        <span>{durationDisplay}</span>
+        {gradeDisplay && (
+          <>
+            <span aria-hidden="true" class="text-line">·</span>
+            <span>{gradeDisplay}</span>
+          </>
+        )}
+        <span aria-hidden="true" class="text-line">·</span>
+        <span>{difficultyLabel}</span>
+      </div>
+
+      <!-- Educational introduction -->
+      <section class="mb-8" aria-labelledby="intro-heading">
+        <h2 id="intro-heading" class="sr-only">About this list</h2>
+        {data.shortAnswer ? (
+          <p class="max-w-2xl rounded-xl border border-brand-blue/20 bg-brand-blue/5 px-5 py-4 text-sm leading-relaxed text-ink">
             {data.shortAnswer}
           </p>
-        )}
-      </div>
+        ) : null}
 
-      <div class="mt-5">
-        <ListMetadataBadges
-          category={data.category}
-          difficulty={data.difficulty}
-          durationMinutes={data.estimatedDurationMinutes}
-          wordCount={data.words.length}
-          wordCountLabel={`${data.words.length} words in this collection`}
-        />
-      </div>
-
-      <!-- Collection indicator -->
-      {listCollection && (
-        <div class="mt-5 inline-flex items-center gap-2 rounded-lg border border-line bg-app-cloud px-3 py-2 text-sm text-ink-soft">
-          <span aria-hidden="true">📚</span>
-          <span>Part of the <a href={`/spelling-lists/collections/${listCollection.data.urlSlug}`} class="font-semibold text-ink hover:text-brand-blue hover:underline">{listCollection.data.title}</a></span>
+        <!-- Collection / learning path context -->
+        <div class="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+          {listCollection && (
+            <div class="inline-flex items-center gap-2 rounded-lg border border-line bg-app-cloud px-3 py-2 text-sm text-ink-soft">
+              <span>Part of the{' '}
+                <a
+                  href={`/spelling-lists/collections/${listCollection.data.urlSlug}`}
+                  class="font-semibold text-ink hover:text-brand-blue hover:underline"
+                >
+                  {listCollection.data.title}
+                </a>
+                {' '}collection
+              </span>
+            </div>
+          )}
+          {listPath && (
+            <div class="inline-flex items-center gap-2 rounded-lg border border-line bg-app-cloud px-3 py-2 text-sm text-ink-soft">
+              <span>Part of the{' '}
+                <a href="/spelling-lists" class="font-semibold text-ink hover:text-brand-blue hover:underline">
+                  {listPath.title}
+                </a>
+                {' '}learning path
+              </span>
+            </div>
+          )}
         </div>
-      )}
+      </section>
 
-      <!-- Learning path indicator -->
-      {listPath && (
-        <div class="mt-5 inline-flex items-center gap-2 rounded-lg border border-line bg-app-cloud px-3 py-2 text-sm text-ink-soft">
-          <span aria-hidden="true">↗</span>
-          <span>Part of the <a href="/spelling-lists" class="font-semibold text-ink hover:text-brand-blue hover:underline">{listPath.title}</a></span>
-        </div>
-      )}
-
-      <!-- Practice options -->
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">
-        <button
-          id="btn-start-test"
-          type="button"
-          data-words={quickPracticeWordsJson}
-          class="flex-1 rounded-full bg-brand-blue px-7 py-4 text-base font-bold text-white shadow-[0_8px_24px_-8px_rgba(47,111,237,0.45)] transition hover:bg-brand-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97] sm:flex-none"
-          aria-label={`Start a ${quickPracticeWords.length}-word spelling practice session for ${data.title}`}
-        >
-          Start Spelling Test ({quickPracticeWords.length} words) →
-        </button>
-        {showFullCollectionOption && (
+      <!-- Practice CTA -->
+      <section class="mb-10" aria-labelledby="practice-heading">
+        <h2 id="practice-heading" class="mb-4 font-display text-lg font-semibold text-ink">
+          Ready to practice?
+        </h2>
+        <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <button
-            id="btn-start-full-list"
+            id="btn-start-test"
             type="button"
-            data-words={fullCollectionWordsJson}
-            class="flex-1 rounded-full border-2 border-brand-blue bg-white px-7 py-4 text-base font-bold text-brand-blue transition hover:bg-brand-blue/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97] sm:flex-none"
-            aria-label={`Practice all ${playWords.length} words in ${data.title}`}
+            data-words={quickPracticeWordsJson}
+            class="flex-1 rounded-full bg-brand-blue px-7 py-4 text-base font-bold text-white shadow-[0_8px_24px_-8px_rgba(47,111,237,0.45)] transition hover:bg-brand-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97] sm:flex-none"
+            aria-label={`Start a ${quickPracticeWords.length}-word spelling practice session for ${data.title}`}
           >
-            Practice all {playWords.length} words
+            Start Practice — {quickPracticeWords.length} words
           </button>
-        )}
-        <span
-          class="flex-1 rounded-full px-7 py-4 text-center text-base font-semibold text-ink-soft/50 sm:flex-none"
-          aria-hidden="true"
-        >
-          Print Worksheet
-        </span>
-      </div>
-      <p class="mt-2 max-w-2xl text-sm text-ink-soft">
-        This collection has {playWords.length} words total. A practice session is a shorter set of {quickPracticeWords.length} words — a more comfortable size for one sitting.
-      </p>
-      <p id="start-test-status" class="mt-2 text-xs text-feedback-incorrect" aria-live="polite" aria-atomic="true"></p>
+          {showFullCollectionOption && (
+            <button
+              id="btn-start-full-list"
+              type="button"
+              data-words={fullCollectionWordsJson}
+              class="flex-1 rounded-full border-2 border-brand-blue bg-white px-7 py-4 text-base font-bold text-brand-blue transition hover:bg-brand-blue/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97] sm:flex-none"
+              aria-label={`Practice all ${playWords.length} words in ${data.title}`}
+            >
+              Practice all {playWords.length} words
+            </button>
+          )}
+        </div>
+        <p class="mt-3 max-w-xl text-sm text-ink-soft">
+          {showFullCollectionOption
+            ? `A standard session is ${quickPracticeWords.length} words — a comfortable amount for one sitting. You can also practice all ${playWords.length} words at once.`
+            : `Each session practices all ${playWords.length} words. No timer, no score — just spelling.`}
+        </p>
+        <p id="start-test-status" class="mt-2 text-xs text-feedback-incorrect" aria-live="polite" aria-atomic="true"></p>
+      </section>
 
-      <!-- Word preview -->
-      <div class="mt-10">
+      <!-- Word list -->
+      <section class="mb-10" aria-labelledby="word-list-heading">
+        <h2 id="word-list-heading" class="mb-3 font-display text-lg font-semibold text-ink">
+          All {data.words.length} words in this list
+        </h2>
         <WordListPreview words={data.words} />
-      </div>
+      </section>
 
-      <!-- What this list practices -->
+      <!-- How to use this list -->
+      <section class="mb-10" aria-labelledby="how-to-use-heading">
+        <h2 id="how-to-use-heading" class="mb-3 font-display text-lg font-semibold text-ink">
+          How to use this list
+        </h2>
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div class="rounded-xl border border-line bg-app-cloud px-4 py-3">
+            <p class="text-sm font-semibold text-ink">Weekly spelling homework</p>
+            <p class="mt-1 text-xs leading-relaxed text-ink-soft">
+              Assign the list Monday, practice mid-week, and test on Friday. A session takes about {data.estimatedDurationMinutes} minutes.
+            </p>
+          </div>
+          <div class="rounded-xl border border-line bg-app-cloud px-4 py-3">
+            <p class="text-sm font-semibold text-ink">Five-minute warm-up</p>
+            <p class="mt-1 text-xs leading-relaxed text-ink-soft">
+              Start or end a reading session with a quick run through a few words. No pressure, no score.
+            </p>
+          </div>
+          <div class="rounded-xl border border-line bg-app-cloud px-4 py-3">
+            <p class="text-sm font-semibold text-ink">Classroom practice</p>
+            <p class="mt-1 text-xs leading-relaxed text-ink-soft">
+              Project on a screen and work through words together, or let students practice independently at their own pace.
+            </p>
+          </div>
+          <div class="rounded-xl border border-line bg-app-cloud px-4 py-3">
+            <p class="text-sm font-semibold text-ink">Homeschool</p>
+            <p class="mt-1 text-xs leading-relaxed text-ink-soft">
+              Weave into your language arts rotation. The word list is always visible so children can study before they practice.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skill tags -->
       {data.skillTags.length > 0 && (
-        <div class="mt-8">
-          <h2 class="mb-3 font-display text-base font-semibold text-ink">What this list practices</h2>
+        <section class="mb-8" aria-labelledby="skill-tags-heading">
+          <h2 id="skill-tags-heading" class="mb-3 font-display text-base font-semibold text-ink">
+            What this list practices
+          </h2>
           <div class="flex flex-wrap gap-2">
             {data.skillTags.map((tag) => (
               <span class="rounded-full border border-line bg-app-cloud px-3 py-1 text-xs font-semibold text-ink-soft">
@@ -167,21 +250,38 @@ const breadcrumbJsonLd = {
               </span>
             ))}
           </div>
-        </div>
+        </section>
       )}
 
-      <!-- Why these words matter -->
-      <div class="prose prose-sm mt-8 max-w-2xl text-ink-soft">
-        <h2 class="mb-3 font-display text-base font-semibold text-ink">Why these words matter</h2>
-        <Content />
-      </div>
+      <!-- Why these words matter (markdown body) -->
+      <section class="mb-10" aria-labelledby="why-heading">
+        <h2 id="why-heading" class="mb-3 font-display text-lg font-semibold text-ink">
+          Why these words matter
+        </h2>
+        <div class="prose prose-sm max-w-2xl text-ink-soft">
+          <Content />
+        </div>
+      </section>
+
+      <!-- Learning progression -->
+      {(prerequisites.length > 0 || related.length > 0 || next.length > 0) && (
+        <section class="mb-10" aria-labelledby="progression-heading">
+          <h2 id="progression-heading" class="mb-1 font-display text-lg font-semibold text-ink">
+            Learning progression
+          </h2>
+          <p class="mb-5 text-sm text-ink-soft">
+            Spelling is cumulative. These lists build on each other — work through them in order for the best results.
+          </p>
+          <RelatedListCards heading="Before this list" items={prerequisites} listLink={listLink} />
+          <RelatedListCards heading="Related lists" items={related} listLink={listLink} />
+          <RelatedListCards heading="After this list" items={next} listLink={listLink} />
+        </section>
+      )}
 
       <SourceAttribution source={data.canonicalSource} />
 
-      <RelatedListCards heading="Prerequisite lists" items={prerequisites} listLink={listLink} />
-      <RelatedListCards heading="Related lists" items={related} listLink={listLink} />
-      <RelatedListCards heading="Where to go next" items={next} listLink={listLink} />
-    </section>
+      <!-- Future ad placement: below source attribution, above footer -->
+    </article>
   </main>
 
   <SiteFooter />

@@ -58,6 +58,15 @@ const breadcrumbItems = [
   { label: 'Spelling Lists Library' },
 ];
 
+const gradeHubSlugs: Record<string, string> = {
+  K: 'kindergarten',
+  '1': '1st-grade',
+  '2': '2nd-grade',
+  '3': '3rd-grade',
+  '4': '4th-grade',
+  '5': '5th-grade',
+};
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
 
 const breadcrumbJsonLd = {
@@ -112,10 +121,10 @@ const breadcrumbJsonLd = {
         <div class="flex flex-wrap gap-2" role="list">
           {gradeConfig.map(({ grade, label }) => {
             const hasContent = gradeSections.some((s) => s.grade === grade);
-            const anchor = `#grade-${grade}`;
+            const hubHref = `/spelling-lists/${gradeHubSlugs[grade]}`;
             return hasContent ? (
               <a
-                href={anchor}
+                href={hubHref}
                 role="listitem"
                 class="inline-flex items-center rounded-xl border border-brand-blue/30 bg-brand-blue/5 px-4 py-2 text-sm font-semibold text-brand-blue transition hover:bg-brand-blue/10 hover:border-brand-blue/50"
               >

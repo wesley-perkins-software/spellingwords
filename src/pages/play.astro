@@ -17,7 +17,9 @@ import SiteHeader from '@/components/SiteHeader.astro';
       <!-- Error screen -->
       <section id="screen-error" class="hidden text-center" aria-labelledby="error-heading">
         <div class="flex flex-col items-center gap-6">
-          <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-feedback-incorrect/10 text-3xl text-feedback-incorrect" aria-hidden="true">✗</div>
+          <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-feedback-incorrect/10 text-feedback-incorrect" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </div>
           <div class="flex flex-col gap-2">
             <h1 id="error-heading" class="font-display text-2xl font-semibold text-ink">
               No word list found
@@ -36,7 +38,9 @@ import SiteHeader from '@/components/SiteHeader.astro';
       <!-- Unsupported browser screen -->
       <section id="screen-unsupported" class="hidden text-center" aria-labelledby="unsupported-heading">
         <div class="flex flex-col items-center gap-6">
-          <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-chip-sun/15 text-3xl" aria-hidden="true">🔇</div>
+          <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-chip-sun/15 text-ink-soft" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+          </div>
           <div class="flex flex-col gap-2">
             <h1 id="unsupported-heading" class="font-display text-2xl font-semibold text-ink">
               Audio not supported
@@ -64,7 +68,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
         <div class="flex flex-col gap-6">
           <!-- Session card -->
           <div class="rounded-2xl border border-line bg-app-cloud px-7 py-7">
-            <h1 id="begin-heading" class="font-display text-2xl font-semibold text-ink mb-3">
+            <h1 id="begin-heading" class="font-display text-3xl font-bold text-ink mb-3">
               Ready to practice?
             </h1>
             <p id="begin-word-count-prose" class="text-base leading-relaxed text-ink mb-4"></p>
@@ -95,13 +99,14 @@ import SiteHeader from '@/components/SiteHeader.astro';
               type="button"
               aria-expanded="false"
               aria-controls="voice-settings-panel"
-              class="text-left text-sm font-semibold text-ink-soft transition-colors hover:text-ink"
+              class="flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-ink-soft"
             >
-              ▾ Session settings
+              <svg id="voice-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              Session settings
             </button>
             <div
               id="voice-settings-panel"
-              class="hidden mt-4 rounded-2xl border border-line bg-white p-5 flex flex-col gap-4"
+              class="hidden mt-4 rounded-2xl border border-line bg-app-cloud p-5 flex flex-col gap-4"
               role="group"
               aria-label="Session settings"
             >
@@ -130,7 +135,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
               <button
                 id="btn-test-voice"
                 type="button"
-                class="self-start rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink-soft transition-colors hover:border-brand-red/40 hover:text-brand-red"
+                class="self-start rounded-full border border-line bg-app-paper px-4 py-2 text-sm font-semibold text-ink-soft transition-colors hover:border-brand-red/40 hover:text-brand-red"
               >
                 Preview voice
               </button>
@@ -161,7 +166,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
               aria-atomic="true"
             ></p>
             <div class="h-1 rounded-full bg-line overflow-hidden">
-              <div id="progress-bar" class="h-full rounded-full bg-brand-red/50 transition-[width] duration-400" style="width: 0%"></div>
+              <div id="progress-bar" class="h-full rounded-full bg-brand-red/70 transition-[width] duration-400" style="width: 0%"></div>
             </div>
           </div>
 
@@ -198,7 +203,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
                 <button
                   id="btn-repeat"
                   type="button"
-                  class="inline-flex items-center gap-2 rounded-xl border border-line bg-white px-5 py-3 text-base font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
+                  class="inline-flex items-center gap-2 rounded-xl border border-line bg-white px-5 py-3.5 text-base font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
                   aria-label="Hear the word again"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -213,7 +218,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
                 <button
                   id="btn-sentence"
                   type="button"
-                  class="hidden items-center gap-2 rounded-xl border border-line bg-white px-5 py-3 text-base font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
+                  class="hidden items-center gap-2 rounded-xl border border-line bg-white px-5 py-3.5 text-base font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
                   aria-label="Hear the word used in a sentence again"
                 >
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -275,7 +280,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
             </h1>
             <p id="results-summary" class="mt-4 text-xl font-medium text-ink"></p>
             <p id="results-missed-summary" class="mt-2 text-lg text-ink"></p>
-            <p id="results-score" class="mt-4 text-sm text-ink-soft/70"></p>
+            <p id="results-score" class="mt-4 text-sm text-ink-soft"></p>
           </div>
 
           <!-- Missed words — the heart of the results screen; hidden when nothing was missed -->
@@ -305,7 +310,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
             </button>
             <a
               href="/"
-              class="w-full rounded-full px-6 py-3.5 text-center text-base font-semibold text-ink-soft transition hover:bg-app-cloud hover:text-ink"
+              class="w-full rounded-full border-2 border-line px-6 py-3.5 text-center text-base font-semibold text-ink-soft transition hover:bg-app-cloud hover:text-ink"
             >
               Enter New Words
             </a>
@@ -379,6 +384,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
   // Voice controls
   const btnVoiceToggle = $('btn-voice-toggle') as HTMLButtonElement;
+  const voiceToggleChevron = $('voice-toggle-chevron');
   const voiceSettingsPanel = $('voice-settings-panel');
   const voiceNameDisplay = $('voice-name-display');
   const speedRange = $('speed-range') as HTMLInputElement;
@@ -408,7 +414,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
   // A calm adult helping a child — not a scoreboard. We rotate through these
   // so the same phrase doesn't land twice in a row and start to feel canned.
   const CORRECT_PHRASES = ['Well spelled.', 'Good listening.', "That's it exactly.", 'Nice work.', "You've got it."];
-  const INCORRECT_PHRASES = ['A good attempt.', "That's a tricky one.", 'Close — good effort.', 'Good try.', "Let's come back to this one."];
+  const INCORRECT_PHRASES = ['A good attempt.', "That's a tricky one.", 'Close — good effort.', 'Good try.', 'Nearly there.'];
 
   let lastCorrectPhrase = -1;
   let lastIncorrectPhrase = -1;
@@ -501,7 +507,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
     const count = originalWords.length;
     beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
     ($('begin-word-count-prose') as HTMLElement).textContent =
-      `${count} ${count === 1 ? 'word' : 'words'} are waiting.`;
+      `${count} ${count === 1 ? 'word' : 'words'} ready to practice.`;
     showScreen(screenBegin);
 
     // Load voices in the background — does not require a user gesture
@@ -557,7 +563,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
       // Large soft circular badge — calm and satisfying, not celebratory.
       // SVG check is bigger and more refined than an emoji glyph.
       feedbackIcon.innerHTML = `<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
-      feedbackIcon.className = 'flex h-32 w-32 items-center justify-center rounded-full bg-feedback-correct/25 text-feedback-correct';
+      feedbackIcon.className = 'flex h-32 w-32 items-center justify-center rounded-full bg-feedback-correct/20 ring-2 ring-inset ring-feedback-correct/25 text-feedback-correct';
       feedbackHeading.textContent = pickPhrase(CORRECT_PHRASES, lastCorrectPhrase, (i) => (lastCorrectPhrase = i));
       feedbackHeading.className = 'font-display text-3xl font-semibold text-feedback-correct';
       feedbackWord.textContent = '';
@@ -572,7 +578,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
       feedbackHeading.className = 'font-display text-xl font-semibold text-feedback-incorrect';
       feedbackWord.textContent = currentWord;
       feedbackWord.classList.remove('hidden');
-      feedbackDetail.textContent = "We'll practice this one again later.";
+      feedbackDetail.textContent = "We'll come back to this one.";
     }
 
     const isLast = state.currentIndex === state.words.length - 1;
@@ -683,7 +689,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
     const count = originalWords.length;
     beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
     ($('begin-word-count-prose') as HTMLElement).textContent =
-      `${count} ${count === 1 ? 'word' : 'words'} are waiting.`;
+      `${count} ${count === 1 ? 'word' : 'words'} ready to practice.`;
     showScreen(screenBegin);
   });
 
@@ -697,7 +703,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
   btnVoiceToggle.addEventListener('click', () => {
     const open = voiceSettingsPanel.classList.toggle('hidden') === false;
     btnVoiceToggle.setAttribute('aria-expanded', String(open));
-    btnVoiceToggle.textContent = open ? '▴ Session settings' : '▾ Session settings';
+    voiceToggleChevron.classList.toggle('rotate-180', open);
   });
 
   speedRange.addEventListener('input', () => {

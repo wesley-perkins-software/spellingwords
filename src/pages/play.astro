@@ -147,31 +147,31 @@ import SiteHeader from '@/components/SiteHeader.astro';
       <!-- Question screen
            Uses CSS grid (1fr auto) with a shared min-height so the Submit Answer button
            always occupies the same vertical slot as the Next Word button in the feedback screen. -->
-      <section id="screen-question" class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[520px]" aria-labelledby="question-heading">
+      <section id="screen-question" class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[460px]" aria-labelledby="question-heading">
 
         <!-- Practice Tray — the focused workbook surface -->
-        <div class="rounded-3xl border border-line bg-app-cloud shadow-card px-6 py-10 md:px-10 md:py-12 flex flex-col gap-10">
+        <div class="rounded-3xl border border-line bg-app-cloud shadow-card px-7 py-8 md:px-8 md:py-9 flex flex-col gap-6">
 
-          <!-- Progress — quiet positional label, not a score bar -->
-          <div class="flex flex-col gap-1.5">
+          <!-- Progress — readable but calm; informational not pressure -->
+          <div class="flex flex-col gap-2">
             <p
               id="progress"
-              class="font-sans text-xs font-medium tracking-widest uppercase text-ink-faint"
+              class="font-sans text-sm font-semibold text-ink"
               aria-live="polite"
               aria-atomic="true"
             ></p>
-            <div class="h-px rounded-full bg-line overflow-hidden">
-              <div id="progress-bar" class="h-full rounded-full bg-ink-faint/50 transition-[width] duration-500" style="width: 0%"></div>
+            <div class="h-1 rounded-full bg-line overflow-hidden">
+              <div id="progress-bar" class="h-full rounded-full bg-brand-red/50 transition-[width] duration-400" style="width: 0%"></div>
             </div>
           </div>
 
-          <!-- Practice area: instruction → ruled input → audio footnotes -->
-          <div class="flex flex-col gap-6">
+          <!-- Instruction and answer area -->
+          <div class="flex flex-col gap-4">
             <h1 id="question-heading" class="sr-only">Type the word you hear</h1>
-            <p id="question-instruction" class="text-sm leading-relaxed text-ink-faint min-h-[1.25rem]"></p>
+            <p id="question-instruction" class="text-base font-medium text-ink leading-relaxed min-h-[1.5rem]"></p>
 
-            <!-- Ruled-line input — the sentence strip -->
-            <div class="flex flex-col gap-1">
+            <!-- Answer input -->
+            <div class="flex flex-col gap-2">
               <input
                 id="answer-input"
                 type="text"
@@ -180,7 +180,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
                 autocapitalize="off"
                 spellcheck="false"
                 placeholder="Type the word"
-                class="w-full border-0 border-b-2 border-cream-deep bg-transparent px-1 py-3 font-word text-4xl font-semibold text-ink tracking-wide placeholder:text-ink-faint/40 transition-colors focus:border-ink-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-ink-soft/20 focus-visible:ring-offset-2 focus-visible:ring-offset-app-cloud"
+                class="w-full rounded-2xl border border-line bg-white px-5 py-4 font-word text-3xl font-semibold text-ink tracking-wide placeholder:text-ink-faint/50 transition focus:border-brand-blue/50 focus:outline-none focus:ring-2 focus:ring-brand-blue/15 focus:shadow-[inset_0_1px_4px_rgba(0,0,0,0.04)]"
                 aria-label="Your answer"
               />
               <p
@@ -191,13 +191,13 @@ import SiteHeader from '@/components/SiteHeader.astro';
               ></p>
             </div>
 
-            <!-- Audio footnotes — secondary, borderless text actions -->
-            <div class="flex items-center gap-4 flex-wrap pt-1">
-              <!-- Hear word again — primary audio action -->
+            <!-- Audio controls — clearly clickable, secondary to submit -->
+            <div class="flex items-center gap-2 flex-wrap">
+              <!-- Hear word again — primary audio control -->
               <button
                 id="btn-repeat"
                 type="button"
-                class="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-soft transition hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30 rounded"
+                class="inline-flex items-center gap-2 rounded-xl border border-line bg-white px-4 py-2 text-sm font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
                 aria-label="Hear the word again"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -212,7 +212,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
               <button
                 id="btn-sentence"
                 type="button"
-                class="hidden items-center gap-1.5 text-sm font-medium text-ink-faint transition hover:text-ink-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30 rounded"
+                class="hidden items-center gap-2 rounded-xl border border-line bg-white px-4 py-2 text-sm font-semibold text-ink-soft transition hover:bg-app-paper hover:border-ink-soft/40 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
                 aria-label="Hear the word used in a sentence again"
               >
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -237,7 +237,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
       <!-- Feedback screen
            Shares the same grid layout and min-height as the question screen so Next Word
            lands at the same vertical position as Submit Answer. -->
-      <section id="screen-feedback" class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[520px] text-center" aria-labelledby="feedback-heading" aria-live="assertive">
+      <section id="screen-feedback" class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[460px] text-center" aria-labelledby="feedback-heading" aria-live="assertive">
         <div class="flex flex-col items-center justify-center gap-6">
           <!-- Icon — shown for correct; hidden for incorrect so the word takes focus -->
           <div id="feedback-icon" class="flex h-20 w-20 items-center justify-center rounded-2xl text-4xl" aria-hidden="true"></div>

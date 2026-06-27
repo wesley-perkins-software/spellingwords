@@ -192,37 +192,39 @@ import SiteHeader from '@/components/SiteHeader.astro';
             </div>
 
             <!-- Audio controls — centered, clearly clickable, secondary to submit -->
-            <div class="flex items-center justify-center gap-2 flex-wrap">
-              <!-- Hear word again — primary audio control -->
-              <button
-                id="btn-repeat"
-                type="button"
-                class="inline-flex items-center gap-2 rounded-xl border border-line bg-white px-4 py-2 text-sm font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
-                aria-label="Hear the word again"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-                </svg>
-                Hear word again
-              </button>
+            <div class="flex flex-col items-center gap-3">
+              <div class="flex items-center justify-center gap-2 flex-wrap">
+                <!-- Hear word again — primary audio control -->
+                <button
+                  id="btn-repeat"
+                  type="button"
+                  class="inline-flex items-center gap-2 rounded-xl border border-line bg-white px-5 py-3 text-base font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
+                  aria-label="Hear the word again"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                  </svg>
+                  Hear word again
+                </button>
 
-              <!-- Hear sentence again — only shown when sentence exists -->
-              <button
-                id="btn-sentence"
-                type="button"
-                class="hidden items-center gap-2 rounded-xl border border-line bg-white px-4 py-2 text-sm font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
-                aria-label="Hear the word used in a sentence again"
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                </svg>
-                Hear sentence again
-              </button>
+                <!-- Hear sentence again — only shown when sentence exists -->
+                <button
+                  id="btn-sentence"
+                  type="button"
+                  class="hidden items-center gap-2 rounded-xl border border-line bg-white px-5 py-3 text-base font-semibold text-ink transition hover:bg-app-paper hover:border-ink-soft/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ink/30"
+                  aria-label="Hear the word used in a sentence again"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  Hear sentence again
+                </button>
+              </div>
 
               <!-- Shown only when no example sentence exists for this word -->
-              <p id="no-sentence-note" class="hidden w-full text-center text-xs text-ink-faint" aria-live="polite">No sentence available for this word.</p>
+              <p id="no-sentence-note" class="hidden text-sm font-medium text-ink" aria-live="polite">No sentence available for this word.</p>
             </div>
           </div>
         </div>

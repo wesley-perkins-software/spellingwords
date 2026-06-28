@@ -292,36 +292,30 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
       <!-- Results screen -->
       <section id="screen-results" class="hidden" aria-labelledby="results-heading">
-        <div class="flex flex-col gap-6">
+        <div id="results-content" class="flex flex-col gap-6">
 
           <!-- Outcome zone -->
           <div class="text-center">
             <h1 id="results-heading" class="font-display text-4xl font-semibold text-ink leading-tight"></h1>
             <p id="results-summary" class="mt-3 text-xl font-medium text-ink"></p>
             <!-- Shown only for difficult sessions -->
-            <p id="results-reassurance" class="hidden mt-2 text-sm text-ink-soft">
-              Hard lists often take more than one try.
+            <p id="results-reassurance" class="hidden mt-2 text-sm text-ink">
+              Some words take a few tries to stick.
             </p>
           </div>
 
-          <!-- Missed words unit — chips + primary CTA in one card; hidden for perfect sessions -->
+          <!-- Missed words section — chips only, no button inside; hidden for perfect sessions -->
           <div id="results-missed-section" class="hidden rounded-3xl border border-line bg-app-cloud p-7 shadow-card">
-            <h2 class="font-display text-lg font-semibold text-ink">
+            <h2 id="results-missed-heading" class="font-display text-lg font-semibold text-ink">
               Let's work on these words together.
             </h2>
-            <ul id="results-missed-list" class="mt-4 mb-6 flex flex-wrap gap-3" aria-label="Words to practice again"></ul>
-            <button
-              id="btn-review-missed"
-              type="button"
-              class="w-full rounded-full bg-brand-red px-6 py-4 font-display text-lg font-semibold text-white shadow-btn-red transition hover:bg-brand-red-deep hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-red active:translate-y-0"
-            >
-              Practice these words
-            </button>
+            <ul id="results-missed-list" class="mt-4 flex flex-wrap gap-3" aria-label="Words to practice again"></ul>
+            <p id="results-missed-overflow" class="hidden mt-3 text-sm font-medium text-ink-soft"></p>
           </div>
 
-          <!-- Action zone -->
-          <div class="flex flex-col gap-2">
-            <!-- Perfect session primary: "Choose another list" -->
+          <!-- Action zone — populated and ordered by renderResults() -->
+          <div id="results-action-zone" class="flex flex-col gap-2">
+            <!-- Perfect session primary -->
             <a
               id="btn-choose-list"
               href="/spelling-lists"
@@ -330,16 +324,25 @@ import SiteHeader from '@/components/SiteHeader.astro';
               Choose another list
             </a>
 
-            <!-- Secondary: retry full list (always present; label changes per state) -->
+            <!-- Review missed — role (primary/secondary) and position set by JS -->
+            <button
+              id="btn-review-missed"
+              type="button"
+              class="hidden w-full rounded-full border border-line/60 bg-white px-6 py-3.5 text-base font-medium text-ink transition hover:bg-app-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink active:scale-[0.97]"
+            >
+              Practice missed words
+            </button>
+
+            <!-- Retry full list — role (primary/secondary) and label set by JS -->
             <button
               id="btn-retry"
               type="button"
-              class="w-full rounded-full border border-line/60 bg-transparent px-6 py-3.5 text-base font-medium text-ink transition hover:bg-app-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink active:scale-[0.97]"
+              class="w-full rounded-full border border-line/60 bg-white px-6 py-3.5 text-base font-medium text-ink transition hover:bg-app-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink active:scale-[0.97]"
             >
               Practice this list again
             </button>
 
-            <!-- Tertiary: choose another list — text link, shown only for missed-words state -->
+            <!-- Tertiary text link -->
             <a
               id="btn-home-link"
               href="/spelling-lists"
@@ -375,7 +378,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
     submitAnswer,
     nextWord,
     resetTest,
-    reviewMissed,
   } from '@/modules/spellingTest/stateMachine';
   import type { TestState } from '@/modules/spellingTest/types';
 
@@ -407,12 +409,14 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const feedbackDetail = $('feedback-detail');
   const progressBar = $('progress-bar') as HTMLElement;
   const sessionProgress = $('session-progress');
+  const resultsContent = $('results-content');
   const resultsReassurance = $('results-reassurance');
   const resultsSummary = $('results-summary');
   const resultsMissedSection = $('results-missed-section');
+  const resultsMissedHeading = $('results-missed-heading');
   const resultsMissedList = $('results-missed-list');
+  const resultsMissedOverflow = $('results-missed-overflow');
   const btnChooseList = $('btn-choose-list') as HTMLAnchorElement;
-  const btnHomeLink = $('btn-home-link');
   const btnBegin = $('btn-begin') as HTMLButtonElement;
   const btnRepeat = $('btn-repeat') as HTMLButtonElement;
   const btnSentence = $('btn-sentence') as HTMLButtonElement;
@@ -420,7 +424,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const btnSubmit = $('btn-submit') as HTMLButtonElement;
   const btnNext = $('btn-next') as HTMLButtonElement;
   const btnRetry = $('btn-retry') as HTMLButtonElement;
-  const btnReviewMissed = $('btn-review-missed') as HTMLButtonElement;
   const errorMessage = $('error-message');
 
   // Voice controls
@@ -456,9 +459,18 @@ import SiteHeader from '@/components/SiteHeader.astro';
   // so the same phrase doesn't land twice in a row and start to feel canned.
   const CORRECT_PHRASES = ['Well spelled.', 'Good listening.', "That's it exactly.", 'Correct.', 'Just right.', "You've got it."];
   const INCORRECT_PHRASES = ['A good attempt.', "That's a tricky one.", 'Close — good effort.', 'Worth another look.', 'Nearly there.'];
+  const NOT_PERFECT_HEADLINES = [
+    'Good practice today.',
+    'Worth another pass.',
+    'Nice effort today.',
+    'Good effort today.',
+    'Keep going.',
+    'That\'s the way.',
+  ];
 
   let lastCorrectPhrase = -1;
   let lastIncorrectPhrase = -1;
+  let lastNotPerfectHeadline = -1;
 
   // Delay before the Continue button becomes active on incorrect answers —
   // enforces a brief reading moment without auto-advancing.
@@ -474,7 +486,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
   // --- Progressive instructions ---
   // Full guidance up front; as the child settles in, the screen quietly
   // steps back rather than repeating itself on every single word.
-  function instructionForIndex(_index: number): string {
+  function instructionForIndex(): string {
     return "Listen, then type the word.";
   }
 
@@ -578,7 +590,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
     progressEl.textContent = `Word ${pos} of ${total}`;
     progressBar.style.width = `${(pos / total) * 100}%`;
-    questionInstruction.textContent = instructionForIndex(state.currentIndex);
+    questionInstruction.textContent = instructionForIndex();
     answerInput.value = '';
     answerError.textContent = '';
 
@@ -672,19 +684,49 @@ import SiteHeader from '@/components/SiteHeader.astro';
     }
   }
 
+  // CSS class sets for primary vs secondary button styling
+  const PRIMARY_BTN_CLS =
+    'w-full rounded-full bg-brand-red px-6 py-4 font-display text-lg font-semibold text-white shadow-btn-red transition hover:bg-brand-red-deep hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-red active:translate-y-0';
+  const SECONDARY_BTN_CLS =
+    'w-full rounded-full border border-line/60 bg-white px-6 py-3.5 text-base font-medium text-ink transition hover:bg-app-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink active:scale-[0.97]';
+  const PRIMARY_LINK_CLS =
+    'w-full rounded-full bg-brand-red px-6 py-4 text-center font-display text-lg font-semibold text-white shadow-btn-red transition hover:bg-brand-red-deep hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0';
+
+  function buildMissedChips(missedWords: { word: string }[], cap: number): void {
+    resultsMissedList.textContent = '';
+    const visible = missedWords.slice(0, cap);
+    const overflow = missedWords.length - cap;
+    for (const w of visible) {
+      const li = document.createElement('li');
+      li.textContent = w.word;
+      li.className =
+        'rounded-full border border-line bg-white px-4 py-2.5 font-word text-base font-semibold text-ink select-none';
+      resultsMissedList.appendChild(li);
+    }
+    if (overflow > 0) {
+      resultsMissedOverflow.textContent = `+${overflow} more`;
+      resultsMissedOverflow.classList.remove('hidden');
+    } else {
+      resultsMissedOverflow.classList.add('hidden');
+    }
+  }
+
   function renderResults(): void {
     const result = state.result!;
-    const isPerfect = result.missedWords.length === 0;
-    const isDifficult = !isPerfect && result.correct / result.total < 0.6;
+    const missedCount = result.missedWords.length;
+    const isPerfect = missedCount === 0;
 
-    // Adaptive headline
+    // Adaptive headline — perfect gets a fixed phrase; not-perfect rotates through
+    // a pool so the same line doesn't land twice in a row across sessions.
     const resultsHeading = $('results-heading');
     if (isPerfect) {
       resultsHeading.textContent = 'You got every word.';
-    } else if (isDifficult) {
-      resultsHeading.textContent = 'Good practice today.';
     } else {
-      resultsHeading.textContent = 'Nice work today.';
+      resultsHeading.textContent = pickPhrase(
+        NOT_PERFECT_HEADLINES,
+        lastNotPerfectHeadline,
+        (i) => (lastNotPerfectHeadline = i),
+      );
     }
 
     // Performance summary — no percentage, natural grammar
@@ -701,37 +743,42 @@ import SiteHeader from '@/components/SiteHeader.astro';
       resultsSummary.textContent = `You spelled ${result.correct} of ${result.total} ${wordLabel} correctly.`;
     }
 
-    // Reassurance line — difficult sessions only
-    resultsReassurance.classList.toggle('hidden', !isDifficult);
+    // Reassurance line not used in the simplified two-state layout
+    resultsReassurance.classList.add('hidden');
+
+    // Rebuild action zone in the correct DOM order so keyboard and screen reader
+    // order matches the visual primary-first hierarchy.
+    resultsContent.className = 'flex flex-col gap-6';
+    const actionZone = $('results-action-zone');
+    while (actionZone.firstChild) actionZone.removeChild(actionZone.firstChild);
 
     if (isPerfect) {
-      // Perfect: no missed section, forward-facing primary CTA
       resultsMissedSection.classList.add('hidden');
-      btnChooseList.classList.remove('hidden');
+
+      btnChooseList.className = PRIMARY_LINK_CLS;
+      btnRetry.className = SECONDARY_BTN_CLS;
       btnRetry.textContent = 'Practice this list again';
-      btnHomeLink.classList.add('hidden');
+
+      actionZone.appendChild(btnChooseList);
+      actionZone.appendChild(btnRetry);
+
       showScreen(screenResults);
       requestAnimationFrame(() => btnChooseList.focus());
+
     } else {
-      // Missed words: build cream chips, show combined card + primary CTA
-      resultsMissedList.textContent = '';
-      for (const w of result.missedWords) {
-        const li = document.createElement('li');
-        li.textContent = w.word;
-        li.className =
-          'rounded-full border border-line bg-white px-4 py-2.5 font-word text-base font-semibold text-ink cursor-pointer transition hover:bg-app-cloud select-none';
-        li.dataset.word = w.word;
-        li.setAttribute('role', 'button');
-        li.setAttribute('tabindex', '0');
-        li.setAttribute('aria-label', `Hear: ${w.word}`);
-        resultsMissedList.appendChild(li);
-      }
+      buildMissedChips(result.missedWords, result.missedWords.length);
       resultsMissedSection.classList.remove('hidden');
-      btnChooseList.classList.add('hidden');
-      btnRetry.textContent = 'Practice full list again';
-      btnHomeLink.classList.remove('hidden');
+      resultsMissedHeading.textContent = 'Words to practice next.';
+
+      btnRetry.className = PRIMARY_BTN_CLS;
+      btnRetry.textContent = 'Practice this list again';
+      btnChooseList.className = SECONDARY_BTN_CLS;
+
+      actionZone.appendChild(btnRetry);
+      actionZone.appendChild(btnChooseList);
+
       showScreen(screenResults);
-      requestAnimationFrame(() => btnReviewMissed.focus());
+      requestAnimationFrame(() => btnRetry.focus());
     }
   }
 
@@ -818,25 +865,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
     showScreen(screenBegin);
   });
 
-  btnReviewMissed.addEventListener('click', () => {
-    // reviewMissed transitions directly to awaitingAnswer — call in click handler (iOS-safe)
-    state = spellingTestReducer(state, reviewMissed());
-    renderQuestion();
-  });
-
-  // Chip tap-to-pronounce — delegated so it works across re-renders
-  resultsMissedList.addEventListener('click', (e) => {
-    const chip = (e.target as HTMLElement).closest('[data-word]') as HTMLElement | null;
-    if (chip?.dataset.word) speech.speakWord(chip.dataset.word, speechOptions());
-  });
-  resultsMissedList.addEventListener('keydown', (e) => {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    const chip = (e.target as HTMLElement).closest('[data-word]') as HTMLElement | null;
-    if (chip?.dataset.word) {
-      e.preventDefault();
-      speech.speakWord(chip.dataset.word, speechOptions());
-    }
-  });
 
   // Session settings toggle
   btnVoiceToggle.addEventListener('click', () => {

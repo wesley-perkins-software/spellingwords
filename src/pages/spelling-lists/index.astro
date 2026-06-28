@@ -76,36 +76,40 @@ const breadcrumbJsonLd = {
 
   <main id="main-content">
 
-    <!-- ── Opening Moment ───────────────────────────── paper ── -->
+    <!-- ── Opening Moment ──────────────────────────── app-paper ── -->
+    <!-- Strong display headline, dark readable stat line           -->
     <div class="bg-app-paper">
       <div class="mx-auto max-w-3xl px-6 pt-8">
         <Breadcrumbs items={breadcrumbItems} />
       </div>
-      <div class="mx-auto max-w-3xl px-6 pb-16 pt-10">
-        <h1 class="font-display text-4xl font-semibold leading-tight text-ink md:text-5xl">
-          What grade is your child in?
+      <div class="mx-auto max-w-3xl px-6 pb-14 pt-10">
+        <h1 class="text-display-xl">
+          What grade is your<br class="hidden sm:block" /> child in?
         </h1>
-        <p class="mt-4 max-w-xl text-base leading-relaxed text-ink-soft">
+        <p class="mt-5 max-w-lg text-body font-medium text-ink">
           {totalCount} hand-curated spelling lists — organized by grade and skill.
           Every list is free, audio-supported, and ready to practice in seconds.
         </p>
       </div>
     </div>
 
-    <!-- ── Grade Chapter ─────────────────────────────── cloud ── -->
-    <section class="bg-app-cloud" aria-labelledby="grade-chapter-heading">
+    <!-- ── Grade Chapter ───────────────────────────── cream-deep ── -->
+    <!-- Deepest warm surface creates clear visual break.            -->
+    <!-- Paper-colored tiles on the deeper ground = workbook pages   -->
+    <!-- on a warm desk. Grade numbers large enough to land on.      -->
+    <section class="bg-cream-deep" aria-labelledby="grade-chapter-heading">
       <h2 id="grade-chapter-heading" class="sr-only">Browse by Grade</h2>
       <div class="mx-auto max-w-3xl px-6 py-14">
         <div class="grid grid-cols-3 gap-3 md:grid-cols-6">
           {gradeConfig.map((gc) => (
             <a
               href={gc.href}
-              class="group flex flex-col items-center gap-1.5 rounded-2xl border border-line bg-white px-2 py-8 text-center transition hover:-translate-y-0.5 hover:border-brand-blue/40 hover:shadow-card-md"
+              class="group flex flex-col items-center gap-2 rounded-2xl bg-app-paper px-2 py-10 text-center shadow-[0_2px_8px_-2px_rgba(43,35,24,0.10)] transition hover:-translate-y-1 hover:shadow-[0_8px_24px_-6px_rgba(43,35,24,0.18)]"
             >
-              <span class="font-display text-3xl font-bold text-ink transition group-hover:text-brand-blue md:text-4xl">
+              <span class="font-display text-5xl font-bold leading-none text-ink transition group-hover:text-brand-blue md:text-6xl">
                 {gc.grade}
               </span>
-              <span class="text-xs font-medium leading-tight text-ink-soft">{gc.label}</span>
+              <span class="text-xs font-semibold leading-tight text-ink-soft">{gc.label}</span>
               <span class="text-xs text-ink-faint">{gc.count} lists</span>
             </a>
           ))}
@@ -113,14 +117,19 @@ const breadcrumbJsonLd = {
       </div>
     </section>
 
-    <!-- ── Skill Chapter ─────────────────────────────── paper ── -->
+    <!-- ── Skill Chapter ──────────────────────────── app-paper ── -->
+    <!-- Visible h2 with blue accent signals section identity.      -->
+    <!-- Left rule at full opacity reads as intentional.            -->
+    <!-- Descriptions in dark ink — these are functional text.      -->
     <section class="bg-app-paper" aria-labelledby="skill-chapter-heading">
       <div class="mx-auto max-w-3xl px-6 py-16">
-        <p class="mb-7 text-xs font-semibold uppercase tracking-widest text-ink-faint">
-          Or browse by skill
-        </p>
-        <h2 id="skill-chapter-heading" class="sr-only">Browse by Skill</h2>
-        <div class="border-l-2 border-brand-blue/20 pl-6">
+        <h2
+          id="skill-chapter-heading"
+          class="mb-8 font-display text-xs font-semibold uppercase tracking-widest text-brand-blue"
+        >
+          Browse by skill
+        </h2>
+        <div class="border-l-[3px] border-brand-blue/40 pl-6">
           <nav aria-label="Browse by skill">
             {skillFamilies.map((sf, i) => (
               <a
@@ -128,14 +137,14 @@ const breadcrumbJsonLd = {
                 class={`group flex items-start justify-between gap-6 py-5 transition${i < skillFamilies.length - 1 ? ' border-b border-line' : ''}`}
               >
                 <div>
-                  <div class="font-display text-base font-semibold text-ink transition group-hover:text-brand-blue">
+                  <div class="font-display text-lg font-semibold text-ink transition group-hover:text-brand-blue">
                     {sf.label}
                   </div>
-                  <div class="mt-1 text-sm leading-relaxed text-ink-soft">{sf.description}</div>
+                  <div class="mt-1 text-sm leading-relaxed text-ink">{sf.description}</div>
                 </div>
-                <div class="mt-0.5 flex shrink-0 items-center gap-2">
-                  <span class="text-sm text-ink-faint">{sf.count} lists</span>
-                  <span class="text-sm font-medium text-brand-blue opacity-0 transition group-hover:opacity-100">
+                <div class="mt-1 flex shrink-0 items-center gap-2">
+                  <span class="text-sm text-ink-soft">{sf.count} lists</span>
+                  <span class="text-sm font-semibold text-brand-blue opacity-0 transition group-hover:opacity-100">
                     →
                   </span>
                 </div>
@@ -146,30 +155,34 @@ const breadcrumbJsonLd = {
       </div>
     </section>
 
-    <!-- ── Editorial Picks ───────────────────────────── cloud ── -->
+    <!-- ── Editorial Picks ──────────────────────────────── white ── -->
+    <!-- Pure white breaks the cream sequence — signals a curated    -->
+    <!-- moment set apart from the navigation sections.              -->
+    <!-- Cloud cards on white surface read with strong contrast.     -->
+    <!-- Intro sentence at text-lg italic text-ink — it earns weight -->
     {featuredLists.length > 0 && (
-      <section class="bg-app-cloud" aria-labelledby="editorial-picks-heading">
-        <div class="mx-auto max-w-3xl px-6 py-14">
+      <section class="bg-white" aria-labelledby="editorial-picks-heading">
+        <div class="mx-auto max-w-3xl px-6 py-16">
           <h2 id="editorial-picks-heading" class="sr-only">Good Places to Start</h2>
-          <p class="mb-7 text-base italic text-ink-soft">
+          <p class="mb-8 max-w-lg text-lg italic leading-relaxed text-ink">
             Not sure where to begin? These are well-loved starting points for most families.
           </p>
           <div class="grid gap-4 sm:grid-cols-3">
             {featuredLists.map((entry) => (
               <a
                 href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
-                class="group flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-card-md"
+                class="group flex flex-col gap-3 rounded-2xl bg-app-cloud p-6 transition hover:-translate-y-0.5 hover:shadow-card-md"
               >
-                <span class="text-xs font-medium text-ink-faint">
+                <span class="text-xs font-semibold uppercase tracking-wide text-ink-soft">
                   {categoryLabels[entry.data.category] ?? entry.data.category}
                   {entry.data.grade
                     ? ` · ${entry.data.grade === 'K' ? 'Kindergarten' : `Grade ${entry.data.grade}`}`
                     : ''}
                 </span>
-                <h3 class="font-display text-sm font-semibold leading-snug text-ink transition group-hover:text-brand-blue">
+                <h3 class="font-display text-base font-semibold leading-snug text-ink transition group-hover:text-brand-blue">
                   {entry.data.title}
                 </h3>
-                <span class="mt-auto text-xs text-ink-faint">{entry.data.words.length} words</span>
+                <span class="mt-auto text-sm text-ink-soft">{entry.data.words.length} words</span>
               </a>
             ))}
           </div>
@@ -177,21 +190,24 @@ const breadcrumbJsonLd = {
       </section>
     )}
 
-    <!-- ── Library Chapter ───────────────────────────── paper ── -->
-    <section class="bg-app-paper" aria-labelledby="library-chapter-heading">
+    <!-- ── Library Chapter ─────────────────────────── app-cloud ── -->
+    <!-- Cloud background reads as a reference panel — recessed,     -->
+    <!-- informational, contained. Stronger heading and body text    -->
+    <!-- communicate that this section has substance.                -->
+    <section class="bg-app-cloud" aria-labelledby="library-chapter-heading">
       <div class="mx-auto max-w-3xl px-6 py-16">
-        <h2 id="library-chapter-heading" class="font-display text-xl font-semibold text-ink">
+        <h2 id="library-chapter-heading" class="font-display text-2xl font-semibold text-ink">
           The full collection
         </h2>
-        <p class="mt-2 mb-10 max-w-xl text-sm leading-relaxed text-ink-soft">
+        <p class="mt-2 max-w-xl text-base leading-relaxed text-ink">
           {totalCount} spelling lists, organized by grade and skill. Every list hand-curated,
           every example sentence written by a human.
         </p>
 
-        <div class="grid gap-10 sm:grid-cols-2">
+        <div class="mt-10 grid gap-10 border-t border-line pt-8 sm:grid-cols-2">
           <!-- By grade -->
           <div>
-            <h3 class="mb-3 text-xs font-semibold uppercase tracking-widest text-ink-faint">
+            <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-ink-soft">
               By grade
             </h3>
             <div>
@@ -200,12 +216,12 @@ const breadcrumbJsonLd = {
                   href={gc.href}
                   class="group flex items-center justify-between border-b border-line py-3 transition last:border-0"
                 >
-                  <span class="text-sm font-medium text-ink transition group-hover:text-brand-blue">
+                  <span class="text-sm font-semibold text-ink transition group-hover:text-brand-blue">
                     {gc.label}
                   </span>
                   <div class="flex items-center gap-2">
-                    <span class="text-sm text-ink-faint">{gc.count} lists</span>
-                    <span class="text-xs text-brand-blue opacity-0 transition group-hover:opacity-100">→</span>
+                    <span class="text-sm text-ink-soft">{gc.count} lists</span>
+                    <span class="text-xs font-semibold text-brand-blue opacity-0 transition group-hover:opacity-100">→</span>
                   </div>
                 </a>
               ))}
@@ -214,7 +230,7 @@ const breadcrumbJsonLd = {
 
           <!-- By skill -->
           <div>
-            <h3 class="mb-3 text-xs font-semibold uppercase tracking-widest text-ink-faint">
+            <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-ink-soft">
               By skill
             </h3>
             <div>
@@ -223,12 +239,12 @@ const breadcrumbJsonLd = {
                   href={sf.href}
                   class="group flex items-center justify-between border-b border-line py-3 transition last:border-0"
                 >
-                  <span class="text-sm font-medium text-ink transition group-hover:text-brand-blue">
+                  <span class="text-sm font-semibold text-ink transition group-hover:text-brand-blue">
                     {sf.label}
                   </span>
                   <div class="flex items-center gap-2">
-                    <span class="text-sm text-ink-faint">{sf.count} lists</span>
-                    <span class="text-xs text-brand-blue opacity-0 transition group-hover:opacity-100">→</span>
+                    <span class="text-sm text-ink-soft">{sf.count} lists</span>
+                    <span class="text-xs font-semibold text-brand-blue opacity-0 transition group-hover:opacity-100">→</span>
                   </div>
                 </a>
               ))}
@@ -238,7 +254,7 @@ const breadcrumbJsonLd = {
 
         <p class="mt-14 border-t border-line pt-6 text-sm leading-relaxed text-ink-soft">
           Or practice any words you choose —{' '}
-          <a href="/" class="link font-medium">enter your own list on the homepage</a>.
+          <a href="/" class="link font-semibold">enter your own list on the homepage</a>.
         </p>
       </div>
     </section>

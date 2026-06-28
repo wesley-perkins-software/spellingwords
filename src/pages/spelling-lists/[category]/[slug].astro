@@ -171,6 +171,7 @@ const durationDisplay = `About ${data.estimatedDurationMinutes} ${data.estimated
             id="btn-start-test"
             type="button"
             data-words={quickPracticeWordsJson}
+            data-list-title={data.title}
             class="flex-1 rounded-full bg-brand-blue px-7 py-4 text-base font-bold text-white shadow-[0_8px_24px_-8px_rgba(47,111,237,0.45)] transition hover:bg-brand-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97] sm:flex-none"
             aria-label={`Start a ${quickPracticeWords.length}-word spelling practice session for ${data.title}`}
           >
@@ -181,6 +182,7 @@ const durationDisplay = `About ${data.estimatedDurationMinutes} ${data.estimated
               id="btn-start-full-list"
               type="button"
               data-words={fullCollectionWordsJson}
+              data-list-title={data.title}
               class="flex-1 rounded-full border-2 border-brand-blue bg-white px-7 py-4 text-base font-bold text-brand-blue transition hover:bg-brand-blue/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97] sm:flex-none"
               aria-label={`Practice all ${playWords.length} words in ${data.title}`}
             >
@@ -323,8 +325,10 @@ const durationDisplay = `About ${data.estimatedDurationMinutes} ${data.estimated
     }
 
     // Persist rich word data (with exampleSentence etc.) so play.astro can read it.
+    const listTitle = button.dataset.listTitle ?? '';
     try {
       sessionStorage.setItem(`sw:words:${result.payload}`, JSON.stringify(words));
+      if (listTitle) sessionStorage.setItem(`sw:title:${result.payload}`, listTitle);
     } catch { /* quota exceeded or private browsing — non-fatal */ }
 
     window.location.href = `/play?list=${result.payload}`;

@@ -292,7 +292,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
       <!-- Results screen -->
       <section id="screen-results" class="hidden" aria-labelledby="results-heading">
-        <div class="flex flex-col gap-6">
+        <div id="results-content" class="flex flex-col gap-6">
 
           <!-- Outcome zone -->
           <div class="text-center">
@@ -300,13 +300,13 @@ import SiteHeader from '@/components/SiteHeader.astro';
             <p id="results-summary" class="mt-3 text-xl font-medium text-ink"></p>
             <!-- Shown only for difficult sessions -->
             <p id="results-reassurance" class="hidden mt-2 text-sm text-ink">
-              Hard lists often take more than one try. This list is worth another full practice.
+              Some words take a few tries to stick.
             </p>
           </div>
 
           <!-- Missed words section — chips only, no button inside; hidden for perfect sessions -->
           <div id="results-missed-section" class="hidden rounded-3xl border border-line bg-app-cloud p-7 shadow-card">
-            <h2 class="font-display text-lg font-semibold text-ink">
+            <h2 id="results-missed-heading" class="font-display text-lg font-semibold text-ink">
               Let's work on these words together.
             </h2>
             <ul id="results-missed-list" class="mt-4 flex flex-wrap gap-3" aria-label="Words to practice again"></ul>
@@ -410,9 +410,11 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const feedbackDetail = $('feedback-detail');
   const progressBar = $('progress-bar') as HTMLElement;
   const sessionProgress = $('session-progress');
+  const resultsContent = $('results-content');
   const resultsReassurance = $('results-reassurance');
   const resultsSummary = $('results-summary');
   const resultsMissedSection = $('results-missed-section');
+  const resultsMissedHeading = $('results-missed-heading');
   const resultsMissedList = $('results-missed-list');
   const resultsMissedOverflow = $('results-missed-overflow');
   const btnChooseList = $('btn-choose-list') as HTMLAnchorElement;
@@ -709,7 +711,9 @@ import SiteHeader from '@/components/SiteHeader.astro';
     const result = state.result!;
     const missedCount = result.missedWords.length;
     const isPerfect = missedCount === 0;
-    const isMostlyCorrect = !isPerfect && result.correct / result.total >= 0.7;
+    // Treat a single missed word as mostly-correct regardless of percentage —
+    // on small lists the 70% threshold alone produces no middle state (e.g. 2/3 = 67%).
+    const isMostlyCorrect = !isPerfect && (missedCount === 1 || result.correct / result.total >= 0.7);
     const isDifficult = !isPerfect && !isMostlyCorrect;
 
     // Adaptive headline
@@ -718,7 +722,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
       ? 'You got every word.'
       : isMostlyCorrect
         ? 'Nice work today.'
-        : 'Good practice today.';
+        : 'Keep at it.';
 
     // Performance summary — no percentage, natural grammar
     if (isPerfect) {
@@ -747,6 +751,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
     while (actionZone.firstChild) actionZone.removeChild(actionZone.firstChild);
 
     if (isPerfect) {
+      resultsContent.className = 'flex flex-col gap-6';
       resultsMissedSection.classList.add('hidden');
 
       btnChooseList.className = PRIMARY_LINK_CLS;
@@ -760,8 +765,11 @@ import SiteHeader from '@/components/SiteHeader.astro';
       requestAnimationFrame(() => btnChooseList.focus());
 
     } else if (isMostlyCorrect) {
+      // Tighter gap pulls the missed-words card and its primary CTA together as one unit.
+      resultsContent.className = 'flex flex-col gap-4';
       buildMissedChips(result.missedWords, result.missedWords.length);
       resultsMissedSection.classList.remove('hidden');
+      resultsMissedHeading.textContent = "Let's work on these words together.";
 
       btnReviewMissed.className = PRIMARY_BTN_CLS;
       btnReviewMissed.textContent = missedLabel;
@@ -777,9 +785,11 @@ import SiteHeader from '@/components/SiteHeader.astro';
       requestAnimationFrame(() => btnReviewMissed.focus());
 
     } else {
-      // Difficult — primary is full-list retry; missed-word review is secondary
+      // Difficult — primary is full-list retry; missed-word review is secondary.
+      resultsContent.className = 'flex flex-col gap-6';
       buildMissedChips(result.missedWords, 6);
       resultsMissedSection.classList.remove('hidden');
+      resultsMissedHeading.textContent = 'Words from this practice.';
 
       btnRetry.className = PRIMARY_BTN_CLS;
       btnRetry.textContent = retryAllLabel;

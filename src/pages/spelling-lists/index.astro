@@ -83,8 +83,8 @@ const breadcrumbJsonLd = {
         <Breadcrumbs items={breadcrumbItems} />
       </div>
       <div class="mx-auto max-w-3xl px-6 pb-14 pt-10">
-        <h1 class="text-display-xl">
-          What grade is your<br class="hidden sm:block" /> child in?
+        <h1 class="text-display-lg">
+          Spelling Lists by Grade and Skill
         </h1>
         <p class="mt-5 max-w-lg text-body font-medium text-ink">
           {totalCount} hand-curated spelling lists — organized by grade and skill.
@@ -104,13 +104,13 @@ const breadcrumbJsonLd = {
           {gradeConfig.map((gc) => (
             <a
               href={gc.href}
-              class="group flex flex-col items-center gap-2 rounded-2xl bg-app-paper px-2 py-10 text-center shadow-[0_2px_8px_-2px_rgba(43,35,24,0.10)] transition hover:-translate-y-1 hover:shadow-[0_8px_24px_-6px_rgba(43,35,24,0.18)]"
+              class="group flex flex-col items-center gap-2 rounded-2xl border border-transparent bg-app-paper px-2 py-10 text-center shadow-[0_2px_8px_-2px_rgba(43,35,24,0.10)] transition hover:-translate-y-1 hover:border-brand-blue/30 hover:shadow-[0_8px_24px_-6px_rgba(43,35,24,0.18)]"
             >
               <span class="font-display text-5xl font-bold leading-none text-ink transition group-hover:text-brand-blue md:text-6xl">
                 {gc.grade}
               </span>
-              <span class="text-xs font-semibold leading-tight text-ink-soft">{gc.label}</span>
-              <span class="text-xs text-ink-faint">{gc.count} lists</span>
+              <span class="text-sm font-bold leading-tight text-ink transition group-hover:text-brand-blue">{gc.label}</span>
+              <span class="text-xs text-ink-soft">{gc.count} lists</span>
             </a>
           ))}
         </div>
@@ -207,7 +207,7 @@ const breadcrumbJsonLd = {
         <div class="mt-10 grid gap-10 border-t border-line pt-8 sm:grid-cols-2">
           <!-- By grade -->
           <div>
-            <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-ink-soft">
+            <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-ink">
               By grade
             </h3>
             <div>
@@ -230,7 +230,7 @@ const breadcrumbJsonLd = {
 
           <!-- By skill -->
           <div>
-            <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-ink-soft">
+            <h3 class="mb-4 text-xs font-semibold uppercase tracking-widest text-ink">
               By skill
             </h3>
             <div>

@@ -61,16 +61,19 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
       <!-- Begin screen -->
       <section id="screen-begin" class="hidden" aria-labelledby="begin-heading">
-        <div class="flex flex-col items-center gap-8 text-center">
+        <div class="flex flex-col items-center gap-10 text-center">
 
           <!-- Readiness phrase -->
-          <p class="font-sans text-sm font-medium text-ink-faint tracking-wide">Let's begin.</p>
+          <p class="font-sans text-base font-medium text-ink tracking-wide">Let's begin.</p>
 
           <!-- Session identity -->
           <div class="flex flex-col items-center gap-2">
             <h1 id="begin-heading" class="font-display text-3xl font-bold text-ink leading-snug"></h1>
-            <p id="begin-word-count" class="font-sans text-base text-ink-soft"></p>
+            <p id="begin-word-count" class="font-sans text-base text-ink"></p>
           </div>
+
+          <!-- Instructional line -->
+          <p class="font-sans text-base text-ink">Listen carefully and type what you hear.</p>
 
           <!-- Primary CTA -->
           <button

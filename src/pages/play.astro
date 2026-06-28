@@ -439,6 +439,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const speech = createSpeechController();
   let state: TestState = createInitialState();
   let originalWords: string[] = [];
+  let originalRichWords: { word: string; exampleSentence?: string }[] = [];
 
   // Voice settings state — no persistence; resets on page load
   let selectedVoice: SpeechSynthesisVoiceAdapter | null = null;
@@ -566,6 +567,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
       });
     }
 
+    originalRichWords = richWords;
     state = spellingTestReducer(createInitialState(), initializeTest(richWords));
 
     const count = originalWords.length;
@@ -857,7 +859,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
   });
 
   btnRetry.addEventListener('click', () => {
-    state = spellingTestReducer(resetTest(), initializeTest(originalWords));
+    state = spellingTestReducer(resetTest(), initializeTest(originalRichWords));
     const count = originalWords.length;
     beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
     ($('begin-word-count-prose') as HTMLElement).textContent =

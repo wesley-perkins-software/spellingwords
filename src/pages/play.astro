@@ -378,7 +378,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
     submitAnswer,
     nextWord,
     resetTest,
-    reviewMissed,
   } from '@/modules/spellingTest/stateMachine';
   import type { TestState } from '@/modules/spellingTest/types';
 
@@ -418,7 +417,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const resultsMissedList = $('results-missed-list');
   const resultsMissedOverflow = $('results-missed-overflow');
   const btnChooseList = $('btn-choose-list') as HTMLAnchorElement;
-  const btnHomeLink = $('btn-home-link');
   const btnBegin = $('btn-begin') as HTMLButtonElement;
   const btnRepeat = $('btn-repeat') as HTMLButtonElement;
   const btnSentence = $('btn-sentence') as HTMLButtonElement;
@@ -426,7 +424,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const btnSubmit = $('btn-submit') as HTMLButtonElement;
   const btnNext = $('btn-next') as HTMLButtonElement;
   const btnRetry = $('btn-retry') as HTMLButtonElement;
-  const btnReviewMissed = $('btn-review-missed') as HTMLButtonElement;
   const errorMessage = $('error-message');
 
   // Voice controls
@@ -462,9 +459,18 @@ import SiteHeader from '@/components/SiteHeader.astro';
   // so the same phrase doesn't land twice in a row and start to feel canned.
   const CORRECT_PHRASES = ['Well spelled.', 'Good listening.', "That's it exactly.", 'Correct.', 'Just right.', "You've got it."];
   const INCORRECT_PHRASES = ['A good attempt.', "That's a tricky one.", 'Close — good effort.', 'Worth another look.', 'Nearly there.'];
+  const NOT_PERFECT_HEADLINES = [
+    'Good practice today.',
+    'Worth another pass.',
+    'Nice effort today.',
+    'Good effort today.',
+    'Keep going.',
+    'That\'s the way.',
+  ];
 
   let lastCorrectPhrase = -1;
   let lastIncorrectPhrase = -1;
+  let lastNotPerfectHeadline = -1;
 
   // Delay before the Continue button becomes active on incorrect answers —
   // enforces a brief reading moment without auto-advancing.
@@ -683,8 +689,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
     'w-full rounded-full bg-brand-red px-6 py-4 font-display text-lg font-semibold text-white shadow-btn-red transition hover:bg-brand-red-deep hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-red active:translate-y-0';
   const SECONDARY_BTN_CLS =
     'w-full rounded-full border border-line/60 bg-white px-6 py-3.5 text-base font-medium text-ink transition hover:bg-app-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink active:scale-[0.97]';
-  const TERTIARY_LINK_CLS =
-    'mt-1 block text-center text-sm font-semibold text-ink-soft transition hover:text-ink';
   const PRIMARY_LINK_CLS =
     'w-full rounded-full bg-brand-red px-6 py-4 text-center font-display text-lg font-semibold text-white shadow-btn-red transition hover:bg-brand-red-deep hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0';
 
@@ -711,18 +715,19 @@ import SiteHeader from '@/components/SiteHeader.astro';
     const result = state.result!;
     const missedCount = result.missedWords.length;
     const isPerfect = missedCount === 0;
-    // Treat a single missed word as mostly-correct regardless of percentage —
-    // on small lists the 70% threshold alone produces no middle state (e.g. 2/3 = 67%).
-    const isMostlyCorrect = !isPerfect && (missedCount === 1 || result.correct / result.total >= 0.7);
-    const isDifficult = !isPerfect && !isMostlyCorrect;
 
-    // Adaptive headline
+    // Adaptive headline — perfect gets a fixed phrase; not-perfect rotates through
+    // a pool so the same line doesn't land twice in a row across sessions.
     const resultsHeading = $('results-heading');
-    resultsHeading.textContent = isPerfect
-      ? 'You got every word.'
-      : isMostlyCorrect
-        ? 'Nice work today.'
-        : 'Keep at it.';
+    if (isPerfect) {
+      resultsHeading.textContent = 'You got every word.';
+    } else {
+      resultsHeading.textContent = pickPhrase(
+        NOT_PERFECT_HEADLINES,
+        lastNotPerfectHeadline,
+        (i) => (lastNotPerfectHeadline = i),
+      );
+    }
 
     // Performance summary — no percentage, natural grammar
     if (isPerfect) {
@@ -738,20 +743,16 @@ import SiteHeader from '@/components/SiteHeader.astro';
       resultsSummary.textContent = `You spelled ${result.correct} of ${result.total} ${wordLabel} correctly.`;
     }
 
-    // Reassurance — difficult sessions only
-    resultsReassurance.classList.toggle('hidden', !isDifficult);
+    // Reassurance line not used in the simplified two-state layout
+    resultsReassurance.classList.add('hidden');
 
-    // Concrete CTA labels
-    const missedLabel = missedCount === 1 ? 'Practice 1 missed word' : `Practice ${missedCount} missed words`;
-    const retryAllLabel = `Practice all ${result.total} words again`;
-
-    // Rebuild action zone in the correct DOM order for each state so keyboard and
-    // screen reader order matches the visual primary-first hierarchy.
+    // Rebuild action zone in the correct DOM order so keyboard and screen reader
+    // order matches the visual primary-first hierarchy.
+    resultsContent.className = 'flex flex-col gap-6';
     const actionZone = $('results-action-zone');
     while (actionZone.firstChild) actionZone.removeChild(actionZone.firstChild);
 
     if (isPerfect) {
-      resultsContent.className = 'flex flex-col gap-6';
       resultsMissedSection.classList.add('hidden');
 
       btnChooseList.className = PRIMARY_LINK_CLS;
@@ -764,46 +765,17 @@ import SiteHeader from '@/components/SiteHeader.astro';
       showScreen(screenResults);
       requestAnimationFrame(() => btnChooseList.focus());
 
-    } else if (isMostlyCorrect) {
-      // Tighter gap pulls the missed-words card and its primary CTA together as one unit.
-      resultsContent.className = 'flex flex-col gap-4';
+    } else {
       buildMissedChips(result.missedWords, result.missedWords.length);
       resultsMissedSection.classList.remove('hidden');
-      resultsMissedHeading.textContent = "Let's work on these words together.";
-
-      btnReviewMissed.className = PRIMARY_BTN_CLS;
-      btnReviewMissed.textContent = missedLabel;
-      btnRetry.className = SECONDARY_BTN_CLS;
-      btnRetry.textContent = retryAllLabel;
-      btnHomeLink.className = TERTIARY_LINK_CLS;
-
-      actionZone.appendChild(btnReviewMissed);
-      actionZone.appendChild(btnRetry);
-      actionZone.appendChild(btnHomeLink);
-
-      showScreen(screenResults);
-      requestAnimationFrame(() => btnReviewMissed.focus());
-
-    } else {
-      // Difficult — primary is full-list retry; missed-word review is secondary.
-      resultsContent.className = 'flex flex-col gap-6';
-      buildMissedChips(result.missedWords, 6);
-      resultsMissedSection.classList.remove('hidden');
-      resultsMissedHeading.textContent = 'Words from this practice.';
+      resultsMissedHeading.textContent = 'Words to practice next.';
 
       btnRetry.className = PRIMARY_BTN_CLS;
-      btnRetry.textContent = retryAllLabel;
-      btnHomeLink.className = TERTIARY_LINK_CLS;
+      btnRetry.textContent = 'Practice this list again';
+      btnChooseList.className = SECONDARY_BTN_CLS;
 
       actionZone.appendChild(btnRetry);
-      // Only show "Practice N missed words" when it's a different session from the full list.
-      // If every word was missed, both options would start identical sessions.
-      if (missedCount < result.total) {
-        btnReviewMissed.className = SECONDARY_BTN_CLS;
-        btnReviewMissed.textContent = missedLabel;
-        actionZone.appendChild(btnReviewMissed);
-      }
-      actionZone.appendChild(btnHomeLink);
+      actionZone.appendChild(btnChooseList);
 
       showScreen(screenResults);
       requestAnimationFrame(() => btnRetry.focus());
@@ -893,11 +865,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
     showScreen(screenBegin);
   });
 
-  btnReviewMissed.addEventListener('click', () => {
-    // reviewMissed transitions directly to awaitingAnswer — call in click handler (iOS-safe)
-    state = spellingTestReducer(state, reviewMissed());
-    renderQuestion();
-  });
 
   // Session settings toggle
   btnVoiceToggle.addEventListener('click', () => {

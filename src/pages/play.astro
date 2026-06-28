@@ -296,7 +296,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
           <!-- Outcome zone -->
           <div class="text-center">
-            <p id="results-session-label" class="mb-3 text-sm font-semibold uppercase tracking-widest text-ink-soft"></p>
+            <p id="results-session-label" class="mb-3 inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-widest text-ink-soft"></p>
             <h1 id="results-heading" class="font-display text-4xl font-semibold text-ink leading-tight"></h1>
             <p id="results-summary" class="mt-3 text-xl font-medium text-ink"></p>
             <!-- Shown only for difficult sessions -->
@@ -307,14 +307,14 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
           <!-- Missed words unit — chips + primary CTA in one card; hidden for perfect sessions -->
           <div id="results-missed-section" class="hidden rounded-3xl border border-line bg-app-cloud p-6 shadow-card">
-            <h2 class="text-base font-semibold text-ink">
+            <h2 class="font-display text-lg font-semibold text-ink">
               Let's work on these words together.
             </h2>
             <ul id="results-missed-list" class="mt-3 mb-5 flex flex-wrap gap-2" aria-label="Words to practice again"></ul>
             <button
               id="btn-review-missed"
               type="button"
-              class="w-full rounded-full bg-brand-red px-6 py-4 font-display text-lg font-semibold text-white shadow-btn-red transition hover:bg-brand-red-deep hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
+              class="w-full rounded-full bg-brand-red px-6 py-4 font-display text-lg font-semibold text-white shadow-btn-red transition hover:bg-brand-red-deep hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-red active:translate-y-0"
             >
               Practice missed words
             </button>
@@ -335,7 +335,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
             <button
               id="btn-retry"
               type="button"
-              class="w-full rounded-full border border-line bg-white px-6 py-3.5 text-base font-semibold text-ink transition hover:bg-app-cloud focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink active:scale-[0.97]"
+              class="w-full rounded-full border-2 border-line bg-white px-6 py-3.5 text-base font-semibold text-ink transition hover:bg-app-cloud hover:border-ink-soft/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink active:scale-[0.97]"
             >
               Practice this list again
             </button>
@@ -687,9 +687,16 @@ import SiteHeader from '@/components/SiteHeader.astro';
       const stored = sessionStorage.getItem(`sw:title:${payload}`);
       if (stored) sessionTitle = stored;
     } catch { /* sessionStorage unavailable */ }
-    resultsSessionLabel.textContent = sessionTitle
-      ? `Session complete · ${sessionTitle}`
-      : 'Session complete';
+    // On perfect sessions, prepend a quiet checkmark to the eyebrow
+    if (isPerfect) {
+      resultsSessionLabel.innerHTML = sessionTitle
+        ? `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> Session complete · ${sessionTitle}`
+        : `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg> Session complete`;
+    } else {
+      resultsSessionLabel.textContent = sessionTitle
+        ? `Session complete · ${sessionTitle}`
+        : 'Session complete';
+    }
 
     // Adaptive headline
     const resultsHeading = $('results-heading');
@@ -701,11 +708,17 @@ import SiteHeader from '@/components/SiteHeader.astro';
       resultsHeading.textContent = 'Nice work today.';
     }
 
-    // Performance summary — no percentage
-    const wordLabel = result.total === 1 ? 'word' : 'words';
+    // Performance summary — no percentage, natural grammar
     if (isPerfect) {
-      resultsSummary.textContent = `You spelled all ${result.total} ${wordLabel} correctly.`;
+      if (result.total === 1) {
+        resultsSummary.textContent = 'You spelled the word correctly.';
+      } else if (result.total === 2) {
+        resultsSummary.textContent = 'You spelled both words correctly.';
+      } else {
+        resultsSummary.textContent = `You spelled all ${result.total} words correctly.`;
+      }
     } else {
+      const wordLabel = result.total === 1 ? 'word' : 'words';
       resultsSummary.textContent = `You spelled ${result.correct} of ${result.total} ${wordLabel} correctly.`;
     }
 

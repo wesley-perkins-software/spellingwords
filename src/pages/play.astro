@@ -12,7 +12,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
   <main id="main-content">
 
     <!-- Narrow container: error / unsupported / begin / results -->
-    <div class="mx-auto max-w-xl px-6 py-12 md:py-16">
+    <div class="mx-auto max-w-xl px-6 py-12 md:py-16 min-h-[calc(100vh-8rem)]">
 
       <!-- Error screen -->
       <section id="screen-error" class="hidden text-center" aria-labelledby="error-heading">
@@ -61,13 +61,11 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
       <!-- Begin screen -->
       <section id="screen-begin" class="hidden" aria-labelledby="begin-heading">
-        <div class="flex flex-col items-center gap-10 text-center">
+        <div class="flex flex-col items-center gap-8 text-center">
 
-          <!-- Readiness phrase -->
-          <p class="font-sans text-base font-medium text-ink tracking-wide">Let's begin.</p>
-
-          <!-- Session identity -->
-          <div class="flex flex-col items-center gap-2">
+          <!-- Readiness phrase + session identity, grouped tightly -->
+          <div class="flex flex-col items-center gap-3">
+            <p class="font-sans text-base font-medium text-ink tracking-wide">Let's begin.</p>
             <h1 id="begin-heading" class="font-display text-3xl font-bold text-ink leading-snug"></h1>
             <p id="begin-word-count" class="font-sans text-base text-ink"></p>
           </div>
@@ -506,7 +504,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
     const count = originalWords.length;
 
     // Resolve session title: curated list title from sessionStorage, else custom fallback
-    let sessionTitle = 'Your spelling words.';
+    let sessionTitle = 'Your Spelling Words';
     try {
       const stored = sessionStorage.getItem(`sw:title:${payload}`);
       if (stored) sessionTitle = stored;

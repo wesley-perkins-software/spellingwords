@@ -61,86 +61,28 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
       <!-- Begin screen -->
       <section id="screen-begin" class="hidden" aria-labelledby="begin-heading">
+        <div class="flex flex-col items-center gap-8 text-center">
 
-        <!-- Collection title slot — shown when coming from a curated list -->
-        <p id="begin-collection-label" class="hidden mb-4 text-center text-sm font-semibold uppercase tracking-widest text-ink-soft"></p>
+          <!-- Readiness phrase -->
+          <p class="font-sans text-sm font-medium text-ink-faint tracking-wide">Let's begin.</p>
 
-        <div class="flex flex-col gap-6">
-          <!-- Session card -->
-          <div class="rounded-2xl border border-line bg-app-cloud px-7 py-7">
-            <h1 id="begin-heading" class="font-display text-3xl font-bold text-ink mb-3">
-              Ready to practice?
-            </h1>
-            <p id="begin-word-count-prose" class="text-base leading-relaxed text-ink mb-4"></p>
-            <p class="text-base leading-relaxed text-ink">
-              Each word will be spoken aloud — then used in a sentence.<br>
-              Take your time and type what you hear.
-            </p>
-            <!-- Hidden word count for JS, session meta slot for future chunking -->
-            <span id="begin-word-count" class="hidden"></span>
-            <span id="begin-session-meta" class="hidden"></span>
+          <!-- Session identity -->
+          <div class="flex flex-col items-center gap-2">
+            <h1 id="begin-heading" class="font-display text-3xl font-bold text-ink leading-snug"></h1>
+            <p id="begin-word-count" class="font-sans text-base text-ink-soft"></p>
           </div>
 
           <!-- Primary CTA -->
-          <div class="flex justify-center">
-            <button
-              id="btn-begin"
-              type="button"
-              class="inline-flex items-center gap-2 rounded-full bg-brand-red px-10 py-4 font-display text-[19px] font-semibold text-white tracking-[0.01em] shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
-            >
-              Start Practice <span aria-hidden="true">→</span>
-            </button>
-          </div>
+          <button
+            id="btn-begin"
+            type="button"
+            class="w-full rounded-full bg-brand-red px-10 py-4 font-display text-[19px] font-semibold text-white tracking-[0.01em] shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)] transition hover:bg-brand-red-deep hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red active:translate-y-0"
+          >
+            Start Practice <span aria-hidden="true">→</span>
+          </button>
 
-          <!-- Session settings -->
-          <div class="border-t border-line pt-5">
-            <button
-              id="btn-voice-toggle"
-              type="button"
-              aria-expanded="false"
-              aria-controls="voice-settings-panel"
-              class="flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-ink-soft"
-            >
-              <svg id="voice-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              Session settings
-            </button>
-            <div
-              id="voice-settings-panel"
-              class="hidden mt-4 rounded-2xl border border-line bg-app-cloud p-5 flex flex-col gap-4"
-              role="group"
-              aria-label="Session settings"
-            >
-              <!-- Voice status -->
-              <p class="text-sm text-ink">
-                Voice: <span id="voice-name-display" class="font-semibold">best available</span>
-              </p>
-
-              <!-- Speed slider -->
-              <div class="flex items-center gap-3">
-                <label for="speed-range" class="text-sm font-medium text-ink whitespace-nowrap w-12">Speed</label>
-                <input
-                  id="speed-range"
-                  type="range"
-                  min="0.5"
-                  max="1.1"
-                  step="0.05"
-                  value="1.0"
-                  class="flex-1 accent-brand-red"
-                  aria-label="Speech speed"
-                />
-                <span id="speed-label" class="text-sm font-semibold text-ink w-12 text-right">1.00×</span>
-              </div>
-
-              <!-- Preview voice -->
-              <button
-                id="btn-test-voice"
-                type="button"
-                class="self-start rounded-full border border-line bg-app-paper px-4 py-2 text-sm font-semibold text-ink-soft transition-colors hover:border-brand-red/40 hover:text-brand-red"
-              >
-                Preview voice
-              </button>
-            </div>
-          </div>
+          <!-- Hidden session meta slot for future chunking -->
+          <span id="begin-session-meta" class="hidden"></span>
         </div>
       </section>
 
@@ -393,6 +335,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
   const allScreens = [screenError, screenUnsupported, screenBegin, screenQuestion, screenFeedback, screenResults];
 
+  const beginHeading = $('begin-heading');
   const beginWordCount = $('begin-word-count');
   const progressEl = $('progress');
   const questionInstruction = $('question-instruction');
@@ -426,24 +369,14 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const btnRetry = $('btn-retry') as HTMLButtonElement;
   const errorMessage = $('error-message');
 
-  // Voice controls
-  const btnVoiceToggle = $('btn-voice-toggle') as HTMLButtonElement;
-  const voiceToggleChevron = $('voice-toggle-chevron');
-  const voiceSettingsPanel = $('voice-settings-panel');
-  const voiceNameDisplay = $('voice-name-display');
-  const speedRange = $('speed-range') as HTMLInputElement;
-  const speedLabel = $('speed-label');
-  const btnTestVoice = $('btn-test-voice') as HTMLButtonElement;
-
   // --- Module state ---
   const speech = createSpeechController();
   let state: TestState = createInitialState();
   let originalWords: string[] = [];
   let originalRichWords: { word: string; exampleSentence?: string }[] = [];
 
-  // Voice settings state — no persistence; resets on page load
   let selectedVoice: SpeechSynthesisVoiceAdapter | null = null;
-  let currentRate = 1.0;
+  const currentRate = 1.0;
 
   // Pending auto-sentence timeout handle — cancelled whenever we move to a new word
   let sentenceTimeout: ReturnType<typeof setTimeout> | null = null;
@@ -514,13 +447,10 @@ import SiteHeader from '@/components/SiteHeader.astro';
     showScreen(screenError);
   }
 
-  // --- Voice controls setup ---
+  // --- Voice setup ---
   async function initVoiceControls(): Promise<void> {
     const allVoices = await speech.loadVoices();
     selectedVoice = selectPreferredVoice(allVoices);
-    if (selectedVoice) {
-      voiceNameDisplay.textContent = selectedVoice.name;
-    }
   }
 
   // --- Initialization ---
@@ -571,9 +501,16 @@ import SiteHeader from '@/components/SiteHeader.astro';
     state = spellingTestReducer(createInitialState(), initializeTest(richWords));
 
     const count = originalWords.length;
+
+    // Resolve session title: curated list title from sessionStorage, else custom fallback
+    let sessionTitle = 'Your spelling words.';
+    try {
+      const stored = sessionStorage.getItem(`sw:title:${payload}`);
+      if (stored) sessionTitle = stored;
+    } catch { /* sessionStorage unavailable — use fallback */ }
+
+    beginHeading.textContent = sessionTitle;
     beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
-    ($('begin-word-count-prose') as HTMLElement).textContent =
-      `${count} ${count === 1 ? 'word' : 'words'} ready to practice.`;
     showScreen(screenBegin);
 
     // Load voices in the background — does not require a user gesture
@@ -860,28 +797,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
   btnRetry.addEventListener('click', () => {
     state = spellingTestReducer(resetTest(), initializeTest(originalRichWords));
-    const count = originalWords.length;
-    beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
-    ($('begin-word-count-prose') as HTMLElement).textContent =
-      `${count} ${count === 1 ? 'word' : 'words'} ready to practice.`;
     showScreen(screenBegin);
-  });
-
-
-  // Session settings toggle
-  btnVoiceToggle.addEventListener('click', () => {
-    const open = voiceSettingsPanel.classList.toggle('hidden') === false;
-    btnVoiceToggle.setAttribute('aria-expanded', String(open));
-    voiceToggleChevron.classList.toggle('rotate-180', open);
-  });
-
-  speedRange.addEventListener('input', () => {
-    currentRate = parseFloat(speedRange.value);
-    speedLabel.textContent = `${currentRate.toFixed(2).replace(/0$/, '')}×`;
-  });
-
-  btnTestVoice.addEventListener('click', () => {
-    speech.speakWord('because', speechOptions());
   });
 
   // --- Boot ---

@@ -87,7 +87,7 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 | Task | Status | Notes | Date |
 |---|---|---|---|
 | Curriculum Bible scaffold created | ✅ Complete | Initial document created at `docs/content/curriculum-bible.md` | 2026-06-29 |
-| Existing spelling list inventory audited | ⬜ Not started | See Section 8 below | — |
+| Existing spelling list inventory audited | ✅ Complete | Full audit report with confidence-rated findings and recommendations (fact-gathering only, Bible decisions deferred): `docs/content/curriculum-audit-phase-2.md` | 2026-06-29 |
 | Primary grade assigned to each list | ⬜ Not started | Depends on inventory audit | — |
 | Secondary grade/review tags assigned | ⬜ Not started | Do after primary grade pass | — |
 | Kindergarten gaps identified | ⬜ Not started | Known gaps pre-filled in Section 9 | — |

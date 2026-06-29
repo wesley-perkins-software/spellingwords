@@ -5,6 +5,7 @@ title: "OU and OW Words"
 description: "Words with the OU and OW diphthong — the gliding vowel sound heard in out, round, cow, and down."
 shortAnswer: "This list practices the OU and OW vowel teams that make the diphthong sound heard in out, round, cow, and down."
 category: phonics
+strand: word-patterns
 grade: "3"
 difficulty: developing
 skillTags: ["vowel-teams", "diphthongs", "ou", "ow"]

@@ -5,6 +5,7 @@ title: "PR Blend Words"
 description: "Words that begin with the PR consonant blend — two sounds joined at the start, as in press, pretty, and prize."
 shortAnswer: "This list practices the PR blend pattern, as in press, pretty, prize, and proud."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "pr"]

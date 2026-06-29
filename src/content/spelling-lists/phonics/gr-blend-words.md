@@ -5,6 +5,7 @@ title: "GR Blend Words"
 description: "Words that begin with the GR consonant blend — two sounds joined at the start, as in grab, grass, and grow."
 shortAnswer: "This list practices the GR blend pattern, as in grab, grass, green, and grow."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "gr"]

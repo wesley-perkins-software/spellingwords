@@ -5,6 +5,7 @@ title: "5th Grade Everyday Words"
 description: "Core vocabulary that fifth-grade readers and writers reach for every day — words that appear across subjects and reward careful spelling."
 shortAnswer: "Twelve essential fifth-grade words like knowledge, journey, and introduce — vocabulary students need for reading and writing across all subjects."
 category: grade-level
+strand: vocabulary
 grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "high-frequency", "vocabulary"]

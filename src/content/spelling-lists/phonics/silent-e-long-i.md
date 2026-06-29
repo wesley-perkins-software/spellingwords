@@ -5,6 +5,7 @@ title: "Long I Silent E Words"
 description: "Words where a silent final 'e' creates the long 'i' sound — bike, line, mine — building on the same pattern students learned with long A."
 shortAnswer: "This list practices the silent-e pattern for long 'i' sounds, as in bike, fine, and ride."
 category: phonics
+strand: word-patterns
 grade: "2"
 difficulty: developing
 skillTags: ["silent-e", "long-vowels", "long-i"]

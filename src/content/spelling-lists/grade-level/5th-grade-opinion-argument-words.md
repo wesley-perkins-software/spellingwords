@@ -5,6 +5,7 @@ title: "5th Grade Opinion & Argument Words"
 description: "Ten words at the heart of opinion writing and reasoned argument — the vocabulary fifth graders need to state a claim, support it with evidence, and bring their thinking to a conclusion."
 shortAnswer: "Ten fifth-grade opinion and argument words — claim, evidence, opinion, consequence, summarize, and more — the vocabulary of reasoned writing and discussion."
 category: grade-level
+strand: vocabulary
 grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "vocabulary", "opinion-writing", "argument"]

@@ -5,6 +5,7 @@ title: "CR Blend Words"
 description: "Words that begin with the CR consonant blend — two sounds at the start, as in crab, crow, and crown."
 shortAnswer: "This list practices the CR blend pattern, as in crab, crow, crack, and crawl."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "cr"]

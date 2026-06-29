@@ -5,6 +5,7 @@ title: "BR Blend Words"
 description: "Words that begin with the BR consonant blend — two sounds joined at the start, as in bring, brown, and brave."
 shortAnswer: "This list practices the BR blend pattern, as in bring, brown, bread, and brave."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "br"]

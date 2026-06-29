@@ -5,6 +5,7 @@ title: "5th Grade Reading & Writing Words"
 description: "Twelve words from the language of fifth-grade ELA — the vocabulary of argument, analysis, and close reading that students use when thinking and writing with purpose."
 shortAnswer: "Twelve fifth-grade reading and writing words — analyze, argument, conclusion, strategy, and more — the academic vocabulary of upper-elementary ELA."
 category: grade-level
+strand: vocabulary
 grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "vocabulary", "reading-writing"]

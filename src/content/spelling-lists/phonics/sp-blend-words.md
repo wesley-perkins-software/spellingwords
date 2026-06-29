@@ -5,6 +5,7 @@ title: "SP Blend Words"
 description: "Words that begin with the SP consonant blend — two sounds joined at the start, as in spin, spot, and spring."
 shortAnswer: "This list practices the SP blend pattern, as in spin, spot, spoon, and spring."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "sp"]

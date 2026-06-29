@@ -5,6 +5,7 @@ title: "TR Blend Words"
 description: "Words that begin with the TR consonant blend — two sounds joined at the start, as in tree, train, and truck."
 shortAnswer: "This list practices the TR blend pattern, as in tree, train, truck, and trail."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "tr"]

@@ -5,6 +5,7 @@ title: "SN Blend Words"
 description: "Words that begin with the SN consonant blend — two sounds joined at the start, as in snow, snake, and sniff."
 shortAnswer: "This list practices the SN blend pattern, as in snow, snack, snake, and sniff."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "sn"]

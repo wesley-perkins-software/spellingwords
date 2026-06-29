@@ -5,6 +5,7 @@ title: "ST Blend Words"
 description: "Words that begin with the ST consonant blend — two sounds joined at the start, as in star, stop, and story."
 shortAnswer: "This list practices the ST blend pattern, as in star, stop, step, and story."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "st"]

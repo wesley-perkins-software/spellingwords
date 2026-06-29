@@ -5,6 +5,7 @@ title: "FT Final Blend Words"
 description: "Words ending with the FT consonant blend — two sounds at the end, as in gift, left, and soft."
 shortAnswer: "This list practices the FT blend pattern, as in gift, left, lift, and soft."
 category: phonics
+strand: word-patterns
 grade: "2"
 difficulty: developing
 skillTags: ["consonant-blends", "ft", "final-blends"]

@@ -4,8 +4,8 @@ import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
-import { getListsByGrade, isPublished, resolveListRefs, groupByCategory } from '@/lib/content/spellingLists';
-import { categoryLabels } from '@/lib/content/categoryMeta';
+import { getListsByGrade, isPublished, resolveListRefs, groupByCategory, groupByStrand } from '@/lib/content/spellingLists';
+import { categoryLabels, strandLabels, strandOrder, type Strand } from '@/lib/content/categoryMeta';
 
 const entries = (await getCollection('spelling-lists')).filter(isPublished);
 const totalCount = entries.length;
@@ -17,7 +17,12 @@ const gradeConfig = [
   { grade: '3', label: 'Grade 3', href: '/spelling-lists/3rd-grade' },
   { grade: '4', label: 'Grade 4', href: '/spelling-lists/4th-grade' },
   { grade: '5', label: 'Grade 5', href: '/spelling-lists/5th-grade' },
-].map((gc) => ({ ...gc, count: getListsByGrade(gc.grade, entries).length }));
+].map((gc) => {
+  const gradeLists = getListsByGrade(gc.grade, entries);
+  const byStrand = groupByStrand(gradeLists);
+  const presentStrands = strandOrder.filter((s) => (byStrand.get(s)?.length ?? 0) > 0) as Strand[];
+  return { ...gc, count: gradeLists.length, strands: presentStrands };
+});
 
 const byCategory = groupByCategory(entries);
 
@@ -48,8 +53,15 @@ const skillFamilies = [
   },
 ];
 
-const featuredListIds = ['kindergarten-first-words', 'silent-e-long-a', 'grade-2-list-01'] as const;
+// Three editorial roles: The Welcome, The Milestone, The Discovery
+const featuredListIds = ['kindergarten-first-words', 'dolch-first-grade-a', 'tier-2-greek-latin-roots'] as const;
 const featuredLists = resolveListRefs([...featuredListIds], entries);
+const featuredRoles = ['The Welcome', 'The Milestone', 'The Discovery'] as const;
+const featuredDescriptions = [
+  'A gentle first list for any child just beginning to read.',
+  'A classic first-grade milestone that parents recognize from their own schooling.',
+  'Something a little unexpected — exploring where words come from.',
+] as const;
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Spelling Lists' }];
 
@@ -104,13 +116,23 @@ const breadcrumbJsonLd = {
           {gradeConfig.map((gc) => (
             <a
               href={gc.href}
-              class="group flex flex-col items-center gap-2 rounded-2xl border border-transparent bg-app-paper px-2 py-10 text-center shadow-[0_2px_8px_-2px_rgba(43,35,24,0.10)] transition hover:-translate-y-1 hover:border-brand-blue/30 hover:shadow-[0_8px_24px_-6px_rgba(43,35,24,0.18)]"
+              class="group flex flex-col items-center gap-2 rounded-2xl border border-transparent bg-app-paper px-2 py-8 text-center shadow-[0_2px_8px_-2px_rgba(43,35,24,0.10)] transition hover:-translate-y-1 hover:border-brand-blue/30 hover:shadow-[0_8px_24px_-6px_rgba(43,35,24,0.18)]"
             >
               <span class="font-display text-5xl font-bold leading-none text-ink transition group-hover:text-brand-blue md:text-6xl">
                 {gc.grade}
               </span>
               <span class="text-sm font-bold leading-tight text-ink transition group-hover:text-brand-blue">{gc.label}</span>
-              <span class="text-xs text-ink">{gc.count} lists</span>
+              {gc.strands.length > 0 ? (
+                <div class="mt-1 flex flex-col items-center gap-1">
+                  {gc.strands.map((s) => (
+                    <span class="rounded-full bg-brand-blue/8 px-2 py-0.5 text-[10px] font-semibold leading-tight text-brand-blue">
+                      {strandLabels[s as Strand].split(' ')[0]}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                <span class="text-xs text-ink-faint">Coming soon</span>
+              )}
             </a>
           ))}
         </div>
@@ -168,21 +190,19 @@ const breadcrumbJsonLd = {
             Not sure where to begin? These are well-loved starting points for most families.
           </p>
           <div class="grid gap-4 sm:grid-cols-3">
-            {featuredLists.map((entry) => (
+            {featuredLists.map((entry, i) => (
               <a
                 href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
                 class="group flex flex-col gap-3 rounded-2xl bg-app-cloud p-6 transition hover:-translate-y-0.5 hover:shadow-card-md"
               >
-                <span class="text-xs font-semibold uppercase tracking-wide text-ink">
-                  {categoryLabels[entry.data.category] ?? entry.data.category}
-                  {entry.data.grade
-                    ? ` · ${entry.data.grade === 'K' ? 'Kindergarten' : `Grade ${entry.data.grade}`}`
-                    : ''}
+                <span class="text-[10px] font-bold uppercase tracking-widest text-brand-blue">
+                  {featuredRoles[i]}
                 </span>
                 <h3 class="font-display text-base font-semibold leading-snug text-ink transition group-hover:text-brand-blue">
                   {entry.data.title}
                 </h3>
-                <span class="mt-auto text-sm text-ink">{entry.data.words.length} words</span>
+                <p class="text-xs leading-relaxed text-ink-soft">{featuredDescriptions[i]}</p>
+                <span class="mt-auto text-sm text-ink-soft">{entry.data.words.length} words · {entry.data.grade === 'K' ? 'Kindergarten' : entry.data.grade ? `Grade ${entry.data.grade}` : categoryLabels[entry.data.category]}</span>
               </a>
             ))}
           </div>
@@ -220,7 +240,11 @@ const breadcrumbJsonLd = {
                     {gc.label}
                   </span>
                   <div class="flex items-center gap-2">
-                    <span class="text-sm text-ink">{gc.count} lists</span>
+                    {gc.strands.length > 0 ? (
+                      <span class="text-xs text-ink-soft">{gc.strands.map((s) => strandLabels[s as Strand].split(' ')[0]).join(' · ')}</span>
+                    ) : (
+                      <span class="text-xs text-ink-faint">Coming soon</span>
+                    )}
                     <span class="text-xs font-semibold text-brand-blue opacity-0 transition group-hover:opacity-100">→</span>
                   </div>
                 </a>

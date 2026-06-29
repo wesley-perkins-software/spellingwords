@@ -5,6 +5,7 @@ title: "SW Blend Words"
 description: "Words that begin with the SW consonant blend — two sounds joined at the start, as in swim, swing, and sweet."
 shortAnswer: "This list practices the SW blend pattern, as in swim, swing, sweet, and sweep."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "sw"]

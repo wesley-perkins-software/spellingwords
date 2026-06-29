@@ -5,6 +5,7 @@ title: "Challenge: Academic Vocabulary"
 description: "Twelve high-use academic words from upper-elementary reading, writing, science, and social studies — for students who want to spell the words their teachers use every day."
 shortAnswer: "Twelve academic vocabulary words — analyze, evidence, strategy, and nine more — used across all upper-elementary subjects."
 category: challenge
+strand: enrichment
 difficulty: challenge
 skillTags: ["academic-vocabulary", "cross-curricular", "advanced-patterns"]
 tags: ["challenge", "academic-vocabulary", "cross-curricular"]

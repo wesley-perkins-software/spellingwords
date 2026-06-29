@@ -5,6 +5,7 @@ title: "2nd Grade Action Words"
 description: "Common verbs that second-grade writers use to bring their sentences to life — words for movement, learning, and getting things done."
 shortAnswer: "Twelve action words for second graders — find, follow, learn, stand, throw, and more — the verbs that power second-grade writing."
 category: grade-level
+strand: vocabulary
 grade: "2"
 difficulty: developing
 skillTags: ["grade-2", "verbs", "action-words"]

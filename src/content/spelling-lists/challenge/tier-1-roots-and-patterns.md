@@ -5,6 +5,7 @@ title: "Challenge Tier 1: Roots and Patterns"
 description: "Eight words built from four common Latin roots — port, dict, spect, and rupt — for students ready to explore how word families work."
 shortAnswer: "Eight words built from four Latin roots that unlock the spelling of many longer words."
 category: challenge
+strand: enrichment
 difficulty: challenge
 skillTags: ["roots", "etymology", "advanced-patterns"]
 tags: ["challenge", "roots", "etymology"]

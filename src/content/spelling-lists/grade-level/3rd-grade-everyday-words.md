@@ -5,6 +5,7 @@ title: "3rd Grade Everyday Words"
 description: "Core vocabulary that third-grade readers and writers encounter every day — words that show up across subjects and carry meaning precisely."
 shortAnswer: "This list covers essential third-grade vocabulary like another, between, and question — words students need for reading, writing, and learning across all subjects."
 category: grade-level
+strand: vocabulary
 grade: "3"
 difficulty: intermediate
 skillTags: ["grade-3", "high-frequency", "vocabulary"]

@@ -5,6 +5,7 @@ title: "Dolch Second Grade Sight Words"
 description: "A curated selection from the classic Dolch Second Grade sight word list — the high-frequency words a second grader is expected to recognize and spell on sight, building on the First Grade tier."
 shortAnswer: "Dolch Second Grade draws from the next tier of the classic sight word list, covering the high-frequency words a second grader should be able to read and spell automatically."
 category: sight-words
+strand: foundations
 grade: "2"
 difficulty: developing
 skillTags: ["sight-words", "high-frequency", "second-grade"]

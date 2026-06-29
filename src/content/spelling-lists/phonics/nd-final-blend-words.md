@@ -5,6 +5,7 @@ title: "ND Final Blend Words"
 description: "Words ending with the ND consonant blend — two sounds at the end, as in hand, kind, and pond."
 shortAnswer: "This list practices the ND blend pattern, as in end, hand, kind, and pond."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "nd", "final-blends"]

@@ -5,6 +5,7 @@ title: "NG Final Blend Words"
 description: "Words ending with the NG consonant blend — two sounds at the end, as in sing, king, and long."
 shortAnswer: "This list practices the NG blend pattern, as in sing, king, song, and swing."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "ng", "final-blends"]

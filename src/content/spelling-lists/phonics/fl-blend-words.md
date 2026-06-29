@@ -5,6 +5,7 @@ title: "FL Blend Words"
 description: "Words that begin with the FL consonant blend — two sounds joined at the start, as in flag, flip, and float."
 shortAnswer: "This list practices the FL blend pattern, as in flag, flip, float, and fly."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "fl"]

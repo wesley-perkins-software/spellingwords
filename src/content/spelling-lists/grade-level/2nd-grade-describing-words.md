@@ -5,6 +5,7 @@ title: "2nd Grade Describing Words"
 description: "Twelve adjectives that second-grade writers reach for when describing people, places, and feelings — a step up from basic physical descriptions."
 shortAnswer: "Twelve second-grade describing words like brave, kind, and strong — adjectives for character, emotion, and quality that elevate second-grade writing."
 category: grade-level
+strand: vocabulary
 grade: "2"
 difficulty: developing
 skillTags: ["grade-2", "adjectives", "describing-words"]

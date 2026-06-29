@@ -5,6 +5,7 @@ title: "TH Digraph Words"
 description: "Words built on the TH digraph — two letters that make one sound, though the sound can be voiced (the, they) or unvoiced (think, thank)."
 shortAnswer: "This list practices the TH digraph pattern, as in the, that, think, and thank."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["digraphs", "th"]

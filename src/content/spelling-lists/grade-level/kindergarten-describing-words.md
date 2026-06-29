@@ -5,6 +5,7 @@ title: "Kindergarten Describing Words"
 description: "Simple adjectives that kindergarteners use every day to describe the world around them — how things look, feel, and move."
 shortAnswer: "Twelve everyday describing words for kindergarteners — big, fast, happy, hot, and more — the adjectives that bring early writing to life."
 category: grade-level
+strand: vocabulary
 grade: "K"
 difficulty: beginner
 skillTags: ["grade-K", "adjectives", "describing-words"]

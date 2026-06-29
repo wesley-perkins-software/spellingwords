@@ -50,6 +50,42 @@ export function resolveListRefs(
 }
 
 /**
+ * Groups entries by their `strand`, sorting each group by `order`.
+ * Entries without a strand are placed under a fallback derived from category.
+ */
+export function groupByStrand(
+  entries: SpellingListEntry[],
+): Map<string, SpellingListEntry[]> {
+  const groups = new Map<string, SpellingListEntry[]>();
+
+  for (const entry of entries) {
+    const key = entry.data.strand ?? categoryToStrand(entry.data.category);
+    const existing = groups.get(key);
+    if (existing) {
+      existing.push(entry);
+    } else {
+      groups.set(key, [entry]);
+    }
+  }
+
+  for (const group of groups.values()) {
+    group.sort((a, b) => a.data.order - b.data.order);
+  }
+
+  return groups;
+}
+
+function categoryToStrand(category: SpellingListEntry['data']['category']): string {
+  switch (category) {
+    case 'sight-words': return 'foundations';
+    case 'phonics': return 'word-patterns';
+    case 'grade-level': return 'vocabulary';
+    case 'challenge': return 'enrichment';
+    default: return 'vocabulary';
+  }
+}
+
+/**
  * Returns all entries for a given grade value (e.g. "K", "1", "2"),
  * sorted by category alphabetically then by order within each category.
  */

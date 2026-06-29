@@ -5,6 +5,7 @@ title: "Dolch First Grade Sight Words — Part C"
 description: "The third set of Dolch First Grade sight words: over, put, round, some, stood, take, thank, them, then, think, walk, were, when."
 shortAnswer: "Part C completes the Dolch First Grade list with the final thirteen high-frequency words, rounding out the full first-grade sight word sequence."
 category: sight-words
+strand: foundations
 grade: "1"
 difficulty: developing
 skillTags: ["sight-words", "high-frequency", "first-grade"]

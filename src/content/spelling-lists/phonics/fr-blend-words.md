@@ -5,6 +5,7 @@ title: "FR Blend Words"
 description: "Words that begin with the FR consonant blend — two sounds joined at the start, as in frog, free, and frost."
 shortAnswer: "This list practices the FR blend pattern, as in frog, free, fresh, and frost."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "fr"]

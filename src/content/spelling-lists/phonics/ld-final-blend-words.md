@@ -5,6 +5,7 @@ title: "LD Final Blend Words"
 description: "Words ending with the LD consonant blend — two sounds at the end, as in cold, hold, and wild."
 shortAnswer: "This list practices the LD blend pattern, as in old, cold, hold, and wild."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "ld", "final-blends"]

@@ -5,6 +5,7 @@ title: "1st Grade Describing Words"
 description: "Twelve adjectives that first-grade writers use every day — words for how things feel, look, and seem."
 shortAnswer: "Twelve essential first-grade describing words like warm, clean, and glad — the adjectives that bring first-grade sentences and stories to life."
 category: grade-level
+strand: vocabulary
 grade: "1"
 difficulty: developing
 skillTags: ["grade-1", "adjectives", "describing-words"]

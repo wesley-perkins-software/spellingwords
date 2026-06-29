@@ -5,6 +5,7 @@ title: "AI and AY Words"
 description: "Words that spell the long 'a' sound with two-letter vowel teams — ai in the middle of a word (rain, mail) and ay at the end (play, stay)."
 shortAnswer: "This list practices the AI and AY vowel teams that spell long 'a', as in rain, mail, play, and stay."
 category: phonics
+strand: word-patterns
 grade: "2"
 difficulty: developing
 skillTags: ["vowel-teams", "long-vowels", "long-a", "ai", "ay"]

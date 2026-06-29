@@ -5,6 +5,7 @@ title: "5th Grade Community & Civics Words"
 description: "Ten words from the language of community and civic life — vocabulary for understanding how people live, lead, and participate in the world around them."
 shortAnswer: "Ten fifth-grade community and civics words — democracy, president, principal, spectator, and more — vocabulary for understanding how communities and institutions work."
 category: grade-level
+strand: vocabulary
 grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "civics", "community", "vocabulary"]

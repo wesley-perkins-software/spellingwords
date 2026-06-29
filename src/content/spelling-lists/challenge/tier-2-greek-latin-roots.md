@@ -5,6 +5,7 @@ title: "Challenge Tier 2: Greek and Latin Roots"
 description: "Five words built from Greek roots — tele, photo, graph, bio, demo, and para — for students ready to explore the origins of everyday English words."
 shortAnswer: "Five words built from Greek roots, from telephone and photograph to democracy and paragraph."
 category: challenge
+strand: enrichment
 difficulty: challenge
 skillTags: ["roots", "etymology", "advanced-patterns", "greek-roots"]
 tags: ["challenge", "roots", "etymology", "greek"]

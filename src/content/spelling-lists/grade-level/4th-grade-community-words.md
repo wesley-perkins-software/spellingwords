@@ -5,6 +5,7 @@ title: "4th Grade Community Words"
 description: "Words for the people, roles, and places that make up a community — vocabulary fourth graders encounter in social studies, reading, and everyday life."
 shortAnswer: "Ten fourth-grade community words — captain, citizen, neighbor, volunteer, and more — the vocabulary of people, roles, and places that make up a community."
 category: grade-level
+strand: vocabulary
 grade: "4"
 difficulty: intermediate
 skillTags: ["grade-4", "vocabulary", "community"]

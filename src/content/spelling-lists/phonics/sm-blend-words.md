@@ -5,6 +5,7 @@ title: "SM Blend Words"
 description: "Words that begin with the SM consonant blend — two sounds joined at the start, as in small, smile, and smell."
 shortAnswer: "This list practices the SM blend pattern, as in small, smart, smell, and smile."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "sm"]

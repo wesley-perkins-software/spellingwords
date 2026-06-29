@@ -5,6 +5,7 @@ title: "Kindergarten First Words"
 description: "Twelve simple, concrete words that kindergarteners encounter from the very first days of reading — animals, nature, and objects from everyday life."
 shortAnswer: "A gentle starting list of twelve concrete kindergarten words, from bird and fish to rain and snow — simple, familiar, and just right for a young speller."
 category: grade-level
+strand: vocabulary
 grade: "K"
 difficulty: beginner
 skillTags: ["grade-K", "beginner", "high-frequency"]

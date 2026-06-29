@@ -5,6 +5,7 @@ title: "Short O Words"
 description: "Ten simple words built around the short 'o' sound — the round, open vowel heard in hot, dog, and top — for early phonics practice."
 shortAnswer: "This list practices the short 'o' sound in simple words like hot, dog, and top — a foundational early phonics pattern."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: beginner
 skillTags: ["short-vowels", "short-o", "cvc"]

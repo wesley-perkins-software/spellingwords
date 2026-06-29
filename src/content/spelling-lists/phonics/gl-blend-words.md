@@ -5,6 +5,7 @@ title: "GL Blend Words"
 description: "Words that begin with the GL consonant blend — two sounds joined at the start, as in glad, glass, and glow."
 shortAnswer: "This list practices the GL blend pattern, as in glad, glass, glow, and glue."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "gl"]

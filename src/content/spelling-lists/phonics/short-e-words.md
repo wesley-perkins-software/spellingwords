@@ -5,6 +5,7 @@ title: "Short E Words"
 description: "Ten simple words built around the short 'e' sound — the soft, mid-mouth vowel heard in bed, red, and hen — for early phonics practice."
 shortAnswer: "This list practices the short 'e' sound in simple words like bed, red, and hen — a key early phonics pattern."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: beginner
 skillTags: ["short-vowels", "short-e", "cvc"]

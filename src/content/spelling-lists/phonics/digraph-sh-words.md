@@ -5,6 +5,7 @@ title: "SH Digraph Words"
 description: "Words built on the SH digraph — two letters that team up to make one smooth sound, as in she, ship, and shell."
 shortAnswer: "This list practices the SH digraph pattern, as in she, ship, shoe, and shell."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["digraphs", "sh"]

@@ -5,6 +5,7 @@ title: "4th Grade Everyday Words"
 description: "Core vocabulary that fourth-grade readers and writers reach for every day — words that appear across subjects and reward careful spelling."
 shortAnswer: "Twelve essential fourth-grade words like beautiful, discover, and receive — vocabulary students need for reading and writing across all subjects."
 category: grade-level
+strand: vocabulary
 grade: "4"
 difficulty: intermediate
 skillTags: ["grade-4", "high-frequency", "vocabulary"]

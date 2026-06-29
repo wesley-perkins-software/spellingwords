@@ -5,6 +5,7 @@ title: "BL Blend Words"
 description: "Words that begin with the BL consonant blend — two sounds working together at the start, as in black, blue, and bloom."
 shortAnswer: "This list practices the BL blend pattern, as in black, blue, block, and bloom."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "bl"]

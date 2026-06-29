@@ -50,16 +50,80 @@ export function resolveListRefs(
 }
 
 /**
+ * Groups entries by their `strand`, sorting each group by `order`.
+ * Entries without a strand are placed under a fallback derived from category.
+ */
+export function groupByStrand(
+  entries: SpellingListEntry[],
+): Map<string, SpellingListEntry[]> {
+  const groups = new Map<string, SpellingListEntry[]>();
+
+  for (const entry of entries) {
+    const key = entry.data.strand ?? categoryToStrand(entry.data.category);
+    const existing = groups.get(key);
+    if (existing) {
+      existing.push(entry);
+    } else {
+      groups.set(key, [entry]);
+    }
+  }
+
+  for (const group of groups.values()) {
+    group.sort((a, b) => a.data.order - b.data.order);
+  }
+
+  return groups;
+}
+
+function categoryToStrand(category: SpellingListEntry['data']['category']): string {
+  switch (category) {
+    case 'sight-words': return 'foundations';
+    case 'phonics': return 'word-patterns';
+    case 'grade-level': return 'vocabulary';
+    case 'challenge': return 'enrichment';
+    default: return 'vocabulary';
+  }
+}
+
+const STRAND_PROGRESSION_ORDER: Record<string, number> = {
+  foundations: 0,
+  'word-patterns': 1,
+  vocabulary: 2,
+  enrichment: 3,
+};
+
+function strandProgressionKey(entry: SpellingListEntry): number {
+  const s = entry.data.strand ?? categoryToStrand(entry.data.category);
+  return STRAND_PROGRESSION_ORDER[s] ?? 2;
+}
+
+/**
  * Returns all entries for a given grade value (e.g. "K", "1", "2"),
- * sorted by category alphabetically then by order within each category.
+ * sorted by curriculum progression order (foundations → word-patterns →
+ * vocabulary → enrichment), then by `order` within each strand.
  */
 export function getListsByGrade(grade: string, entries: SpellingListEntry[]): SpellingListEntry[] {
   return entries
     .filter((e) => e.data.grade === grade)
     .sort((a, b) => {
-      if (a.data.category !== b.data.category) return a.data.category.localeCompare(b.data.category);
+      const strandDiff = strandProgressionKey(a) - strandProgressionKey(b);
+      if (strandDiff !== 0) return strandDiff;
       return a.data.order - b.data.order;
     });
+}
+
+/**
+ * Splits a grade's progression-sorted list into an opening "start here" group
+ * (foundations strand) and the remaining lists. Both arrays preserve
+ * progression order. If there are no foundations-strand lists the opening
+ * array is empty and all lists appear in the rest array.
+ */
+export function splitProgressionGroups(
+  lists: SpellingListEntry[],
+): { opening: SpellingListEntry[]; rest: SpellingListEntry[] } {
+  const opening = lists.filter((e) => (e.data.strand ?? categoryToStrand(e.data.category)) === 'foundations');
+  const rest = lists.filter((e) => (e.data.strand ?? categoryToStrand(e.data.category)) !== 'foundations');
+  return { opening, rest };
 }
 
 /** Returns a Set of list IDs that belong to any published collection. */

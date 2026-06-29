@@ -2,6 +2,7 @@ import type { SpellingListEntry } from './spellingLists';
 
 type Category = SpellingListEntry['data']['category'];
 type Difficulty = SpellingListEntry['data']['difficulty'];
+export type Strand = 'foundations' | 'word-patterns' | 'vocabulary' | 'enrichment';
 
 export const categoryLabels: Record<Category, string> = {
   'sight-words': 'Sight Words',
@@ -39,3 +40,24 @@ export const categoryOrder = [
   'grade-level',
   'challenge',
 ] as const;
+
+export const strandLabels: Record<Strand, string> = {
+  foundations: 'Sight Words & Basics',
+  'word-patterns': 'Phonics & Word Structure',
+  vocabulary: 'Vocabulary',
+  enrichment: 'Challenge & Enrichment',
+};
+
+export const strandDescriptions: Record<Strand, string> = {
+  foundations: 'High-frequency words children should recognize and spell automatically, from Dolch tiers to print basics.',
+  'word-patterns': 'Sound-spelling patterns from short vowels and blends through morphology, prefixes, and roots.',
+  vocabulary: 'Grade-appropriate words matched to what students read and write at each level.',
+  enrichment: 'Advanced patterns, Greek and Latin roots, and spelling bee preparation for motivated learners.',
+};
+
+export const strandOrder: Strand[] = [
+  'foundations',
+  'word-patterns',
+  'vocabulary',
+  'enrichment',
+];

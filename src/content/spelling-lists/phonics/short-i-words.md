@@ -5,6 +5,7 @@ title: "Short I Words"
 description: "Ten simple words built around the short 'i' sound — the quick, bright vowel heard in pig, sit, and hill — for early phonics practice."
 shortAnswer: "This list practices the short 'i' sound in simple words like pig, sit, and hill — a core early phonics pattern."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: beginner
 skillTags: ["short-vowels", "short-i", "cvc"]

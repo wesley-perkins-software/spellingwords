@@ -5,6 +5,7 @@ title: "1st Grade Everyday Words"
 description: "Core vocabulary that first-grade readers and writers reach for every day — words for places, time, and how things work."
 shortAnswer: "Twelve essential first-grade words like night, road, and word — the everyday vocabulary students need for reading and writing across all subjects."
 category: grade-level
+strand: vocabulary
 grade: "1"
 difficulty: developing
 skillTags: ["grade-1", "high-frequency", "vocabulary"]

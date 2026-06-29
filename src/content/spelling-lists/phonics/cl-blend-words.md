@@ -5,6 +5,7 @@ title: "CL Blend Words"
 description: "Words that begin with the CL consonant blend — two sounds at the start, as in clap, clean, and clock."
 shortAnswer: "This list practices the CL blend pattern, as in clap, clean, clock, and club."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "cl"]

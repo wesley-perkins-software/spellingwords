@@ -5,6 +5,7 @@ title: "5th Grade Science & Nature Words"
 description: "Twelve words from the language of fifth-grade science and the natural world — vocabulary for observing, investigating, and describing the living and physical world around us."
 shortAnswer: "Twelve fifth-grade science and nature words — ocean, mountain, observe, predict, and more — vocabulary for exploring and understanding the natural world."
 category: grade-level
+strand: vocabulary
 grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "science", "nature", "vocabulary"]

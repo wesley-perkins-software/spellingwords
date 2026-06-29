@@ -5,6 +5,7 @@ title: "Kindergarten Number and Color Words"
 description: "The numbers one through ten and four essential color words — the vocabulary every kindergartener needs to spell from the very first week of school."
 shortAnswer: "Numbers one through ten plus red, blue, yellow, and brown — the number and color words every kindergartener needs to read, write, and spell."
 category: grade-level
+strand: vocabulary
 grade: "K"
 difficulty: beginner
 skillTags: ["grade-K", "beginner", "numbers", "colors"]

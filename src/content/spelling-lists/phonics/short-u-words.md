@@ -5,6 +5,7 @@ title: "Short U Words"
 description: "Ten simple words built around the short 'u' sound — the sturdy, central vowel heard in bug, sun, and run — for early phonics practice."
 shortAnswer: "This list practices the short 'u' sound in simple words like bug, sun, and run — a core early phonics pattern."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: beginner
 skillTags: ["short-vowels", "short-u", "cvc"]

@@ -5,6 +5,7 @@ title: "Dolch First Grade Sight Words — Part B"
 description: "The second set of Dolch First Grade sight words: has, her, him, his, how, just, know, let, live, may, of, old, once, open."
 shortAnswer: "Part B of the Dolch First Grade list covers fourteen more high-frequency words from the classic first-grade sight word sequence."
 category: sight-words
+strand: foundations
 grade: "1"
 difficulty: developing
 skillTags: ["sight-words", "high-frequency", "first-grade"]

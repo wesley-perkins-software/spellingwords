@@ -5,6 +5,7 @@ title: "1st Grade Action Words"
 description: "Twelve common verbs that first-grade writers use every day — words for things you do, make, and hear."
 shortAnswer: "Twelve action words for first graders — build, catch, sing, write, and more — the verbs that bring first-grade stories and sentences to life."
 category: grade-level
+strand: vocabulary
 grade: "1"
 difficulty: developing
 skillTags: ["grade-1", "verbs", "action-words"]

@@ -5,6 +5,7 @@ title: "SL Blend Words"
 description: "Words that begin with the SL consonant blend — two sounds joined at the start, as in sleep, slide, and slow."
 shortAnswer: "This list practices the SL blend pattern, as in sleep, sled, slide, and slow."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "sl"]

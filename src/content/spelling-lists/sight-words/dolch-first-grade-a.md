@@ -5,6 +5,7 @@ title: "Dolch First Grade Sight Words — Part A"
 description: "The first set of Dolch First Grade sight words: after, again, an, any, as, ask, by, could, every, fly, from, give, going, had."
 shortAnswer: "Part A of the Dolch First Grade list covers the first fourteen high-frequency words a first grader is expected to recognize and spell automatically."
 category: sight-words
+strand: foundations
 grade: "1"
 difficulty: developing
 skillTags: ["sight-words", "high-frequency", "first-grade"]

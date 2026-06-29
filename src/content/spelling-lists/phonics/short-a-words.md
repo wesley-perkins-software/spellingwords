@@ -5,6 +5,7 @@ title: "Short A Words"
 description: "Ten simple words built around the short 'a' sound — the crisp, open vowel heard in cat, hat, and pan — for early phonics practice."
 shortAnswer: "This list practices the short 'a' sound in simple words like cat, hat, and pan — a foundational early phonics pattern."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: beginner
 skillTags: ["short-vowels", "short-a", "cvc"]

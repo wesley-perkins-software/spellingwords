@@ -5,6 +5,7 @@ title: "R-Controlled OR Words"
 description: "Words where R follows O and changes the vowel sound — the OR pattern heard in corn, short, and morning."
 shortAnswer: "This list practices the OR r-controlled vowel pattern, as in corn, north, short, and morning."
 category: phonics
+strand: word-patterns
 grade: "2"
 difficulty: developing
 skillTags: ["r-controlled", "or"]

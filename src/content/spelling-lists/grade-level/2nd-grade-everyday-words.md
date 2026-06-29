@@ -5,6 +5,7 @@ title: "2nd Grade Everyday Words"
 description: "Core, high-use vocabulary that second-grade spellers encounter daily in reading and writing — a strong everyday foundation."
 shortAnswer: "This list covers everyday second-grade vocabulary like friend, because, and people — words students use constantly in reading and writing."
 category: grade-level
+strand: vocabulary
 grade: "2"
 difficulty: developing
 skillTags: ["grade-2", "high-frequency"]

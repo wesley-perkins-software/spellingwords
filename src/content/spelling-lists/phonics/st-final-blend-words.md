@@ -5,6 +5,7 @@ title: "ST Final Blend Words"
 description: "Words ending with the ST consonant blend — two sounds at the end, as in best, last, and nest."
 shortAnswer: "This list practices the ST blend pattern, as in best, last, must, and nest."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "st", "final-blends"]

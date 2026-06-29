@@ -5,6 +5,7 @@ title: "NK Final Blend Words"
 description: "Words ending with the NK consonant blend — two sounds at the end, as in bank, pink, and think."
 shortAnswer: "This list practices the NK blend pattern, as in bank, sink, think, and trunk."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "nk", "final-blends"]

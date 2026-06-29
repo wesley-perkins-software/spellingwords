@@ -5,6 +5,7 @@ title: "NT Final Blend Words"
 description: "Words ending with the NT consonant blend — two sounds at the end, as in ant, tent, and front."
 shortAnswer: "This list practices the NT blend pattern, as in ant, hint, tent, and went."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "nt", "final-blends"]

@@ -1,6 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 
 const category = z.enum(['grade-level', 'sight-words', 'phonics', 'challenge', 'theme', 'seasonal']);
+const strand = z.enum(['foundations', 'word-patterns', 'vocabulary', 'enrichment']);
 const difficulty = z.enum(['beginner', 'developing', 'intermediate', 'advanced', 'challenge']);
 const status = z.enum(['draft', 'published', 'archived']);
 
@@ -26,6 +27,7 @@ const spellingLists = defineCollection({
     description: z.string(),
     shortAnswer: z.string().optional(),
     category,
+    strand: strand.optional(),
     grade: z.string().optional(),
     difficulty,
     skillTags: z.array(z.string()).default([]),

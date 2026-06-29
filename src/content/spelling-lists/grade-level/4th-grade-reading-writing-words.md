@@ -5,6 +5,7 @@ title: "4th Grade Reading & Writing Words"
 description: "Thirteen words from the language of fourth-grade ELA — literary terms and writing vocabulary that students use when reading closely and writing with purpose."
 shortAnswer: "Thirteen fourth-grade reading and writing words — author, evidence, paragraph, summarize, and more — the academic vocabulary of ELA class."
 category: grade-level
+strand: vocabulary
 grade: "4"
 difficulty: intermediate
 skillTags: ["grade-4", "vocabulary", "reading-writing"]

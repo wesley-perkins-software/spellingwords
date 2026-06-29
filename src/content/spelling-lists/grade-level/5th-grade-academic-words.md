@@ -5,6 +5,7 @@ title: "5th Grade Academic Words"
 description: "Eleven words that show up across every subject in fifth grade — the core vocabulary of school work, from asking a question to reaching a conclusion."
 shortAnswer: "Eleven fifth-grade academic words — achieve, identify, information, process, solution, and more — the cross-subject vocabulary students use every day in school."
 category: grade-level
+strand: vocabulary
 grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "vocabulary", "academic-language"]

@@ -5,6 +5,7 @@ title: "3rd Grade Describing Words"
 description: "Vivid adjectives that help third-grade writers add precision and detail — words for describing size, shape, texture, and feel."
 shortAnswer: "This list covers descriptive adjectives like narrow, smooth, and gentle — words that help third-grade writers paint a clearer picture."
 category: grade-level
+strand: vocabulary
 grade: "3"
 difficulty: intermediate
 skillTags: ["grade-3", "adjectives", "descriptive-writing"]

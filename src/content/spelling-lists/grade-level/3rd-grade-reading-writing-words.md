@@ -5,6 +5,7 @@ title: "3rd Grade Reading & Writing Words"
 description: "Twelve words that third graders use when talking and writing about books — the language of reading comprehension and the writing process."
 shortAnswer: "Twelve reading and writing words for third grade — idea, reason, believe, spell, and more — the vocabulary students use every day in ELA."
 category: grade-level
+strand: vocabulary
 grade: "3"
 difficulty: intermediate
 skillTags: ["grade-3", "vocabulary", "reading-writing"]

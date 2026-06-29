@@ -5,6 +5,7 @@ title: "SK Final Blend Words"
 description: "Words ending with the SK consonant blend — two sounds at the end, as in ask, desk, and mask."
 shortAnswer: "This list practices the SK blend pattern, as in ask, desk, mask, and task."
 category: phonics
+strand: word-patterns
 grade: "2"
 difficulty: developing
 skillTags: ["consonant-blends", "sk", "final-blends"]

@@ -5,6 +5,7 @@ title: "DR Blend Words"
 description: "Words that begin with the DR consonant blend — two sounds joined at the start, as in drop, drum, and dream."
 shortAnswer: "This list practices the DR blend pattern, as in drop, drum, draw, and dream."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "dr"]

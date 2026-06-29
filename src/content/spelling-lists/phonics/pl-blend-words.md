@@ -5,6 +5,7 @@ title: "PL Blend Words"
 description: "Words that begin with the PL consonant blend — two sounds joined at the start, as in play, plant, and please."
 shortAnswer: "This list practices the PL blend pattern, as in play, plant, please, and place."
 category: phonics
+strand: word-patterns
 grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "pl"]

@@ -5,6 +5,7 @@ title: "Dolch Third Grade Sight Words"
 description: "A curated selection from the classic Dolch Third Grade sight word list — high-frequency words a third grader is expected to recognize and spell automatically, completing the core Dolch sequence."
 shortAnswer: "Dolch Third Grade completes the core Dolch sequence with the high-frequency words a third grader should be able to read and spell automatically."
 category: sight-words
+strand: foundations
 grade: "3"
 difficulty: intermediate
 skillTags: ["sight-words", "high-frequency", "third-grade"]

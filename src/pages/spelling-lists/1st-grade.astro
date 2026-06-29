@@ -5,8 +5,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import SpellingListCard from '@/components/SpellingListCard.astro';
-import { getListsByGrade, isPublished, getMemberListIds, groupByStrand } from '@/lib/content/spellingLists';
-import { strandLabels, strandDescriptions, strandOrder, type Strand } from '@/lib/content/categoryMeta';
+import { getListsByGrade, isPublished, getMemberListIds, splitProgressionGroups } from '@/lib/content/spellingLists';
 
 const GRADE = '1';
 
@@ -19,8 +18,8 @@ const entries = (await getCollection('spelling-lists')).filter(isPublished);
 const gradeLists = getListsByGrade(GRADE, entries).filter((e) => !memberIds.has(e.data.id));
 const gradeCollections = allCollections.filter((c) => c.data.grade === GRADE);
 const totalItems = gradeCollections.length + gradeLists.length;
-const byStrand = groupByStrand(gradeLists);
-const presentStrands = strandOrder.filter((s) => (byStrand.get(s)?.length ?? 0) > 0) as Strand[];
+const { opening: openingLists, rest: remainingLists } = splitProgressionGroups(gradeLists);
+const hasStartHere = gradeCollections.length > 0 || openingLists.length > 0;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -109,12 +108,11 @@ const itemListJsonLd = {
         </div>
       ) : (
         <div class="mb-12 flex flex-col gap-10">
-          {gradeCollections.length > 0 && (
-            <section aria-labelledby="collections-heading">
-              <h2 id="collections-heading" class="mb-1 font-display text-base font-semibold text-ink">
-                {strandLabels['foundations']}
+          {hasStartHere && (
+            <section aria-labelledby="start-here-heading">
+              <h2 id="start-here-heading" class="mb-4 text-xs font-semibold uppercase tracking-widest text-ink-soft">
+                Start here
               </h2>
-              <p class="mb-4 text-sm text-ink-soft">{strandDescriptions['foundations']}</p>
               <div class="grid gap-4 sm:grid-cols-2">
                 {gradeCollections.map((c) => (
                   <a
@@ -135,9 +133,40 @@ const itemListJsonLd = {
                     </div>
                   </a>
                 ))}
+                {openingLists.map((entry) => (
+                  <SpellingListCard
+                    href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                    category={entry.data.category}
+                    title={entry.data.title}
+                    description={entry.data.description}
+                    difficulty={entry.data.difficulty}
+                    durationMinutes={entry.data.estimatedDurationMinutes}
+                    wordCount={entry.data.words.length}
+                  />
+                ))}
               </div>
             </section>
           )}
+          {remainingLists.length > 0 && (
+            <section aria-labelledby="more-lists-heading">
+              <h2 id="more-lists-heading" class="sr-only">More lists</h2>
+              <div class="grid gap-4 sm:grid-cols-2">
+                {remainingLists.map((entry) => (
+                  <SpellingListCard
+                    href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                    category={entry.data.category}
+                    title={entry.data.title}
+                    description={entry.data.description}
+                    difficulty={entry.data.difficulty}
+                    durationMinutes={entry.data.estimatedDurationMinutes}
+                    wordCount={entry.data.words.length}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+      )}
           {presentStrands.map((strand) => {
             const strandLists = byStrand.get(strand) ?? [];
             if (strandLists.length === 0) return null;

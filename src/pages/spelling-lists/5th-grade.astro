@@ -168,32 +168,6 @@ const itemListJsonLd = {
           )}
         </div>
       )}
-          {presentStrands.map((strand) => {
-            const strandLists = byStrand.get(strand) ?? [];
-            if (strandLists.length === 0) return null;
-            const headingId = `strand-heading-${strand}`;
-            return (
-              <section aria-labelledby={headingId}>
-                <h2 id={headingId} class="mb-1 font-display text-base font-semibold text-ink">
-                  {strandLabels[strand]}
-                </h2>
-                <p class="mb-4 text-sm text-ink-soft">{strandDescriptions[strand]}</p>
-                <div class="grid gap-4 sm:grid-cols-2">
-                  {strandLists.map((entry) => (
-                    <SpellingListCard
-                      href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
-                      category={entry.data.category}
-                      title={entry.data.title}
-                      description={entry.data.description}
-                      difficulty={entry.data.difficulty}
-                      durationMinutes={entry.data.estimatedDurationMinutes}
-                      wordCount={entry.data.words.length}
-                    />
-                  ))}
-                </div>
-              </section>
-            );
-          })}
         </div>
       )}
 

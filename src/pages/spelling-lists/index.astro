@@ -4,7 +4,7 @@ import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
-import { getListsByGrade, isPublished, resolveListRefs, groupByCategory } from '@/lib/content/spellingLists';
+import { getListsByGrade, isPublished, groupByCategory } from '@/lib/content/spellingLists';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 
@@ -45,8 +45,7 @@ const skillFamilies = [
   },
 ];
 
-const featuredListIds = ['kindergarten-first-words', 'silent-e-long-a', 'grade-2-list-01'] as const;
-const featuredLists = resolveListRefs([...featuredListIds], entries);
+const featuredLists = entries.filter((e) => e.data.featured);
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Spelling Lists' }];
 

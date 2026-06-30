@@ -300,3 +300,19 @@ Review this report together and make deliberate decisions on the items in §5 (F
 1. Update `curriculum-bible.md` §6 (corrected snapshot numbers), §7 (grade narratives reflecting archived-status reality), §8 (populate the Existing List Inventory with the decided-upon grades), and §9 (flip the ~5 reclassifiable gap rows from Missing/Partial to Exists).
 2. Apply the agreed frontmatter changes (grade tags on the 3 challenge lists, any final-blend/diphthong re-tagging, any archived-list republish/cleanup decisions).
 3. Only after that, begin authoring genuinely new content against the now-accurate, smaller gap list (~20 items instead of ~25).
+
+---
+
+## Phase 3 Resolution (2026-06-30)
+
+The curriculum architecture decisions this audit's §5 called for have been made and applied to the repository. This section is append-only — it records the resolution against each §5 finding; the inventory tables, counts, and findings above remain an accurate point-in-time snapshot of the 2026-06-29 audit and are unchanged.
+
+1. **Archived Dolch sight-word lists (5 of 7 archived, not published):** Resolved — `dolch-pre-primer`, `dolch-primer`, `dolch-second-grade`, and `dolch-third-grade` are republished (`status: published`). All 7 Dolch tiers are now live. See Curriculum Bible §6 (Current Library Snapshot) and §7 Kindergarten/2nd/3rd Grade Current Coverage tables.
+2. **Challenge root lists lacking a grade tag (`tier-1-roots-and-patterns`, `tier-2-greek-latin-roots`):** Resolved — both retagged `category: grade-level`, `grade: "4"`, with `order` renumbered to follow the existing Grade 4 lists. They are Grade 4's canonical morphology content; `tier-2-greek-latin-roots` also serves Grade 5 review/extension via its existing `relatedLists`/`prerequisiteLists` chain, with no duplicate grade tag added. See Curriculum Bible §7 4th Grade and §7 5th Grade.
+3. **Diphthong lists tagged grade 3, inconsistent with grade-2 vowel-team siblings (`vowel-teams-oi-oy`, `vowel-teams-ou-ow`):** Resolved — both retagged `grade: "2"`, matching `ai-ay`, `ee-ea`, and `oa-ow`. Grade 3 now carries zero primary phonics content by design. See Curriculum Bible §7 2nd Grade and §7 3rd Grade.
+4. **Final-blend grade-1/grade-2 split (`nd/ng/ld/st/nt/nk` at grade 1 vs. `ft/lk/lt/mp/sk` at grade 2):** Kept as-is — confirmed intentional, not a mis-tag. Documented explicitly in Curriculum Bible §7 1st Grade Notes so a future audit doesn't re-flag it.
+5. **5th-grade academic vocabulary word overlap (`5th-grade-academic-words` vs. `challenge/academic-vocabulary`):** Kept as-is — intentional and acceptable (standard grade expectation vs. genuine extension beyond it). Documented in Curriculum Bible §7 5th Grade Notes.
+6. **Kindergarten CVC/phonics gap:** Resolved as a framing decision, not a retag — K phonics foundations (letter sounds, beginning/ending sounds, phonemic awareness) are a real, legitimate instructional need, but full CVC *spelling* practice stays Grade 1 primary, matching standard scope-and-sequence and this app's type-the-whole-word format. Recorded as a future curriculum consideration in Curriculum Bible §7 Kindergarten Notes and §9 Content Gap Matrix, not an open "High priority" gap to fill by relabeling Grade 1 content.
+7. **Challenge vs. grade-level category boundary:** Tightened — `category: challenge` is now explicitly defined as reserved for content with no single natural grade home (genuine cross-grade enrichment), distinct from `difficulty: challenge`, which is an independent rigor signal usable on any category. See Curriculum Bible §3 Definitions, Challenge Word row.
+
+The corrected counts from this audit (82 total lists, `phonics/` at 50) are now reflected in Curriculum Bible §6. Remaining high-priority gaps are unchanged by this resolution pass — 3rd-grade morphology remains the single largest open gap in the library.

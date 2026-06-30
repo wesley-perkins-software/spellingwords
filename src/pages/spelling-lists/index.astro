@@ -4,20 +4,17 @@ import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
-import { getListsByGrade, isPublished, resolveListRefs, groupByCategory } from '@/lib/content/spellingLists';
+import { getListsByGrade, isPublished, groupByCategory } from '@/lib/content/spellingLists';
 import { categoryLabels } from '@/lib/content/categoryMeta';
+import { gradeConfig } from '@/lib/content/gradeConfig';
 
 const entries = (await getCollection('spelling-lists')).filter(isPublished);
 const totalCount = entries.length;
 
-const gradeConfig = [
-  { grade: 'K', label: 'Kindergarten', href: '/spelling-lists/kindergarten' },
-  { grade: '1', label: 'Grade 1', href: '/spelling-lists/1st-grade' },
-  { grade: '2', label: 'Grade 2', href: '/spelling-lists/2nd-grade' },
-  { grade: '3', label: 'Grade 3', href: '/spelling-lists/3rd-grade' },
-  { grade: '4', label: 'Grade 4', href: '/spelling-lists/4th-grade' },
-  { grade: '5', label: 'Grade 5', href: '/spelling-lists/5th-grade' },
-].map((gc) => ({ ...gc, count: getListsByGrade(gc.grade, entries).length }));
+const gradeTiles = gradeConfig.map((gc) => ({
+  ...gc,
+  count: getListsByGrade(gc.grade, entries).length,
+}));
 
 const byCategory = groupByCategory(entries);
 
@@ -48,8 +45,7 @@ const skillFamilies = [
   },
 ];
 
-const featuredListIds = ['kindergarten-first-words', 'silent-e-long-a', 'grade-2-list-01'] as const;
-const featuredLists = resolveListRefs([...featuredListIds], entries);
+const featuredLists = entries.filter((e) => e.data.featured);
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Spelling Lists' }];
 
@@ -101,15 +97,15 @@ const breadcrumbJsonLd = {
       <h2 id="grade-chapter-heading" class="sr-only">Browse by Grade</h2>
       <div class="mx-auto max-w-3xl px-6 py-14">
         <div class="grid grid-cols-3 gap-3 md:grid-cols-6">
-          {gradeConfig.map((gc) => (
+          {gradeTiles.map((gc) => (
             <a
-              href={gc.href}
+              href={gc.hubHref}
               class="group flex flex-col items-center gap-2 rounded-2xl border border-transparent bg-app-paper px-2 py-10 text-center shadow-[0_2px_8px_-2px_rgba(43,35,24,0.10)] transition hover:-translate-y-1 hover:border-brand-blue/30 hover:shadow-[0_8px_24px_-6px_rgba(43,35,24,0.18)]"
             >
               <span class="font-display text-5xl font-bold leading-none text-ink transition group-hover:text-brand-blue md:text-6xl">
                 {gc.grade}
               </span>
-              <span class="text-sm font-bold leading-tight text-ink transition group-hover:text-brand-blue">{gc.label}</span>
+              <span class="text-sm font-bold leading-tight text-ink transition group-hover:text-brand-blue">{gc.shortLabel}</span>
               <span class="text-xs text-ink">{gc.count} lists</span>
             </a>
           ))}
@@ -211,13 +207,13 @@ const breadcrumbJsonLd = {
               By grade
             </h3>
             <div>
-              {gradeConfig.map((gc) => (
+              {gradeTiles.map((gc) => (
                 <a
-                  href={gc.href}
+                  href={gc.hubHref}
                   class="group flex items-center justify-between border-b border-line py-3 transition last:border-0"
                 >
                   <span class="text-sm font-semibold text-ink transition group-hover:text-brand-blue">
-                    {gc.label}
+                    {gc.shortLabel}
                   </span>
                   <div class="flex items-center gap-2">
                     <span class="text-sm text-ink">{gc.count} lists</span>

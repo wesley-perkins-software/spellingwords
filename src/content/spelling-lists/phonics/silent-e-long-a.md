@@ -17,7 +17,7 @@ sourceType: curated
 relatedLists: ["short-vowels-cvc-words"]
 prerequisiteLists: ["short-vowels-cvc-words"]
 nextLists: ["silent-e-long-i"]
-featured: false
+featured: true
 words:
   - cake
   - gate

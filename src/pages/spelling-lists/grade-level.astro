@@ -6,21 +6,13 @@ import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import SpellingListCard from '@/components/SpellingListCard.astro';
 import { isPublished, getListsByGrade, getMemberListIds } from '@/lib/content/spellingLists';
+import { gradeConfig } from '@/lib/content/gradeConfig';
 
 const allCollections = (await getCollection('spelling-collections')).filter(
   (c) => c.data.status === 'published',
 );
 const memberIds = getMemberListIds(allCollections);
 const entries = (await getCollection('spelling-lists')).filter(isPublished);
-
-const gradeConfig = [
-  { grade: 'K', label: 'Kindergarten', hubHref: '/spelling-lists/kindergarten' },
-  { grade: '1', label: '1st Grade', hubHref: '/spelling-lists/1st-grade' },
-  { grade: '2', label: '2nd Grade', hubHref: '/spelling-lists/2nd-grade' },
-  { grade: '3', label: '3rd Grade', hubHref: '/spelling-lists/3rd-grade' },
-  { grade: '4', label: '4th Grade', hubHref: '/spelling-lists/4th-grade' },
-  { grade: '5', label: '5th Grade', hubHref: '/spelling-lists/5th-grade' },
-];
 
 const gradeSections = gradeConfig
   .map(({ grade, label, hubHref }) => {

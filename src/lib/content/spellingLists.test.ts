@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { groupByCategory, isPublished, resolveListRefs, toPlayableWords } from './spellingLists';
-import type { SpellingListEntry } from './spellingLists';
+import {
+  buildGradeHubSections,
+  groupByCategory,
+  groupGradeListsByCategory,
+  isPublished,
+  resolveListRefs,
+  toPlayableWords,
+} from './spellingLists';
+import type { SpellingCollectionEntry, SpellingListEntry } from './spellingLists';
 
 function makeEntry(overrides: Partial<SpellingListEntry['data']> & { id: string }): SpellingListEntry {
   const data = {
@@ -26,6 +33,30 @@ function makeEntry(overrides: Partial<SpellingListEntry['data']> & { id: string 
   } as SpellingListEntry['data'];
 
   return { id: overrides.id, slug: overrides.id, body: '', collection: 'spelling-lists', data } as unknown as SpellingListEntry;
+}
+
+function makeCollectionEntry(
+  overrides: Partial<SpellingCollectionEntry['data']> & { id: string },
+): SpellingCollectionEntry {
+  const data = {
+    id: overrides.id,
+    urlSlug: overrides.id,
+    title: overrides.id,
+    description: '',
+    category: 'sight-words',
+    listIds: [],
+    status: 'published',
+    featured: false,
+    ...overrides,
+  } as SpellingCollectionEntry['data'];
+
+  return {
+    id: overrides.id,
+    slug: overrides.id,
+    body: '',
+    collection: 'spelling-collections',
+    data,
+  } as unknown as SpellingCollectionEntry;
 }
 
 describe('isPublished', () => {
@@ -54,6 +85,89 @@ describe('groupByCategory', () => {
   it('omits categories with no entries', () => {
     const groups = groupByCategory([makeEntry({ id: 'a', category: 'challenge' })]);
     expect(groups.has('grade-level')).toBe(false);
+  });
+});
+
+describe('groupGradeListsByCategory', () => {
+  it('orders groups with grade-level first regardless of alphabetical order', () => {
+    const entries = [
+      makeEntry({ id: 'sight-1', category: 'sight-words', order: 1 }),
+      makeEntry({ id: 'phonics-1', category: 'phonics', order: 1 }),
+      makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 }),
+      makeEntry({ id: 'challenge-1', category: 'challenge', order: 1 }),
+    ];
+
+    const groups = groupGradeListsByCategory(entries);
+
+    expect(groups.map((g) => g.category)).toEqual([
+      'grade-level',
+      'sight-words',
+      'phonics',
+      'challenge',
+    ]);
+  });
+
+  it('omits a category entirely when a grade has no entries for it (e.g. no phonics)', () => {
+    const entries = [
+      makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 }),
+      makeEntry({ id: 'sight-1', category: 'sight-words', order: 1 }),
+    ];
+
+    const groups = groupGradeListsByCategory(entries);
+
+    expect(groups.map((g) => g.category)).toEqual(['grade-level', 'sight-words']);
+  });
+
+  it('sorts entries within each group by order', () => {
+    const entries = [
+      makeEntry({ id: 'grade-2', category: 'grade-level', order: 2 }),
+      makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 }),
+    ];
+
+    const groups = groupGradeListsByCategory(entries);
+
+    expect(groups[0].entries.map((e) => e.data.id)).toEqual(['grade-1', 'grade-2']);
+  });
+
+  it('appends categories outside the priority list alphabetically after the prioritized ones', () => {
+    const entries = [
+      makeEntry({ id: 'theme-1', category: 'theme', order: 1 }),
+      makeEntry({ id: 'seasonal-1', category: 'seasonal', order: 1 }),
+      makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 }),
+    ];
+
+    const groups = groupGradeListsByCategory(entries);
+
+    expect(groups.map((g) => g.category)).toEqual(['grade-level', 'seasonal', 'theme']);
+  });
+});
+
+describe('buildGradeHubSections', () => {
+  it('places a collection inside its own category section, not a separate hoisted block', () => {
+    const lists = [makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 })];
+    const collections = [makeCollectionEntry({ id: 'dolch-1', category: 'sight-words' })];
+
+    const sections = buildGradeHubSections(lists, collections);
+
+    expect(sections.map((s) => s.category)).toEqual(['grade-level', 'sight-words']);
+    expect(sections[1].collections.map((c) => c.data.id)).toEqual(['dolch-1']);
+    expect(sections[1].entries).toEqual([]);
+  });
+
+  it('merges a collection into a category section that already has standalone lists', () => {
+    const lists = [makeEntry({ id: 'sight-1', category: 'sight-words', order: 1 })];
+    const collections = [makeCollectionEntry({ id: 'dolch-1', category: 'sight-words' })];
+
+    const sections = buildGradeHubSections(lists, collections);
+
+    expect(sections).toHaveLength(1);
+    expect(sections[0].category).toBe('sight-words');
+    expect(sections[0].entries.map((e) => e.data.id)).toEqual(['sight-1']);
+    expect(sections[0].collections.map((c) => c.data.id)).toEqual(['dolch-1']);
+  });
+
+  it('returns no sections when there are no lists or collections', () => {
+    expect(buildGradeHubSections([], [])).toEqual([]);
   });
 });
 

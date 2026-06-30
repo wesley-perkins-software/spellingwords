@@ -1,6 +1,7 @@
 import type { CollectionEntry } from 'astro:content';
 import type { SpellingWord } from '@/types/spelling';
 import { getSentenceBankEntry } from '@/lib/sentenceBank/lookup';
+import { categoryOrder } from '@/lib/content/categoryMeta';
 
 export type SpellingListEntry = CollectionEntry<'spelling-lists'>;
 export type SpellingCollectionEntry = CollectionEntry<'spelling-collections'>;
@@ -60,6 +61,75 @@ export function getListsByGrade(grade: string, entries: SpellingListEntry[]): Sp
       if (a.data.category !== b.data.category) return a.data.category.localeCompare(b.data.category);
       return a.data.order - b.data.order;
     });
+}
+
+/**
+ * Orders a set of categories by `categoryOrder` display priority
+ * (grade-level first); any category outside that priority list is
+ * appended alphabetically rather than dropped.
+ */
+function prioritizeCategories(
+  categories: Iterable<SpellingListEntry['data']['category']>,
+): SpellingListEntry['data']['category'][] {
+  const set = new Set(categories);
+  const prioritized = categoryOrder.filter((category) => set.has(category));
+  const remaining = [...set]
+    .filter((category) => !(prioritized as readonly string[]).includes(category))
+    .sort((a, b) => a.localeCompare(b));
+  return [...prioritized, ...remaining];
+}
+
+/**
+ * Groups a grade's entries by category in display priority order
+ * (grade-level first), sorting each group by `order`. Categories absent
+ * from the given entries are omitted entirely — no empty sections.
+ */
+export function groupGradeListsByCategory(
+  entries: SpellingListEntry[],
+): Array<{ category: SpellingListEntry['data']['category']; entries: SpellingListEntry[] }> {
+  const grouped = groupByCategory(entries);
+  return prioritizeCategories(grouped.keys()).map((category) => ({
+    category,
+    entries: grouped.get(category)!,
+  }));
+}
+
+/**
+ * Builds the section list for a grade hub page: lists and collections for
+ * the grade, merged into one section per category (grade-level first, per
+ * `categoryOrder`), so a collection appears alongside the standalone lists
+ * in its own category rather than always being hoisted above everything.
+ */
+export function buildGradeHubSections(
+  gradeLists: SpellingListEntry[],
+  gradeCollections: SpellingCollectionEntry[],
+): Array<{
+  category: SpellingListEntry['data']['category'];
+  entries: SpellingListEntry[];
+  collections: SpellingCollectionEntry[];
+}> {
+  const grouped = groupByCategory(gradeLists);
+
+  const collectionsByCategory = new Map<SpellingListEntry['data']['category'], SpellingCollectionEntry[]>();
+  for (const collection of gradeCollections) {
+    const existing = collectionsByCategory.get(collection.data.category);
+    if (existing) {
+      existing.push(collection);
+    } else {
+      collectionsByCategory.set(collection.data.category, [collection]);
+    }
+  }
+
+  const categories = new Set<SpellingListEntry['data']['category']>([
+    ...grouped.keys(),
+    ...collectionsByCategory.keys(),
+  ]);
+
+  return prioritizeCategories(categories).map((category) => ({
+    category,
+    entries: grouped.get(category) ?? [],
+    collections: collectionsByCategory.get(category) ?? [],
+  }));
 }
 
 /** Returns a Set of list IDs that belong to any published collection. */

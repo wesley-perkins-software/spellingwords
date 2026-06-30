@@ -33,9 +33,13 @@ export const categoryDescriptions: Record<Category, string> = {
   seasonal: 'Lists tied to a particular time of year or holiday.',
 };
 
+/**
+ * Display priority for grade-hub sections: grade-level is the primary,
+ * most-searched family (see docs/GRADE_LEVEL_STRATEGY.md); others support it.
+ */
 export const categoryOrder = [
+  'grade-level',
   'sight-words',
   'phonics',
-  'grade-level',
   'challenge',
 ] as const;

@@ -17,7 +17,7 @@ sourceType: curated
 relatedLists: ["kindergarten-number-color-words"]
 prerequisiteLists: []
 nextLists: ["kindergarten-number-color-words"]
-featured: false
+featured: true
 words:
   - bird
   - bug

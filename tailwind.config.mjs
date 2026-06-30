@@ -21,9 +21,9 @@ export default {
         },
 
         // Text — warmer tones throughout
-        ink:         '#2B2318',   // deep warm bark (was cool #1F2937)
-        'ink-soft':  '#6B5E52',   // warm umber (was cool #5B6472)
-        'ink-faint': '#9B8E84',   // lightest text, placeholders
+        ink:         '#000000',   // black text for maximum readability on cream backgrounds
+        'ink-soft':  '#000000',   // formerly grey secondary text; now black for contrast
+        'ink-faint': '#000000',   // formerly faint grey text; now black for contrast
 
         // Border — warmer to match new background
         line: '#E4E0DA',          // warm border (was cool blue-gray #E2E8F2)

@@ -17,7 +17,7 @@ sourceType: curated
 relatedLists: ["2nd-grade-compound-words" ]
 prerequisiteLists: []
 nextLists: ["grade-2-list-02"]
-featured: false
+featured: true
 words:
   - friend
   - because

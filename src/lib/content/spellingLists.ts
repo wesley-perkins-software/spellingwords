@@ -1,6 +1,7 @@
 import type { CollectionEntry } from 'astro:content';
 import type { SpellingWord } from '@/types/spelling';
 import { getSentenceBankEntry } from '@/lib/sentenceBank/lookup';
+import { categoryOrder } from '@/lib/content/categoryMeta';
 
 export type SpellingListEntry = CollectionEntry<'spelling-lists'>;
 export type SpellingCollectionEntry = CollectionEntry<'spelling-collections'>;
@@ -60,6 +61,26 @@ export function getListsByGrade(grade: string, entries: SpellingListEntry[]): Sp
       if (a.data.category !== b.data.category) return a.data.category.localeCompare(b.data.category);
       return a.data.order - b.data.order;
     });
+}
+
+/**
+ * Groups a grade's entries by category in `categoryOrder` display priority
+ * (grade-level first), sorting each group by `order`. Categories absent
+ * from the given entries are omitted entirely — no empty sections.
+ */
+export function groupGradeListsByCategory(
+  entries: SpellingListEntry[],
+): Array<{ category: SpellingListEntry['data']['category']; entries: SpellingListEntry[] }> {
+  const grouped = groupByCategory(entries);
+  const prioritized = categoryOrder.filter((category) => grouped.has(category));
+  const remaining = [...grouped.keys()]
+    .filter((category) => !(prioritized as readonly string[]).includes(category))
+    .sort((a, b) => a.localeCompare(b));
+
+  return [...prioritized, ...remaining].map((category) => ({
+    category,
+    entries: grouped.get(category)!,
+  }));
 }
 
 /** Returns a Set of list IDs that belong to any published collection. */

@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { groupByCategory, isPublished, resolveListRefs, toPlayableWords } from './spellingLists';
+import {
+  groupByCategory,
+  groupGradeListsByCategory,
+  isPublished,
+  resolveListRefs,
+  toPlayableWords,
+} from './spellingLists';
 import type { SpellingListEntry } from './spellingLists';
 
 function makeEntry(overrides: Partial<SpellingListEntry['data']> & { id: string }): SpellingListEntry {
@@ -54,6 +60,60 @@ describe('groupByCategory', () => {
   it('omits categories with no entries', () => {
     const groups = groupByCategory([makeEntry({ id: 'a', category: 'challenge' })]);
     expect(groups.has('grade-level')).toBe(false);
+  });
+});
+
+describe('groupGradeListsByCategory', () => {
+  it('orders groups with grade-level first regardless of alphabetical order', () => {
+    const entries = [
+      makeEntry({ id: 'sight-1', category: 'sight-words', order: 1 }),
+      makeEntry({ id: 'phonics-1', category: 'phonics', order: 1 }),
+      makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 }),
+      makeEntry({ id: 'challenge-1', category: 'challenge', order: 1 }),
+    ];
+
+    const groups = groupGradeListsByCategory(entries);
+
+    expect(groups.map((g) => g.category)).toEqual([
+      'grade-level',
+      'sight-words',
+      'phonics',
+      'challenge',
+    ]);
+  });
+
+  it('omits a category entirely when a grade has no entries for it (e.g. no phonics)', () => {
+    const entries = [
+      makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 }),
+      makeEntry({ id: 'sight-1', category: 'sight-words', order: 1 }),
+    ];
+
+    const groups = groupGradeListsByCategory(entries);
+
+    expect(groups.map((g) => g.category)).toEqual(['grade-level', 'sight-words']);
+  });
+
+  it('sorts entries within each group by order', () => {
+    const entries = [
+      makeEntry({ id: 'grade-2', category: 'grade-level', order: 2 }),
+      makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 }),
+    ];
+
+    const groups = groupGradeListsByCategory(entries);
+
+    expect(groups[0].entries.map((e) => e.data.id)).toEqual(['grade-1', 'grade-2']);
+  });
+
+  it('appends categories outside the priority list alphabetically after the prioritized ones', () => {
+    const entries = [
+      makeEntry({ id: 'theme-1', category: 'theme', order: 1 }),
+      makeEntry({ id: 'seasonal-1', category: 'seasonal', order: 1 }),
+      makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 }),
+    ];
+
+    const groups = groupGradeListsByCategory(entries);
+
+    expect(groups.map((g) => g.category)).toEqual(['grade-level', 'seasonal', 'theme']);
   });
 });
 

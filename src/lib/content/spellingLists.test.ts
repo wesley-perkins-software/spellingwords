@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   buildGradeHubSections,
   groupByCategory,
+  groupBySkillFamily,
   groupGradeListsByCategory,
   isPublished,
   resolveListRefs,
@@ -139,6 +140,76 @@ describe('groupGradeListsByCategory', () => {
     const groups = groupGradeListsByCategory(entries);
 
     expect(groups.map((g) => g.category)).toEqual(['grade-level', 'seasonal', 'theme']);
+  });
+});
+
+describe('groupBySkillFamily', () => {
+  it('groups entries by the first skillTags entry', () => {
+    const entries = [
+      makeEntry({ id: 'short-a', skillTags: ['short-vowels', 'short-a', 'cvc'], order: 1 }),
+      makeEntry({ id: 'short-e', skillTags: ['short-vowels', 'short-e', 'cvc'], order: 2 }),
+      makeEntry({ id: 'digraph-sh', skillTags: ['digraphs', 'sh'], order: 13 }),
+    ];
+
+    const groups = groupBySkillFamily(entries);
+
+    expect(groups.map((g) => g.key)).toEqual(['short-vowels', 'digraphs']);
+    expect(groups[0].entries.map((e) => e.data.id)).toEqual(['short-a', 'short-e']);
+    expect(groups[1].entries.map((e) => e.data.id)).toEqual(['digraph-sh']);
+  });
+
+  it('humanizes the skill family key into a label without a hardcoded family map', () => {
+    const entries = [makeEntry({ id: 'r-controlled-ar', skillTags: ['r-controlled', 'ar'], order: 10 })];
+
+    const groups = groupBySkillFamily(entries);
+
+    expect(groups[0].label).toBe('R Controlled');
+  });
+
+  it('splits final-blend lists from initial-blend lists even though both start with consonant-blends', () => {
+    const entries = [
+      makeEntry({ id: 'bl-blend', skillTags: ['consonant-blends', 'bl'], order: 17 }),
+      makeEntry({ id: 'nd-final-blend', skillTags: ['consonant-blends', 'nd', 'final-blends'], order: 37 }),
+    ];
+
+    const groups = groupBySkillFamily(entries);
+
+    expect(groups.map((g) => g.key)).toEqual(['consonant-blends', 'final-blends']);
+    expect(groups[0].entries.map((e) => e.data.id)).toEqual(['bl-blend']);
+    expect(groups[1].entries.map((e) => e.data.id)).toEqual(['nd-final-blend']);
+  });
+
+  it('buckets entries with no skillTags into a single generic phonics group', () => {
+    const entries = [
+      makeEntry({ id: 'untagged-1', skillTags: [], order: 1 }),
+      makeEntry({ id: 'untagged-2', skillTags: [], order: 2 }),
+    ];
+
+    const groups = groupBySkillFamily(entries);
+
+    expect(groups).toHaveLength(1);
+    expect(groups[0].key).toBe('phonics');
+    expect(groups[0].entries.map((e) => e.data.id)).toEqual(['untagged-1', 'untagged-2']);
+  });
+
+  it('orders groups by the lowest order value among their members, not insertion order', () => {
+    const entries = [
+      makeEntry({ id: 'digraph-sh', skillTags: ['digraphs', 'sh'], order: 13 }),
+      makeEntry({ id: 'short-a', skillTags: ['short-vowels', 'short-a'], order: 1 }),
+    ];
+
+    const groups = groupBySkillFamily(entries);
+
+    expect(groups.map((g) => g.key)).toEqual(['short-vowels', 'digraphs']);
+  });
+
+  it('a future, previously unseen skill family appears automatically with no code change', () => {
+    const entries = [makeEntry({ id: 'prefix-un', skillTags: ['prefixes', 'un-'], order: 50 })];
+
+    const groups = groupBySkillFamily(entries);
+
+    expect(groups.map((g) => g.key)).toEqual(['prefixes']);
+    expect(groups[0].label).toBe('Prefixes');
   });
 });
 

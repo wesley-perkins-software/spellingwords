@@ -64,7 +64,23 @@ export function getListsByGrade(grade: string, entries: SpellingListEntry[]): Sp
 }
 
 /**
- * Groups a grade's entries by category in `categoryOrder` display priority
+ * Orders a set of categories by `categoryOrder` display priority
+ * (grade-level first); any category outside that priority list is
+ * appended alphabetically rather than dropped.
+ */
+function prioritizeCategories(
+  categories: Iterable<SpellingListEntry['data']['category']>,
+): SpellingListEntry['data']['category'][] {
+  const set = new Set(categories);
+  const prioritized = categoryOrder.filter((category) => set.has(category));
+  const remaining = [...set]
+    .filter((category) => !(prioritized as readonly string[]).includes(category))
+    .sort((a, b) => a.localeCompare(b));
+  return [...prioritized, ...remaining];
+}
+
+/**
+ * Groups a grade's entries by category in display priority order
  * (grade-level first), sorting each group by `order`. Categories absent
  * from the given entries are omitted entirely — no empty sections.
  */
@@ -72,14 +88,47 @@ export function groupGradeListsByCategory(
   entries: SpellingListEntry[],
 ): Array<{ category: SpellingListEntry['data']['category']; entries: SpellingListEntry[] }> {
   const grouped = groupByCategory(entries);
-  const prioritized = categoryOrder.filter((category) => grouped.has(category));
-  const remaining = [...grouped.keys()]
-    .filter((category) => !(prioritized as readonly string[]).includes(category))
-    .sort((a, b) => a.localeCompare(b));
-
-  return [...prioritized, ...remaining].map((category) => ({
+  return prioritizeCategories(grouped.keys()).map((category) => ({
     category,
     entries: grouped.get(category)!,
+  }));
+}
+
+/**
+ * Builds the section list for a grade hub page: lists and collections for
+ * the grade, merged into one section per category (grade-level first, per
+ * `categoryOrder`), so a collection appears alongside the standalone lists
+ * in its own category rather than always being hoisted above everything.
+ */
+export function buildGradeHubSections(
+  gradeLists: SpellingListEntry[],
+  gradeCollections: SpellingCollectionEntry[],
+): Array<{
+  category: SpellingListEntry['data']['category'];
+  entries: SpellingListEntry[];
+  collections: SpellingCollectionEntry[];
+}> {
+  const grouped = groupByCategory(gradeLists);
+
+  const collectionsByCategory = new Map<SpellingListEntry['data']['category'], SpellingCollectionEntry[]>();
+  for (const collection of gradeCollections) {
+    const existing = collectionsByCategory.get(collection.data.category);
+    if (existing) {
+      existing.push(collection);
+    } else {
+      collectionsByCategory.set(collection.data.category, [collection]);
+    }
+  }
+
+  const categories = new Set<SpellingListEntry['data']['category']>([
+    ...grouped.keys(),
+    ...collectionsByCategory.keys(),
+  ]);
+
+  return prioritizeCategories(categories).map((category) => ({
+    category,
+    entries: grouped.get(category) ?? [],
+    collections: collectionsByCategory.get(category) ?? [],
   }));
 }
 

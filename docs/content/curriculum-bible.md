@@ -41,7 +41,7 @@ These principles apply to every content decision, regardless of grade or topic.
 | **Skill** | A discrete phonics or word-study concept: a pattern, rule, or structural feature (e.g., "short-a CVC words", "silent-e long vowel", "prefix un-"). Skills drive K–2 phonics lists and 3–5 morphology lists. |
 | **Theme** | A concrete topic that groups words by meaning rather than spelling pattern (e.g., "color words", "school words", "science vocabulary"). Themes are most useful in K and early 1st grade before phonics patterns are established. |
 | **Sight Word / High-Frequency Word** | A word that appears very frequently in written English and must be recognized quickly. Many are phonetically irregular. We use the Dolch list as our primary source. |
-| **Challenge Word** | A word appropriate for advanced practice beyond the expected grade level. Used in enrichment lists and the `challenge/` category. |
+| **Challenge Word** | A word appropriate for advanced practice beyond the expected grade level. The `challenge/` category is reserved for content with no single natural grade home — genuine cross-grade enrichment that extends past a grade's own expectation, not content that merely fills it. `difficulty: challenge` is a separate, independent signal for rigor and can apply to any category, including `grade-level` lists whose content is core curriculum for their grade but written at a demanding tier. |
 | **Prerequisite Skill** | A skill that students should have mastered before this list will be effective. Noted as "Builds Upon" in grade sections below. |
 | **Coverage** | The degree to which a grade's expected curriculum has lists in the app. "Full" = major skills covered; "Partial" = some skills covered; "Thin" = few lists exist; "Missing" = no lists exist. |
 | **Gap** | A skill or theme that research identifies as important for a grade but for which no list currently exists. |
@@ -88,8 +88,9 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 |---|---|---|---|
 | Curriculum Bible scaffold created | ✅ Complete | Initial document created at `docs/content/curriculum-bible.md` | 2026-06-29 |
 | Existing spelling list inventory audited | ✅ Complete | Full audit report with confidence-rated findings and recommendations (fact-gathering only, Bible decisions deferred): `docs/content/curriculum-audit-phase-2.md` | 2026-06-29 |
-| Primary grade assigned to each list | ⬜ Not started | Depends on inventory audit | — |
-| Secondary grade/review tags assigned | ⬜ Not started | Do after primary grade pass | — |
+| Curriculum architecture decisions approved | ✅ Complete | Grade-by-grade canonical model and decision table for the 6 audit findings approved; see Phase 3 Resolution in `docs/content/curriculum-audit-phase-2.md` | 2026-06-30 |
+| Primary grade assigned to each list | ✅ Complete | Archived Dolch lists republished; root lists retagged grade 4; diphthongs retagged grade 2. Remaining ungraded lists were already correctly tagged. | 2026-06-30 |
+| Secondary grade/review tags assigned | ⬜ Not needed | Cross-grade relationships (e.g. tier-2-greek-latin-roots as Grade 5 review/extension) expressed via `relatedLists`/`prerequisiteLists`/`nextLists` instead of a secondary-grade field — see Decision Rules §12 | 2026-06-30 |
 | Kindergarten gaps identified | ⬜ Not started | Known gaps pre-filled in Section 9 | — |
 | 1st grade over-tagging reviewed | ⬜ Not started | Many phonics lists may be mis-tagged | — |
 | 2nd grade pattern gaps identified | ⬜ Not started | Known gaps pre-filled in Section 9 | — |
@@ -108,16 +109,16 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 
 | Category | List Count | Notes |
 |---|---|---|
-| `phonics/` | 44 | Blends, digraphs, short vowels, silent-e, r-controlled, vowel teams |
-| `sight-words/` | 7 | Dolch pre-primer through 3rd grade |
+| `phonics/` | 50 | Blends, digraphs, short vowels, silent-e, r-controlled, vowel teams |
+| `sight-words/` | 7 | Dolch pre-primer through 3rd grade — all 7 tiers now `status: published` |
 | `grade-level/` — Kindergarten | 3 | first-words, number-color-words, describing-words |
 | `grade-level/` — 1st Grade | 3 | action-words, describing-words, everyday-words |
 | `grade-level/` — 2nd Grade | 4 | action-words, compound-words, describing-words, everyday-words |
 | `grade-level/` — 3rd Grade | 3 | describing-words, everyday-words, reading-writing-words |
-| `grade-level/` — 4th Grade | 3 | community-words, everyday-words, reading-writing-words |
+| `grade-level/` — 4th Grade | 5 | community-words, everyday-words, reading-writing-words, tier-1-roots-and-patterns, tier-2-greek-latin-roots (two root lists reclassified from `challenge/` — see §2.2 of the approved curriculum architecture) |
 | `grade-level/` — 5th Grade | 6 | academic-words, community-civics-words, everyday-words, opinion-argument-words, reading-writing-words, science-nature-words |
-| `challenge/` | 3 | academic-vocabulary, tier-1-roots-and-patterns, tier-2-greek-latin-roots |
-| **Total** | **76** | As of 2026-06-29 |
+| `challenge/` | 1 | academic-vocabulary only — the two root lists moved to `grade-level/` (4th Grade) |
+| **Total** | **82** | As of 2026-06-30 |
 
 ---
 
@@ -144,8 +145,8 @@ Letter sounds, beginning sounds, ending sounds, simple CVC words, short vowels, 
 | kindergarten-first-words | Theme | General starter vocabulary |
 | kindergarten-number-color-words | Theme | Numbers and colors combined |
 | kindergarten-describing-words | Theme | Basic adjectives |
-| dolch-pre-primer | Sight words | ✅ Covered |
-| dolch-primer | Sight words | ✅ Covered |
+| dolch-pre-primer | Sight words | ✅ Live (`status: published`) |
+| dolch-primer | Sight words | ✅ Live (`status: published`) |
 
 Coverage: **Thin** — 5 lists total; major thematic and phonics categories missing.
 
@@ -170,6 +171,8 @@ Shape words, family words, school words, animal words, and individual short-vowe
 
 #### Notes
 Kindergarten is the most underbuilt grade. Thematic lists (by topic, not pattern) are the right approach here — children at this stage benefit from meaningful word groups before abstract phonics patterns are introduced formally.
+
+Real K phonics foundations — letter sounds, beginning/ending sounds, phonemic awareness — are a legitimate instructional need at this grade and are not being dismissed. What stays Grade 1 primary is full CVC *spelling* practice: typing a complete CVC word matches both standard scope-and-sequence (decoding/sound-isolation precedes encoding/spelling) and this app's current type-the-whole-word practice format. This is recorded here as a **future curriculum consideration** — a possible K-appropriate phonics-foundations list format (e.g., beginning-sound identification) distinct from CVC spelling — not as an open gap to fill by simply relabeling Grade 1 content as Grade K. No Target Coverage Checklist item is added for it.
 
 ---
 
@@ -222,6 +225,8 @@ Silent-e long-u pattern; a dedicated inflectional endings list; simple two-sylla
 #### Notes
 The impression of being "overbuilt" is partly an artifact of phonics lists being correctly placed here. The grade hub should organize these lists clearly (e.g., grouped by skill type) so parents aren't overwhelmed. Consider whether the `phonics/` lists should display prominently in the 1st grade hub or be shown as a secondary "phonics practice" section.
 
+The final-blend lists are intentionally split across two grades, not inconsistently tagged: `nd/ng/ld/st/nt/nk` are Grade 1 because they are higher-frequency patterns; `ft/lk/lt/mp/sk` are Grade 2 because they are lower-frequency patterns that build on the Grade 1 set. This is a documented, intentional sequencing choice approved as part of the curriculum architecture review — a future audit should not re-flag it as a mis-tag.
+
 ---
 
 ### 2nd Grade
@@ -246,8 +251,8 @@ Vowel teams (ai/ay, ee/ea, oa/ow, oi/oy, ou/ow), r-controlled vowels (ar, er/ir/
 | phonics/vowel-teams-ai-ay | Phonics | ✅ |
 | phonics/vowel-teams-ee-ea | Phonics | ✅ |
 | phonics/vowel-teams-oa-ow | Phonics | ✅ |
-| phonics/vowel-teams-oi-oy | Phonics | ✅ (diphthong) |
-| phonics/vowel-teams-ou-ow | Phonics | ✅ (diphthong) |
+| phonics/vowel-teams-oi-oy | Phonics | ✅ (diphthong, `grade: "2"`) |
+| phonics/vowel-teams-ou-ow | Phonics | ✅ (diphthong, `grade: "2"`) |
 | phonics/r-controlled-ar | Phonics | ✅ |
 | phonics/r-controlled-er-ir-ur | Phonics | ✅ |
 | phonics/r-controlled-or | Phonics | ✅ |
@@ -278,6 +283,8 @@ Contractions, homophones, plurals, inflectional endings with spelling changes, b
 
 #### Notes
 2nd grade is where word study begins to expand beyond pure phonics. The transition from phonics → morphology starts here with simple affixes and spelling-change rules.
+
+Compound words are the first morphology content at this grade — and the grade's largest remaining gap (contractions, homophones, plurals, basic prefixes/suffixes) is the next layer of that same "emerging morphology" thread. Future authoring should tag new 2nd grade word-study lists with this framing in mind, distinguishing them from the pure phonics-pattern lists above.
 
 ---
 
@@ -333,6 +340,8 @@ Almost all morphology content: prefixes, suffixes, spelling-change rules, roots,
 #### Notes
 3rd grade is the inflection point where literacy instruction pivots from phonics to morphology. Building this grade out is a high priority.
 
+Grade 3 carries **zero primary phonics content** by design under the approved curriculum architecture — all vowel-team, diphthong, and r-controlled phonics lists are tagged Grade 1 or 2. Any phonics relevance to a 3rd grader is review of Grade 2 content, not new instruction; this grade's content should be morphology and academic vocabulary only.
+
 ---
 
 ### 4th Grade
@@ -356,21 +365,21 @@ Greek and Latin roots (aqua, aud, dict, port, rupt, scrib/script, spec/spect, st
 | grade-level/4th-grade-everyday-words | Theme | General vocabulary |
 | grade-level/4th-grade-reading-writing-words | Theme | Academic/ELA vocabulary |
 | grade-level/4th-grade-community-words | Theme | Civic/community vocabulary |
-| challenge/tier-1-roots-and-patterns | Roots | Foundational root patterns |
-| challenge/tier-2-greek-latin-roots | Roots | Greek/Latin roots |
+| grade-level/tier-1-roots-and-patterns | Roots | Latin roots: port, dict, spect, rupt — reclassified from `challenge/`, `category: grade-level`, `grade: "4"` |
+| grade-level/tier-2-greek-latin-roots | Roots | Greek roots: tele, photo, graph, bio, demo — reclassified from `challenge/`, `category: grade-level`, `grade: "4"`; also serves as Grade 5 review/extension via `relatedLists`/`prerequisiteLists` |
 
-Coverage: **Thin.** Three grade-level lists plus two challenge lists that partially overlap. No dedicated prefix/suffix or root lists tagged specifically to 4th grade.
+Coverage: **Moderate.** Five grade-level lists, including two dedicated root lists now correctly tagged to this grade. Advanced prefix/suffix and content-area vocabulary lists remain a gap.
 
 #### Target Coverage Checklist
 - [x] Reading/writing academic vocabulary
 - [x] Community/civic vocabulary
-- [ ] Latin root: port (portable, transport, import…)
-- [ ] Latin root: dict (dictate, predict, contradict…)
+- [x] Latin root: port (portable, transport, import…)
+- [x] Latin root: dict (dictate, predict, contradict…)
 - [ ] Latin root: struct (construct, instruct, structure…)
 - [ ] Latin root: vis/vid (visible, vision, video…)
 - [ ] Latin root: scrib/script (describe, prescription…)
-- [ ] Greek root: graph (photograph, paragraph…)
-- [ ] Greek root: phon (phone, symphony, microphone…)
+- [x] Greek root: graph (photograph, paragraph…)
+- [x] Greek root: phon/bio/demo family (biography, democracy…)
 - [ ] Greek root: scope (microscope, telescope…)
 - [ ] Prefix anti-
 - [ ] Prefix inter-
@@ -386,10 +395,10 @@ Coverage: **Thin.** Three grade-level lists plus two challenge lists that partia
 - [ ] 3–4 syllable multisyllabic word practice
 
 #### Likely Gaps
-Greek and Latin root lists, advanced prefix/suffix lists, commonly confused words, and content-area vocabulary. The challenge lists cover some root content but are not specifically scaffolded to 4th grade expectations.
+Additional Latin/Greek root lists (struct, vis/vid, scrib/script, scope), advanced prefix/suffix lists, commonly confused words, and content-area vocabulary.
 
 #### Notes
-The two challenge lists (`tier-1-roots-and-patterns`, `tier-2-greek-latin-roots`) should be audited to determine whether they properly belong as 4th–5th grade lists or are better positioned as genuine enrichment/challenge content.
+`tier-1-roots-and-patterns` and `tier-2-greek-latin-roots` are Grade 4's canonical morphology content, per the approved curriculum architecture (no longer flagged for audit — that audit is resolved). `tier-2-greek-latin-roots` additionally serves as Grade 5 review/extension through its existing `relatedLists`/`prerequisiteLists` chain rather than a duplicate grade tag.
 
 ---
 
@@ -418,8 +427,6 @@ Advanced roots and affixes, academic vocabulary (tier 2 words: analyze, conclude
 | grade-level/5th-grade-community-civics-words | Theme | Civic/social studies vocab ✅ |
 | grade-level/5th-grade-opinion-argument-words | Theme | Argument/persuasive writing |
 | challenge/academic-vocabulary | Challenge | Advanced academic terms |
-| challenge/tier-1-roots-and-patterns | Challenge | Foundational root patterns |
-| challenge/tier-2-greek-latin-roots | Challenge | Greek/Latin roots |
 
 Coverage: **Best-covered grade** for thematic vocabulary; still missing morphology, spelling-rule, and misspelled-words content.
 
@@ -446,6 +453,10 @@ Advanced morphology (roots, suffix spelling rules), commonly misspelled words, m
 #### Notes
 5th grade has the strongest thematic vocabulary coverage of any grade. The next priority is adding the morphology and spelling-rule content that makes students into stronger spellers, not just better word-recognizers.
 
+`tier-1-roots-and-patterns` and `tier-2-greek-latin-roots` are now Grade 4 primary content (see §7 4th Grade), not listed here. `tier-2-greek-latin-roots` remains usefully linked to this grade as review/extension through its `relatedLists`/`prerequisiteLists` chain — no duplicate grade tag is added, per the no-secondary-grade-field decision in §12.
+
+The word overlap between `5th-grade-academic-words` and `challenge/academic-vocabulary` is intentional and acceptable: the grade-level list covers standard 5th grade academic vocabulary expectations, while the challenge list is genuine extension beyond that expectation. No action needed.
+
 ---
 
 ## 8. Existing List Inventory
@@ -464,7 +475,7 @@ Advanced morphology (roots, suffix spelling rules), commonly misspelled words, m
 
 | Grade | Topic | Exists | Partial | Missing | Priority | Notes |
 |---|---|---|---|---|---|---|
-| K | Simple CVC words (per vowel, K-level) | | ✓ | | High | phonics/ lists exist but may not be K-labeled |
+| K | Simple CVC words (per vowel, K-level) | | | ✓ | Future consideration | Full CVC spelling stays Grade 1 primary by design (matches standard scope-and-sequence and the app's type-the-whole-word format); a K-appropriate phonics-foundations list (e.g. beginning-sound identification) is a documented future idea, not a gap to fill by relabeling Grade 1 content — see §7 Kindergarten Notes |
 | K | Color words | | ✓ | | High | Partially in number-color-words list |
 | K | Number words | | ✓ | | High | Partially in number-color-words list |
 | K | Shape words | | | ✓ | High | No list exists |
@@ -476,7 +487,7 @@ Advanced morphology (roots, suffix spelling rules), commonly misspelled words, m
 | 1 | Simple two-syllable words | | | ✓ | Low | |
 | 2 | Vowel teams | ✓ | | | — | Already covered in phonics/ |
 | 2 | R-controlled vowels | ✓ | | | — | Already covered in phonics/ |
-| 2 | Diphthongs | ✓ | | | — | oi/oy and ou/ow lists exist |
+| 2 | Diphthongs | ✓ | | | — | oi/oy and ou/ow lists exist, both `grade: "2"` |
 | 2 | Contractions | | | ✓ | High | No list exists |
 | 2 | Compound words | ✓ | | | — | Already covered |
 | 2 | Homophones | | | ✓ | High | No list exists |
@@ -490,14 +501,14 @@ Advanced morphology (roots, suffix spelling rules), commonly misspelled words, m
 | 3 | Homophones (grade 3 level) | | | ✓ | Medium | |
 | 3 | Spelling changes (doubling, drop-e, y→i) | | | ✓ | Medium | |
 | 3 | Root word introduction | | | ✓ | Medium | |
-| 4 | Greek and Latin roots | | ✓ | | High | challenge/ lists exist but need grade audit |
+| 4 | Greek and Latin roots | ✓ | | | — | `tier-1-roots-and-patterns` and `tier-2-greek-latin-roots` reclassified to `grade-level/`, `grade: "4"` |
 | 4 | Advanced prefixes (anti-, inter-, sub-, super-, trans-) | | | ✓ | High | |
 | 4 | Advanced suffixes (-ible/-able, -ous, -ive) | | | ✓ | High | |
 | 4 | Commonly confused words | | | ✓ | Medium | |
 | 4 | Science vocabulary | | | ✓ | Medium | |
 | 4 | Social studies vocabulary | | | ✓ | Medium | |
 | 5 | Academic vocabulary | ✓ | | | — | Already covered |
-| 5 | Advanced roots/affixes | | ✓ | | High | challenge/ lists partially cover this |
+| 5 | Advanced roots/affixes | ✓ | | | — | Served by `tier-2-greek-latin-roots` (Grade 4 primary) via `relatedLists`/`prerequisiteLists` review/extension link, no duplicate grade tag |
 | 5 | Suffix spelling rules (-tion/-sion, -ible/-able) | | | ✓ | High | |
 | 5 | Commonly misspelled words | | | ✓ | Medium | |
 | 5 | Math vocabulary | | | ✓ | Medium | |

@@ -20,7 +20,7 @@ export default {
           sky:          '#4A80B4',
         },
 
-        // Text — warmer tones throughout
+        // Text — black on cream for maximum readability
         ink:         '#000000',   // black text for maximum readability on cream backgrounds
         'ink-soft':  '#000000',   // formerly grey secondary text; now black for contrast
         'ink-faint': '#000000',   // formerly faint grey text; now black for contrast

@@ -100,14 +100,14 @@ The palette is warm, muted, and specific. It is not generic cream-and-terracotta
 |---|---|---|
 | **Paper** | `#FBF8F3` | Page background. Warm chalk white. The ground everything sits on. |
 | **Cloud** | `#F3EDE3` | Card and panel backgrounds. A step deeper than Paper, creating gentle surface separation without borders. |
-| **Ink** | `#2B2318` | Primary text. Deep warm bark, not black. Reduces harshness while maintaining contrast. |
+| **Ink** | `#000000` | Default text on cream-colored surfaces. Use black for maximum readability on Paper, Cloud, and Cream Deep backgrounds. |
 | **Brand Blue** | `#2F6FED` | Primary action: buttons, links, focus states. Clear, confident, not cold. |
 | **Correct** | `#22B36B` | Feedback: correct spelling. Calm green, not neon. |
 | **Incorrect** | `#F0594B` | Feedback: spelling error. Warm red, not alarm-red. |
 
 ### Supporting tones
 
-- **Ink Soft** (`#6B5E52`) and **Ink Faint** (`#9B8E84`): secondary and tertiary text hierarchy, captions, metadata. Three levels of ink creates depth without introducing new hues.
+- **Ink Soft** (`#000000`) and **Ink Faint** (`#000000`): legacy hierarchy tokens retained for compatibility, but they intentionally resolve to black. Do not introduce grey text on cream-colored surfaces for captions, metadata, helper text, placeholders, or secondary copy.
 - **Cream Deep** (`#EAE0CC`): borders, dividers, subtle surface depth. Replaces the need for grey in the palette.
 - **Homepage Red** (`#C94030`): reserved for the homepage start-practice CTA only. A warm deep red that creates urgency without alarm. Not a recurring action color.
 - **Category chips** (sun, grass, berry, sky): small accentuating color used on category labels. Should appear in small quantities only — a chip label, a tag, a heading accent. Never used for backgrounds at full saturation.
@@ -144,7 +144,7 @@ Atkinson Hyperlegible was specifically designed to maximize letter differentiati
 - Line length should be controlled. Long lines of body text tire readers quickly, especially children.
 - Line height should be generous. Compressed leading feels rushed.
 - Letter spacing should be left at the font's defaults unless there is a specific reason to adjust. Do not artificially widen tracking on body text.
-- Text color should be Ink on Paper, never pure black on pure white — the softness is part of the comfort.
+- Text on cream-colored surfaces (Paper, Cloud, and Cream Deep) should use black Ink. Do not use grey text on cream backgrounds; create hierarchy with size, weight, spacing, or layout instead of lowering contrast.
 
 ### Child-facing text principles
 

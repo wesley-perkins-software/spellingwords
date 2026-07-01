@@ -112,14 +112,14 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 |---|---|---|
 | `phonics/` | 50 | Blends, digraphs, short vowels, silent-e, r-controlled, vowel teams |
 | `sight-words/` | 7 | Dolch pre-primer through 3rd grade — all 7 tiers now `status: published` |
-| `grade-level/` — Kindergarten | 3 | first-words, number-color-words, describing-words |
+| `grade-level/` — Kindergarten | 7 | first-words, number-color-words, describing-words, shape-words, animal-words, family-words, school-words |
 | `grade-level/` — 1st Grade | 3 | action-words, describing-words, everyday-words |
 | `grade-level/` — 2nd Grade | 4 | action-words, compound-words, describing-words, everyday-words |
 | `grade-level/` — 3rd Grade | 3 | describing-words, everyday-words, reading-writing-words |
 | `grade-level/` — 4th Grade | 5 | community-words, everyday-words, reading-writing-words, tier-1-roots-and-patterns, tier-2-greek-latin-roots (two root lists reclassified from `challenge/` — see §2.2 of the approved curriculum architecture) |
 | `grade-level/` — 5th Grade | 6 | academic-words, community-civics-words, everyday-words, opinion-argument-words, reading-writing-words, science-nature-words |
 | `challenge/` | 1 | academic-vocabulary only — the two root lists moved to `grade-level/` (4th Grade) |
-| **Total** | **82** | As of 2026-06-30 |
+| **Total** | **86** | As of 2026-07-01 |
 
 ---
 
@@ -146,10 +146,14 @@ Letter sounds, beginning sounds, ending sounds, simple CVC words, short vowels, 
 | kindergarten-first-words | Theme | General starter vocabulary |
 | kindergarten-number-color-words | Theme | Numbers and colors combined |
 | kindergarten-describing-words | Theme | Basic adjectives |
+| kindergarten-shape-words | Theme | 2D shape names plus side/corner |
+| kindergarten-animal-words | Theme | Farm and pet animal names |
+| kindergarten-family-words | Theme | Immediate and extended family vocabulary |
+| kindergarten-school-words | Theme | Classroom and school vocabulary |
 | dolch-pre-primer | Sight words | ✅ Live (`status: published`) |
 | dolch-primer | Sight words | ✅ Live (`status: published`) |
 
-Coverage: **Thin** — 5 lists total; major thematic and phonics categories missing.
+Coverage: **Improving** — 9 lists total; shape/family/school/animal thematic gaps filled in Phase D. Only individual short-vowel CVC lists remain as a likely gap.
 
 #### Target Coverage Checklist
 - [ ] CVC short-a words (kindergarten level)
@@ -159,16 +163,16 @@ Coverage: **Thin** — 5 lists total; major thematic and phonics categories miss
 - [ ] CVC short-u words (kindergarten level)
 - [x] Color words
 - [x] Number words
-- [ ] Shape words
-- [ ] Family words (mom, dad, sister, brother…)
-- [ ] School words (desk, pencil, teacher…)
-- [ ] Animal words (cat, dog, fish…)
+- [x] Shape words
+- [x] Family words (mom, dad, sister, brother…)
+- [x] School words (desk, pencil, teacher…)
+- [x] Animal words (cat, dog, fish…)
 - [x] Dolch pre-primer sight words
 - [x] Dolch primer sight words
 - [x] Basic describing/adjective words
 
 #### Likely Gaps
-Shape words, family words, school words, animal words, and individual short-vowel CVC lists at a kindergarten level of difficulty. The existing phonics CVC lists (`phonics/short-vowels-cvc-words.md`) may be appropriate, but individual short-vowel lists may be more instructionally useful at K level.
+Individual short-vowel CVC lists at a kindergarten level of difficulty are the only remaining gap — shape, family, school, and animal word lists shipped in Phase D (see §9). The existing phonics CVC lists (`phonics/short-vowels-cvc-words.md`) may be appropriate, but individual short-vowel lists may be more instructionally useful at K level.
 
 #### Notes
 Kindergarten is the most underbuilt grade. Thematic lists (by topic, not pattern) are the right approach here — children at this stage benefit from meaningful word groups before abstract phonics patterns are introduced formally.
@@ -479,10 +483,10 @@ The word overlap between `5th-grade-academic-words` and `challenge/academic-voca
 | K | Simple CVC words (per vowel, K-level) | | | ✓ | Future consideration | Full CVC spelling stays Grade 1 primary by design (matches standard scope-and-sequence and the app's type-the-whole-word format); a K-appropriate phonics-foundations list (e.g. beginning-sound identification) is a documented future idea, not a gap to fill by relabeling Grade 1 content — see §7 Kindergarten Notes |
 | K | Color words | | ✓ | | High | Partially in number-color-words list |
 | K | Number words | | ✓ | | High | Partially in number-color-words list |
-| K | Shape words | | | ✓ | High | No list exists |
-| K | Family words | | | ✓ | High | No list exists |
-| K | School words | | | ✓ | Medium | No list exists |
-| K | Animal words | | | ✓ | Medium | No list exists |
+| K | Shape words | ✓ | | | High | Shipped as `kindergarten-shape-words` (Phase D) |
+| K | Family words | ✓ | | | High | Shipped as `kindergarten-family-words` (Phase D) |
+| K | School words | ✓ | | | Medium | Shipped as `kindergarten-school-words` (Phase D) |
+| K | Animal words | ✓ | | | Medium | Shipped as `kindergarten-animal-words` (Phase D) |
 | 1 | Silent-e long-u words | | | ✓ | Medium | long-a, i, o exist but not long-u |
 | 1 | Inflectional endings (-s, -ed, -ing) | | | ✓ | Medium | No dedicated list |
 | 1 | Simple two-syllable words | | | ✓ | Low | |

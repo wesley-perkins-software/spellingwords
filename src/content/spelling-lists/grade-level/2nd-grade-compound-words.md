@@ -14,7 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["2nd-grade-everyday-words", "2nd-grade-action-words"]
+relatedLists: ["grade-2-list-01", "grade-2-list-03"]
 prerequisiteLists: ["grade-2-list-01"]
 nextLists: ["grade-2-list-03"]
 featured: false

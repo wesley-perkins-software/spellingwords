@@ -14,8 +14,8 @@ estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["short-vowels-cvc-words"]
-prerequisiteLists: ["short-vowels-cvc-words"]
+relatedLists: ["short-a-words"]
+prerequisiteLists: ["short-a-words"]
 nextLists: ["silent-e-long-i"]
 featured: true
 words:

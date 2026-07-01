@@ -17,8 +17,8 @@ sourceType: curated
 canonicalSource:
   name: Dolch
   tier: second-grade
-relatedLists: ["dolch-first-grade", "dolch-third-grade"]
-prerequisiteLists: ["dolch-first-grade"]
+relatedLists: ["dolch-first-grade-c", "dolch-third-grade"]
+prerequisiteLists: ["dolch-first-grade-c"]
 nextLists: ["dolch-third-grade"]
 featured: false
 words:

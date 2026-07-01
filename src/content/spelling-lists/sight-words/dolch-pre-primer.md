@@ -5,9 +5,9 @@ title: "Dolch Pre-Primer Sight Words"
 description: "The first tier of the classic Dolch sight word list — the highest-frequency words a beginning reader and speller encounters."
 shortAnswer: "Dolch Pre-Primer is the first of the Dolch sight word tiers, covering the most common words beginning readers see in print."
 category: sight-words
-grade: K
+grade: "K"
 difficulty: beginner
-skillTags: ["sight-words", "high-frequency"]
+skillTags: ["sight-words", "high-frequency", "kindergarten"]
 tags: ["dolch", "sight-words", "kindergarten", "beginning-readers"]
 order: 1
 estimatedDurationMinutes: 8

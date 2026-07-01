@@ -7,7 +7,7 @@ shortAnswer: "Dolch Primer is the second Dolch sight word tier, the natural next
 category: sight-words
 grade: "1"
 difficulty: beginner
-skillTags: ["sight-words", "high-frequency"]
+skillTags: ["sight-words", "high-frequency", "first-grade"]
 tags: ["dolch", "sight-words", "first-grade", "beginning-readers"]
 order: 2
 estimatedDurationMinutes: 8
@@ -19,7 +19,7 @@ canonicalSource:
   tier: primer
 relatedLists: ["dolch-pre-primer"]
 prerequisiteLists: ["dolch-pre-primer"]
-nextLists: ["dolch-first-grade"]
+nextLists: ["dolch-first-grade-a"]
 featured: false
 words:
   - all

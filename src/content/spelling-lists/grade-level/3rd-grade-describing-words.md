@@ -14,9 +14,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["3rd-grade-everyday-words"]
+relatedLists: ["grade-3-list-01"]
 prerequisiteLists: ["grade-3-list-01"]
-nextLists: []
+nextLists: ["grade-3-reading-writing-words"]
 featured: false
 words:
   - bright

@@ -14,9 +14,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-first-words", "kindergarten-list-03"]
+relatedLists: ["kindergarten-first-words", "kindergarten-describing-words"]
 prerequisiteLists: ["kindergarten-first-words"]
-nextLists: ["kindergarten-list-03"]
+nextLists: ["kindergarten-describing-words"]
 featured: false
 words:
   - one

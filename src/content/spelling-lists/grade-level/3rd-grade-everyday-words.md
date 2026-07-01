@@ -14,7 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["3rd-grade-describing-words"]
+relatedLists: ["grade-3-list-02"]
 prerequisiteLists: []
 nextLists: ["grade-3-list-02"]
 featured: false

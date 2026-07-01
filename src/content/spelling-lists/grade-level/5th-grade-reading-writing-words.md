@@ -14,7 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["5th-grade-everyday-words"]
+relatedLists: ["grade-5-list-01"]
 prerequisiteLists: ["grade-4-reading-writing-words"]
 nextLists: []
 featured: false

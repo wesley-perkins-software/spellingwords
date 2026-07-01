@@ -14,9 +14,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["2nd-grade-compound-words", "2nd-grade-everyday-words"]
+relatedLists: ["grade-2-list-02", "grade-2-list-01"]
 prerequisiteLists: ["grade-2-list-02"]
-nextLists: []
+nextLists: ["grade-2-describing-words"]
 featured: false
 words:
   - find

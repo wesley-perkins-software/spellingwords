@@ -14,7 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["4th-grade-community-words"]
+relatedLists: ["grade-4-list-02"]
 prerequisiteLists: []
 nextLists: ["grade-4-list-02"]
 featured: false

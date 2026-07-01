@@ -14,7 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["4th-grade-everyday-words"]
+relatedLists: ["grade-4-list-01"]
 prerequisiteLists: ["grade-4-list-01"]
 nextLists: []
 featured: false

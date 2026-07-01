@@ -14,7 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["2nd-grade-compound-words" ]
+relatedLists: ["grade-2-list-02"]
 prerequisiteLists: []
 nextLists: ["grade-2-list-02"]
 featured: true

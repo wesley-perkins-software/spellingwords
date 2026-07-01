@@ -8,7 +8,7 @@ category: grade-level
 grade: "K"
 difficulty: beginner
 skillTags: ["grade-K", "beginner", "high-frequency"]
-tags: ["kindergarten", "beginner", "first-words", "early-readers"]
+tags: ["kindergarten", "beginner", "first-words", "beginning-readers"]
 order: 1
 estimatedDurationMinutes: 8
 status: published

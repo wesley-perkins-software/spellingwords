@@ -91,6 +91,7 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 | Curriculum architecture decisions approved | ✅ Complete | Grade-by-grade canonical model and decision table for the 6 audit findings approved; see Phase 3 Resolution in `docs/content/curriculum-audit-phase-2.md` | 2026-06-30 |
 | Primary grade assigned to each list | ✅ Complete | Archived Dolch lists republished; root lists retagged grade 4; diphthongs retagged grade 2. Remaining ungraded lists were already correctly tagged. | 2026-06-30 |
 | Secondary grade/review tags assigned | ⬜ Not needed | Cross-grade relationships (e.g. tier-2-greek-latin-roots as Grade 5 review/extension) expressed via `relatedLists`/`prerequisiteLists`/`nextLists` instead of a secondary-grade field — see Decision Rules §12 | 2026-06-30 |
+| Curriculum relationship integrity audited & fixed | ✅ Complete | `relatedLists`/`prerequisiteLists`/`nextLists` were verified against actual `id` values (the field the app resolves against, not `urlSlug`); ~20 lists had references written in urlSlug form and were silently failing to resolve. All fixed, plus one stale reference to an archived list and two skillTag/tag gaps. See Phase 4 Resolution in `docs/content/curriculum-audit-phase-2.md` | 2026-07-01 |
 | Kindergarten gaps identified | ⬜ Not started | Known gaps pre-filled in Section 9 | — |
 | 1st grade over-tagging reviewed | ⬜ Not started | Many phonics lists may be mis-tagged | — |
 | 2nd grade pattern gaps identified | ⬜ Not started | Known gaps pre-filled in Section 9 | — |

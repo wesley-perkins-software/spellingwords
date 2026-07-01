@@ -14,7 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["1st-grade-action-words"]
+relatedLists: ["grade-1-list-02"]
 prerequisiteLists: []
 nextLists: ["grade-1-list-02"]
 featured: false

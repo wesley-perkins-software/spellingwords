@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { gradeConfig, getAdjacentGrades } from './gradeConfig';
+import { gradeConfig, getAdjacentGrades, getGradesWithLists } from './gradeConfig';
 
 describe('gradeConfig', () => {
   it('contains exactly the six K-5 grades in order', () => {
@@ -24,5 +24,21 @@ describe('getAdjacentGrades', () => {
     const { prev, next } = getAdjacentGrades('3');
     expect(prev?.grade).toBe('2');
     expect(next?.grade).toBe('4');
+  });
+});
+
+describe('getGradesWithLists', () => {
+  it('returns matching grade entries in canonical K-5 order regardless of input order', () => {
+    const result = getGradesWithLists(['3', '1', 'K']);
+    expect(result.map((g) => g.grade)).toEqual(['K', '1', '3']);
+  });
+
+  it('ignores undefined grade values without throwing', () => {
+    const result = getGradesWithLists(['1', undefined, '1']);
+    expect(result.map((g) => g.grade)).toEqual(['1']);
+  });
+
+  it('returns an empty array when no grades are present', () => {
+    expect(getGradesWithLists([])).toEqual([]);
   });
 });

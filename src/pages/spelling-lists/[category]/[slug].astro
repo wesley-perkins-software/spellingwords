@@ -49,7 +49,7 @@ const listCollection = getListCollection(data.id, allCollections);
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Spelling Lists Library', href: '/spelling-lists' },
-  { label: categoryLabel },
+  { label: categoryLabel, href: `/spelling-lists/${data.category}` },
   { label: data.title },
 ];
 

@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import ListMetadataBadges from '@/components/ListMetadataBadges.astro';
 import { isPublished, resolveListRefs } from '@/lib/content/spellingLists';
 import { categoryLabels } from '@/lib/content/categoryMeta';
+import { gradeConfig } from '@/lib/content/gradeConfig';
 
 export async function getStaticPaths() {
   const collections = await getCollection('spelling-collections');
@@ -28,11 +29,13 @@ const { Content } = await collection.render();
 const memberLists = resolveListRefs(data.listIds, allLists);
 const totalWords = memberLists.reduce((sum, e) => sum + e.data.words.length, 0);
 const categoryLabel = categoryLabels[data.category] ?? data.category;
+const categoryHref = `/spelling-lists/${data.category}`;
+const gradeEntry = data.grade ? gradeConfig.find((g) => g.grade === data.grade) : undefined;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Spelling Lists Library', href: '/spelling-lists' },
-  { label: categoryLabel },
+  { label: categoryLabel, href: categoryHref },
   { label: data.title },
 ];
 
@@ -146,6 +149,24 @@ const breadcrumbJsonLd = {
       <div class="prose prose-sm mt-10 max-w-2xl text-ink-soft">
         <h2 class="mb-3 font-display text-base font-semibold text-ink">About this collection</h2>
         <Content />
+      </div>
+
+      <!-- Back links -->
+      <div class="mt-10 flex flex-wrap gap-x-6 gap-y-2">
+        <a
+          href={categoryHref}
+          class="inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline"
+        >
+          ← See all {categoryLabel} lists
+        </a>
+        {gradeEntry && (
+          <a
+            href={gradeEntry.hubHref}
+            class="inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline"
+          >
+            ← {gradeEntry.label} Spelling Words
+          </a>
+        )}
       </div>
     </section>
   </main>

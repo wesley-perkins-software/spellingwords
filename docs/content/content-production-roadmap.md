@@ -16,18 +16,18 @@ Every row in the backlog below traces back to a specific finding in the Bible or
 |---|---|
 | `phonics/` | 50 |
 | `sight-words/` | 7 (full Dolch pre-primer → 3rd grade, all published) |
-| `grade-level/` — K | 3 |
+| `grade-level/` — K | 7 |
 | `grade-level/` — 1st | 3 |
 | `grade-level/` — 2nd | 4 |
 | `grade-level/` — 3rd | 3 |
 | `grade-level/` — 4th | 5 (includes 2 root lists) |
 | `grade-level/` — 5th | 6 |
 | `challenge/` | 1 |
-| **Total** | **82** |
+| **Total** | **86** |
 
 **Strengths:** 1st and 2nd grade phonics (short vowels, blends, digraphs, silent-e, vowel teams, r-controlled vowels) are comprehensively covered. The Dolch sight-word ladder is complete and fully published. 4th grade has dedicated Greek/Latin root lists (`tier-1-roots-and-patterns`, `tier-2-greek-latin-roots`), and 5th grade has the library's strongest thematic/academic-vocabulary spread.
 
-**Largest remaining gaps:** Grade 3 has effectively zero morphology content (no prefixes, suffixes, multisyllabic words, or spelling-change rules) — the single largest structural hole in the library. Grade 2 word study beyond phonics is also empty (no contractions, homophones, plural rules, or basic affixes). Kindergarten thematic vocabulary (shapes, family, school, animals) is largely unbuilt. Grades 4 and 5 are missing their next tier of advanced morphology and content-area vocabulary.
+**Largest remaining gaps:** Grade 3 has effectively zero morphology content (no prefixes, suffixes, multisyllabic words, or spelling-change rules) — the single largest structural hole in the library. Grade 2 word study beyond phonics is also empty (no contractions, homophones, plural rules, or basic affixes). Kindergarten thematic vocabulary (shapes, family, school, animals) is now filled (Phase D complete). Grades 4 and 5 are missing their next tier of advanced morphology and content-area vocabulary.
 
 Per the audit's reconciliation (`curriculum-audit-phase-2.md` §7/§172), 5 of the Bible's ~25 "Missing" gap rows are already resolvable through reclassification, not new authoring (K color words, K number words, and the Grade 4/5 root-list overlaps). That leaves **~20 gap rows that require genuinely new lists** — the backlog in §4 below.
 
@@ -50,7 +50,7 @@ Advanced prefixes/suffixes and content-area vocabulary for Grade 4, all tagged *
 ### Phase C — Grade 5 Suffix Spelling Rules & Misspelled Words
 Grade 5's remaining gaps are suffix spelling-rule content (-tion/-sion, -ible/-able, -ance/-ence — **High**) plus commonly misspelled words, math vocabulary, and word-origin awareness (**Medium/Low**).
 
-### Phase D — Kindergarten Completion
+### Phase D — Kindergarten Completion (Complete)
 Shape, family, school, and animal word lists (**High/Medium** in Bible §9) — Kindergarten is the most underbuilt grade by list count, but its gaps are thematic vocabulary, not sequencing-critical morphology, so it follows the Grade 2/3/4/5 word-study work.
 
 ### Phase E — Grade 1 Long-Tail & Structural Decisions
@@ -89,10 +89,10 @@ Grade 1's remaining gaps are all **Medium/Low** (silent-e long-u, inflectional e
 | C | 5th Grade Commonly Misspelled Words | 5 | Vocabulary | Bible §9: Grade 5 Commonly misspelled words — Missing / Medium | None | Not Started |
 | C | 5th Grade Math Vocabulary | 5 | Content vocabulary | Bible §9: Grade 5 Math vocabulary — Missing / Medium | None | Not Started |
 | C | 5th Grade Word Origins Awareness | 5 | Vocabulary | Bible §9: Grade 5 Word origins awareness — Missing / Low | None | Not Started |
-| D | Kindergarten Shape Words | K | Thematic vocabulary | Bible §9: K Shape words — Missing / High | None | Not Started |
-| D | Kindergarten Family Words | K | Thematic vocabulary | Bible §9: K Family words — Missing / High | None | Not Started |
-| D | Kindergarten School Words | K | Thematic vocabulary | Bible §9: K School words — Missing / Medium | None | Not Started |
-| D | Kindergarten Animal Words | K | Thematic vocabulary | Bible §9: K Animal words — Missing / Medium | None | Not Started |
+| D | Kindergarten Shape Words | K | Thematic vocabulary | Bible §9: K Shape words — Missing / High | None | Complete |
+| D | Kindergarten Family Words | K | Thematic vocabulary | Bible §9: K Family words — Missing / High | None | Complete |
+| D | Kindergarten School Words | K | Thematic vocabulary | Bible §9: K School words — Missing / Medium | None | Complete |
+| D | Kindergarten Animal Words | K | Thematic vocabulary | Bible §9: K Animal words — Missing / Medium | None | Complete |
 | E | 1st Grade Silent-e Long-u Words | 1 | Phonics | Bible §9: Grade 1 Silent-e long-u words — Missing / Medium | None | Not Started |
 | E | 1st Grade Inflectional Endings (-s, -ed, -ing) | 1 | Morphology | Bible §9: Grade 1 Inflectional endings — Missing / Medium | None | Not Started |
 | E | 1st Grade Simple Two-Syllable Words | 1 | Phonics | Bible §9: Grade 1 Simple two-syllable words — Missing / Low | None | Not Started |

@@ -132,6 +132,53 @@ export function buildGradeHubSections(
   }));
 }
 
+/**
+ * Groups entries by skill family, derived entirely from each entry's
+ * existing `skillTags` — no family list is hardcoded here, so new phonics
+ * (or other skill-tagged) families surface automatically as content is
+ * added. The grouping key is `skillTags[0]` (the convention used throughout
+ * the phonics content), except `final-blends` takes precedence when present
+ * so initial- and final-blend lists don't collapse into one bucket. Entries
+ * with no skillTags fall into a single generic 'phonics' bucket. Groups are
+ * ordered by the lowest `order` value among their members, reusing the
+ * existing pedagogical sequencing instead of a second hardcoded sequence.
+ */
+export function groupBySkillFamily(
+  entries: SpellingListEntry[],
+): Array<{ key: string; label: string; entries: SpellingListEntry[] }> {
+  const groups = new Map<string, SpellingListEntry[]>();
+
+  for (const entry of entries) {
+    const key = getSkillFamilyKey(entry.data.skillTags);
+    const existing = groups.get(key);
+    if (existing) {
+      existing.push(entry);
+    } else {
+      groups.set(key, [entry]);
+    }
+  }
+
+  for (const group of groups.values()) {
+    group.sort((a, b) => a.data.order - b.data.order);
+  }
+
+  return [...groups.entries()]
+    .map(([key, groupEntries]) => ({ key, label: humanizeSkillFamilyKey(key), entries: groupEntries }))
+    .sort((a, b) => a.entries[0].data.order - b.entries[0].data.order);
+}
+
+function getSkillFamilyKey(skillTags: string[]): string {
+  if (skillTags.includes('final-blends')) return 'final-blends';
+  return skillTags[0] ?? 'phonics';
+}
+
+function humanizeSkillFamilyKey(key: string): string {
+  return key
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
 /** Returns a Set of list IDs that belong to any published collection. */
 export function getMemberListIds(collections: SpellingCollectionEntry[]): Set<string> {
   const ids = new Set<string>();

@@ -6,6 +6,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import SpellingListCard from '@/components/SpellingListCard.astro';
 import { isPublished, getMemberListIds } from '@/lib/content/spellingLists';
+import { getGradesWithLists } from '@/lib/content/gradeConfig';
 
 const allCollections = (await getCollection('spelling-collections')).filter(
   (c) => c.data.status === 'published',
@@ -19,6 +20,11 @@ const sightWordLists = entries
   .sort((a, b) => a.data.order - b.data.order);
 
 const totalItems = sightWordCollections.length + sightWordLists.length;
+
+const gradesPresent = getGradesWithLists([
+  ...sightWordLists.map((e) => e.data.grade),
+  ...sightWordCollections.map((c) => c.data.grade),
+]);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -168,6 +174,23 @@ const itemListJsonLd = {
             automatic recognition, not checking every box in order.
           </p>
         </section>
+      )}
+
+      <!-- Browse by grade -->
+      {gradesPresent.length > 0 && (
+        <nav aria-label="Browse sight word lists by grade" class="mb-10">
+          <p class="mb-3 text-sm font-semibold text-ink">Browse by grade</p>
+          <div class="flex flex-wrap gap-3">
+            {gradesPresent.map((g) => (
+              <a
+                href={g.hubHref}
+                class="inline-flex items-center rounded-xl border border-line bg-white px-4 py-2 text-sm font-medium text-ink-soft transition hover:border-brand-blue/40 hover:text-brand-blue"
+              >
+                {g.shortLabel}
+              </a>
+            ))}
+          </div>
+        </nav>
       )}
 
       <!-- Related categories -->

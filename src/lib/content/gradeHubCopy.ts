@@ -11,9 +11,9 @@ export interface GradeHubCopy {
 export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   K: {
     metaDescription:
-      'Free kindergarten spelling word lists for early practice — first words, number and color words, and describing words. Calm, simple practice with audio support.',
+      'Free kindergarten spelling word lists for early practice — first words, number and color words, describing words, shapes, animals, family, school, body, feelings, and food words. Calm, simple practice with audio support.',
     heroParagraphs: [
-      'Here are free kindergarten spelling word lists for early reading and writing practice, including first words, number words, color words, and describing words. All lists include audio support — a child can hear each word read aloud before typing it.',
+      'Here are free kindergarten spelling word lists for early reading and writing practice, including first words, number and color words, describing words, shapes, animals, family and school words, and body, feelings, and food words. All lists include audio support — a child can hear each word read aloud before typing it.',
       'Kindergarten spelling practice should feel simple, encouraging, and concrete. These lists focus on early words children can hear, say, and spell — words that show up in their world every day. There are no timers or scores, just calm, supported practice.',
     ],
     guidanceBody:

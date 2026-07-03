@@ -14,7 +14,7 @@ estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-number-color-words"]
+relatedLists: ["kindergarten-number-color-words", "kindergarten-feelings-words"]
 prerequisiteLists: ["kindergarten-number-color-words"]
 nextLists: []
 featured: false

@@ -31,7 +31,7 @@ words:
   - lunch
   - teach
   - teacher
-  - charge
+  - chair
 ---
 
 A digraph is a pair of letters that team up to produce a single sound. C and H on their own make the /k/ and /h/ sounds, but when they appear together as CH, they create a completely different sound — the one at the start of *child* and *chicken*, and at the end of *catch* and *beach*. Learning to spot CH as a unit helps children read and spell it reliably, wherever it appears in a word.

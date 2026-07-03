@@ -27,9 +27,9 @@ words:
   - bright
   - bring
   - broke
-  - broken
+  - brick
   - brother
-  - brought
+  - brush
   - brown
 ---
 

@@ -31,7 +31,7 @@ words:
   - strong
   - swing
   - thing
-  - young
+  - ring
 ---
 
 A consonant blend is two consonants side by side that each keep their own sound — you say both quickly together. In NG words, the /n/ and /g/ sounds blend at the very end, making the soft closing heard in *sing*, *king*, and *long*.

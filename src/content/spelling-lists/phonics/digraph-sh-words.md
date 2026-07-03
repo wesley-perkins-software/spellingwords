@@ -31,7 +31,7 @@ words:
   - sharp
   - show
   - short
-  - shall
+  - shop
 ---
 
 A digraph is a pair of letters that work together to make a single sound. In the SH digraph, the letters S and H set aside their individual sounds entirely and blend into one quiet, smooth sound — the one at the start of *she*, *ship*, and *shoe*, and at the end of *wish* or *brush*. Because the two letters always act as a team, children learn to look for SH as a unit, not as two separate letters.

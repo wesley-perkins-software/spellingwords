@@ -31,7 +31,7 @@ words:
   - why
   - while
   - whole
-  - whose
+  - wheel
 ---
 
 A digraph is a pair of letters that work together as one. WH appears at the beginning of many of English's most useful words — and it brings a small spelling puzzle with it: in most WH words, like *what*, *when*, and *while*, the WH makes a /w/ sound. But in a few words, like *who* and *whose*, the W is silent and the word begins with an /h/ sound instead. Noticing these patterns is part of becoming a confident speller.

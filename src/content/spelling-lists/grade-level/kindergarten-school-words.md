@@ -14,9 +14,9 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-family-words"]
+relatedLists: ["kindergarten-family-words", "kindergarten-body-words"]
 prerequisiteLists: ["kindergarten-family-words"]
-nextLists: []
+nextLists: ["kindergarten-body-words"]
 featured: false
 words:
   - backpack

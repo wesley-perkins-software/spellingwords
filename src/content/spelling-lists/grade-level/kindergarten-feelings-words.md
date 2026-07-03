@@ -2,8 +2,8 @@
 id: kindergarten-feelings-words
 urlSlug: kindergarten-feelings-words
 title: "Kindergarten Feelings Words"
-description: "Ten words for common feelings — from glad and proud to sad and upset — the vocabulary a kindergartener needs to name and talk about their emotions."
-shortAnswer: "Ten kindergarten feelings words — glad, sad, proud, scared, and more — the feelings vocabulary every young speller needs to talk about how they feel."
+description: "Ten words for common feelings — from happy and proud to sad and upset — the vocabulary a kindergartener needs to name and talk about their emotions."
+shortAnswer: "Ten kindergarten feelings words — happy, sad, proud, scared, and more — the feelings vocabulary every young speller needs to talk about how they feel."
 category: grade-level
 grade: "K"
 difficulty: beginner
@@ -19,7 +19,7 @@ prerequisiteLists: ["kindergarten-body-words"]
 nextLists: ["kindergarten-food-words"]
 featured: false
 words:
-  - glad
+  - happy
   - mad
   - proud
   - sad
@@ -31,6 +31,6 @@ words:
   - upset
 ---
 
-Naming a feeling is one of the most useful things a young child can learn to do — and these ten words give a kindergartener the vocabulary to say exactly how they feel, whether that's *glad*, *proud*, *scared*, or *sad*.
+Naming a feeling is one of the most useful things a young child can learn to do — and these ten words give a kindergartener the vocabulary to say exactly how they feel, whether that's *happy*, *proud*, *scared*, or *sad*.
 
 Words like *upset* and *shy* also give children a gentle way to talk about big feelings, making this list as useful for everyday emotional growth as it is for spelling practice.

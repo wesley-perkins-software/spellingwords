@@ -14,9 +14,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-multisyllabic-words", "grade-3-root-word-families", "grade-2-homophones"]
+relatedLists: ["grade-3-multisyllabic-words", "grade-3-root-word-families", "grade-2-homophones", "grade-4-commonly-confused-words"]
 prerequisiteLists: ["grade-3-multisyllabic-words", "grade-2-homophones"]
-nextLists: ["grade-3-root-word-families"]
+nextLists: ["grade-3-root-word-families", "grade-4-commonly-confused-words"]
 featured: false
 words:
   - there

@@ -14,7 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-homophones", "tier-1-roots-and-patterns", "tier-2-greek-latin-roots"]
+relatedLists: ["grade-3-homophones", "tier-1-roots-and-patterns", "tier-2-greek-latin-roots", "grade-4-advanced-prefixes", "grade-4-advanced-suffixes"]
 prerequisiteLists: ["grade-3-homophones"]
 nextLists: ["tier-1-roots-and-patterns"]
 featured: false

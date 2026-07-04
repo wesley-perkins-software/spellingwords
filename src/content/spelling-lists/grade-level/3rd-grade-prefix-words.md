@@ -14,9 +14,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-reading-writing-words", "grade-3-suffix-words", "grade-2-prefixes-un-re"]
+relatedLists: ["grade-3-reading-writing-words", "grade-3-suffix-words", "grade-2-prefixes-un-re", "grade-4-advanced-prefixes"]
 prerequisiteLists: ["grade-3-reading-writing-words", "grade-2-prefixes-un-re"]
-nextLists: ["grade-3-suffix-words"]
+nextLists: ["grade-3-suffix-words", "grade-4-advanced-prefixes"]
 featured: false
 words:
   - unfair

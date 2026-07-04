@@ -55,13 +55,13 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   },
   '4': {
     metaDescription:
-      'Free 4th grade spelling word lists for academic vocabulary, community words, and reading and writing skills. Audio-supported practice for upper elementary students.',
+      'Free 4th grade spelling word lists for multisyllabic academic words, advanced prefixes and suffixes, Greek and Latin roots, commonly confused words, and content vocabulary.',
     heroParagraphs: [
-      'Here are free 4th grade spelling word lists covering everyday words, reading and writing vocabulary, and community and academic terms. All lists include audio support so students can hear each word read aloud before typing it.',
-      'Fourth grade spelling lists help students handle multisyllable words, academic vocabulary, and words they meet across reading, writing, and content-area subjects. These lists grow alongside the longer texts fourth graders are reading.',
+      'Here are free 4th grade spelling word lists covering everyday words, reading and writing vocabulary, multisyllabic academic words, advanced prefixes and suffixes, Greek and Latin roots, commonly confused words, and content-area vocabulary. All lists include audio support so students can hear each word read aloud before typing it.',
+      'Fourth grade spelling is the expansion year after introductory morphology. Students move from basic prefixes, suffixes, and root families into longer academic words, derivational suffixes, advanced prefixes, and Greek and Latin roots that support reading across subjects.',
     ],
     guidanceBody:
-      'The everyday words list covers the general vocabulary fourth graders encounter across subjects. Reading and writing words support the more demanding writing assignments students face in upper elementary. Community words pair well with social studies and civics topics covered at this grade.',
+      'Start with Everyday Words and Reading & Writing Words, then practice Multisyllabic Academic Words before moving into Advanced Prefixes, Advanced Suffixes, Latin Root Words, and Greek Root Words. Commonly Confused Words supports more accurate writing, while Academic & Content Words gathers high-value science and social studies vocabulary without splitting fourth grade into narrow topical lists.',
     emptyStateLabel: 'Fourth grade',
   },
   '5': {

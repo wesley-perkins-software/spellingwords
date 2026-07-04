@@ -15,7 +15,7 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["grade-5-list-01"]
-prerequisiteLists: ["grade-4-reading-writing-words"]
+prerequisiteLists: ["grade-4-reading-writing-words", "grade-4-commonly-confused-words"]
 nextLists: []
 featured: false
 words:

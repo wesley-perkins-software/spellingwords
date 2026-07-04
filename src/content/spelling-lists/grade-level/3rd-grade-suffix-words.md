@@ -14,9 +14,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-prefix-words", "grade-3-dropping-silent-e", "grade-2-suffixes-ful-less"]
+relatedLists: ["grade-3-prefix-words", "grade-3-dropping-silent-e", "grade-2-suffixes-ful-less", "grade-4-advanced-suffixes"]
 prerequisiteLists: ["grade-3-prefix-words", "grade-2-suffixes-ful-less"]
-nextLists: ["grade-3-dropping-silent-e"]
+nextLists: ["grade-3-dropping-silent-e", "grade-4-advanced-suffixes"]
 featured: false
 words:
   - bigger

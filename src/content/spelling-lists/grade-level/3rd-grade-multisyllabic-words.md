@@ -14,9 +14,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-changing-y-to-i", "grade-3-homophones"]
+relatedLists: ["grade-3-changing-y-to-i", "grade-3-homophones", "grade-4-multisyllabic-academic-words"]
 prerequisiteLists: ["grade-3-changing-y-to-i"]
-nextLists: ["grade-3-homophones"]
+nextLists: ["grade-3-homophones", "grade-4-multisyllabic-academic-words"]
 featured: false
 words:
   - basket

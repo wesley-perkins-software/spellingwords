@@ -3,7 +3,7 @@ id: grade-5-multisyllabic-academic-words
 urlSlug: 5th-grade-multisyllabic-academic-words
 title: "5th Grade Multisyllabic Academic Words"
 description: "Twelve longer academic words that help fifth graders practice syllables, word parts, and spelling across school subjects."
-shortAnswer: "Twelve fifth-grade multisyllabic academic words — investigation, organization, explanation, responsibility, and more."
+shortAnswer: "Twelve fifth-grade multisyllabic academic words — investigation, organization, explanation, responsibility, technology, and more."
 category: grade-level
 grade: "5"
 difficulty: intermediate
@@ -30,9 +30,9 @@ words:
   - communication
   - experiment
   - conclusion
-  - community
+  - technology
 ---
 
-Fifth graders are ready for longer school words that have several syllables and meaningful parts. Words like *investigation*, *organization*, and *responsibility* appear in science notebooks, reports, reading responses, and classroom discussions.
+Fifth graders are ready for longer school words that have several syllables and meaningful parts. Words like *investigation*, *organization*, *responsibility*, and *technology* appear in science notebooks, reports, reading responses, and classroom discussions.
 
 Practicing these words helps students slow down, notice syllables, and use word parts to spell longer academic vocabulary with confidence.

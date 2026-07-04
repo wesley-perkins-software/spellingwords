@@ -3,7 +3,7 @@ id: grade-5-spelling-rules
 urlSlug: 5th-grade-spelling-rules
 title: "5th Grade Spelling Rules"
 description: "Twelve fifth-grade words that practice useful spelling rules for endings such as -tion, -sion, -able, -ible, -ance, and -ence."
-shortAnswer: "Twelve fifth-grade spelling-rule words — action, discussion, responsible, possible, distance, evidence, and more."
+shortAnswer: "Twelve fifth-grade spelling-rule words — action, discussion, readable, sensible, distance, evidence, and more."
 category: grade-level
 grade: "5"
 difficulty: intermediate
@@ -23,8 +23,8 @@ words:
   - solution
   - discussion
   - decision
-  - breakable
-  - visible
+  - readable
+  - sensible
   - responsible
   - possible
   - distance

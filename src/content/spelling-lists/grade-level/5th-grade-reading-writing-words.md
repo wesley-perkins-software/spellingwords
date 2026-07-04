@@ -3,7 +3,7 @@ id: grade-5-reading-writing-words
 urlSlug: 5th-grade-reading-writing-words
 title: "5th Grade Reading & Writing Words"
 description: "Twelve fifth-grade reading and writing words for analyzing texts, comparing ideas, and explaining thinking in written responses."
-shortAnswer: "Twelve fifth-grade reading and writing words — analyze, compare, contrast, determine, summarize, and more — for text analysis and written responses."
+shortAnswer: "Twelve fifth-grade reading and writing words — analyze, infer, evaluate, compare, contrast, and more — for text analysis and written responses."
 category: grade-level
 grade: "5"
 difficulty: intermediate
@@ -24,15 +24,15 @@ words:
   - contrast
   - determine
   - summarize
-  - describe
-  - detail
+  - infer
+  - evaluate
   - structure
   - purpose
   - strategy
-  - topic
+  - context
   - response
 ---
 
-By fifth grade, students are expected to read carefully and explain their thinking in writing. These words help them talk about what a text says, how it is built, and how ideas connect. Students *analyze* details, *compare* and *contrast* ideas, *determine* an author's *purpose*, and *summarize* important information in a clear *response*.
+By fifth grade, students are expected to read carefully and explain their thinking in writing. These words help them talk about what a text says, how it is built, and how ideas connect. Students *analyze* details, *infer* meaning, *evaluate* ideas, *compare* and *contrast* texts, and use *context* to write a clear *response*.
 
 Spelling these words automatically lets a fifth grader focus on the thinking behind a strong written answer.

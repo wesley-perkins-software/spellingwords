@@ -66,13 +66,13 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   },
   '5': {
     metaDescription:
-      'Free 5th grade spelling word lists — academic words, science words, civics vocabulary, opinion and argument terms. Calm practice for upper elementary students.',
+      'Free 5th grade spelling word lists for academic words, multisyllabic words, prefixes and suffixes, Greek and Latin word parts, spelling rules, science, civics, and math vocabulary.',
     heroParagraphs: [
-      'Here are free 5th grade spelling word lists covering everyday words, academic vocabulary, science and nature terms, civics words, opinion and argument language, and reading and writing vocabulary. All lists include audio support so students can hear each word read aloud before typing it.',
-      'Fifth grade spelling practice supports stronger vocabulary, academic writing, science words, civics words, and the more advanced reading students are doing. These lists are a good fit for students preparing for middle school and standardized assessments.',
+      'Here are free 5th grade spelling word lists covering everyday and academic words, reading and writing vocabulary, opinion and argument words, multisyllabic academic words, prefix and suffix words, Greek and Latin word parts, spelling rules, commonly confused words, and science, social studies, civics, and math vocabulary. All lists include audio support so students can hear each word read aloud before typing it.',
+      'Fifth grade is the capstone of elementary spelling. Students still need useful vocabulary, but they are also ready to use word parts, syllables, roots, suffix patterns, and careful word choice to spell longer words with confidence before middle school.',
     ],
     guidanceBody:
-      'Start with everyday words or academic words for general review. Science and nature words and civics words pair well with content-area units. Opinion and argument words are especially useful alongside persuasive writing assignments. Reading and writing words cover the vocabulary students need to discuss and analyze longer texts.',
+      'Start with Everyday Words and Academic Words for review, then use Reading & Writing Words and Opinion & Argument Words for ELA practice. Multisyllabic Academic Words, Prefix & Suffix Words, Greek & Latin Word Parts, Spelling Rules, and Commonly Confused Words form the Grade 5 word-study core. Science Words and Social Studies & Civics Words are the strongest content-area follow-ups; Math Vocabulary is available as a lower-priority extension when students need it.',
     emptyStateLabel: 'Fifth grade',
   },
 };

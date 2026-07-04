@@ -9,14 +9,14 @@ grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "vocabulary", "academic-language"]
 tags: ["grade-5", "vocabulary", "academic-language", "cross-curricular"]
-order: 5
+order: 2
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-reading-writing-words"]
+relatedLists: ["grade-5-reading-writing-words", "grade-5-multisyllabic-academic-words"]
 prerequisiteLists: ["grade-4-multisyllabic-academic-words"]
-nextLists: []
+nextLists: ["grade-5-reading-writing-words"]
 featured: false
 words:
   - achieve

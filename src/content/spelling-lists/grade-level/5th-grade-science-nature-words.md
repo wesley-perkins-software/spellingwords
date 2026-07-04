@@ -1,38 +1,38 @@
 ---
 id: grade-5-science-nature-words
 urlSlug: 5th-grade-science-nature-words
-title: "5th Grade Science & Nature Words"
-description: "Twelve words from the language of fifth-grade science and the natural world — vocabulary for observing, investigating, and describing the living and physical world around us."
-shortAnswer: "Twelve fifth-grade science and nature words — ocean, mountain, observe, predict, and more — vocabulary for exploring and understanding the natural world."
+title: "5th Grade Science Words"
+description: "Twelve fifth-grade science words for observing, investigating, and explaining the natural and physical world."
+shortAnswer: "Twelve fifth-grade science words — ecosystem, matter, gravity, evidence, experiment, and more — for science reading and writing."
 category: grade-level
 grade: "5"
 difficulty: intermediate
-skillTags: ["grade-5", "science", "nature", "vocabulary"]
-tags: ["grade-5", "science", "nature", "vocabulary"]
-order: 3
+skillTags: ["grade-5", "science", "vocabulary", "content-vocabulary"]
+tags: ["grade-5", "science", "vocabulary", "content-area", "academic-language"]
+order: 10
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: []
+relatedLists: ["grade-5-academic-words", "grade-5-multisyllabic-academic-words"]
 prerequisiteLists: ["grade-4-list-02"]
-nextLists: []
+nextLists: ["grade-5-community-civics-words"]
 featured: false
 words:
-  - ocean
-  - mountain
-  - marsh
-  - planet
   - observe
   - predict
-  - transport
-  - swift
-  - turtle
-  - maple
-  - research
   - examine
+  - evidence
+  - experiment
+  - ecosystem
+  - organism
+  - adaptation
+  - energy
+  - matter
+  - gravity
+  - erosion
 ---
 
-By fifth grade, science class asks students to do more than watch — they *observe*, *predict*, and *examine* the world with care. These twelve words span the natural landscape (*ocean*, *mountain*, *marsh*, *maple*) and the habits of scientific thinking (*research*, *predict*, *observe*). They show up in science notebooks, field guides, and nonfiction reading all year long.
+Fifth-grade science asks students to observe carefully, test ideas, and explain what they discover. These words appear in science notebooks, nonfiction reading, experiments, and class discussions. Students use *evidence* from an *experiment*, study how each *organism* fits into an *ecosystem*, and learn how forces like *gravity* and processes like *erosion* shape the world.
 
-Spelling them confidently lets a fifth grader stay focused on the ideas — not the letters.
+Spelling these words confidently lets a fifth grader stay focused on scientific thinking.

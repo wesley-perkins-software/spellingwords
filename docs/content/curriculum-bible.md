@@ -117,7 +117,7 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 | `grade-level/` — 2nd Grade | 4 | action-words, compound-words, describing-words, everyday-words |
 | `grade-level/` — 3rd Grade | 3 | describing-words, everyday-words, reading-writing-words |
 | `grade-level/` — 4th Grade | 5 | community-words, everyday-words, reading-writing-words, tier-1-roots-and-patterns, tier-2-greek-latin-roots (two root lists reclassified from `challenge/` — see §2.2 of the approved curriculum architecture) |
-| `grade-level/` — 5th Grade | 6 | academic-words, community-civics-words, everyday-words, opinion-argument-words, reading-writing-words, science-nature-words |
+| `grade-level/` — 5th Grade | 12 | everyday-words, academic-words, reading-writing-words, opinion-argument-words, multisyllabic-academic-words, prefix-suffix-words, greek-latin-word-parts, spelling-rules, commonly-confused-words, science-nature-words, community-civics-words, math-vocabulary |
 | `challenge/` | 1 | academic-vocabulary only — the two root lists moved to `grade-level/` (4th Grade) |
 | **Total** | **86** | As of 2026-07-01 |
 
@@ -409,56 +409,64 @@ Additional Latin/Greek root lists (struct, vis/vid, scrib/script, scope), advanc
 
 ### 5th Grade
 
-**Builds Upon:** Basic Greek/Latin roots, advanced prefixes/suffixes, 3–4 syllable words, academic vocabulary introduction
+**Builds Upon:** Grade 4 multisyllabic academic words, advanced prefixes/suffixes, Greek and Latin roots, commonly confused words, and academic/content vocabulary
 
 #### Expected Focus
-Advanced roots and affixes, academic vocabulary (tier 2 words: analyze, conclude, summarize, justify…), science and social studies vocabulary, suffix spelling changes (-tion vs. -sion, -ible vs. -able), commonly misspelled words, word origins (Anglo-Saxon vs. Latin vs. Greek), challenge words for advanced readers.
+Grade 5 is the capstone of the elementary spelling sequence. The center of the grade is morphology in useful upper-elementary form: multisyllabic academic words, prefixes and suffixes, Greek and Latin word parts inside longer words, spelling rules for common suffix patterns, and commonly confused words that affect writing accuracy. Content vocabulary remains important, especially science and social studies/civics, but it supports the morphology core rather than replacing it.
 
 #### Common List Types
-- Academic vocabulary by discipline (ELA, science, social studies, math)
-- Advanced root lists
-- Commonly misspelled word lists
-- Word-origin exploration lists
-- Suffix spelling-rule lists (-tion/-sion, -ible/-able)
-- Challenge/enrichment lists
+- Everyday and academic vocabulary review
+- Reading/writing and opinion/argument vocabulary
+- Multisyllabic academic word lists
+- Prefix and suffix word lists
+- Greek and Latin word-part extension lists
+- Combined spelling-rules lists (-tion/-sion, -able/-ible, -ance/-ence)
+- Commonly confused word lists
+- Science and social studies/civics vocabulary
+- Math vocabulary as the lowest-priority content-area extension
 
 #### Current Coverage
 | List | Type | Notes |
 |---|---|---|
 | grade-level/5th-grade-everyday-words | Theme | General vocabulary |
 | grade-level/5th-grade-academic-words | Theme | Academic vocabulary ✅ |
-| grade-level/5th-grade-reading-writing-words | Theme | ELA academic vocab ✅ |
-| grade-level/5th-grade-science-nature-words | Theme | Science vocabulary ✅ |
-| grade-level/5th-grade-community-civics-words | Theme | Civic/social studies vocab ✅ |
-| grade-level/5th-grade-opinion-argument-words | Theme | Argument/persuasive writing |
+| grade-level/5th-grade-reading-writing-words | Theme | ELA reading-analysis vocabulary ✅ |
+| grade-level/5th-grade-opinion-argument-words | Theme | Argument/persuasive writing ✅ |
+| grade-level/5th-grade-multisyllabic-academic-words | Morphology / academic vocabulary | Longer school words ✅ |
+| grade-level/5th-grade-prefix-suffix-words | Morphology | Grade 5 affix extension ✅ |
+| grade-level/5th-grade-greek-latin-word-parts | Morphology / roots | Extends Grade 4 roots without duplicating separate Greek/Latin pages ✅ |
+| grade-level/5th-grade-spelling-rules | Morphology / spelling rules | Combined suffix-pattern page for -tion/-sion, -able/-ible, -ance/-ence ✅ |
+| grade-level/5th-grade-commonly-confused-words | Writing / word choice | Grade 5 extension of commonly confused words ✅ |
+| grade-level/5th-grade-science-nature-words | Content vocabulary | Strengthened as Grade 5 Science Words ✅ |
+| grade-level/5th-grade-community-civics-words | Content vocabulary | Strengthened as Social Studies & Civics Words ✅ |
+| grade-level/5th-grade-math-vocabulary | Content vocabulary | Lowest-priority extension; useful once morphology core is complete ✅ |
 | challenge/academic-vocabulary | Challenge | Advanced academic terms |
 
-Coverage: **Best-covered grade** for thematic vocabulary; still missing morphology, spelling-rule, and misspelled-words content.
+Coverage: **Strong**. Grade 5 now has a 12-list architecture that keeps morphology central while remaining an elementary curriculum.
 
 #### Target Coverage Checklist
 - [x] Academic vocabulary (general)
 - [x] Reading/writing/ELA academic vocabulary
+- [x] Opinion/argument writing words
+- [x] Multisyllabic academic words
+- [x] Prefix and suffix morphology extension
+- [x] Greek and Latin word-part extension beyond Grade 4 roots
+- [x] Combined spelling-rules list for -tion/-sion, -able/-ible, -ance/-ence
+- [x] Commonly confused words (5th grade extension)
 - [x] Science vocabulary
 - [x] Civic/social studies vocabulary
-- [x] Opinion/argument writing words
-- [ ] Advanced Latin root lists (beyond 4th grade roots)
-- [ ] Advanced Greek root lists
-- [ ] Prefix review and extension (all major prefixes)
-- [ ] Suffix -tion vs. -sion spelling rule
-- [ ] Suffix -ible vs. -able spelling rule
-- [ ] Suffix -ance / -ence spelling rule
-- [ ] Commonly misspelled words (5th grade list)
-- [ ] Commonly confused words (5th grade extension)
-- [ ] Word origins: Anglo-Saxon vs. Latin vs. Greek awareness
-- [ ] Math vocabulary (grade 5 level)
+- [x] Math vocabulary (lowest-priority content-area extension)
+- [ ] Optional word origins / etymology awareness, only if future search demand or curriculum need justifies it
 
 #### Likely Gaps
-Advanced morphology (roots, suffix spelling rules), commonly misspelled words, math vocabulary, and word-origin content.
+No high-priority Grade 5 gaps remain after the 12-list architecture. Optional word-origin content can be deferred unless it can be made practical and elementary-appropriate.
 
 #### Notes
-5th grade has the strongest thematic vocabulary coverage of any grade. The next priority is adding the morphology and spelling-rule content that makes students into stronger spellers, not just better word-recognizers.
+Grade 5 deliberately uses parent-friendly titles such as `5th Grade Prefix & Suffix Words` and `5th Grade Spelling Rules` instead of narrower or overly technical page names. The spelling-rules content is combined into one list rather than split into separate suffix pages because one strong elementary page better matches the grade-level experience and avoids unnecessary fragmentation.
 
-`tier-1-roots-and-patterns` and `tier-2-greek-latin-roots` are now Grade 4 primary content (see §7 4th Grade), not listed here. `tier-2-greek-latin-roots` remains usefully linked to this grade as review/extension through its `relatedLists`/`prerequisiteLists` chain — no duplicate grade tag is added, per the no-secondary-grade-field decision in §12.
+Grade 4 remains the main introduction to separate Greek and Latin root instruction. Grade 5 extends that work through `5th-grade-greek-latin-word-parts`, where roots and word parts appear inside longer academic words. This prevents duplicating the Grade 4 root pages while still preparing students for middle school vocabulary.
+
+`tier-1-roots-and-patterns` and `tier-2-greek-latin-roots` remain Grade 4 primary content. They serve Grade 5 as prerequisites/review through relationship metadata rather than duplicate Grade 5 grade tags.
 
 The word overlap between `5th-grade-academic-words` and `challenge/academic-vocabulary` is intentional and acceptable: the grade-level list covers standard 5th grade academic vocabulary expectations, while the challenge list is genuine extension beyond that expectation. No action needed.
 
@@ -512,12 +520,16 @@ The word overlap between `5th-grade-academic-words` and `challenge/academic-voca
 | 4 | Commonly confused words | | | ✓ | Medium | |
 | 4 | Science vocabulary | | | ✓ | Medium | |
 | 4 | Social studies vocabulary | | | ✓ | Medium | |
-| 5 | Academic vocabulary | ✓ | | | — | Already covered |
-| 5 | Advanced roots/affixes | ✓ | | | — | Served by `tier-2-greek-latin-roots` (Grade 4 primary) via `relatedLists`/`prerequisiteLists` review/extension link, no duplicate grade tag |
-| 5 | Suffix spelling rules (-tion/-sion, -ible/-able) | | | ✓ | High | |
-| 5 | Commonly misspelled words | | | ✓ | Medium | |
-| 5 | Math vocabulary | | | ✓ | Medium | |
-| 5 | Word origins awareness | | | ✓ | Low | |
+| 5 | Academic vocabulary | ✓ | | | — | Covered by `5th-grade-academic-words` |
+| 5 | Multisyllabic academic words | ✓ | | | — | Covered by `5th-grade-multisyllabic-academic-words` |
+| 5 | Prefix/suffix morphology extension | ✓ | | | — | Covered by `5th-grade-prefix-suffix-words`; extends Grade 4 without over-fragmenting |
+| 5 | Greek and Latin word-part extension | ✓ | | | — | Covered by `5th-grade-greek-latin-word-parts`; Grade 4 remains the root introduction |
+| 5 | Suffix spelling rules (-tion/-sion, -ible/-able, -ance/-ence) | ✓ | | | — | Covered by one parent-friendly `5th-grade-spelling-rules` page |
+| 5 | Commonly confused words | ✓ | | | — | Covered by `5th-grade-commonly-confused-words` |
+| 5 | Science vocabulary | ✓ | | | — | Strengthened by revised `5th-grade-science-nature-words` |
+| 5 | Social studies/civics vocabulary | ✓ | | | — | Strengthened by revised `5th-grade-community-civics-words` |
+| 5 | Math vocabulary | ✓ | | | — | Covered as the lowest-priority Grade 5 content-area extension |
+| 5 | Word origins awareness | | | ✓ | Low | Optional future enrichment only |
 
 ---
 

@@ -33,13 +33,13 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   },
   '2': {
     metaDescription:
-      'Free 2nd grade spelling word lists for phonics, sight words, compound words, and everyday vocabulary. Simple audio-supported practice for second graders.',
+      'Free 2nd grade spelling word lists for phonics, word study, contractions, prefixes, suffixes, plurals, homophones, silent letters, and everyday vocabulary. Simple audio-supported practice for second graders.',
     heroParagraphs: [
-      'Here are free 2nd grade spelling word lists covering everyday words, compound words, action and describing words, and Dolch second grade sight words. All lists include audio support so children can hear each word read aloud before typing it.',
-      'Second grade spelling practice connects everyday words with stronger phonics patterns, sight words, and early vocabulary growth. These lists are a good match for children building fluency and starting to write more independently.',
+      'Here are free 2nd grade spelling word lists covering everyday words, compound words, contractions, prefixes, suffixes, regular plurals, homophones, silent letters, action and describing words, and Grade 2 phonics patterns. All lists include audio support so children can hear each word read aloud before typing it.',
+      'Second grade spelling practice connects everyday words with stronger phonics patterns, early word study, and vocabulary growth. These lists are a good match for children building fluency, learning how word parts work, and starting to write more independently.',
     ],
     guidanceBody:
-      "Compound words are a great starting point if your child is working on reading longer words by breaking them apart. Sight words are best practiced in short, frequent sessions. The everyday words and action and describing word lists pair well with writing practice — they're the words children reach for most often in sentences.",
+      "Start with Everyday Words for a general Grade 2 foundation, then use Compound Words, Contractions, Prefixes, Suffixes, Regular Plurals, Homophones, Silent Letter Words, and Comparatives for focused word-study practice. The action and describing word lists pair well with writing practice — they're the words children reach for often in sentences.",
     emptyStateLabel: 'Second grade',
   },
   '3': {

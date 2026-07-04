@@ -9,13 +9,13 @@ grade: "2"
 difficulty: developing
 skillTags: ["grade-2", "verbs", "action-words"]
 tags: ["grade-2", "verbs", "action-words", "vocabulary"]
-order: 3
+order: 10
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-list-02", "grade-2-list-01"]
-prerequisiteLists: ["grade-2-list-02"]
+relatedLists: ["grade-2-comparatives-er-est", "grade-2-describing-words", "grade-2-list-01"]
+prerequisiteLists: ["grade-2-comparatives-er-est"]
 nextLists: ["grade-2-describing-words"]
 featured: false
 words:

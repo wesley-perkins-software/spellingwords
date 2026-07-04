@@ -14,9 +14,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-list-01", "grade-2-list-03"]
+relatedLists: ["grade-2-list-01", "grade-2-contractions", "grade-2-prefixes-un-re"]
 prerequisiteLists: ["grade-2-list-01"]
-nextLists: ["grade-2-list-03"]
+nextLists: ["grade-2-contractions"]
 featured: false
 words:
   - sunshine

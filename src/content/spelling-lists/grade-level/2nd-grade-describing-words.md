@@ -9,12 +9,12 @@ grade: "2"
 difficulty: developing
 skillTags: ["grade-2", "adjectives", "describing-words"]
 tags: ["grade-2", "adjectives", "vocabulary", "describing-words"]
-order: 4
+order: 11
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-list-01"]
+relatedLists: ["grade-2-list-03", "grade-2-suffixes-ful-less", "grade-2-comparatives-er-est"]
 prerequisiteLists: ["grade-2-list-03"]
 nextLists: []
 featured: false

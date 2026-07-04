@@ -3,6 +3,7 @@ import type { SentenceBankEntry } from '../types';
 export const GRADE45_ENTRIES: SentenceBankEntry[] = [
   { word: 'accept', exampleSentence: 'Please accept this invitation to our class celebration.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'achieve', exampleSentence: 'You can achieve your goal if you keep practicing.', gradeBand: '4-5', sourceType: 'curated' },
+  { word: 'affect', exampleSentence: 'Lack of sleep can affect how well you learn.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'although', exampleSentence: 'We went outside although the sky was full of grey clouds.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'among', exampleSentence: 'The shy rabbit hid among the tall ferns near the path.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'analyze', exampleSentence: 'Scientists analyze the soil to learn what plants will grow there.', gradeBand: '4-5', sourceType: 'curated' },
@@ -58,7 +59,7 @@ export const GRADE45_ENTRIES: SentenceBankEntry[] = [
   { word: 'discussion', exampleSentence: 'Our discussion helped everyone understand the chapter better.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'doctor', exampleSentence: 'The kind doctor listened carefully to my heartbeat.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'dollar', exampleSentence: 'She saved one dollar to buy a new pencil.', gradeBand: '4-5', sourceType: 'curated' },
-  { word: 'effect', exampleSentence: 'Sunlight has a powerful effect on how quickly the seeds sprout.', gradeBand: '4-5', sourceType: 'curated' },
+  { word: 'effect', exampleSentence: 'The new rule had an effect on our schedule.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'eighth', exampleSentence: 'He was the eighth person to finish the race.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'everybody', exampleSentence: 'Soon everybody gathered around to hear the story.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'evidence', exampleSentence: 'The muddy footprints were evidence that a raccoon had visited.', gradeBand: '4-5', sourceType: 'curated' },

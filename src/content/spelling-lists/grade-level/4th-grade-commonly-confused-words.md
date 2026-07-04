@@ -3,7 +3,7 @@ id: grade-4-commonly-confused-words
 urlSlug: 4th-grade-commonly-confused-words
 title: "4th Grade Commonly Confused Words"
 description: "A fourth-grade commonly confused words list that helps students choose the right spelling for words that sound alike or look similar in writing."
-shortAnswer: "Fourth graders practice commonly confused words such as there, their, they're, its, it's, than, then, except, effect, principal, and principle."
+shortAnswer: "Fourth graders practice commonly confused words such as there, their, they're, its, it's, than, then, except, affect, effect, principal, and principle."
 category: grade-level
 grade: "4"
 difficulty: intermediate
@@ -28,11 +28,12 @@ words:
   - then
   - accept
   - except
+  - affect
   - effect
   - principal
   - principle
 ---
 
-Fourth graders already know many homophones, but upper-elementary writing asks them to choose the correct word more carefully. These words matter in explanations, opinions, stories, and reports because the wrong spelling can change the meaning of a sentence.
+Fourth graders already know many homophones, but upper-elementary writing asks them to choose the correct word more carefully. These words matter in explanations, opinions, stories, and reports because the wrong spelling can change the meaning of a sentence. Each word is taught with its confusing partner so students practice meaning as well as spelling.
 
 This list reviews important Grade 3 homophones and adds commonly confused words that fourth graders are ready to use in longer writing.

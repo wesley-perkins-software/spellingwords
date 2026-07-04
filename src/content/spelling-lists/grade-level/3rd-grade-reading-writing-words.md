@@ -14,9 +14,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-list-01"]
+relatedLists: ["grade-3-list-01", "grade-3-prefix-words"]
 prerequisiteLists: ["grade-3-list-02"]
-nextLists: []
+nextLists: ["grade-3-prefix-words"]
 featured: false
 words:
   - answer

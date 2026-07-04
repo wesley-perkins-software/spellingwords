@@ -44,13 +44,13 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   },
   '3': {
     metaDescription:
-      'Free 3rd grade spelling word lists — reading and writing words, describing words, sight words, and vocabulary. Calm practice for developing spellers.',
+      'Free 3rd grade spelling word lists for vocabulary, sight words, prefixes, suffixes, spelling rules, multisyllabic words, homophones, and root word families. Calm audio-supported practice.',
     heroParagraphs: [
-      'Here are free 3rd grade spelling word lists including everyday words, reading and writing vocabulary, describing words, and Dolch third grade sight words. All lists include audio support so students can hear each word before typing it.',
-      'Third grade spellers are ready for longer words, compound words, prefixes, suffixes, and more independent practice. These lists support the wider vocabulary that third graders encounter across reading and writing.',
+      'Here are free 3rd grade spelling word lists including everyday words, reading and writing vocabulary, describing words, Dolch third grade sight words, prefixes, suffixes, spelling rules, multisyllabic words, homophones, and root word families. All lists include audio support so students can hear each word before typing it.',
+      'Third grade spelling is the bridge from phonics into morphology. Students still need high-frequency vocabulary, but they are also ready to study prefixes, suffixes, suffix spelling changes, longer multisyllabic words, and meaning-based spelling choices.',
     ],
     guidanceBody:
-      'The everyday words list is a solid starting point for general review. Reading and writing words are particularly useful alongside classroom writing assignments. Sight words at this grade include less common high-frequency words that still trip up many readers — short daily practice works well.',
+      'Start with Everyday Words, Describing Words, and Reading & Writing Words for a Grade 3 vocabulary foundation. Then move into Prefix Words and Suffix Words before practicing the three spelling-rule lists: Dropping Silent E, Doubling Final Consonants, and Changing Y to I. Multisyllabic Words, Homophones, and Root Word Families complete the bridge into Grade 4 morphology.',
     emptyStateLabel: 'Third grade',
   },
   '4': {

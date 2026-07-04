@@ -15,7 +15,7 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: []
-prerequisiteLists: []
+prerequisiteLists: ["grade-4-list-02"]
 nextLists: []
 featured: false
 words:

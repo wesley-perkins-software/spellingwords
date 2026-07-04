@@ -2,8 +2,8 @@
 id: grade-4-list-01
 urlSlug: 4th-grade-everyday-words
 title: "4th Grade Everyday Words"
-description: "Core vocabulary that fourth-grade readers and writers reach for every day — words that appear across subjects and reward careful spelling."
-shortAnswer: "Twelve essential fourth-grade words like beautiful, discover, and receive — vocabulary students need for reading and writing across all subjects."
+description: "Core fourth-grade spelling words that students use across subjects before moving into longer academic words, affixes, and roots."
+shortAnswer: "Twelve essential fourth-grade words like balance, beautiful, knowledge, receive, and tomorrow — useful words for reading and writing across subjects."
 category: grade-level
 grade: "4"
 difficulty: intermediate
@@ -14,25 +14,25 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-4-list-02"]
-prerequisiteLists: []
-nextLists: ["grade-4-list-02"]
+relatedLists: ["grade-4-reading-writing-words", "grade-4-multisyllabic-academic-words"]
+prerequisiteLists: ["grade-3-root-word-families"]
+nextLists: ["grade-4-reading-writing-words"]
 featured: false
 words:
-  - attention
+  - balance
   - beautiful
+  - challenge
   - course
-  - discover
   - eighth
-  - everybody
   - example
   - finally
+  - knowledge
   - piece
   - receive
   - suppose
   - tomorrow
 ---
 
-By fourth grade, a student is expected to spell words that don't give many phonics clues — words like *receive* (with its tricky ei), *beautiful* (with a silent e tucked in the middle), and *eighth* (with that silent gh). These are words students encounter in every subject, every day.
+Fourth grade begins with high-utility words students need across reading, writing, math, science, and social studies. Words like *receive*, *beautiful*, and *knowledge* reward careful spelling because they do not always sound exactly the way they look.
 
-Spelling them automatically lets a fourth grader focus on the quality of their writing rather than the mechanics of putting letters in order.
+This list gives students a strong review-and-bridge before they begin the longer academic words, advanced affixes, and Greek and Latin roots that define fourth-grade spelling.

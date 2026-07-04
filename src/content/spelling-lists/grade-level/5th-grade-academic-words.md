@@ -15,7 +15,7 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["grade-5-reading-writing-words"]
-prerequisiteLists: []
+prerequisiteLists: ["grade-4-multisyllabic-academic-words"]
 nextLists: []
 featured: false
 words:

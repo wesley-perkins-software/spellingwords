@@ -2,40 +2,40 @@
 id: dolch-first-grade-a
 urlSlug: dolch-first-grade-a-sight-words
 title: "Dolch First Grade Sight Words — Part A"
-description: "The first set of Dolch First Grade sight words: after, again, an, any, as, ask, by, could, every, fly, from, give, going, had."
-shortAnswer: "Part A of the Dolch First Grade list covers the first fourteen high-frequency words a first grader is expected to recognize and spell automatically."
+description: "Part A of the complete canonical dolch first grade sight words tier, split into a practice-sized set for calm spelling review."
+shortAnswer: "This practice set covers part A of the complete canonical dolch first grade sight words tier."
 category: sight-words
 grade: "1"
-difficulty: developing
-skillTags: ["sight-words", "high-frequency", "first-grade"]
-tags: ["dolch", "sight-words", "first-grade", "beginning-readers"]
-order: 31
-estimatedDurationMinutes: 5
+difficulty: beginner
+skillTags: ["sight-words", "high-frequency", "dolch"]
+tags: ['dolch', 'sight-words', 'high-frequency', 'grade-1']
+order: 8
+estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: Dolch
   tier: first-grade
-relatedLists: ["dolch-first-grade-b", "dolch-first-grade-c"]
-prerequisiteLists: ["dolch-primer"]
-nextLists: ["dolch-first-grade-b"]
+relatedLists: ['dolch-first-grade-b', 'dolch-first-grade-c']
+prerequisiteLists: []
+nextLists: ['dolch-first-grade-b']
 featured: false
 words:
-  - after
-  - again
-  - an
-  - any
-  - as
-  - ask
-  - by
-  - could
-  - every
-  - fly
-  - from
-  - give
-  - going
-  - had
+  - "after"
+  - "again"
+  - "an"
+  - "any"
+  - "as"
+  - "ask"
+  - "by"
+  - "could"
+  - "every"
+  - "fly"
+  - "from"
+  - "give"
+  - "going"
+  - "had"
 ---
 
-Part A of the Dolch First Grade list introduces the first fourteen words from the classic first-grade sight word sequence. These are among the most common words in early chapter books and classroom writing. Many, like *could* and *every*, don't follow simple phonetic rules — which is exactly why repeated practice helps children recognize them instantly.
+This is Part A of the complete canonical Dolch First Grade Sight Words tier. Practice all parts in order to cover the full Dolch first grade service-word list.

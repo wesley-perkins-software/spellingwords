@@ -2,40 +2,40 @@
 id: dolch-first-grade-b
 urlSlug: dolch-first-grade-b-sight-words
 title: "Dolch First Grade Sight Words — Part B"
-description: "The second set of Dolch First Grade sight words: has, her, him, his, how, just, know, let, live, may, of, old, once, open."
-shortAnswer: "Part B of the Dolch First Grade list covers fourteen more high-frequency words from the classic first-grade sight word sequence."
+description: "Part B of the complete canonical dolch first grade sight words tier, split into a practice-sized set for calm spelling review."
+shortAnswer: "This practice set covers part B of the complete canonical dolch first grade sight words tier."
 category: sight-words
 grade: "1"
-difficulty: developing
-skillTags: ["sight-words", "high-frequency", "first-grade"]
-tags: ["dolch", "sight-words", "first-grade", "beginning-readers"]
-order: 32
-estimatedDurationMinutes: 5
+difficulty: beginner
+skillTags: ["sight-words", "high-frequency", "dolch"]
+tags: ['dolch', 'sight-words', 'high-frequency', 'grade-1']
+order: 9
+estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: Dolch
   tier: first-grade
-relatedLists: ["dolch-first-grade-a", "dolch-first-grade-c"]
-prerequisiteLists: ["dolch-first-grade-a"]
-nextLists: ["dolch-first-grade-c"]
+relatedLists: ['dolch-first-grade-a', 'dolch-first-grade-c']
+prerequisiteLists: ['dolch-first-grade-a']
+nextLists: ['dolch-first-grade-c']
 featured: false
 words:
-  - has
-  - her
-  - him
-  - his
-  - how
-  - just
-  - know
-  - let
-  - live
-  - may
-  - of
-  - old
-  - once
-  - open
+  - "has"
+  - "her"
+  - "him"
+  - "his"
+  - "how"
+  - "just"
+  - "know"
+  - "let"
+  - "live"
+  - "may"
+  - "of"
+  - "old"
+  - "once"
+  - "open"
 ---
 
-Part B of the Dolch First Grade list picks up in the middle of the first-grade sight word sequence. Words like *know*, *once*, and *live* are particularly tricky because their spelling doesn't predict their sound. Building automatic recall of these words frees a first grader's attention for meaning rather than decoding.
+This is Part B of the complete canonical Dolch First Grade Sight Words tier. Practice all parts in order to cover the full Dolch first grade service-word list.

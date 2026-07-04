@@ -2,39 +2,39 @@
 id: dolch-first-grade-c
 urlSlug: dolch-first-grade-c-sight-words
 title: "Dolch First Grade Sight Words — Part C"
-description: "The third set of Dolch First Grade sight words: over, put, round, some, stood, take, thank, them, then, think, walk, were, when."
-shortAnswer: "Part C completes the Dolch First Grade list with the final thirteen high-frequency words, rounding out the full first-grade sight word sequence."
+description: "Part C of the complete canonical dolch first grade sight words tier, split into a practice-sized set for calm spelling review."
+shortAnswer: "This practice set covers part C of the complete canonical dolch first grade sight words tier."
 category: sight-words
 grade: "1"
-difficulty: developing
-skillTags: ["sight-words", "high-frequency", "first-grade"]
-tags: ["dolch", "sight-words", "first-grade", "beginning-readers"]
-order: 33
-estimatedDurationMinutes: 5
+difficulty: beginner
+skillTags: ["sight-words", "high-frequency", "dolch"]
+tags: ['dolch', 'sight-words', 'high-frequency', 'grade-1']
+order: 10
+estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: Dolch
   tier: first-grade
-relatedLists: ["dolch-first-grade-a", "dolch-first-grade-b"]
-prerequisiteLists: ["dolch-first-grade-b"]
-nextLists: ["dolch-second-grade"]
+relatedLists: ['dolch-first-grade-a', 'dolch-first-grade-b']
+prerequisiteLists: ['dolch-first-grade-b']
+nextLists: []
 featured: false
 words:
-  - over
-  - put
-  - round
-  - some
-  - stood
-  - take
-  - thank
-  - them
-  - then
-  - think
-  - walk
-  - were
-  - when
+  - "over"
+  - "put"
+  - "round"
+  - "some"
+  - "stop"
+  - "take"
+  - "thank"
+  - "them"
+  - "then"
+  - "think"
+  - "walk"
+  - "were"
+  - "when"
 ---
 
-Part C completes the Dolch First Grade sight word sequence. Words like *were*, *thank*, and *stood* round out the set of high-frequency words a first grader should recognize and spell on sight. With all three parts complete, students are ready to move on to the Dolch Second Grade tier.
+This is Part C of the complete canonical Dolch First Grade Sight Words tier. Practice all parts in order to cover the full Dolch first grade service-word list.

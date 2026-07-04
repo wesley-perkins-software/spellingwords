@@ -47,8 +47,8 @@ The Bible and audit both identify Grade 3 morphology and Grade 2 word study as t
 ### Phase B — Grade 4 Advanced Morphology & Content Vocabulary
 Advanced prefixes/suffixes and content-area vocabulary for Grade 4, all tagged **High/Medium** in Bible §9, and the specific missing root lists the Bible names (struct, vis/vid, scrib/script, scope).
 
-### Phase C — Grade 5 Suffix Spelling Rules & Misspelled Words
-Grade 5's remaining gaps are suffix spelling-rule content (-tion/-sion, -ible/-able, -ance/-ence — **High**) plus commonly misspelled words, math vocabulary, and word-origin awareness (**Medium/Low**).
+### Phase C — Grade 5 Morphology Capstone (Complete)
+Grade 5 now uses a 12-list elementary capstone architecture: multisyllabic academic words, parent-friendly prefix/suffix practice, Greek and Latin word-part extension, one combined spelling-rules page for -tion/-sion, -able/-ible, and -ance/-ence, commonly confused words, strengthened science and social studies/civics vocabulary, and math vocabulary as the lowest-priority content-area extension.
 
 ### Phase D — Kindergarten Completion (Complete)
 Shape, family, school, and animal word lists (**High/Medium** in Bible §9) — Kindergarten is the most underbuilt grade by list count, but its gaps are thematic vocabulary, not sequencing-critical morphology, so it follows the Grade 2/3/4/5 word-study work.
@@ -83,12 +83,15 @@ Grade 1's remaining gaps are all **Medium/Low** (silent-e long-u, inflectional e
 | B | 4th Grade Commonly Confused Words | 4 | Vocabulary | Bible §9: Grade 4 Commonly confused words — Missing / Medium | None | Not Started |
 | B | 4th Grade Science Vocabulary | 4 | Content vocabulary | Bible §9: Grade 4 Science vocabulary — Missing / Medium | None | Not Started |
 | B | 4th Grade Social Studies Vocabulary | 4 | Content vocabulary | Bible §9: Grade 4 Social studies vocabulary — Missing / Medium | None | Not Started |
-| C | 5th Grade Suffix -tion vs. -sion | 5 | Morphology / spelling rules | Bible §9: Grade 5 Suffix spelling rules — Missing / High | None | Not Started |
-| C | 5th Grade Suffix -ible vs. -able | 5 | Morphology / spelling rules | Bible §9: Grade 5 Suffix spelling rules — Missing / High | None | Not Started |
-| C | 5th Grade Suffix -ance vs. -ence | 5 | Morphology / spelling rules | Bible §9: Grade 5 Suffix spelling rules — Missing / High | None | Not Started |
-| C | 5th Grade Commonly Misspelled Words | 5 | Vocabulary | Bible §9: Grade 5 Commonly misspelled words — Missing / Medium | None | Not Started |
-| C | 5th Grade Math Vocabulary | 5 | Content vocabulary | Bible §9: Grade 5 Math vocabulary — Missing / Medium | None | Not Started |
-| C | 5th Grade Word Origins Awareness | 5 | Vocabulary | Bible §9: Grade 5 Word origins awareness — Missing / Low | None | Not Started |
+| C | 5th Grade Multisyllabic Academic Words | 5 | Morphology / academic vocabulary | Bible §7: Grade 5 morphology capstone — longer school words | Grade 4 multisyllabic academic words | Complete |
+| C | 5th Grade Prefix & Suffix Words | 5 | Morphology / affixes | Bible §7: Grade 5 prefix/suffix extension with parent-friendly title | Grade 4 advanced prefixes/suffixes | Complete |
+| C | 5th Grade Greek & Latin Word Parts | 5 | Morphology / roots | Bible §7: extends Grade 4 roots inside longer academic words without duplicate Greek/Latin pages | Grade 4 Latin and Greek root lists | Complete |
+| C | 5th Grade Spelling Rules | 5 | Morphology / spelling rules | Bible §7: combined -tion/-sion, -able/-ible, -ance/-ence page avoids over-fragmentation | Grade 4 advanced suffixes | Complete |
+| C | 5th Grade Commonly Confused Words | 5 | Vocabulary / writing | Bible §7: Grade 5 commonly confused words extension | Grade 4 commonly confused words | Complete |
+| C | 5th Grade Science Words | 5 | Content vocabulary | Bible §7: strengthened Grade 5 science vocabulary | Academic vocabulary | Complete |
+| C | 5th Grade Social Studies & Civics Words | 5 | Content vocabulary | Bible §7: strengthened Grade 5 civics/social studies vocabulary | Academic vocabulary | Complete |
+| C | 5th Grade Math Vocabulary | 5 | Content vocabulary | Bible §7: lowest-priority Grade 5 content-area extension | None | Complete |
+| Future | 5th Grade Word Origins Awareness | 5 | Vocabulary | Optional only if future search demand or curriculum need justifies it | Greek & Latin Word Parts | Deferred |
 | D | Kindergarten Shape Words | K | Thematic vocabulary | Bible §9: K Shape words — Missing / High | None | Complete |
 | D | Kindergarten Family Words | K | Thematic vocabulary | Bible §9: K Family words — Missing / High | None | Complete |
 | D | Kindergarten School Words | K | Thematic vocabulary | Bible §9: K School words — Missing / Medium | None | Complete |

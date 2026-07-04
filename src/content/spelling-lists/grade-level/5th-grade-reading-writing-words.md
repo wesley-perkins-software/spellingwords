@@ -2,37 +2,37 @@
 id: grade-5-reading-writing-words
 urlSlug: 5th-grade-reading-writing-words
 title: "5th Grade Reading & Writing Words"
-description: "Twelve words from the language of fifth-grade ELA — the vocabulary of argument, analysis, and close reading that students use when thinking and writing with purpose."
-shortAnswer: "Twelve fifth-grade reading and writing words — analyze, argument, conclusion, strategy, and more — the academic vocabulary of upper-elementary ELA."
+description: "Twelve fifth-grade reading and writing words for analyzing texts, comparing ideas, and explaining thinking in written responses."
+shortAnswer: "Twelve fifth-grade reading and writing words — analyze, compare, contrast, determine, summarize, and more — for text analysis and written responses."
 category: grade-level
 grade: "5"
 difficulty: intermediate
-skillTags: ["grade-5", "vocabulary", "reading-writing"]
-tags: ["grade-5", "vocabulary", "reading-writing", "literacy", "academic-language"]
-order: 2
+skillTags: ["grade-5", "vocabulary", "reading-writing", "text-analysis"]
+tags: ["grade-5", "vocabulary", "reading-writing", "literacy", "academic-language", "text-analysis"]
+order: 3
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-list-01"]
+relatedLists: ["grade-5-academic-words", "grade-5-opinion-argument-words"]
 prerequisiteLists: ["grade-4-reading-writing-words", "grade-4-commonly-confused-words"]
-nextLists: []
+nextLists: ["grade-5-opinion-argument-words"]
 featured: false
 words:
   - analyze
-  - argument
-  - claim
   - compare
-  - conclusion
-  - consider
   - contrast
   - determine
-  - effect
-  - organize
+  - summarize
+  - describe
+  - detail
+  - structure
   - purpose
   - strategy
+  - topic
+  - response
 ---
 
-By fifth grade, students are expected to do more than summarize — they analyze texts, build arguments, and evaluate an author's choices. These twelve words are the tools of that work: the verbs a teacher uses when giving a writing prompt (*analyze*, *compare*, *contrast*, *determine*) and the nouns a student needs when constructing a response (*argument*, *claim*, *conclusion*, *strategy*).
+By fifth grade, students are expected to read carefully and explain their thinking in writing. These words help them talk about what a text says, how it is built, and how ideas connect. Students *analyze* details, *compare* and *contrast* ideas, *determine* an author's *purpose*, and *summarize* important information in a clear *response*.
 
-Spelling them automatically lets a fifth grader stay focused on the thinking.
+Spelling these words automatically lets a fifth grader focus on the thinking behind a strong written answer.

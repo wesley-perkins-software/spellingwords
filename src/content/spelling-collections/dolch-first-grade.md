@@ -2,8 +2,8 @@
 id: dolch-first-grade
 urlSlug: dolch-first-grade-sight-words
 title: "Dolch First Grade Sight Words"
-description: "The third tier of the classic Dolch sight word list — the 41 high-frequency words a first grader is expected to recognize and spell on sight. Split into three practice-sized sets so each session stays comfortable."
-shortAnswer: "Dolch First Grade is the third tier of the classic Dolch sight word sequence, covering 41 high-frequency words every first grader should know by heart."
+description: "The complete canonical dolch first grade sight words tier, split into practice-sized parts so each session stays comfortable."
+shortAnswer: "Complete Dolch First Grade Sight Words coverage, organized into shorter practice sessions."
 category: sight-words
 grade: "1"
 listIds:
@@ -14,6 +14,4 @@ status: published
 featured: false
 ---
 
-The Dolch First Grade list gathers the 41 high-frequency words researchers identified as essential for first-grade reading fluency. Because many of these words — *could*, *every*, *once*, *were* — don't follow simple phonics rules, they are taught as sight words: recognized at a glance rather than sounded out letter by letter.
-
-This collection splits the full set into three shorter practice sessions (Parts A, B, and C) so each sitting stays calm and focused. Complete all three to master the full first-grade tier.
+Dolch First Grade Sight Words is part of the canonical Dolch service-word sequence. This collection keeps the complete tier intact while splitting it into shorter practice sets for young spellers.

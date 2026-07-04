@@ -16,7 +16,7 @@ masteryThreshold: 90
 sourceType: curated
 relatedLists: ["silent-e-long-i", "vowel-teams-ai-ay"]
 prerequisiteLists: ["silent-e-long-i"]
-nextLists: ["vowel-teams-ai-ay"]
+nextLists: ["silent-e-long-e"]
 featured: false
 words:
   - bone

@@ -33,6 +33,6 @@ words:
   - that's
 ---
 
-A contraction joins two words into one shorter word. The apostrophe shows where letters were left out, as in *do not* becoming *don't* and *I am* becoming *I'm*.
+A contraction joins two words into one shorter word. The apostrophe marks the letters that were left out, as in *do not* becoming *don't* and *I am* becoming *I'm*.
 
-Second graders meet contractions often in dialogue, classroom reading, and their own writing. Practicing these common forms helps students spell the apostrophe correctly instead of guessing from sound alone.
+These Grade 2 contractions are common in dialogue and everyday reading. Students practice the whole word, including the apostrophe, so the spelling matches the meaning.

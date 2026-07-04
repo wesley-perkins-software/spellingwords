@@ -33,6 +33,6 @@ words:
   - lunches
 ---
 
-Most plural nouns name more than one person, place, animal, or thing. Many words become plural by adding *-s*, as in *dog* to *dogs*.
+Most nouns become plural by adding *-s*, as in *dog* to *dogs*.
 
-Some words need *-es* because they end with sounds like /s/, /sh/, /ch/, or /x/. Practicing words like *boxes*, *dishes*, and *lunches* helps second graders choose the ending that sounds and looks right.
+Words ending in *s*, *x*, *sh*, or *ch* usually add *-es*. That is why second graders practice spellings like *buses*, *boxes*, *dishes*, *brushes*, and *lunches* together.

@@ -33,6 +33,6 @@ words:
   - comb
 ---
 
-Some words have letters we write but do not say. In this list, second graders practice three common silent-letter patterns.
+Silent-letter words include letters that are written but not pronounced. This list teaches three common Grade 2 patterns.
 
-**WR words** begin with a silent *w*, as in *write*, *wrote*, *wrong*, *wrap*, and *wrist*. **KN words** begin with a silent *k*, as in *know*, *knew*, *knee*, and *knock*. **MB words** end with a silent *b*, as in *thumb*, *lamb*, and *comb*.
+**WR words** begin with a silent *w*: *write*, *wrote*, *wrong*, *wrap*, and *wrist*. **KN words** begin with a silent *k*: *know*, *knew*, *knee*, and *knock*. **MB words** end with a silent *b*: *thumb*, *lamb*, and *comb*.

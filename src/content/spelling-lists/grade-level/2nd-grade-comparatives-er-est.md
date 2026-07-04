@@ -33,6 +33,6 @@ words:
   - easiest
 ---
 
-Comparative words use *-er* to compare two things, while superlative words use *-est* to compare three or more things. A runner can be *faster*, and the fastest runner is faster than everyone else.
+Comparative words with *-er* compare two things. Superlative words with *-est* compare three or more things.
 
-Some words simply add *-er* or *-est*, as in *slower* and *slowest*. Some double the final consonant, as in *bigger* and *biggest*. Others change *y* to *i*, as in *happier*, *happiest*, *easier*, and *easiest*.
+Some words simply add *-er* or *-est*: *slower*, *slowest*. Some double the final consonant: *bigger*, *biggest*. Words ending in *y* often change *y* to *i*: *happier*, *happiest*, *easier*, *easiest*.

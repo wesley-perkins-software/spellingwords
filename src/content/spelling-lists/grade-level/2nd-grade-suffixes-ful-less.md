@@ -33,6 +33,6 @@ words:
   - painless
 ---
 
-A suffix is a word part added to the end of a base word. The suffix *-ful* can mean "full of," while *-less* often means "without."
+A suffix is a word part added to the end of a base word. The suffix *-ful* often means "full of," and *-less* often means "without."
 
-Second graders can compare words like *careful* and *careless* to see how a suffix changes meaning. This makes the list useful for spelling, vocabulary, and stronger descriptive writing.
+Pairs like *careful* and *careless* show how the ending changes the word's meaning. This list gives second graders a simple way to connect spelling, vocabulary, and word meaning.

@@ -32,6 +32,6 @@ words:
   - son
 ---
 
-Homophones are words that sound alike but have different spellings and meanings. A second grader may hear the same sound in *to*, *too*, and *two*, but each word does a different job.
+Homophones sound alike but have different meanings and spellings. The words *to*, *too*, and *two* sound the same, but they are not used the same way.
 
-This list uses common, concrete homophones that students meet in stories and everyday writing. The goal is not only to spell the word, but to choose the spelling that matches the sentence.
+Second graders practice these words with meaning in mind. The correct spelling depends on what the sentence is trying to say.

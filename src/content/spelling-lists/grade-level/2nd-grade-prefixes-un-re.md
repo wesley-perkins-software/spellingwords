@@ -33,6 +33,6 @@ words:
   - retell
 ---
 
-A prefix is a word part added to the beginning of a base word. In this list, *un-* often means "not" or "the opposite of," while *re-* often means "again."
+A prefix is a word part added to the beginning of a base word. The prefix *un-* can mean "not" or "reverse," and *re-* often means "again."
 
-Words like *unhappy*, *reread*, and *retell* help second graders see that spelling is connected to meaning. When students notice the prefix and the base word, longer words become easier to read, spell, and understand.
+These words help second graders read the prefix first, then the base word. That makes longer words like *unhappy*, *reread*, and *retell* easier to spell and understand.

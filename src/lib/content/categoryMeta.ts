@@ -37,9 +37,43 @@ export const categoryDescriptions: Record<Category, string> = {
  * Display priority for grade-hub sections: grade-level is the primary,
  * most-searched family (see docs/GRADE_LEVEL_STRATEGY.md); others support it.
  */
-export const categoryOrder = [
-  'grade-level',
-  'sight-words',
-  'phonics',
-  'challenge',
-] as const;
+export const categoryOrder = ['grade-level', 'sight-words', 'phonics', 'challenge'] as const;
+
+/**
+ * Per-category accent color for list-detail pages (hero badge, word-list
+ * card, FAQ card). Reuses the same chip/brand tokens and glow shadows as
+ * CategoryChip's variant map — no new colors, just a consistent category
+ * identity applied beyond the homepage's browse cards.
+ */
+export const categoryAccent: Record<Category, { bg: string; border: string; glow: string }> = {
+  'grade-level': {
+    bg: 'bg-brand-blue',
+    border: 'border-brand-blue/40',
+    glow: 'shadow-[0_4px_14px_-4px_rgba(47,111,237,0.55)]',
+  },
+  phonics: {
+    bg: 'bg-chip-grass',
+    border: 'border-chip-grass/40',
+    glow: 'shadow-[0_4px_14px_-4px_rgba(76,175,109,0.55)]',
+  },
+  'sight-words': {
+    bg: 'bg-chip-sun',
+    border: 'border-chip-sun/40',
+    glow: 'shadow-[0_4px_14px_-4px_rgba(255,179,71,0.55)]',
+  },
+  challenge: {
+    bg: 'bg-chip-berry',
+    border: 'border-chip-berry/40',
+    glow: 'shadow-[0_4px_14px_-4px_rgba(239,93,168,0.55)]',
+  },
+  theme: {
+    bg: 'bg-chip-sky',
+    border: 'border-chip-sky/40',
+    glow: 'shadow-[0_4px_14px_-4px_rgba(63,182,232,0.55)]',
+  },
+  seasonal: {
+    bg: 'bg-chip-sky',
+    border: 'border-chip-sky/40',
+    glow: 'shadow-[0_4px_14px_-4px_rgba(63,182,232,0.55)]',
+  },
+};

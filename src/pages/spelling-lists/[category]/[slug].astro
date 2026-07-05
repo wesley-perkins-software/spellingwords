@@ -13,7 +13,7 @@ import {
   toPlayableWords,
   getListCollection,
 } from '@/lib/content/spellingLists';
-import { categoryLabels, difficultyLabels } from '@/lib/content/categoryMeta';
+import { categoryLabels, categoryAccent } from '@/lib/content/categoryMeta';
 import { getListPath } from '@/lib/content/learningPaths';
 
 export async function getStaticPaths() {
@@ -43,7 +43,7 @@ function listLink(e: (typeof allEntries)[number]) {
 }
 
 const categoryLabel = categoryLabels[data.category] ?? data.category;
-const difficultyLabel = difficultyLabels[data.difficulty] ?? data.difficulty;
+const accent = categoryAccent[data.category] ?? categoryAccent['grade-level'];
 const listPath = getListPath(data.id);
 const listCollection = getListCollection(data.id, allCollections);
 
@@ -87,7 +87,6 @@ const gradeDisplay = data.grade
     ? 'Kindergarten'
     : `Grade ${data.grade}`
   : null;
-const durationDisplay = `About ${data.estimatedDurationMinutes} ${data.estimatedDurationMinutes === 1 ? 'minute' : 'minutes'}`;
 
 const easierList = prerequisites[0];
 const harderList = next[0];
@@ -102,68 +101,73 @@ const harderList = next[0];
   <SiteHeader variant="discovery" currentPath="/spelling-lists" />
 
   <main id="main-content">
-    <article class="mx-auto max-w-2xl px-5 py-10 sm:px-6 md:max-w-3xl md:py-16">
-      <!-- Breadcrumbs -->
-      <div class="mb-5 md:mb-6">
-        <Breadcrumbs items={breadcrumbItems} />
-      </div>
+    <!-- Breadcrumbs -->
+    <div class="mx-auto max-w-2xl px-5 pt-8 sm:px-6 md:max-w-3xl md:pt-10">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
 
-      <!-- Hero: what is this list? -->
-      <header class="mb-8 md:mb-10">
-        <p class="font-sans text-xs font-bold uppercase tracking-[0.08em] text-ink-faint">
-          {[gradeDisplay, categoryLabel].filter(Boolean).join(' · ')}
-        </p>
-        <h1 class="text-display-lg mt-2">{data.title}</h1>
-        <p class="text-body-lg mt-3 max-w-2xl text-ink-soft">{data.description}</p>
+    <!-- Hero band: what is this list? -->
+    <section class="px-5 pb-10 pt-6 sm:px-6 md:pb-14 md:pt-8">
+      <div class="mx-auto max-w-2xl md:max-w-3xl">
+        <div
+          class="relative overflow-hidden rounded-3xl border border-line bg-white px-6 py-8 shadow-card-lg sm:px-10 sm:py-10"
+        >
+          <div class={`absolute inset-x-0 top-0 h-1.5 ${accent.bg}`} aria-hidden="true"></div>
 
-        <dl class="mt-6 flex flex-wrap gap-x-6 gap-y-2" aria-label="List details">
-          <div class="flex items-baseline gap-1.5">
-            <dt class="sr-only">Word count</dt>
-            <dd class="text-sm font-bold text-ink">{data.words.length}</dd>
-            <dd class="text-sm text-ink-soft">{data.words.length === 1 ? 'word' : 'words'}</dd>
-          </div>
-          <div class="flex items-baseline gap-1.5">
-            <dt class="sr-only">Estimated time</dt>
-            <dd class="text-sm font-bold text-ink">{data.estimatedDurationMinutes}</dd>
-            <dd class="text-sm text-ink-soft">min practice</dd>
-          </div>
-          {
-            gradeDisplay && (
-              <div class="flex items-baseline gap-1.5">
-                <dt class="sr-only">Grade</dt>
-                <dd class="text-sm font-bold text-ink">{gradeDisplay}</dd>
-              </div>
-            )
-          }
-          <div class="flex items-baseline gap-1.5">
-            <dt class="sr-only">Difficulty</dt>
-            <dd class="text-sm font-bold text-ink">{difficultyLabel}</dd>
-          </div>
-        </dl>
-
-        {
-          data.skillTags.length > 0 && (
-            <div class="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-sm text-ink-soft">
-              <span class="font-semibold text-ink-soft">Practices:</span>
-              {data.skillTags.map((tag, i) => (
-                <span>
-                  {tag}
-                  {i < data.skillTags.length - 1 ? ',' : ''}
+          <div class="flex flex-wrap items-center gap-2">
+            {
+              gradeDisplay && (
+                <span class="rounded-full bg-app-cloud px-3 py-1 text-xs font-bold text-ink">
+                  {gradeDisplay}
                 </span>
-              ))}
-            </div>
-          )
-        }
-      </header>
+              )
+            }
+            <span
+              class={`rounded-full px-3 py-1 text-xs font-bold text-white ${accent.bg} ${accent.glow}`}
+            >
+              {categoryLabel}
+            </span>
+          </div>
 
-      <!-- Is this the right list? -->
-      {
-        data.readinessSignals.length > 0 && (
-          <section class="mb-8 md:mb-10" aria-labelledby="readiness-heading">
+          <h1 class="text-display-lg mt-4">{data.title}</h1>
+          <p class="text-body-lg mt-3 max-w-2xl text-ink-soft">{data.description}</p>
+
+          <div class="mt-7">
+            <button
+              id="btn-practice"
+              type="button"
+              data-words={playWordsJson}
+              data-list-title={data.title}
+              class="btn-primary w-full px-9 py-4 text-base sm:w-auto"
+              aria-label={`Practice this list — all ${playWords.length} words in ${data.title}`}
+            >
+              Practice this list
+            </button>
+            <p class="mt-3 text-sm text-ink-soft">No timer, no score — just spelling.</p>
+            <p
+              id="start-test-status"
+              class="mt-2 text-xs text-feedback-incorrect"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Is this the right list? -->
+    {
+      data.readinessSignals.length > 0 && (
+        <section
+          class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
+          aria-labelledby="readiness-heading"
+        >
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
             <h2 id="readiness-heading" class="font-display text-lg font-semibold text-ink">
               Is this the right list for your child?
             </h2>
-            <ul class="mt-3 space-y-1.5 text-sm leading-relaxed text-ink-soft">
+            <ul class="mt-4 space-y-2 text-sm leading-relaxed text-ink-soft">
               {data.readinessSignals.map((signal) => (
                 <li class="flex gap-2">
                   <span aria-hidden="true" class="text-ink-faint">
@@ -174,7 +178,7 @@ const harderList = next[0];
               ))}
             </ul>
             {(easierList || harderList) && (
-              <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+              <p class="mt-4 text-sm leading-relaxed text-ink-soft">
                 {easierList && (
                   <>
                     If this feels like too much too soon,{' '}
@@ -201,76 +205,64 @@ const harderList = next[0];
                 )}
               </p>
             )}
-          </section>
-        )
-      }
+          </div>
+        </section>
+      )
+    }
 
-      <!-- Practice CTA -->
-      <section class="mb-10 md:mb-12" aria-labelledby="practice-heading">
-        <h2 id="practice-heading" class="sr-only">Practice this list</h2>
-        <button
-          id="btn-practice"
-          type="button"
-          data-words={playWordsJson}
-          data-list-title={data.title}
-          class="w-full rounded-full bg-brand-blue px-7 py-4 text-base font-bold text-white shadow-[0_8px_24px_-8px_rgba(47,111,237,0.45)] transition hover:bg-brand-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue active:scale-[0.97] sm:w-auto"
-          aria-label={`Practice this list — all ${playWords.length} words in ${data.title}`}
-        >
-          Practice this list
-        </button>
-        <p class="mt-3 text-sm text-ink-soft">
-          {durationDisplay} · no timer, no score — just spelling.
-        </p>
-        <p
-          id="start-test-status"
-          class="mt-2 text-xs text-feedback-incorrect"
-          aria-live="polite"
-          aria-atomic="true"
-        >
-        </p>
-      </section>
-
-      <!-- Word list -->
-      <section class="mb-10 md:mb-12" aria-labelledby="word-list-heading">
-        <h2 id="word-list-heading" class="mb-3 font-display text-lg font-semibold text-ink">
+    <!-- Word list -->
+    <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="word-list-heading">
+      <div class="mx-auto max-w-2xl md:max-w-3xl">
+        <h2 id="word-list-heading" class="mb-4 font-display text-lg font-semibold text-ink">
           All {data.words.length} words in this list
         </h2>
-        <WordListPreview words={playWords} />
-      </section>
+        <WordListPreview words={playWords} accentClass={accent.bg} />
+      </div>
+    </section>
 
-      <!-- Why these words were chosen / what children learn (markdown body) -->
-      <section class="mb-10 md:mb-12" aria-labelledby="why-heading">
-        <h2 id="why-heading" class="text-display-md">
-          Why these words — and what your child learns
-        </h2>
-        <div class="prose prose-sm mt-4 max-w-2xl text-ink-soft">
-          <Content />
+    <!-- Why these words were chosen / what children learn (markdown body) -->
+    <section class="bg-cream-deep px-5 py-12 sm:px-6 md:py-16" aria-labelledby="why-heading">
+      <div class="mx-auto max-w-2xl md:max-w-3xl">
+        <div class={`border-l-[3px] pl-5 sm:pl-6 ${accent.border}`}>
+          <h2 class="text-display-md">Why these words — and what your child learns</h2>
+          <div class="prose prose-sm mt-4 max-w-2xl text-ink-soft">
+            <Content />
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- FAQ -->
-      {
-        data.faq.length > 0 && (
-          <section class="mb-10 md:mb-12" aria-labelledby="faq-heading">
+    <!-- FAQ -->
+    {
+      data.faq.length > 0 && (
+        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="faq-heading">
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
             <h2 id="faq-heading" class="mb-4 font-display text-lg font-semibold text-ink">
               Common questions
             </h2>
-            <div class="divide-y divide-line">
-              {data.faq.map((item) => (
-                <div class="py-4 first:pt-0">
-                  <h3 class="font-display text-base font-semibold text-ink">{item.question}</h3>
-                  <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">{item.answer}</p>
-                </div>
-              ))}
+            <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-card-md">
+              <div class="divide-y divide-line px-6 sm:px-7">
+                {data.faq.map((item) => (
+                  <div class="py-5">
+                    <h3 class="font-display text-base font-semibold text-ink">{item.question}</h3>
+                    <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">{item.answer}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </section>
-        )
-      }
+          </div>
+        </section>
+      )
+    }
 
-      <!-- Learning progression -->
-      {
-        (prerequisites.length > 0 || related.length > 0 || next.length > 0) && (
-          <section class="mb-10" aria-labelledby="progression-heading">
+    <!-- Learning progression -->
+    {
+      (prerequisites.length > 0 || related.length > 0 || next.length > 0) && (
+        <section
+          class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
+          aria-labelledby="progression-heading"
+        >
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
             <h2 id="progression-heading" class="mb-1 font-display text-lg font-semibold text-ink">
               Learning progression
             </h2>
@@ -307,12 +299,14 @@ const harderList = next[0];
             />
             <RelatedListCards heading="Related lists" items={related} listLink={listLink} />
             <RelatedListCards heading="After this list" items={next} listLink={listLink} />
-          </section>
-        )
-      }
+          </div>
+        </section>
+      )
+    }
 
+    <div class="mx-auto max-w-2xl px-5 py-8 sm:px-6 md:max-w-3xl">
       <SourceAttribution source={data.canonicalSource} />
-    </article>
+    </div>
   </main>
 
   <SiteFooter />

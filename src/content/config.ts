@@ -1,6 +1,13 @@
 import { defineCollection, z } from 'astro:content';
 
-const category = z.enum(['grade-level', 'sight-words', 'phonics', 'challenge', 'theme', 'seasonal']);
+const category = z.enum([
+  'grade-level',
+  'sight-words',
+  'phonics',
+  'challenge',
+  'theme',
+  'seasonal',
+]);
 const difficulty = z.enum(['beginner', 'developing', 'intermediate', 'advanced', 'challenge']);
 const status = z.enum(['draft', 'published', 'archived']);
 
@@ -46,6 +53,20 @@ const spellingLists = defineCollection({
     prerequisiteLists: z.array(z.string()).default([]),
     nextLists: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
+    // Short, scannable signals a parent can use to judge readiness for this
+    // specific list. Optional — pages render no "Is this the right list?"
+    // section until a list has real, specific signals written for it.
+    readinessSignals: z.array(z.string()).default([]),
+    // Real parent/teacher questions specific to this list, for the FAQ
+    // section and FAQPage structured data. Optional for the same reason.
+    faq: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        }),
+      )
+      .default([]),
     words: z.array(wordEntry),
   }),
 });

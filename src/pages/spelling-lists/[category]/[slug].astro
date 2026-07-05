@@ -117,13 +117,13 @@ const harderList = next[0];
           <div class="flex flex-wrap items-center gap-2">
             {
               gradeDisplay && (
-                <span class="rounded-full bg-app-cloud px-3 py-1 text-xs font-bold text-ink">
+                <span class="rounded-full bg-app-cloud px-3 py-1 text-sm font-bold text-ink">
                   {gradeDisplay}
                 </span>
               )
             }
             <span
-              class={`rounded-full px-3 py-1 text-xs font-bold text-white ${accent.bg} ${accent.glow}`}
+              class={`rounded-full px-3 py-1 text-sm font-bold text-white ${accent.bg} ${accent.glow}`}
             >
               {categoryLabel}
             </span>
@@ -139,14 +139,14 @@ const harderList = next[0];
               data-words={playWordsJson}
               data-list-title={data.title}
               class="btn-primary w-full px-9 py-4 text-base sm:w-auto"
-              aria-label={`Practice this list — all ${playWords.length} words in ${data.title}`}
+              aria-label={`Practice these ${playWords.length} words in ${data.title}`}
             >
-              Practice this list
+              Practice these words
             </button>
-            <p class="mt-3 text-sm text-ink-soft">No timer, no score — just spelling.</p>
+            <p class="mt-3 text-base text-ink-soft">No timer, no score — just spelling.</p>
             <p
               id="start-test-status"
-              class="mt-2 text-xs text-feedback-incorrect"
+              class="mt-2 text-sm text-feedback-incorrect"
               aria-live="polite"
               aria-atomic="true"
             >
@@ -167,7 +167,7 @@ const harderList = next[0];
             <h2 id="readiness-heading" class="font-display text-lg font-semibold text-ink">
               Is this the right list for your child?
             </h2>
-            <ul class="mt-4 space-y-2 text-sm leading-relaxed text-ink-soft">
+            <ul class="mt-4 space-y-2.5 text-base leading-relaxed text-ink-soft">
               {data.readinessSignals.map((signal) => (
                 <li class="flex gap-2">
                   <span aria-hidden="true" class="text-ink-faint">
@@ -178,7 +178,7 @@ const harderList = next[0];
               ))}
             </ul>
             {(easierList || harderList) && (
-              <p class="mt-4 text-sm leading-relaxed text-ink-soft">
+              <p class="mt-4 text-base leading-relaxed text-ink-soft">
                 {easierList && (
                   <>
                     If this feels like too much too soon,{' '}
@@ -225,7 +225,7 @@ const harderList = next[0];
       <div class="mx-auto max-w-2xl md:max-w-3xl">
         <div class={`border-l-[3px] pl-5 sm:pl-6 ${accent.border}`}>
           <h2 class="text-display-md">Why these words — and what your child learns</h2>
-          <div class="prose prose-sm mt-4 max-w-2xl text-ink-soft">
+          <div class="text-body mt-4 max-w-2xl space-y-4 text-ink-soft">
             <Content />
           </div>
         </div>
@@ -238,14 +238,14 @@ const harderList = next[0];
         <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="faq-heading">
           <div class="mx-auto max-w-2xl md:max-w-3xl">
             <h2 id="faq-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-              Common questions
+              Frequently asked questions
             </h2>
             <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-card-md">
               <div class="divide-y divide-line px-6 sm:px-7">
                 {data.faq.map((item) => (
                   <div class="py-5">
-                    <h3 class="font-display text-base font-semibold text-ink">{item.question}</h3>
-                    <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">{item.answer}</p>
+                    <h3 class="font-display text-lg font-semibold text-ink">{item.question}</h3>
+                    <p class="mt-2 text-base leading-relaxed text-ink-soft">{item.answer}</p>
                   </div>
                 ))}
               </div>
@@ -266,7 +266,7 @@ const harderList = next[0];
             <h2 id="progression-heading" class="mb-1 font-display text-lg font-semibold text-ink">
               Learning progression
             </h2>
-            <p class="mb-5 text-sm text-ink-soft">
+            <p class="mb-5 text-base text-ink-soft">
               Spelling is cumulative — these lists build on each other.
               {listCollection && (
                 <>
@@ -347,7 +347,7 @@ const harderList = next[0];
       if (statusEl) {
         statusEl.textContent =
           result.code === 'payload_too_long'
-            ? 'This list is too long to start automatically. Please try a shorter list.'
+            ? 'There are too many words to start automatically. Please try a shorter list.'
             : 'Could not start this spelling test. Please try again.';
       }
       return;

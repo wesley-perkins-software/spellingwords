@@ -40,40 +40,26 @@ export const categoryDescriptions: Record<Category, string> = {
 export const categoryOrder = ['grade-level', 'sight-words', 'phonics', 'challenge'] as const;
 
 /**
- * Per-category accent color for list-detail pages (hero badge, word-list
- * card, FAQ card). Reuses the same chip/brand tokens and glow shadows as
- * CategoryChip's variant map — no new colors, just a consistent category
- * identity applied beyond the homepage's browse cards.
+ * The list-detail template's card-family accent. Earlier revisions varied
+ * this per category (blue/green/sun/berry), but that read as scattered
+ * category tagging rather than a recognizable brand color — the category
+ * itself is already named in the badge text. This is now a single constant:
+ * brand blue is the one color every hero/word-list/FAQ card shares, so the
+ * "same family" signal stays consistent across every page on the site.
  */
-export const categoryAccent: Record<Category, { bg: string; border: string; glow: string }> = {
-  'grade-level': {
-    bg: 'bg-brand-blue',
-    border: 'border-brand-blue/40',
-    glow: 'shadow-[0_4px_14px_-4px_rgba(47,111,237,0.55)]',
-  },
-  phonics: {
-    bg: 'bg-chip-grass',
-    border: 'border-chip-grass/40',
-    glow: 'shadow-[0_4px_14px_-4px_rgba(76,175,109,0.55)]',
-  },
-  'sight-words': {
-    bg: 'bg-chip-sun',
-    border: 'border-chip-sun/40',
-    glow: 'shadow-[0_4px_14px_-4px_rgba(255,179,71,0.55)]',
-  },
-  challenge: {
-    bg: 'bg-chip-berry',
-    border: 'border-chip-berry/40',
-    glow: 'shadow-[0_4px_14px_-4px_rgba(239,93,168,0.55)]',
-  },
-  theme: {
-    bg: 'bg-chip-sky',
-    border: 'border-chip-sky/40',
-    glow: 'shadow-[0_4px_14px_-4px_rgba(63,182,232,0.55)]',
-  },
-  seasonal: {
-    bg: 'bg-chip-sky',
-    border: 'border-chip-sky/40',
-    glow: 'shadow-[0_4px_14px_-4px_rgba(63,182,232,0.55)]',
-  },
-};
+export const cardAccent = {
+  bg: 'bg-brand-blue',
+  border: 'border-brand-blue/40',
+  glow: 'shadow-[0_4px_14px_-4px_rgba(47,111,237,0.55)]',
+} as const;
+
+/**
+ * The site's one supporting accent color, reserved specifically for
+ * "moving forward" in a learning progression (next-list direction). Paired
+ * intentionally with brand blue rather than scattered decoratively — see
+ * the progression path in the list-detail template.
+ */
+export const journeyForwardAccent = {
+  bg: 'bg-chip-sun',
+  line: 'from-chip-sun/60',
+} as const;

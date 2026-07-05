@@ -5,9 +5,14 @@ interface Props {
   heading: string;
   items: SpellingListEntry[];
   listLink: (entry: SpellingListEntry) => string;
+  /** "forward" tints the accent edge amber (the site's one supporting
+   *  accent, reserved for progressing to the next list). Defaults to the
+   *  brand-blue family accent used everywhere else. */
+  accent?: 'forward' | 'default';
 }
 
-const { heading, items, listLink } = Astro.props;
+const { heading, items, listLink, accent = 'default' } = Astro.props;
+const edgeClass = accent === 'forward' ? 'before:bg-chip-sun' : 'before:bg-brand-blue';
 ---
 
 {
@@ -18,7 +23,7 @@ const { heading, items, listLink } = Astro.props;
         {items.map((linked) => (
           <a
             href={listLink(linked)}
-            class="flex-1 rounded-2xl border border-line bg-white px-4 py-3 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] text-sm transition hover:border-brand-blue/40 sm:flex-none sm:min-w-[14rem]"
+            class={`relative flex-1 overflow-hidden rounded-3xl border border-line bg-white py-3 pl-5 pr-4 shadow-card text-sm transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:content-[''] ${edgeClass} hover:-translate-y-0.5 hover:shadow-card-md sm:flex-none sm:min-w-[14rem]`}
           >
             <span class="block font-display text-base font-semibold text-ink">
               {linked.data.title}

@@ -51,6 +51,26 @@ export function resolveListRefs(
 }
 
 /**
+ * Removes entries from `related` that already appear in `prerequisites` or
+ * `next`, so a list authored into more than one of the three frontmatter
+ * arrays only renders once on the detail page. Directional progression
+ * (prerequisite/next) is treated as more useful than the generic "related"
+ * bucket, so related always loses the overlap — prerequisites and next are
+ * never filtered against each other.
+ */
+export function dedupeRelatedLists(
+  prerequisites: SpellingListEntry[],
+  related: SpellingListEntry[],
+  next: SpellingListEntry[],
+): SpellingListEntry[] {
+  const directional = new Set([
+    ...prerequisites.map((entry) => entry.data.id),
+    ...next.map((entry) => entry.data.id),
+  ]);
+  return related.filter((entry) => !directional.has(entry.data.id));
+}
+
+/**
  * Returns all entries for a given grade value (e.g. "K", "1", "2"),
  * sorted by category alphabetically then by order within each category.
  */

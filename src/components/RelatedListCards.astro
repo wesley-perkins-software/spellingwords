@@ -5,14 +5,24 @@ interface Props {
   heading: string;
   items: SpellingListEntry[];
   listLink: (entry: SpellingListEntry) => string;
-  /** "forward" tints the accent edge amber (the site's one supporting
-   *  accent, reserved for progressing to the next list). Defaults to the
-   *  brand-blue family accent used everywhere else. */
-  accent?: 'forward' | 'default';
+  /** "previous" tints the edge brand-blue (review/reinforce direction, matches
+   *  categoryMeta.cardAccent). "forward" tints it amber (categoryMeta's
+   *  journeyForwardAccent — the site's one supporting accent, reserved for
+   *  progressing to the next list). "neutral" (default) renders a plain card
+   *  with no accent edge, for lists that are simply related rather than part
+   *  of the before/after progression.
+   *  (Class names are written as full literal strings, not built from the
+   *  categoryMeta constants, so Tailwind's JIT scanner can detect them.) */
+  accent?: 'previous' | 'forward' | 'neutral';
 }
 
-const { heading, items, listLink, accent = 'default' } = Astro.props;
-const edgeClass = accent === 'forward' ? 'before:bg-chip-sun' : 'before:bg-brand-blue';
+const { heading, items, listLink, accent = 'neutral' } = Astro.props;
+const edgeClass =
+  accent === 'forward'
+    ? 'before:bg-chip-sun'
+    : accent === 'previous'
+      ? 'before:bg-brand-blue'
+      : 'before:bg-transparent';
 ---
 
 {
@@ -28,7 +38,7 @@ const edgeClass = accent === 'forward' ? 'before:bg-chip-sun' : 'before:bg-brand
             <span class="block font-display text-base font-semibold text-ink">
               {linked.data.title}
             </span>
-            <span class="mt-1 block text-sm leading-relaxed text-ink-soft">
+            <span class="mt-1 block text-sm leading-relaxed text-ink-soft line-clamp-2">
               {linked.data.description}
             </span>
           </a>

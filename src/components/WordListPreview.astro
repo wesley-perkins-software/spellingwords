@@ -10,12 +10,14 @@ const { words, accentClass = 'bg-brand-blue' } = Astro.props;
 <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-card-lg">
   <div class={`h-1.5 ${accentClass}`} aria-hidden="true"></div>
   <ul
-    class="paper-ruled grid grid-cols-2 gap-x-6 gap-y-4 px-6 py-7 sm:grid-cols-3 sm:gap-y-5 sm:px-8 sm:py-8"
+    class="grid grid-cols-2 gap-x-6 gap-y-3 px-6 py-7 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-4 sm:px-8 sm:py-8"
     aria-label="Words in this list"
   >
     {
       words.map((word) => (
-        <li class="font-word text-lg font-semibold text-ink sm:text-xl md:text-2xl">{word.word}</li>
+        <li class="font-word text-lg font-semibold leading-snug text-ink sm:text-xl md:text-2xl">
+          {word.word}
+        </li>
       ))
     }
   </ul>

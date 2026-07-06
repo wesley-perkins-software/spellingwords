@@ -13,8 +13,8 @@ estimatedDurationMinutes: 15
 status: published
 masteryThreshold: 100
 sourceType: curated
-relatedLists: []
-prerequisiteLists: []
+relatedLists: ["tier-1-roots-and-patterns", "tier-2-greek-latin-roots"]
+prerequisiteLists: ["grade-5-academic-words"]
 nextLists: []
 featured: false
 words:

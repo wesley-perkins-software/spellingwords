@@ -275,35 +275,38 @@ const harderList = next[0];
           aria-labelledby="progression-heading"
         >
           <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="progression-heading" class="mb-1 font-display text-lg font-semibold text-ink">
-              Learning progression
+            <h2 id="progression-heading" class="mb-4 font-display text-lg font-semibold text-ink">
+              What's next
             </h2>
-            <p class="mb-5 text-base text-ink-soft">
-              Spelling is cumulative — these lists build on each other.
-              {listCollection && (
-                <>
-                  {' '}
-                  Part of the{' '}
-                  <a
-                    href={`/spelling-lists/collections/${listCollection.data.urlSlug}`}
-                    class="font-semibold text-brand-blue hover:underline"
-                  >
-                    {listCollection.data.title}
-                  </a>{' '}
-                  collection.
-                </>
-              )}
-              {listPath && (
-                <>
-                  {' '}
-                  Part of the{' '}
-                  <a href="/spelling-lists" class="font-semibold text-brand-blue hover:underline">
-                    {listPath.title}
-                  </a>
-                  .
-                </>
-              )}
-            </p>
+            {(listCollection || listPath) && (
+              <p class="mb-5 text-base text-ink-soft">
+                {listCollection && (
+                  <>
+                    Part of the{' '}
+                    <a
+                      href={`/spelling-lists/collections/${listCollection.data.urlSlug}`}
+                      class="font-semibold text-brand-blue hover:underline"
+                    >
+                      {listCollection.data.title}
+                    </a>{' '}
+                    collection.
+                  </>
+                )}
+                {listPath && (
+                  <>
+                    {' '}
+                    Part of the{' '}
+                    <a
+                      href={`/learning-paths/${listPath.id}`}
+                      class="font-semibold text-brand-blue hover:underline"
+                    >
+                      {listPath.title}
+                    </a>
+                    .
+                  </>
+                )}
+              </p>
+            )}
             <RelatedListCards
               heading="Review first"
               items={prerequisites}

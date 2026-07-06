@@ -117,22 +117,22 @@ const harderList = next[0];
           <div class="flex flex-wrap items-center gap-2">
             {
               gradeDisplay && (
-                <span class="rounded-full bg-app-cloud px-3 py-1 text-sm font-bold text-ink">
+                <span class="rounded-full bg-app-cloud px-3 py-1 text-sm font-semibold text-ink">
                   {gradeDisplay}
                 </span>
               )
             }
             <span
-              class={`rounded-full px-3 py-1 text-sm font-bold text-white ${cardAccent.bg} ${cardAccent.glow}`}
+              class={`rounded-full px-3 py-1 text-sm font-semibold text-white ${cardAccent.bg} ${cardAccent.glow}`}
             >
               {categoryLabel}
             </span>
           </div>
 
-          <h1 class="text-display-lg mt-4">{data.title}</h1>
+          <h1 class="text-display-lg mt-3">{data.title}</h1>
           <p class="text-body-lg mt-3 max-w-2xl text-ink-soft">{data.description}</p>
 
-          <div class="mt-7">
+          <div class="mt-8">
             <button
               id="btn-practice"
               type="button"
@@ -166,11 +166,22 @@ const harderList = next[0];
             <h2 id="readiness-heading" class="font-display text-lg font-semibold text-ink">
               Is this the right list for this learner?
             </h2>
-            <ul class="mt-4 space-y-2.5 text-base leading-relaxed text-ink-soft">
+            <ul class="mt-4 space-y-3 text-base leading-relaxed text-ink-soft">
               {data.readinessSignals.map((signal) => (
-                <li class="flex gap-2">
-                  <span aria-hidden="true" class="text-ink-faint">
-                    ·
+                <li class="flex items-start gap-2.5">
+                  <span aria-hidden="true" class="mt-0.5 flex-shrink-0 text-brand-blue">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
                   </span>
                   <span>{signal}</span>
                 </li>
@@ -225,7 +236,7 @@ const harderList = next[0];
         <div class={`border-l-[3px] pl-5 sm:pl-6 ${cardAccent.border}`}>
           <h2 class="text-display-md">Why these words — and what they teach</h2>
           <div
-            class="text-body [&_strong]:font-semibold [&_strong]:text-ink mt-4 max-w-2xl space-y-5 text-ink-soft sm:space-y-6"
+            class="text-body-lg [&_strong]:font-semibold [&_strong]:text-ink mt-4 max-w-2xl space-y-5 text-ink-soft sm:space-y-6"
           >
             <Content />
           </div>
@@ -241,12 +252,11 @@ const harderList = next[0];
             <h2 id="faq-heading" class="mb-4 font-display text-lg font-semibold text-ink">
               Frequently asked questions
             </h2>
-            <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-card-lg">
-              <div class={`h-1.5 ${cardAccent.bg}`} aria-hidden="true" />
-              <div class="divide-y divide-line px-6 sm:px-7">
+            <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-card">
+              <div class="divide-y divide-line/60 px-6 sm:px-7">
                 {data.faq.map((item) => (
                   <div class="py-5">
-                    <h3 class="font-display text-lg font-semibold text-ink">{item.question}</h3>
+                    <h3 class="font-display text-base font-semibold text-ink">{item.question}</h3>
                     <p class="mt-2 text-base leading-relaxed text-ink-soft">{item.answer}</p>
                   </div>
                 ))}
@@ -312,9 +322,13 @@ const harderList = next[0];
       )
     }
 
-    <div class="mx-auto max-w-2xl px-5 py-8 sm:px-6 md:max-w-3xl">
-      <SourceAttribution source={data.canonicalSource} />
-    </div>
+    {
+      data.canonicalSource && (
+        <div class="mx-auto max-w-2xl px-5 py-8 sm:px-6 md:max-w-3xl">
+          <SourceAttribution source={data.canonicalSource} />
+        </div>
+      )
+    }
   </main>
 
   <SiteFooter />

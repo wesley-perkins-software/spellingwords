@@ -10,10 +10,11 @@ import SourceAttribution from '@/components/SourceAttribution.astro';
 import {
   isPublished,
   resolveListRefs,
+  dedupeRelatedLists,
   toPlayableWords,
   getListCollection,
 } from '@/lib/content/spellingLists';
-import { categoryLabels, cardAccent, journeyForwardAccent } from '@/lib/content/categoryMeta';
+import { categoryLabels, cardAccent } from '@/lib/content/categoryMeta';
 import { getListPath } from '@/lib/content/learningPaths';
 
 export async function getStaticPaths() {
@@ -31,9 +32,9 @@ const { data } = entry;
 
 const { Content } = await entry.render();
 
-const related = resolveListRefs(data.relatedLists, allEntries);
 const prerequisites = resolveListRefs(data.prerequisiteLists, allEntries);
 const next = resolveListRefs(data.nextLists, allEntries);
+const related = dedupeRelatedLists(prerequisites, resolveListRefs(data.relatedLists, allEntries), next);
 
 const playWords = toPlayableWords(entry);
 const playWordsJson = JSON.stringify(playWords);
@@ -142,13 +143,9 @@ const harderList = next[0];
             >
               Practice these words
             </button>
-            <p class="mt-3 text-base text-ink-soft">
-              Each word is read aloud, typed, and checked instantly — all {playWords.length} words, every
-              session.
-            </p>
             <p
               id="start-test-status"
-              class="mt-2 text-sm text-feedback-incorrect"
+              class="mt-3 text-sm text-feedback-incorrect"
               aria-live="polite"
               aria-atomic="true"
             >
@@ -228,7 +225,7 @@ const harderList = next[0];
         <div class={`border-l-[3px] pl-5 sm:pl-6 ${cardAccent.border}`}>
           <h2 class="text-display-md">Why these words — and what they teach</h2>
           <div
-            class="text-body [&_strong]:font-semibold [&_strong]:text-ink mt-4 max-w-2xl space-y-5 text-ink-soft"
+            class="text-body [&_strong]:font-semibold [&_strong]:text-ink mt-4 max-w-2xl space-y-5 text-ink-soft sm:space-y-6"
           >
             <Content />
           </div>
@@ -297,31 +294,15 @@ const harderList = next[0];
                 </>
               )}
             </p>
-            {(prerequisites.length > 0 || next.length > 0) && (
-              <div class="mb-2 flex items-center gap-3" aria-hidden="true">
-                {prerequisites.length > 0 && (
-                  <span class="h-px flex-1 bg-gradient-to-r from-transparent to-brand-blue/30" />
-                )}
-                <span
-                  class={`shrink-0 whitespace-nowrap rounded-full px-3 py-1 text-xs font-bold text-white ${cardAccent.bg} ${cardAccent.glow}`}
-                >
-                  You are here
-                </span>
-                {next.length > 0 && (
-                  <span
-                    class={`h-px flex-1 bg-gradient-to-r ${journeyForwardAccent.line} to-transparent`}
-                  />
-                )}
-              </div>
-            )}
             <RelatedListCards
-              heading="Before this list"
+              heading="Review first"
               items={prerequisites}
               listLink={listLink}
+              accent="previous"
             />
-            <RelatedListCards heading="Related lists" items={related} listLink={listLink} />
+            <RelatedListCards heading="Also worth practicing" items={related} listLink={listLink} />
             <RelatedListCards
-              heading="After this list"
+              heading="Ready for next"
               items={next}
               listLink={listLink}
               accent="forward"

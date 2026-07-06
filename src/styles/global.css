@@ -141,20 +141,6 @@
            hover:shadow-[0_12px_32px_-8px_rgba(43,35,24,0.18)];
   }
 
-  /* ── Paper texture ─────────────────────────────────────────────
-     Faint ruled-notebook lines, extracted from the homepage hero so
-     any component can carry the same "workbook page" signature. ── */
-
-  .paper-ruled {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      transparent 0px,
-      transparent 35px,
-      rgba(43, 35, 24, 0.05) 35px,
-      rgba(43, 35, 24, 0.05) 36px
-    );
-  }
-
   /* ── Link utilities ────────────────────────────────────────── */
 
   .link {

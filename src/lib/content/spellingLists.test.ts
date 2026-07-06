@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildGradeHubSections,
+  dedupeRelatedLists,
   groupByCategory,
   groupBySkillFamily,
   groupGradeListsByCategory,
@@ -259,6 +260,61 @@ describe('resolveListRefs', () => {
 
   it('returns an empty array when no ids resolve', () => {
     expect(resolveListRefs(['nonexistent'], published)).toEqual([]);
+  });
+});
+
+describe('dedupeRelatedLists', () => {
+  it('returns related unchanged when there is no overlap', () => {
+    const prerequisites = [makeEntry({ id: 'pre-1' })];
+    const related = [makeEntry({ id: 'rel-1' }), makeEntry({ id: 'rel-2' })];
+    const next = [makeEntry({ id: 'next-1' })];
+
+    expect(dedupeRelatedLists(prerequisites, related, next).map((e) => e.data.id)).toEqual([
+      'rel-1',
+      'rel-2',
+    ]);
+  });
+
+  it('drops a related entry that also appears in prerequisites', () => {
+    const prerequisites = [makeEntry({ id: 'shared' })];
+    const related = [makeEntry({ id: 'shared' }), makeEntry({ id: 'rel-2' })];
+
+    expect(dedupeRelatedLists(prerequisites, related, []).map((e) => e.data.id)).toEqual(['rel-2']);
+  });
+
+  it('drops a related entry that also appears in next', () => {
+    const next = [makeEntry({ id: 'shared' })];
+    const related = [makeEntry({ id: 'shared' }), makeEntry({ id: 'rel-2' })];
+
+    expect(dedupeRelatedLists([], related, next).map((e) => e.data.id)).toEqual(['rel-2']);
+  });
+
+  it('never dedupes prerequisites and next against each other', () => {
+    const prerequisites = [makeEntry({ id: 'shared' })];
+    const next = [makeEntry({ id: 'shared' })];
+
+    expect(dedupeRelatedLists(prerequisites, [], next)).toEqual([]);
+    expect(prerequisites.map((e) => e.data.id)).toEqual(['shared']);
+    expect(next.map((e) => e.data.id)).toEqual(['shared']);
+  });
+
+  it('returns an empty array when related is empty', () => {
+    expect(dedupeRelatedLists([makeEntry({ id: 'pre-1' })], [], [makeEntry({ id: 'next-1' })])).toEqual(
+      [],
+    );
+  });
+
+  it('preserves the order of remaining related entries', () => {
+    const related = [
+      makeEntry({ id: 'rel-1' }),
+      makeEntry({ id: 'shared' }),
+      makeEntry({ id: 'rel-2' }),
+    ];
+
+    expect(dedupeRelatedLists([makeEntry({ id: 'shared' })], related, []).map((e) => e.data.id)).toEqual([
+      'rel-1',
+      'rel-2',
+    ]);
   });
 });
 

@@ -19,8 +19,8 @@ prerequisiteLists: ["tier-1-roots-and-patterns"]
 nextLists: ["grade-4-commonly-confused-words"]
 readinessSignals:
   - "Can read multisyllabic science and social studies words with attention to meaningful parts"
-  - "Recognizes that word parts such as tele, photo, graph, bio, and scope appear in more than one word"
-  - "Uses context to connect unfamiliar academic words to known roots"
+  - "Recognize that word parts such as tele, photo, graph, bio, and scope appear in more than one word"
+  - "Use context to connect unfamiliar academic words to known roots"
 faq:
   - question: "Which Greek roots are practiced here?"
     answer: "This list includes roots such as tele, photo, graph, bio, demo, and scope. They appear in words students meet in reading, science, technology, and social studies."

@@ -19,8 +19,8 @@ prerequisiteLists: ["grade-4-advanced-prefixes", "grade-4-advanced-suffixes"]
 nextLists: ["grade-5-greek-latin-word-parts"]
 readinessSignals:
   - "Can identify both a beginning word part and an ending word part in longer vocabulary"
-  - "Spells common prefix and suffix chunks accurately inside multisyllabic words"
-  - "Uses word-part meaning to check whether a long academic word makes sense in context"
+  - "Spell common prefix and suffix chunks accurately inside multisyllabic words"
+  - "Use word-part meaning to check whether a long academic word makes sense in context"
 faq:
   - question: "Why study prefixes and suffixes together?"
     answer: "Upper-elementary words often contain more than one meaningful part. Studying both together helps students spell words like responsible, interaction, and agreement by structure instead of memory alone."

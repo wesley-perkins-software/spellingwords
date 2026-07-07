@@ -25,8 +25,8 @@ nextLists:
   - silent-e-long-a
 featured: false
 readinessSignals:
-  - "Segments a word like 'sit' into its three sounds without help, and blends them back together just as easily"
-  - "Recognizes the short 'i' sound when it's spoken aloud, even before seeing it written down"
+  - "Segment a word like 'sit' into its three sounds without help, and blend them back together just as easily"
+  - "Recognize the short 'i' sound when it's spoken aloud, even before seeing it written down"
   - "Can already hear the 'sh' digraph and a double consonant as single units, as in 'fish' and 'hill'"
 faq:
   - question: "What is the short 'i' sound, and why does it come around third in short-vowel instruction?"

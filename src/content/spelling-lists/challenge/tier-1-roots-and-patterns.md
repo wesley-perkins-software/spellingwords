@@ -19,7 +19,7 @@ prerequisiteLists: ["grade-3-root-word-families", "grade-4-advanced-suffixes"]
 nextLists: ["tier-2-greek-latin-roots"]
 readinessSignals:
   - "Can read longer words such as transport, predict, and structure by looking for meaningful chunks"
-  - "Understands that one Latin root can appear in several related academic words"
+  - "Understand that one Latin root can appear in several related academic words"
   - "Can use prefixes and suffixes to help explain a root word’s meaning in context"
 faq:
   - question: "Which Latin roots does this list teach?"

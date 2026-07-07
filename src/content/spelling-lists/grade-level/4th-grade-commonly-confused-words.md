@@ -19,8 +19,8 @@ prerequisiteLists: ["grade-3-homophones"]
 nextLists: ["grade-5-reading-writing-words"]
 readinessSignals:
   - "Can revise sentences for meaning and notice when a familiar word choice looks wrong"
-  - "Understands that some confusing words sound alike while others are confused because they look similar or are used in similar contexts"
-  - "Uses academic and narrative writing often enough for word-choice errors to affect clarity"
+  - "Understand that some confusing words sound alike while others are confused because they look similar or are used in similar contexts"
+  - "Use academic and narrative writing often enough for word-choice errors to affect clarity"
 faq:
   - question: "Why does this list review some Grade 3 words?"
     answer: "Words such as there, their, they're, its, and it's continue to cause errors in longer fourth-grade writing. Reviewing them alongside than, then, accept, except, affect, effect, principal, and principle helps students apply the same meaning-based thinking."

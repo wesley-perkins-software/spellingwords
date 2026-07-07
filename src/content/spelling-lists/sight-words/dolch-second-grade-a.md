@@ -23,8 +23,8 @@ nextLists: ['dolch-second-grade-b']
 featured: false
 readinessSignals:
   - "Can keep meaning while reading sentences that include always, around, because, been"
-  - "Notices small spelling differences among high-frequency words in Second Grade Part A, instead of relying only on word shape"
-  - "Uses Second Grade A words in dictated or self-written sentences with increasing independence"
+  - "Notice small spelling differences among high-frequency words in Second Grade Part A, instead of relying only on word shape"
+  - "Use Second Grade A words in dictated or self-written sentences with increasing independence"
 faq:
   - question: "What does Dolch Second Grade Part A add to sight-word practice?"
     answer: "Dolch Second Grade Part A focuses on the opening set of its tier, with words such as always, around, because, been. These are high-frequency service words selected for reading fluency, not a single phonics rule."

@@ -23,7 +23,7 @@ nextLists: []
 readinessSignals:
   - "Can already recognize simpler r-controlled patterns like AR or OR in reading"
   - "Can hear the shared /er/ sound in spoken words such as 'her,' 'bird,' and 'turn'"
-  - "Is ready to notice that the same sound can have more than one correct spelling"
+  - "Are ready to notice that the same sound can have more than one correct spelling"
 faq:
   - question: "Why are ER, IR, and UR taught together?"
     answer: "They are taught together because they can all spell the same r-controlled vowel sound. That makes this list a spelling-choice lesson, not just a sound lesson."

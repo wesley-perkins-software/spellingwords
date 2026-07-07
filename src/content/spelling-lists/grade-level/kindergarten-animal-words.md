@@ -21,7 +21,7 @@ featured: false
 readinessSignals:
   - "Can name common animals in pictures, books, or real life"
   - "Can hear the first sound in a spoken animal word"
-  - "Is ready to connect familiar spoken words to simple printed spellings"
+  - "Are ready to connect familiar spoken words to simple printed spellings"
 faq:
   - question: "Why are animal words useful for beginning spellers?"
     answer: "Animal words are concrete and familiar, so children usually know the meaning before they study the spelling. That lets them focus on matching sounds to letters."

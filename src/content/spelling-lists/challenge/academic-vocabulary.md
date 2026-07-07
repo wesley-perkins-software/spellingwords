@@ -18,8 +18,8 @@ prerequisiteLists: ["grade-5-academic-words"]
 nextLists: []
 readinessSignals:
   - "Can read upper-elementary directions and identify task words such as analyze, determine, summarize, and explain related ideas"
-  - "Uses academic vocabulary in written responses across science, social studies, reading, and writing"
-  - "Is ready to spell longer cross-curricular words automatically so attention can stay on the content being discussed"
+  - "Use academic vocabulary in written responses across science, social studies, reading, and writing"
+  - "Are ready to spell longer cross-curricular words automatically so attention can stay on the content being discussed"
 faq:
   - question: "Who is this academic vocabulary challenge for?"
     answer: "This list is for upper-elementary learners who already handle grade-level vocabulary and are ready for high-use school words that appear across several subjects."

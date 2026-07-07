@@ -20,8 +20,8 @@ nextLists: ["grade-3-reading-writing-words"]
 featured: false
 readinessSignals:
   - "Can describe characters, settings, objects, and events with more than one detail"
-  - "Is beginning to revise word choice instead of only fixing spelling and punctuation"
-  - "Understands that a precise word can change the image or feeling a sentence creates"
+  - "Are beginning to revise word choice instead of only fixing spelling and punctuation"
+  - "Understand that a precise word can change the image or feeling a sentence creates"
 faq:
   - question: "Why are third-grade describing words more advanced?"
     answer: "Third graders are expected to explain and elaborate. These words help them describe traits, conditions, and qualities with more precision than early adjectives such as big or nice."

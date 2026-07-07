@@ -19,7 +19,7 @@ prerequisiteLists: ["grade-3-homophones"]
 nextLists: ["tier-1-roots-and-patterns"]
 readinessSignals:
   - "Can notice that words such as act, action, and active share both letters and meaning"
-  - "Is comfortable reading two- and three-syllable words with support from context"
+  - "Are comfortable reading two- and three-syllable words with support from context"
   - "Can separate a base or root from common prefixes and suffixes in familiar words"
 faq:
   - question: "What is a root word family?"

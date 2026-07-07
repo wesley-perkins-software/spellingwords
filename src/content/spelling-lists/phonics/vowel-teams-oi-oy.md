@@ -19,7 +19,7 @@ prerequisiteLists: ["vowel-teams-oa-ow"]
 nextLists: ["vowel-teams-ou-ow"]
 featured: false
 readinessSignals:
-  - "Can read simpler vowel-team words and is ready for a vowel sound that glides instead of staying still"
+  - "Can read simpler vowel-team words and are ready for a vowel sound that glides instead of staying still"
   - "Can hear the /oi/ sound in spoken words like 'coin,' 'toy,' and 'voice'"
   - "Can use word position to choose between a middle spelling and an ending spelling"
 faq:

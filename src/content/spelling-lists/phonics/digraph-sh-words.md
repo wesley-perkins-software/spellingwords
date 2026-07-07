@@ -22,9 +22,9 @@ relatedLists:
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Notices that SH doesn't sound like S or H alone — it's one continuous sound with no trace of either letter"
-  - "Is comfortable blending simple three- and four-sound words, including basic consonant blends"
-  - "Is beginning to spot SH in books without yet having a name for why it sounds the way it does"
+  - "Notice that SH doesn't sound like S or H alone — it's one continuous sound with no trace of either letter"
+  - "Are comfortable blending simple three- and four-sound words, including basic consonant blends"
+  - "Are beginning to spot SH in books without yet having a name for why it sounds the way it does"
 faq:
   - question: "What is a digraph, and why is SH taught around this stage?"
     answer: "A digraph is two letters that combine to make one brand-new sound — S and H together make a soft, continuous sound unlike either letter said alone. SH is one of the most common digraphs in English, showing up at the start, middle, and end of everyday words."

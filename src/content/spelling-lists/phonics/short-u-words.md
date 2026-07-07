@@ -25,8 +25,8 @@ nextLists:
   - silent-e-long-a
 featured: false
 readinessSignals:
-  - "Blends and segments a three-sound word without hesitation — the core skill this list keeps sharpening"
-  - "Recognizes the short 'u' sound when it's spoken aloud, even before seeing it written down"
+  - "Blend and segment a three-sound word without hesitation — the core skill this list keeps sharpening"
+  - "Recognize the short 'u' sound when it's spoken aloud, even before seeing it written down"
   - "Can hear the 'ck' ending in a word like 'duck' as one unit rather than two separate letters"
 faq:
   - question: "What is the short 'u' sound, and why is it often taught last among the five short vowels?"

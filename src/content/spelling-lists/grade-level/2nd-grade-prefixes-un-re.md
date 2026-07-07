@@ -19,7 +19,7 @@ prerequisiteLists: ["grade-2-contractions"]
 nextLists: ["grade-2-suffixes-ful-less"]
 readinessSignals:
   - "Can spell familiar base words such as kind, happy, lock, read, and tell before adding a beginning word part"
-  - "Notices that un- usually means “not” while re- usually means “again” in everyday words"
+  - "Notice that un- usually means “not” while re- usually means “again” in everyday words"
   - "Can explain a prefix word by separating the prefix from the base word"
 faq:
   - question: "What do un- and re- mean in these words?"

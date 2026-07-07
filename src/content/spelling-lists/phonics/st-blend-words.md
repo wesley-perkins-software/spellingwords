@@ -18,7 +18,7 @@ featured: false
 readinessSignals:
   - "Can hear both sounds in the ST blend instead of dropping one of them"
   - "Can say and spell simple one-syllable words while keeping the ST letters together"
-  - "Can spell short-vowel words and is beginning to notice ST as a starting cluster"
+  - "Can spell short-vowel words and are beginning to notice ST as a starting cluster"
 faq:
   - question: "What is the ST blend?"
     answer: "It's a consonant blend where the S and T sounds sit side by side at the start of a word. Each sound is still heard, so children practice listening for both letters rather than treating the pair like one new sound."

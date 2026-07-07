@@ -21,7 +21,7 @@ featured: false
 readinessSignals:
   - "Can read long-e words and notice that two vowel letters may work together for the sound"
   - "Can keep the middle vowel team together while spelling words with beginning or ending consonants"
-  - "Is ready to learn that one long-e sound can be spelled in more than one common way"
+  - "Are ready to learn that one long-e sound can be spelled in more than one common way"
 faq:
   - question: "What do EE and EA words teach?"
     answer: "They teach two common vowel-team spellings for the long-e sound. Students learn that 'tree' and 'clean' share a sound even though the vowel team is different."

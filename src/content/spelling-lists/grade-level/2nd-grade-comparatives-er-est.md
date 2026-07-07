@@ -19,8 +19,8 @@ prerequisiteLists: ["grade-2-silent-letter-words", "grade-2-suffixes-ful-less"]
 nextLists: ["grade-2-list-03"]
 readinessSignals:
   - "Can use describing words such as fast, slow, small, big, happy, and easy in speech or writing"
-  - "Understands comparing two things versus naming the most of a group"
-  - "Is ready to notice when a base word changes before -er or -est is added"
+  - "Understand comparing two things versus naming the most of a group"
+  - "Are ready to notice when a base word changes before -er or -est is added"
 faq:
   - question: "What do -er and -est do in these words?"
     answer: "The suffix -er compares two things, as in faster. The suffix -est names the greatest degree in a group, as in fastest."

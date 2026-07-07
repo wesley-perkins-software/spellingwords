@@ -22,7 +22,7 @@ nextLists: []
 featured: false
 readinessSignals:
   - "Can identify familiar nouns from this set in speech or pictures, such as top, toy, tree, watch, water"
-  - "Writes labels or captions and needs concrete naming words from Dolch Nouns Part G"
+  - "Write labels or captions and need concrete naming words from Dolch Nouns Part G"
   - "Can combine Part G nouns with service words to make short phrases rather than naming words in isolation"
 faq:
   - question: "What kinds of words are in Dolch Nouns Part G?"

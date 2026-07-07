@@ -20,8 +20,8 @@ nextLists: ["grade-5-math-vocabulary"]
 featured: false
 readinessSignals:
   - "Can explain basic community roles, rules, rights, and responsibilities"
-  - "Reads social studies passages that include government or civic vocabulary"
-  - "Is ready to use formal civics words in discussion, notes, and written responses"
+  - "Read social studies passages that include government or civic vocabulary"
+  - "Are ready to use formal civics words in discussion, notes, and written responses"
 faq:
   - question: "Why teach community and civics vocabulary in fifth grade?"
     answer: "Fifth graders are ready for more formal language about government, citizenship, public decisions, and shared responsibilities. These words support social studies reading and classroom discussion."

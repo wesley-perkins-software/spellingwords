@@ -23,8 +23,8 @@ nextLists: ['dolch-primer-b']
 featured: false
 readinessSignals:
   - "Can keep meaning while reading sentences that include all, am, are, at"
-  - "Notices small spelling differences among high-frequency words in Primer Part A, instead of relying only on word shape"
-  - "Uses Primer A words in dictated or self-written sentences with increasing independence"
+  - "Notice small spelling differences among high-frequency words in Primer Part A, instead of relying only on word shape"
+  - "Use Primer A words in dictated or self-written sentences with increasing independence"
 faq:
   - question: "What does Dolch Primer Part A add to sight-word practice?"
     answer: "Dolch Primer Part A focuses on the opening set of its tier, with words such as all, am, are, at. These are high-frequency service words selected for reading fluency, not a single phonics rule."

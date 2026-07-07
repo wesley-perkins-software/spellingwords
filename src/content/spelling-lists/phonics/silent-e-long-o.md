@@ -19,8 +19,8 @@ prerequisiteLists: ["silent-e-long-i"]
 nextLists: ["silent-e-long-e"]
 featured: false
 readinessSignals:
-  - "Applies the silent-e idea automatically now, without needing it re-explained for a new vowel"
-  - "Hears the short 'o' sound (as in 'hot') clearly enough to notice when it changes to long 'o'"
+  - "Apply the silent-e idea automatically now, without needing it re-explained for a new vowel"
+  - "Hear the short 'o' sound (as in 'hot') clearly enough to notice when it changes to long 'o'"
   - "Can already read or spell a few silent-e words with a different vowel, like 'cake' or 'bike'"
 faq:
   - question: "Why does long O come third in the silent-e sequence?"

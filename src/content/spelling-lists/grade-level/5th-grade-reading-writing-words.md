@@ -20,8 +20,8 @@ nextLists: ["grade-5-opinion-argument-words"]
 featured: false
 readinessSignals:
   - "Can read a text and explain main ideas, details, and author choices"
-  - "Writes organized responses that include evidence or examples"
-  - "Is ready for vocabulary used in analysis, revision, summarizing, and written argument"
+  - "Write organized responses that include evidence or examples"
+  - "Are ready for vocabulary used in analysis, revision, summarizing, and written argument"
 faq:
   - question: "Why are fifth-grade reading and writing words a flagship list?"
     answer: "These words name the skills students use across upper-elementary literacy: analyzing, summarizing, organizing, supporting, and revising. They are central to reading response and writing instruction."

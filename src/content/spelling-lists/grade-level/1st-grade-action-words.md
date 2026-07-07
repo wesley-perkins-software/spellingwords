@@ -20,7 +20,7 @@ nextLists: []
 featured: false
 readinessSignals:
   - "Can tell what a person or character is doing in a picture or sentence"
-  - "Writes simple sentences that need clear verbs such as make, help, ride, or sing"
+  - "Write simple sentences that need clear verbs such as make, help, ride, or sing"
   - "Can hear and say each sound in short one-syllable words, even when the spelling is not automatic"
 faq:
   - question: "Why do first graders need action words?"

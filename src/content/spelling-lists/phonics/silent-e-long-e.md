@@ -19,8 +19,8 @@ prerequisiteLists: ["silent-e-long-o"]
 nextLists: ["silent-e-long-u"]
 featured: false
 readinessSignals:
-  - "Applies the silent-e rule confidently across more than one vowel already — this is a repeat performance, not a new skill"
-  - "Understands that some silent-e patterns show up far less often in everyday words than others"
+  - "Apply the silent-e rule confidently across more than one vowel already — this is a repeat performance, not a new skill"
+  - "Understand that some silent-e patterns show up far less often in everyday words than others"
   - "Can already read words like 'these' and 'complete,' even if spelling them independently is still new"
 faq:
   - question: "Why is this list shorter than the other silent-e lists?"
@@ -38,7 +38,7 @@ words:
   - "complete"
   - "eve"
   - "gene"
-  - "mete"
+  - "delete"
 ---
 
 Long-E silent-e words are less common than long-A, long-I, and long-O silent-e words, but they complete the core silent-e pattern students meet in early spelling instruction. This short list keeps the focus on clear, teachable examples rather than adding rare filler words.

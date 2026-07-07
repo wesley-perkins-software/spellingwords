@@ -23,8 +23,8 @@ nextLists: ['dolch-first-grade-c']
 featured: false
 readinessSignals:
   - "Can keep meaning while reading sentences that include has, her, him, his"
-  - "Notices small spelling differences among high-frequency words in First Grade Part B, instead of relying only on word shape"
-  - "Uses First Grade B words in dictated or self-written sentences with increasing independence"
+  - "Notice small spelling differences among high-frequency words in First Grade Part B, instead of relying only on word shape"
+  - "Use First Grade B words in dictated or self-written sentences with increasing independence"
 faq:
   - question: "What does Dolch First Grade Part B add to sight-word practice?"
     answer: "Dolch First Grade Part B focuses on the middle set of its tier, with words such as has, her, him, his. These are high-frequency service words selected for reading fluency, not a single phonics rule."

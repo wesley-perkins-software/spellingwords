@@ -19,8 +19,8 @@ prerequisiteLists: ["grade-3-multisyllabic-words", "grade-2-homophones"]
 nextLists: ["grade-3-root-word-families", "grade-4-commonly-confused-words"]
 readinessSignals:
   - "Can use sentence context to choose among familiar homophones rather than relying only on pronunciation"
-  - "Understands that contractions such as they're and you're have different meanings from their homophone partners"
-  - "Writes multi-sentence responses where confusing word choices can affect the reader's understanding"
+  - "Understand that contractions such as they're and you're have different meanings from their homophone partners"
+  - "Write multi-sentence responses where confusing word choices can affect the reader's understanding"
 faq:
   - question: "How is this different from the Grade 2 homophones list?"
     answer: "This list adds words that third graders meet in longer writing, including there, their, they're, your, you're, its, and it's. The work shifts from simple pairs toward choosing the correct word inside sentences and paragraphs."

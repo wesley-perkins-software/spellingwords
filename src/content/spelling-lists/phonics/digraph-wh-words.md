@@ -22,9 +22,9 @@ relatedLists:
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can hear /w/ and /h/ as separate sounds, and notices how they merge into a single sound once joined as WH"
-  - "Already uses question words like 'what,' 'when,' and 'where' in spoken conversation every day"
-  - "Already blends and segments most simple consonant-vowel-consonant words with ease"
+  - "Can hear /w/ and /h/ as separate sounds, and notice how they merge into a single sound once joined as WH"
+  - "Already use question words like 'what,' 'when,' and 'where' in spoken conversation every day"
+  - "Already blend and segment most simple consonant-vowel-consonant words with ease"
 faq:
   - question: "What is a digraph, and why is WH taught with question words?"
     answer: "WH is a digraph most often heard at the start of question words — 'what,' 'when,' 'where,' 'which,' and 'why' — so teaching it alongside those words lets children practice a spelling pattern and a set of words they already use constantly in the same lesson."

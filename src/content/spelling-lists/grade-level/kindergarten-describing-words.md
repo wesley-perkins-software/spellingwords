@@ -20,8 +20,8 @@ nextLists: []
 featured: false
 readinessSignals:
   - "Can tell simple differences such as big and little, hot and cold, or happy and sad"
-  - "Uses short oral phrases that include a describing word"
-  - "Is ready to notice that words can tell what something is like, not only name it"
+  - "Use short oral phrases that include a describing word"
+  - "Are ready to notice that words can tell what something is like, not only name it"
 faq:
   - question: "Why include describing words in kindergarten spelling?"
     answer: "Describing words help young learners add meaning to nouns they already know. They are an early bridge from naming things to saying something about them."

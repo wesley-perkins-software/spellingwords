@@ -19,8 +19,8 @@ prerequisiteLists: ["grade-3-prefix-words", "grade-2-suffixes-ful-less"]
 nextLists: ["grade-3-dropping-silent-e", "grade-4-advanced-suffixes"]
 readinessSignals:
   - "Can spell common base words before adding endings such as -ly, -ful, -less, -ness, and -ment"
-  - "Understands that suffixes can change meaning, comparison, or part of speech"
-  - "Is beginning to check whether a base word needs a spelling change before a suffix"
+  - "Understand that suffixes can change meaning, comparison, or part of speech"
+  - "Are beginning to check whether a base word needs a spelling change before a suffix"
 faq:
   - question: "Which suffixes are practiced in this list?"
     answer: "Students practice comparison endings, adverb endings, and meaning-changing endings such as -ful, -less, -ness, and -ment. Together they show several ways endings build new words."

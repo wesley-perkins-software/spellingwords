@@ -21,7 +21,7 @@ featured: false
 readinessSignals:
   - "Can point to and name common body parts"
   - "Can match a spoken word to a picture or real object"
-  - "Is beginning to notice first and last sounds in short familiar words"
+  - "Are beginning to notice first and last sounds in short familiar words"
 faq:
   - question: "Why teach body words in kindergarten?"
     answer: "Body words are part of a child's daily language. Because the meanings are already secure, students can focus on hearing sounds and learning the printed form."

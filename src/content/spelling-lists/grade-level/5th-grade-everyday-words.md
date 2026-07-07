@@ -19,9 +19,9 @@ prerequisiteLists: ["grade-4-list-01", "grade-4-multisyllabic-academic-words"]
 nextLists: ["grade-5-academic-words"]
 featured: false
 readinessSignals:
-  - "Reads upper-elementary texts with enough stamina to notice vocabulary in context"
-  - "Writes multi-paragraph responses or stories that require accurate common words"
-  - "Is ready for mature everyday vocabulary used across school and independent reading"
+  - "Read upper-elementary texts with enough stamina to notice vocabulary in context"
+  - "Write multi-paragraph responses or stories that require accurate common words"
+  - "Are ready for mature everyday vocabulary used across school and independent reading"
 faq:
   - question: "What makes fifth-grade everyday words different from earlier lists?"
     answer: "The words are still broadly useful, but they reflect the independence expected in fifth grade. Students need to spell common upper-elementary vocabulary while reading, planning, drafting, and revising longer work."

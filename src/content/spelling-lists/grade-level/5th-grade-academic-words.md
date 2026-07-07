@@ -20,8 +20,8 @@ nextLists: ["grade-5-reading-writing-words"]
 featured: false
 readinessSignals:
   - "Can read and discuss multi-paragraph assignments in more than one subject"
-  - "Writes explanations that include reasons, examples, or evidence"
-  - "Is ready for cross-curricular vocabulary used in directions, rubrics, and academic discussion"
+  - "Write explanations that include reasons, examples, or evidence"
+  - "Are ready for cross-curricular vocabulary used in directions, rubrics, and academic discussion"
 faq:
   - question: "Why are fifth-grade academic words so important?"
     answer: "These words appear across subjects, not just in one unit. A student who can spell and use terms such as identify, process, result, and support is better prepared for the language of upper-elementary assignments."

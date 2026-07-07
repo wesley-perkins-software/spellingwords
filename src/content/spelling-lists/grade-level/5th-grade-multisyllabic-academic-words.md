@@ -18,9 +18,9 @@ relatedLists: ["grade-5-academic-words", "grade-5-prefix-suffix-words"]
 prerequisiteLists: ["grade-4-multisyllabic-academic-words"]
 nextLists: ["grade-5-prefix-suffix-words"]
 readinessSignals:
-  - "Can spell shorter academic words and is ready for longer words with several meaningful chunks"
+  - "Can spell shorter academic words and are ready for longer words with several meaningful chunks"
   - "Can use syllables to hold a long word in order while writing"
-  - "Notices recurring endings such as -tion, -ation, -ment, and -ology in school vocabulary"
+  - "Notice recurring endings such as -tion, -ation, -ment, and -ology in school vocabulary"
 faq:
   - question: "What makes fifth-grade multisyllabic words challenging?"
     answer: "These words are longer and often contain abstract academic endings. Students must track syllables, roots, and suffixes at the same time."

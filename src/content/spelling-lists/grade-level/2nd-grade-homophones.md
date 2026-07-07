@@ -19,7 +19,7 @@ prerequisiteLists: ["grade-2-regular-plurals"]
 nextLists: ["grade-2-silent-letter-words"]
 readinessSignals:
   - "Can listen for meaning clues in a sentence instead of choosing a spelling by sound alone"
-  - "Recognizes that words can sound the same while having different spellings and meanings"
+  - "Recognize that words can sound the same while having different spellings and meanings"
   - "Can explain simple word choices such as to, too, two, see, sea, and hear, here in oral sentences"
 faq:
   - question: "Why do second graders study homophones?"

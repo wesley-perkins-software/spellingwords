@@ -23,8 +23,8 @@ nextLists: ['dolch-second-grade-c']
 featured: false
 readinessSignals:
   - "Can keep meaning while reading sentences that include five, found, gave, goes"
-  - "Notices small spelling differences among high-frequency words in Second Grade Part B, instead of relying only on word shape"
-  - "Uses Second Grade B words in dictated or self-written sentences with increasing independence"
+  - "Notice small spelling differences among high-frequency words in Second Grade Part B, instead of relying only on word shape"
+  - "Use Second Grade B words in dictated or self-written sentences with increasing independence"
 faq:
   - question: "What does Dolch Second Grade Part B add to sight-word practice?"
     answer: "Dolch Second Grade Part B focuses on the middle set of its tier, with words such as five, found, gave, goes. These are high-frequency service words selected for reading fluency, not a single phonics rule."

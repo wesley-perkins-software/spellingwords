@@ -18,7 +18,7 @@ featured: false
 readinessSignals:
   - "Can hear both sounds in the MP blend instead of dropping one of them"
   - "Can say and spell simple one-syllable words while keeping the MP letters together"
-  - "Can spell short-vowel words and is beginning to notice MP as an ending cluster"
+  - "Can spell short-vowel words and are beginning to notice MP as an ending cluster"
 faq:
   - question: "What is the MP blend?"
     answer: "It's a consonant blend where the M and P sounds sit side by side at the end of a word. Each sound is still heard, so children practice listening for both letters rather than treating the pair like one new sound."

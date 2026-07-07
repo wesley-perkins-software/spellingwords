@@ -19,9 +19,9 @@ prerequisiteLists: []
 nextLists: ["grade-3-list-02"]
 featured: false
 readinessSignals:
-  - "Writes connected paragraphs or multi-sentence responses about familiar topics"
-  - "Reads grade-level stories and informational text with fewer interruptions for basic vocabulary"
-  - "Is ready to spell useful words that appear across subjects, not just in one unit"
+  - "Write connected paragraphs or multi-sentence responses about familiar topics"
+  - "Read grade-level stories and informational text with fewer interruptions for basic vocabulary"
+  - "Are ready to spell useful words that appear across subjects, not just in one unit"
 faq:
   - question: "What makes third-grade everyday words important?"
     answer: "Third grade is a shift toward longer reading and writing tasks. Students need dependable spelling for common words so they can focus on explaining ideas, not decoding or spelling every familiar term from scratch."

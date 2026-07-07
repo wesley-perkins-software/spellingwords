@@ -19,9 +19,9 @@ prerequisiteLists: ["grade-4-list-02"]
 nextLists: ["grade-5-community-civics-words"]
 featured: false
 readinessSignals:
-  - "Reads science passages and notices vocabulary tied to living things, earth systems, or investigation"
+  - "Read science passages and notice vocabulary tied to living things, earth systems, or investigation"
   - "Can describe observations and simple cause-and-effect relationships orally"
-  - "Is ready to spell science terms while recording notes, answers, and explanations"
+  - "Are ready to spell science terms while recording notes, answers, and explanations"
 faq:
   - question: "Why are science and nature words included in grade-level vocabulary?"
     answer: "Science learning depends heavily on exact vocabulary. Students need to spell and use words for organisms, environments, materials, and investigations so their explanations are clear."

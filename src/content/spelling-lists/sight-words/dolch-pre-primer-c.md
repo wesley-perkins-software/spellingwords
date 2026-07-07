@@ -23,8 +23,8 @@ nextLists: ['dolch-primer-a']
 featured: false
 readinessSignals:
   - "Can read very short sentences with common words such as see, the, to, we, and you"
-  - "Is beginning to notice question words in books, especially where, without needing every word sounded out"
-  - "Can spell several earlier Pre-Primer words and is ready for a smaller review set with a few tricky forms"
+  - "Are beginning to notice question words in books, especially where, without needing every word sounded out"
+  - "Can spell several earlier Pre-Primer words and are ready for a smaller review set with a few tricky forms"
 faq:
   - question: "Why is the included in this Pre-Primer set?"
     answer: "The is one of the most common words in English text, and it does not behave like a simple beginner phonics word. Recognizing it instantly makes early reading smoother."

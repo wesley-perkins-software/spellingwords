@@ -23,8 +23,8 @@ nextLists: ['dolch-first-grade-a']
 featured: false
 readinessSignals:
   - "Can keep meaning while reading sentences that include want, was, well, went"
-  - "Notices small spelling differences among high-frequency words in Primer Part D, instead of relying only on word shape"
-  - "Uses Primer D words in dictated or self-written sentences with increasing independence"
+  - "Notice small spelling differences among high-frequency words in Primer Part D, instead of relying only on word shape"
+  - "Use Primer D words in dictated or self-written sentences with increasing independence"
 faq:
   - question: "What does Dolch Primer Part D add to sight-word practice?"
     answer: "Dolch Primer Part D focuses on the compact closing set of its tier, with words such as want, was, well, went. These are high-frequency service words selected for reading fluency, not a single phonics rule."

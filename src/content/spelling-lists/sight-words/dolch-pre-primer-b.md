@@ -23,7 +23,7 @@ nextLists: ['dolch-pre-primer-c']
 featured: false
 readinessSignals:
   - "Can read or echo simple patterned sentences such as I can see it or Look at me"
-  - "Recognizes short function words in print and is beginning to spell personal words like I, me, and my"
+  - "Recognize short function words in print and are beginning to spell personal words like I, me, and my"
   - "Can attend to one new sight word at a time without losing the meaning of a short sentence"
 faq:
   - question: "Why does this Pre-Primer set include I, me, and my?"

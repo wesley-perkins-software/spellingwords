@@ -19,7 +19,7 @@ prerequisiteLists: ["grade-2-list-01"]
 nextLists: ["grade-2-contractions"]
 readinessSignals:
   - "Can read and spell many short everyday words before combining them into longer words"
-  - "Understands that two familiar words can join to name one thing or idea"
+  - "Understand that two familiar words can join to name one thing or idea"
   - "Can point to both smaller words inside a compound word"
 faq:
   - question: "What is a compound word?"

@@ -21,7 +21,7 @@ featured: false
 readinessSignals:
   - "Can name basic emotions in self, characters, or pictures"
   - "Can connect a feeling word to a facial expression or situation"
-  - "Is ready to use print for words that describe how someone feels"
+  - "Are ready to use print for words that describe how someone feels"
 faq:
   - question: "Why teach feelings words as spelling words?"
     answer: "Feelings words support language, reading comprehension, and social-emotional expression. Students use them to talk about themselves and to understand characters in stories."

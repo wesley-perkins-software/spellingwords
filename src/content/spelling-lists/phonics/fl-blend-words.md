@@ -18,7 +18,7 @@ featured: false
 readinessSignals:
   - "Can hear both sounds in the FL blend instead of dropping one of them"
   - "Can say and spell simple one-syllable words while keeping the FL letters together"
-  - "Can spell short-vowel words and is beginning to notice FL as a starting cluster"
+  - "Can spell short-vowel words and are beginning to notice FL as a starting cluster"
 faq:
   - question: "What is the FL blend?"
     answer: "It's a consonant blend where the F and L sounds sit side by side at the start of a word. Each sound is still heard, so children practice listening for both letters rather than treating the pair like one new sound."

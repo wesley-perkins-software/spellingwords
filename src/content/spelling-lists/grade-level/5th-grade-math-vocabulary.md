@@ -20,8 +20,8 @@ nextLists: []
 featured: false
 readinessSignals:
   - "Can solve multi-step math problems and explain the steps orally"
-  - "Recognizes that math words have precise meanings in problems and directions"
-  - "Is ready to spell and use terms from operations, measurement, geometry, or data in written explanations"
+  - "Recognize that math words have precise meanings in problems and directions"
+  - "Are ready to spell and use terms from operations, measurement, geometry, or data in written explanations"
 faq:
   - question: "Why include math words in a spelling library?"
     answer: "Math vocabulary is part of literacy. Students must read problem directions, explain solutions, label diagrams, and write about their reasoning, so accurate spelling supports clear mathematical communication."

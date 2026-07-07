@@ -22,9 +22,9 @@ prerequisiteLists: []
 nextLists: ['dolch-pre-primer-b']
 featured: false
 readinessSignals:
-  - "Recognizes several environmental-print words or names and is beginning to notice short printed words in books"
+  - "Recognize several environmental-print words or names and are beginning to notice short printed words in books"
   - "Can match simple spoken words to print with adult support, especially words like a, and, go, and can"
-  - "Is ready to practice very common sentence-building words before longer phonics patterns are secure"
+  - "Are ready to practice very common sentence-building words before longer phonics patterns are secure"
 faq:
   - question: "What are Dolch Pre-Primer sight words?"
     answer: "Dolch Pre-Primer words are the earliest high-frequency service words from the Dolch list. Part A begins with short, useful words children see constantly in beginning books, including a, and, can, for, go, and here."

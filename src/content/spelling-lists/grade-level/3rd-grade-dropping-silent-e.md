@@ -19,8 +19,8 @@ prerequisiteLists: ["grade-3-suffix-words"]
 nextLists: ["grade-3-doubling-final-consonants"]
 readinessSignals:
   - "Can spell silent-e base words such as make, take, come, write, and hope"
-  - "Recognizes suffixes like -ing and -ed when they attach to a base word"
-  - "Is starting to ask whether the final e stays or drops before adding an ending"
+  - "Recognize suffixes like -ing and -ed when they attach to a base word"
+  - "Are starting to ask whether the final e stays or drops before adding an ending"
 faq:
   - question: "When do you drop the silent e?"
     answer: "Drop the final silent e before many suffixes that begin with a vowel, such as -ing or -ed. That is why make becomes making and hope becomes hoped."

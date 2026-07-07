@@ -1,0 +1,12 @@
+# Kindergarten curriculum cleanup: these pages were vocabulary/theme lists
+# that did not teach a spelling pattern (see docs/CURRICULUM_PHILOSOPHY.md).
+# Redirected to the Kindergarten grade hub rather than to any single
+# replacement page, since none of the new pattern-based pages are an honest
+# topical substitute.
+/spelling-lists/grade-level/kindergarten-describing-words   /spelling-lists/kindergarten   301
+/spelling-lists/grade-level/kindergarten-shape-words         /spelling-lists/kindergarten   301
+/spelling-lists/grade-level/kindergarten-family-words        /spelling-lists/kindergarten   301
+/spelling-lists/grade-level/kindergarten-school-words        /spelling-lists/kindergarten   301
+/spelling-lists/grade-level/kindergarten-body-words          /spelling-lists/kindergarten   301
+/spelling-lists/grade-level/kindergarten-feelings-words      /spelling-lists/kindergarten   301
+/spelling-lists/grade-level/kindergarten-food-words          /spelling-lists/kindergarten   301

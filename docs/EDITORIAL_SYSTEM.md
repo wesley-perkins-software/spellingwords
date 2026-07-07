@@ -143,6 +143,21 @@ The goal of this system is not template conformance — a page that hits every a
 
 ---
 
+## Batch QA checklist
+
+Run this before calling any editorial batch (a set of lists worked through readiness/FAQ authoring together) finished. These are mechanical process checks, not writing advice — every one below was a real defect found during the first phonics batch, not a hypothetical risk, so treat this as required, not optional:
+
+- **Duplicate readiness-signal check** — diff every `readinessSignals` bullet across the batch. An exact match across two files means the signal hasn't been individually written yet; it's been copied.
+- **Duplicate FAQ check** — same check against every `faq` question and answer in the batch.
+- **Resolve every `prerequisiteLists` ID** — confirm each ID is a real, **published** list, not one that used to exist.
+- **Resolve every `nextLists` ID** — same check.
+- **Resolve every `relatedLists` ID** — same check.
+- **Verify no archived list is referenced** — `resolveListRefs` (`src/lib/content/spellingLists.ts`) silently drops references to archived or draft lists rather than erroring, so a stale reference doesn't break the build, it just quietly renders nothing. That silence is exactly why it goes unnoticed; check for it explicitly rather than trusting the build to catch it.
+- **Verify readiness signals describe learner ability, not curriculum completion** — a signal that names another list by title, or says "has completed X" / "has practiced Y," is describing the site's data model, not the learner. Rewrite it as an observable behavior instead; the prerequisite/next relationship is already surfaced automatically by the template.
+- **Verify FAQ owns "interesting facts" rather than repeating them in readiness** — if a pattern has one standout fact worth knowing (an exception, a voiced/unvoiced split, a common confusion), it should be explained once, in the FAQ. A readiness signal that foreshadows the same fact is answering the question before the reader has asked it.
+
+---
+
 ## North star
 
 Every list-detail page's goal is to be the best available educational resource on the web for that specific spelling topic — thorough enough that students, parents, teachers, search engines, and AI systems all come away understanding the topic better than a bare word list would teach them. Every section on the page earns its place by serving that goal. If a section, sentence, or field doesn't move a page closer to that bar, it doesn't belong — no matter how easy it would be to add.

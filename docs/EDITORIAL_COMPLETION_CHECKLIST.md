@@ -9,6 +9,7 @@ This is the master tracking document for the Editorial Completion project: writi
 - Status symbols: `✅` done · `⬜` not started. Aggregate fractions/percentages live only in the summary tables below, not per row.
 - `phonics/short-vowels-cvc-words.md` has `status: archived` (superseded by the five separate short-vowel lists) and never renders a page — it is excluded from every count in this document and marked `N/A` in its row rather than `⬜`.
 - Archetype numbers refer to the 10 archetypes defined in `docs/EDITORIAL_SYSTEM.md`. For `phonics/` and `sight-words/`, every list shares one archetype (3 and 5 respectively), so the per-list tables for those folders omit a redundant Archetype column. For `grade-level/` and `challenge/`, archetype varies row by row; the assignments below are a **first-pass, best-guess classification made from filenames/content during checklist scaffolding, not from reading every list's full body** — treat any row marked *(provisional)* as needing a quick confirm (not a rewrite) when that archetype's rollout actually reaches it.
+- **Before marking any batch's rows `✅`, run the Batch QA checklist in `docs/EDITORIAL_SYSTEM.md`** (duplicate readiness/FAQ checks, resolving every prerequisite/next/related ID, confirming no archived list is referenced, and confirming readiness signals describe learner ability rather than curriculum completion). It exists because every item on it was a real defect caught in the first phonics batch, not a hypothetical.
 
 ---
 

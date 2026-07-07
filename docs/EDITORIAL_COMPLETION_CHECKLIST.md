@@ -25,9 +25,9 @@ This is the master tracking document for the Editorial Completion project: writi
 | 6 | Prefix pages | 4 | 4 | 0 |
 | 7 | Suffix pages | 5 | 5 | 0 |
 | 8 | Root-word pages | 4 | 4 | 0 |
-| 9 | Homophone pages | 4 | 0 | 4 |
+| 9 | Homophone and confusable-word pages | 4 | 4 | 0 |
 | 10 | Morphology pages | 4 | 4 | 0 |
-| — | **Total (excludes 1 archived phonics list)** | **134** | **129** | **5** |
+| — | **Total (excludes 1 archived phonics list)** | **134** | **134** | **0** |
 
 ## Progress summary by category folder
 
@@ -35,9 +35,9 @@ This is the master tracking document for the Editorial Completion project: writi
 |---|---:|---:|---:|---|
 | phonics | 53 | 53 | 0 | Excludes `short-vowels-cvc-words` (archived, not counted) |
 | sight-words | 24 | 24 | 0 | Dolch service-word sequence and supplemental Dolch nouns complete |
-| grade-level | 54 | 50 | 4 | Grade-level vocabulary, beginning vocabulary, and morphology-domain grade-level pages are complete; only homophone/commonly-confused pages remain |
-| challenge | 3 | 2 | 1 | Root-word challenge lists complete; `tier-2-greek-latin-roots.md` frontmatter category mismatch remains a pre-existing content-model note |
-| **Total** | **134** | **129** | **5** | |
+| grade-level | 54 | 54 | 0 | Grade-level vocabulary, beginning vocabulary, morphology-domain grade-level pages, and homophone/commonly-confused pages are complete |
+| challenge | 3 | 3 | 0 | Root-word challenge lists and academic vocabulary challenge page complete; `tier-2-greek-latin-roots.md` frontmatter category mismatch remains a pre-existing content-model note |
+| **Total** | **134** | **134** | **0** | Editorial completion project complete across every published list page |
 
 ---
 
@@ -208,7 +208,7 @@ This is the master tracking document for the Editorial Completion project: writi
 | 2nd-grade-suffixes-ful-less | 7 | ✅ | ✅ | fine as-is | |
 | 2nd-grade-regular-plurals | 7 | ✅ | ✅ | fine as-is | Confirmed as early suffix/word-formation page because plural -s/-es functions as an ending added to nouns |
 | 2nd-grade-prefixes-un-re | 6 | ✅ | ✅ | fine as-is | |
-| 2nd-grade-homophones | 9 | ⬜ | ⬜ | not yet | |
+| 2nd-grade-homophones | 9 | ✅ | ✅ | fine as-is | Homophone/confusable-word completion pass |
 | 2nd-grade-compound-words | 10 | ✅ | ✅ | fine as-is | Confirmed as morphology because the page teaches closed compounds as two words forming one lexical unit |
 | 2nd-grade-contractions | 4 | ✅ | ✅ | fine as-is | Confirmed as spelling-rule/word-formation because apostrophe placement teaches how two words contract into one spelling form |
 | 2nd-grade-silent-letter-words | 4 | ✅ | ✅ | fine as-is | Confirmed as spelling-pattern/rule page for this rollout; silent letters are orthographic patterns rather than word parts |
@@ -226,7 +226,7 @@ This is the master tracking document for the Editorial Completion project: writi
 | 3rd-grade-prefix-words | 6 | ✅ | ✅ | fine as-is | |
 | 3rd-grade-suffix-words | 7 | ✅ | ✅ | fine as-is | |
 | 3rd-grade-root-word-families | 8 | ✅ | ✅ | fine as-is | |
-| 3rd-grade-homophones | 9 | ⬜ | ⬜ | not yet | |
+| 3rd-grade-homophones | 9 | ✅ | ✅ | fine as-is | Homophone/confusable-word completion pass |
 | 3rd-grade-multisyllabic-words | 10 | ✅ | ✅ | fine as-is | |
 
 ### 4th grade
@@ -239,7 +239,7 @@ This is the master tracking document for the Editorial Completion project: writi
 | 4th-grade-advanced-prefixes | 6 | ✅ | ✅ | fine as-is | |
 | 4th-grade-advanced-suffixes | 7 | ✅ | ✅ | fine as-is | |
 | 4th-grade-multisyllabic-academic-words | 10 | ✅ | ✅ | fine as-is | |
-| 4th-grade-commonly-confused-words | 9 *(provisional)* | ⬜ | ⬜ | not yet | Not strict homophones, but same "distinguish confusable words" shape — confirm at rollout |
+| 4th-grade-commonly-confused-words | 9 | ✅ | ✅ | fine as-is | Confirmed as homophone/confusable-word archetype: same meaning-based word-choice work, including non-homophone confusables |
 
 ### 5th grade
 
@@ -256,7 +256,7 @@ This is the master tracking document for the Editorial Completion project: writi
 | 5th-grade-prefix-suffix-words | 6 | ✅ | ✅ | fine as-is | Confirmed as combined prefix/suffix morphology and counted with prefix pages for checklist continuity |
 | 5th-grade-multisyllabic-academic-words | 10 | ✅ | ✅ | fine as-is | |
 | 5th-grade-greek-latin-word-parts | 8 | ✅ | ✅ | fine as-is | |
-| 5th-grade-commonly-confused-words | 9 *(provisional)* | ⬜ | ⬜ | not yet | Same note as 4th-grade-commonly-confused-words |
+| 5th-grade-commonly-confused-words | 9 | ✅ | ✅ | fine as-is | Confirmed as homophone/confusable-word archetype: advanced confusables for upper-elementary writing |
 
 ---
 
@@ -264,11 +264,23 @@ This is the master tracking document for the Editorial Completion project: writi
 
 | List (file) | Archetype | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|---|
-| academic-vocabulary | 2 *(provisional)* | ⬜ | ⬜ | not yet | Challenge-tier vocabulary, closest to grade-level vocabulary archetype |
+| academic-vocabulary | 2 | ✅ | ✅ | fine as-is | Confirmed as challenge-tier academic vocabulary, closest to grade-level vocabulary archetype |
 | tier-1-roots-and-patterns | 8 | ✅ | ✅ | fine as-is | |
 | tier-2-greek-latin-roots | 8 | ✅ | ✅ | fine as-is | Frontmatter `category: grade-level`, `grade: "4"` despite living in `challenge/` — pre-existing mismatch, not fixed here |
 
 ---
+
+## Final editorial completion notes — July 2026
+
+- Completed the final 5 published pages that remained unchecked: 2 Grade 2–3 homophone pages, 2 Grade 4–5 commonly confused word pages, and the challenge-tier academic vocabulary page.
+- Authored 15 new readiness signals and 20 new FAQ entries in this final pass. Each page now has three observable learner-readiness signals and four page-specific FAQ entries.
+- Confirmed the Grade 4 and Grade 5 commonly confused word pages belong in archetype 9 even though not every pair is a strict homophone; their instructional job is the same meaning-based distinction between confusable spellings in real writing.
+- Confirmed `academic-vocabulary` belongs with the grade-level vocabulary archetype for editorial purposes, with challenge-tier framing because it is cross-curricular extension vocabulary rather than a new curriculum sequence.
+- Whole-site QA found all 134 published pages have `readinessSignals` and `faq`; the one archived phonics overview remains excluded from counts and is not referenced by published list relationships.
+- Relationship QA using the content test suite confirmed all `relatedLists`, `prerequisiteLists`, and `nextLists` references resolve to existing published lists. No relationship fixes were needed in this final pass.
+- Duplicate QA found no exact duplicate readiness signals, FAQ questions, or FAQ answers across the final 5-page batch. Earlier archetype-level duplicate checks remain documented in the rollout notes above.
+- Final `shortAnswer` conclusion: keep evaluation-only treatment. Across the full library, `shortAnswer` consistently works as compact collection/metadata copy; the newly authored FAQ content carries the deeper educational explanation. No list-detail architecture change is justified inside Editorial Completion.
+- Final audit: the curriculum can be considered editorially complete. Future work should focus on enhancements rather than completion gaps: deciding whether to surface `shortAnswer` on detail pages, resolving the pre-existing `tier-2-greek-latin-roots.md` category/frontmatter mismatch, adding automated editorial lint rules for duplicate exact strings, and periodically refreshing examples after real classroom/user feedback.
 
 ## Grade-Level Vocabulary rollout notes — July 2026
 

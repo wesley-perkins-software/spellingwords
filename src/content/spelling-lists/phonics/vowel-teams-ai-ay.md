@@ -21,7 +21,7 @@ featured: false
 readinessSignals:
   - "Can read long-a silent-e words and recognize the same long-a sound in a new spelling pattern"
   - "Can hear whether the long-a sound comes in the middle or at the end of a spoken word"
-  - "Is ready to choose between two spellings for one sound by looking at word position"
+  - "Are ready to choose between two spellings for one sound by looking at word position"
 faq:
   - question: "What do AI and AY have in common?"
     answer: "AI and AY are vowel teams that usually spell the long-a sound. They let students spell words like 'rain' and 'play' without using the silent-e pattern."

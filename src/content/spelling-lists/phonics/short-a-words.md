@@ -25,8 +25,8 @@ nextLists:
 featured: false
 readinessSignals:
   - "Can break a simple word like 'cat' into its three separate sounds (c-a-t)"
-  - "Recognizes the short 'a' sound when it's spoken aloud, even before seeing it written down"
-  - "Already knows the individual consonant sounds in this list — b, c, d, g, h, m, n, p, r, s, t"
+  - "Recognize the short 'a' sound when it's spoken aloud, even before seeing it written down"
+  - "Already know the individual consonant sounds in this list — b, c, d, g, h, m, n, p, r, s, t"
 faq:
   - question: "What is the short 'a' sound and why is it taught first?"
     answer: "It's one of the simplest vowel sounds to hear and say — a brief, open sound, as in 'cat' — so pairing it with simple consonant-vowel-consonant words gives children an early, reliable win before more complex vowel patterns show up."

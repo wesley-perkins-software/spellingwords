@@ -25,9 +25,9 @@ nextLists:
   - silent-e-long-a
 featured: false
 readinessSignals:
-  - "Blends three sounds into a word smoothly, and can reverse the process — breaking a word like 'bed' back into b-e-d"
-  - "Recognizes the short 'e' sound when it's spoken aloud, even before seeing it written down"
-  - "Already knows the individual consonant sounds in this list — b, d, g, h, l, m, n, p, r, s, t, w"
+  - "Blend three sounds into a word smoothly, and can reverse the process — breaking a word like 'bed' back into b-e-d"
+  - "Recognize the short 'e' sound when it's spoken aloud, even before seeing it written down"
+  - "Already know the individual consonant sounds in this list — b, d, g, h, l, m, n, p, r, s, t, w"
 faq:
   - question: "What is the short 'e' sound and why is it taught around now?"
     answer: "It's the brief, flat vowel sound in words like 'bed' and 'pet' — one of five short-vowel sounds children typically meet in their first year of phonics instruction, usually alongside or shortly after short 'a.'"

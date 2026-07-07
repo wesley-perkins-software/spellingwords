@@ -19,8 +19,8 @@ prerequisiteLists: ["grade-3-doubling-final-consonants"]
 nextLists: ["grade-3-multisyllabic-words"]
 readinessSignals:
   - "Can spell base words ending in consonant plus y, such as carry, study, happy, and city"
-  - "Recognizes common endings such as -ed, -es, -er, -est, and -ness"
-  - "Is ready to decide whether final y stays or changes before a suffix"
+  - "Recognize common endings such as -ed, -es, -er, -est, and -ness"
+  - "Are ready to decide whether final y stays or changes before a suffix"
 faq:
   - question: "When does y change to i?"
     answer: "A final y often changes to i before an ending when the y follows a consonant. Carry becomes carried, city becomes cities, and happy becomes happier."

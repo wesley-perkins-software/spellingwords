@@ -20,7 +20,7 @@ nextLists: ["grade-4-advanced-prefixes"]
 readinessSignals:
   - "Can read grade-level classroom vocabulary but may need support spelling every syllable"
   - "Can divide longer words into pronounceable syllables before writing them"
-  - "Recognizes some prefixes, suffixes, or roots inside academic words"
+  - "Recognize some prefixes, suffixes, or roots inside academic words"
 faq:
   - question: "Why are these called academic words?"
     answer: "These words appear across school tasks, not just casual conversation. Students need them for explaining, organizing, comparing, and responding in writing."

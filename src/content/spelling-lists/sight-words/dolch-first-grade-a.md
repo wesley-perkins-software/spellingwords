@@ -23,8 +23,8 @@ nextLists: ['dolch-first-grade-b']
 featured: false
 readinessSignals:
   - "Can keep meaning while reading sentences that include after, again, an, any"
-  - "Notices small spelling differences among high-frequency words in First Grade Part A, instead of relying only on word shape"
-  - "Uses First Grade A words in dictated or self-written sentences with increasing independence"
+  - "Notice small spelling differences among high-frequency words in First Grade Part A, instead of relying only on word shape"
+  - "Use First Grade A words in dictated or self-written sentences with increasing independence"
 faq:
   - question: "What does Dolch First Grade Part A add to sight-word practice?"
     answer: "Dolch First Grade Part A focuses on the opening set of its tier, with words such as after, again, an, any. These are high-frequency service words selected for reading fluency, not a single phonics rule."

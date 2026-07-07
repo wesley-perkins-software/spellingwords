@@ -18,7 +18,7 @@ featured: false
 readinessSignals:
   - "Can hear both sounds in the FT blend instead of dropping one of them"
   - "Can say and spell simple one-syllable words while keeping the FT letters together"
-  - "Can spell short-vowel words and is beginning to notice FT as an ending cluster"
+  - "Can spell short-vowel words and are beginning to notice FT as an ending cluster"
 faq:
   - question: "What is the FT blend?"
     answer: "It's a consonant blend where the F and T sounds sit side by side at the end of a word. Each sound is still heard, so children practice listening for both letters rather than treating the pair like one new sound."

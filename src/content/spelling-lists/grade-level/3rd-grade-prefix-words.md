@@ -19,8 +19,8 @@ prerequisiteLists: ["grade-3-reading-writing-words", "grade-2-prefixes-un-re"]
 nextLists: ["grade-3-suffix-words", "grade-4-advanced-prefixes"]
 readinessSignals:
   - "Can spell common base words such as agree, play, read, kind, and safe with reasonable accuracy"
-  - "Understands that a beginning word part can reverse, repeat, or preview a word’s meaning"
-  - "Is beginning to use prefix clues when reading longer words in sentences"
+  - "Understand that a beginning word part can reverse, repeat, or preview a word’s meaning"
+  - "Are beginning to use prefix clues when reading longer words in sentences"
 faq:
   - question: "Which prefixes does this list teach?"
     answer: "This list includes un-, re-, pre-, dis-, and mis-. Students practice how each prefix changes meaning, such as disagree meaning “not agree” and predict meaning “say before.”"

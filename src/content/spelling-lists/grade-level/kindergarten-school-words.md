@@ -20,8 +20,8 @@ nextLists: ["kindergarten-body-words"]
 featured: false
 readinessSignals:
   - "Can name common classroom objects and routines"
-  - "Recognizes that print labels objects, places, and materials around the room"
-  - "Is ready to spell useful words from daily school life"
+  - "Recognize that print labels objects, places, and materials around the room"
+  - "Are ready to spell useful words from daily school life"
 faq:
   - question: "Why teach school words in kindergarten?"
     answer: "School words help children connect spelling to the classroom world they use every day. The words are practical for labels, directions, routines, and early writing."

@@ -18,8 +18,8 @@ relatedLists: ["grade-2-homophones", "vowel-teams-oa-ow", "lk-final-blend-words"
 prerequisiteLists: ["grade-2-homophones"]
 nextLists: ["grade-2-comparatives-er-est"]
 readinessSignals:
-  - "Can spell basic consonant patterns and is ready for words where not every letter is pronounced"
-  - "Recognizes common words such as write, know, knee, lamb, and comb when reading"
+  - "Can spell basic consonant patterns and are ready for words where not every letter is pronounced"
+  - "Recognize common words such as write, know, knee, lamb, and comb when reading"
   - "Can compare what a word sounds like with the letters that must still be written"
 faq:
   - question: "Why do silent letters matter for spelling?"

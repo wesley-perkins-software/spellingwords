@@ -20,8 +20,8 @@ nextLists: []
 featured: false
 readinessSignals:
   - "Can add details to a sentence without changing its basic meaning"
-  - "Understands simple opposites and comparisons in speech, such as loud and quiet or early and late"
-  - "Is beginning to revise writing by choosing a more exact word"
+  - "Understand simple opposites and comparisons in speech, such as loud and quiet or early and late"
+  - "Are beginning to revise writing by choosing a more exact word"
 faq:
   - question: "Why teach describing words as a vocabulary list?"
     answer: "Second graders need a wider adjective vocabulary to describe characters, settings, objects, and feelings. A focused list helps them move beyond the few describing words they already overuse."

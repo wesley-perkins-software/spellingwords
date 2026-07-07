@@ -18,9 +18,9 @@ relatedLists: ["grade-3-changing-y-to-i", "grade-3-homophones", "grade-4-multisy
 prerequisiteLists: ["grade-3-changing-y-to-i"]
 nextLists: ["grade-3-homophones", "grade-4-multisyllabic-academic-words"]
 readinessSignals:
-  - "Can spell many one-syllable words accurately and is ready to manage longer word length"
+  - "Can spell many one-syllable words accurately and are ready to manage longer word length"
   - "Can clap, tap, or mark syllables in two- and three-syllable words"
-  - "Is beginning to notice familiar chunks inside longer words, such as endings or smaller base words"
+  - "Are beginning to notice familiar chunks inside longer words, such as endings or smaller base words"
 faq:
   - question: "Why practice multisyllabic words separately?"
     answer: "Longer words place more demand on memory and sequencing. Practicing them directly teaches students to break words into syllables and meaningful chunks before spelling."

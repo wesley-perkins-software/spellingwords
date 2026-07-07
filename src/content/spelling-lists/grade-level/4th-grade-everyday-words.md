@@ -19,9 +19,9 @@ prerequisiteLists: ["grade-3-root-word-families"]
 nextLists: ["grade-4-reading-writing-words"]
 featured: false
 readinessSignals:
-  - "Reads longer classroom texts with growing independence"
-  - "Writes paragraphs that include explanations, examples, and transitions"
-  - "Needs common upper-elementary words to become accurate enough for fluent written work"
+  - "Read longer classroom texts with growing independence"
+  - "Write paragraphs that include explanations, examples, and transitions"
+  - "Need common upper-elementary words to become accurate enough for fluent written work"
 faq:
   - question: "Why does fourth grade still need everyday vocabulary practice?"
     answer: "Fourth graders write more often and in more subjects. Everyday academic and school words must become automatic so spelling does not interrupt planning, explaining, and revising."

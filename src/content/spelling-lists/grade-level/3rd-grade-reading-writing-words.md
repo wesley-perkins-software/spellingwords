@@ -20,8 +20,8 @@ nextLists: ["grade-3-prefix-words"]
 featured: false
 readinessSignals:
   - "Can talk about stories, information, and written work using classroom discussion words"
-  - "Writes answers that refer to a text, a topic, or a reason"
-  - "Is ready for vocabulary used in reading response, planning, and revision"
+  - "Write answers that refer to a text, a topic, or a reason"
+  - "Are ready for vocabulary used in reading response, planning, and revision"
 faq:
   - question: "Why have a separate reading and writing vocabulary list?"
     answer: "These words are the language of literacy instruction. Students use them when they discuss a text, plan a paragraph, revise a draft, or explain what an author is doing."

@@ -19,7 +19,7 @@ prerequisiteLists: ["grade-3-prefix-words", "grade-4-multisyllabic-academic-word
 nextLists: ["grade-4-advanced-suffixes"]
 readinessSignals:
   - "Can read and spell shorter prefix words without treating the prefix as a separate word"
-  - "Recognizes longer academic words as made of meaningful parts, not just syllables to memorize"
+  - "Recognize longer academic words as made of meaningful parts, not just syllables to memorize"
   - "Can use context to infer whether a prefix means between, under, across, above, or against"
 faq:
   - question: "What makes these prefixes more advanced?"

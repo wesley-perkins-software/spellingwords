@@ -19,9 +19,9 @@ prerequisiteLists: []
 nextLists: ["grade-2-list-02"]
 featured: true
 readinessSignals:
-  - "Reads early chapter-book or classroom text with increasing independence"
-  - "Writes several related sentences about a familiar topic"
-  - "Needs common school and life words to become faster and more accurate in daily writing"
+  - "Read early chapter-book or classroom text with increasing independence"
+  - "Write several related sentences about a familiar topic"
+  - "Need common school and life words to become faster and more accurate in daily writing"
 faq:
   - question: "Why are everyday words still important in second grade?"
     answer: "Second-grade writing is longer than first-grade writing, so common words appear again and again. Accurate spelling of these words keeps students from slowing down every time they write about ordinary topics."

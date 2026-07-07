@@ -25,8 +25,8 @@ nextLists:
   - silent-e-long-a
 featured: false
 readinessSignals:
-  - "Hears three sounds in a word like 'hot' clearly enough to say each one separately, then blend them back together"
-  - "Recognizes the short 'o' sound when it's spoken aloud, even before seeing it written down"
+  - "Hear three sounds in a word like 'hot' clearly enough to say each one separately, then blend them back together"
+  - "Recognize the short 'o' sound when it's spoken aloud, even before seeing it written down"
   - "Can hear the 'ck' ending in a word like 'rock' as one unit rather than two separate letters"
 faq:
   - question: "What is the short 'o' sound, and why is it taught around this stage?"

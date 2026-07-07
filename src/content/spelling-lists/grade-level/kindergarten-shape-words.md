@@ -21,7 +21,7 @@ featured: false
 readinessSignals:
   - "Can identify common shapes by sight"
   - "Can describe simple objects using shape names in speech"
-  - "Is ready to connect visual geometry vocabulary to printed words"
+  - "Are ready to connect visual geometry vocabulary to printed words"
 faq:
   - question: "Why are shape words valuable in kindergarten?"
     answer: "Shape words connect early math, visual discrimination, and vocabulary. Children use them when sorting, building, drawing, and describing objects."

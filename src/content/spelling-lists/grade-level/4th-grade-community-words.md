@@ -20,8 +20,8 @@ nextLists: ["grade-5-community-civics-words", "grade-5-science-nature-words"]
 featured: false
 readinessSignals:
   - "Can describe places, roles, and responsibilities in a town, school, or neighborhood"
-  - "Reads simple social studies passages and notices words connected to public life"
-  - "Is ready to spell civic and community vocabulary used in discussions and written responses"
+  - "Read simple social studies passages and notice words connected to public life"
+  - "Are ready to spell civic and community vocabulary used in discussions and written responses"
 faq:
   - question: "Why are community words taught in upper elementary grades?"
     answer: "Fourth graders begin studying communities, regions, and civic responsibilities in more formal ways. These words help them talk and write about how people, places, and services work together."

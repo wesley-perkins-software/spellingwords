@@ -18,7 +18,7 @@ featured: false
 readinessSignals:
   - "Can hear both sounds in the NK blend instead of dropping one of them"
   - "Can say and spell simple one-syllable words while keeping the NK letters together"
-  - "Can spell short-vowel words and is beginning to notice NK as an ending cluster"
+  - "Can spell short-vowel words and are beginning to notice NK as an ending cluster"
 faq:
   - question: "What is the NK blend?"
     answer: "It's a consonant blend where the N and K sounds sit side by side at the end of a word. Each sound is still heard, so children practice listening for both letters rather than treating the pair like one new sound."

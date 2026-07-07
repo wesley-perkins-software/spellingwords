@@ -20,7 +20,7 @@ nextLists: ["grade-3-changing-y-to-i"]
 readinessSignals:
   - "Can spell short-vowel base words such as run, sit, get, swim, stop, and plan"
   - "Can hear the difference between a short vowel and a long-vowel silent-e word"
-  - "Is ready to check the final consonant before adding endings like -ing, -ed, -er, or -est"
+  - "Are ready to check the final consonant before adding endings like -ing, -ed, -er, or -est"
 faq:
   - question: "When do you double the final consonant?"
     answer: "Many one-syllable short-vowel words that end in one consonant double that consonant before a vowel suffix. Run becomes running, and stop becomes stopped."

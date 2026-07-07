@@ -20,7 +20,7 @@ nextLists: ["silent-e-long-i"]
 featured: true
 readinessSignals:
   - "Can already spell short-a CVC words like 'cat' and 'hat' confidently"
-  - "Notices when a word 'sounds different' with an extra letter at the end, even without naming the rule yet"
+  - "Notice when a word 'sounds different' with an extra letter at the end, even without naming the rule yet"
   - "Can hear the difference between a short vowel and a long vowel that 'says its own name'"
 faq:
   - question: "What is the silent-e rule, and why is it taught right after short vowels?"

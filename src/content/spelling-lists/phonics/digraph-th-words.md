@@ -23,8 +23,8 @@ prerequisiteLists: []
 nextLists: []
 readinessSignals:
   - "Can hear /t/ and /h/ as separate sounds, which makes it easier to notice how differently they behave once joined as TH"
-  - "Already reads or recognizes several of these words in books — 'the,' 'this,' 'they' — even before spelling them independently"
-  - "Blends and segments simple three- and four-sound words confidently"
+  - "Already read or recognize several of these words in books — 'the,' 'this,' 'they' — even before spelling them independently"
+  - "Blend and segment simple three- and four-sound words confidently"
 faq:
   - question: "What is a digraph, and why does TH matter so much?"
     answer: "TH is a digraph — two letters making one sound — and it's especially important because it appears in some of the most frequently used words in English, including 'the,' 'they,' and 'this.' A child who spells TH confidently gets an outsized boost in everyday reading and writing."

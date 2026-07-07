@@ -23,8 +23,8 @@ nextLists: ['dolch-third-grade-b']
 featured: false
 readinessSignals:
   - "Can keep meaning while reading sentences that include about, better, bring, carry"
-  - "Notices small spelling differences among high-frequency words in Third Grade Part A, instead of relying only on word shape"
-  - "Uses Third Grade A words in dictated or self-written sentences with increasing independence"
+  - "Notice small spelling differences among high-frequency words in Third Grade Part A, instead of relying only on word shape"
+  - "Use Third Grade A words in dictated or self-written sentences with increasing independence"
 faq:
   - question: "What does Dolch Third Grade Part A add to sight-word practice?"
     answer: "Dolch Third Grade Part A focuses on the opening set of its tier, with words such as about, better, bring, carry. These are high-frequency service words selected for reading fluency, not a single phonics rule."

@@ -21,7 +21,7 @@ featured: false
 readinessSignals:
   - "Can name common foods from meals, stories, or classroom pictures"
   - "Can sort familiar foods by simple categories such as fruit, snack, or drink"
-  - "Is ready to connect concrete vocabulary to printed words and beginning sounds"
+  - "Are ready to connect concrete vocabulary to printed words and beginning sounds"
 faq:
   - question: "Why are food words helpful for kindergarten spelling?"
     answer: "Food words are concrete, memorable, and easy to discuss. Children can connect the spelling to real objects and experiences, which supports early word learning."

@@ -19,9 +19,9 @@ prerequisiteLists: ["grade-2-comparatives-er-est"]
 nextLists: ["grade-2-describing-words"]
 featured: false
 readinessSignals:
-  - "Writes complete sentences with a subject and verb"
+  - "Write complete sentences with a subject and verb"
   - "Can explain what a character does across more than one event in a story"
-  - "Is ready for action words with longer spellings or less obvious vowel patterns"
+  - "Are ready for action words with longer spellings or less obvious vowel patterns"
 faq:
   - question: "How are second-grade action words different from first-grade action words?"
     answer: "Second-grade verbs ask for more control. The words are still familiar, but students are expected to spell them while writing fuller sentences, retellings, and explanations."

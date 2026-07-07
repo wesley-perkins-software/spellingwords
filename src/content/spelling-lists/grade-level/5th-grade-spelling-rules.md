@@ -18,8 +18,8 @@ relatedLists: ["grade-5-prefix-suffix-words", "grade-5-greek-latin-word-parts", 
 prerequisiteLists: ["grade-4-advanced-suffixes"]
 nextLists: ["grade-5-commonly-confused-words"]
 readinessSignals:
-  - "Can spell common suffixes and is ready to compare similar academic endings"
-  - "Recognizes that long words may follow more than one spelling pattern at once"
+  - "Can spell common suffixes and are ready to compare similar academic endings"
+  - "Recognize that long words may follow more than one spelling pattern at once"
   - "Can use word families and meaning to choose between endings that sound alike"
 faq:
   - question: "Which spelling rules does this list practice?"

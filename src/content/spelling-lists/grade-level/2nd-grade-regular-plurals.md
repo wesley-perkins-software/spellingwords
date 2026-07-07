@@ -19,7 +19,7 @@ prerequisiteLists: ["grade-2-suffixes-ful-less"]
 nextLists: ["grade-2-homophones"]
 readinessSignals:
   - "Can spell common singular nouns such as dog, book, box, dish, and lunch"
-  - "Understands that plural nouns name more than one person, place, thing, or animal"
+  - "Understand that plural nouns name more than one person, place, thing, or animal"
   - "Can hear when a plural ending adds an extra syllable, as in boxes or dishes"
 faq:
   - question: "When do words add -s and when do they add -es?"

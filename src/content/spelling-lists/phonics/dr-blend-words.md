@@ -18,7 +18,7 @@ featured: false
 readinessSignals:
   - "Can hear both sounds in the DR blend instead of dropping one of them"
   - "Can say and spell simple one-syllable words while keeping the DR letters together"
-  - "Can spell short-vowel words and is beginning to notice DR as a starting cluster"
+  - "Can spell short-vowel words and are beginning to notice DR as a starting cluster"
 faq:
   - question: "What is the DR blend?"
     answer: "It's a consonant blend where the D and R sounds sit side by side at the start of a word. Each sound is still heard, so children practice listening for both letters rather than treating the pair like one new sound."

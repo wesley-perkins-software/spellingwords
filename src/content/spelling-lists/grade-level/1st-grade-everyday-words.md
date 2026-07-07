@@ -19,9 +19,9 @@ prerequisiteLists: []
 nextLists: ["grade-1-list-02"]
 featured: false
 readinessSignals:
-  - "Recognizes many common classroom and home words when reading simple text"
+  - "Recognize many common classroom and home words when reading simple text"
   - "Can write short messages, labels, or journal sentences with some sound-based spelling"
-  - "Is ready to spell useful words that appear often outside a single phonics pattern"
+  - "Are ready to spell useful words that appear often outside a single phonics pattern"
 faq:
   - question: "What makes these first-grade everyday words different from phonics lists?"
     answer: "A phonics list focuses on one spelling pattern. This list gathers useful words first graders meet across school, home, and early books, so the words are chosen for everyday need rather than one shared sound pattern."

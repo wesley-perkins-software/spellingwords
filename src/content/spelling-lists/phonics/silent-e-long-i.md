@@ -20,8 +20,8 @@ nextLists: ["silent-e-long-o"]
 featured: false
 readinessSignals:
   - "Can already explain, in their own words, why 'cake' isn't spelled 'cak' — the core silent-e idea"
-  - "Hears the short 'i' sound (as in 'sit') clearly enough to notice when it changes to long 'i'"
-  - "Treats a silent 'e' at the end of a word as a signal to check the vowel, not just an extra letter"
+  - "Hear the short 'i' sound (as in 'sit') clearly enough to notice when it changes to long 'i'"
+  - "Treat a silent 'e' at the end of a word as a signal to check the vowel, not just an extra letter"
 faq:
   - question: "Why does long I come right after long A in the silent-e sequence?"
     answer: "Once a child has learned the rule with one vowel, applying it to a second vowel confirms it's a repeatable pattern rather than something special about the letter 'a' — long I is the natural next step because the rule works exactly the same way."

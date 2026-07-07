@@ -20,8 +20,8 @@ nextLists: ["grade-5-multisyllabic-academic-words"]
 featured: false
 readinessSignals:
   - "Can state an opinion or claim and give at least one reason for it"
-  - "Reads opinion pieces or persuasive texts and notices reasons and evidence"
-  - "Is ready to use argument vocabulary while planning, drafting, and revising written responses"
+  - "Read opinion pieces or persuasive texts and notice reasons and evidence"
+  - "Are ready to use argument vocabulary while planning, drafting, and revising written responses"
 faq:
   - question: "Why are opinion and argument words important in fifth grade?"
     answer: "Fifth graders are expected to support ideas, not just state preferences. Argument vocabulary gives them the language for claims, reasons, evidence, counterpoints, and conclusions."

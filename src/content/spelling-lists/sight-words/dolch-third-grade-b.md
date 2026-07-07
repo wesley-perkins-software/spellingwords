@@ -23,8 +23,8 @@ nextLists: ['dolch-third-grade-c']
 featured: false
 readinessSignals:
   - "Can keep meaning while reading sentences that include grow, hold, hot, hurt"
-  - "Notices small spelling differences among high-frequency words in Third Grade Part B, instead of relying only on word shape"
-  - "Uses Third Grade B words in dictated or self-written sentences with increasing independence"
+  - "Notice small spelling differences among high-frequency words in Third Grade Part B, instead of relying only on word shape"
+  - "Use Third Grade B words in dictated or self-written sentences with increasing independence"
 faq:
   - question: "What does Dolch Third Grade Part B add to sight-word practice?"
     answer: "Dolch Third Grade Part B focuses on the middle set of its tier, with words such as grow, hold, hot, hurt. These are high-frequency service words selected for reading fluency, not a single phonics rule."

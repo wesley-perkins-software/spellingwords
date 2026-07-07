@@ -19,7 +19,7 @@ prerequisiteLists: ["grade-2-prefixes-un-re"]
 nextLists: ["grade-2-regular-plurals"]
 readinessSignals:
   - "Can spell familiar base words such as care, help, hope, play, and rest before adding an ending"
-  - "Understands that an ending can change a word’s meaning while the base word still remains visible"
+  - "Understand that an ending can change a word’s meaning while the base word still remains visible"
   - "Can explain the difference between having something and being without it in simple words"
 faq:
   - question: "What do -ful and -less mean?"

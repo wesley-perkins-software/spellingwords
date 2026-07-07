@@ -23,8 +23,8 @@ nextLists: ['dolch-third-grade-a']
 featured: false
 readinessSignals:
   - "Can keep meaning while reading sentences that include work, would, write, your"
-  - "Notices small spelling differences among high-frequency words in Second Grade Part D, instead of relying only on word shape"
-  - "Uses Second Grade D words in dictated or self-written sentences with increasing independence"
+  - "Notice small spelling differences among high-frequency words in Second Grade Part D, instead of relying only on word shape"
+  - "Use Second Grade D words in dictated or self-written sentences with increasing independence"
 faq:
   - question: "What does Dolch Second Grade Part D add to sight-word practice?"
     answer: "Dolch Second Grade Part D focuses on the compact closing set of its tier, with words such as work, would, write, your. These are high-frequency service words selected for reading fluency, not a single phonics rule."

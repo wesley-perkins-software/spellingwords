@@ -18,8 +18,8 @@ relatedLists: ["grade-3-suffix-words", "grade-4-advanced-prefixes", "tier-1-root
 prerequisiteLists: ["grade-3-suffix-words", "grade-4-advanced-prefixes"]
 nextLists: ["tier-1-roots-and-patterns"]
 readinessSignals:
-  - "Can spell common suffix words and is ready for longer endings such as -tion, -sion, -able, and -ible"
-  - "Recognizes that suffixes can signal nouns, adjectives, or abstract academic vocabulary"
+  - "Can spell common suffix words and are ready for longer endings such as -tion, -sion, -able, and -ible"
+  - "Recognize that suffixes can signal nouns, adjectives, or abstract academic vocabulary"
   - "Can slow down when a long ending sounds similar to another ending"
 faq:
   - question: "What makes these suffixes advanced?"

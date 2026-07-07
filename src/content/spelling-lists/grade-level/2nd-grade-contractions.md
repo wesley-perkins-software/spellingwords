@@ -19,8 +19,8 @@ prerequisiteLists: ["grade-2-list-02"]
 nextLists: ["grade-2-prefixes-un-re"]
 readinessSignals:
   - "Can read the two-word forms behind common contractions, such as can not, do not, and I am"
-  - "Understands that an apostrophe shows where letters have been left out"
-  - "Is beginning to use dialogue or informal sentences where contractions naturally appear"
+  - "Understand that an apostrophe shows where letters have been left out"
+  - "Are beginning to use dialogue or informal sentences where contractions naturally appear"
 faq:
   - question: "What is a contraction?"
     answer: "A contraction joins two words into a shorter form and uses an apostrophe to show missing letters. For example, do not becomes don’t and I am becomes I’m."

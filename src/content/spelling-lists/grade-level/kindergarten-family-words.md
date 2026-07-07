@@ -20,8 +20,8 @@ nextLists: ["kindergarten-school-words"]
 featured: false
 readinessSignals:
   - "Can name familiar family roles in speech or pictures"
-  - "Understands that words can label people and relationships"
-  - "Is ready to spell meaningful personal vocabulary from home and classroom conversation"
+  - "Understand that words can label people and relationships"
+  - "Are ready to spell meaningful personal vocabulary from home and classroom conversation"
 faq:
   - question: "Why are family words important for kindergarten?"
     answer: "Family words are emotionally meaningful and frequently used. They help children see that spelling is connected to the people and stories they care about."

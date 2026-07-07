@@ -20,8 +20,8 @@ nextLists: ['kindergarten-number-color-words']
 featured: true
 readinessSignals:
   - 'Can identify most letters and the sounds they make'
-  - 'Is starting to sound out short, familiar words while reading'
-  - "Recognizes these words in books or everyday life, even if they can't spell them yet"
+  - 'Are starting to sound out short, familiar words while reading'
+  - "Recognize these words in books or everyday life, even if they can't spell them yet"
 faq:
   - question: 'Are these really the first words kindergarteners learn to spell?'
     answer: "They're a strong starting point, not the only one. These twelve words were chosen because they're short, phonetically regular, and already part of a kindergartener's spoken vocabulary — which makes them easier to map to letters than less familiar words would be."

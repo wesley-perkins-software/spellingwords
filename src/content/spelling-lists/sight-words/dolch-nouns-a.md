@@ -22,7 +22,7 @@ nextLists: ['dolch-nouns-b']
 featured: false
 readinessSignals:
   - "Can identify familiar nouns from this set in speech or pictures, such as apple, baby, back, ball, bear"
-  - "Writes labels or captions and needs concrete naming words from Dolch Nouns Part A"
+  - "Write labels or captions and need concrete naming words from Dolch Nouns Part A"
   - "Can combine Part A nouns with service words to make short phrases rather than naming words in isolation"
 faq:
   - question: "What kinds of words are in Dolch Nouns Part A?"

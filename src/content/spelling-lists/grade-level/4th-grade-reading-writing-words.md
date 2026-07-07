@@ -20,8 +20,8 @@ nextLists: ["grade-4-multisyllabic-academic-words"]
 featured: false
 readinessSignals:
   - "Can write a paragraph that includes a main idea and supporting details"
-  - "Talks about texts using terms such as character, evidence, paragraph, or summary"
-  - "Is ready for literacy vocabulary used in analysis, response, and revision"
+  - "Talk about texts using terms such as character, evidence, paragraph, or summary"
+  - "Are ready for literacy vocabulary used in analysis, response, and revision"
 faq:
   - question: "Why are reading and writing words important in fourth grade?"
     answer: "Fourth grade asks students to explain what they read and to organize longer writing. Literacy vocabulary gives them the shared language needed for lessons, rubrics, discussions, and written responses."

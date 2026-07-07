@@ -19,8 +19,8 @@ prerequisiteLists: ["grade-4-commonly-confused-words"]
 nextLists: ["grade-5-science-nature-words"]
 readinessSignals:
   - "Can compare word meanings closely enough to explain why one choice fits a sentence better than another"
-  - "Writes reports, arguments, stories, or explanations where precise vocabulary affects credibility and clarity"
-  - "Has practiced earlier homophones and is ready for confusing pairs that may differ by part of speech, spelling pattern, or context"
+  - "Write reports, arguments, stories, or explanations where precise vocabulary affects credibility and clarity"
+  - "Have practiced earlier homophones and are ready for confusing pairs that may differ by part of speech, spelling pattern, or context"
 faq:
   - question: "What makes these words appropriate for fifth grade?"
     answer: "The pairs on this list often appear in upper-elementary writing and require more than sound matching. Students must consider meaning, grammar, and context when choosing between advice and advise, affect and effect, or desert and dessert."

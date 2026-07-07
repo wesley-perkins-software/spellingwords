@@ -20,8 +20,8 @@ nextLists: []
 featured: false
 readinessSignals:
   - "Can name simple qualities such as size, color, feeling, or speed when looking at an object or picture"
-  - "Uses oral sentences that add detail, such as a big dog or a happy child"
-  - "Is beginning to notice that describing words make a sentence more exact"
+  - "Use oral sentences that add detail, such as a big dog or a happy child"
+  - "Are beginning to notice that describing words make a sentence more exact"
 faq:
   - question: "Why are describing words important in first grade?"
     answer: "They help students say more than the basic noun or action. Describing words make early reading and writing more specific, so a child can tell the difference between a small bug, a red ball, or a quiet room."

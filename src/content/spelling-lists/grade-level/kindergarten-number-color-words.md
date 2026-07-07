@@ -20,8 +20,8 @@ nextLists: ["kindergarten-describing-words"]
 featured: false
 readinessSignals:
   - "Can count small sets and name common colors aloud"
-  - "Recognizes numerals and color words in classroom routines or picture books"
-  - "Is ready to connect familiar math and color vocabulary to printed spellings"
+  - "Recognize numerals and color words in classroom routines or picture books"
+  - "Are ready to connect familiar math and color vocabulary to printed spellings"
 faq:
   - question: "Why combine number and color words?"
     answer: "Both sets are high-use kindergarten vocabulary. Children see them in counting, sorting, calendar routines, art, books, and directions, so they make a practical early spelling group."

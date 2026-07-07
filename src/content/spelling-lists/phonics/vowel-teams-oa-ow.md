@@ -21,7 +21,7 @@ featured: false
 readinessSignals:
   - "Can recognize the long-o sound from silent-e words before meeting OA and OW spellings"
   - "Can listen for whether the long-o sound comes in the middle or at the end of a word"
-  - "Is ready to apply a position clue while spelling common long-o words"
+  - "Are ready to apply a position clue while spelling common long-o words"
 faq:
   - question: "What do OA and OW have in common?"
     answer: "OA and OW can both spell the long-o sound. They give students another way to spell that sound besides silent e, as in 'boat' and 'snow.'"

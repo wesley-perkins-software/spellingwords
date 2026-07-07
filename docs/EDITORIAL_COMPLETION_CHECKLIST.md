@@ -19,7 +19,7 @@ This is the master tracking document for the Editorial Completion project: writi
 |---|---|---:|---:|---:|
 | 1 | Beginning vocabulary | 10 | 1 | 9 |
 | 2 | Grade-level vocabulary | 20 | 0 | 20 |
-| 3 | Phonics pattern pages | 53 | 24 | 29 |
+| 3 | Phonics pattern pages | 53 | 53 | 0 |
 | 4 | Spelling rule pages | 6 | 0 | 6 |
 | 5 | Sight-word pages | 24 | 0 | 24 |
 | 6 | Prefix pages | 4 | 0 | 4 |
@@ -27,17 +27,17 @@ This is the master tracking document for the Editorial Completion project: writi
 | 8 | Root-word pages | 4 | 0 | 4 |
 | 9 | Homophone pages | 4 | 0 | 4 |
 | 10 | Morphology pages | 4 | 0 | 4 |
-| — | **Total (excludes 1 archived phonics list)** | **134** | **25** | **109** |
+| — | **Total (excludes 1 archived phonics list)** | **134** | **54** | **80** |
 
 ## Progress summary by category folder
 
 | Category | Total | Complete | Remaining | Notes |
 |---|---:|---:|---:|---|
-| phonics | 53 | 24 | 29 | Excludes `short-vowels-cvc-words` (archived, not counted) |
+| phonics | 53 | 53 | 0 | Excludes `short-vowels-cvc-words` (archived, not counted) |
 | sight-words | 24 | 0 | 24 | |
 | grade-level | 54 | 1 | 53 | `kindergarten-first-words` already complete (pre-existing reference example) |
 | challenge | 3 | 0 | 3 | `tier-2-greek-latin-roots.md` lives in `challenge/` but its frontmatter `category: grade-level` — a pre-existing mismatch, noted here for awareness, not fixed by this project |
-| **Total** | **134** | **25** | **109** | |
+| **Total** | **134** | **54** | **80** | |
 
 ---
 
@@ -97,40 +97,40 @@ This is the master tracking document for the Editorial Completion project: writi
 
 | List (file) | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|
-| bl-blend-words | ⬜ | ⬜ | not yet | |
-| br-blend-words | ⬜ | ⬜ | not yet | |
-| cl-blend-words | ⬜ | ⬜ | not yet | |
-| cr-blend-words | ⬜ | ⬜ | not yet | |
-| dr-blend-words | ⬜ | ⬜ | not yet | |
-| fl-blend-words | ⬜ | ⬜ | not yet | |
-| fr-blend-words | ⬜ | ⬜ | not yet | |
-| gl-blend-words | ⬜ | ⬜ | not yet | |
-| gr-blend-words | ⬜ | ⬜ | not yet | |
-| pl-blend-words | ⬜ | ⬜ | not yet | |
-| pr-blend-words | ⬜ | ⬜ | not yet | |
-| sl-blend-words | ⬜ | ⬜ | not yet | |
-| sm-blend-words | ⬜ | ⬜ | not yet | |
-| sn-blend-words | ⬜ | ⬜ | not yet | |
-| sp-blend-words | ⬜ | ⬜ | not yet | |
-| st-blend-words | ⬜ | ⬜ | not yet | |
-| sw-blend-words | ⬜ | ⬜ | not yet | |
-| tr-blend-words | ⬜ | ⬜ | not yet | |
+| bl-blend-words | ✅ | ✅ | fine as-is | |
+| br-blend-words | ✅ | ✅ | fine as-is | |
+| cl-blend-words | ✅ | ✅ | fine as-is | |
+| cr-blend-words | ✅ | ✅ | fine as-is | |
+| dr-blend-words | ✅ | ✅ | fine as-is | |
+| fl-blend-words | ✅ | ✅ | fine as-is | |
+| fr-blend-words | ✅ | ✅ | fine as-is | |
+| gl-blend-words | ✅ | ✅ | fine as-is | |
+| gr-blend-words | ✅ | ✅ | fine as-is | |
+| pl-blend-words | ✅ | ✅ | fine as-is | |
+| pr-blend-words | ✅ | ✅ | fine as-is | |
+| sl-blend-words | ✅ | ✅ | fine as-is | |
+| sm-blend-words | ✅ | ✅ | fine as-is | |
+| sn-blend-words | ✅ | ✅ | fine as-is | |
+| sp-blend-words | ✅ | ✅ | fine as-is | |
+| st-blend-words | ✅ | ✅ | fine as-is | |
+| sw-blend-words | ✅ | ✅ | fine as-is | |
+| tr-blend-words | ✅ | ✅ | fine as-is | |
 
 ### Final blends
 
 | List (file) | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|
-| ft-final-blend-words | ⬜ | ⬜ | not yet | |
-| ld-final-blend-words | ⬜ | ⬜ | not yet | |
-| lk-final-blend-words | ⬜ | ⬜ | not yet | |
-| lt-final-blend-words | ⬜ | ⬜ | not yet | |
-| mp-final-blend-words | ⬜ | ⬜ | not yet | |
-| nd-final-blend-words | ⬜ | ⬜ | not yet | |
-| ng-final-blend-words | ⬜ | ⬜ | not yet | |
-| nk-final-blend-words | ⬜ | ⬜ | not yet | |
-| nt-final-blend-words | ⬜ | ⬜ | not yet | |
-| sk-final-blend-words | ⬜ | ⬜ | not yet | |
-| st-final-blend-words | ⬜ | ⬜ | not yet | |
+| ft-final-blend-words | ✅ | ✅ | fine as-is | |
+| ld-final-blend-words | ✅ | ✅ | fine as-is | |
+| lk-final-blend-words | ✅ | ✅ | fine as-is | |
+| lt-final-blend-words | ✅ | ✅ | fine as-is | |
+| mp-final-blend-words | ✅ | ✅ | fine as-is | |
+| nd-final-blend-words | ✅ | ✅ | fine as-is | |
+| ng-final-blend-words | ✅ | ✅ | fine as-is | |
+| nk-final-blend-words | ✅ | ✅ | fine as-is | |
+| nt-final-blend-words | ✅ | ✅ | fine as-is | |
+| sk-final-blend-words | ✅ | ✅ | fine as-is | |
+| st-final-blend-words | ✅ | ✅ | fine as-is | |
 
 ---
 
@@ -265,6 +265,7 @@ This is the master tracking document for the Editorial Completion project: writi
 
 ## shortAnswer observations (running notes, not a decision)
 
+- **2026-07-07** — Completed the remaining 29 published phonics blend pages (initial blends ×18, final blends ×11) with hand-authored `readinessSignals` and `faq` content, reviewed all phonics `shortAnswer` fields, and performed a full phonics relationship QA sweep. The single-skill blend lists now use an explicit instructional chain from initial blends into final blends, then onward to vowel teams, using `id` values only; no published phonics page references the archived `short-vowels-cvc-words` page. Phonics archetype is now complete: 53/53 published pages.
 - **2026-07-07** — Reviewed `shortAnswer` for the 16 phonics lists completed in this batch (short vowels ×5, silent-e long vowels ×5, digraphs ×6). All 16 read as accurate, teacher-voiced, one-sentence summaries and none felt redundant with the new FAQ content — the FAQ's first question answers "why does this pattern matter," while `shortAnswer` is closer to a plain "what this list is," so they serve different purposes even sitting close together conceptually. No pattern yet suggesting `shortAnswer` needs a rewrite pass. Still not rendered anywhere on the list-detail page (only used on the `spelling-collections` template) — no page-architecture change made or proposed here; this remains an open `EDITORIAL_SYSTEM.md` "Future TODO" to revisit once more archetypes have been through this same review.
 - **2026-07-07 (r-controlled + vowel-team batch)** — Reviewed `shortAnswer` for 8 additional published phonics lists: r-controlled vowels ×3 and vowel teams ×5. All 8 remain accurate one-sentence summaries of the target pattern, and none needed edits while adding readiness/FAQ. Vowel-team `shortAnswer` entries consistently name the sound and example words; r-controlled entries correctly distinguish AR, OR, and ER/IR/UR. No new evidence that `shortAnswer` should render on list-detail pages yet. Batch relationship checks found all `prerequisiteLists`, `nextLists`, and `relatedLists` references resolving to published lists; no archived references found in this batch. Duplicate checks across readiness sentences, FAQ questions, and FAQ answers found no exact duplicates.
 - **2026-07-07 (refinement pass)** — Did a quality refinement of the same 16 lists after the initial batch: reworded readiness signals to read as learner-fit outcomes rather than "has completed list X" prerequisite checklists; removed a `readinessSignals`/`faq` content overlap on the TH and WH digraph pages (voiced/unvoiced and the "who" exception were each stated twice); fixed a broken content-graph reference where `c-k-ck-words` and `tch-dge-ending-words` pointed at the archived `short-vowels-cvc-words` list (dead link, silently dropped by the template); added `nextLists` from Short E/I/O/U to Long A Silent E Words, matching the existing Short A → Long A link so all five short-vowel lists now have a real "ready for next" path instead of three dead ends; added reciprocal `relatedLists` between each short-vowel list and its silent-e counterpart. `shortAnswer` conclusion unchanged by this pass.

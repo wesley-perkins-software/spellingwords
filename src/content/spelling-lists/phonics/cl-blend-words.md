@@ -15,12 +15,27 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 featured: false
+readinessSignals:
+  - "Can hear both sounds in the CL blend instead of dropping one of them"
+  - "Can say and spell simple one-syllable words while keeping the CL letters together"
+  - "Is comfortable with short-vowel words and ready to practice consonant clusters inside real words"
+faq:
+  - question: "What is the CL blend?"
+    answer: "It's a consonant blend where the C and L sounds sit side by side at the start of a word. Each sound is still heard, so children practice listening for both letters rather than treating the pair like one new sound."
+  - question: "Why practice CL words separately?"
+    answer: "A focused list makes the blend easy to notice. Instead of juggling many consonant clusters at once, children can build accuracy with CL in familiar words like clap, class, clay."
+  - question: "Should these words be sounded out or memorized?"
+    answer: "Sounded out. The point is to hear and spell each consonant in the blend, then connect that blend to the rest of the word."
+  - question: "What should a child practice next?"
+    answer: "Move to another blend list after this one feels steady; the goal is flexible attention to both consonants across many beginning and ending clusters."
 relatedLists:
   - bl-blend-words
   - br-blend-words
   - cr-blend-words
-prerequisiteLists: []
-nextLists: []
+prerequisiteLists:
+  - br-blend-words
+nextLists:
+  - cr-blend-words
 words:
   - clap
   - class

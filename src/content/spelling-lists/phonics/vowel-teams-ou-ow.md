@@ -18,6 +18,19 @@ relatedLists: ["vowel-teams-oi-oy", "r-controlled-ar"]
 prerequisiteLists: ["vowel-teams-oi-oy"]
 nextLists: ["r-controlled-ar"]
 featured: false
+readinessSignals:
+  - "Can recognize earlier vowel teams and is ready for OW to represent a different sound than it did in long-o words"
+  - "Can hear the gliding vowel sound in spoken words like 'out,' 'cow,' and 'down'"
+  - "Is ready to learn common word spellings even when position clues are less reliable"
+faq:
+  - question: "What sound do OU and OW make in this list?"
+    answer: "They make the diphthong heard in 'out' and 'cow.' The sound glides, so students should listen for the whole vowel movement rather than a short or long vowel."
+  - question: "Is there a rule for choosing OU or OW?"
+    answer: "There is no rule as dependable as AI/AY or OI/OY. OW often appears at the end, but both spellings can appear in the middle of words, so common examples need repeated practice."
+  - question: "How is this OW different from the OW in 'snow'?"
+    answer: "The same letters can spell different sounds. In 'snow,' OW spells long O; in 'cow' and 'down,' OW spells the OU/OW diphthong."
+  - question: "Why practice OU/OW before r-controlled vowels?"
+    answer: "OU/OW gives students more experience noticing vowel teams before they move to words where R changes the vowel. It also prepares them for comparing vowel spellings that cannot be chosen by sound alone."
 words:
   - brown
   - cow

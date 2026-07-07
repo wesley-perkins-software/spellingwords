@@ -20,6 +20,19 @@ relatedLists:
   - r-controlled-or
 prerequisiteLists: []
 nextLists: []
+readinessSignals:
+  - "Can already recognize simpler r-controlled patterns like AR or OR in reading"
+  - "Can hear the shared /er/ sound in spoken words such as 'her,' 'bird,' and 'turn'"
+  - "Is ready to notice that the same sound can have more than one correct spelling"
+faq:
+  - question: "Why are ER, IR, and UR taught together?"
+    answer: "They are taught together because they can all spell the same r-controlled vowel sound. That makes this list a spelling-choice lesson, not just a sound lesson."
+  - question: "Is there a rule for choosing ER, IR, or UR?"
+    answer: "There is no dependable rule that works for all common words. Students learn the correct spelling by reading and writing real words often enough that 'girl,' 'turn,' and 'her' start to look right."
+  - question: "How is this different from AR and OR words?"
+    answer: "AR and OR usually give students a clearer sound-to-spelling match. ER, IR, and UR ask students to remember which of three spellings belongs in each word, even though the vowel sound may be the same."
+  - question: "Why include words like 'sister,' 'under,' and 'winter'?"
+    answer: "Those words show the r-controlled sound inside longer, very common words. They help students carry the pattern beyond short examples like 'her' and 'bird.'"
 words:
   - bird
   - first

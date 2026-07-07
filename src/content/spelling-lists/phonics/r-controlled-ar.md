@@ -18,6 +18,19 @@ relatedLists: ["vowel-teams-ou-ow"]
 prerequisiteLists: ["vowel-teams-ou-ow"]
 nextLists: []
 featured: false
+readinessSignals:
+  - "Can spell short-a and long-a words, then notice that AR makes a third sound rather than either familiar vowel sound"
+  - "Can hear the /ar/ sound in spoken words like 'car' and 'farm' before choosing the letters"
+  - "Is beginning to read one-syllable words where the vowel sound changes because R follows it"
+faq:
+  - question: "What is an r-controlled AR word?"
+    answer: "In an r-controlled word, the letter R changes the vowel sound before it. AR usually makes the sound heard in 'car,' so learners need to treat the A and R as a team instead of sounding the A as short or long."
+  - question: "How is AR different from short A or silent-e long A?"
+    answer: "Short A says the vowel sound in 'cat,' and silent-e long A says the vowel name in 'cake.' AR makes a different vowel sound because the R controls the A, as in 'park' and 'yard.'"
+  - question: "Should AR words be sounded out or memorized?"
+    answer: "They should be sounded out by recognizing AR as one spelling pattern. Some high-frequency AR words still need repeated practice, but the pattern gives students a reliable starting point."
+  - question: "What makes words like 'large' and 'sharp' useful in this list?"
+    answer: "They show that AR can appear before different consonants and in words of different lengths. That variety helps students avoid thinking AR only belongs in very short words like 'car.'"
 words:
   - art
   - barn

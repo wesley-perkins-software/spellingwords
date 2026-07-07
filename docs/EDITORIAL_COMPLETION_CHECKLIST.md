@@ -19,7 +19,7 @@ This is the master tracking document for the Editorial Completion project: writi
 |---|---|---:|---:|---:|
 | 1 | Beginning vocabulary | 10 | 1 | 9 |
 | 2 | Grade-level vocabulary | 20 | 0 | 20 |
-| 3 | Phonics pattern pages | 53 | 16 | 37 |
+| 3 | Phonics pattern pages | 53 | 24 | 29 |
 | 4 | Spelling rule pages | 6 | 0 | 6 |
 | 5 | Sight-word pages | 24 | 0 | 24 |
 | 6 | Prefix pages | 4 | 0 | 4 |
@@ -27,17 +27,17 @@ This is the master tracking document for the Editorial Completion project: writi
 | 8 | Root-word pages | 4 | 0 | 4 |
 | 9 | Homophone pages | 4 | 0 | 4 |
 | 10 | Morphology pages | 4 | 0 | 4 |
-| — | **Total (excludes 1 archived phonics list)** | **134** | **17** | **117** |
+| — | **Total (excludes 1 archived phonics list)** | **134** | **25** | **109** |
 
 ## Progress summary by category folder
 
 | Category | Total | Complete | Remaining | Notes |
 |---|---:|---:|---:|---|
-| phonics | 53 | 16 | 37 | Excludes `short-vowels-cvc-words` (archived, not counted) |
+| phonics | 53 | 24 | 29 | Excludes `short-vowels-cvc-words` (archived, not counted) |
 | sight-words | 24 | 0 | 24 | |
 | grade-level | 54 | 1 | 53 | `kindergarten-first-words` already complete (pre-existing reference example) |
 | challenge | 3 | 0 | 3 | `tier-2-greek-latin-roots.md` lives in `challenge/` but its frontmatter `category: grade-level` — a pre-existing mismatch, noted here for awareness, not fixed by this project |
-| **Total** | **134** | **17** | **117** | |
+| **Total** | **134** | **25** | **109** | |
 
 ---
 
@@ -48,10 +48,10 @@ This is the master tracking document for the Editorial Completion project: writi
 | List (file) | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|
 | short-a-words | ✅ | ✅ | fine as-is | |
-| short-e-words | ✅ | ✅ | fine as-is | `nextLists` empty (pre-existing gap, not fixed here) |
-| short-i-words | ✅ | ✅ | fine as-is | `nextLists` empty (pre-existing gap, not fixed here) |
-| short-o-words | ✅ | ✅ | fine as-is | `nextLists` empty (pre-existing gap, not fixed here) |
-| short-u-words | ✅ | ✅ | fine as-is | `nextLists` empty (pre-existing gap, not fixed here) |
+| short-e-words | ✅ | ✅ | fine as-is | |
+| short-i-words | ✅ | ✅ | fine as-is | |
+| short-o-words | ✅ | ✅ | fine as-is | |
+| short-u-words | ✅ | ✅ | fine as-is | |
 | short-vowels-cvc-words | N/A | N/A | N/A | `status: archived` — superseded by the five lists above, excluded from scope |
 
 ### Silent-e long vowels
@@ -79,19 +79,19 @@ This is the master tracking document for the Editorial Completion project: writi
 
 | List (file) | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|
-| r-controlled-ar | ⬜ | ⬜ | not yet | |
-| r-controlled-er-ir-ur | ⬜ | ⬜ | not yet | |
-| r-controlled-or | ⬜ | ⬜ | not yet | |
+| r-controlled-ar | ✅ | ✅ | fine as-is | |
+| r-controlled-er-ir-ur | ✅ | ✅ | fine as-is | |
+| r-controlled-or | ✅ | ✅ | fine as-is | |
 
 ### Vowel teams
 
 | List (file) | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|
-| vowel-teams-ai-ay | ⬜ | ⬜ | not yet | |
-| vowel-teams-ee-ea | ⬜ | ⬜ | not yet | |
-| vowel-teams-oa-ow | ⬜ | ⬜ | not yet | |
-| vowel-teams-oi-oy | ⬜ | ⬜ | not yet | |
-| vowel-teams-ou-ow | ⬜ | ⬜ | not yet | |
+| vowel-teams-ai-ay | ✅ | ✅ | fine as-is | |
+| vowel-teams-ee-ea | ✅ | ✅ | fine as-is | |
+| vowel-teams-oa-ow | ✅ | ✅ | fine as-is | |
+| vowel-teams-oi-oy | ✅ | ✅ | fine as-is | |
+| vowel-teams-ou-ow | ✅ | ✅ | fine as-is | |
 
 ### Initial blends
 
@@ -266,4 +266,5 @@ This is the master tracking document for the Editorial Completion project: writi
 ## shortAnswer observations (running notes, not a decision)
 
 - **2026-07-07** — Reviewed `shortAnswer` for the 16 phonics lists completed in this batch (short vowels ×5, silent-e long vowels ×5, digraphs ×6). All 16 read as accurate, teacher-voiced, one-sentence summaries and none felt redundant with the new FAQ content — the FAQ's first question answers "why does this pattern matter," while `shortAnswer` is closer to a plain "what this list is," so they serve different purposes even sitting close together conceptually. No pattern yet suggesting `shortAnswer` needs a rewrite pass. Still not rendered anywhere on the list-detail page (only used on the `spelling-collections` template) — no page-architecture change made or proposed here; this remains an open `EDITORIAL_SYSTEM.md` "Future TODO" to revisit once more archetypes have been through this same review.
+- **2026-07-07 (r-controlled + vowel-team batch)** — Reviewed `shortAnswer` for 8 additional published phonics lists: r-controlled vowels ×3 and vowel teams ×5. All 8 remain accurate one-sentence summaries of the target pattern, and none needed edits while adding readiness/FAQ. Vowel-team `shortAnswer` entries consistently name the sound and example words; r-controlled entries correctly distinguish AR, OR, and ER/IR/UR. No new evidence that `shortAnswer` should render on list-detail pages yet. Batch relationship checks found all `prerequisiteLists`, `nextLists`, and `relatedLists` references resolving to published lists; no archived references found in this batch. Duplicate checks across readiness sentences, FAQ questions, and FAQ answers found no exact duplicates.
 - **2026-07-07 (refinement pass)** — Did a quality refinement of the same 16 lists after the initial batch: reworded readiness signals to read as learner-fit outcomes rather than "has completed list X" prerequisite checklists; removed a `readinessSignals`/`faq` content overlap on the TH and WH digraph pages (voiced/unvoiced and the "who" exception were each stated twice); fixed a broken content-graph reference where `c-k-ck-words` and `tch-dge-ending-words` pointed at the archived `short-vowels-cvc-words` list (dead link, silently dropped by the template); added `nextLists` from Short E/I/O/U to Long A Silent E Words, matching the existing Short A → Long A link so all five short-vowel lists now have a real "ready for next" path instead of three dead ends; added reciprocal `relatedLists` between each short-vowel list and its silent-e counterpart. `shortAnswer` conclusion unchanged by this pass.

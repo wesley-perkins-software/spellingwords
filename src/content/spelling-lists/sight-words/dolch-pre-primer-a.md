@@ -21,6 +21,19 @@ relatedLists: ['dolch-pre-primer-b', 'dolch-pre-primer-c']
 prerequisiteLists: []
 nextLists: ['dolch-pre-primer-b']
 featured: false
+readinessSignals:
+  - "Recognizes several environmental-print words or names and is beginning to notice short printed words in books"
+  - "Can match simple spoken words to print with adult support, especially words like a, and, go, and can"
+  - "Is ready to practice very common sentence-building words before longer phonics patterns are secure"
+faq:
+  - question: "What are Dolch Pre-Primer sight words?"
+    answer: "Dolch Pre-Primer words are the earliest high-frequency service words from the Dolch list. Part A begins with short, useful words children see constantly in beginning books, including a, and, can, for, go, and here."
+  - question: "Why are words like a and and taught as sight words?"
+    answer: "They appear so often that slow decoding can interrupt reading fluency. Children still notice letters and sounds, but the goal is quick recognition during real reading."
+  - question: "Should children memorize this Part A list?"
+    answer: "Yes, but memorization should be active: read the word, say it, trace or write it, and use it in a short phrase. These words become most secure when children meet them in books and sentences, not only on flash cards."
+  - question: "What should a child practice after Pre-Primer Part A?"
+    answer: "Pre-Primer Part B is the next practice-sized set in the same early Dolch tier. Move on when most Part A words are recognized quickly and spelled with only occasional support."
 words:
   - "a"
   - "and"

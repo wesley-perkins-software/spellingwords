@@ -21,23 +21,23 @@ This is the master tracking document for the Editorial Completion project: writi
 | 2 | Grade-level vocabulary | 20 | 0 | 20 |
 | 3 | Phonics pattern pages | 53 | 53 | 0 |
 | 4 | Spelling rule pages | 6 | 0 | 6 |
-| 5 | Sight-word pages | 24 | 0 | 24 |
+| 5 | Sight-word pages | 24 | 24 | 0 |
 | 6 | Prefix pages | 4 | 0 | 4 |
 | 7 | Suffix pages | 5 | 0 | 5 |
 | 8 | Root-word pages | 4 | 0 | 4 |
 | 9 | Homophone pages | 4 | 0 | 4 |
 | 10 | Morphology pages | 4 | 0 | 4 |
-| — | **Total (excludes 1 archived phonics list)** | **134** | **54** | **80** |
+| — | **Total (excludes 1 archived phonics list)** | **134** | **78** | **56** |
 
 ## Progress summary by category folder
 
 | Category | Total | Complete | Remaining | Notes |
 |---|---:|---:|---:|---|
 | phonics | 53 | 53 | 0 | Excludes `short-vowels-cvc-words` (archived, not counted) |
-| sight-words | 24 | 0 | 24 | |
+| sight-words | 24 | 24 | 0 | Dolch service-word sequence and supplemental Dolch nouns complete |
 | grade-level | 54 | 1 | 53 | `kindergarten-first-words` already complete (pre-existing reference example) |
 | challenge | 3 | 0 | 3 | `tier-2-greek-latin-roots.md` lives in `challenge/` but its frontmatter `category: grade-level` — a pre-existing mismatch, noted here for awareness, not fixed by this project |
-| **Total** | **134** | **54** | **80** | |
+| **Total** | **134** | **78** | **56** | |
 
 ---
 
@@ -138,30 +138,37 @@ This is the master tracking document for the Editorial Completion project: writi
 
 | List (file) | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|
-| dolch-pre-primer-a | ⬜ | ⬜ | not yet | |
-| dolch-pre-primer-b | ⬜ | ⬜ | not yet | |
-| dolch-pre-primer-c | ⬜ | ⬜ | not yet | |
-| dolch-primer-a | ⬜ | ⬜ | not yet | |
-| dolch-primer-b | ⬜ | ⬜ | not yet | |
-| dolch-primer-c | ⬜ | ⬜ | not yet | |
-| dolch-primer-d | ⬜ | ⬜ | not yet | |
-| dolch-first-grade-a | ⬜ | ⬜ | not yet | |
-| dolch-first-grade-b | ⬜ | ⬜ | not yet | |
-| dolch-first-grade-c | ⬜ | ⬜ | not yet | |
-| dolch-second-grade-a | ⬜ | ⬜ | not yet | |
-| dolch-second-grade-b | ⬜ | ⬜ | not yet | |
-| dolch-second-grade-c | ⬜ | ⬜ | not yet | |
-| dolch-second-grade-d | ⬜ | ⬜ | not yet | |
-| dolch-third-grade-a | ⬜ | ⬜ | not yet | |
-| dolch-third-grade-b | ⬜ | ⬜ | not yet | |
-| dolch-third-grade-c | ⬜ | ⬜ | not yet | |
-| dolch-nouns-a | ⬜ | ⬜ | not yet | |
-| dolch-nouns-b | ⬜ | ⬜ | not yet | |
-| dolch-nouns-c | ⬜ | ⬜ | not yet | |
-| dolch-nouns-d | ⬜ | ⬜ | not yet | |
-| dolch-nouns-e | ⬜ | ⬜ | not yet | |
-| dolch-nouns-f | ⬜ | ⬜ | not yet | |
-| dolch-nouns-g | ⬜ | ⬜ | not yet | |
+| dolch-pre-primer-a | ✅ | ✅ | reviewed | |
+| dolch-pre-primer-b | ✅ | ✅ | reviewed | |
+| dolch-pre-primer-c | ✅ | ✅ | reviewed | |
+| dolch-primer-a | ✅ | ✅ | reviewed | |
+| dolch-primer-b | ✅ | ✅ | reviewed | |
+| dolch-primer-c | ✅ | ✅ | reviewed | |
+| dolch-primer-d | ✅ | ✅ | reviewed | |
+| dolch-first-grade-a | ✅ | ✅ | reviewed | |
+| dolch-first-grade-b | ✅ | ✅ | reviewed | |
+| dolch-first-grade-c | ✅ | ✅ | reviewed | |
+| dolch-second-grade-a | ✅ | ✅ | reviewed | |
+| dolch-second-grade-b | ✅ | ✅ | reviewed | |
+| dolch-second-grade-c | ✅ | ✅ | reviewed | |
+| dolch-second-grade-d | ✅ | ✅ | reviewed | |
+| dolch-third-grade-a | ✅ | ✅ | reviewed | |
+| dolch-third-grade-b | ✅ | ✅ | reviewed | |
+| dolch-third-grade-c | ✅ | ✅ | reviewed | |
+| dolch-nouns-a | ✅ | ✅ | reviewed | |
+| dolch-nouns-b | ✅ | ✅ | reviewed | |
+| dolch-nouns-c | ✅ | ✅ | reviewed | |
+| dolch-nouns-d | ✅ | ✅ | reviewed | |
+| dolch-nouns-e | ✅ | ✅ | reviewed | |
+| dolch-nouns-f | ✅ | ✅ | reviewed | |
+| dolch-nouns-g | ✅ | ✅ | reviewed | |
+
+### Sight words completion notes
+
+- Completed all 24 published sight-word list pages: Dolch Pre-Primer, Primer, First Grade, Second Grade, Third Grade, and supplemental Dolch Nouns.
+- Reviewed `shortAnswer` across the sight-word batch and left the existing concise collection summaries in place; no page-architecture changes were made.
+- Relationship QA confirmed every sight-word `prerequisiteLists`, `nextLists`, and `relatedLists` ID resolves to a published list. The core Dolch service-word sequence now progresses from Pre-Primer through Third Grade across tier boundaries, while Dolch Nouns remains a separate supplemental sequence.
+- Duplicate QA found and resolved repeated readiness/FAQ language during the batch pass; final exact-duplicate checks across sight-word readiness signals, FAQ questions, and FAQ answers returned zero duplicates.
 
 ---
 

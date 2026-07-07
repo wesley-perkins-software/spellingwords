@@ -20,6 +20,19 @@ relatedLists: ['dolch-nouns-a', 'dolch-nouns-b', 'dolch-nouns-c', 'dolch-nouns-d
 prerequisiteLists: ['dolch-nouns-d']
 nextLists: ['dolch-nouns-f']
 featured: false
+readinessSignals:
+  - "Can identify familiar nouns from this set in speech or pictures, such as money, morning, mother, name, nest"
+  - "Writes labels or captions and needs concrete naming words from Dolch Nouns Part E"
+  - "Can combine Part E nouns with service words to make short phrases rather than naming words in isolation"
+faq:
+  - question: "What kinds of words are in Dolch Nouns Part E?"
+    answer: "This supplemental Dolch noun set includes concrete naming words such as money, morning, mother, name, nest. They help children spell people, animals, objects, foods, and places that often appear in early reading."
+  - question: "Is Dolch Nouns Part E part of the main Dolch grade sequence?"
+    answer: "No. Part E belongs to the supplemental noun collection, so it stays separate from the Pre-Primer through Third Grade service-word sequence and should not be treated as the next level after Third Grade."
+  - question: "How should students practice the nouns in Part E?"
+    answer: "Picture naming, sorting, and short sentence writing work well because these words name concrete things. Pairing a noun with service words, such as my money or see the morning, makes practice more meaningful."
+  - question: "Why are nouns like robin included with sight words?"
+    answer: "Dolch included Part E nouns because words like these are common in children's books, even when some can also be decoded with phonics. Practicing them supports fluent reading and more useful early writing."
 words:
   - "money"
   - "morning"

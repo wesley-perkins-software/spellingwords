@@ -18,9 +18,22 @@ canonicalSource:
   name: Dolch
   tier: primer
 relatedLists: ['dolch-primer-b', 'dolch-primer-c', 'dolch-primer-d']
-prerequisiteLists: []
+prerequisiteLists: ['dolch-pre-primer-c']
 nextLists: ['dolch-primer-b']
 featured: false
+readinessSignals:
+  - "Can keep meaning while reading sentences that include all, am, are, at"
+  - "Notices small spelling differences among high-frequency words in Primer Part A, instead of relying only on word shape"
+  - "Uses Primer A words in dictated or self-written sentences with increasing independence"
+faq:
+  - question: "What does Dolch Primer Part A add to sight-word practice?"
+    answer: "Dolch Primer Part A focuses on the opening set of its tier, with words such as all, am, are, at. These are high-frequency service words selected for reading fluency, not a single phonics rule."
+  - question: "Should Dolch Primer Part A words be memorized?"
+    answer: "Primer A words should become automatic, but practice should still involve looking closely at letters, saying the word, and using it in a phrase. That keeps memorization tied to reading and spelling rather than guessing from flash-card shape."
+  - question: "Why might all or four be tricky for students?"
+    answer: "Some Primer A words include common spellings that do not match a beginner's first sound-it-out attempt. Slow visual checking and sentence dictation help students store the exact letter order."
+  - question: "When should a learner leave Dolch Primer Part A?"
+    answer: "Move on from Primer A when most words are read promptly in mixed order and spelled correctly in short phrases. If the learner only knows the words in list order, keep practicing with sentences before advancing."
 words:
   - "all"
   - "am"

@@ -21,6 +21,19 @@ relatedLists: ['dolch-first-grade-a', 'dolch-first-grade-c']
 prerequisiteLists: ['dolch-first-grade-a']
 nextLists: ['dolch-first-grade-c']
 featured: false
+readinessSignals:
+  - "Can keep meaning while reading sentences that include has, her, him, his"
+  - "Notices small spelling differences among high-frequency words in First Grade Part B, instead of relying only on word shape"
+  - "Uses First Grade B words in dictated or self-written sentences with increasing independence"
+faq:
+  - question: "What does Dolch First Grade Part B add to sight-word practice?"
+    answer: "Dolch First Grade Part B focuses on the middle set of its tier, with words such as has, her, him, his. These are high-frequency service words selected for reading fluency, not a single phonics rule."
+  - question: "Should Dolch First Grade Part B words be memorized?"
+    answer: "First Grade B words should become automatic, but practice should still involve looking closely at letters, saying the word, and using it in a phrase. That keeps memorization tied to reading and spelling rather than guessing from flash-card shape."
+  - question: "Why might has or open be tricky for students?"
+    answer: "Some First Grade B words include common spellings that do not match a beginner's first sound-it-out attempt. Slow visual checking and sentence dictation help students store the exact letter order."
+  - question: "When should a learner leave Dolch First Grade Part B?"
+    answer: "Move on from First Grade B when most words are read promptly in mixed order and spelled correctly in short phrases. If the learner only knows the words in list order, keep practicing with sentences before advancing."
 words:
   - "has"
   - "her"

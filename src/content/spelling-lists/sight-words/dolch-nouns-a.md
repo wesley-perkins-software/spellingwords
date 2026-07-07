@@ -20,6 +20,19 @@ relatedLists: ['dolch-nouns-b', 'dolch-nouns-c', 'dolch-nouns-d', 'dolch-nouns-e
 prerequisiteLists: []
 nextLists: ['dolch-nouns-b']
 featured: false
+readinessSignals:
+  - "Can identify familiar nouns from this set in speech or pictures, such as apple, baby, back, ball, bear"
+  - "Writes labels or captions and needs concrete naming words from Dolch Nouns Part A"
+  - "Can combine Part A nouns with service words to make short phrases rather than naming words in isolation"
+faq:
+  - question: "What kinds of words are in Dolch Nouns Part A?"
+    answer: "This supplemental Dolch noun set includes concrete naming words such as apple, baby, back, ball, bear. They help children spell people, animals, objects, foods, and places that often appear in early reading."
+  - question: "Is Dolch Nouns Part A part of the main Dolch grade sequence?"
+    answer: "No. Part A belongs to the supplemental noun collection, so it stays separate from the Pre-Primer through Third Grade service-word sequence and should not be treated as the next level after Third Grade."
+  - question: "How should students practice the nouns in Part A?"
+    answer: "Picture naming, sorting, and short sentence writing work well because these words name concrete things. Pairing a noun with service words, such as my apple or see the baby, makes practice more meaningful."
+  - question: "Why are nouns like brother included with sight words?"
+    answer: "Dolch included Part A nouns because words like these are common in children's books, even when some can also be decoded with phonics. Practicing them supports fluent reading and more useful early writing."
 words:
   - "apple"
   - "baby"

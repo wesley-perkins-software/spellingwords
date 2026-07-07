@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-3-doubling-final-consonants", "grade-3-multisyllabic-words"]
 prerequisiteLists: ["grade-3-doubling-final-consonants"]
 nextLists: ["grade-3-multisyllabic-words"]
+readinessSignals:
+  - "Can spell base words ending in consonant plus y, such as carry, study, happy, and city"
+  - "Recognizes common endings such as -ed, -es, -er, -est, and -ness"
+  - "Is ready to decide whether final y stays or changes before a suffix"
+faq:
+  - question: "When does y change to i?"
+    answer: "A final y often changes to i before an ending when the y follows a consonant. Carry becomes carried, city becomes cities, and happy becomes happier."
+  - question: "When does y stay y?"
+    answer: "The y usually stays before -ing, as in carrying, and often stays when a vowel comes before it, as in played. Students should look at both the letter before y and the suffix being added."
+  - question: "How is this different from doubling final consonants?"
+    answer: "Changing y to i focuses on words ending in y. Doubling final consonants focuses on short-vowel words ending in one consonant before a vowel suffix."
+  - question: "What mistake do learners commonly make?"
+    answer: "Students may write carryed or happyness because they hear the base word clearly. Have them mark the final y and ask whether an ending requires the y-to-i change."
 featured: false
 words:
   - tried

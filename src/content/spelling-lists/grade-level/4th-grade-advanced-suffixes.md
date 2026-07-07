@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-3-suffix-words", "grade-4-advanced-prefixes", "tier-1-roots-and-patterns"]
 prerequisiteLists: ["grade-3-suffix-words", "grade-4-advanced-prefixes"]
 nextLists: ["tier-1-roots-and-patterns"]
+readinessSignals:
+  - "Can spell common suffix words and is ready for longer endings such as -tion, -sion, -able, and -ible"
+  - "Recognizes that suffixes can signal nouns, adjectives, or abstract academic vocabulary"
+  - "Can slow down when a long ending sounds similar to another ending"
+faq:
+  - question: "What makes these suffixes advanced?"
+    answer: "Endings such as -tion, -sion, -able, -ible, -ous, and -ive are common in academic vocabulary and often appear in multisyllabic words. Students must connect spelling, meaning, and word families."
+  - question: "How do -tion and -sion affect spelling?"
+    answer: "Both endings often sound like “shun,” so students cannot rely on sound alone. Word families and repeated exposure help them remember spellings like solution, discussion, and conclusion."
+  - question: "How are -able and -ible different?"
+    answer: "Both can mean “able to be,” but -able is more common and often attaches to a recognizable base word, as in breakable. -Ible appears in words like visible and flexible, where the base may be less obvious."
+  - question: "Why do advanced suffixes matter for writing?"
+    answer: "These endings help students spell the abstract words they need for explanations, reports, and arguments. Knowing the suffix makes long words less intimidating and more meaningful."
 featured: false
 words:
   - breakable

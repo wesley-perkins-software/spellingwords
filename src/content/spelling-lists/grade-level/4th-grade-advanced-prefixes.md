@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-3-prefix-words", "grade-4-advanced-suffixes", "tier-1-roots-and-patterns"]
 prerequisiteLists: ["grade-3-prefix-words", "grade-4-multisyllabic-academic-words"]
 nextLists: ["grade-4-advanced-suffixes"]
+readinessSignals:
+  - "Can read and spell shorter prefix words without treating the prefix as a separate word"
+  - "Recognizes longer academic words as made of meaningful parts, not just syllables to memorize"
+  - "Can use context to infer whether a prefix means between, under, across, above, or against"
+faq:
+  - question: "What makes these prefixes more advanced?"
+    answer: "Prefixes such as inter-, sub-, super-, trans-, and anti- appear in longer academic words and often carry precise meanings. Students need both spelling control and meaning knowledge to use them well."
+  - question: "How do these prefixes support reading?"
+    answer: "Knowing the prefix gives students an entry point into unfamiliar words. For example, trans- can suggest movement across or through in words like transport and transplant."
+  - question: "Do advanced prefixes change the base word’s spelling?"
+    answer: "Usually the prefix attaches to the front without changing the rest of the word. The challenge is keeping all parts of a longer word in order, especially in words like international and submarine."
+  - question: "Which prefixes are easiest to confuse?"
+    answer: "Sub- and super- can be mixed up because both appear in school vocabulary, but their meanings are very different: sub- means under, while super- means above or beyond."
 featured: false
 words:
   - interact

@@ -167,3 +167,9 @@ Every list-detail page's goal is to be the best available educational resource o
 ## Future TODO
 
 `shortAnswer` — a one-sentence, hand-authored summary — already exists on 100% of the 135 lists in the library, but is not currently rendered anywhere on the list-detail page (it's only used on the `spelling-collections` template). Evaluate incorporating it into the page architecture in a future pass, once the readiness/FAQ archetype rollout above is underway. It's real, existing editorial content sitting unused — a low-risk lever once the higher-priority section rollout has a rhythm going.
+
+## Morphology rollout guidance
+
+The Morphology domain crosses several archetypes, so folder names are not enough to decide treatment. In this rollout, regular plurals are handled as suffix/word-formation content because plural `-s` and `-es` are endings added to nouns; contractions are handled as spelling-rule/word-formation content because apostrophe placement represents omitted letters; and silent-letter words are handled as spelling-pattern/rule content rather than phonics because the visible spelling does not map directly to pronounced sounds.
+
+For combined morphology pages, especially prefix-plus-suffix and Greek/Latin word-part pages, FAQ should explain how word parts work together inside academic vocabulary rather than treating the page as only a prefix page or only a root page. Readiness should show that learners can identify meaningful chunks inside longer words, not merely that they are in the target grade.

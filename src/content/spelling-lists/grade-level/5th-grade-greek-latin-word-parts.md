@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-5-prefix-suffix-words", "grade-5-spelling-rules"]
 prerequisiteLists: ["tier-1-roots-and-patterns", "tier-2-greek-latin-roots"]
 nextLists: ["grade-5-spelling-rules"]
+readinessSignals:
+  - "Can identify familiar Greek and Latin parts inside longer academic words"
+  - "Is comfortable spelling words with three or more syllables when they can be broken into chunks"
+  - "Uses word-part meanings to support comprehension in science, social studies, and ELA vocabulary"
+faq:
+  - question: "Why combine Greek and Latin word parts in one list?"
+    answer: "By fifth grade, students often meet Greek and Latin parts together across academic vocabulary. Combining them helps students transfer root knowledge instead of treating each long word as unrelated."
+  - question: "How does knowing word parts improve spelling?"
+    answer: "Word parts give students reliable chunks to hold onto in long words. Transportation is easier to spell when a learner sees trans, port, and -ation rather than a string of disconnected sounds."
+  - question: "How does this improve reading comprehension?"
+    answer: "Roots provide meaning clues. A student who knows bio relates to life and geo relates to earth has a head start on words like biology and geography."
+  - question: "What is difficult about Greek and Latin word-part words?"
+    answer: "The hardest part is often the unstressed syllable or unfamiliar spelling pattern, such as ph for /f/. Breaking the word into known parts makes those details easier to remember."
 featured: false
 words:
   - photography

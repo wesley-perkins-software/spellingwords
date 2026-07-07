@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-5-prefix-suffix-words", "grade-5-greek-latin-word-parts", "grade-5-commonly-confused-words"]
 prerequisiteLists: ["grade-4-advanced-suffixes"]
 nextLists: ["grade-5-commonly-confused-words"]
+readinessSignals:
+  - "Can spell common suffixes and is ready to compare similar academic endings"
+  - "Recognizes that long words may follow more than one spelling pattern at once"
+  - "Can use word families and meaning to choose between endings that sound alike"
+faq:
+  - question: "Which spelling rules does this list practice?"
+    answer: "This list reviews advanced endings such as -tion, -sion, -able, -ible, -ance, and -ence. These endings appear often in academic vocabulary and cannot always be spelled by sound alone."
+  - question: "Why are -tion and -sion difficult?"
+    answer: "They can sound very similar in speech, especially at the end of long words. Students need word-family knowledge and repeated spelling practice to choose discussion, decision, action, or solution correctly."
+  - question: "How are -able and -ible reviewed here?"
+    answer: "Both endings can mean “able to be,” but they appear in different word families. Readable has a clear base word, while sensible and possible must be learned as stable academic spellings."
+  - question: "How does this connect to morphology?"
+    answer: "The rules are not isolated tricks; they show how suffixes build longer words. Understanding the ending helps students spell and understand words used in essays, reports, and explanations."
 featured: false
 words:
   - action

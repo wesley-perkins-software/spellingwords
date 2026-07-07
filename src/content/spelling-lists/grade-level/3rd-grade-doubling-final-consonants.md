@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-3-dropping-silent-e", "grade-3-changing-y-to-i"]
 prerequisiteLists: ["grade-3-dropping-silent-e"]
 nextLists: ["grade-3-changing-y-to-i"]
+readinessSignals:
+  - "Can spell short-vowel base words such as run, sit, get, swim, stop, and plan"
+  - "Can hear the difference between a short vowel and a long-vowel silent-e word"
+  - "Is ready to check the final consonant before adding endings like -ing, -ed, -er, or -est"
+faq:
+  - question: "When do you double the final consonant?"
+    answer: "Many one-syllable short-vowel words that end in one consonant double that consonant before a vowel suffix. Run becomes running, and stop becomes stopped."
+  - question: "Why does the consonant double?"
+    answer: "The doubled consonant helps keep the vowel sound short. Without it, words like hoping and hopping would look too similar and suggest different vowel sounds."
+  - question: "How is this different from dropping silent e?"
+    answer: "Doubling starts with a short-vowel word ending in a consonant, such as sit. Dropping silent e starts with a long-vowel or silent-e word, such as ride."
+  - question: "What mistakes are common with this rule?"
+    answer: "Students may forget to double in words like stopped or double when the word does not need it. Checking vowel sound, word length, and final consonant before adding the suffix helps."
 featured: false
 words:
   - running

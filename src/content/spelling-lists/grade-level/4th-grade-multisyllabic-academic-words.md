@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-3-multisyllabic-words", "grade-4-reading-writing-words", "grade-4-advanced-prefixes"]
 prerequisiteLists: ["grade-3-multisyllabic-words", "grade-4-reading-writing-words"]
 nextLists: ["grade-4-advanced-prefixes"]
+readinessSignals:
+  - "Can read grade-level classroom vocabulary but may need support spelling every syllable"
+  - "Can divide longer words into pronounceable syllables before writing them"
+  - "Recognizes some prefixes, suffixes, or roots inside academic words"
+faq:
+  - question: "Why are these called academic words?"
+    answer: "These words appear across school tasks, not just casual conversation. Students need them for explaining, organizing, comparing, and responding in writing."
+  - question: "How does breaking words into syllables help?"
+    answer: "Syllables reduce a long word into manageable parts. Communicate, consequence, and organize become easier when students say each part clearly before spelling."
+  - question: "How does this list prepare students for morphology?"
+    answer: "Many words contain useful prefixes, roots, or suffixes, but the first goal is control over long word structure. That control supports later prefix, suffix, and root study."
+  - question: "What spelling problem shows up most often?"
+    answer: "Unstressed syllables are often shortened or skipped in speech, so students may leave them out in writing. Careful syllable-by-syllable spelling helps preserve every part."
 featured: false
 words:
   - communicate

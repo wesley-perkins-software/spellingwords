@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-2-prefixes-un-re", "grade-2-comparatives-er-est", "grade-2-describing-words"]
 prerequisiteLists: ["grade-2-prefixes-un-re"]
 nextLists: ["grade-2-regular-plurals"]
+readinessSignals:
+  - "Can spell familiar base words such as care, help, hope, play, and rest before adding an ending"
+  - "Understands that an ending can change a word’s meaning while the base word still remains visible"
+  - "Can explain the difference between having something and being without it in simple words"
+faq:
+  - question: "What do -ful and -less mean?"
+    answer: "The suffix -ful means “full of” or “having,” as in helpful. The suffix -less means “without,” as in hopeless or careless."
+  - question: "Does -ful have one l or two?"
+    answer: "The suffix -ful is spelled with one l, even though the word full has two. That is one of the most important spelling details in this list."
+  - question: "Do base words change before -ful or -less?"
+    answer: "Most words in this list keep the base word visible. Students should focus on spelling the base word accurately and then adding the suffix as a meaningful ending."
+  - question: "How do suffixes help reading comprehension?"
+    answer: "A suffix gives a clue about meaning. When students know -less means “without,” they can work out unfamiliar words like fearless even before hearing a definition."
 featured: false
 words:
   - careful

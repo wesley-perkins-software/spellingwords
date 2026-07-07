@@ -14,14 +14,14 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["c-k-ck-words", "short-vowels-cvc-words", "grade-3-doubling-final-consonants"]
+relatedLists: ["c-k-ck-words", "grade-3-doubling-final-consonants"]
 prerequisiteLists: ["c-k-ck-words"]
 nextLists: ["grade-3-dropping-silent-e", "grade-3-doubling-final-consonants"]
 featured: false
 readinessSignals:
-  - "Has already practiced the C/K/CK spelling-choice pattern and is comfortable with one sound having more than one correct spelling"
+  - "Is comfortable with the idea that a single sound can have more than one correct spelling, depending on context"
   - "Can hear the short vowel sound right before the ending in words like 'catch' and 'edge'"
-  - "Is writing these endings independently and needs a rule to check against, not just guesswork"
+  - "Is writing these endings independently and needs a rule to check against, rather than guessing"
 faq:
   - question: "Why do TCH and DGE need their own list?"
     answer: "Both endings follow the same logic as C/K/CK: the /ch/ and /j/ sounds at the end of a word are spelled one way right after a short vowel — TCH and DGE, as in 'catch' and 'badge' — and a different way otherwise, such as plain CH or GE in longer words. Isolating the short-vowel case keeps the rule concrete."

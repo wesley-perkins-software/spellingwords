@@ -14,13 +14,13 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u"]
+relatedLists: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u", "short-e-words"]
 prerequisiteLists: ["silent-e-long-o"]
 nextLists: ["silent-e-long-u"]
 featured: false
 readinessSignals:
-  - "Has completed Long A, Long I, and Long O silent-e practice and applies the rule without prompting"
-  - "Understands that some silent-e patterns are less common in everyday words than others"
+  - "Applies the silent-e rule confidently across more than one vowel already — this is a repeat performance, not a new skill"
+  - "Understands that some silent-e patterns show up far less often in everyday words than others"
   - "Can already read words like 'these' and 'complete,' even if spelling them independently is still new"
 faq:
   - question: "Why is this list shorter than the other silent-e lists?"

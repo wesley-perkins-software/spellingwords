@@ -14,14 +14,14 @@ estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-e"]
+relatedLists: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-e", "short-u-words"]
 prerequisiteLists: ["silent-e-long-e"]
 nextLists: ["vowel-teams-ai-ay"]
 featured: false
 readinessSignals:
-  - "Has completed the silent-e sequence for long A, I, O, and E and applies the rule confidently"
-  - "Can hear the difference between the short 'u' sound (as in 'cut') and the long 'u' sound (as in 'cute')"
-  - "Is ready to be introduced to a different way of spelling long vowels next (vowel teams)"
+  - "Has the silent-e rule fully internalized by now and can explain it in their own words"
+  - "Hears the difference between the short 'u' sound (as in 'cut') and the long 'u' sound (as in 'cute')"
+  - "Is ready to meet a different way of spelling long vowels next — two vowels together instead of a silent e"
 faq:
   - question: "Why does long U complete the silent-e sequence?"
     answer: "It's the fifth and final vowel in the pattern — once a child has applied the same silent-e rule to a, i, o, e, and u, the rule has been proven general rather than tied to one particular vowel, and there's nothing more to add to this pattern."

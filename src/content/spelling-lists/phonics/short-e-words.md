@@ -19,11 +19,13 @@ relatedLists:
   - short-i-words
   - short-o-words
   - short-u-words
+  - silent-e-long-e
 prerequisiteLists: []
-nextLists: []
+nextLists:
+  - silent-e-long-a
 featured: false
 readinessSignals:
-  - "Has practiced at least one other short-vowel list, like Short A Words, and can segment simple CVC words sound by sound"
+  - "Blends three sounds into a word smoothly, and can reverse the process — breaking a word like 'bed' back into b-e-d"
   - "Recognizes the short 'e' sound when it's spoken aloud, even before seeing it written down"
   - "Already knows the individual consonant sounds in this list — b, d, g, h, l, m, n, p, r, s, t, w"
 faq:
@@ -34,7 +36,7 @@ faq:
   - question: "Should these words be sounded out or memorized?"
     answer: "Sounded out. Every word here follows the regular short-vowel pattern, so segmenting each sound (b-e-d) and blending it back builds a skill that carries over to new words, not just these ten."
   - question: "What comes after this list?"
-    answer: "Whichever short-vowel list is still unfamiliar — Short I, Short O, or Short U — followed by Long A Silent E Words once all five short vowels feel solid."
+    answer: "Long A Silent E Words is the next stage in the sequence — though it's worth trying Short I, Short O, and Short U first if any of those still feel new."
 words:
   - bed
   - red

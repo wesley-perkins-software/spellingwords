@@ -19,11 +19,13 @@ relatedLists:
   - short-e-words
   - short-i-words
   - short-u-words
+  - silent-e-long-o
 prerequisiteLists: []
-nextLists: []
+nextLists:
+  - silent-e-long-a
 featured: false
 readinessSignals:
-  - "Has practiced at least one other short-vowel list and can blend a three-sound word fluently"
+  - "Hears three sounds in a word like 'hot' clearly enough to say each one separately, then blend them back together"
   - "Recognizes the short 'o' sound when it's spoken aloud, even before seeing it written down"
   - "Can hear the 'ck' ending in a word like 'rock' as one unit rather than two separate letters"
 faq:
@@ -34,7 +36,7 @@ faq:
   - question: "Should these words be sounded out or memorized?"
     answer: "Sounded out. Nine of the ten words are fully regular CVC words; 'rock' adds the 'ck' ending, which is worth naming explicitly so children recognize it as a single, dependable spelling rather than a surprise."
   - question: "What comes after this list?"
-    answer: "Short U Words, if it hasn't been practiced yet, followed by Long A Silent E Words once all five short vowels are steady."
+    answer: "Short U Words, if it hasn't been practiced yet — then Long A Silent E Words, the next stage in the sequence, once all five short vowels are steady."
 words:
   - hot
   - dog

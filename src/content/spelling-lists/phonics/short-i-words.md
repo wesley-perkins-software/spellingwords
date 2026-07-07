@@ -19,11 +19,13 @@ relatedLists:
   - short-e-words
   - short-o-words
   - short-u-words
+  - silent-e-long-i
 prerequisiteLists: []
-nextLists: []
+nextLists:
+  - silent-e-long-a
 featured: false
 readinessSignals:
-  - "Has practiced at least one other short-vowel list and can blend simple CVC words sound by sound"
+  - "Segments a word like 'sit' into its three sounds without help, and blends them back together just as easily"
   - "Recognizes the short 'i' sound when it's spoken aloud, even before seeing it written down"
   - "Can already hear the 'sh' digraph and a double consonant as single units, as in 'fish' and 'hill'"
 faq:
@@ -34,7 +36,7 @@ faq:
   - question: "Should these words be sounded out or memorized?"
     answer: "Sounded out, for most of the list — though 'fish' and 'hill' add a digraph and a double consonant, both worth calling out by name so children notice they're still regular, not exceptions."
   - question: "What comes after this list?"
-    answer: "Whichever short-vowel list is still unfamiliar — Short O or Short U — and then Long A Silent E Words once short vowels feel automatic."
+    answer: "Long A Silent E Words is the next stage in the sequence — though it's worth trying Short O and Short U first if either still feels new."
 words:
   - pig
   - sit

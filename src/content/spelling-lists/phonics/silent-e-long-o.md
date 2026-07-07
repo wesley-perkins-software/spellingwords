@@ -14,14 +14,14 @@ estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["silent-e-long-i", "vowel-teams-ai-ay"]
+relatedLists: ["silent-e-long-i", "vowel-teams-ai-ay", "short-o-words"]
 prerequisiteLists: ["silent-e-long-i"]
 nextLists: ["silent-e-long-e"]
 featured: false
 readinessSignals:
-  - "Has already practiced the silent-e rule with long-a and long-i words"
-  - "Can hear the short 'o' sound (as in 'hot') clearly enough to notice when it changes"
-  - "Applies the 'silent e signals a long vowel' rule without needing it re-explained"
+  - "Applies the silent-e idea automatically now, without needing it re-explained for a new vowel"
+  - "Hears the short 'o' sound (as in 'hot') clearly enough to notice when it changes to long 'o'"
+  - "Can already read or spell a few silent-e words with a different vowel, like 'cake' or 'bike'"
 faq:
   - question: "Why does long O come third in the silent-e sequence?"
     answer: "By this point a child has seen the same rule work with two different vowels, so long O is where the pattern usually starts to feel automatic rather than freshly taught each time."

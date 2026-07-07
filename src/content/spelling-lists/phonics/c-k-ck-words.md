@@ -14,14 +14,14 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["short-vowels-cvc-words", "short-a-words", "short-i-words", "short-o-words", "short-u-words"]
-prerequisiteLists: ["short-vowels-cvc-words"]
+relatedLists: ["short-a-words", "short-e-words", "short-i-words", "short-o-words", "short-u-words"]
+prerequisiteLists: ["short-a-words"]
 nextLists: ["tch-dge-ending-words"]
 featured: false
 readinessSignals:
-  - "Can already spell short-vowel CVC words and blend simple consonant-vowel-consonant patterns"
-  - "Knows that C, K, and CK can all represent the same /k/ sound, even if unsure yet which one to use where"
-  - "Is starting to write independently and running into the 'which letter do I use for the /k/ sound' question"
+  - "Can already spell short-vowel words confidently and blend simple consonant patterns without help"
+  - "Notices that C, K, and CK sound identical, even without yet knowing which one to write"
+  - "Is writing independently and hesitating over which letter to use for a beginning or ending /k/ sound"
 faq:
   - question: "Why does the /k/ sound need its own spelling list?"
     answer: "Unlike most consonant sounds, /k/ can be spelled three different ways — C, K, or CK — depending on what letter comes next and whether the vowel before it is short. This list exists because that choice is a genuine spelling decision, not because the sound itself is hard to hear."

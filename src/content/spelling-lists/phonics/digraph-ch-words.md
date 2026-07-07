@@ -22,9 +22,9 @@ relatedLists:
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Knows the individual sounds of the letters C and H separately"
-  - "Can already spell simple CVC and blend words confidently"
-  - "Is starting to notice CH in books, even without being able to name it as a 'digraph' yet"
+  - "Can hear /k/ and /h/ said separately, then notices how completely different CH sounds once the letters combine"
+  - "Reads and spells simple blend words without difficulty already"
+  - "Is starting to spot CH at the start, middle, and end of words in books, even without a name for the pattern yet"
 faq:
   - question: "What is a digraph, and why is CH taught around this stage?"
     answer: "A digraph is two letters that combine into one new sound — C and H together make a sound that's nothing like either letter alone. CH is usually one of the first digraphs taught because it appears in so many common, everyday words, like 'chair' and 'lunch.'"

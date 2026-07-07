@@ -21,6 +21,19 @@ relatedLists:
   - digraph-wh-words
 prerequisiteLists: []
 nextLists: []
+readinessSignals:
+  - "Knows the individual sounds of the letters C and H separately"
+  - "Can already spell simple CVC and blend words confidently"
+  - "Is starting to notice CH in books, even without being able to name it as a 'digraph' yet"
+faq:
+  - question: "What is a digraph, and why is CH taught around this stage?"
+    answer: "A digraph is two letters that combine into one new sound — C and H together make a sound that's nothing like either letter alone. CH is usually one of the first digraphs taught because it appears in so many common, everyday words, like 'chair' and 'lunch.'"
+  - question: "How is CH different from SH?"
+    answer: "They're both digraphs made at the front of the mouth, but CH starts with a brief stopping sound, almost like a quiet 't,' before finishing like SH — saying 'chip' and 'ship' side by side is often the easiest way to hear the difference."
+  - question: "Should CH words be sounded out or memorized?"
+    answer: "Sounded out, once a child learns to treat CH as one unit rather than two separate letters — from there, the rest of each word ('child,' 'catch,' 'teacher') follows regular spelling."
+  - question: "What comes after this list?"
+    answer: "SH, TH, or WH Digraph Words — whichever hasn't been practiced yet, since all four are commonly taught around the same stage."
 words:
   - child
   - children

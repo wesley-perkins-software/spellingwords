@@ -72,6 +72,13 @@ Ten archetypes cover the site's content today, each with a target readiness-sign
 - Readiness: can already blend/segment simpler CVC words; is starting to meet this sound in books, even without being able to spell it; knows the individual letter sounds involved.
 - FAQ: What is this sound/pattern and why is it taught at this stage? How is it different from [an adjacent, easily-confused pattern]? Should these be sounded out or memorized? What comes after mastering this pattern?
 
+**Choosing the comparison for "How is it different from [X]" (archetype 3 only):** this question only earns its place when the comparison is real — not every phonics pattern has a genuinely confusable neighbor, and reaching for one that doesn't exist produces generic filler. Pick the comparison the way an author would, not by formula:
+- *Short vowels, silent-e, vowel teams, r-controlled vowels* — an adjacent list already linked via `prerequisiteLists`/`nextLists` is usually the right comparison (e.g. `silent-e-long-a` against `short-a-words`); use that link when it exists rather than inventing a different one.
+- *Digraphs* — compare against whichever pattern is actually confused with this one in early reading, and that isn't always a sibling digraph. Some sibling pairs are a real, documented mix-up (ch/sh); others (th/wh) aren't confused with each other at all, and a more honest comparison is digraph-vs-single-letter (why `th` isn't just `t`, why `wh` isn't just `w`).
+- *Consonant blends (initial and final)* — a single "adjacent list" comparison is often forced across 29 blend files. Default to comparing the blend against its own two letters said separately (why `st` isn't `s` and `t` said slowly, one after the other) unless a specific sibling blend is a genuine, common mix-up (e.g. `sm`/`sn`) — in which case use that instead.
+
+This is a decision rule, not a formula: it exists so every author reaches the same place independently, not so an answer can be assembled without judgment. The standing rule still applies — if none of the above produces something true and useful for a specific list, write the honest comparison for that list rather than forcing one of these defaults.
+
 ### 4. Spelling rule pages
 *Silent-e, doubling the final consonant, changing y to i, dropping silent e before a suffix*
 - Readiness: can already spell the base words the rule modifies; recognizes the "before" pattern while reading; is starting to write words where the rule applies.

@@ -22,6 +22,19 @@ relatedLists:
 prerequisiteLists: []
 nextLists: []
 featured: false
+readinessSignals:
+  - "Has practiced at least one other short-vowel list, ideally Short O Words, and blends three-sound words with ease"
+  - "Recognizes the short 'u' sound when it's spoken aloud, even before seeing it written down"
+  - "Can hear the 'ck' ending in a word like 'duck' as one unit rather than two separate letters"
+faq:
+  - question: "What is the short 'u' sound, and why is it often taught last among the five short vowels?"
+    answer: "It's the warm, central sound in 'sun' and 'cup' — many phonics sequences place it last because it's the least visually distinct of the five short vowels and benefits from children already being confident with the other four."
+  - question: "How is short 'u' different from short 'o'?"
+    answer: "Short 'u' (as in 'hut') sits more centrally in the mouth than short 'o' (as in 'hot'), which is made with rounded lips — practicing them together is the fastest way to stop mixing them up."
+  - question: "Should these words be sounded out or memorized?"
+    answer: "Sounded out. Nine of the ten words are fully regular CVC words; 'duck' adds the 'ck' ending, the same dependable spelling children may have already met in Short O Words' 'rock.'"
+  - question: "What comes after this list?"
+    answer: "Long A Silent E Words — the natural next step once all five short vowels are comfortable, introducing the idea that one added letter can change a vowel's sound."
 words:
   - bug
   - sun

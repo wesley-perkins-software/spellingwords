@@ -22,6 +22,19 @@ relatedLists:
 prerequisiteLists: []
 nextLists: []
 featured: false
+readinessSignals:
+  - "Has practiced at least one other short-vowel list, like Short A Words, and can segment simple CVC words sound by sound"
+  - "Recognizes the short 'e' sound when it's spoken aloud, even before seeing it written down"
+  - "Already knows the individual consonant sounds in this list — b, d, g, h, l, m, n, p, r, s, t, w"
+faq:
+  - question: "What is the short 'e' sound and why is it taught around now?"
+    answer: "It's the brief, flat vowel sound in words like 'bed' and 'pet' — one of five short-vowel sounds children typically meet in their first year of phonics instruction, usually alongside or shortly after short 'a.'"
+  - question: "How is short 'e' different from short 'i'?"
+    answer: "The two sounds sit close together in the mouth and are the pair young spellers mix up most — short 'e' (as in 'bed') is a bit more open, while short 'i' (as in 'bit') is quicker and higher. Practicing the two lists side by side is often the fastest way to tell them apart."
+  - question: "Should these words be sounded out or memorized?"
+    answer: "Sounded out. Every word here follows the regular short-vowel pattern, so segmenting each sound (b-e-d) and blending it back builds a skill that carries over to new words, not just these ten."
+  - question: "What comes after this list?"
+    answer: "Whichever short-vowel list is still unfamiliar — Short I, Short O, or Short U — followed by Long A Silent E Words once all five short vowels feel solid."
 words:
   - bed
   - red

@@ -21,6 +21,19 @@ relatedLists:
   - digraph-wh-words
 prerequisiteLists: []
 nextLists: []
+readinessSignals:
+  - "Knows the individual sounds of the letters T and H separately"
+  - "Can already read or recognize several of these words in books, even before spelling them"
+  - "Is starting to notice that TH can sound slightly different from word to word, even without naming that difference yet"
+faq:
+  - question: "What is a digraph, and why does TH matter so much?"
+    answer: "TH is a digraph — two letters making one sound — and it's especially important because it appears in some of the most frequently used words in English, including 'the,' 'they,' and 'this.' A child who spells TH confidently gets an outsized boost in everyday reading and writing."
+  - question: "Why do some TH words sound different from others?"
+    answer: "TH actually represents two related sounds: a 'voiced' one where the tongue buzzes, as in 'the' and 'they,' and a quieter, 'unvoiced' one, as in 'think' and 'thank.' Both are spelled the same way, so the difference is worth noticing but doesn't change how the word is spelled."
+  - question: "Should TH words be sounded out or memorized?"
+    answer: "A mix of both. Most of these words follow the regular TH pattern and can be sounded out, but a few — like 'the' and 'they' — are also common sight words children may recognize by sight before they can fully sound them out."
+  - question: "What comes after this list?"
+    answer: "CH, SH, or WH Digraph Words — whichever hasn't been practiced yet."
 words:
   - the
   - that

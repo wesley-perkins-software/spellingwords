@@ -21,6 +21,19 @@ relatedLists:
   - digraph-th-words
 prerequisiteLists: []
 nextLists: []
+readinessSignals:
+  - "Knows the individual sounds of the letters W and H separately"
+  - "Already uses question words like 'what,' 'when,' and 'where' in spoken language every day"
+  - "Is starting to notice that a few WH words, like 'who,' sound different from the rest, even without naming the exception yet"
+faq:
+  - question: "What is a digraph, and why is WH taught with question words?"
+    answer: "WH is a digraph most often heard at the start of question words — 'what,' 'when,' 'where,' 'which,' and 'why' — so teaching it alongside those words lets children practice a spelling pattern and a set of words they already use constantly in the same lesson."
+  - question: "Why does 'who' sound different from 'what' or 'when'?"
+    answer: "In most WH words the letters make a /w/ sound, but in a small number of words — 'who' and 'whole' among them — the W is silent and the word starts with an /h/ sound instead. It's a real exception worth naming rather than glossing over."
+  - question: "Should WH words be sounded out or memorized?"
+    answer: "Mostly sounded out, since the /w/ pattern covers most of the list — but 'who' and 'whole' are worth calling out specifically as the words that break the pattern, so they don't feel like a surprise later."
+  - question: "What comes after this list?"
+    answer: "CH, SH, or TH Digraph Words — whichever hasn't been practiced yet."
 words:
   - what
   - when

@@ -15,13 +15,28 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 featured: false
+readinessSignals:
+  - "Can hear both sounds in the SL blend instead of dropping one of them"
+  - "Can say and spell simple one-syllable words while keeping the SL letters together"
+  - "Is comfortable with short-vowel words and ready to practice consonant clusters inside real words"
+faq:
+  - question: "What is the SL blend?"
+    answer: "It's a consonant blend where the S and L sounds sit side by side at the start of a word. Each sound is still heard, so children practice listening for both letters rather than treating the pair like one new sound."
+  - question: "Why practice SL words separately?"
+    answer: "A focused list makes the blend easy to notice. Instead of juggling many consonant clusters at once, children can build accuracy with SL in familiar words like sleep, sled, slide."
+  - question: "Should these words be sounded out or memorized?"
+    answer: "Sounded out. The point is to hear and spell each consonant in the blend, then connect that blend to the rest of the word."
+  - question: "What should a child practice next?"
+    answer: "Move to another blend list after this one feels steady; the goal is flexible attention to both consonants across many beginning and ending clusters."
 relatedLists:
   - pl-blend-words
   - pr-blend-words
   - sm-blend-words
   - sn-blend-words
-prerequisiteLists: []
-nextLists: []
+prerequisiteLists:
+  - pr-blend-words
+nextLists:
+  - sm-blend-words
 words:
   - sleep
   - sled

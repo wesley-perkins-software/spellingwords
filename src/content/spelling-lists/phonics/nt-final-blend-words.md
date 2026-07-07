@@ -15,12 +15,27 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 featured: false
+readinessSignals:
+  - "Can hear both sounds in the NT blend instead of dropping one of them"
+  - "Can say and spell simple one-syllable words while keeping the NT letters together"
+  - "Is comfortable with short-vowel words and ready to practice consonant clusters inside real words"
+faq:
+  - question: "What is the NT blend?"
+    answer: "It's a consonant blend where the N and T sounds sit side by side at the end of a word. Each sound is still heard, so children practice listening for both letters rather than treating the pair like one new sound."
+  - question: "Why practice NT words separately?"
+    answer: "A focused list makes the blend easy to notice. Instead of juggling many consonant clusters at once, children can build accuracy with NT in familiar words like ant, front, hint."
+  - question: "Should these words be sounded out or memorized?"
+    answer: "Sounded out. The point is to hear and spell each consonant in the blend, then connect that blend to the rest of the word."
+  - question: "What should a child practice next?"
+    answer: "Move to another blend list after this one feels steady; the goal is flexible attention to both consonants across many beginning and ending clusters."
 relatedLists:
   - nd-final-blend-words
   - nk-final-blend-words
   - ng-final-blend-words
-prerequisiteLists: []
-nextLists: []
+prerequisiteLists:
+  - st-final-blend-words
+nextLists:
+  - nk-final-blend-words
 words:
   - ant
   - front

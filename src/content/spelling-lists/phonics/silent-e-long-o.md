@@ -14,10 +14,23 @@ estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["silent-e-long-i", "vowel-teams-ai-ay"]
+relatedLists: ["silent-e-long-i", "vowel-teams-ai-ay", "short-o-words"]
 prerequisiteLists: ["silent-e-long-i"]
 nextLists: ["silent-e-long-e"]
 featured: false
+readinessSignals:
+  - "Applies the silent-e idea automatically now, without needing it re-explained for a new vowel"
+  - "Hears the short 'o' sound (as in 'hot') clearly enough to notice when it changes to long 'o'"
+  - "Can already read or spell a few silent-e words with a different vowel, like 'cake' or 'bike'"
+faq:
+  - question: "Why does long O come third in the silent-e sequence?"
+    answer: "By this point a child has seen the same rule work with two different vowels, so long O is where the pattern usually starts to feel automatic rather than freshly taught each time."
+  - question: "How is this different from Silent E Long I Words?"
+    answer: "Only the vowel changes again — the rule stays identical. The real difference worth noting is that several long-o words here, like 'home,' 'hope,' and 'note,' are extremely common in early reading, so the payoff in reading fluency is immediate."
+  - question: "Should these be sounded out or memorized?"
+    answer: "Sounded out, using the same rule as before. A child applying 'silent e, so the o says its name' can spell new long-o words on sight, not just these ten."
+  - question: "What comes after this list?"
+    answer: "Long E Silent E Words, a shorter, less common pattern that completes the vowel sequence before moving on to vowel teams."
 words:
   - bone
   - cone

@@ -14,10 +14,23 @@ estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["silent-e-long-a", "silent-e-long-o"]
+relatedLists: ["silent-e-long-a", "silent-e-long-o", "short-i-words"]
 prerequisiteLists: ["silent-e-long-a"]
 nextLists: ["silent-e-long-o"]
 featured: false
+readinessSignals:
+  - "Can already explain, in their own words, why 'cake' isn't spelled 'cak' — the core silent-e idea"
+  - "Hears the short 'i' sound (as in 'sit') clearly enough to notice when it changes to long 'i'"
+  - "Treats a silent 'e' at the end of a word as a signal to check the vowel, not just an extra letter"
+faq:
+  - question: "Why does long I come right after long A in the silent-e sequence?"
+    answer: "Once a child has learned the rule with one vowel, applying it to a second vowel confirms it's a repeatable pattern rather than something special about the letter 'a' — long I is the natural next step because the rule works exactly the same way."
+  - question: "How is this different from Silent E Long A Words?"
+    answer: "Only the vowel changes — the rule is identical. A child who understands why 'gate' isn't 'gat' already has everything needed to understand why 'bike' isn't 'bik.'"
+  - question: "Should these be sounded out or memorized?"
+    answer: "Sounded out, applying the same rule learned with long-a words. A child who can explain 'silent e, so the i says its name' can spell any regular long-i word, not just the ten here."
+  - question: "What comes after this list?"
+    answer: "Long O Silent E Words, continuing the same rule with a third vowel."
 words:
   - bike
   - fine

@@ -14,10 +14,23 @@ estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-e"]
+relatedLists: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-e", "short-u-words"]
 prerequisiteLists: ["silent-e-long-e"]
 nextLists: ["vowel-teams-ai-ay"]
 featured: false
+readinessSignals:
+  - "Has the silent-e rule fully internalized by now and can explain it in their own words"
+  - "Hears the difference between the short 'u' sound (as in 'cut') and the long 'u' sound (as in 'cute')"
+  - "Is ready to meet a different way of spelling long vowels next — two vowels together instead of a silent e"
+faq:
+  - question: "Why does long U complete the silent-e sequence?"
+    answer: "It's the fifth and final vowel in the pattern — once a child has applied the same silent-e rule to a, i, o, e, and u, the rule has been proven general rather than tied to one particular vowel, and there's nothing more to add to this pattern."
+  - question: "How is this different from Silent E Long E Words?"
+    answer: "Same rule, different vowel — though long U has an extra wrinkle worth naming: some silent-e words with U, like 'rule' and 'flute,' say a long 'oo' sound rather than the vowel's own name. That's worth pointing out rather than glossing over."
+  - question: "Should these be sounded out or memorized?"
+    answer: "Sounded out using the familiar silent-e rule, with a quick note on the 'oo' variant in words like 'rule' so it doesn't feel like an exception."
+  - question: "What comes after this list?"
+    answer: "Vowel teams — a new way of spelling long vowel sounds using two vowels together instead of a silent e, starting with AI and AY Words."
 words:
   - "cube"
   - "cute"

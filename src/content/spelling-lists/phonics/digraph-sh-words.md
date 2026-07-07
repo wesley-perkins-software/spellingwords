@@ -21,6 +21,19 @@ relatedLists:
   - digraph-wh-words
 prerequisiteLists: []
 nextLists: []
+readinessSignals:
+  - "Notices that SH doesn't sound like S or H alone — it's one continuous sound with no trace of either letter"
+  - "Is comfortable blending simple three- and four-sound words, including basic consonant blends"
+  - "Is beginning to spot SH in books without yet having a name for why it sounds the way it does"
+faq:
+  - question: "What is a digraph, and why is SH taught around this stage?"
+    answer: "A digraph is two letters that combine to make one brand-new sound — S and H together make a soft, continuous sound unlike either letter said alone. SH is one of the most common digraphs in English, showing up at the start, middle, and end of everyday words."
+  - question: "How is SH different from CH?"
+    answer: "SH is one smooth, continuous sound the whole way through, while CH starts with a brief stop, almost like a quiet 't,' before finishing the same way — comparing 'ship' and 'chip' side by side makes the difference easy to hear."
+  - question: "Should SH words be sounded out or memorized?"
+    answer: "Sounded out. Once a child treats SH as a single unit, words like 'shell,' 'shape,' and 'short' follow completely regular spelling from there."
+  - question: "What comes after this list?"
+    answer: "CH, TH, or WH Digraph Words — the other digraphs typically introduced around the same stage."
 words:
   - she
   - sheep

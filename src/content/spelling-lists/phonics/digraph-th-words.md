@@ -32,7 +32,7 @@ faq:
     answer: "TH actually represents two related sounds: a 'voiced' one where the tongue buzzes, as in 'the' and 'they,' and a quieter, 'unvoiced' one, as in 'think' and 'thank.' Both are spelled the same way, so the difference is worth noticing but doesn't change how the word is spelled."
   - question: "Should TH words be sounded out or memorized?"
     answer: "A mix of both. Most of these words follow the regular TH pattern and can be sounded out, but a few — like 'the' and 'they' — are also common sight words children may recognize by sight before they can fully sound them out."
-  - question: "What comes after this list?"
+  - question: "What comes after TH digraph words?"
     answer: "CH, SH, or WH Digraph Words — whichever hasn't been practiced yet."
 words:
   - the

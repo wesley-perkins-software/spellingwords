@@ -27,9 +27,9 @@ faq:
     answer: "By this point a child has seen the same rule work with two different vowels, so long O is where the pattern usually starts to feel automatic rather than freshly taught each time."
   - question: "How is this different from Silent E Long I Words?"
     answer: "Only the vowel changes again — the rule stays identical. The real difference worth noting is that several long-o words here, like 'home,' 'hope,' and 'note,' are extremely common in early reading, so the payoff in reading fluency is immediate."
-  - question: "Should these be sounded out or memorized?"
+  - question: "Should long O silent-e words be sounded out or memorized?"
     answer: "Sounded out, using the same rule as before. A child applying 'silent e, so the o says its name' can spell new long-o words on sight, not just these ten."
-  - question: "What comes after this list?"
+  - question: "What comes after long O silent-e words?"
     answer: "Long E Silent E Words, a shorter, less common pattern that completes the vowel sequence before moving on to vowel teams."
 words:
   - bone

@@ -33,9 +33,9 @@ faq:
     answer: "It's the warm, central sound in 'sun' and 'cup' — many phonics sequences place it last because it's the least visually distinct of the five short vowels and benefits from children already being confident with the other four."
   - question: "How is short 'u' different from short 'o'?"
     answer: "Short 'u' (as in 'hut') sits more centrally in the mouth than short 'o' (as in 'hot'), which is made with rounded lips — practicing them together is the fastest way to stop mixing them up."
-  - question: "Should these words be sounded out or memorized?"
+  - question: "Should short U words be sounded out or memorized?"
     answer: "Sounded out. Nine of the ten words are fully regular CVC words; 'duck' adds the 'ck' ending, the same dependable spelling children may have already met in Short O Words' 'rock.'"
-  - question: "What comes after this list?"
+  - question: "What comes after short U words?"
     answer: "Long A Silent E Words — the next stage in the sequence, now that all five short vowels are comfortable. It introduces the idea that one added letter can change a vowel's sound."
 words:
   - bug

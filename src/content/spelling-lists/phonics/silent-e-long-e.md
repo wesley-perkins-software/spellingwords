@@ -27,9 +27,9 @@ faq:
     answer: "Long-e silent-e words are genuinely rarer in English than long-a, long-i, or long-o silent-e words — most long-e sounds are spelled with vowel teams instead, as in 'tree' or 'beach' — so there are fewer strong, common examples to practice here, and the list isn't padded to match the others."
   - question: "How is this different from Silent E Long O Words?"
     answer: "The rule is identical, but the payoff is different — long-e silent-e words like 'these' and 'complete' show up constantly in early reading and writing, even though there are fewer of them to spell."
-  - question: "Should these be sounded out or memorized?"
+  - question: "Should long E silent-e words be sounded out or memorized?"
     answer: "Sounded out using the same silent-e rule as the earlier lists — there's nothing irregular about these words, just fewer of them to draw from."
-  - question: "What comes after this list?"
+  - question: "What comes after long E silent-e words?"
     answer: "Long U Silent E Words, the last vowel in the silent-e sequence before moving on to vowel teams."
 words:
   - "these"

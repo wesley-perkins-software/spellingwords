@@ -27,9 +27,9 @@ faq:
     answer: "Adding a silent 'e' to the end of a short-vowel word usually makes the vowel say its own name instead of its short sound — without the final e, 'cake' would sound like 'cak.' It's taught immediately after short vowels because it's the single most common way English marks a long vowel, and it only adds one new letter position, not a whole new pattern."
   - question: "How is this different from Short A Words?"
     answer: "The words share the same short-a sound before the change — 'hat' and 'cake' both start from that same open /a/ — but adding the silent 'e' turns it into a long 'a.' Comparing the two lists side by side is the clearest way to show a child that the same vowel can sound different depending on what follows it."
-  - question: "Should these be sounded out or memorized?"
+  - question: "Should long A silent-e words be sounded out or memorized?"
     answer: "Sounded out, using the rule rather than rote memory — once a child notices the silent e at the end, they can apply the same 'long vowel, silent e' pattern to brand-new words they haven't seen before, which is the whole point of teaching it as a rule."
-  - question: "What comes after this list?"
+  - question: "What comes after long A silent-e words?"
     answer: "Long I Silent E Words, which applies the exact same silent-e rule to a different vowel — proof that this is a repeatable pattern, not a one-time trick."
 words:
   - cake

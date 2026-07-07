@@ -32,7 +32,7 @@ faq:
     answer: "In most WH words the letters make a /w/ sound, but in a small number of words — 'who' and 'whole' among them — the W is silent and the word starts with an /h/ sound instead. It's a real exception worth naming rather than glossing over."
   - question: "Should WH words be sounded out or memorized?"
     answer: "Mostly sounded out, since the /w/ pattern covers most of the list — but 'who' and 'whole' are worth calling out specifically as the words that break the pattern, so they don't feel like a surprise later."
-  - question: "What comes after this list?"
+  - question: "What comes after WH digraph words?"
     answer: "CH, SH, or TH Digraph Words — whichever hasn't been practiced yet."
 words:
   - what

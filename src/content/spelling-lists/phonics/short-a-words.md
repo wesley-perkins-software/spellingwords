@@ -32,9 +32,9 @@ faq:
     answer: "It's one of the simplest vowel sounds to hear and say — a brief, open sound, as in 'cat' — so pairing it with simple consonant-vowel-consonant words gives children an early, reliable win before more complex vowel patterns show up."
   - question: "How is short 'a' different from long 'a'?"
     answer: "Short 'a' is the quick sound in words like 'hat' and 'cat,' while long 'a' says its own name, as in 'hate' or 'cake' — noticing the difference now makes the upcoming silent-e pattern feel like one small change, not a whole new rule."
-  - question: "Should these words be sounded out or memorized?"
+  - question: "Should short A words be sounded out or memorized?"
     answer: "Sounded out. Every word in this list is fully regular, so a child who segments each sound (c-a-t) and blends it back together will spell it correctly — memorizing isn't necessary and doesn't build the skill that transfers to new words."
-  - question: "What comes after this list?"
+  - question: "What comes after short A words?"
     answer: "Long A Silent E Words, which adds one silent letter to the end of a short-a word and changes the vowel sound — a natural next step once short 'a' feels automatic."
 words:
   - cat

@@ -33,9 +33,9 @@ faq:
     answer: "It's the brief, flat vowel sound in words like 'bed' and 'pet' — one of five short-vowel sounds children typically meet in their first year of phonics instruction, usually alongside or shortly after short 'a.'"
   - question: "How is short 'e' different from short 'i'?"
     answer: "The two sounds sit close together in the mouth and are the pair young spellers mix up most — short 'e' (as in 'bed') is a bit more open, while short 'i' (as in 'bit') is quicker and higher. Practicing the two lists side by side is often the fastest way to tell them apart."
-  - question: "Should these words be sounded out or memorized?"
+  - question: "Should short E words be sounded out or memorized?"
     answer: "Sounded out. Every word here follows the regular short-vowel pattern, so segmenting each sound (b-e-d) and blending it back builds a skill that carries over to new words, not just these ten."
-  - question: "What comes after this list?"
+  - question: "What comes after short E words?"
     answer: "Long A Silent E Words is the next stage in the sequence — though it's worth trying Short I, Short O, and Short U first if any of those still feel new."
 words:
   - bed

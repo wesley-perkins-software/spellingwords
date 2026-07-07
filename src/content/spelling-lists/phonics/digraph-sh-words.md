@@ -32,7 +32,7 @@ faq:
     answer: "SH is one smooth, continuous sound the whole way through, while CH starts with a brief stop, almost like a quiet 't,' before finishing the same way — comparing 'ship' and 'chip' side by side makes the difference easy to hear."
   - question: "Should SH words be sounded out or memorized?"
     answer: "Sounded out. Once a child treats SH as a single unit, words like 'shell,' 'shape,' and 'short' follow completely regular spelling from there."
-  - question: "What comes after this list?"
+  - question: "What comes after SH digraph words?"
     answer: "CH, TH, or WH Digraph Words — the other digraphs typically introduced around the same stage."
 words:
   - she

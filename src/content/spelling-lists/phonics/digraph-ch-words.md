@@ -32,7 +32,7 @@ faq:
     answer: "They're both digraphs made at the front of the mouth, but CH starts with a brief stopping sound, almost like a quiet 't,' before finishing like SH — saying 'chip' and 'ship' side by side is often the easiest way to hear the difference."
   - question: "Should CH words be sounded out or memorized?"
     answer: "Sounded out, once a child learns to treat CH as one unit rather than two separate letters — from there, the rest of each word ('child,' 'catch,' 'teacher') follows regular spelling."
-  - question: "What comes after this list?"
+  - question: "What comes after CH digraph words?"
     answer: "SH, TH, or WH Digraph Words — whichever hasn't been practiced yet, since all four are commonly taught around the same stage."
 words:
   - child

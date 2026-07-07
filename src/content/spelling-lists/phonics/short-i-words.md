@@ -33,9 +33,9 @@ faq:
     answer: "It's the quick, high sound in 'pig' and 'sit' — often introduced after short 'a' and short 'e' because it's easily confused with short 'e,' so children benefit from already knowing one of the pair well before meeting the other."
   - question: "How is short 'i' different from short 'e'?"
     answer: "Short 'i' (as in 'sit') is quicker and sits higher in the mouth than short 'e' (as in 'set') — they're the two short vowels children mix up most, so hearing them named and contrasted directly, rather than just practiced separately, helps the difference stick."
-  - question: "Should these words be sounded out or memorized?"
+  - question: "Should short I words be sounded out or memorized?"
     answer: "Sounded out, for most of the list — though 'fish' and 'hill' add a digraph and a double consonant, both worth calling out by name so children notice they're still regular, not exceptions."
-  - question: "What comes after this list?"
+  - question: "What comes after short I words?"
     answer: "Long A Silent E Words is the next stage in the sequence — though it's worth trying Short O and Short U first if either still feels new."
 words:
   - pig

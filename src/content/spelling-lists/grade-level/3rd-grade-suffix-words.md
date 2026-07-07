@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-3-prefix-words", "grade-3-dropping-silent-e", "grade-2-suffixes-ful-less", "grade-4-advanced-suffixes"]
 prerequisiteLists: ["grade-3-prefix-words", "grade-2-suffixes-ful-less"]
 nextLists: ["grade-3-dropping-silent-e", "grade-4-advanced-suffixes"]
+readinessSignals:
+  - "Can spell common base words before adding endings such as -ly, -ful, -less, -ness, and -ment"
+  - "Understands that suffixes can change meaning, comparison, or part of speech"
+  - "Is beginning to check whether a base word needs a spelling change before a suffix"
+faq:
+  - question: "Which suffixes are practiced in this list?"
+    answer: "Students practice comparison endings, adverb endings, and meaning-changing endings such as -ful, -less, -ness, and -ment. Together they show several ways endings build new words."
+  - question: "How do suffixes change word use?"
+    answer: "A suffix can turn a word into a describing word, an action-related word, or a noun. For example, happy can become happiness, and care can become careful."
+  - question: "Why do suffix words sometimes need spelling changes?"
+    answer: "Some suffixes attach directly, while others trigger changes such as doubling a consonant or changing y to i. This list prepares students to notice those changes before studying the rules in isolation."
+  - question: "How is suffix study different from prefix study?"
+    answer: "Prefixes come before a base word and usually change meaning. Suffixes come after a base word and may change meaning, grammar, comparison, or word form."
 featured: false
 words:
   - bigger

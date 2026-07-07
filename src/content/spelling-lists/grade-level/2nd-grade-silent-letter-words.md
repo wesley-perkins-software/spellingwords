@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-2-homophones", "vowel-teams-oa-ow", "lk-final-blend-words"]
 prerequisiteLists: ["grade-2-homophones"]
 nextLists: ["grade-2-comparatives-er-est"]
+readinessSignals:
+  - "Can spell basic consonant patterns and is ready for words where not every letter is pronounced"
+  - "Recognizes common words such as write, know, knee, lamb, and comb when reading"
+  - "Can compare what a word sounds like with the letters that must still be written"
+faq:
+  - question: "Why do silent letters matter for spelling?"
+    answer: "Silent letters are part of the correct spelling even though they are not pronounced. Students need to learn patterns such as wr, kn, and mb so they do not spell only the sounds they hear."
+  - question: "Which silent-letter patterns are in this list?"
+    answer: "This list focuses on wr as in write, kn as in know, and final mb as in thumb. Grouping them helps students see that silent letters often appear in predictable places."
+  - question: "How is this different from a phonics pattern?"
+    answer: "Phonics often maps letters to sounds directly. Silent-letter words teach the opposite problem: a letter may be visible in spelling even when it is quiet in speech."
+  - question: "What is a common silent-letter mistake?"
+    answer: "Learners often omit the silent letter, writing rite for write or now for know. Naming the pattern before spelling helps keep the hidden letter in place."
 featured: false
 words:
   - write

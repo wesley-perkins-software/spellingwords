@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-3-root-word-families", "grade-4-advanced-prefixes", "grade-4-advanced-suffixes", "tier-2-greek-latin-roots"]
 prerequisiteLists: ["grade-3-root-word-families", "grade-4-advanced-suffixes"]
 nextLists: ["tier-2-greek-latin-roots"]
+readinessSignals:
+  - "Can read longer words such as transport, predict, and structure by looking for meaningful chunks"
+  - "Understands that one Latin root can appear in several related academic words"
+  - "Can use prefixes and suffixes to help explain a root word’s meaning in context"
+faq:
+  - question: "Which Latin roots does this list teach?"
+    answer: "This list focuses on roots such as port, dict, spect, rupt, and struct. They appear in useful academic words like transport, predict, inspect, interrupt, and construct."
+  - question: "Why do Latin roots matter for spelling?"
+    answer: "Latin roots give students stable spellings inside long words. Once a learner knows struct, words like structure, construct, and instruct become easier to spell and understand."
+  - question: "How are Latin roots different from prefixes?"
+    answer: "A prefix attaches to the beginning of a word, but a root carries the word’s core meaning. In transport, trans- adds the idea of across, while port carries the idea of carrying."
+  - question: "What is a common challenge with Latin roots?"
+    answer: "Students may know the spoken word but not see the root inside it. Slowing down to identify the root helps with both spelling accuracy and vocabulary growth."
 featured: false
 words:
   - portable

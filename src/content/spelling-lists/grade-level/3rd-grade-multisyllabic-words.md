@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-3-changing-y-to-i", "grade-3-homophones", "grade-4-multisyllabic-academic-words"]
 prerequisiteLists: ["grade-3-changing-y-to-i"]
 nextLists: ["grade-3-homophones", "grade-4-multisyllabic-academic-words"]
+readinessSignals:
+  - "Can spell many one-syllable words accurately and is ready to manage longer word length"
+  - "Can clap, tap, or mark syllables in two- and three-syllable words"
+  - "Is beginning to notice familiar chunks inside longer words, such as endings or smaller base words"
+faq:
+  - question: "Why practice multisyllabic words separately?"
+    answer: "Longer words place more demand on memory and sequencing. Practicing them directly teaches students to break words into syllables and meaningful chunks before spelling."
+  - question: "How does syllable division help spelling?"
+    answer: "Syllables give students smaller units to hear and write. A word like afternoon becomes easier when it is handled as after plus noon or as clear spoken parts."
+  - question: "How is this different from root-word study?"
+    answer: "Multisyllabic study focuses first on managing longer words by sound and syllable. Root-word study focuses more on shared meaning across related words."
+  - question: "What mistakes are common with multisyllabic words?"
+    answer: "Students often omit an unstressed syllable or scramble the order of letters. Slow oral rehearsal and chunking the word before writing can prevent those errors."
 featured: false
 words:
   - basket

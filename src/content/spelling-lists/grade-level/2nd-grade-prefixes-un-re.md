@@ -17,6 +17,19 @@ sourceType: curated
 relatedLists: ["grade-2-contractions", "grade-2-suffixes-ful-less", "grade-2-list-02"]
 prerequisiteLists: ["grade-2-contractions"]
 nextLists: ["grade-2-suffixes-ful-less"]
+readinessSignals:
+  - "Can spell familiar base words such as kind, happy, lock, read, and tell before adding a beginning word part"
+  - "Notices that un- usually means “not” while re- usually means “again” in everyday words"
+  - "Can explain a prefix word by separating the prefix from the base word"
+faq:
+  - question: "What do un- and re- mean in these words?"
+    answer: "Un- usually means “not” or “the opposite of,” as in unfair and unhappy. Re- usually means “again,” as in reread and retell."
+  - question: "Does adding un- or re- change the spelling of the base word?"
+    answer: "Usually no. In this list, the prefix is added to the front of the base word, so kind becomes unkind and read becomes reread without changing the base spelling."
+  - question: "Why are un- and re- good first prefixes to learn?"
+    answer: "They are common, clear in meaning, and easy to see at the beginning of words. That makes them a strong bridge from spelling single words to spelling words built from meaningful parts."
+  - question: "What mistakes are common with these prefix words?"
+    answer: "Learners may leave out one repeated letter in words like reread or rewrite, or treat the prefix as a separate word. Reading the word as prefix plus base word helps prevent both mistakes."
 featured: false
 words:
   - unfair

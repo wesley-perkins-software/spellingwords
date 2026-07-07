@@ -20,14 +20,14 @@ This is the master tracking document for the Editorial Completion project: writi
 | 1 | Beginning vocabulary | 10 | 1 | 9 |
 | 2 | Grade-level vocabulary | 20 | 0 | 20 |
 | 3 | Phonics pattern pages | 53 | 53 | 0 |
-| 4 | Spelling rule pages | 6 | 0 | 6 |
+| 4 | Spelling rule pages | 6 | 6 | 0 |
 | 5 | Sight-word pages | 24 | 24 | 0 |
-| 6 | Prefix pages | 4 | 0 | 4 |
-| 7 | Suffix pages | 5 | 0 | 5 |
-| 8 | Root-word pages | 4 | 0 | 4 |
+| 6 | Prefix pages | 4 | 4 | 0 |
+| 7 | Suffix pages | 5 | 5 | 0 |
+| 8 | Root-word pages | 4 | 4 | 0 |
 | 9 | Homophone pages | 4 | 0 | 4 |
-| 10 | Morphology pages | 4 | 0 | 4 |
-| — | **Total (excludes 1 archived phonics list)** | **134** | **78** | **56** |
+| 10 | Morphology pages | 4 | 4 | 0 |
+| — | **Total (excludes 1 archived phonics list)** | **134** | **101** | **33** |
 
 ## Progress summary by category folder
 
@@ -35,9 +35,9 @@ This is the master tracking document for the Editorial Completion project: writi
 |---|---:|---:|---:|---|
 | phonics | 53 | 53 | 0 | Excludes `short-vowels-cvc-words` (archived, not counted) |
 | sight-words | 24 | 24 | 0 | Dolch service-word sequence and supplemental Dolch nouns complete |
-| grade-level | 54 | 1 | 53 | `kindergarten-first-words` already complete (pre-existing reference example) |
-| challenge | 3 | 0 | 3 | `tier-2-greek-latin-roots.md` lives in `challenge/` but its frontmatter `category: grade-level` — a pre-existing mismatch, noted here for awareness, not fixed by this project |
-| **Total** | **134** | **78** | **56** | |
+| grade-level | 54 | 22 | 32 | `kindergarten-first-words` plus the full Morphology editorial domain are complete |
+| challenge | 3 | 2 | 1 | Root-word challenge lists complete; `tier-2-greek-latin-roots.md` frontmatter category mismatch remains a pre-existing content-model note |
+| **Total** | **134** | **101** | **33** | |
 
 ---
 
@@ -204,14 +204,14 @@ This is the master tracking document for the Editorial Completion project: writi
 | 2nd-grade-action-words | 2 | ⬜ | ⬜ | not yet | |
 | 2nd-grade-describing-words | 2 | ⬜ | ⬜ | not yet | |
 | 2nd-grade-everyday-words | 2 | ⬜ | ⬜ | not yet | |
-| 2nd-grade-comparatives-er-est | 7 | ⬜ | ⬜ | not yet | |
-| 2nd-grade-suffixes-ful-less | 7 | ⬜ | ⬜ | not yet | |
-| 2nd-grade-regular-plurals | 7 *(provisional)* | ⬜ | ⬜ | not yet | Could also be read as a spelling-rule page; confirm at rollout |
-| 2nd-grade-prefixes-un-re | 6 | ⬜ | ⬜ | not yet | |
+| 2nd-grade-comparatives-er-est | 7 | ✅ | ✅ | fine as-is | |
+| 2nd-grade-suffixes-ful-less | 7 | ✅ | ✅ | fine as-is | |
+| 2nd-grade-regular-plurals | 7 | ✅ | ✅ | fine as-is | Confirmed as early suffix/word-formation page because plural -s/-es functions as an ending added to nouns |
+| 2nd-grade-prefixes-un-re | 6 | ✅ | ✅ | fine as-is | |
 | 2nd-grade-homophones | 9 | ⬜ | ⬜ | not yet | |
-| 2nd-grade-compound-words | 10 *(provisional)* | ⬜ | ⬜ | not yet | Doesn't cleanly match any of the 10 archetypes yet; morphology is closest fit |
-| 2nd-grade-contractions | 4 *(provisional)* | ⬜ | ⬜ | not yet | Doesn't cleanly match any of the 10 archetypes yet; spelling-rule is closest fit |
-| 2nd-grade-silent-letter-words | 4 *(provisional)* | ⬜ | ⬜ | not yet | `PHONICS_STRATEGY.md` calls this class "advanced spelling patterns" rather than phonics or a rule; closest existing archetype is spelling-rule pages — confirm at rollout |
+| 2nd-grade-compound-words | 10 | ✅ | ✅ | fine as-is | Confirmed as morphology because the page teaches closed compounds as two words forming one lexical unit |
+| 2nd-grade-contractions | 4 | ✅ | ✅ | fine as-is | Confirmed as spelling-rule/word-formation because apostrophe placement teaches how two words contract into one spelling form |
+| 2nd-grade-silent-letter-words | 4 | ✅ | ✅ | fine as-is | Confirmed as spelling-pattern/rule page for this rollout; silent letters are orthographic patterns rather than word parts |
 
 ### 3rd grade
 
@@ -220,14 +220,14 @@ This is the master tracking document for the Editorial Completion project: writi
 | 3rd-grade-describing-words | 2 | ⬜ | ⬜ | not yet | |
 | 3rd-grade-everyday-words | 2 | ⬜ | ⬜ | not yet | |
 | 3rd-grade-reading-writing-words | 2 | ⬜ | ⬜ | not yet | |
-| 3rd-grade-changing-y-to-i | 4 | ⬜ | ⬜ | not yet | |
-| 3rd-grade-doubling-final-consonants | 4 | ⬜ | ⬜ | not yet | |
-| 3rd-grade-dropping-silent-e | 4 | ⬜ | ⬜ | not yet | |
-| 3rd-grade-prefix-words | 6 | ⬜ | ⬜ | not yet | |
-| 3rd-grade-suffix-words | 7 | ⬜ | ⬜ | not yet | |
-| 3rd-grade-root-word-families | 8 | ⬜ | ⬜ | not yet | |
+| 3rd-grade-changing-y-to-i | 4 | ✅ | ✅ | fine as-is | |
+| 3rd-grade-doubling-final-consonants | 4 | ✅ | ✅ | fine as-is | |
+| 3rd-grade-dropping-silent-e | 4 | ✅ | ✅ | fine as-is | |
+| 3rd-grade-prefix-words | 6 | ✅ | ✅ | fine as-is | |
+| 3rd-grade-suffix-words | 7 | ✅ | ✅ | fine as-is | |
+| 3rd-grade-root-word-families | 8 | ✅ | ✅ | fine as-is | |
 | 3rd-grade-homophones | 9 | ⬜ | ⬜ | not yet | |
-| 3rd-grade-multisyllabic-words | 10 | ⬜ | ⬜ | not yet | |
+| 3rd-grade-multisyllabic-words | 10 | ✅ | ✅ | fine as-is | |
 
 ### 4th grade
 
@@ -236,9 +236,9 @@ This is the master tracking document for the Editorial Completion project: writi
 | 4th-grade-community-words | 2 | ⬜ | ⬜ | not yet | |
 | 4th-grade-everyday-words | 2 | ⬜ | ⬜ | not yet | |
 | 4th-grade-reading-writing-words | 2 | ⬜ | ⬜ | not yet | |
-| 4th-grade-advanced-prefixes | 6 | ⬜ | ⬜ | not yet | |
-| 4th-grade-advanced-suffixes | 7 | ⬜ | ⬜ | not yet | |
-| 4th-grade-multisyllabic-academic-words | 10 | ⬜ | ⬜ | not yet | |
+| 4th-grade-advanced-prefixes | 6 | ✅ | ✅ | fine as-is | |
+| 4th-grade-advanced-suffixes | 7 | ✅ | ✅ | fine as-is | |
+| 4th-grade-multisyllabic-academic-words | 10 | ✅ | ✅ | fine as-is | |
 | 4th-grade-commonly-confused-words | 9 *(provisional)* | ⬜ | ⬜ | not yet | Not strict homophones, but same "distinguish confusable words" shape — confirm at rollout |
 
 ### 5th grade
@@ -252,10 +252,10 @@ This is the master tracking document for the Editorial Completion project: writi
 | 5th-grade-opinion-argument-words | 2 | ⬜ | ⬜ | not yet | |
 | 5th-grade-reading-writing-words | 2 | ⬜ | ⬜ | not yet | |
 | 5th-grade-science-nature-words | 2 | ⬜ | ⬜ | not yet | |
-| 5th-grade-spelling-rules | 4 | ⬜ | ⬜ | not yet | |
-| 5th-grade-prefix-suffix-words | 6 *(provisional)* | ⬜ | ⬜ | not yet | Covers both prefixes and suffixes; counted under archetype 6 for totals — confirm framing at rollout |
-| 5th-grade-multisyllabic-academic-words | 10 | ⬜ | ⬜ | not yet | |
-| 5th-grade-greek-latin-word-parts | 8 | ⬜ | ⬜ | not yet | |
+| 5th-grade-spelling-rules | 4 | ✅ | ✅ | fine as-is | |
+| 5th-grade-prefix-suffix-words | 6 | ✅ | ✅ | fine as-is | Confirmed as combined prefix/suffix morphology and counted with prefix pages for checklist continuity |
+| 5th-grade-multisyllabic-academic-words | 10 | ✅ | ✅ | fine as-is | |
+| 5th-grade-greek-latin-word-parts | 8 | ✅ | ✅ | fine as-is | |
 | 5th-grade-commonly-confused-words | 9 *(provisional)* | ⬜ | ⬜ | not yet | Same note as 4th-grade-commonly-confused-words |
 
 ---
@@ -265,8 +265,8 @@ This is the master tracking document for the Editorial Completion project: writi
 | List (file) | Archetype | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|---|
 | academic-vocabulary | 2 *(provisional)* | ⬜ | ⬜ | not yet | Challenge-tier vocabulary, closest to grade-level vocabulary archetype |
-| tier-1-roots-and-patterns | 8 *(provisional)* | ⬜ | ⬜ | not yet | |
-| tier-2-greek-latin-roots | 8 *(provisional)* | ⬜ | ⬜ | not yet | Frontmatter `category: grade-level`, `grade: "4"` despite living in `challenge/` — pre-existing mismatch, not fixed here |
+| tier-1-roots-and-patterns | 8 | ✅ | ✅ | fine as-is | |
+| tier-2-greek-latin-roots | 8 | ✅ | ✅ | fine as-is | Frontmatter `category: grade-level`, `grade: "4"` despite living in `challenge/` — pre-existing mismatch, not fixed here |
 
 ---
 
@@ -278,3 +278,12 @@ This is the master tracking document for the Editorial Completion project: writi
 - **2026-07-07** — Reviewed `shortAnswer` for the 16 phonics lists completed in this batch (short vowels ×5, silent-e long vowels ×5, digraphs ×6). All 16 read as accurate, teacher-voiced, one-sentence summaries and none felt redundant with the new FAQ content — the FAQ's first question answers "why does this pattern matter," while `shortAnswer` is closer to a plain "what this list is," so they serve different purposes even sitting close together conceptually. No pattern yet suggesting `shortAnswer` needs a rewrite pass. Still not rendered anywhere on the list-detail page (only used on the `spelling-collections` template) — no page-architecture change made or proposed here; this remains an open `EDITORIAL_SYSTEM.md` "Future TODO" to revisit once more archetypes have been through this same review.
 - **2026-07-07 (r-controlled + vowel-team batch)** — Reviewed `shortAnswer` for 8 additional published phonics lists: r-controlled vowels ×3 and vowel teams ×5. All 8 remain accurate one-sentence summaries of the target pattern, and none needed edits while adding readiness/FAQ. Vowel-team `shortAnswer` entries consistently name the sound and example words; r-controlled entries correctly distinguish AR, OR, and ER/IR/UR. No new evidence that `shortAnswer` should render on list-detail pages yet. Batch relationship checks found all `prerequisiteLists`, `nextLists`, and `relatedLists` references resolving to published lists; no archived references found in this batch. Duplicate checks across readiness sentences, FAQ questions, and FAQ answers found no exact duplicates.
 - **2026-07-07 (refinement pass)** — Did a quality refinement of the same 16 lists after the initial batch: reworded readiness signals to read as learner-fit outcomes rather than "has completed list X" prerequisite checklists; removed a `readinessSignals`/`faq` content overlap on the TH and WH digraph pages (voiced/unvoiced and the "who" exception were each stated twice); fixed a broken content-graph reference where `c-k-ck-words` and `tch-dge-ending-words` pointed at the archived `short-vowels-cvc-words` list (dead link, silently dropped by the template); added `nextLists` from Short E/I/O/U to Long A Silent E Words, matching the existing Short A → Long A link so all five short-vowel lists now have a real "ready for next" path instead of three dead ends; added reciprocal `relatedLists` between each short-vowel list and its silent-e counterpart. `shortAnswer` conclusion unchanged by this pass.
+
+
+## Morphology rollout notes — July 2026
+
+- Completed all 23 published pages in the Morphology editorial domain: prefix, suffix, root-word, Greek/Latin word-part, prefix-plus-suffix, compound/contraction, multisyllabic, silent-letter, and spelling-rule pages.
+- Authored 69 readiness signals and 92 FAQ entries across the domain, with each page receiving three observable readiness signals and four concept-specific FAQ entries.
+- `shortAnswer` remains useful and accurate across the completed morphology pages, but still is not rendered on list-detail pages; continue evaluation-only treatment until page architecture changes in a future project.
+- Curriculum relationships were reviewed for the completed domain. All referenced list IDs resolve to published content; no archived list references were found. The broader progression now reads as: early compounds/contractions/prefixes/suffixes → plural/comparative and silent-letter patterns → Grade 3 prefixes/suffixes/spelling rules → root families/multisyllabic words → advanced prefixes/suffixes → Latin and Greek roots → Grade 5 combined morphology and spelling rules.
+- Editorial decision: regular plurals are tracked as suffix/word-formation content, contractions and silent-letter words remain in the spelling-rule bucket for this checklist, and `5th-grade-prefix-suffix-words` remains counted under prefix pages while written as a combined morphology page.

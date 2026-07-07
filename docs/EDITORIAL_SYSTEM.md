@@ -104,10 +104,12 @@ This is a decision rule, not a formula: it exists so every author reaches the sa
 - Readiness: is comfortable with grade-level academic vocabulary; has met simpler roots already; reads multisyllabic words in context.
 - FAQ: What does this root mean, and which other words share it? Why do roots matter for spelling long words? How is it different from [a similar/confusable root]? What comes after this list?
 
-### 9. Homophone pages
-*Word-pair/set lists where meaning, not sound, distinguishes spelling*
-- Readiness: can already spell each word in the set individually; is starting to write sentences where mixing them up is a common mistake; knows the words' meanings when spoken aloud.
-- FAQ: What's the difference in meaning between these words? Is there a memory trick to tell them apart? Why is this a common mistake? What comes after this list?
+### 9. Homophone and commonly confused word pages
+*Word-pair/set lists where meaning, grammar, context, or visual similarity distinguishes spelling*
+- Readiness: can already spell many words in the set individually; is starting to write sentences where mixing them up is a common mistake; can compare the words' meanings or sentence jobs when prompted.
+- FAQ: What's the difference in meaning or use between these words? Is there a memory trick or sentence test to tell them apart? Why is this a common mistake? What comes after this list?
+
+This archetype includes strict homophones (`to`/`too`/`two`) and broader commonly confused pairs (`affect`/`effect`, `advice`/`advise`, `desert`/`dessert`). The editorial task is the same in both cases: teach learners to choose the spelling that fits the sentence, not to sort pages by whether every pair has identical pronunciation.
 
 ### 10. Morphology pages
 *Multisyllabic words, combined word-part study*
@@ -166,7 +168,7 @@ Every list-detail page's goal is to be the best available educational resource o
 
 ## Future TODO
 
-`shortAnswer` — a one-sentence, hand-authored summary — already exists on 100% of the 135 lists in the library, but is not currently rendered anywhere on the list-detail page (it's only used on the `spelling-collections` template). Evaluate incorporating it into the page architecture in a future pass, once the readiness/FAQ archetype rollout above is underway. It's real, existing editorial content sitting unused — a low-risk lever once the higher-priority section rollout has a rhythm going.
+`shortAnswer` — a one-sentence, hand-authored summary — already exists on 100% of the 135 lists in the library, but is not currently rendered anywhere on the list-detail page (it's only used on the `spelling-collections` template). Evaluate incorporating it into the page architecture in a future pass now that readiness/FAQ rollout is complete. It's real, existing editorial content sitting unused — a low-risk lever once the higher-priority section rollout has a rhythm going.
 
 ## Morphology rollout guidance
 

@@ -18,16 +18,16 @@ featured: false
 readinessSignals:
   - "Can hear both sounds in the DR blend instead of dropping one of them"
   - "Can say and spell simple one-syllable words while keeping the DR letters together"
-  - "Is comfortable with short-vowel words and ready to practice consonant clusters inside real words"
+  - "Can spell short-vowel words and is beginning to notice DR as a starting cluster"
 faq:
   - question: "What is the DR blend?"
     answer: "It's a consonant blend where the D and R sounds sit side by side at the start of a word. Each sound is still heard, so children practice listening for both letters rather than treating the pair like one new sound."
   - question: "Why practice DR words separately?"
     answer: "A focused list makes the blend easy to notice. Instead of juggling many consonant clusters at once, children can build accuracy with DR in familiar words like drag, draw, dream."
-  - question: "Should these words be sounded out or memorized?"
-    answer: "Sounded out. The point is to hear and spell each consonant in the blend, then connect that blend to the rest of the word."
-  - question: "What should a child practice next?"
-    answer: "Move to another blend list after this one feels steady; the goal is flexible attention to both consonants across many beginning and ending clusters."
+  - question: "Should DR words be sounded out or memorized?"
+    answer: "Sound them out. The goal is to hear the D sound and the R sound in order, then connect that beginning blend to the rest of the word."
+  - question: "What should a child practice after DR words?"
+    answer: "After DR words feel steady, move to another beginning blend and compare how the mouth changes for the second consonant. The aim is flexible attention to both starting sounds, not memorizing one cluster at a time forever."
 relatedLists:
   - fl-blend-words
   - fr-blend-words

@@ -18,16 +18,16 @@ featured: false
 readinessSignals:
   - "Can hear both sounds in the MP blend instead of dropping one of them"
   - "Can say and spell simple one-syllable words while keeping the MP letters together"
-  - "Is comfortable with short-vowel words and ready to practice consonant clusters inside real words"
+  - "Can spell short-vowel words and is beginning to notice MP as an ending cluster"
 faq:
   - question: "What is the MP blend?"
     answer: "It's a consonant blend where the M and P sounds sit side by side at the end of a word. Each sound is still heard, so children practice listening for both letters rather than treating the pair like one new sound."
   - question: "Why practice MP words separately?"
     answer: "A focused list makes the blend easy to notice. Instead of juggling many consonant clusters at once, children can build accuracy with MP in familiar words like bump, camp, damp."
-  - question: "Should these words be sounded out or memorized?"
-    answer: "Sounded out. The point is to hear and spell each consonant in the blend, then connect that blend to the rest of the word."
-  - question: "What should a child practice next?"
-    answer: "Move to another blend list after this one feels steady; the goal is flexible attention to both consonants across many beginning and ending clusters."
+  - question: "Should final MP words be sounded out or memorized?"
+    answer: "Sound them out from the vowel through the ending blend. In MP words, the learner needs to hold onto both final consonants instead of stopping after the first ending sound."
+  - question: "What should a child practice after final MP words?"
+    answer: "After MP endings feel steady, practice other final blends and then compare them with vowel-team words so children keep both the vowel pattern and ending cluster in view."
 relatedLists:
   - ft-final-blend-words
   - sk-final-blend-words

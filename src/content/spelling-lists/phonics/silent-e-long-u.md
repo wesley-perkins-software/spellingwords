@@ -27,9 +27,9 @@ faq:
     answer: "It's the fifth and final vowel in the pattern — once a child has applied the same silent-e rule to a, i, o, e, and u, the rule has been proven general rather than tied to one particular vowel, and there's nothing more to add to this pattern."
   - question: "How is this different from Silent E Long E Words?"
     answer: "Same rule, different vowel — though long U has an extra wrinkle worth naming: some silent-e words with U, like 'rule' and 'flute,' say a long 'oo' sound rather than the vowel's own name. That's worth pointing out rather than glossing over."
-  - question: "Should these be sounded out or memorized?"
+  - question: "Should long U silent-e words be sounded out or memorized?"
     answer: "Sounded out using the familiar silent-e rule, with a quick note on the 'oo' variant in words like 'rule' so it doesn't feel like an exception."
-  - question: "What comes after this list?"
+  - question: "What comes after long U silent-e words?"
     answer: "Vowel teams — a new way of spelling long vowel sounds using two vowels together instead of a silent e, starting with AI and AY Words."
 words:
   - "cube"

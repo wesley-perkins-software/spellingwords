@@ -27,9 +27,9 @@ faq:
     answer: "Unlike most consonant sounds, /k/ can be spelled three different ways — C, K, or CK — depending on what letter comes next and whether the vowel before it is short. This list exists because that choice is a genuine spelling decision, not because the sound itself is hard to hear."
   - question: "How do I know which spelling to use?"
     answer: "There's a reliable pattern: C goes before A, O, or U ('cat,' 'cup,' 'clock'); K goes before E or I ('kite,' 'kit'); and CK goes at the end of a short, one-syllable word right after a short vowel ('back,' 'neck,' 'duck,' 'rock'). Once a child checks what letter comes next, the choice becomes automatic instead of a guess."
-  - question: "Should these be sounded out or memorized?"
+  - question: "Should C, K, and CK spellings be sounded out or memorized?"
     answer: "This is one of the few phonics patterns better learned as a rule than sounded out — the sound is identical in every word, so what's being taught is a spelling decision, and practicing the rule works better than guessing from sound alone."
-  - question: "What comes after this list?"
+  - question: "What comes after C, K, and CK words?"
     answer: "TCH and DGE Ending Words, which asks the same kind of spelling-choice question for a different pair of sounds."
 words:
   - "back"

@@ -33,9 +33,9 @@ faq:
     answer: "It's the round, open sound in 'hot' and 'dog' — one of the five core short-vowel sounds, usually introduced once children are comfortable blending three-sound words."
   - question: "How is short 'o' different from short 'u'?"
     answer: "Short 'o' (as in 'hot') is made with rounded lips, while short 'u' (as in 'hut') is more relaxed and central — they can sound similar to an early speller, so it helps to practice the two lists side by side instead of assuming the difference is obvious."
-  - question: "Should these words be sounded out or memorized?"
+  - question: "Should short O words be sounded out or memorized?"
     answer: "Sounded out. Nine of the ten words are fully regular CVC words; 'rock' adds the 'ck' ending, which is worth naming explicitly so children recognize it as a single, dependable spelling rather than a surprise."
-  - question: "What comes after this list?"
+  - question: "What comes after short O words?"
     answer: "Short U Words, if it hasn't been practiced yet — then Long A Silent E Words, the next stage in the sequence, once all five short vowels are steady."
 words:
   - hot

@@ -27,9 +27,9 @@ faq:
     answer: "Once a child has learned the rule with one vowel, applying it to a second vowel confirms it's a repeatable pattern rather than something special about the letter 'a' — long I is the natural next step because the rule works exactly the same way."
   - question: "How is this different from Silent E Long A Words?"
     answer: "Only the vowel changes — the rule is identical. A child who understands why 'gate' isn't 'gat' already has everything needed to understand why 'bike' isn't 'bik.'"
-  - question: "Should these be sounded out or memorized?"
+  - question: "Should long I silent-e words be sounded out or memorized?"
     answer: "Sounded out, applying the same rule learned with long-a words. A child who can explain 'silent e, so the i says its name' can spell any regular long-i word, not just the ten here."
-  - question: "What comes after this list?"
+  - question: "What comes after long I silent-e words?"
     answer: "Long O Silent E Words, continuing the same rule with a third vowel."
 words:
   - bike

@@ -18,6 +18,19 @@ relatedLists: ["kindergarten-family-words", "kindergarten-body-words"]
 prerequisiteLists: ["kindergarten-family-words"]
 nextLists: ["kindergarten-body-words"]
 featured: false
+readinessSignals:
+  - "Can name common classroom objects and routines"
+  - "Recognizes that print labels objects, places, and materials around the room"
+  - "Is ready to spell useful words from daily school life"
+faq:
+  - question: "Why teach school words in kindergarten?"
+    answer: "School words help children connect spelling to the classroom world they use every day. The words are practical for labels, directions, routines, and early writing."
+  - question: "How do school words build independence?"
+    answer: "When children can read and spell words for common materials or places, they rely less on adult prompting and understand classroom print more confidently."
+  - question: "What mistakes are common with school vocabulary?"
+    answer: "Young learners may know the object but not attend to all the sounds in the word. Practice should include saying the word slowly, tapping sounds, and matching sounds to letters."
+  - question: "Which words should follow kindergarten school words?"
+    answer: "Family words and first words make good next steps because they broaden the same concrete vocabulary base from classroom life into home and everyday life."
 words:
   - backpack
   - book

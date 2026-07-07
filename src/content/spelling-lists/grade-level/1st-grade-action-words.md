@@ -18,6 +18,19 @@ relatedLists: ["grade-1-list-01"]
 prerequisiteLists: ["grade-1-list-01"]
 nextLists: []
 featured: false
+readinessSignals:
+  - "Can tell what a person or character is doing in a picture or sentence"
+  - "Writes simple sentences that need clear verbs such as make, help, ride, or sing"
+  - "Can hear and say each sound in short one-syllable words, even when the spelling is not automatic"
+faq:
+  - question: "Why do first graders need action words?"
+    answer: "Action words help first graders move from labeling people and things to writing complete thoughts. A sentence such as The dog runs depends on the verb to show what is happening."
+  - question: "Are these words mainly for spelling or writing?"
+    answer: "They are for both. Students should practice the spelling, but the real value comes when they can use the words in stories, directions, and personal writing without stopping to ask how each verb is spelled."
+  - question: "What is tricky about these first-grade verbs?"
+    answer: "Several are common but not perfectly simple: catch has a consonant team at the end, write begins with a silent letter, and hear uses an ear spelling. Those patterns make direct practice worthwhile."
+  - question: "What should students study after first-grade action words?"
+    answer: "A natural next step is first-grade describing words, because students can combine verbs and adjectives to write richer sentences such as I ride the fast bike."
 words:
   - build
   - call

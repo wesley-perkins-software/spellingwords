@@ -18,6 +18,19 @@ relatedLists: ["grade-1-list-02"]
 prerequisiteLists: []
 nextLists: ["grade-1-list-02"]
 featured: false
+readinessSignals:
+  - "Recognizes many common classroom and home words when reading simple text"
+  - "Can write short messages, labels, or journal sentences with some sound-based spelling"
+  - "Is ready to spell useful words that appear often outside a single phonics pattern"
+faq:
+  - question: "What makes these first-grade everyday words different from phonics lists?"
+    answer: "A phonics list focuses on one spelling pattern. This list gathers useful words first graders meet across school, home, and early books, so the words are chosen for everyday need rather than one shared sound pattern."
+  - question: "Why should common vocabulary be practiced directly?"
+    answer: "When students can spell high-use words quickly, they can spend more attention on the idea they want to write. Automatic spelling of everyday words reduces the burden of every sentence."
+  - question: "Are these words supposed to be memorized?"
+    answer: "Some memorizing happens naturally, but students should still say the word, listen for sounds, notice tricky parts, and use the word in a sentence. That combination builds spelling knowledge better than copying alone."
+  - question: "What comes after first-grade everyday words?"
+    answer: "Second-grade everyday words are the clearest next step because they keep the same practical focus while adding longer and less predictable school vocabulary."
 words:
   - door
   - face

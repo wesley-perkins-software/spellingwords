@@ -17,8 +17,8 @@ This is the master tracking document for the Editorial Completion project: writi
 
 | # | Archetype | Total | Complete | Remaining |
 |---|---|---:|---:|---:|
-| 1 | Beginning vocabulary | 10 | 1 | 9 |
-| 2 | Grade-level vocabulary | 20 | 0 | 20 |
+| 1 | Beginning vocabulary | 10 | 10 | 0 |
+| 2 | Grade-level vocabulary | 20 | 20 | 0 |
 | 3 | Phonics pattern pages | 53 | 53 | 0 |
 | 4 | Spelling rule pages | 6 | 6 | 0 |
 | 5 | Sight-word pages | 24 | 24 | 0 |
@@ -27,7 +27,7 @@ This is the master tracking document for the Editorial Completion project: writi
 | 8 | Root-word pages | 4 | 4 | 0 |
 | 9 | Homophone pages | 4 | 0 | 4 |
 | 10 | Morphology pages | 4 | 4 | 0 |
-| — | **Total (excludes 1 archived phonics list)** | **134** | **101** | **33** |
+| — | **Total (excludes 1 archived phonics list)** | **134** | **129** | **5** |
 
 ## Progress summary by category folder
 
@@ -35,9 +35,9 @@ This is the master tracking document for the Editorial Completion project: writi
 |---|---:|---:|---:|---|
 | phonics | 53 | 53 | 0 | Excludes `short-vowels-cvc-words` (archived, not counted) |
 | sight-words | 24 | 24 | 0 | Dolch service-word sequence and supplemental Dolch nouns complete |
-| grade-level | 54 | 22 | 32 | `kindergarten-first-words` plus the full Morphology editorial domain are complete |
+| grade-level | 54 | 50 | 4 | Grade-level vocabulary, beginning vocabulary, and morphology-domain grade-level pages are complete; only homophone/commonly-confused pages remain |
 | challenge | 3 | 2 | 1 | Root-word challenge lists complete; `tier-2-greek-latin-roots.md` frontmatter category mismatch remains a pre-existing content-model note |
-| **Total** | **134** | **101** | **33** | |
+| **Total** | **134** | **129** | **5** | |
 
 ---
 
@@ -179,31 +179,31 @@ This is the master tracking document for the Editorial Completion project: writi
 | List (file) | Archetype | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|---|
 | kindergarten-first-words | 1 | ✅ | ✅ | — | Pre-existing reference example; the only list in the library done before this project started |
-| kindergarten-animal-words | 1 | ⬜ | ⬜ | not yet | |
-| kindergarten-body-words | 1 | ⬜ | ⬜ | not yet | |
-| kindergarten-describing-words | 1 | ⬜ | ⬜ | not yet | |
-| kindergarten-family-words | 1 | ⬜ | ⬜ | not yet | |
-| kindergarten-feelings-words | 1 | ⬜ | ⬜ | not yet | |
-| kindergarten-food-words | 1 | ⬜ | ⬜ | not yet | |
-| kindergarten-number-color-words | 1 | ⬜ | ⬜ | not yet | |
-| kindergarten-school-words | 1 | ⬜ | ⬜ | not yet | |
-| kindergarten-shape-words | 1 | ⬜ | ⬜ | not yet | |
+| kindergarten-animal-words | 1 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| kindergarten-body-words | 1 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| kindergarten-describing-words | 1 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| kindergarten-family-words | 1 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| kindergarten-feelings-words | 1 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| kindergarten-food-words | 1 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| kindergarten-number-color-words | 1 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| kindergarten-school-words | 1 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| kindergarten-shape-words | 1 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
 
 ### 1st grade
 
 | List (file) | Archetype | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|---|
-| 1st-grade-action-words | 2 | ⬜ | ⬜ | not yet | |
-| 1st-grade-describing-words | 2 | ⬜ | ⬜ | not yet | |
-| 1st-grade-everyday-words | 2 | ⬜ | ⬜ | not yet | |
+| 1st-grade-action-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 1st-grade-describing-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 1st-grade-everyday-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
 
 ### 2nd grade
 
 | List (file) | Archetype | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|---|
-| 2nd-grade-action-words | 2 | ⬜ | ⬜ | not yet | |
-| 2nd-grade-describing-words | 2 | ⬜ | ⬜ | not yet | |
-| 2nd-grade-everyday-words | 2 | ⬜ | ⬜ | not yet | |
+| 2nd-grade-action-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 2nd-grade-describing-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 2nd-grade-everyday-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
 | 2nd-grade-comparatives-er-est | 7 | ✅ | ✅ | fine as-is | |
 | 2nd-grade-suffixes-ful-less | 7 | ✅ | ✅ | fine as-is | |
 | 2nd-grade-regular-plurals | 7 | ✅ | ✅ | fine as-is | Confirmed as early suffix/word-formation page because plural -s/-es functions as an ending added to nouns |
@@ -217,9 +217,9 @@ This is the master tracking document for the Editorial Completion project: writi
 
 | List (file) | Archetype | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|---|
-| 3rd-grade-describing-words | 2 | ⬜ | ⬜ | not yet | |
-| 3rd-grade-everyday-words | 2 | ⬜ | ⬜ | not yet | |
-| 3rd-grade-reading-writing-words | 2 | ⬜ | ⬜ | not yet | |
+| 3rd-grade-describing-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 3rd-grade-everyday-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 3rd-grade-reading-writing-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
 | 3rd-grade-changing-y-to-i | 4 | ✅ | ✅ | fine as-is | |
 | 3rd-grade-doubling-final-consonants | 4 | ✅ | ✅ | fine as-is | |
 | 3rd-grade-dropping-silent-e | 4 | ✅ | ✅ | fine as-is | |
@@ -233,9 +233,9 @@ This is the master tracking document for the Editorial Completion project: writi
 
 | List (file) | Archetype | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|---|
-| 4th-grade-community-words | 2 | ⬜ | ⬜ | not yet | |
-| 4th-grade-everyday-words | 2 | ⬜ | ⬜ | not yet | |
-| 4th-grade-reading-writing-words | 2 | ⬜ | ⬜ | not yet | |
+| 4th-grade-community-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 4th-grade-everyday-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 4th-grade-reading-writing-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
 | 4th-grade-advanced-prefixes | 6 | ✅ | ✅ | fine as-is | |
 | 4th-grade-advanced-suffixes | 7 | ✅ | ✅ | fine as-is | |
 | 4th-grade-multisyllabic-academic-words | 10 | ✅ | ✅ | fine as-is | |
@@ -245,13 +245,13 @@ This is the master tracking document for the Editorial Completion project: writi
 
 | List (file) | Archetype | Readiness | FAQ | shortAnswer | Notes |
 |---|---|---|---|---|---|
-| 5th-grade-academic-words | 2 | ⬜ | ⬜ | not yet | |
-| 5th-grade-community-civics-words | 2 | ⬜ | ⬜ | not yet | |
-| 5th-grade-everyday-words | 2 | ⬜ | ⬜ | not yet | |
-| 5th-grade-math-vocabulary | 2 | ⬜ | ⬜ | not yet | |
-| 5th-grade-opinion-argument-words | 2 | ⬜ | ⬜ | not yet | |
-| 5th-grade-reading-writing-words | 2 | ⬜ | ⬜ | not yet | |
-| 5th-grade-science-nature-words | 2 | ⬜ | ⬜ | not yet | |
+| 5th-grade-academic-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 5th-grade-community-civics-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 5th-grade-everyday-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 5th-grade-math-vocabulary | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 5th-grade-opinion-argument-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 5th-grade-reading-writing-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
+| 5th-grade-science-nature-words | 2 | ✅ | ✅ | reviewed | Grade-level vocabulary rollout |
 | 5th-grade-spelling-rules | 4 | ✅ | ✅ | fine as-is | |
 | 5th-grade-prefix-suffix-words | 6 | ✅ | ✅ | fine as-is | Confirmed as combined prefix/suffix morphology and counted with prefix pages for checklist continuity |
 | 5th-grade-multisyllabic-academic-words | 10 | ✅ | ✅ | fine as-is | |
@@ -270,7 +270,18 @@ This is the master tracking document for the Editorial Completion project: writi
 
 ---
 
+## Grade-Level Vocabulary rollout notes — July 2026
+
+- Completed the full Grade-Level Vocabulary archetype across 28 newly authored pages: 9 kindergarten beginning-vocabulary pages plus 19 Grade 1–5 vocabulary pages. Together with the pre-existing `kindergarten-first-words` page, archetypes 1 and 2 are now complete.
+- Authored 84 new readiness signals and 112 new FAQ entries in this rollout. Each completed page now has three observable learner-readiness signals and four topic-specific FAQ entries.
+- Reviewed `shortAnswer` across the completed grade-level vocabulary pages and left the existing concise summaries in place. The field continues to read as useful collection-level summary copy, but no list-detail architecture change was made.
+- Editorial QA found no exact duplicate readiness signals, FAQ questions, or FAQ answers across the completed Grade-Level Vocabulary batch after authoring. Repeated educational concerns, such as using words in context and connecting spelling to writing, were intentionally handled with page-specific wording rather than copied language.
+- Curriculum relationship QA found all grade-level `prerequisiteLists`, `nextLists`, and `relatedLists` IDs resolving to published lists, with no archived-list references. No relationship edits were needed in this rollout; the local vocabulary progression remains coherent from kindergarten concrete vocabulary through Grade 5 academic, content-area, literacy, argument, math, science, and civics vocabulary.
+- Scope boundary confirmed: homophone and commonly-confused pages remain incomplete because they belong to the Homophone/confusable-word archetype, not this Grade-Level Vocabulary rollout. The challenge-tier `academic-vocabulary` page also remains for a later challenge/extension pass.
+
 ## shortAnswer observations (running notes, not a decision)
+
+- **2026-07-07 (Grade-Level Vocabulary rollout)** — Reviewed `shortAnswer` for 28 newly completed grade-level vocabulary pages. The summaries consistently explain the list's scope in one sentence and do not duplicate the new FAQ bodies; they remain useful as metadata/collection copy. No new evidence supports changing list-detail architecture during this project. The strongest pattern is that grade-level vocabulary FAQs need to own the educational rationale (why the words matter for writing, reading, subject learning, or classroom independence), while `shortAnswer` should stay a compact "what this list contains" description.
 
 - **2026-07-07 (full phonics archetype QA sign-off)** — Completed the all-phonics QA pass across 53 published phonics pages after the blend completion work. Exact-duplicate checks now report 0 duplicate readiness signals, 0 duplicate FAQ questions, and 0 duplicate FAQ answers across the archetype. The pass corrected blend-page templating residue by making the readiness, sound-out, and next-step FAQ language pattern-specific; it also disambiguated initial `st` from final `st`. Relationship checks still show every `prerequisiteLists`, `nextLists`, and `relatedLists` ID resolving to a published list, with 0 references to the archived CVC overview. Curriculum decision: keep the repeated pedagogical shape for blends, but require exact wording to name the specific cluster or position so the copy remains useful on its own. Phonics remains complete at 53/53 published pages, and the archetype can be treated as editorially complete.
 

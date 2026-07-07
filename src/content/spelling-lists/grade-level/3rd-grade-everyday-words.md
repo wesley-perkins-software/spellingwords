@@ -18,6 +18,19 @@ relatedLists: ["grade-3-list-02"]
 prerequisiteLists: []
 nextLists: ["grade-3-list-02"]
 featured: false
+readinessSignals:
+  - "Writes connected paragraphs or multi-sentence responses about familiar topics"
+  - "Reads grade-level stories and informational text with fewer interruptions for basic vocabulary"
+  - "Is ready to spell useful words that appear across subjects, not just in one unit"
+faq:
+  - question: "What makes third-grade everyday words important?"
+    answer: "Third grade is a shift toward longer reading and writing tasks. Students need dependable spelling for common words so they can focus on explaining ideas, not decoding or spelling every familiar term from scratch."
+  - question: "How do these words support content-area learning?"
+    answer: "Everyday vocabulary appears in science, social studies, math explanations, and classroom directions. When students know the words, they can understand assignments and communicate across subjects more easily."
+  - question: "What errors are common at this level?"
+    answer: "Students may spell by sound and miss unstressed syllables, doubled consonants, or vowel choices. Short review in meaningful sentences helps reveal which parts need attention."
+  - question: "What should come after third-grade everyday vocabulary?"
+    answer: "Fourth-grade everyday words continue the progression with more mature school vocabulary and longer words that students meet in upper-elementary assignments."
 words:
   - another
   - around

@@ -18,6 +18,19 @@ relatedLists: ["grade-5-academic-words", "grade-5-science-nature-words"]
 prerequisiteLists: ["grade-4-list-02"]
 nextLists: ["grade-5-math-vocabulary"]
 featured: false
+readinessSignals:
+  - "Can explain basic community roles, rules, rights, and responsibilities"
+  - "Reads social studies passages that include government or civic vocabulary"
+  - "Is ready to use formal civics words in discussion, notes, and written responses"
+faq:
+  - question: "Why teach community and civics vocabulary in fifth grade?"
+    answer: "Fifth graders are ready for more formal language about government, citizenship, public decisions, and shared responsibilities. These words support social studies reading and classroom discussion."
+  - question: "How do these words help with informational writing?"
+    answer: "Civics words let students write clearly about people, systems, and responsibilities. Instead of vague phrases such as the people in charge, they can use more accurate vocabulary."
+  - question: "What mistakes are common with civics words?"
+    answer: "Students may confuse related terms or know a word only from conversation. Practice should connect spelling with meaning, examples, and nonexamples so terms do not become empty labels."
+  - question: "What can students study after this list?"
+    answer: "Fifth-grade academic words and opinion-and-argument words pair well because civics topics often require students to explain a position and support it with reasons."
 words:
   - citizen
   - law

@@ -18,6 +18,19 @@ relatedLists: ["kindergarten-feelings-words", "kindergarten-family-words"]
 prerequisiteLists: ["kindergarten-feelings-words"]
 nextLists: []
 featured: false
+readinessSignals:
+  - "Can name common foods from meals, stories, or classroom pictures"
+  - "Can sort familiar foods by simple categories such as fruit, snack, or drink"
+  - "Is ready to connect concrete vocabulary to printed words and beginning sounds"
+faq:
+  - question: "Why are food words helpful for kindergarten spelling?"
+    answer: "Food words are concrete, memorable, and easy to discuss. Children can connect the spelling to real objects and experiences, which supports early word learning."
+  - question: "Are food words mostly for vocabulary growth?"
+    answer: "They build vocabulary, but they also support phonemic awareness and print concepts. A familiar word such as milk or apple gives children a meaningful reason to look closely at letters."
+  - question: "What should practice include besides spelling aloud?"
+    answer: "Use pictures, menus, drawings, and short labels. Kindergarten learners benefit when they can see or imagine the item while working with the printed word."
+  - question: "Which concrete vocabulary should come after food words?"
+    answer: "Animal, school, or first-word lists continue with familiar concrete nouns and help children build a larger base of useful early spelling words."
 words:
   - apple
   - banana

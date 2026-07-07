@@ -18,6 +18,19 @@ relatedLists: ["kindergarten-first-words", "kindergarten-describing-words"]
 prerequisiteLists: ["kindergarten-first-words"]
 nextLists: ["kindergarten-describing-words"]
 featured: false
+readinessSignals:
+  - "Can count small sets and name common colors aloud"
+  - "Recognizes numerals and color words in classroom routines or picture books"
+  - "Is ready to connect familiar math and color vocabulary to printed spellings"
+faq:
+  - question: "Why combine number and color words?"
+    answer: "Both sets are high-use kindergarten vocabulary. Children see them in counting, sorting, calendar routines, art, books, and directions, so they make a practical early spelling group."
+  - question: "Are number words harder than color words?"
+    answer: "Often yes, because number words such as three and eight include less obvious spellings. Color words may be easier when children can connect them to visual examples."
+  - question: "How do these words support early math and reading?"
+    answer: "Students need number and color words to follow directions, label work, read simple predictable books, and describe sets of objects. The words cross subject boundaries from the start."
+  - question: "Which kindergarten topic builds on numbers and colors?"
+    answer: "Shape words are a natural next step because children can combine the vocabulary in phrases such as two circles, red square, or three triangles."
 words:
   - one
   - two

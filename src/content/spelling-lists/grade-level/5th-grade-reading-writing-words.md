@@ -18,6 +18,19 @@ relatedLists: ["grade-5-academic-words", "grade-5-opinion-argument-words"]
 prerequisiteLists: ["grade-4-reading-writing-words", "grade-4-commonly-confused-words"]
 nextLists: ["grade-5-opinion-argument-words"]
 featured: false
+readinessSignals:
+  - "Can read a text and explain main ideas, details, and author choices"
+  - "Writes organized responses that include evidence or examples"
+  - "Is ready for vocabulary used in analysis, revision, summarizing, and written argument"
+faq:
+  - question: "Why are fifth-grade reading and writing words a flagship list?"
+    answer: "These words name the skills students use across upper-elementary literacy: analyzing, summarizing, organizing, supporting, and revising. They are central to reading response and writing instruction."
+  - question: "How do these words help with text-based answers?"
+    answer: "Students can better understand prompts and craft answers when terms such as evidence, claim, conclusion, and summarize are familiar. The vocabulary reduces confusion about what the task requires."
+  - question: "How should this vocabulary be practiced?"
+    answer: "Use the words inside real reading and writing tasks: label evidence, revise a paragraph, summarize a section, or explain a claim. Context makes the spelling and meaning reinforce each other."
+  - question: "What extends fifth-grade reading and writing vocabulary?"
+    answer: "Opinion and argument words extend the writing side, while academic vocabulary broadens the cross-subject language students will need in middle-school preparation."
 words:
   - analyze
   - compare

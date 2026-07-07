@@ -18,6 +18,19 @@ relatedLists: ["kindergarten-body-words", "kindergarten-food-words", "kindergart
 prerequisiteLists: ["kindergarten-body-words"]
 nextLists: ["kindergarten-food-words"]
 featured: false
+readinessSignals:
+  - "Can name basic emotions in self, characters, or pictures"
+  - "Can connect a feeling word to a facial expression or situation"
+  - "Is ready to use print for words that describe how someone feels"
+faq:
+  - question: "Why teach feelings words as spelling words?"
+    answer: "Feelings words support language, reading comprehension, and social-emotional expression. Students use them to talk about themselves and to understand characters in stories."
+  - question: "How do these words help with story reading?"
+    answer: "Kindergarten stories often depend on how a character feels. Words such as happy, sad, mad, or scared help children explain what is happening beyond the action."
+  - question: "What is tricky about feelings vocabulary?"
+    answer: "Children may know the emotion but not yet distinguish similar words. Practice should include examples, pictures, and sentences so spelling stays connected to meaning."
+  - question: "What comes after kindergarten feelings words?"
+    answer: "Kindergarten describing words are a strong companion because many feeling words function as describing words in simple sentences."
 words:
   - happy
   - mad

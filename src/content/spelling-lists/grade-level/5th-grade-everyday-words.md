@@ -18,6 +18,19 @@ relatedLists: []
 prerequisiteLists: ["grade-4-list-01", "grade-4-multisyllabic-academic-words"]
 nextLists: ["grade-5-academic-words"]
 featured: false
+readinessSignals:
+  - "Reads upper-elementary texts with enough stamina to notice vocabulary in context"
+  - "Writes multi-paragraph responses or stories that require accurate common words"
+  - "Is ready for mature everyday vocabulary used across school and independent reading"
+faq:
+  - question: "What makes fifth-grade everyday words different from earlier lists?"
+    answer: "The words are still broadly useful, but they reflect the independence expected in fifth grade. Students need to spell common upper-elementary vocabulary while reading, planning, drafting, and revising longer work."
+  - question: "Why practice everyday words instead of only academic words?"
+    answer: "Students need both. Academic words help with school tasks, while everyday words appear in stories, explanations, directions, and personal writing. Strong spelling depends on both kinds of vocabulary."
+  - question: "How can these words be reviewed without feeling too easy?"
+    answer: "Use them in paragraphs, editing tasks, and quick written responses. The challenge is not just spelling one word correctly, but spelling it accurately while communicating a complete idea."
+  - question: "Where should a student go next?"
+    answer: "Fifth-grade academic words are a strong companion list because they add the cross-subject vocabulary students need for more formal assignments."
 words:
   - although
   - arrive

@@ -18,6 +18,19 @@ relatedLists: ["grade-2-comparatives-er-est", "grade-2-describing-words", "grade
 prerequisiteLists: ["grade-2-comparatives-er-est"]
 nextLists: ["grade-2-describing-words"]
 featured: false
+readinessSignals:
+  - "Writes complete sentences with a subject and verb"
+  - "Can explain what a character does across more than one event in a story"
+  - "Is ready for action words with longer spellings or less obvious vowel patterns"
+faq:
+  - question: "How are second-grade action words different from first-grade action words?"
+    answer: "Second-grade verbs ask for more control. The words are still familiar, but students are expected to spell them while writing fuller sentences, retellings, and explanations."
+  - question: "How do action words improve reading comprehension?"
+    answer: "Verbs show the movement of a sentence. When students understand and spell words such as decide, follow, or remember, they track what characters and real people do across events."
+  - question: "What should teachers watch for during practice?"
+    answer: "Watch whether students can use the verb correctly in context. A perfectly copied spelling is less useful if the learner cannot choose the action word that matches the sentence."
+  - question: "What is a good next step after this list?"
+    answer: "Second-grade describing words pair well with action words because students can expand plain sentences into more precise ones, such as The runner moved quickly."
 words:
   - find
   - follow

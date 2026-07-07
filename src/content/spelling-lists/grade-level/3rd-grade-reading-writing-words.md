@@ -18,6 +18,19 @@ relatedLists: ["grade-3-list-01", "grade-3-prefix-words"]
 prerequisiteLists: ["grade-3-list-02"]
 nextLists: ["grade-3-prefix-words"]
 featured: false
+readinessSignals:
+  - "Can talk about stories, information, and written work using classroom discussion words"
+  - "Writes answers that refer to a text, a topic, or a reason"
+  - "Is ready for vocabulary used in reading response, planning, and revision"
+faq:
+  - question: "Why have a separate reading and writing vocabulary list?"
+    answer: "These words are the language of literacy instruction. Students use them when they discuss a text, plan a paragraph, revise a draft, or explain what an author is doing."
+  - question: "How does this list help students answer questions about texts?"
+    answer: "When words such as author, detail, evidence, and topic are automatic, students can focus on the thinking required by the question instead of puzzling over the wording of the task."
+  - question: "Are these words only for English language arts?"
+    answer: "No. Students use reading and writing vocabulary in every subject when they read directions, explain a process, summarize information, or support an answer."
+  - question: "Which literacy vocabulary is a good next step?"
+    answer: "Fourth-grade reading and writing words are the next step, adding vocabulary for more analytical reading, longer responses, and stronger revision habits."
 words:
   - answer
   - believe

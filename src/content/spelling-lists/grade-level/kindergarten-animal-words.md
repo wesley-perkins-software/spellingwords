@@ -18,6 +18,19 @@ relatedLists: ["kindergarten-shape-words", "kindergarten-family-words"]
 prerequisiteLists: ["kindergarten-shape-words"]
 nextLists: ["kindergarten-family-words"]
 featured: false
+readinessSignals:
+  - "Can name common animals in pictures, books, or real life"
+  - "Can hear the first sound in a spoken animal word"
+  - "Is ready to connect familiar spoken words to simple printed spellings"
+faq:
+  - question: "Why are animal words useful for beginning spellers?"
+    answer: "Animal words are concrete and familiar, so children usually know the meaning before they study the spelling. That lets them focus on matching sounds to letters."
+  - question: "Are these vocabulary words or spelling words?"
+    answer: "They are both. A kindergartener may already say the words, but spelling them builds alphabet knowledge, sound awareness, and confidence with print."
+  - question: "What should adults listen for during practice?"
+    answer: "Listen for whether the child can say the word slowly and notice beginning and ending sounds. That skill matters more than reciting the list quickly."
+  - question: "What comes after kindergarten animal words?"
+    answer: "Kindergarten first words, school words, or family words are natural next choices because they continue with familiar, concrete vocabulary."
 words:
   - cat
   - cow

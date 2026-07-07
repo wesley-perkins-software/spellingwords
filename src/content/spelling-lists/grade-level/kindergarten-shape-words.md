@@ -18,6 +18,19 @@ relatedLists: ["kindergarten-describing-words", "kindergarten-animal-words"]
 prerequisiteLists: ["kindergarten-describing-words"]
 nextLists: ["kindergarten-animal-words"]
 featured: false
+readinessSignals:
+  - "Can identify common shapes by sight"
+  - "Can describe simple objects using shape names in speech"
+  - "Is ready to connect visual geometry vocabulary to printed words"
+faq:
+  - question: "Why are shape words valuable in kindergarten?"
+    answer: "Shape words connect early math, visual discrimination, and vocabulary. Children use them when sorting, building, drawing, and describing objects."
+  - question: "How do shape words support reading and writing?"
+    answer: "They give children useful describing language. A learner who can read and spell circle or square can label drawings and understand simple directions in math and art."
+  - question: "What is tricky about spelling shape words?"
+    answer: "Some shape words are longer than they feel in speech, such as triangle and rectangle. Children may need help hearing syllables and noticing all parts of the word."
+  - question: "What should come after shape words?"
+    answer: "Number and color words are the closest companion list because children naturally combine all three kinds of words when describing objects."
 words:
   - circle
   - corner

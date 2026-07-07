@@ -18,6 +18,19 @@ relatedLists: ["grade-5-academic-words", "grade-5-multisyllabic-academic-words"]
 prerequisiteLists: ["grade-4-list-02"]
 nextLists: ["grade-5-community-civics-words"]
 featured: false
+readinessSignals:
+  - "Reads science passages and notices vocabulary tied to living things, earth systems, or investigation"
+  - "Can describe observations and simple cause-and-effect relationships orally"
+  - "Is ready to spell science terms while recording notes, answers, and explanations"
+faq:
+  - question: "Why are science and nature words included in grade-level vocabulary?"
+    answer: "Science learning depends heavily on exact vocabulary. Students need to spell and use words for organisms, environments, materials, and investigations so their explanations are clear."
+  - question: "How do these words support informational reading?"
+    answer: "Science texts often pack important meaning into specific nouns and verbs. Knowing the vocabulary helps students follow explanations, compare ideas, and remember key concepts."
+  - question: "What is challenging about science spelling?"
+    answer: "Many science words are longer, have Greek or Latin parts, or include vowel patterns students do not hear clearly. Breaking words into meaningful parts helps more than copying them repeatedly."
+  - question: "What should students study with this list?"
+    answer: "Fifth-grade academic words pair well because science explanations often require students to examine information, describe a process, and communicate a result."
 words:
   - observe
   - predict

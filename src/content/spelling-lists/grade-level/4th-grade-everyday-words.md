@@ -18,6 +18,19 @@ relatedLists: ["grade-4-reading-writing-words", "grade-4-multisyllabic-academic-
 prerequisiteLists: ["grade-3-root-word-families"]
 nextLists: ["grade-4-reading-writing-words"]
 featured: false
+readinessSignals:
+  - "Reads longer classroom texts with growing independence"
+  - "Writes paragraphs that include explanations, examples, and transitions"
+  - "Needs common upper-elementary words to become accurate enough for fluent written work"
+faq:
+  - question: "Why does fourth grade still need everyday vocabulary practice?"
+    answer: "Fourth graders write more often and in more subjects. Everyday academic and school words must become automatic so spelling does not interrupt planning, explaining, and revising."
+  - question: "How are these words different from content-area vocabulary?"
+    answer: "Content-area words belong mainly to a subject such as science or civics. Everyday words are useful across the whole school day, from reading directions to writing reflections and responses."
+  - question: "What should practice look like at this level?"
+    answer: "Practice should include dictation, sentence writing, and editing. Fourth graders benefit from seeing whether they can spell the word accurately while thinking about meaning."
+  - question: "What is the next step in the progression?"
+    answer: "Fifth-grade everyday words continue the same strand with more mature vocabulary for independent reading, longer assignments, and upper-elementary writing."
 words:
   - balance
   - beautiful

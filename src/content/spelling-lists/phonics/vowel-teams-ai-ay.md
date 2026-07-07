@@ -18,6 +18,19 @@ relatedLists: ["silent-e-long-o", "vowel-teams-ee-ea"]
 prerequisiteLists: ["silent-e-long-o"]
 nextLists: ["vowel-teams-ee-ea"]
 featured: false
+readinessSignals:
+  - "Can read long-a silent-e words and recognize the same long-a sound in a new spelling pattern"
+  - "Can hear whether the long-a sound comes in the middle or at the end of a spoken word"
+  - "Is ready to choose between two spellings for one sound by looking at word position"
+faq:
+  - question: "What do AI and AY have in common?"
+    answer: "AI and AY are vowel teams that usually spell the long-a sound. They let students spell words like 'rain' and 'play' without using the silent-e pattern."
+  - question: "When should a child use AI instead of AY?"
+    answer: "AI is usually used in the middle of a word or syllable, as in 'mail' and 'paint.' AY is usually used at the end, as in 'day' and 'stay.'"
+  - question: "How is this different from long A silent E?"
+    answer: "Silent-e long A uses one vowel plus a final silent e, as in 'cake.' AI and AY put two vowel letters together to spell the same long-a sound."
+  - question: "Why are 'train' and 'snail' helpful practice words?"
+    answer: "They combine the AI vowel team with consonant blends or clusters around it. That helps students keep the vowel team together while still spelling the whole word carefully."
 words:
   - chain
   - day

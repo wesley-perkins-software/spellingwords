@@ -20,6 +20,19 @@ relatedLists:
   - r-controlled-er-ir-ur
 prerequisiteLists: []
 nextLists: []
+readinessSignals:
+  - "Can distinguish short-o and long-o words before trying words where R changes the O sound"
+  - "Can hear the /or/ sound in familiar spoken words like 'corn,' 'short,' and 'morning'"
+  - "Is ready to read words where the vowel team must be grouped with R instead of sounded one letter at a time"
+faq:
+  - question: "What is an r-controlled OR word?"
+    answer: "OR is an r-controlled vowel pattern because the R changes how the O is pronounced. In words like 'corn' and 'short,' the O does not keep its short or long sound."
+  - question: "How is OR different from AR?"
+    answer: "Both are r-controlled patterns, but they make different vowel sounds: AR is heard in 'farm,' while OR is heard in 'fork' and 'north.' Students often need to listen carefully because both patterns use R to reshape the vowel."
+  - question: "Why are some OR words longer, like 'morning' and 'order'?"
+    answer: "OR appears in both one-syllable and two-syllable words. Including longer common words helps students carry the same pattern into real reading, not just short practice words."
+  - question: "Should OR words be taught before ER, IR, and UR?"
+    answer: "OR is often easier to start with because one spelling usually points to one familiar sound. ER, IR, and UR are trickier because three spellings can make the same sound."
 words:
   - corn
   - for

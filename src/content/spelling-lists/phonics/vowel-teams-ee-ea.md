@@ -18,6 +18,19 @@ relatedLists: ["vowel-teams-ai-ay", "vowel-teams-oa-ow"]
 prerequisiteLists: ["vowel-teams-ai-ay"]
 nextLists: ["vowel-teams-oa-ow"]
 featured: false
+readinessSignals:
+  - "Can read long-e words and notice that two vowel letters may work together for the sound"
+  - "Can keep the middle vowel team together while spelling words with beginning or ending consonants"
+  - "Is ready to learn that one long-e sound can be spelled in more than one common way"
+faq:
+  - question: "What do EE and EA words teach?"
+    answer: "They teach two common vowel-team spellings for the long-e sound. Students learn that 'tree' and 'clean' share a sound even though the vowel team is different."
+  - question: "Is there a rule for choosing EE or EA?"
+    answer: "There is not a simple position rule like AI/AY. Learners usually build accuracy by seeing and writing common examples until each word's spelling looks familiar."
+  - question: "How are EE and EA different from AI and AY?"
+    answer: "AI and AY have a useful position pattern for many words: AI in the middle and AY at the end. EE and EA both often appear in the middle, so spelling choice depends more on word memory."
+  - question: "Why does this list include short words like 'bee' and longer words like 'sleep'?"
+    answer: "The short words make the long-e team easy to see, while the longer words show the same pattern inside everyday reading words. Both kinds of examples help the spelling become automatic."
 words:
   - beach
   - bee

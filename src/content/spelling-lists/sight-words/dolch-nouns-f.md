@@ -20,6 +20,19 @@ relatedLists: ['dolch-nouns-a', 'dolch-nouns-b', 'dolch-nouns-c', 'dolch-nouns-d
 prerequisiteLists: ['dolch-nouns-e']
 nextLists: ['dolch-nouns-g']
 featured: false
+readinessSignals:
+  - "Can identify familiar nouns from this set in speech or pictures, such as Santa Claus, school, seed, sheep, shoe"
+  - "Writes labels or captions and needs concrete naming words from Dolch Nouns Part F"
+  - "Can combine Part F nouns with service words to make short phrases rather than naming words in isolation"
+faq:
+  - question: "What kinds of words are in Dolch Nouns Part F?"
+    answer: "This supplemental Dolch noun set includes concrete naming words such as Santa Claus, school, seed, sheep, shoe. They help children spell people, animals, objects, foods, and places that often appear in early reading."
+  - question: "Is Dolch Nouns Part F part of the main Dolch grade sequence?"
+    answer: "No. Part F belongs to the supplemental noun collection, so it stays separate from the Pre-Primer through Third Grade service-word sequence and should not be treated as the next level after Third Grade."
+  - question: "How should students practice the nouns in Part F?"
+    answer: "Picture naming, sorting, and short sentence writing work well because these words name concrete things. Pairing a noun with service words, such as my Santa Claus or see the school, makes practice more meaningful."
+  - question: "Why are nouns like time included with sight words?"
+    answer: "Dolch included Part F nouns because words like these are common in children's books, even when some can also be decoded with phonics. Practicing them supports fluent reading and more useful early writing."
 words:
   - "Santa Claus"
   - "school"

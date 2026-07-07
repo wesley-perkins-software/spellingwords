@@ -21,6 +21,19 @@ relatedLists: ['dolch-third-grade-a', 'dolch-third-grade-b']
 prerequisiteLists: ['dolch-third-grade-b']
 nextLists: []
 featured: false
+readinessSignals:
+  - "Can keep meaning while reading sentences that include own, pick, seven, shall"
+  - "Notices small spelling differences among high-frequency words in Third Grade Part C, instead of relying only on word shape"
+  - "Uses Third Grade C words in dictated or self-written sentences with increasing independence"
+faq:
+  - question: "What does Dolch Third Grade Part C add to sight-word practice?"
+    answer: "Dolch Third Grade Part C focuses on the closing set of its tier, with words such as own, pick, seven, shall. These are high-frequency service words selected for reading fluency, not a single phonics rule."
+  - question: "Should Dolch Third Grade Part C words be memorized?"
+    answer: "Third Grade C words should become automatic, but practice should still involve looking closely at letters, saying the word, and using it in a phrase. That keeps memorization tied to reading and spelling rather than guessing from flash-card shape."
+  - question: "Why might own or warm be tricky for students?"
+    answer: "Some Third Grade C words include common spellings that do not match a beginner's first sound-it-out attempt. Slow visual checking and sentence dictation help students store the exact letter order."
+  - question: "When should a learner leave Dolch Third Grade Part C?"
+    answer: "Move on from Third Grade C when most words are read promptly in mixed order and spelled correctly in short phrases. If the learner only knows the words in list order, keep practicing with sentences before advancing."
 words:
   - "own"
   - "pick"

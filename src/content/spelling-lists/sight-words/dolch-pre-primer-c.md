@@ -19,8 +19,21 @@ canonicalSource:
   tier: pre-primer
 relatedLists: ['dolch-pre-primer-a', 'dolch-pre-primer-b']
 prerequisiteLists: ['dolch-pre-primer-b']
-nextLists: []
+nextLists: ['dolch-primer-a']
 featured: false
+readinessSignals:
+  - "Can read very short sentences with common words such as see, the, to, we, and you"
+  - "Is beginning to notice question words in books, especially where, without needing every word sounded out"
+  - "Can spell several earlier Pre-Primer words and is ready for a smaller review set with a few tricky forms"
+faq:
+  - question: "Why is the included in this Pre-Primer set?"
+    answer: "The is one of the most common words in English text, and it does not behave like a simple beginner phonics word. Recognizing it instantly makes early reading smoother."
+  - question: "How are two and three different from regular number spelling practice?"
+    answer: "Here they are practiced because they appear often in beginning books and directions. Their spellings are not as transparent as one-to-one sound spelling, so repeated reading and writing are helpful."
+  - question: "What makes said a difficult sight word?"
+    answer: "Said is common, but its vowel spelling does not match the way many beginners expect it to sound. Children usually need many meaningful exposures before the spelling feels secure."
+  - question: "What comes after the Dolch Pre-Primer tier?"
+    answer: "The Dolch Primer tier follows next in the core service-word sequence. It adds more question words, verbs, color words, and sentence connectors for slightly longer early-reading text."
 words:
   - "run"
   - "said"

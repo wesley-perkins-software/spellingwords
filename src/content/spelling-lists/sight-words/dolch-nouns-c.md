@@ -20,6 +20,19 @@ relatedLists: ['dolch-nouns-a', 'dolch-nouns-b', 'dolch-nouns-d', 'dolch-nouns-e
 prerequisiteLists: ['dolch-nouns-b']
 nextLists: ['dolch-nouns-d']
 featured: false
+readinessSignals:
+  - "Can identify familiar nouns from this set in speech or pictures, such as egg, eye, farm, farmer, father"
+  - "Writes labels or captions and needs concrete naming words from Dolch Nouns Part C"
+  - "Can combine Part C nouns with service words to make short phrases rather than naming words in isolation"
+faq:
+  - question: "What kinds of words are in Dolch Nouns Part C?"
+    answer: "This supplemental Dolch noun set includes concrete naming words such as egg, eye, farm, farmer, father. They help children spell people, animals, objects, foods, and places that often appear in early reading."
+  - question: "Is Dolch Nouns Part C part of the main Dolch grade sequence?"
+    answer: "No. Part C belongs to the supplemental noun collection, so it stays separate from the Pre-Primer through Third Grade service-word sequence and should not be treated as the next level after Third Grade."
+  - question: "How should students practice the nouns in Part C?"
+    answer: "Picture naming, sorting, and short sentence writing work well because these words name concrete things. Pairing a noun with service words, such as my egg or see the eye, makes practice more meaningful."
+  - question: "Why are nouns like good-by included with sight words?"
+    answer: "Dolch included Part C nouns because words like these are common in children's books, even when some can also be decoded with phonics. Practicing them supports fluent reading and more useful early writing."
 words:
   - "egg"
   - "eye"

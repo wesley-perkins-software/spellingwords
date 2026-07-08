@@ -14,9 +14,9 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: []
+relatedLists: ['kindergarten-number-color-words', 'kindergarten-animal-words']
 prerequisiteLists: []
-nextLists: ['kindergarten-number-color-words']
+nextLists: ['kindergarten-short-a-words']
 featured: true
 readinessSignals:
   - 'Can identify most letters and the sounds they make'
@@ -28,9 +28,9 @@ faq:
   - question: 'Should these words be memorized, or just practiced?'
     answer: 'Practiced, not memorized. The goal is to hear the sounds in each word and connect them to letters — a skill that transfers to new words, not just these twelve.'
   - question: 'What if these words are too easy?'
-    answer: "That's a good sign. Move on to Kindergarten Number and Color Words, or browse other kindergarten and first-grade lists to find a better match."
+    answer: "That's a good sign. Move on to Kindergarten Short A Words to start the short-vowel phonics sequence, or browse other kindergarten and first-grade lists to find a better match."
   - question: 'What comes after this list?'
-    answer: 'Kindergarten Number and Color Words is a natural next step, covering the numbers one through ten and four essential color words.'
+    answer: "Kindergarten Short A Words is the next step, starting the short-vowel phonics sequence that runs through the rest of the kindergarten curriculum. Kindergarten Number and Color Words and Kindergarten Animal Words are good supplemental practice alongside it, whenever it fits."
 words:
   - bird
   - bug

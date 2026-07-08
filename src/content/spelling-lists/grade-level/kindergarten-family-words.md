@@ -11,7 +11,7 @@ skillTags: ["grade-K", "family", "vocabulary"]
 tags: ["kindergarten", "beginner", "family", "vocabulary"]
 order: 6
 estimatedDurationMinutes: 7
-status: published
+status: archived
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["kindergarten-animal-words", "kindergarten-school-words", "kindergarten-body-words", "kindergarten-food-words"]

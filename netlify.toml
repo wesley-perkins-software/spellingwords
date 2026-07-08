@@ -4,3 +4,38 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/kindergarten-describing-words"
+  to = "/spelling-lists/kindergarten"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/kindergarten-shape-words"
+  to = "/spelling-lists/kindergarten"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/kindergarten-family-words"
+  to = "/spelling-lists/kindergarten"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/kindergarten-school-words"
+  to = "/spelling-lists/kindergarten"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/kindergarten-body-words"
+  to = "/spelling-lists/kindergarten"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/kindergarten-feelings-words"
+  to = "/spelling-lists/kindergarten"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/kindergarten-food-words"
+  to = "/spelling-lists/kindergarten"
+  status = 301

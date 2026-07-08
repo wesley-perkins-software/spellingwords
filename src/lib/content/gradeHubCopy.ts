@@ -11,13 +11,13 @@ export interface GradeHubCopy {
 export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   K: {
     metaDescription:
-      'Free kindergarten spelling word lists for early practice — first words, number and color words, describing words, shapes, animals, family, school, body, feelings, and food words. Calm, simple practice with audio support.',
+      'Free kindergarten spelling word lists following a structured phonics sequence — first words, short vowels (A, I, O, U, E), mixed vowel review, consonant digraphs, the -ck ending rule, double consonants, and kindergarten heart words — plus supplemental animal and number/color word practice. Calm, simple practice with audio support.',
     heroParagraphs: [
-      'Here are free kindergarten spelling word lists for early reading and writing practice, including first words, number and color words, describing words, shapes, animals, family and school words, and body, feelings, and food words. All lists include audio support — a child can hear each word read aloud before typing it.',
-      'Kindergarten spelling practice should feel simple, encouraging, and concrete. These lists focus on early words children can hear, say, and spell — words that show up in their world every day. There are no timers or scores, just calm, supported practice.',
+      'Here are free kindergarten spelling word lists following a structured phonics sequence: First Words, then short-vowel practice (Short A, I, O, U, and E), Mixed Vowel CVC Review, Consonant Digraphs, the -ck Ending Rule, Double Consonants, and Kindergarten Heart Words. Animal Words and Number & Color Words offer supplemental vocabulary practice alongside the sequence. All lists include audio support — a child can hear each word read aloud before typing it.',
+      'Kindergarten spelling practice should feel simple, encouraging, and concrete. This sequence builds one spelling pattern at a time — starting with easy, familiar words and moving through short vowels, digraphs, and a few spelling rules, in the order most kindergarteners are ready for them. There are no timers or scores, just calm, supported practice.',
     ],
     guidanceBody:
-      'Start with First Words if your child is just beginning to connect letters to sounds. Number & Color Words and Describing Words work well alongside early reading practice. Sight word lists are great for daily repetition — short sessions of five to ten minutes work best at this age.',
+      'Start with First Words if your child is just beginning to connect letters to sounds. From there, work through the short-vowel sequence in order — Short A, I, O, U, then E — followed by Mixed Vowel Review, Consonant Digraphs, the -ck Ending Rule, Double Consonants, and Kindergarten Heart Words. Animal Words and Number & Color Words are good supplemental practice alongside that sequence, not a required step. Dolch pre-primer sight words are great for daily repetition — short sessions of five to ten minutes work best at this age.',
     emptyStateLabel: 'Kindergarten',
   },
   '1': {

@@ -11,7 +11,7 @@ skillTags: ["grade-K", "body", "vocabulary"]
 tags: ["kindergarten", "beginner", "body", "body-parts"]
 order: 8
 estimatedDurationMinutes: 8
-status: published
+status: archived
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["kindergarten-school-words", "kindergarten-family-words", "kindergarten-feelings-words"]

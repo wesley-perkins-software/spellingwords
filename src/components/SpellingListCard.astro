@@ -10,10 +10,12 @@ interface Props {
   difficulty: string;
   durationMinutes: number;
   wordCount: number;
+  /** Overrides the category-derived badge label when set (e.g. "Spelling Rules"). */
+  badge?: string;
 }
 
-const { href, category, title, description, difficulty, durationMinutes, wordCount } = Astro.props;
-const categoryLabel = categoryLabels[category as keyof typeof categoryLabels] ?? category;
+const { href, category, title, description, difficulty, durationMinutes, wordCount, badge } = Astro.props;
+const categoryLabel = badge ?? (categoryLabels[category as keyof typeof categoryLabels] ?? category);
 ---
 
 <a

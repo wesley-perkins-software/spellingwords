@@ -12,6 +12,7 @@ import {
   groupBySkillFamily,
   isPublished,
 } from '@/lib/content/spellingLists';
+import { buildKindergartenSections, kindergartenBadges } from '@/lib/content/kindergartenProgression';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { gradeConfig, getAdjacentGrades } from '@/lib/content/gradeConfig';
 import { gradeHubCopy } from '@/lib/content/gradeHubCopy';
@@ -40,6 +41,7 @@ const gradeCollections = allCollections.filter((c) => c.data.grade === grade);
 const totalItems = gradeCollections.length + gradeLists.length;
 
 const sections = buildGradeHubSections(gradeLists, gradeCollections);
+const kindergartenSections = grade === 'K' ? buildKindergartenSections(gradeLists) : null;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -61,25 +63,30 @@ const breadcrumbJsonLd = {
 };
 
 let position = 0;
+function toListItem(e: (typeof gradeLists)[number]) {
+  return {
+    '@type': 'ListItem',
+    position: ++position,
+    url: new URL(`/spelling-lists/${e.data.category}/${e.data.urlSlug}`, canonicalURL.origin).toString(),
+    name: e.data.title,
+  };
+}
 const itemListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: `${label} Spelling Word Lists`,
   numberOfItems: totalItems,
-  itemListElement: sections.flatMap(({ collections, entries: sectionEntries }) => [
-    ...collections.map((c) => ({
-      '@type': 'ListItem',
-      position: ++position,
-      url: new URL(`/spelling-lists/collections/${c.data.urlSlug}`, canonicalURL.origin).toString(),
-      name: c.data.title,
-    })),
-    ...sectionEntries.map((e) => ({
-      '@type': 'ListItem',
-      position: ++position,
-      url: new URL(`/spelling-lists/${e.data.category}/${e.data.urlSlug}`, canonicalURL.origin).toString(),
-      name: e.data.title,
-    })),
-  ]),
+  itemListElement: kindergartenSections
+    ? [...kindergartenSections.core, ...kindergartenSections.additional].map(toListItem)
+    : sections.flatMap(({ collections, entries: sectionEntries }) => [
+        ...collections.map((c) => ({
+          '@type': 'ListItem',
+          position: ++position,
+          url: new URL(`/spelling-lists/collections/${c.data.urlSlug}`, canonicalURL.origin).toString(),
+          name: c.data.title,
+        })),
+        ...sectionEntries.map(toListItem),
+      ]),
 };
 ---
 
@@ -105,7 +112,8 @@ const itemListJsonLd = {
         <p class="max-w-2xl text-base leading-relaxed text-ink-soft">{copy.heroParagraphs[1]}</p>
       </div>
 
-      <!-- Lists, grouped by category with grade-level first -->
+      <!-- Lists: Kindergarten renders a core progression + additional practice;
+           every other grade groups by category, grade-level first. -->
       {totalItems === 0 ? (
         <div class="rounded-2xl border border-line bg-app-cloud p-8 text-center">
           <p class="text-base text-ink-soft">
@@ -115,6 +123,72 @@ const itemListJsonLd = {
             </a>{' '}
             in the meantime.
           </p>
+        </div>
+      ) : kindergartenSections ? (
+        <div class="mb-12 flex flex-col gap-10">
+          <section aria-labelledby="core-progression-heading" class="flex flex-col gap-4 rounded-2xl border border-brand-blue/15 bg-brand-blue/[0.04] p-5">
+            <div class="flex items-baseline gap-3">
+              <h2 id="core-progression-heading" class="font-display text-lg font-semibold text-ink">
+                Core Spelling Progression
+              </h2>
+              <span class="text-sm text-ink-faint">
+                {kindergartenSections.core.length} lists
+              </span>
+            </div>
+            <ol class="flex flex-col gap-4">
+              {kindergartenSections.core.map((entry, index) => (
+                <li class="flex items-start gap-3">
+                  <span
+                    aria-hidden="true"
+                    class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-sm font-semibold text-brand-blue"
+                  >
+                    {index + 1}
+                  </span>
+                  <div class="flex-1">
+                    <SpellingListCard
+                      href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                      category={entry.data.category}
+                      title={entry.data.title}
+                      description={entry.data.description}
+                      difficulty={entry.data.difficulty}
+                      durationMinutes={entry.data.estimatedDurationMinutes}
+                      wordCount={entry.data.words.length}
+                      badge={kindergartenBadges[entry.data.id]}
+                    />
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
+          {kindergartenSections.additional.length > 0 && (
+            <section aria-labelledby="additional-practice-heading" class="flex flex-col gap-4">
+              <div class="flex items-baseline gap-3">
+                <h2 id="additional-practice-heading" class="font-display text-lg font-semibold text-ink">
+                  Additional Practice
+                </h2>
+                <span class="text-sm text-ink-faint">
+                  {kindergartenSections.additional.length} lists
+                </span>
+              </div>
+              <p class="text-sm leading-relaxed text-ink-soft">
+                Optional extra practice — not required steps in the core progression above.
+              </p>
+              <div class="grid gap-4 sm:grid-cols-2">
+                {kindergartenSections.additional.map((entry) => (
+                  <SpellingListCard
+                    href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                    category={entry.data.category}
+                    title={entry.data.title}
+                    description={entry.data.description}
+                    difficulty={entry.data.difficulty}
+                    durationMinutes={entry.data.estimatedDurationMinutes}
+                    wordCount={entry.data.words.length}
+                    badge={kindergartenBadges[entry.data.id]}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
         </div>
       ) : (
         <div class="mb-12 flex flex-col gap-10">

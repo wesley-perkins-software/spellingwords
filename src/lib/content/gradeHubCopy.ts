@@ -11,13 +11,13 @@ export interface GradeHubCopy {
 export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   K: {
     metaDescription:
-      'Free kindergarten spelling word lists for early practice — first words, number and color words, describing words, shapes, animals, family, school, body, feelings, and food words. Calm, simple practice with audio support.',
+      'Free kindergarten spelling word lists organized as one guided progression — first words, short vowels, digraphs, spelling rules, and heart words — plus optional animal and number/color word practice. Calm, simple practice with audio support.',
     heroParagraphs: [
-      'Here are free kindergarten spelling word lists for early reading and writing practice, including first words, number and color words, describing words, shapes, animals, family and school words, and body, feelings, and food words. All lists include audio support — a child can hear each word read aloud before typing it.',
-      'Kindergarten spelling practice should feel simple, encouraging, and concrete. These lists focus on early words children can hear, say, and spell — words that show up in their world every day. There are no timers or scores, just calm, supported practice.',
+      'Here are free kindergarten spelling word lists, organized as a single guided path: a core spelling progression that moves from first words through short vowels, digraphs, and simple spelling rules to a handful of heart words, plus optional additional practice with animal and number/color vocabulary. All lists include audio support — a child can hear each word read aloud before typing it.',
+      'Kindergarten spelling practice should feel simple, encouraging, and concrete. There is one obvious next step at every point in the core progression, and no timers, scores, or required detours — just calm, supported practice.',
     ],
     guidanceBody:
-      'Start with First Words if your child is just beginning to connect letters to sounds. Number & Color Words and Describing Words work well alongside early reading practice. Sight word lists are great for daily repetition — short sessions of five to ten minutes work best at this age.',
+      'Start with First Words and work through the core progression in order — each list picks up exactly where the last one left off. Animal Words and Number and Color Words are optional additional practice you can explore anytime, in any order, alongside the core progression.',
     emptyStateLabel: 'Kindergarten',
   },
   '1': {

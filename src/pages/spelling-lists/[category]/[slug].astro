@@ -237,9 +237,7 @@ const harderList = next[0];
     <!-- Why these words were chosen / what children learn (markdown body) -->
     <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="why-heading">
       <div class="mx-auto max-w-2xl md:max-w-3xl">
-        <div
-          class={`overflow-hidden rounded-3xl border border-brand-blue/10 bg-app-mist px-6 py-9 sm:px-10 sm:py-12`}
-        >
+        <div class="overflow-hidden rounded-3xl border border-line bg-cream-deep/60 px-6 py-9 sm:px-10 sm:py-12">
           <div class={`border-l-[3px] pl-5 sm:pl-6 ${cardAccent.border}`}>
             <h2 class="text-display-md">Why these words — and what they teach</h2>
             <div
@@ -262,20 +260,12 @@ const harderList = next[0];
             </h2>
             <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-card-lg">
               <div class="divide-y divide-line/60 px-6 sm:px-7">
-                {data.faq.map((item, index) => (
-                  <div class="flex gap-4 py-6">
-                    <span
-                      class="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-app-cloud font-display text-sm font-semibold text-brand-blue"
-                      aria-hidden="true"
-                    >
-                      {index + 1}
-                    </span>
-                    <div>
-                      <h3 class="font-display text-base font-semibold text-ink sm:text-lg">
-                        {item.question}
-                      </h3>
-                      <p class="mt-2 text-base leading-relaxed text-ink-soft">{item.answer}</p>
-                    </div>
+                {data.faq.map((item) => (
+                  <div class="py-6">
+                    <h3 class="font-display text-base font-semibold text-ink sm:text-lg">
+                      {item.question}
+                    </h3>
+                    <p class="mt-2 text-base leading-relaxed text-ink-soft">{item.answer}</p>
                   </div>
                 ))}
               </div>
@@ -290,8 +280,8 @@ const harderList = next[0];
       (prerequisites.length > 0 || related.length > 0 || next.length > 0) && (
         <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="progression-heading">
           <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <div class="rounded-3xl border border-line bg-white px-6 py-8 shadow-card sm:px-8 sm:py-9">
-              <h2 id="progression-heading" class="font-display text-lg font-semibold text-ink">
+            <div class="rounded-3xl border border-line bg-white px-6 py-9 shadow-card sm:px-9 sm:py-11">
+              <h2 id="progression-heading" class="text-display-md">
                 What's next
               </h2>
               {(listCollection || listPath) && (
@@ -323,7 +313,7 @@ const harderList = next[0];
                   )}
                 </p>
               )}
-              <div class="mt-6 space-y-6">
+              <div class="mt-8 space-y-8">
                 <RelatedListCards
                   heading="Review first"
                   items={prerequisites}

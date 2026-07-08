@@ -2,8 +2,8 @@
 id: kindergarten-number-color-words
 urlSlug: kindergarten-number-color-words
 title: "Kindergarten Number and Color Words"
-description: "The numbers one through ten and four essential color words — the vocabulary every kindergartener needs to spell from the very first week of school."
-shortAnswer: "Numbers one through ten plus red, blue, yellow, and brown — the number and color words every kindergartener needs to read, write, and spell."
+description: "The numbers one through ten and four essential color words — supplemental vocabulary spelling practice for words kindergarteners see in counting, sorting, art, and classroom routines."
+shortAnswer: "Numbers one through ten plus red, blue, yellow, and green — practical additional practice with number and color words kindergarteners often read, write, and spell."
 category: grade-level
 grade: "K"
 difficulty: beginner
@@ -24,7 +24,7 @@ readinessSignals:
   - "Are ready to connect familiar math and color vocabulary to printed spellings"
 faq:
   - question: "Why combine number and color words?"
-    answer: "Both sets are high-use kindergarten vocabulary. Children see them in counting, sorting, calendar routines, art, books, and directions, so they make a practical early spelling group."
+    answer: "Both sets are high-use kindergarten vocabulary. Children see them in counting, sorting, calendar routines, art, books, and directions, so they make a practical additional spelling group."
   - question: "Are number words harder than color words?"
     answer: "Often yes, because number words such as three and eight include less obvious spellings. Color words may be easier when children can connect them to visual examples."
   - question: "How do these words support early math and reading?"
@@ -50,4 +50,4 @@ words:
 
 Number and color words are among the very first things a kindergartener is asked to read and write. Spelling *seven* correctly — with an e in the middle — or remembering the silent gh in *eight* can trip up even careful young writers.
 
-Practicing these words builds the kind of automatic recognition that lets a child focus on what they're writing, not how to spell the color of the sky.
+This is additional practice, not the core phonics path. Some words can be sounded out, while others are learned as familiar classroom words with tricky parts. Practicing them builds the kind of automatic recognition that lets a child focus on what they're writing, not how to spell the color of the sky.

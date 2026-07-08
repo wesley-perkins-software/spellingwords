@@ -2,8 +2,8 @@
 id: kindergarten-heart-words
 urlSlug: kindergarten-heart-words
 title: 'Kindergarten Heart Words'
-description: 'Eight common heart words — the, to, a, is, you, said, for, and they — words a kindergartener needs to know by heart because part of each one cannot be sounded out.'
-shortAnswer: 'Eight kindergarten heart words — the, to, a, is, you, said, for, and they — the last stop in the core spelling progression, learned partly by heart.'
+description: 'Twelve common heart words — the, to, a, I, you, said, was, of, is, for, my, and are — words a kindergartener needs to know by heart because part of each one cannot be sounded out.'
+shortAnswer: 'Twelve kindergarten heart words — the, to, a, I, you, said, was, of, is, for, my, and are — the last stop in the core spelling progression, learned partly by heart.'
 category: sight-words
 grade: 'K'
 difficulty: beginner
@@ -35,11 +35,15 @@ words:
   - the
   - to
   - a
-  - is
+  - I
   - you
   - said
+  - was
+  - of
+  - is
   - for
-  - they
+  - my
+  - are
 ---
 
 Most words in this spelling progression can be fully sounded out, letter by letter. Heart words are different: most of each word is regular, but one small part is not — so that part gets learned by heart instead.

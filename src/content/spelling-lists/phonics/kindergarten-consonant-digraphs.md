@@ -2,8 +2,8 @@
 id: kindergarten-consonant-digraphs
 urlSlug: kindergarten-consonant-digraphs
 title: 'Consonant Digraphs'
-description: 'Eight words built on the SH, CH, and TH digraphs — ship, shop, fish, wish, chat, chin, thin, and bath — where two letters team up to make one new sound.'
-shortAnswer: 'Eight kindergarten digraph words — ship, shop, fish, wish, chat, chin, thin, and bath — practicing SH, CH, and TH, where two letters make one sound.'
+description: 'Ten words built on the SH, CH, and TH digraphs — ship, shop, fish, wish, chat, chip, chop, thin, bath, and this — where two letters team up to make one new sound.'
+shortAnswer: 'Ten kindergarten digraph words — ship, shop, fish, wish, chat, chip, chop, thin, bath, and this — practicing SH, CH, and TH, where two letters make one sound.'
 category: phonics
 grade: 'K'
 difficulty: beginner
@@ -37,11 +37,13 @@ words:
   - fish
   - wish
   - chat
-  - chin
+  - chip
+  - chop
   - thin
   - bath
+  - this
 ---
 
-Sometimes two letters team up and make one brand-new sound instead of two. This list practices three of those letter teams: SH, as in *ship* and *fish*; CH, as in *chat* and *chin*; and TH, as in *thin* and *bath*.
+Sometimes two letters team up and make one brand-new sound instead of two. This list practices three of those letter teams: SH, as in *ship* and *fish*; CH, as in *chat*, *chip*, and *chop*; and TH, as in *thin*, *bath*, and *this*.
 
 The letters keep their own sounds everywhere else — it is only when they sit together like this that they combine into something new. Noticing that pattern, and treating each pair as one unit while sounding out a word, is the whole skill this list builds.

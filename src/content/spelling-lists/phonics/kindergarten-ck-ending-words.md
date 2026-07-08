@@ -2,8 +2,8 @@
 id: kindergarten-ck-ending-words
 urlSlug: kindergarten-ck-ending-words
 title: 'The -ck Ending Rule'
-description: 'Eight words ending in the regular "-ck" spelling — pack, sack, kick, pick, sock, rock, duck, and luck — the simple rule for spelling the /k/ sound at the end of a short word.'
-shortAnswer: 'Eight kindergarten "-ck" words — pack, sack, kick, pick, sock, rock, duck, and luck — practicing the ending spelling rule for the /k/ sound.'
+description: 'Eight words ending in the regular "-ck" spelling — pack, back, kick, pick, sock, rock, duck, and sick — the simple rule for spelling the /k/ sound at the end of a short word.'
+shortAnswer: 'Eight kindergarten "-ck" words — pack, back, kick, pick, sock, rock, duck, and sick — practicing the ending spelling rule for the /k/ sound.'
 category: phonics
 grade: 'K'
 difficulty: beginner
@@ -33,13 +33,13 @@ faq:
     answer: 'Double Consonants is next in the core spelling progression, another simple ending-spelling pattern.'
 words:
   - pack
-  - sack
+  - back
   - kick
   - pick
   - sock
   - rock
   - duck
-  - luck
+  - sick
 ---
 
 The /k/ sound at the end of a short word almost always follows one reliable pattern: right after a short vowel, it is spelled "ck." *Pack*, *sock*, and *duck* all follow this rule exactly.

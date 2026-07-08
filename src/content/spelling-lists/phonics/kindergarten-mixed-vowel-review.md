@@ -2,8 +2,8 @@
 id: kindergarten-mixed-vowel-review
 urlSlug: kindergarten-mixed-vowel-review
 title: 'Mixed Vowel CVC Review'
-description: 'Ten fresh words mixing all five short vowel sounds — jam, lid, dog, mud, wet, rag, dig, run, bag, and pen — checking whether a child can hear and spell the vowel sound in a new word, not just recall a memorized list.'
-shortAnswer: 'Ten fresh mixed-vowel words — jam, lid, dog, mud, wet, rag, dig, run, bag, and pen — a transfer check after practicing all five short vowels one at a time.'
+description: 'Ten fresh words mixing all five short vowel sounds — jam, lid, web, mud, rag, get, hit, nod, nap, and bun — checking whether a child can hear and spell the vowel sound in a new word, not just recall a memorized list.'
+shortAnswer: 'Ten fresh mixed-vowel words — jam, lid, web, mud, rag, get, hit, nod, nap, and bun — a transfer check after practicing all five short vowels one at a time.'
 category: phonics
 grade: 'K'
 difficulty: beginner
@@ -24,7 +24,7 @@ readinessSignals:
   - 'Are ready to apply the sound-it-out approach to brand-new words'
 faq:
   - question: 'Why does this list use different words than the five short-vowel lists?'
-    answer: 'On purpose. If a child can only spell words they have already memorized, the skill has not really transferred yet. Using fresh words like "jam," "dog," and "run" checks whether the child can hear and spell any short-vowel word, not just recite this particular list.'
+    answer: 'On purpose. If a child can only spell words they have already memorized, the skill has not really transferred yet. Using fresh words like "jam," "web," and "nod" checks whether the child can hear and spell any short-vowel word, not just recite this particular list.'
   - question: 'What exactly is being checked here?'
     answer: 'Whether a child can hear the vowel sound in a new word and choose the right letter for it — the actual phonics skill — rather than relying on the page title or a word they already know by heart.'
   - question: 'What if a child struggles with this review?'
@@ -34,14 +34,14 @@ faq:
 words:
   - jam
   - lid
-  - dog
+  - web
   - mud
-  - wet
   - rag
-  - dig
-  - run
-  - bag
-  - pen
+  - get
+  - hit
+  - nod
+  - nap
+  - bun
 ---
 
 This list is a checkpoint, not a new lesson. After practicing short "a," "i," "o," "u," and "e" one at a time, these ten fresh words mix all five vowel sounds together using words a child has not seen on any earlier list.

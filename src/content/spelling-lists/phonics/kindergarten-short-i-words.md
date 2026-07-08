@@ -2,8 +2,8 @@
 id: kindergarten-short-i-words
 urlSlug: kindergarten-short-i-words
 title: 'Kindergarten Short I Words'
-description: 'Eight simple words built around the short "i" sound — pig, big, pin, fin, sit, bit, lip, and win — continuing the kindergarten spelling progression one vowel at a time.'
-shortAnswer: 'Eight kindergarten short "i" words — pig, big, pin, fin, sit, bit, lip, and win — the second single-vowel stop after Short A Words.'
+description: 'Eight simple words built around the short "i" sound — pig, big, pin, dig, sit, bit, lip, and win — continuing the kindergarten spelling progression one vowel at a time.'
+shortAnswer: 'Eight kindergarten short "i" words — pig, big, pin, dig, sit, bit, lip, and win — the second single-vowel stop after Short A Words.'
 category: phonics
 grade: 'K'
 difficulty: beginner
@@ -35,7 +35,7 @@ words:
   - pig
   - big
   - pin
-  - fin
+  - dig
   - sit
   - bit
   - lip

@@ -2,8 +2,8 @@
 id: kindergarten-short-a-words
 urlSlug: kindergarten-short-a-words
 title: 'Kindergarten Short A Words'
-description: 'Eight simple words built around the short "a" sound — hat, mat, sat, man, can, van, cap, and map — the first single-vowel stop in the kindergarten spelling progression.'
-shortAnswer: 'Eight kindergarten short "a" words — hat, mat, sat, man, can, van, cap, and map — practicing one vowel sound at a time after First Words.'
+description: 'Eight simple words built around the short "a" sound — hat, mat, sat, man, can, bag, cap, and map — the first single-vowel stop in the kindergarten spelling progression.'
+shortAnswer: 'Eight kindergarten short "a" words — hat, mat, sat, man, can, bag, cap, and map — practicing one vowel sound at a time after First Words.'
 category: phonics
 grade: 'K'
 difficulty: beginner
@@ -21,7 +21,7 @@ featured: false
 readinessSignals:
   - 'Can break a simple word like "cat" into its three separate sounds (c-a-t)'
   - 'Recognize the short "a" sound when it is spoken aloud, even before seeing it written down'
-  - 'Already know the individual consonant sounds in this list — c, m, n, p, s, t, v'
+  - 'Already know the individual consonant sounds in this list — b, c, g, h, m, n, p, s, t'
 faq:
   - question: 'What is the short "a" sound?'
     answer: 'It is the quick, open sound in the middle of "hat" and "can" — one of the easiest vowel sounds for a young speller to hear and say, which is why it is the first single-vowel stop after First Words.'
@@ -37,7 +37,7 @@ words:
   - sat
   - man
   - can
-  - van
+  - bag
   - cap
   - map
 ---

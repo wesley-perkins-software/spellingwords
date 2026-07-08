@@ -2,21 +2,21 @@
 id: kindergarten-animal-words
 urlSlug: kindergarten-animal-words
 title: "Kindergarten Animal Words"
-description: "Ten familiar farm and pet animal names — cat, dog, cow, horse, and more — friendly, familiar animal vocabulary for a young speller."
-shortAnswer: "Ten kindergarten animal words — cat, dog, cow, pig, and more — friendly farm and pet animal names every young speller loves."
+description: "Eight familiar animal names — cat, dog, pig, bug, hen, duck, fish, and frog — friendly additional vocabulary practice for a young speller."
+shortAnswer: "Eight kindergarten animal words — cat, dog, pig, bug, hen, duck, fish, and frog — friendly, familiar animal names every young speller loves."
 category: grade-level
 grade: "K"
 difficulty: beginner
 skillTags: ["grade-K", "animals", "vocabulary"]
-tags: ["kindergarten", "beginner", "animals", "farm-animals"]
+tags: ["kindergarten", "beginner", "animals", "vocabulary"]
 order: 5
-estimatedDurationMinutes: 7
+estimatedDurationMinutes: 6
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-shape-words", "kindergarten-family-words"]
-prerequisiteLists: ["kindergarten-shape-words"]
-nextLists: ["kindergarten-family-words"]
+relatedLists: ["kindergarten-first-words", "kindergarten-number-color-words"]
+prerequisiteLists: ["kindergarten-first-words"]
+nextLists: []
 featured: false
 readinessSignals:
   - "Can name common animals in pictures, books, or real life"
@@ -29,21 +29,19 @@ faq:
     answer: "They are both. A kindergartener may already say the words, but spelling them builds alphabet knowledge, sound awareness, and confidence with print."
   - question: "What should adults listen for during practice?"
     answer: "Listen for whether the child can say the word slowly and notice beginning and ending sounds. That skill matters more than reciting the list quickly."
-  - question: "What comes after kindergarten animal words?"
-    answer: "Kindergarten first words, school words, or family words are natural next choices because they continue with familiar, concrete vocabulary."
+  - question: "Is this list required before moving on in the spelling progression?"
+    answer: "No. This is optional additional practice, not a required step. Children can revisit it anytime alongside the core spelling progression, starting with First Words."
 words:
+  - bug
   - cat
-  - cow
   - dog
   - duck
+  - fish
   - frog
-  - goat
-  - horse
+  - hen
   - pig
-  - rabbit
-  - sheep
 ---
 
-Cats, dogs, cows, and horses are often a kindergartener's first favorite words — familiar, easy to picture, and fun to talk about. This list gathers ten common farm and pet animal names that most children already recognize by sight and sound.
+Cats, dogs, and ducks are often a kindergartener's first favorite words — familiar, easy to picture, and fun to talk about. This list gathers eight common animal names that most children already recognize by sight and sound.
 
 These words are simple, concrete, and rewarding to spell correctly — a great match for a young speller building confidence one short word at a time.

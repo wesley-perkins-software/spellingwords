@@ -11,7 +11,7 @@ skillTags: ["grade-K", "school", "classroom-vocabulary"]
 tags: ["kindergarten", "beginner", "school", "classroom"]
 order: 7
 estimatedDurationMinutes: 7
-status: published
+status: archived
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["kindergarten-family-words", "kindergarten-body-words"]

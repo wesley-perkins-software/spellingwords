@@ -11,7 +11,7 @@ skillTags: ["grade-K", "adjectives", "describing-words"]
 tags: ["kindergarten", "beginner", "adjectives", "describing-words"]
 order: 3
 estimatedDurationMinutes: 9
-status: published
+status: archived
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["kindergarten-number-color-words", "kindergarten-feelings-words"]

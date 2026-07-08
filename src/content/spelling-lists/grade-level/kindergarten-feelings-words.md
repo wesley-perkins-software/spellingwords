@@ -11,7 +11,7 @@ skillTags: ["grade-K", "feelings", "vocabulary"]
 tags: ["kindergarten", "beginner", "feelings", "emotions"]
 order: 9
 estimatedDurationMinutes: 7
-status: published
+status: archived
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["kindergarten-body-words", "kindergarten-food-words", "kindergarten-describing-words"]

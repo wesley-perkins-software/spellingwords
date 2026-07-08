@@ -11,7 +11,7 @@ skillTags: ["grade-K", "food", "vocabulary"]
 tags: ["kindergarten", "beginner", "food", "vocabulary"]
 order: 10
 estimatedDurationMinutes: 7
-status: published
+status: archived
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["kindergarten-feelings-words", "kindergarten-family-words"]

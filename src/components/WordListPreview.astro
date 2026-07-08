@@ -8,15 +8,21 @@ const { words, accentClass = 'bg-brand-blue' } = Astro.props;
 ---
 
 <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-card-lg">
-  <div class={`h-1.5 ${accentClass}`} aria-hidden="true"></div>
-  <ul
-    class="grid grid-cols-2 gap-x-6 gap-y-3 px-6 py-7 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-4 sm:px-8 sm:py-8"
-    aria-label="Words in this list"
-  >
+  <div class={`h-2 ${accentClass}`} aria-hidden="true"></div>
+  <ul class="grid grid-cols-2 sm:grid-cols-3" aria-label="Words in this list">
     {
-      words.map((word) => (
-        <li class="font-word text-lg font-semibold leading-snug text-ink sm:text-xl md:text-2xl">
-          {word.word}
+      words.map((word, index) => (
+        <li
+          class="flex items-baseline gap-2.5 border-b border-r border-line/70 px-5 py-4
+            [&:nth-child(2n)]:border-r-0 sm:[&:nth-child(2n)]:border-r sm:[&:nth-child(3n)]:border-r-0
+            sm:px-6 sm:py-5"
+        >
+          <span class="font-sans text-xs font-bold text-ink-faint/50 tabular-nums" aria-hidden="true">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <span class="font-word text-lg font-semibold leading-snug text-ink sm:text-xl md:text-2xl">
+            {word.word}
+          </span>
         </li>
       ))
     }

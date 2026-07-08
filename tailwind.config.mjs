@@ -8,6 +8,7 @@ export default {
         'app-paper':   '#FBF8F3',   // warm chalk (was #FFFFFF)
         'app-cloud':   '#F3EDE3',   // soft cream (was cool #F4F7FB)
         'cream-deep':  '#EAE0CC',   // deeper cream, for input toolbars
+        'app-mist':    '#EEF3FC',   // soft blue-tinted panel — editorial sections, breaks up cream monotony
 
         brand: {
           // Blue kept intact — used by play page, listing pages, components

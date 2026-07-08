@@ -110,11 +110,16 @@ const harderList = next[0];
     <section class="px-5 pb-10 pt-6 sm:px-6 md:pb-14 md:pt-8">
       <div class="mx-auto max-w-2xl md:max-w-3xl">
         <div
-          class="relative overflow-hidden rounded-3xl border border-line bg-white px-6 py-8 shadow-card-lg sm:px-10 sm:py-10"
+          class="relative overflow-hidden rounded-3xl border border-line bg-white px-6 py-9 shadow-card-lg sm:px-10 sm:py-12"
         >
           <div class={`absolute inset-x-0 top-0 h-1.5 ${cardAccent.bg}`} aria-hidden="true"></div>
+          <div
+            class="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-blue/[0.05] blur-2xl sm:h-72 sm:w-72"
+            aria-hidden="true"
+          >
+          </div>
 
-          <div class="flex flex-wrap items-center gap-2">
+          <div class="relative flex flex-wrap items-center gap-2">
             {
               gradeDisplay && (
                 <span class="rounded-full bg-app-cloud px-3 py-1 text-sm font-semibold text-ink">
@@ -129,10 +134,10 @@ const harderList = next[0];
             </span>
           </div>
 
-          <h1 class="text-display-lg mt-3">{data.title}</h1>
-          <p class="text-body-lg mt-3 max-w-2xl text-ink-soft">{data.description}</p>
+          <h1 class="text-display-lg relative mt-4">{data.title}</h1>
+          <p class="text-body-lg relative mt-3 max-w-2xl text-ink-soft">{data.description}</p>
 
-          <div class="mt-8">
+          <div class="relative mt-8">
             <button
               id="btn-practice"
               type="button"
@@ -158,63 +163,62 @@ const harderList = next[0];
     <!-- Is this the right list? -->
     {
       data.readinessSignals.length > 0 && (
-        <section
-          class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
-          aria-labelledby="readiness-heading"
-        >
+        <section class="px-5 pb-10 sm:px-6 md:pb-14" aria-labelledby="readiness-heading">
           <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="readiness-heading" class="font-display text-lg font-semibold text-ink">
-              These spelling words are a good fit for students who...
-            </h2>
-            <ul class="mt-4 space-y-3 text-base leading-relaxed text-ink-soft">
-              {data.readinessSignals.map((signal) => (
-                <li class="flex items-start gap-2.5">
-                  <span aria-hidden="true" class="mt-0.5 flex-shrink-0 text-brand-blue">
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </span>
-                  <span>{signal}</span>
-                </li>
-              ))}
-            </ul>
-            {(easierList || harderList) && (
-              <p class="mt-4 text-base leading-relaxed text-ink-soft">
-                {easierList && (
-                  <>
-                    Too much too soon?{' '}
-                    <a
-                      href={listLink(easierList)}
-                      class="font-semibold text-brand-blue hover:underline"
-                    >
-                      {easierList.data.title}
-                    </a>{' '}
-                    is a gentler starting point.{' '}
-                  </>
-                )}
-                {harderList && (
-                  <>
-                    Moving through it easily?{' '}
-                    <a
-                      href={listLink(harderList)}
-                      class="font-semibold text-brand-blue hover:underline"
-                    >
-                      {harderList.data.title}
-                    </a>{' '}
-                    is a natural next step.
-                  </>
-                )}
-              </p>
-            )}
+            <div class="rounded-3xl border border-line bg-app-cloud px-6 py-8 sm:px-9 sm:py-9">
+              <h2 id="readiness-heading" class="font-display text-lg font-semibold text-ink">
+                These spelling words are a good fit for students who...
+              </h2>
+              <ul class="mt-4 space-y-3 text-base leading-relaxed text-ink-soft">
+                {data.readinessSignals.map((signal) => (
+                  <li class="flex items-start gap-2.5">
+                    <span aria-hidden="true" class="mt-0.5 flex-shrink-0 text-brand-blue">
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </span>
+                    <span>{signal}</span>
+                  </li>
+                ))}
+              </ul>
+              {(easierList || harderList) && (
+                <p class="mt-4 text-base leading-relaxed text-ink-soft">
+                  {easierList && (
+                    <>
+                      Too much too soon?{' '}
+                      <a
+                        href={listLink(easierList)}
+                        class="font-semibold text-brand-blue hover:underline"
+                      >
+                        {easierList.data.title}
+                      </a>{' '}
+                      is a gentler starting point.{' '}
+                    </>
+                  )}
+                  {harderList && (
+                    <>
+                      Moving through it easily?{' '}
+                      <a
+                        href={listLink(harderList)}
+                        class="font-semibold text-brand-blue hover:underline"
+                      >
+                        {harderList.data.title}
+                      </a>{' '}
+                      is a natural next step.
+                    </>
+                  )}
+                </p>
+              )}
+            </div>
           </div>
         </section>
       )
@@ -231,14 +235,18 @@ const harderList = next[0];
     </section>
 
     <!-- Why these words were chosen / what children learn (markdown body) -->
-    <section class="bg-cream-deep px-5 py-12 sm:px-6 md:py-16" aria-labelledby="why-heading">
+    <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="why-heading">
       <div class="mx-auto max-w-2xl md:max-w-3xl">
-        <div class={`border-l-[3px] pl-5 sm:pl-6 ${cardAccent.border}`}>
-          <h2 class="text-display-md">Why these words — and what they teach</h2>
-          <div
-            class="text-body-lg [&_strong]:font-semibold [&_strong]:text-ink mt-4 max-w-2xl space-y-5 text-ink-soft sm:space-y-6"
-          >
-            <Content />
+        <div
+          class={`overflow-hidden rounded-3xl border border-brand-blue/10 bg-app-mist px-6 py-9 sm:px-10 sm:py-12`}
+        >
+          <div class={`border-l-[3px] pl-5 sm:pl-6 ${cardAccent.border}`}>
+            <h2 class="text-display-md">Why these words — and what they teach</h2>
+            <div
+              class="text-body-lg [&_strong]:font-semibold [&_strong]:text-ink mt-4 max-w-2xl space-y-5 text-ink-soft sm:space-y-6"
+            >
+              <Content />
+            </div>
           </div>
         </div>
       </div>
@@ -252,12 +260,22 @@ const harderList = next[0];
             <h2 id="faq-heading" class="mb-4 font-display text-lg font-semibold text-ink">
               Frequently asked questions
             </h2>
-            <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-card">
+            <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-card-lg">
               <div class="divide-y divide-line/60 px-6 sm:px-7">
-                {data.faq.map((item) => (
-                  <div class="py-5">
-                    <h3 class="font-display text-base font-semibold text-ink">{item.question}</h3>
-                    <p class="mt-2 text-base leading-relaxed text-ink-soft">{item.answer}</p>
+                {data.faq.map((item, index) => (
+                  <div class="flex gap-4 py-6">
+                    <span
+                      class="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-app-cloud font-display text-sm font-semibold text-brand-blue"
+                      aria-hidden="true"
+                    >
+                      {index + 1}
+                    </span>
+                    <div>
+                      <h3 class="font-display text-base font-semibold text-ink sm:text-lg">
+                        {item.question}
+                      </h3>
+                      <p class="mt-2 text-base leading-relaxed text-ink-soft">{item.answer}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -270,56 +288,61 @@ const harderList = next[0];
     <!-- Learning progression -->
     {
       (prerequisites.length > 0 || related.length > 0 || next.length > 0) && (
-        <section
-          class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
-          aria-labelledby="progression-heading"
-        >
+        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="progression-heading">
           <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="progression-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-              What's next
-            </h2>
-            {(listCollection || listPath) && (
-              <p class="mb-5 text-base text-ink-soft">
-                {listCollection && (
-                  <>
-                    Part of the{' '}
-                    <a
-                      href={`/spelling-lists/collections/${listCollection.data.urlSlug}`}
-                      class="font-semibold text-brand-blue hover:underline"
-                    >
-                      {listCollection.data.title}
-                    </a>{' '}
-                    collection.
-                  </>
-                )}
-                {listPath && (
-                  <>
-                    {' '}
-                    Part of the{' '}
-                    <a
-                      href={`/learning-paths/${listPath.id}`}
-                      class="font-semibold text-brand-blue hover:underline"
-                    >
-                      {listPath.title}
-                    </a>
-                    .
-                  </>
-                )}
-              </p>
-            )}
-            <RelatedListCards
-              heading="Review first"
-              items={prerequisites}
-              listLink={listLink}
-              accent="previous"
-            />
-            <RelatedListCards heading="Also worth practicing" items={related} listLink={listLink} />
-            <RelatedListCards
-              heading="Ready for next"
-              items={next}
-              listLink={listLink}
-              accent="forward"
-            />
+            <div class="rounded-3xl border border-line bg-white px-6 py-8 shadow-card sm:px-8 sm:py-9">
+              <h2 id="progression-heading" class="font-display text-lg font-semibold text-ink">
+                What's next
+              </h2>
+              {(listCollection || listPath) && (
+                <p class="mt-2 text-base text-ink-soft">
+                  {listCollection && (
+                    <>
+                      Part of the{' '}
+                      <a
+                        href={`/spelling-lists/collections/${listCollection.data.urlSlug}`}
+                        class="font-semibold text-brand-blue hover:underline"
+                      >
+                        {listCollection.data.title}
+                      </a>{' '}
+                      collection.
+                    </>
+                  )}
+                  {listPath && (
+                    <>
+                      {' '}
+                      Part of the{' '}
+                      <a
+                        href={`/learning-paths/${listPath.id}`}
+                        class="font-semibold text-brand-blue hover:underline"
+                      >
+                        {listPath.title}
+                      </a>
+                      .
+                    </>
+                  )}
+                </p>
+              )}
+              <div class="mt-6 space-y-6">
+                <RelatedListCards
+                  heading="Review first"
+                  items={prerequisites}
+                  listLink={listLink}
+                  accent="previous"
+                />
+                <RelatedListCards
+                  heading="Also worth practicing"
+                  items={related}
+                  listLink={listLink}
+                />
+                <RelatedListCards
+                  heading="Ready for next"
+                  items={next}
+                  listLink={listLink}
+                  accent="forward"
+                />
+              </div>
+            </div>
           </div>
         </section>
       )

@@ -2,8 +2,8 @@
 id: kindergarten-animal-words
 urlSlug: kindergarten-animal-words
 title: "Kindergarten Animal Words"
-description: "Ten familiar farm and pet animal names — cat, dog, cow, horse, and more — friendly, familiar animal vocabulary for a young speller."
-shortAnswer: "Ten kindergarten animal words — cat, dog, cow, pig, and more — friendly farm and pet animal names every young speller loves."
+description: "Eight familiar animal names — cat, dog, pig, hen, duck, fish, rat, cub — supplemental kindergarten vocabulary practice built entirely from spelling patterns taught in the core phonics sequence."
+shortAnswer: "Eight kindergarten animal words — cat, dog, pig, hen, duck, fish, rat, cub — friendly animal vocabulary that doubles as practice for the short-vowel, digraph, and -ck patterns from the core sequence."
 category: grade-level
 grade: "K"
 difficulty: beginner
@@ -14,9 +14,9 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-shape-words", "kindergarten-family-words"]
-prerequisiteLists: ["kindergarten-shape-words"]
-nextLists: ["kindergarten-family-words"]
+relatedLists: ["kindergarten-number-color-words"]
+prerequisiteLists: ["kindergarten-first-words"]
+nextLists: []
 featured: false
 readinessSignals:
   - "Can name common animals in pictures, books, or real life"
@@ -25,25 +25,23 @@ readinessSignals:
 faq:
   - question: "Why are animal words useful for beginning spellers?"
     answer: "Animal words are concrete and familiar, so children usually know the meaning before they study the spelling. That lets them focus on matching sounds to letters."
-  - question: "Are these vocabulary words or spelling words?"
-    answer: "They are both. A kindergartener may already say the words, but spelling them builds alphabet knowledge, sound awareness, and confidence with print."
+  - question: "Is this list part of the core kindergarten spelling sequence?"
+    answer: "No — it's supplemental practice, not one of the core phonics pages. But unlike some vocabulary lists, every word here is actually decodable using patterns from the core sequence: cat, dog, hen, and rat are short-vowel CVC words, duck uses the -ck ending rule, fish uses the sh digraph, and cub practices short u. It's a chance to apply those patterns to fun, familiar animal names."
   - question: "What should adults listen for during practice?"
     answer: "Listen for whether the child can say the word slowly and notice beginning and ending sounds. That skill matters more than reciting the list quickly."
   - question: "What comes after kindergarten animal words?"
-    answer: "Kindergarten first words, school words, or family words are natural next choices because they continue with familiar, concrete vocabulary."
+    answer: "This is supplemental practice rather than a step in the core sequence, so there's no required next list. Kindergarten Number and Color Words makes a good companion; for continued spelling-pattern practice, the core sequence — starting with Kindergarten Short A Words — is the main path forward."
 words:
   - cat
-  - cow
   - dog
-  - duck
-  - frog
-  - goat
-  - horse
   - pig
-  - rabbit
-  - sheep
+  - hen
+  - duck
+  - fish
+  - rat
+  - cub
 ---
 
-Cats, dogs, cows, and horses are often a kindergartener's first favorite words — familiar, easy to picture, and fun to talk about. This list gathers ten common farm and pet animal names that most children already recognize by sight and sound.
+Cats, dogs, and pigs are often a kindergartener's first favorite words — familiar, easy to picture, and fun to talk about. This list gathers eight common animal names that most children already recognize by sight and sound.
 
-These words are simple, concrete, and rewarding to spell correctly — a great match for a young speller building confidence one short word at a time.
+Unlike some vocabulary lists, every word here is fully decodable using patterns already taught in the core kindergarten sequence: cat, dog, hen, and rat follow the short-vowel CVC pattern, duck uses the -ck ending rule, fish uses the sh digraph, and cub practices short u. That makes this list a natural place to apply those spelling patterns to real, familiar words — simple, concrete, and rewarding to spell correctly.

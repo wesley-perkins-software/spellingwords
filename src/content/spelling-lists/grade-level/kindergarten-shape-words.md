@@ -11,7 +11,7 @@ skillTags: ["grade-K", "shapes", "geometry"]
 tags: ["kindergarten", "beginner", "shapes", "geometry"]
 order: 4
 estimatedDurationMinutes: 7
-status: published
+status: archived
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["kindergarten-describing-words", "kindergarten-animal-words"]

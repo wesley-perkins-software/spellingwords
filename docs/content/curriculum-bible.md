@@ -92,7 +92,7 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 | Primary grade assigned to each list | ✅ Complete | Archived Dolch lists republished; root lists retagged grade 4; diphthongs retagged grade 2. Remaining ungraded lists were already correctly tagged. | 2026-06-30 |
 | Secondary grade/review tags assigned | ⬜ Not needed | Cross-grade relationships (e.g. tier-2-greek-latin-roots as Grade 5 review/extension) expressed via `relatedLists`/`prerequisiteLists`/`nextLists` instead of a secondary-grade field — see Decision Rules §12 | 2026-06-30 |
 | Curriculum relationship integrity audited & fixed | ✅ Complete | `relatedLists`/`prerequisiteLists`/`nextLists` were verified against actual `id` values (the field the app resolves against, not `urlSlug`); ~20 lists had references written in urlSlug form and were silently failing to resolve. All fixed, plus one stale reference to an archived list and two skillTag/tag gaps. See Phase 4 Resolution in `docs/content/curriculum-audit-phase-2.md` | 2026-07-01 |
-| Kindergarten gaps identified | ⬜ Not started | Known gaps pre-filled in Section 9 | — |
+| Kindergarten gaps identified | ✅ Complete | Kindergarten rebuilt as a locked 11-page core phonics sequence (First Words → short vowels → mixed review → digraphs → -ck rule → double consonants → heart words) plus 2 supplemental pages; see `docs/content/kindergarten-curriculum.md` (the new canonical reference) and §7 below | 2026-07-08 |
 | 1st grade over-tagging reviewed | ⬜ Not started | Many phonics lists may be mis-tagged | — |
 | 2nd grade pattern gaps identified | ⬜ Not started | Known gaps pre-filled in Section 9 | — |
 | 3rd grade morphology gaps identified | ⬜ Not started | Known gaps pre-filled in Section 9 | — |
@@ -110,16 +110,16 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 
 | Category | List Count | Notes |
 |---|---|---|
-| `phonics/` | 50 | Blends, digraphs, short vowels, silent-e, r-controlled, vowel teams |
-| `sight-words/` | 7 | Dolch pre-primer through 3rd grade — all 7 tiers now `status: published` |
-| `grade-level/` — Kindergarten | 7 | first-words, number-color-words, describing-words, shape-words, animal-words, family-words, school-words |
+| `phonics/` | 59 | Blends, digraphs, short vowels, silent-e, r-controlled, vowel teams, plus 9 new Kindergarten phonics pages (short vowels A–E, mixed vowel review, digraphs, -ck rule, double consonants) |
+| `sight-words/` | 8 | Dolch pre-primer through 3rd grade, plus `kindergarten-heart-words` |
+| `grade-level/` — Kindergarten | 3 | first-words, number-color-words, animal-words (7 former thematic lists archived — see §7) |
 | `grade-level/` — 1st Grade | 3 | action-words, describing-words, everyday-words |
 | `grade-level/` — 2nd Grade | 4 | action-words, compound-words, describing-words, everyday-words |
 | `grade-level/` — 3rd Grade | 3 | describing-words, everyday-words, reading-writing-words |
 | `grade-level/` — 4th Grade | 5 | community-words, everyday-words, reading-writing-words, tier-1-roots-and-patterns, tier-2-greek-latin-roots (two root lists reclassified from `challenge/` — see §2.2 of the approved curriculum architecture) |
 | `grade-level/` — 5th Grade | 12 | everyday-words, academic-words, reading-writing-words, opinion-argument-words, multisyllabic-academic-words, prefix-suffix-words, greek-latin-word-parts, spelling-rules, commonly-confused-words, science-nature-words, community-civics-words, math-vocabulary |
 | `challenge/` | 1 | academic-vocabulary only — the two root lists moved to `grade-level/` (4th Grade) |
-| **Total** | **86** | As of 2026-07-01 |
+| **Total** | **96** (published) | As of 2026-07-08 — reflects the Kindergarten phonics/sight-words additions and 7 archived Kindergarten thematic lists; other rows not re-audited this pass |
 
 ---
 
@@ -129,55 +129,57 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 
 ### Kindergarten
 
+> **Superseded 2026-07-08.** Kindergarten now follows a locked, authoritative curriculum documented in full at `docs/content/kindergarten-curriculum.md` — treat that document as the canonical reference for page order, exact word lists, and rationale. The section below is kept in the Bible's standard per-grade format for consistency with other grades, but defers to the canonical doc on any conflict.
+
 **Builds Upon:** Pre-literacy (letter recognition, phonemic awareness, print concepts)
 
 #### Expected Focus
-Letter sounds, beginning sounds, ending sounds, simple CVC words, short vowels, color words, number words, shape words, family words, school words, animal words, beginner high-frequency/sight words (Dolch pre-primer and primer).
+A locked 11-page core phonics sequence — first words, short vowels (a, i, o, u, e) in isolation, mixed vowel review, consonant digraphs, the -ck ending rule, double consonants, and heart words — plus 2 supplemental vocabulary pages (animal words, number/color words) and the existing Dolch pre-primer/primer sight words.
 
 #### Common List Types
-- Thematic vocabulary lists (color, number, shape, family, school, animal)
-- Simple CVC word lists by vowel
-- Beginning/ending sound sorts
+- Core phonics sequence (single-pattern CVC, digraph, and spelling-rule lists)
+- Heart words (irregular high-frequency words with one part learned by memory)
+- Supplemental vocabulary lists (animal, number/color words)
 - Dolch pre-primer and primer sight words
 
 #### Current Coverage
 | List | Type | Notes |
 |---|---|---|
-| kindergarten-first-words | Theme | General starter vocabulary |
-| kindergarten-number-color-words | Theme | Numbers and colors combined |
-| kindergarten-describing-words | Theme | Basic adjectives |
-| kindergarten-shape-words | Theme | 2D shape names plus side/corner |
-| kindergarten-animal-words | Theme | Farm and pet animal names |
-| kindergarten-family-words | Theme | Immediate and extended family vocabulary |
-| kindergarten-school-words | Theme | Classroom and school vocabulary |
-| dolch-pre-primer | Sight words | ✅ Live (`status: published`) |
+| kindergarten-first-words | Core, grade-level | Page 1 — general starter vocabulary, on-ramp to the sequence |
+| kindergarten-short-a-words | Core, phonics | Page 2 |
+| kindergarten-short-i-words | Core, phonics | Page 3 |
+| kindergarten-short-o-words | Core, phonics | Page 4 |
+| kindergarten-short-u-words | Core, phonics | Page 5 |
+| kindergarten-short-e-words | Core, phonics | Page 6 |
+| kindergarten-mixed-vowel-cvc-review | Core, phonics | Page 7 |
+| kindergarten-consonant-digraphs | Core, phonics | Page 8 |
+| kindergarten-ck-ending-rule | Core, phonics | Page 9 |
+| kindergarten-double-consonants | Core, phonics | Page 10 |
+| kindergarten-heart-words | Core, sight-words | Page 11 — end of core sequence |
+| kindergarten-number-color-words | Supplemental, grade-level | Not sequential; prerequisite is First Words only |
+| kindergarten-animal-words | Supplemental, grade-level | Not sequential; every word decodes via a core-taught pattern |
+| dolch-pre-primer | Sight words | ✅ Live (`status: published`), separate from the Heart Words capstone |
 | dolch-primer | Sight words | ✅ Live (`status: published`) |
 
-Coverage: **Improving** — 9 lists total; shape/family/school/animal thematic gaps filled in Phase D. Only individual short-vowel CVC lists remain as a likely gap.
+Coverage: **Complete** for the locked curriculum — all 11 core pages and both supplemental pages are live. Seven former thematic lists (describing, shape, family, school, body, feelings, food words) were archived because they had no place in the locked sequence; see `docs/content/kindergarten-curriculum.md` §5 for the record.
 
 #### Target Coverage Checklist
-- [ ] CVC short-a words (kindergarten level)
-- [ ] CVC short-e words (kindergarten level)
-- [ ] CVC short-i words (kindergarten level)
-- [ ] CVC short-o words (kindergarten level)
-- [ ] CVC short-u words (kindergarten level)
-- [x] Color words
-- [x] Number words
-- [x] Shape words
-- [x] Family words (mom, dad, sister, brother…)
-- [x] School words (desk, pencil, teacher…)
-- [x] Animal words (cat, dog, fish…)
+- [x] CVC short-a, i, o, u, e words (kindergarten level, isolated)
+- [x] Mixed vowel CVC review
+- [x] Consonant digraphs (ch, sh, th, wh)
+- [x] The -ck ending rule
+- [x] Double consonants (-ff, -ll, -ss)
+- [x] Kindergarten heart words
+- [x] Number and color words (supplemental)
+- [x] Animal words (supplemental)
 - [x] Dolch pre-primer sight words
 - [x] Dolch primer sight words
-- [x] Basic describing/adjective words
 
 #### Likely Gaps
-Individual short-vowel CVC lists at a kindergarten level of difficulty are the only remaining gap — shape, family, school, and animal word lists shipped in Phase D (see §9). The existing phonics CVC lists (`phonics/short-vowels-cvc-words.md`) may be appropriate, but individual short-vowel lists may be more instructionally useful at K level.
+None — the locked curriculum is fully implemented. Future Kindergarten supplemental pages must satisfy the rule in `docs/content/kindergarten-curriculum.md` §3: every word must already be spellable using concepts taught in the core sequence.
 
 #### Notes
-Kindergarten is the most underbuilt grade. Thematic lists (by topic, not pattern) are the right approach here — children at this stage benefit from meaningful word groups before abstract phonics patterns are introduced formally.
-
-Real K phonics foundations — letter sounds, beginning/ending sounds, phonemic awareness — are a legitimate instructional need at this grade and are not being dismissed. What stays Grade 1 primary is full CVC *spelling* practice: typing a complete CVC word matches both standard scope-and-sequence (decoding/sound-isolation precedes encoding/spelling) and this app's current type-the-whole-word practice format. This is recorded here as a **future curriculum consideration** — a possible K-appropriate phonics-foundations list format (e.g., beginning-sound identification) distinct from CVC spelling — not as an open gap to fill by simply relabeling Grade 1 content as Grade K. No Target Coverage Checklist item is added for it.
+The former thematic-vocabulary approach (a large set of topic-based lists — shapes, family, school, body, feelings, food) is **superseded**. It is preserved here only as history: Phase D (`docs/content/content-production-roadmap.md`) shipped seven thematic lists on the premise that topic-based vocabulary was the right kindergarten approach, and this Bible previously recorded a decision to keep full CVC spelling as Grade-1-primary rather than Kindergarten-primary. Both of those positions are reversed by the new locked curriculum, which makes CVC/phonics spelling the Kindergarten-primary focus and treats the two retained vocabulary pages (Animal Words, Number & Color Words) as clearly-labeled supplemental practice, not core instruction. See `docs/content/kindergarten-curriculum.md` for the full rationale.
 
 ---
 
@@ -488,13 +490,16 @@ The word overlap between `5th-grade-academic-words` and `challenge/academic-voca
 
 | Grade | Topic | Exists | Partial | Missing | Priority | Notes |
 |---|---|---|---|---|---|---|
-| K | Simple CVC words (per vowel, K-level) | | | ✓ | Future consideration | Full CVC spelling stays Grade 1 primary by design (matches standard scope-and-sequence and the app's type-the-whole-word format); a K-appropriate phonics-foundations list (e.g. beginning-sound identification) is a documented future idea, not a gap to fill by relabeling Grade 1 content — see §7 Kindergarten Notes |
-| K | Color words | | ✓ | | High | Partially in number-color-words list |
-| K | Number words | | ✓ | | High | Partially in number-color-words list |
-| K | Shape words | ✓ | | | High | Shipped as `kindergarten-shape-words` (Phase D) |
-| K | Family words | ✓ | | | High | Shipped as `kindergarten-family-words` (Phase D) |
-| K | School words | ✓ | | | Medium | Shipped as `kindergarten-school-words` (Phase D) |
-| K | Animal words | ✓ | | | Medium | Shipped as `kindergarten-animal-words` (Phase D) |
+| K | Simple CVC words (per vowel, K-level) | ✓ | | | — | Shipped as `kindergarten-short-a/i/o/u/e-words`, part of the locked core sequence — supersedes the prior "Grade 1 primary" decision |
+| K | Mixed vowel CVC review | ✓ | | | — | Shipped as `kindergarten-mixed-vowel-cvc-review` |
+| K | Consonant digraphs | ✓ | | | — | Shipped as `kindergarten-consonant-digraphs` |
+| K | The -ck ending rule | ✓ | | | — | Shipped as `kindergarten-ck-ending-rule` |
+| K | Double consonants (-ff, -ll, -ss) | ✓ | | | — | Shipped as `kindergarten-double-consonants` |
+| K | Kindergarten heart words | ✓ | | | — | Shipped as `kindergarten-heart-words` |
+| K | Color words | ✓ | | | — | Covered in `kindergarten-number-color-words` (supplemental) |
+| K | Number words | ✓ | | | — | Covered in `kindergarten-number-color-words` (supplemental) |
+| K | Animal words | ✓ | | | — | Shipped as `kindergarten-animal-words` (supplemental; re-audited word list, every word decodes via a core-taught pattern) |
+| K | Shape/family/school/body/feelings/food words (thematic) | | | | N/A | **Archived 2026-07-08** — no place in the locked curriculum; not re-created. See `docs/content/kindergarten-curriculum.md` §5 |
 | 1 | Silent-e long-u words | | | ✓ | Medium | long-a, i, o exist but not long-u |
 | 1 | Inflectional endings (-s, -ed, -ing) | | | ✓ | Medium | No dedicated list |
 | 1 | Simple two-syllable words | | | ✓ | Low | |
@@ -604,6 +609,6 @@ Follow these rules for every content decision:
 
 5. **Sight words support grade hubs; they do not dominate site architecture.** Sight words are important but should be clearly positioned as one category among many, not the defining feature of the app.
 
-6. **Phonics lists belong primarily to 1st and 2nd grade.** Phonics lists tagged to 3rd grade and above should have a clear justification (e.g., review for struggling readers, specific pattern that bridges grades).
+6. **Phonics lists belong primarily to Kindergarten, 1st, and 2nd grade.** As of the 2026-07-08 locked Kindergarten curriculum, foundational short-vowel/digraph/spelling-rule phonics is Kindergarten-primary content (see `docs/content/kindergarten-curriculum.md`), not exclusively Grade 1+. Phonics lists tagged to 3rd grade and above should have a clear justification (e.g., review for struggling readers, specific pattern that bridges grades).
 
 7. **Avoid schema migrations unless absolutely necessary.** Content Collection schema changes affect all lists and require careful migration. If a new field is genuinely needed, add it as optional with a sensible default so existing lists don't break.

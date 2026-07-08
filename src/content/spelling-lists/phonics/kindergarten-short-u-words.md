@@ -2,8 +2,8 @@
 id: kindergarten-short-u-words
 urlSlug: kindergarten-short-u-words
 title: 'Kindergarten Short U Words'
-description: 'Eight simple words built around the short "u" sound — bug, rug, sun, run, nut, cut, cup, and tub — continuing the kindergarten spelling progression one vowel at a time.'
-shortAnswer: 'Eight kindergarten short "u" words — bug, rug, sun, run, nut, cut, cup, and tub — the fourth single-vowel stop after Short O Words.'
+description: 'Eight simple words built around the short "u" sound — bug, rug, sun, run, nut, cut, cup, and fun — continuing the kindergarten spelling progression one vowel at a time.'
+shortAnswer: 'Eight kindergarten short "u" words — bug, rug, sun, run, nut, cut, cup, and fun — the fourth single-vowel stop after Short O Words.'
 category: phonics
 grade: 'K'
 difficulty: beginner
@@ -39,7 +39,7 @@ words:
   - nut
   - cut
   - cup
-  - tub
+  - fun
 ---
 
 The short "u" sound is quick and low — you can hear it in the middle of *bug*, *sun*, and *cup*. This is the fourth single vowel sound in the core progression, following the same calm, one-sound-at-a-time approach as the lists before it.

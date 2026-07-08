@@ -92,7 +92,7 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 | Primary grade assigned to each list | ✅ Complete | Archived Dolch lists republished; root lists retagged grade 4; diphthongs retagged grade 2. Remaining ungraded lists were already correctly tagged. | 2026-06-30 |
 | Secondary grade/review tags assigned | ⬜ Not needed | Cross-grade relationships (e.g. tier-2-greek-latin-roots as Grade 5 review/extension) expressed via `relatedLists`/`prerequisiteLists`/`nextLists` instead of a secondary-grade field — see Decision Rules §12 | 2026-06-30 |
 | Curriculum relationship integrity audited & fixed | ✅ Complete | `relatedLists`/`prerequisiteLists`/`nextLists` were verified against actual `id` values (the field the app resolves against, not `urlSlug`); ~20 lists had references written in urlSlug form and were silently failing to resolve. All fixed, plus one stale reference to an archived list and two skillTag/tag gaps. See Phase 4 Resolution in `docs/content/curriculum-audit-phase-2.md` | 2026-07-01 |
-| Kindergarten gaps identified | ⬜ Not started | Known gaps pre-filled in Section 9 | — |
+| Kindergarten curriculum rebuilt | ✅ Complete | Four-pass evidence-based redesign (word-family CVC, qu-/-ck, supplemental Animal/Number-Color Words, thematic pages archived); see the Kindergarten curriculum design blueprint and §7/§9 | 2026-07-07 |
 | 1st grade over-tagging reviewed | ⬜ Not started | Many phonics lists may be mis-tagged | — |
 | 2nd grade pattern gaps identified | ⬜ Not started | Known gaps pre-filled in Section 9 | — |
 | 3rd grade morphology gaps identified | ⬜ Not started | Known gaps pre-filled in Section 9 | — |
@@ -112,7 +112,7 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 |---|---|---|
 | `phonics/` | 50 | Blends, digraphs, short vowels, silent-e, r-controlled, vowel teams |
 | `sight-words/` | 7 | Dolch pre-primer through 3rd grade — all 7 tiers now `status: published` |
-| `grade-level/` — Kindergarten | 7 | first-words, number-color-words, describing-words, shape-words, animal-words, family-words, school-words |
+| `grade-level/` — Kindergarten | 10 | first-words, short-a/i/o/u/e-cvc-words, qu-words, ck-ending-words, animal-words, number-color-words — see `docs/CURRICULUM_PHILOSOPHY.md` and the Kindergarten curriculum design blueprint for the evidence-based rebuild (describing/shape/family/school/body/feelings/food words archived — not spelling-pattern content) |
 | `grade-level/` — 1st Grade | 3 | action-words, describing-words, everyday-words |
 | `grade-level/` — 2nd Grade | 4 | action-words, compound-words, describing-words, everyday-words |
 | `grade-level/` — 3rd Grade | 3 | describing-words, everyday-words, reading-writing-words |
@@ -132,52 +132,53 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 **Builds Upon:** Pre-literacy (letter recognition, phonemic awareness, print concepts)
 
 #### Expected Focus
-Letter sounds, beginning sounds, ending sounds, simple CVC words, short vowels, color words, number words, shape words, family words, school words, animal words, beginner high-frequency/sight words (Dolch pre-primer and primer).
+Letter sounds, simple CVC words taught by word family, short vowels (a→i→o→u→e), the qu- and -ck spelling patterns, beginner high-frequency/sight words (Dolch pre-primer), plus optional supplemental high-interest content (animal words, number and color words).
 
 #### Common List Types
-- Thematic vocabulary lists (color, number, shape, family, school, animal)
-- Simple CVC word lists by vowel
-- Beginning/ending sound sorts
-- Dolch pre-primer and primer sight words
+- CVC word-family lists, one short vowel per list (three named word families each)
+- Small, rule-based phonics extensions (qu-, -ck)
+- Dolch pre-primer sight words (required, parallel track)
+- Optional supplemental closed-set/thematic lists (animal words; number and color words) — not phonics patterns, kept only because real K spelling resources demonstrably publish this exact content; not required to progress through the core sequence
+
+This replaces the earlier thematic-vocabulary approach (shape/family/school/body/feelings/food words), which was audited against `docs/CURRICULUM_PHILOSOPHY.md`'s inclusion test and found to be vocabulary content, not spelling curriculum — see the Kindergarten curriculum design blueprint (four-pass, evidence-based revision) for the full reasoning.
 
 #### Current Coverage
 | List | Type | Notes |
 |---|---|---|
-| kindergarten-first-words | Theme | General starter vocabulary |
-| kindergarten-number-color-words | Theme | Numbers and colors combined |
-| kindergarten-describing-words | Theme | Basic adjectives |
-| kindergarten-shape-words | Theme | 2D shape names plus side/corner |
-| kindergarten-animal-words | Theme | Farm and pet animal names |
-| kindergarten-family-words | Theme | Immediate and extended family vocabulary |
-| kindergarten-school-words | Theme | Classroom and school vocabulary |
-| dolch-pre-primer | Sight words | ✅ Live (`status: published`) |
-| dolch-primer | Sight words | ✅ Live (`status: published`) |
+| kindergarten-first-words | CVC (flagship) | True CVC words sampling all 5 short vowels; entry point of the sequence |
+| kindergarten-short-a-cvc-words | CVC by word family | -at, -an, -ag families |
+| kindergarten-short-i-cvc-words | CVC by word family | -ig, -it, -in families |
+| kindergarten-short-o-cvc-words | CVC by word family | -og, -ot, -op families |
+| kindergarten-short-u-cvc-words | CVC by word family | -ug, -un, -ut families |
+| kindergarten-short-e-cvc-words | CVC by word family | -ed, -en, -et families |
+| kindergarten-qu-words | Phonics rule | qu- spells /kw/ |
+| kindergarten-ck-ending-words | Phonics rule | Final /k/ after a short vowel; end of the required core sequence |
+| kindergarten-animal-words | Supplemental / closed-set | Farm and pet animal names; optional, non-gating |
+| kindergarten-number-color-words | Supplemental / closed-set | Numbers 1–10 plus 4 color words; optional, non-gating |
+| dolch-pre-primer | Sight words | ✅ Live (`status: published`), required parallel track |
+| kindergarten-describing-words, -shape-words, -family-words, -school-words, -body-words, -feelings-words, -food-words | Archived | `status: archived` — failed the inclusion test (topic vocabulary, not a spelling pattern); URLs redirect to the Kindergarten hub via `public/_redirects` |
 
-Coverage: **Improving** — 9 lists total; shape/family/school/animal thematic gaps filled in Phase D. Only individual short-vowel CVC lists remain as a likely gap.
+Coverage: **Strong** — the core phonics sequence (CVC-by-word-family through qu-/-ck) is now fully built and evidence-checked against real K scope-and-sequences; Dolch pre-primer and two supplemental lists round out the grade. The previous "shape/family/school/animal thematic gaps" framing no longer applies — those were the wrong content, not a coverage gap.
 
 #### Target Coverage Checklist
-- [ ] CVC short-a words (kindergarten level)
-- [ ] CVC short-e words (kindergarten level)
-- [ ] CVC short-i words (kindergarten level)
-- [ ] CVC short-o words (kindergarten level)
-- [ ] CVC short-u words (kindergarten level)
-- [x] Color words
-- [x] Number words
-- [x] Shape words
-- [x] Family words (mom, dad, sister, brother…)
-- [x] School words (desk, pencil, teacher…)
-- [x] Animal words (cat, dog, fish…)
+- [x] CVC short-a words, by word family (kindergarten level)
+- [x] CVC short-e words, by word family (kindergarten level)
+- [x] CVC short-i words, by word family (kindergarten level)
+- [x] CVC short-o words, by word family (kindergarten level)
+- [x] CVC short-u words, by word family (kindergarten level)
+- [x] qu- words
+- [x] -ck ending words
 - [x] Dolch pre-primer sight words
-- [x] Dolch primer sight words
-- [x] Basic describing/adjective words
+- [x] Number and color words (supplemental, non-gating)
+- [x] Animal words (supplemental, non-gating)
 
 #### Likely Gaps
-Individual short-vowel CVC lists at a kindergarten level of difficulty are the only remaining gap — shape, family, school, and animal word lists shipped in Phase D (see §9). The existing phonics CVC lists (`phonics/short-vowels-cvc-words.md`) may be appropriate, but individual short-vowel lists may be more instructionally useful at K level.
+None currently identified for the core sequence. Plural -s, -ing endings, and the double-final-consonant ("floss") rule were evaluated for Kindergarten and rejected on evidence (oral-language-only Common Core standard for plurals; this codebase's own Grade 2 plural-spelling list; no K-level scope-and-sequence evidence for -ing or doubling) — recommended instead as Grade 1 content for whoever plans that grade next.
 
 #### Notes
-Kindergarten is the most underbuilt grade. Thematic lists (by topic, not pattern) are the right approach here — children at this stage benefit from meaningful word groups before abstract phonics patterns are introduced formally.
+Kindergarten's curriculum was rebuilt from a thematic-vocabulary approach to a phonics/word-family-driven one, following a four-pass evidence-based design process (see the Kindergarten curriculum design blueprint). Two exceptions were deliberately kept as non-phonics content — Animal Words and Number & Color Words — because research found them to be genuinely published as real K spelling-resource content (the same exception class Dolch already occupies), not because "thematic lists are the right approach" generally. They are explicitly Tier 3 (supplemental, non-gating), not part of the required sequence.
 
-Real K phonics foundations — letter sounds, beginning/ending sounds, phonemic awareness — are a legitimate instructional need at this grade and are not being dismissed. What stays Grade 1 primary is full CVC *spelling* practice: typing a complete CVC word matches both standard scope-and-sequence (decoding/sound-isolation precedes encoding/spelling) and this app's current type-the-whole-word practice format. This is recorded here as a **future curriculum consideration** — a possible K-appropriate phonics-foundations list format (e.g., beginning-sound identification) distinct from CVC spelling — not as an open gap to fill by simply relabeling Grade 1 content as Grade K. No Target Coverage Checklist item is added for it.
+The `theme`/`seasonal` taxonomy categories remain intentionally unseeded (see §2.6) — the six archived pages were not moved there, since they fail that category's own "not generic '10 animal words'" bar (see `docs/CURRICULUM_PHILOSOPHY.md`).
 
 ---
 
@@ -488,13 +489,13 @@ The word overlap between `5th-grade-academic-words` and `challenge/academic-voca
 
 | Grade | Topic | Exists | Partial | Missing | Priority | Notes |
 |---|---|---|---|---|---|---|
-| K | Simple CVC words (per vowel, K-level) | | | ✓ | Future consideration | Full CVC spelling stays Grade 1 primary by design (matches standard scope-and-sequence and the app's type-the-whole-word format); a K-appropriate phonics-foundations list (e.g. beginning-sound identification) is a documented future idea, not a gap to fill by relabeling Grade 1 content — see §7 Kindergarten Notes |
-| K | Color words | | ✓ | | High | Partially in number-color-words list |
-| K | Number words | | ✓ | | High | Partially in number-color-words list |
-| K | Shape words | ✓ | | | High | Shipped as `kindergarten-shape-words` (Phase D) |
-| K | Family words | ✓ | | | High | Shipped as `kindergarten-family-words` (Phase D) |
-| K | School words | ✓ | | | Medium | Shipped as `kindergarten-school-words` (Phase D) |
-| K | Animal words | ✓ | | | Medium | Shipped as `kindergarten-animal-words` (Phase D) |
+| K | Simple CVC words, by word family (per vowel, K-level) | ✓ | | | — | Shipped as `kindergarten-short-a/i/o/u/e-cvc-words`, rebuilt around named word families per the Kindergarten curriculum design blueprint |
+| K | qu- words | ✓ | | | — | Shipped as `kindergarten-qu-words` |
+| K | -ck ending words | ✓ | | | — | Shipped as `kindergarten-ck-ending-words`; end of the required core sequence |
+| K | Color and number words | ✓ | | | — | Shipped as `kindergarten-number-color-words`, reclassified as supplemental/closed-set (Tier 3), not a phonics pattern |
+| K | Animal words | ✓ | | | — | Shipped as `kindergarten-animal-words`, reclassified as supplemental/closed-set (Tier 3); word list revised to the authentic farm/pet set found in real spelling resources |
+| K | Shape, family, school, body, feelings, food words | | | — | — | Archived (`status: archived`), not a gap — these are vocabulary/theme lists that fail the inclusion test in `docs/CURRICULUM_PHILOSOPHY.md`, not spelling curriculum. Not seeded into the postponed `theme` category either (see §7 Kindergarten Notes). |
+| K | Plural -s, -ing endings, double final consonants (floss rule) | | | — | — | Evaluated for K and rejected on evidence; recommended as Grade 1 content instead — see §7 Kindergarten Likely Gaps |
 | 1 | Silent-e long-u words | | | ✓ | Medium | long-a, i, o exist but not long-u |
 | 1 | Inflectional endings (-s, -ed, -ing) | | | ✓ | Medium | No dedicated list |
 | 1 | Simple two-syllable words | | | ✓ | Low | |

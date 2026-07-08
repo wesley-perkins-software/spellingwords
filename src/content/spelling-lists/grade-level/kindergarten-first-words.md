@@ -2,21 +2,21 @@
 id: kindergarten-first-words
 urlSlug: kindergarten-first-words
 title: 'Kindergarten First Words'
-description: 'Twelve simple, concrete kindergarten spelling words for beginning readers — animals, nature, and everyday objects a child can already say aloud.'
-shortAnswer: 'A gentle starting list of twelve concrete kindergarten words, from bird and fish to rain and snow — simple, familiar, and just right for a young speller.'
+description: 'Twelve simple CVC spelling words for beginning readers — a gentle first taste of every short vowel sound to start a kindergarten spelling journey.'
+shortAnswer: 'A gentle starting list of twelve simple CVC words — cat, sun, bed, pig, and more — sampling all five short vowels for a child just starting to spell.'
 category: grade-level
 grade: 'K'
 difficulty: beginner
-skillTags: ['grade-K', 'beginner', 'high-frequency']
-tags: ['kindergarten', 'beginner', 'first-words', 'beginning-readers']
+skillTags: ['grade-K', 'beginner', 'cvc', 'short-vowels']
+tags: ['kindergarten', 'beginner', 'first-words', 'cvc', 'beginning-readers']
 order: 1
 estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: []
+relatedLists: ['kindergarten-short-a-cvc-words', 'kindergarten-short-i-cvc-words', 'kindergarten-short-o-cvc-words', 'kindergarten-short-u-cvc-words', 'kindergarten-short-e-cvc-words']
 prerequisiteLists: []
-nextLists: ['kindergarten-number-color-words']
+nextLists: ['kindergarten-short-a-cvc-words']
 featured: true
 readinessSignals:
   - 'Can identify most letters and the sounds they make'
@@ -24,32 +24,32 @@ readinessSignals:
   - "Recognize these words in books or everyday life, even if they can't spell them yet"
 faq:
   - question: 'Are these really the first words kindergarteners learn to spell?'
-    answer: "They're a strong starting point, not the only one. These twelve words were chosen because they're short, phonetically regular, and already part of a kindergartener's spoken vocabulary — which makes them easier to map to letters than less familiar words would be."
+    answer: "They're a strong starting point, not the only one. These twelve words were chosen because they're short, three-letter CVC words already part of a kindergartener's spoken vocabulary — which makes them easier to map to letters than less familiar words would be."
   - question: 'Should these words be memorized, or just practiced?'
     answer: 'Practiced, not memorized. The goal is to hear the sounds in each word and connect them to letters — a skill that transfers to new words, not just these twelve.'
   - question: 'What if these words are too easy?'
-    answer: "That's a good sign. Move on to Kindergarten Number and Color Words, or browse other kindergarten and first-grade lists to find a better match."
+    answer: "That's a good sign. Move on to Short-a CVC Words, or browse other kindergarten and first-grade lists to find a better match."
   - question: 'What comes after this list?'
-    answer: 'Kindergarten Number and Color Words is a natural next step, covering the numbers one through ten and four essential color words.'
+    answer: 'Short-a CVC Words is the natural next step — the first of five lists that each focus on one short vowel sound at a time.'
 words:
-  - bird
-  - bug
-  - cup
-  - egg
-  - fish
-  - hen
-  - jump
-  - nest
-  - rain
-  - rock
-  - snow
+  - cat
+  - hat
   - sun
+  - bed
+  - hen
+  - pig
+  - box
+  - top
+  - bug
+  - mud
+  - pin
+  - cup
 ---
 
-These twelve words were chosen because a kindergartener already knows them — not as spelling words, but as things they can point to and say. That's what makes them a good first step in **beginning spelling**: connecting sounds a child already makes to the letters that represent them, not learning new vocabulary at the same time.
+These twelve words are all **CVC words** — consonant, vowel, consonant — the simplest, most regular pattern in English spelling, and the very first pattern a kindergartener learns to decode and spell.
 
-Say them aloud and the groupings become clear. Bird, bug, fish, and hen are animals a child sees and names constantly. Rain, snow, and sun are the weather outside the window. Cup, egg, jump, nest, and rock are ordinary objects and actions from everyday life.
+Say them aloud and a second pattern becomes clear: every short vowel sound gets a turn. Cat and hat carry the short-a sound, bed and hen carry short-e, pig and pin carry short-i, box and top carry short-o, and bug, mud, and cup carry short-u. That's deliberate — this list is a gentle preview of the whole kindergarten spelling sequence, not a drill on any single vowel.
 
-None of that grouping changes how the list is practiced — the words stay in alphabetical order below for quick reference. But noticing the pattern can help while studying: a child who already thinks of "bird," "hen," and "fish" as one group has an easier time holding all three in mind.
+None of that grouping changes how the list is practiced — the words stay in alphabetical order below for quick reference. But noticing the pattern can help while studying: a child who hears "cat" and "hat" as the same kind of word has an easier time holding both in mind.
 
-Each word is also short and phonetically regular: mostly three or four letters, one syllable, and a sound-to-letter match that doesn't yet involve silent letters, vowel teams, or other exceptions. **That regularity is the real phonics skill being built here** — a child who can spell "bug" by sounding out each letter is practicing the same sound-to-letter move used later in decoding new words, long after this particular list is behind them.
+Each word is short and phonetically regular: three letters, one syllable, and a sound-to-letter match that doesn't yet involve blends, digraphs, or silent letters. **That regularity is the real phonics skill being built here** — a child who can spell "bug" by sounding out each letter is practicing the same sound-to-letter move used later in decoding new words. Once these twelve feel comfortable, Short-a CVC Words is the natural next step: the first of five lists that each dig into one short vowel sound at a time.

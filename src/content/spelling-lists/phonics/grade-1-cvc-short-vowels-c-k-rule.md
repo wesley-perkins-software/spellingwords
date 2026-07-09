@@ -130,7 +130,7 @@ Keep practice short. A few well-spelled words are better than a long list rushed
 ## Navigation and related practice
 
 - **Kindergarten review:** Mixed Vowel CVC Review and The -ck Ending Rule.
-- **Related targeted practice:** Short A Words, Short E Words, Short I Words, Short O Words, Short U Words, and C, K, and CK Words.
-- **Previous lesson:** Kindergarten Heart Words is the final Kindergarten core unit before Grade 1 begins.
+- **Related targeted practice:** Short A Words, Short E Words, Short I Words, Short O Words, Short U Words, C, K, and CK Words.
+- **Previous lesson:** Mixed Vowel CVC Review.
 - **Next lesson:** The Floss Rule.
 - **Grade 2 extension:** Long Vowels with Silent e will revisit how final **e** changes short-vowel spelling patterns.

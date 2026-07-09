@@ -125,7 +125,7 @@ For **ck** words, ask: “What vowel do you hear before /k/? Is it short?” If 
 ## Navigation and related practice
 
 - **Kindergarten review:** Consonant Digraphs and The -ck Ending Rule.
-- **Related targeted practice:** SH Digraph Words, CH Digraph Words, TH Digraph Words, WH Digraph Words, and C, K, and CK Words.
+- **Related targeted practice:** SH Digraph Words, CH Digraph Words, TH Digraph Words, WH Digraph Words, Consonant Digraphs, The -ck Ending Rule, C, K, and CK Words.
 - **Previous lesson:** The Floss Rule.
 - **Next lesson:** Beginning Consonant Blends.
 - **Grade 2 extension:** Later long-vowel and vowel-team lessons show more ways two letters can work together in spelling.

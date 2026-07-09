@@ -125,7 +125,7 @@ Use only a few words at a time. The goal is to build the habit of checking the v
 ## Navigation and related practice
 
 - **Kindergarten review:** Double Consonants.
-- **Related targeted practice:** Short I Words and Short U Words include common double-consonant examples.
+- **Related targeted practice:** Double Consonants, Short I Words, Short U Words.
 - **Previous lesson:** CVC Short Vowel Review & The C/K Rule.
 - **Next lesson:** Consonant Digraphs & Final -ck.
 - **Grade 2 extension:** Later suffix lessons build on this idea when students study when to double a final consonant before adding endings.

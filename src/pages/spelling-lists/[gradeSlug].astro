@@ -13,6 +13,7 @@ import {
   isPublished,
 } from '@/lib/content/spellingLists';
 import { buildKindergartenSections, kindergartenBadges } from '@/lib/content/kindergartenProgression';
+import { buildGrade1Sections, grade1Badges } from '@/lib/content/grade1Progression';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { gradeConfig, getAdjacentGrades } from '@/lib/content/gradeConfig';
 import { gradeHubCopy } from '@/lib/content/gradeHubCopy';
@@ -42,6 +43,12 @@ const totalItems = gradeCollections.length + gradeLists.length;
 
 const sections = buildGradeHubSections(gradeLists, gradeCollections);
 const kindergartenSections = grade === 'K' ? buildKindergartenSections(gradeLists) : null;
+const grade1Sections = grade === '1' ? buildGrade1Sections(entries) : null;
+const displayedItemCount = kindergartenSections
+  ? kindergartenSections.core.length + kindergartenSections.additional.length
+  : grade1Sections
+    ? grade1Sections.core.length + grade1Sections.gateways.length + grade1Sections.targeted.length + grade1Sections.vocabulary.length
+    : totalItems;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -75,10 +82,12 @@ const itemListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: `${label} Spelling Word Lists`,
-  numberOfItems: totalItems,
+  numberOfItems: displayedItemCount,
   itemListElement: kindergartenSections
     ? [...kindergartenSections.core, ...kindergartenSections.additional].map(toListItem)
-    : sections.flatMap(({ collections, entries: sectionEntries }) => [
+    : grade1Sections
+      ? [...grade1Sections.core, ...grade1Sections.gateways, ...grade1Sections.targeted, ...grade1Sections.vocabulary].map(toListItem)
+      : sections.flatMap(({ collections, entries: sectionEntries }) => [
         ...collections.map((c) => ({
           '@type': 'ListItem',
           position: ++position,
@@ -112,9 +121,9 @@ const itemListJsonLd = {
         <p class="max-w-2xl text-base leading-relaxed text-ink-soft">{copy.heroParagraphs[1]}</p>
       </div>
 
-      <!-- Lists: Kindergarten renders a core progression + additional practice;
+      <!-- Lists: Kindergarten and Grade 1 render curated curriculum progressions;
            every other grade groups by category, grade-level first. -->
-      {totalItems === 0 ? (
+      {displayedItemCount === 0 ? (
         <div class="rounded-2xl border border-line bg-app-cloud p-8 text-center">
           <p class="text-base text-ink-soft">
             {copy.emptyStateLabel} lists are being prepared. Check back soon, or{' '}
@@ -187,6 +196,104 @@ const itemListJsonLd = {
                   />
                 ))}
               </div>
+            </section>
+          )}
+        </div>
+      ) : grade1Sections ? (
+        <div class="mb-12 flex flex-col gap-10">
+          <section aria-labelledby="core-progression-heading" class="flex flex-col gap-4 rounded-2xl border border-brand-blue/15 bg-brand-blue/[0.04] p-5">
+            <div class="flex items-baseline gap-3">
+              <h2 id="core-progression-heading" class="font-display text-lg font-semibold text-ink">
+                Core Spelling Progression
+              </h2>
+              <span class="text-sm text-ink-faint">
+                {grade1Sections.core.length} units
+              </span>
+            </div>
+            <p class="text-sm leading-relaxed text-ink-soft">
+              A curriculum roadmap for first-grade spelling concepts, organized as major milestones rather than a pacing guide.
+            </p>
+            <ol class="flex flex-col gap-4">
+              {grade1Sections.core.map((entry, index) => (
+                <li class="flex items-start gap-3">
+                  <span
+                    aria-hidden="true"
+                    class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-sm font-semibold text-brand-blue"
+                  >
+                    {index + 1}
+                  </span>
+                  <div class="flex-1">
+                    <SpellingListCard
+                      href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                      category={entry.data.category}
+                      title={entry.data.title}
+                      description={entry.data.description}
+                      difficulty={entry.data.difficulty}
+                      durationMinutes={entry.data.estimatedDurationMinutes}
+                      wordCount={entry.data.words.length}
+                      badge={grade1Badges[entry.data.id]}
+                    />
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          {(grade1Sections.gateways.length > 0 || grade1Sections.vocabulary.length > 0) && (
+            <section aria-labelledby="additional-practice-heading" class="flex flex-col gap-6">
+              <div class="flex flex-col gap-2">
+                <div class="flex items-baseline gap-3">
+                  <h2 id="additional-practice-heading" class="font-display text-lg font-semibold text-ink">
+                    Additional Practice
+                  </h2>
+                  <span class="text-sm text-ink-faint">
+                    {grade1Sections.gateways.length + grade1Sections.vocabulary.length} practice options
+                  </span>
+                </div>
+                <p class="text-sm leading-relaxed text-ink-soft">
+                  Optional support for review, intervention, extra practice, and writing vocabulary. These lists supplement the roadmap rather than define it.
+                </p>
+              </div>
+
+              {grade1Sections.gateways.length > 0 && (
+                <div class="flex flex-col gap-3">
+                  <h3 class="font-display text-sm font-semibold text-ink-soft">Spelling Pattern Practice</h3>
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    {grade1Sections.gateways.map((entry) => (
+                      <SpellingListCard
+                        href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                        category={entry.data.category}
+                        title={entry.data.title}
+                        description={entry.data.description}
+                        difficulty={entry.data.difficulty}
+                        durationMinutes={entry.data.estimatedDurationMinutes}
+                        wordCount={entry.data.words.length}
+                        badge={grade1Badges[entry.data.id]}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {grade1Sections.vocabulary.length > 0 && (
+                <div class="flex flex-col gap-3">
+                  <h3 class="font-display text-sm font-semibold text-ink-soft">Vocabulary Practice</h3>
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    {grade1Sections.vocabulary.map((entry) => (
+                      <SpellingListCard
+                        href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                        category={entry.data.category}
+                        title={entry.data.title}
+                        description={entry.data.description}
+                        difficulty={entry.data.difficulty}
+                        durationMinutes={entry.data.estimatedDurationMinutes}
+                        wordCount={entry.data.words.length}
+                        badge={grade1Badges[entry.data.id]}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
             </section>
           )}
         </div>
@@ -308,7 +415,7 @@ const itemListJsonLd = {
       )}
 
       <!-- Choosing guidance -->
-      {totalItems > 1 && (
+      {displayedItemCount > 1 && (
         <section aria-labelledby="guidance-heading" class="mb-12 rounded-2xl border border-line bg-app-cloud p-6">
           <h2 id="guidance-heading" class="mb-2 font-display text-base font-semibold text-ink">
             How to choose a list

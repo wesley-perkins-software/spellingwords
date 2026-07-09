@@ -18,6 +18,18 @@ export const GRADE_1_CORE_IDS: readonly string[] = [
   'grade-1-tch-dge-ending-rules',
 ];
 
+export const GRADE_1_GATEWAY_IDS: readonly string[] = [
+  'grade-1-short-vowel-practice',
+  'grade-1-consonant-digraph-practice',
+  'grade-1-beginning-blend-practice',
+  'grade-1-ending-blend-practice',
+  'grade-1-silent-e-practice',
+  'grade-1-heart-word-practice',
+  'grade-1-r-controlled-vowel-practice',
+  'grade-1-vowel-team-practice',
+  'grade-1-tch-dge-practice',
+];
+
 export const GRADE_1_TARGETED_SKILL_IDS: readonly string[] = [
   'short-a-words',
   'short-e-words',
@@ -97,6 +109,15 @@ export const grade1Badges: Record<string, string> = {
   'grade-1-long-a-long-o-vowel-teams': 'Core Unit',
   'grade-1-long-e-vowel-teams': 'Core Unit',
   'grade-1-tch-dge-ending-rules': 'Core Unit',
+  'grade-1-short-vowel-practice': 'Practice Gateway',
+  'grade-1-consonant-digraph-practice': 'Practice Gateway',
+  'grade-1-beginning-blend-practice': 'Practice Gateway',
+  'grade-1-ending-blend-practice': 'Practice Gateway',
+  'grade-1-silent-e-practice': 'Practice Gateway',
+  'grade-1-heart-word-practice': 'Practice Gateway',
+  'grade-1-r-controlled-vowel-practice': 'Practice Gateway',
+  'grade-1-vowel-team-practice': 'Practice Gateway',
+  'grade-1-tch-dge-practice': 'Practice Gateway',
   'short-a-words': 'Targeted Skill',
   'short-e-words': 'Targeted Skill',
   'short-i-words': 'Targeted Skill',
@@ -158,6 +179,7 @@ export const grade1Badges: Record<string, string> = {
 
 export function buildGrade1Sections(allPublishedEntries: SpellingListEntry[]): {
   core: SpellingListEntry[];
+  gateways: SpellingListEntry[];
   targeted: SpellingListEntry[];
   vocabulary: SpellingListEntry[];
 } {
@@ -167,6 +189,7 @@ export function buildGrade1Sections(allPublishedEntries: SpellingListEntry[]): {
 
   return {
     core: resolve(GRADE_1_CORE_IDS),
+    gateways: resolve(GRADE_1_GATEWAY_IDS),
     targeted: resolve(GRADE_1_TARGETED_SKILL_IDS),
     vocabulary: resolve(GRADE_1_VOCABULARY_IDS),
   };

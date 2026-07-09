@@ -47,7 +47,7 @@ const grade1Sections = grade === '1' ? buildGrade1Sections(entries) : null;
 const displayedItemCount = kindergartenSections
   ? kindergartenSections.core.length + kindergartenSections.additional.length
   : grade1Sections
-    ? grade1Sections.core.length + grade1Sections.targeted.length + grade1Sections.vocabulary.length
+    ? grade1Sections.core.length + grade1Sections.gateways.length + grade1Sections.targeted.length + grade1Sections.vocabulary.length
     : totalItems;
 
 const breadcrumbItems = [
@@ -86,7 +86,7 @@ const itemListJsonLd = {
   itemListElement: kindergartenSections
     ? [...kindergartenSections.core, ...kindergartenSections.additional].map(toListItem)
     : grade1Sections
-      ? [...grade1Sections.core, ...grade1Sections.targeted, ...grade1Sections.vocabulary].map(toListItem)
+      ? [...grade1Sections.core, ...grade1Sections.gateways, ...grade1Sections.targeted, ...grade1Sections.vocabulary].map(toListItem)
       : sections.flatMap(({ collections, entries: sectionEntries }) => [
         ...collections.map((c) => ({
           '@type': 'ListItem',
@@ -239,7 +239,7 @@ const itemListJsonLd = {
             </ol>
           </section>
 
-          {(grade1Sections.targeted.length > 0 || grade1Sections.vocabulary.length > 0) && (
+          {(grade1Sections.gateways.length > 0 || grade1Sections.vocabulary.length > 0) && (
             <section aria-labelledby="additional-practice-heading" class="flex flex-col gap-6">
               <div class="flex flex-col gap-2">
                 <div class="flex items-baseline gap-3">
@@ -247,7 +247,7 @@ const itemListJsonLd = {
                     Additional Practice
                   </h2>
                   <span class="text-sm text-ink-faint">
-                    {grade1Sections.targeted.length + grade1Sections.vocabulary.length} lists
+                    {grade1Sections.gateways.length + grade1Sections.vocabulary.length} practice options
                   </span>
                 </div>
                 <p class="text-sm leading-relaxed text-ink-soft">
@@ -255,11 +255,11 @@ const itemListJsonLd = {
                 </p>
               </div>
 
-              {grade1Sections.targeted.length > 0 && (
+              {grade1Sections.gateways.length > 0 && (
                 <div class="flex flex-col gap-3">
-                  <h3 class="font-display text-sm font-semibold text-ink-soft">Targeted Skill Practice</h3>
+                  <h3 class="font-display text-sm font-semibold text-ink-soft">Spelling Pattern Practice</h3>
                   <div class="grid gap-4 sm:grid-cols-2">
-                    {grade1Sections.targeted.map((entry) => (
+                    {grade1Sections.gateways.map((entry) => (
                       <SpellingListCard
                         href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
                         category={entry.data.category}

@@ -22,13 +22,13 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   },
   '1': {
     metaDescription:
-      'Free 1st grade spelling word lists — sight words, action words, describing words, and phonics practice. Calm, audio-supported spelling for early readers.',
+      'Free 1st grade spelling curriculum roadmap with core units for short vowels, spelling rules, digraphs, blends, long vowels, heart words, endings, r-controlled vowels, and vowel teams.',
     heroParagraphs: [
-      'Here are free 1st grade spelling word lists, including Dolch sight words, action words, describing words, and phonics patterns like short vowels and consonant blends. All lists include audio support so children can hear each word before typing it.',
-      'First grade spelling lists help children build confidence with common words, short vowel patterns, and early phonics skills. These lists work well for both daily practice and weekly spelling homework.',
+      'Here is the Grade 1 spelling roadmap: a core progression that begins with short-vowel review and early spelling rules, then grows into digraphs, blends, silent-e words, heart words, endings, r-controlled vowels, and vowel teams. All lists include audio support so children can hear each word before typing it.',
+      'First grade spelling is about learning how words work, not memorizing giant vocabulary lists. The core units teach one spelling concept at a time, while additional practice pages provide focused review, intervention support, and useful writing vocabulary.',
     ],
     guidanceBody:
-      "Sight word lists are good for daily review — a few minutes each day builds recognition faster than longer, infrequent sessions. Phonics lists (short vowels, blends) work well when your child is working through a specific sound pattern. The grade-level lists — action words, describing words, everyday words — are a good match for weekly homework lists or independent reading support.",
+      'Start with the Core Spelling Progression and move in order when possible. Use Targeted Skill Practice when a child needs extra work on one pattern, and use Vocabulary Practice as optional writing support rather than as the curriculum itself.',
     emptyStateLabel: 'First grade',
   },
   '2': {

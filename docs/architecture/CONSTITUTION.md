@@ -16,19 +16,11 @@ SpellingWords.app is a calm, focused spelling-practice website for children in K
 
 Its central promise is simple:
 
-> SpellingWords.app helps children practice spelling with their own words, by following their grade, or by practicing a specific spelling skill.
+> SpellingWords.app helps children practice spelling with their own words, by following their grade, or by choosing a specific skill, word type, or practice set.
 
-The product should feel simple, trustworthy, immediate, child-friendly, useful to parents and teachers, and academically responsible without feeling academic or overwhelming.
+The product should feel simple, trustworthy, immediate, child-friendly, useful to parents and teachers, and academically responsible without feeling academic or overwhelming. Academic responsibility means curriculum-informed decisions, plain but accurate public terminology, and willingness to revise word selection or sequencing when better evidence emerges.
 
-SpellingWords.app is not:
-
-- a learning-management system;
-- a school administration platform;
-- a gradebook;
-- a broad vocabulary encyclopedia;
-- a gamified educational app;
-- a clone of UFLI, Fundations, CKLA, or another commercial curriculum;
-- a content farm containing every technically possible word-list page.
+SpellingWords.app is not a learning-management system, school administration platform, gradebook, broad vocabulary encyclopedia, gamified educational app, clone of a commercial curriculum, or content farm containing every technically possible word-list page.
 
 The practice experience is the center of the product. List Detail pages, Grade Units, Skill pages, sight-word sets, vocabulary lists, guides, and custom-word flows are ways of reaching or supplying useful spelling practice. They are not ends in themselves.
 
@@ -40,7 +32,7 @@ The canonical public product model contains three primary user journeys. These a
 
 User intent: “I already have a spelling list.”
 
-Typical users include parents with this week’s school words, students preparing for a spelling test, teachers with custom lists, homeschool families, and interventionists using assessment-based word sets.
+Typical users include parents, students, teachers, homeschool families, and interventionists with an existing word set.
 
 Expected experience:
 
@@ -67,11 +59,11 @@ Expected experience:
 
 Conceptual role: “Show me a sensible grade-level learning path.”
 
-### 3.3 Practice a Specific Skill
+### 3.3 Choose Specific Practice
 
-User intent: “My child needs help with a particular spelling concept.”
+User intent: “I know what we need to practice.”
 
-Examples include short vowels, consonant blends, digraphs, silent e, vowel teams, r-controlled vowels, syllables, prefixes, suffixes, homophones, and sight words.
+Examples include spelling skills, sight words, focused practice needs, and named sets such as short vowels, blends, digraphs, silent e, vowel teams, r-controlled vowels, prefixes, suffixes, homophones, or Dolch words.
 
 Expected experience:
 
@@ -94,13 +86,13 @@ The three product journeys are simple decisions users make:
 - I know the grade.
 - I know the skill or word type.
 
-Internal content systems are richer editorial structures that support those journeys. They may include curriculum, skills, sight-word sets, vocabulary and themes, teaching guides, and collections.
+Internal content systems support those journeys. They may include curriculum, skills, sight-word sets, vocabulary and themes, teaching guides, and collections.
 
-These internal systems must not automatically become top-level navigation. Parents and children should not need to understand the project’s taxonomy, metadata model, curriculum data model, or editorial workflow to start practicing.
+These systems must not automatically become top-level navigation. Parents and children should not need to understand taxonomy, metadata, curriculum data, or editorial workflow to start practicing.
 
 ## 5. Canonical Content Identities
 
-These are conceptual content identities. They are not necessarily route names, Astro collections, frontmatter fields, or separate technical systems.
+These are conceptual content identities, not necessarily route names, Astro collections, frontmatter fields, or separate technical systems.
 
 ### 5.1 Practice Tool
 
@@ -116,19 +108,19 @@ It presents a curated sequence of major spelling milestones for a grade. It shou
 
 ### 5.3 Grade Unit
 
-A Grade Unit represents one grade-specific spelling milestone.
+A Grade Unit represents one grade-specific spelling milestone. This defines the experience, not whether it must be rendered as a standalone page.
 
-A Grade Unit should generally include:
+A Grade Unit should generally provide:
 
-- a clear title;
-- a short parent-friendly explanation;
-- a grade-appropriate word list, usually 8–16 words;
-- immediate access to practice;
-- previous and next grade-unit navigation;
-- limited optional links to focused practice;
-- accurate terminology explained in plain language.
+- a clear title
+- a short parent-friendly explanation
+- a grade-appropriate curated practice set, usually 8–16 words
+- immediate access to practice
+- previous and next grade-unit navigation
+- limited optional links to focused practice
+- accurate terminology explained in plain language
 
-A Grade Unit should not primarily be a gateway to other pages. The normal journey should be:
+A Grade Unit experience should not primarily be a gateway to other pages. The normal journey should be:
 
 > Grade Roadmap → Grade Unit → Practice
 
@@ -136,7 +128,7 @@ Optional focused practice is secondary.
 
 ### 5.4 Skill
 
-A Skill represents a reusable spelling concept or focused pattern. It supports targeted practice independent of one grade and may be referenced from several grades.
+A Skill represents a reusable spelling concept, focused pattern, recognized word type, or named practice need. It supports targeted practice independent of one grade and may be referenced from several grades.
 
 Examples include Short A, Consonant Digraphs, Beginning Blends, Silent E, AI and AY, R-Controlled Vowels, Prefixes, Suffixes, and Homophones.
 
@@ -162,15 +154,13 @@ A Vocabulary or Theme List provides supplemental spelling practice organized by 
 
 Examples may include animal words, action words, weather words, science words, academic vocabulary, or describing words.
 
-These lists may be useful, but they do not define the core spelling curriculum. They should not dominate Grade Roadmaps or the main product identity.
+These lists may be useful, but they do not define the core spelling curriculum, should not dominate Grade Roadmaps or the main product identity, and are not a near-term development priority by default. Grade curriculum, reusable Skills, and the Practice Tool remain the core product.
 
 ### 5.7 Teaching Guide
 
-A Teaching Guide explains spelling concepts to parents, teachers, or homeschool families. It builds trust, helps users choose appropriate practice, and links into useful practice experiences.
+A Teaching Guide explains spelling concepts, builds trust, helps users choose practice, and links into useful practice experiences.
 
-Examples include explanations of consonant blends, silent e, heart words, or how parents can help children practice spelling.
-
-Teaching Guides support the product but should not interrupt immediate practice. They should not duplicate practice pages unnecessarily.
+Examples include consonant blends, silent e, heart words, or parent practice guidance. Teaching Guides support the product but should not interrupt immediate practice or duplicate practice experiences unnecessarily.
 
 ### 5.8 Collection
 
@@ -182,7 +172,7 @@ A Collection is an editorial packaging mechanism, not a primary product journey 
 
 SpellingWords.app should reflect broad U.S. consensus about elementary spelling development without copying one commercial curriculum.
 
-No single national scope and sequence exists. State standards and respected curricula differ in exact ordering and terminology. They broadly agree, however, that elementary spelling develops through:
+No single national scope and sequence exists. State standards and respected curricula differ in ordering and terminology, but broadly agree that elementary spelling develops through:
 
 1. alphabet knowledge and sound-to-letter encoding;
 2. short-vowel and closed-syllable spelling;
@@ -194,11 +184,9 @@ No single national scope and sequence exists. State standards and respected curr
 8. Greek and Latin morphology;
 9. high-frequency irregular words, homophones, meaning-based spelling, and proofreading transfer.
 
-Spelling is encoding, not merely vocabulary memorization. It involves phonology, orthography, syllables, morphology, meaning, and conventional word knowledge.
+Spelling is encoding, not merely vocabulary memorization. It involves phonology, orthography, syllables, morphology, meaning, and convention.
 
-The full technical taxonomy should remain mostly internal. The public experience should expose recognizable concepts in plain language.
-
-Curriculum research documents are the detailed curriculum reference. This constitution is the product and architecture reference.
+The full technical taxonomy should remain mostly internal. Public pages should expose recognizable concepts in plain language. Curriculum research documents are the detailed curriculum reference; this constitution is the product and architecture reference.
 
 ## 7. Relationship Between Grades and Skills
 
@@ -225,23 +213,23 @@ The visible experience should remain simple even when the internal relationships
 
 Each Grade Roadmap should:
 
-- answer “What should this grade practice?”;
-- show only major curriculum milestones;
-- remain calm and scannable;
-- avoid exposing dozens of atomic skill pages;
-- use a curated order;
-- distinguish core progression from optional supplemental material only when that distinction adds value;
-- favor direct access to practice;
-- preserve teacher trust through sound curriculum sequencing.
+- answer “What should this grade practice?”
+- show only major curriculum milestones
+- remain calm and scannable
+- avoid exposing dozens of atomic skill pages
+- use a curated order
+- distinguish core progression from optional supplemental material only when that distinction adds value
+- favor direct access to practice
+- preserve teacher trust through sound curriculum sequencing
 
 A Grade Roadmap should not:
 
-- function as a complete sitemap;
-- list every focused skill page;
-- expose internal categories such as phonics, morphology, or orthography as required navigation;
-- be generated automatically from raw content categories;
-- imply that every child must complete every resource;
-- pretend to be a rigid national pacing guide.
+- function as a complete sitemap
+- list every focused skill page
+- expose internal categories such as phonics, morphology, or orthography as required navigation
+- be generated automatically from raw content categories
+- imply that every child must complete every resource
+- pretend to be a rigid national pacing guide
 
 ## 9. Grade Unit Principles
 
@@ -253,13 +241,13 @@ Grade Units should be useful even if a user never clicks any optional supporting
 
 ## 10. Skill Principles
 
-Skill pages should answer: “I need practice with this spelling concept.”
+Skill or focused-practice experiences should answer: “I need practice with this spelling concept, word type, or named set.”
 
-They should use recognizable parent and teacher language, provide direct practice, remain grade-neutral unless the content itself is explicitly grade-specific, support assignment and intervention, link to relevant Grade Roadmaps where helpful, identify prerequisites and related skills when useful, and avoid unnecessary technical terminology.
+They should use recognizable parent and teacher language, provide direct practice, remain grade-neutral unless the content itself is explicitly grade-specific, support assignment and intervention, link to relevant Grade Roadmaps where helpful, identify prerequisites and related practice when useful, and avoid unnecessary technical terminology.
 
-Not every possible micro-pattern deserves its own standalone page. A focused skill page should exist only when it provides real value, such as genuine instructional isolation, strong teacher assignment utility, distinct user intent, a sufficiently useful word set, or meaningful search and bookmarking value.
+Not every micro-pattern deserves a separate destination. Focused practice should exist only when it provides real value, such as instructional isolation, teacher assignment utility, distinct user intent, a useful word set, or meaningful search and bookmarking value.
 
-The site must not create pages simply because a programmatic route can generate them. A filter, tab, section, or practice-state variation may be better than a separate indexed page.
+The site must not create destinations simply because a route can generate them. A filter, tab, section, or practice-state variation may be better than a separate indexed page.
 
 ## 11. The No-Gateway Rule
 
@@ -273,42 +261,42 @@ Preferred:
 
 > Grade Roadmap → Grade Unit → Immediate practice → Optional focused practice
 
-Every indexable destination should provide value appropriate to its primary user intent through at least one of the following:
+Every indexable destination should provide value appropriate to its primary user intent through at least one of:
 
-- practice;
-- a useful Grade Roadmap;
-- a meaningful word set;
-- a substantive explanation;
-- a recognized collection;
-- a legitimate browse or search experience.
+- practice
+- a useful Grade Roadmap
+- a meaningful word set
+- a substantive explanation
+- a recognized collection
+- a legitimate browse or search experience
 
-This rule does not mean every page must contain the practice engine. Legitimate index, browse, and collection pages may exist when browsing or choosing among a recognized set is the page’s explicit user purpose. Examples include a Grade Roadmap, a spelling-skill index, a Dolch collection, or a search/browse results page.
+This rule does not mean every page must contain the practice engine. Legitimate index, browse, and collection pages may exist when choosing among a recognized set is the page’s explicit purpose, such as a Grade Roadmap, skill index, Dolch collection, or search results page.
 
 The rule is: every page must provide real value for its primary user intent.
 
 ## 12. Simplicity Principles
 
-The architecture should pass the 30-second test. A new parent should quickly understand what the site does, how their child practices, which of the three journeys fits their situation, and that the experience is calm and trustworthy.
+The architecture should pass the 30-second test. A new parent should quickly understand what the site does, how their child practices, which journey fits, and that the experience is calm and trustworthy.
 
 The constitution favors:
 
-- fewer clear choices;
-- direct practice;
-- plain-language labels;
-- curated recommendations;
-- reusable content;
-- gradual expansion;
-- evidence-based changes.
+- fewer clear choices
+- direct practice
+- plain-language labels
+- curated recommendations
+- reusable content
+- gradual expansion
+- evidence-based changes
 
 It rejects:
 
-- architecture for architecture’s sake;
-- visible technical taxonomies;
-- unnecessary page types;
-- unnecessary hierarchy;
-- content generated merely for page count;
-- large directories in the main learning flow;
-- premature implementation of every future possibility.
+- architecture for architecture’s sake
+- visible technical taxonomies
+- unnecessary page types
+- unnecessary hierarchy
+- content generated merely for page count
+- large directories in the main learning flow
+- premature implementation of every future possibility
 
 Complexity may exist internally, but it should not be exposed unless it helps the user.
 
@@ -318,6 +306,14 @@ The practice experience should remain consistent across custom words, Grade Unit
 
 The project should favor calm feedback, clear instructions, minimal setup, and no mandatory account.
 
+### Accessibility
+
+Accessibility is a product requirement, not an enhancement. Experiences should support keyboard access, readable layouts, meaning not conveyed only through color, replayable audio where appropriate, and practical use on classroom devices.
+
+### Privacy
+
+The project should collect as little personal information as possible, especially from or about children. Defaults should remain privacy-preserving. Any future account system would require strong product justification.
+
 The project rejects rankings, public comparison, manipulative streak pressure, anxiety-producing timers, complex gradebooks, and mandatory accounts.
 
 Calm optional continuity, such as “continue where you left off,” may be explored later. If introduced, progress should support continuity rather than completion pressure.
@@ -326,7 +322,7 @@ Calm optional continuity, such as “continue where you left off,” may be expl
 
 SpellingWords.app should focus on words children are expected to spell, not merely words they are expected to understand.
 
-Curriculum word lists should be deliberately curated. Grade Unit lists should generally contain 8–16 words. A large number of possible words does not justify a giant list.
+Curriculum word lists should be deliberately curated. A single curated practice set should generally contain 8–16 words. A broader Skill may organize several curated practice sets, but it should not expose every possible word in one enormous session.
 
 Every page must answer a clear user question and have one primary purpose. Page count is not a product goal.
 
@@ -350,7 +346,7 @@ Different content identities answer different intents:
 
 Pages should not be created solely to target a keyword. Thin, near-duplicate, or filter-only pages should not be indexed automatically.
 
-Canonical content should exist once and be linked from multiple relevant journeys. Grade pages may curate or recommend content without owning or duplicating it.
+The same user intent should have one canonical destination. Related experiences may coexist when their purpose, framing, or practice set differs. For example, a Grade 1 Silent E unit and a reusable Silent E Skill may both be valid if one serves grade-sequenced learning and the other serves cross-grade focused practice. Grade pages may curate or recommend content without owning or duplicating it.
 
 URL design should follow content identity after the model is stable. URL migration is not the immediate next step. Any future URL change must preserve redirects, canonical metadata, structured data, breadcrumbs, and internal links through a dedicated migration plan.
 
@@ -358,15 +354,15 @@ URL design should follow content identity after the model is stable. URL migrati
 
 This constitution does not freeze:
 
-- exact public URLs;
-- exact route paths;
-- exact database, JSON, or content structures;
-- exact Astro collections;
-- exact frontmatter field names;
-- exact component names;
-- whether focused practice is a page or filtered state;
-- exact navigation labels;
-- exact URL migration schedule.
+- exact public URLs
+- exact route paths
+- exact database, JSON, or content structures
+- exact Astro collections
+- exact frontmatter field names
+- exact component names
+- whether focused practice is a page or filtered state
+- exact navigation labels
+- exact URL migration schedule
 
 Those decisions belong in `docs/architecture/CONTENT_MODEL.md` and later technical implementation plans.
 
@@ -385,7 +381,7 @@ Documentation precedence is:
 
 Older documents may remain valuable, but they are subordinate when they conflict with this constitution.
 
-Likely future archival candidates include older or superseded portions of `docs/CONTENT_ARCHITECTURE.md`, `docs/SITE_ARCHITECTURE.md`, `docs/GRADE_LEVEL_STRATEGY.md`, and `docs/LIST_ARCHITECTURE.md`. Do not move or delete them as part of adopting this constitution. A later documentation cleanup may move clearly outdated planning documents into `docs/archive/`, preserve them for historical reference, and label them as non-canonical.
+Likely future archival candidates include older or superseded portions of `docs/CONTENT_ARCHITECTURE.md`, `docs/SITE_ARCHITECTURE.md`, `docs/GRADE_LEVEL_STRATEGY.md`, and `docs/LIST_ARCHITECTURE.md`. Do not move or delete them as part of adopting this constitution. A later cleanup may archive clearly outdated planning documents and label them as non-canonical.
 
 ## 18. Renovation, Not Restart
 
@@ -395,11 +391,11 @@ The existing project contains valuable work: practice functionality, curated con
 
 The correct strategy is renovation:
 
-- preserve useful content;
-- clarify content identity;
-- remove or merge redundant gateway pages over time;
-- progressively align implementation with this constitution;
-- avoid a wholesale rewrite unless a future technical audit demonstrates that one is necessary.
+- preserve useful content
+- clarify content identity
+- remove or merge redundant gateway pages over time
+- progressively align implementation with this constitution
+- avoid a wholesale rewrite unless a future technical audit demonstrates that one is necessary
 
 This constitution should guide alignment work. It should not be read as a claim that the current code, routes, or content already fully conform.
 
@@ -425,10 +421,10 @@ This constitution should guide evolution without pretending the product can neve
 
 A foundational change must be explicit. It should:
 
-- identify the principle being changed;
-- explain the evidence or product reason for the change;
-- update this constitution;
-- update any conflicting canonical documents;
-- avoid silently changing architecture through implementation alone.
+- identify the principle being changed
+- explain the evidence or product reason for the change
+- update this constitution
+- update any conflicting canonical documents
+- avoid silently changing architecture through implementation alone
 
 Implementation should not become architecture by accident. If the product model changes, the constitution must change with it.

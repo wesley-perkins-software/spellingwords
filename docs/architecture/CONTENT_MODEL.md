@@ -25,11 +25,25 @@ The model separates four things that the current implementation often blends tog
 
 A content item may have one identity while appearing in several discovery contexts. A reusable Skill can be recommended from a Grade Roadmap. A Sight Word Set can belong to a Collection. A Vocabulary or Theme List can be useful for a grade without becoming a Grade Unit.
 
+Every content item must have one primary content identity based on its primary user purpose. Identity is not determined by subject matter alone. Two items may address the same spelling concept while having different identities when their purposes differ. A Grade 1 Silent E curriculum milestone is a Grade Unit; a reusable Silent E practice resource is a Skill. If both are needed, they should be separate content items with separate stable IDs and explicit relationships, not one item left indefinitely as “either this or that.”
+
 The model should stay minimal. Not every identity needs every field, and not every content relationship needs a separate type. Add detail only when it prevents real ambiguity or supports a real product decision.
 
 ## 3. Content identities
 
 These identities are conceptual. They are not necessarily routes, Astro collections, frontmatter fields, or components.
+
+To determine identity, ask: **What is the primary reason this item exists for the user?**
+
+- To provide one milestone in a grade sequence → Grade Unit.
+- To provide reusable focused concept practice → Skill.
+- To provide an actual selectable word set → Practice Set.
+- To provide a named high-frequency sequence → Sight Word Set.
+- To provide supplemental topic-based words → Vocabulary or Theme List.
+- To explain a concept to an adult → Teaching Guide.
+- To group related items → Collection.
+
+Subject matter alone does not determine identity.
 
 ### Practice Tool
 
@@ -176,6 +190,8 @@ Later, a broad Skill may support multiple named Practice Sets only when there is
 
 The 8–16-word guideline applies to a single active curated Practice Set. A broad Skill can organize several sets without forcing every possible word bank to become a page.
 
+A Practice Set is not automatically an independently discoverable content item. SH Digraph is a focused Skill when it has an independent reusable identity, explanation, relationships, discovery value, or assignable destination. SH words are only a Practice Set when they exist solely as a selectable word set within a broader Consonant Digraphs Skill experience.
+
 ## 5. Grade relationships
 
 Avoid a complex grade mastery matrix. The smallest useful model is:
@@ -257,6 +273,8 @@ Stable internal IDs must remain independent of:
 - page role changes.
 
 References among content items should use stable IDs. Do not rename IDs merely to match future URLs or labels. Renaming IDs should be rare because it breaks relationships, validation history, and migration confidence. Human-readable IDs are useful, but stability matters more than perfect naming.
+
+Stable IDs should not be silently reused when an item is split, merged, or materially changes its primary content identity or user purpose. When that happens, create a new stable ID where appropriate, preserve the old item as archived or superseded if necessary, record the replacement relationship explicitly, and do not repurpose an old ID merely to avoid migration work. The same ID may continue when a reusable Short A Skill moves to a different URL. New IDs are appropriate when one old gateway page is replaced by both a Grade Unit and a reusable Skill.
 
 Validation should eventually check uniqueness, unresolved references, and duplicate or conflicting identifiers across content systems.
 
@@ -366,11 +384,10 @@ Later implementation plans must respect the content-level distinctions here with
 | Grade 1 Floss Rule | Grade Unit | Grade 1 Floss Rule set | Grade 1 core sequence | Related to short vowels and final consonant spelling | Grade 1 roadmap, search, related practice | The Floss Rule objective remains stable even if route changes. |
 | Grade 1 Beginning Consonant Blends | Grade Unit | Grade-appropriate blend words | Grade 1 core sequence | Related to broader Consonant Blends and focused BL/BR/etc. Skills | Grade 1 roadmap, focused-practice links | Unit role does not come from `phonics` category. |
 | Reusable Silent E Skill | Skill | One mixed set initially; additional long-a/long-i sets only if needed | Introduced early; later related to suffix rules | Broader/narrower relationships with long-vowel and VCe patterns | skill browsing, search, Grade 1, Grade 3 review/remediation | Silent E is not owned by any grade or URL. |
-| SH Digraph focused practice | Skill or focused Practice Set under Digraph Skill | SH words | Recommended early, useful for review | Narrower than Consonant Digraphs; related to CH/TH/WH | skill browsing, Grade 1 support, intervention | Focused practice can exist without defining a grade route. |
+| SH Digraph focused practice | Focused Skill | Primary SH word set | Recommended early, useful for review | Narrower than Consonant Digraphs; related to CH/TH/WH | skill browsing, Grade 1 support, intervention | Skill identity remains independent of grade route; a future implementation may model SH only as a Practice Set if it lacks independent identity. |
 | Dolch Primer Collection and members | Collection plus Sight Word Sets | Each member part has its own set | Grade association where helpful, not core grade unit | Related to high-frequency/irregular word practice | sight-word browsing, Grade 1 recommendations, Dolch sequence | Collection and member IDs remain stable apart from URL slugs. |
-| First Grade Heart Words | Sight Word Set or Grade Unit depending on framing | Heart-word set | Grade 1 if used in roadmap; otherwise grade-associated set | Related to high-frequency and irregular-word concepts | Grade 1 roadmap, sight-word browsing, parent guidance | Heart-word framing must not depend on category. |
+| First Grade Heart Words practice set | Sight Word Set | Heart-word set | Recommended for or associated with Grade 1 | Related to high-frequency and irregular-word concepts | Grade 1 recommendations, sight-word browsing, direct search | Heart-word sequence identity remains independent of category or URL; a separate Grade 1 Heart Words Grade Unit may reference it. |
 | Kindergarten Animal Words | Vocabulary or Theme List | Animal word set | Optional Kindergarten supplemental practice | May relate loosely to vocabulary, not core spelling Skill | additional practice, search, theme browsing | Grade K does not make it a Grade Unit. |
 | Grade 3 Dropping Silent E | Grade Unit | Suffix-rule words such as making/writing | Grade 3 roadmap placement | Related to Silent E Skill and suffix spelling changes | Grade 3 roadmap, related Silent E guide | Later morphology objective remains distinct from early Silent E Skill page. |
 | Prefixes across multiple grades | Skill or Skill family with grade-specific units | Sets by grade/objective where justified | Introduced and expanded across grades | Broader Prefixes with narrower un-, re-, advanced prefixes | Grade roadmaps, skill browsing, writing support | Prefix Skill identity remains stable across grade placements. |
 | Silent E Teaching Guide | Teaching Guide | Usually none, or links to Practice Sets | Useful across grades | Explains Silent E Skill; links Grade 1 and Grade 3 units | guides, related links, search | Guide identity and relationships remain independent of URL. |
-

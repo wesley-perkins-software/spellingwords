@@ -16,6 +16,7 @@ import {
 } from '@/lib/content/spellingLists';
 import { categoryLabels, cardAccent } from '@/lib/content/categoryMeta';
 import { getListPath } from '@/lib/content/learningPaths';
+import { SPELLING_SKILLS_INDEX_PATH, isCuratedSpellingSkillId } from '@/lib/content/spellingSkills';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('spelling-lists')).filter(isPublished);
@@ -47,12 +48,19 @@ const categoryLabel = categoryLabels[data.category] ?? data.category;
 const listPath = getListPath(data.id);
 const listCollection = getListCollection(data.id, allCollections);
 
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Spelling Lists Library', href: '/spelling-lists' },
-  { label: categoryLabel, href: `/spelling-lists/${data.category}` },
-  { label: data.title },
-];
+const breadcrumbItems = isCuratedSpellingSkillId(data.id)
+  ? [
+      { label: 'Home', href: '/' },
+      { label: 'Spelling Lists Library', href: '/spelling-lists' },
+      { label: 'Spelling Practice by Skill', href: SPELLING_SKILLS_INDEX_PATH },
+      { label: data.title },
+    ]
+  : [
+      { label: 'Home', href: '/' },
+      { label: 'Spelling Lists Library', href: '/spelling-lists' },
+      { label: categoryLabel, href: `/spelling-lists/${data.category}` },
+      { label: data.title },
+    ];
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
 

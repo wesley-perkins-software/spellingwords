@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import { getListsByGrade, isPublished, groupByCategory } from '@/lib/content/spellingLists';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { gradeConfig } from '@/lib/content/gradeConfig';
+import { SPELLING_SKILLS_INDEX_PATH } from '@/lib/content/spellingSkills';
 
 const entries = (await getCollection('spelling-lists')).filter(isPublished);
 const totalCount = entries.length;
@@ -17,6 +18,12 @@ const gradeTiles = gradeConfig.map((gc) => ({
 }));
 
 const byCategory = groupByCategory(entries);
+
+const focusedPracticeLink = {
+  label: 'Spelling Practice by Skill',
+  description: 'Choose a focused spelling sound or pattern, starting with short vowels and CVC words.',
+  href: SPELLING_SKILLS_INDEX_PATH,
+};
 
 const skillFamilies = [
   {
@@ -126,7 +133,20 @@ const breadcrumbJsonLd = {
           Browse by skill
         </h2>
         <div class="border-l-[3px] border-brand-blue/40 pl-6">
-          <nav aria-label="Browse by skill">
+          <div class="mb-5 border-b border-line pb-5">
+            <a href={focusedPracticeLink.href} class="group flex items-start justify-between gap-6 transition">
+              <div>
+                <div class="font-display text-lg font-semibold text-ink transition group-hover:text-brand-blue">
+                  {focusedPracticeLink.label}
+                </div>
+                <div class="mt-1 text-sm leading-relaxed text-ink">{focusedPracticeLink.description}</div>
+              </div>
+              <span class="mt-1 text-sm font-semibold text-brand-blue opacity-0 transition group-hover:opacity-100">
+                →
+              </span>
+            </a>
+          </div>
+          <nav aria-label="Browse list categories by skill">
             {skillFamilies.map((sf, i) => (
               <a
                 href={sf.href}
@@ -230,6 +250,15 @@ const breadcrumbJsonLd = {
               By skill
             </h3>
             <div>
+              <a
+                href={focusedPracticeLink.href}
+                class="group flex items-center justify-between border-b border-line py-3 transition"
+              >
+                <span class="text-sm font-semibold text-ink transition group-hover:text-brand-blue">
+                  {focusedPracticeLink.label}
+                </span>
+                <span class="text-xs font-semibold text-brand-blue opacity-0 transition group-hover:opacity-100">→</span>
+              </a>
               {skillFamilies.map((sf) => (
                 <a
                   href={sf.href}

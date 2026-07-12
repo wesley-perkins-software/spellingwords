@@ -3,6 +3,7 @@ export const SPELLING_SKILLS_INDEX_PATH = '/spelling-lists/skills/';
 export const SHORT_VOWELS_AND_CVC_SKILL_FAMILY = {
   title: 'Short Vowels',
   description: 'Practice short A, E, I, O, and U sounds.',
+  guidance: 'Choose the vowel sound your child needs to practice.',
   /**
    * This family is ready for public Skill browsing, but it does not have its
    * own destination yet. The index uses the family as a grouping label and
@@ -17,7 +18,27 @@ export const SHORT_VOWELS_AND_CVC_SKILL_FAMILY = {
   ],
 } as const;
 
-export const SPELLING_SKILL_FAMILIES = [SHORT_VOWELS_AND_CVC_SKILL_FAMILY] as const;
+export const CONSONANT_DIGRAPHS_SKILL_FAMILY = {
+  title: 'Consonant Digraphs',
+  description: 'Practice common two-letter consonant sounds.',
+  guidance: 'Choose the letter pair your child needs to practice.',
+  /**
+   * This family is ready for public Skill browsing, but it does not have its
+   * own destination yet. The index uses the family as a grouping label and
+   * links directly to the focused reusable Skill pages.
+   */
+  skillIds: [
+    'digraph-ch-words',
+    'digraph-sh-words',
+    'digraph-th-words',
+    'digraph-wh-words',
+  ],
+} as const;
+
+export const SPELLING_SKILL_FAMILIES = [
+  SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
+  CONSONANT_DIGRAPHS_SKILL_FAMILY,
+] as const;
 
 export const CURATED_SPELLING_SKILL_IDS = SPELLING_SKILL_FAMILIES.flatMap(
   (family) => family.skillIds,

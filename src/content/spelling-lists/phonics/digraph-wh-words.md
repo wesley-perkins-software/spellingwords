@@ -4,6 +4,7 @@ urlSlug: digraph-wh-words
 title: "WH Digraph Words"
 description: "Words built on the WH digraph — two letters that together begin many of the most useful question words and common sight words in English."
 shortAnswer: "This list practices the WH digraph pattern, as in what, when, where, which, and white."
+contentRole: skill
 category: phonics
 grade: "1"
 difficulty: developing

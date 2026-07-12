@@ -3,7 +3,8 @@ id: digraph-ch-words
 urlSlug: digraph-ch-words
 title: "CH Digraph Words"
 description: "Words built on the CH digraph — two letters that join to make one sound, as in child, chicken, and beach."
-shortAnswer: "This list practices the CH digraph pattern, as in child, chicken, catch, and beach."
+shortAnswer: "This list practices the CH digraph pattern, as in child, chicken, chin, and beach."
+contentRole: skill
 category: phonics
 grade: "1"
 difficulty: developing
@@ -31,7 +32,7 @@ faq:
   - question: "How is CH different from SH?"
     answer: "They're both digraphs made at the front of the mouth, but CH starts with a brief stopping sound, almost like a quiet 't,' before finishing like SH — saying 'chip' and 'ship' side by side is often the easiest way to hear the difference."
   - question: "Should CH words be sounded out or memorized?"
-    answer: "Sounded out, once a child learns to treat CH as one unit rather than two separate letters — from there, the rest of each word ('child,' 'catch,' 'teacher') follows regular spelling."
+    answer: "Sounded out, once a child learns to treat CH as one unit rather than two separate letters — from there, the rest of each word ('child,' 'chin,' 'teacher') follows regular spelling."
   - question: "What comes after CH digraph words?"
     answer: "SH, TH, or WH Digraph Words — whichever hasn't been practiced yet, since all four are commonly taught around the same stage."
 words:
@@ -39,7 +40,7 @@ words:
   - children
   - chicken
   - change
-  - catch
+  - chin
   - beach
   - lunch
   - teach
@@ -47,6 +48,6 @@ words:
   - chair
 ---
 
-A digraph is a pair of letters that team up to produce a single sound. C and H on their own make the /k/ and /h/ sounds, but when they appear together as CH, they create a completely different sound — the one at the start of *child* and *chicken*, and at the end of *catch* and *beach*. Learning to spot CH as a unit helps children read and spell it reliably, wherever it appears in a word.
+A digraph is a pair of letters that team up to produce a single sound. C and H on their own make the /k/ and /h/ sounds, but when they appear together as CH, they create a completely different sound — the one at the start of *child*, *chicken*, and *chin*, and at the end of *beach*. Learning to spot CH as a unit helps children read and spell it reliably, wherever it appears in a word.
 
-The ten words in this list give children practice with the CH digraph in a range of everyday contexts — at the beginning of words like *change* and *charge*, tucked into the middle of *teacher*, and landing at the end of *lunch* and *catch*. Seeing the same team of letters across different words helps the CH pattern become a familiar, dependable spelling tool.
+The ten words in this list give children practice with the CH digraph in a range of everyday contexts — at the beginning of words like *chin*, *change*, and *chair*, tucked into the middle of *teacher*, and landing at the end of *lunch* and *beach*. Seeing the same team of letters across different words helps the CH pattern become a familiar, dependable spelling tool.

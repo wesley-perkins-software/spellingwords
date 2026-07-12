@@ -1,6 +1,7 @@
 ---
 id: silent-e-long-e
 urlSlug: silent-e-long-e
+contentRole: skill
 title: "Long E Silent E Words"
 description: "Words where a silent final 'e' helps spell a long 'e' sound, completing the silent-e long-vowel sequence for early elementary spelling."
 shortAnswer: "This list focuses on long-E silent-e words, including these, theme, scene, and complete."
@@ -16,7 +17,6 @@ masteryThreshold: 90
 sourceType: curated
 relatedLists: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u", "short-e-words"]
 prerequisiteLists: ["silent-e-long-o"]
-nextLists: ["silent-e-long-u"]
 featured: false
 readinessSignals:
   - "Apply the silent-e rule confidently across more than one vowel already — this is a repeat performance, not a new skill"

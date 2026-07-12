@@ -1,6 +1,7 @@
 ---
 id: silent-e-long-i
 urlSlug: silent-e-long-i
+contentRole: skill
 title: "Long I Silent E Words"
 description: "Words where a silent final 'e' creates the long 'i' sound — bike, line, mine — building on the same pattern students learned with long A."
 shortAnswer: "This list practices the silent-e pattern for long 'i' sounds, as in bike, fine, and ride."
@@ -16,7 +17,6 @@ masteryThreshold: 90
 sourceType: curated
 relatedLists: ["silent-e-long-a", "silent-e-long-o", "short-i-words"]
 prerequisiteLists: ["silent-e-long-a"]
-nextLists: ["silent-e-long-o"]
 featured: false
 readinessSignals:
   - "Can already explain, in their own words, why 'cake' isn't spelled 'cak' — the core silent-e idea"

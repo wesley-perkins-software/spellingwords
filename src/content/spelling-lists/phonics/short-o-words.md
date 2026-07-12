@@ -3,6 +3,7 @@ id: short-o-words
 urlSlug: short-o-words
 title: "Short O Words"
 description: "Ten simple words built around the short 'o' sound — the round, open vowel heard in hot, dog, and top — for early phonics practice."
+contentRole: skill
 shortAnswer: "This list practices the short 'o' sound in simple words like hot, dog, and top — a foundational early phonics pattern."
 category: phonics
 grade: "1"
@@ -21,22 +22,21 @@ relatedLists:
   - short-u-words
   - silent-e-long-o
 prerequisiteLists: []
-nextLists:
-  - silent-e-long-a
+nextLists: []
 featured: false
 readinessSignals:
   - "Hear three sounds in a word like 'hot' clearly enough to say each one separately, then blend them back together"
   - "Recognize the short 'o' sound when it's spoken aloud, even before seeing it written down"
   - "Can hear the 'ck' ending in a word like 'rock' as one unit rather than two separate letters"
 faq:
-  - question: "What is the short 'o' sound, and why is it taught around this stage?"
-    answer: "It's the round, open sound in 'hot' and 'dog' — one of the five core short-vowel sounds, usually introduced once children are comfortable blending three-sound words."
+  - question: "What is the short 'o' sound and when is this practice useful?"
+    answer: "It's the round, open sound in 'hot' and 'dog' — one of the five core short-vowel sounds children may practice when learning, reviewing, or strengthening CVC spelling."
   - question: "How is short 'o' different from short 'u'?"
     answer: "Short 'o' (as in 'hot') is made with rounded lips, while short 'u' (as in 'hut') is more relaxed and central — they can sound similar to an early speller, so it helps to practice the two lists side by side instead of assuming the difference is obvious."
   - question: "Should short O words be sounded out or memorized?"
     answer: "Sounded out. Nine of the ten words are fully regular CVC words; 'rock' adds the 'ck' ending, which is worth naming explicitly so children recognize it as a single, dependable spelling rather than a surprise."
-  - question: "What comes after short O words?"
-    answer: "Short U Words, if it hasn't been practiced yet — then Long A Silent E Words, the next stage in the sequence, once all five short vowels are steady."
+  - question: "What else is useful after Short O practice?"
+    answer: "Keep practicing the other short-vowel Skills as needed, especially Short U because the two sounds can feel close to early spellers. Mixed short-vowel review is useful once several vowel sounds feel steady."
 words:
   - hot
   - dog

@@ -3,6 +3,7 @@ id: kindergarten-mixed-vowel-review
 urlSlug: kindergarten-mixed-vowel-review
 title: 'Mixed Vowel CVC Review'
 description: 'Ten fresh words mixing all five short vowel sounds — jam, lid, dog, mud, get, rag, hit, web, nap, and hop — checking whether a child can hear and spell the vowel sound in a new word, not just recall a memorized list.'
+contentRole: grade-unit
 shortAnswer: 'Ten fresh mixed-vowel words — jam, lid, dog, mud, get, rag, hit, web, nap, and hop — a transfer check after practicing all five short vowels one at a time.'
 category: phonics
 grade: 'K'

@@ -3,6 +3,7 @@ id: kindergarten-short-e-words
 urlSlug: kindergarten-short-e-words
 title: 'Kindergarten Short E Words'
 description: 'Eight simple words built around the short "e" sound — bed, red, hen, pen, leg, pet, net, and wet — the last single-vowel stop before mixed-vowel review.'
+contentRole: grade-unit
 shortAnswer: 'Eight kindergarten short "e" words — bed, red, hen, pen, leg, pet, net, and wet — the fifth and final single-vowel stop after Short U Words.'
 category: phonics
 grade: 'K'
@@ -45,3 +46,5 @@ words:
 The short "e" sound is short and flat — you can hear it in the middle of *bed*, *hen*, and *wet*. This is the fifth and final single vowel sound practiced on its own, rounding out all five short vowels a kindergartener needs.
 
 Once this list feels comfortable, the Mixed Vowel CVC Review checks whether all five sounds transfer to brand-new words.
+
+If a child needs more practice with this same vowel sound, [Short E Words](/spelling-lists/phonics/short-e-words) offers a focused extra practice set.

@@ -18,10 +18,10 @@ export const KINDERGARTEN_CORE_IDS: readonly string[] = [
   'kindergarten-consonant-digraphs',
   'kindergarten-ck-ending-words',
   'kindergarten-double-consonants',
-  'kindergarten-heart-words',
 ];
 
 export const KINDERGARTEN_ADDITIONAL_IDS: readonly string[] = [
+  'kindergarten-heart-words',
   'kindergarten-animal-words',
   'kindergarten-number-color-words',
 ];

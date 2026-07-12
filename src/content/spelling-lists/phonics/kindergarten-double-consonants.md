@@ -14,9 +14,9 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: []
+relatedLists: ['kindergarten-heart-words']
 prerequisiteLists: ['kindergarten-ck-ending-words']
-nextLists: ['kindergarten-heart-words']
+nextLists: []
 featured: false
 readinessSignals:
   - 'Can spell short-vowel CVC words confidently'
@@ -30,7 +30,7 @@ faq:
   - question: 'Why does this list focus on -ll and -ss?'
     answer: 'Those endings give the most natural, kindergarten-familiar examples of this pattern. Words such as "bell," "will," "kiss," and "miss" are common enough for a five- or six-year-old to know and useful enough to spell.'
   - question: 'What comes after Double Consonants?'
-    answer: 'Kindergarten Heart Words is next — the last stop in the core spelling progression, moving from sound-based spelling to a handful of common words with one tricky part.'
+    answer: 'Kindergarten Heart Words is a helpful next practice option, moving from sound-based spelling to a handful of common words with one tricky part.'
 words:
   - bell
   - hill

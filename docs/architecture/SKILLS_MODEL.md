@@ -53,7 +53,7 @@ A candidate concept is a strong Skill candidate when several of these are true:
 
 Examples of likely Skills include Short A, Consonant Digraphs, Beginning Blends, Silent E, AI and AY, R-Controlled Vowels, Prefixes, Word Endings and Suffixes, and Homophones.
 
-A Skill may be broad or focused. Broad Skill Families organize recognizable areas of spelling practice. Focused Skills are assignable concepts beneath those families. Some focused Skills may later deserve independent user-facing destinations; others may be represented through tabs, filters, subsections, or Practice Sets.
+A Skill may be broad or focused. Broad Skill Families organize recognizable areas of spelling practice. Focused Skills are reusable editorial concepts beneath those families. A canonical Focused Skill is not a guaranteed URL, markdown page, or navigation item; later autonomy and implementation review still decide whether it becomes a standalone experience.
 
 ## 4. What a Skill is not
 
@@ -125,7 +125,7 @@ Sight Words and Irregular Words may appear as a discovery bridge, but sight-word
 
 ### B. Focused Skills
 
-Focused Skills are directly assignable concepts beneath Skill Families. They may deserve reusable experiences if they pass the autonomy rule. Focused Skills are not automatically guaranteed pages.
+Focused Skills are directly assignable editorial concepts beneath Skill Families. They may deserve reusable experiences if they pass the autonomy rule, but even canonical Focused Skills are not automatically guaranteed URLs, markdown pages, or navigation items.
 
 Examples include Short A, SH, Beginning Blends, Final CK, Long A Silent E, AI and AY, AR, Plurals and -s/-es, Dropping Silent E, UN and RE Prefixes, and Homophones.
 
@@ -177,7 +177,7 @@ Individual blends such as BL, BR, CL, ND, NK, and MP should normally remain Prac
 
 ### One-Syllable Spelling Patterns
 
-This family organizes common spelling conventions beyond basic short vowels, blends, and digraphs.
+This family organizes common spelling conventions beyond basic short vowels, blends, and digraphs. It is an editorial taxonomy label, not necessarily the future public navigation label; parents may ultimately recognize individual concepts such as CK, TCH, FLOSS, or Hard and Soft C/G more readily than the umbrella phrase.
 
 Likely focused Skills:
 
@@ -298,7 +298,7 @@ Specific sets such as there/their/they’re or to/too/two are provisional focuse
 
 ## 8. Focused Skills
 
-Canonical focused Skills are concepts that are already strong enough to treat as reusable assignable Skills, even if not every one receives a page immediately.
+Canonical focused Skills are reusable editorial concepts that are strong enough to support assignment, linking, and curriculum relationships. They are not automatic standalone pages, URLs, markdown files, or navigation items; those decisions still require later autonomy and implementation review.
 
 Recommended canonical focused Skills:
 
@@ -345,6 +345,8 @@ Recommended canonical focused Skills:
 - Homophones
 - Commonly Confused Words
 
+Compound Words and Contractions are treated as focused Skills because they are recognizable, assignable word-formation concepts with direct practice value. They are not broad families in this model; they sit inside the wider word-study layer and can connect to Word Endings and Suffixes, vocabulary practice, or Teaching Guides as needed.
+
 Provisional focused Skills requiring autonomy review include:
 
 - Sounds and Letters as a public destination
@@ -386,7 +388,7 @@ Internal metadata may continue to track concepts such as CVC, closed syllables, 
 
 | Concept | Level | Public status | Likely child concepts | Typical grade relationship | Notes |
 |---|---|---|---|---|---|
-| Sounds and Letters | Kindergarten foundation / Teaching Guide | Provisional / future capability | letter sounds, beginning sounds | introduced K, practiced K–1 | Current practice engine focuses on whole-word spelling, so not automatically a full Skill destination. |
+| Sounds and Letters | Kindergarten foundation / Teaching Guide | Provisional / future capability | letter sounds, beginning sounds | introduced K, practiced K–1 | Current Practice Engine is built around spelling whole words, not isolated phoneme-manipulation or letter-formation tasks, so this should be treated cautiously as a future capability. |
 | Short Vowels and CVC Words | Broad Skill Family | Canonical Broad Skill Family | Short A/E/I/O/U | introduced K–1, practiced K–2, reviewed as needed | Preferred public family; CVC may be alternate label or metadata. |
 | Short A/E/I/O/U | Focused Skills | Canonical Focused Skills | individual vowel practice | introduced K–1, practiced/reviewed later | Short A is the reference pattern. |
 | Consonant Digraphs | Broad Skill Family | Canonical Broad Skill Family | SH, CH, TH, WH | introduced K–1, practiced 1–2 | PH/NG require later review. |
@@ -506,7 +508,7 @@ This document does not prescribe deletion.
 
 A broad Skill destination must provide immediate value: clear explanation, useful practice access, sensible child concepts, and helpful links. It must not merely list links.
 
-Gateway pages should not multiply. New broad pages should be created only when they clarify user choice and reduce complexity.
+Gateway pages should not multiply. A gateway page that only lists links without meaningful instructional or navigational value should not survive indefinitely. New broad pages should be created only when they clarify user choice and reduce complexity.
 
 ## 17. Conceptual URL and discoverability implications
 

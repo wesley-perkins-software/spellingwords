@@ -1,0 +1,117 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { isPublished } from '@/lib/content/spellingLists';
+import {
+  SPELLING_SKILL_FAMILIES,
+  SPELLING_SKILLS_INDEX_PATH,
+  getSpellingSkillPath,
+  resolveCuratedSkillFamilyEntries,
+} from '@/lib/content/spellingSkills';
+
+const entries = (await getCollection('spelling-lists')).filter(isPublished);
+
+const skillFamilies = SPELLING_SKILL_FAMILIES.map((family) => ({
+  ...family,
+  entries: resolveCuratedSkillFamilyEntries(entries, family.skillIds),
+}));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Spelling Lists Library', href: '/spelling-lists' },
+  { label: 'Spelling Practice by Skill' },
+];
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
+
+let itemListPosition = 0;
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Spelling Practice by Skill',
+  numberOfItems: skillFamilies.reduce((count, family) => count + family.entries.length, 0),
+  itemListElement: skillFamilies.flatMap((family) =>
+    family.entries.map((entry) => ({
+      '@type': 'ListItem',
+      position: ++itemListPosition,
+      url: new URL(getSpellingSkillPath(entry), canonicalURL.origin).toString(),
+      name: entry.data.title,
+    })),
+  ),
+};
+---
+
+<Layout
+  title="Spelling Practice by Skill | spellingwords.app"
+  description="Choose a focused spelling sound or pattern for spelling practice, starting with short vowels and simple CVC words."
+  jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
+>
+  <SiteHeader variant="discovery" currentPath="/spelling-lists" />
+
+  <main id="main-content">
+    <div class="mx-auto max-w-3xl px-6 py-12 md:py-16">
+      <div class="mb-6">
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
+
+      <section aria-labelledby="skills-heading" class="mb-10 flex flex-col gap-4">
+        <h1 id="skills-heading" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+          Spelling Practice by Skill
+        </h1>
+        <p class="max-w-2xl text-base leading-relaxed text-ink-soft">
+          Choose a specific spelling sound or pattern for focused practice. Start with short vowels and simple CVC words.
+        </p>
+      </section>
+
+      {skillFamilies.map((family) => (
+        <section aria-labelledby={`${family.title.toLowerCase().replaceAll(' ', '-')}-heading`} class="mb-12 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] sm:p-6">
+          <div class="mb-5">
+            <h2 id={`${family.title.toLowerCase().replaceAll(' ', '-')}-heading`} class="font-display text-lg font-semibold text-ink">
+              {family.title}
+            </h2>
+            <p class="mt-1 max-w-xl text-sm leading-relaxed text-ink-soft">
+              {family.description} Choose the vowel sound your child needs to practice.
+            </p>
+          </div>
+
+          <div class="divide-y divide-line border-y border-line">
+            {family.entries.map((entry) => (
+              <a href={getSpellingSkillPath(entry)} class="group flex items-start justify-between gap-4 rounded-xl px-3 py-4 transition hover:bg-app-cloud sm:items-center">
+                <div>
+                  <h3 class="font-display text-base font-semibold text-ink transition group-hover:text-brand-blue">
+                    {entry.data.title}
+                  </h3>
+                  <p class="mt-1 text-sm leading-relaxed text-ink-soft">{entry.data.description}</p>
+                </div>
+                <span class="mt-1 shrink-0 text-sm font-semibold text-brand-blue transition group-hover:translate-x-0.5 sm:mt-0" aria-hidden="true">→</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <p class="text-sm leading-relaxed text-ink-soft">
+        Not sure what to choose?{' '}
+        <a href="/spelling-lists" class="font-semibold text-brand-blue hover:underline">
+          Browse by grade
+        </a>.
+      </p>
+    </div>
+  </main>
+
+  <SiteFooter />
+</Layout>

@@ -4,6 +4,7 @@ urlSlug: digraph-ch-words
 title: "CH Digraph Words"
 description: "Words built on the CH digraph — two letters that join to make one sound, as in child, chicken, and beach."
 shortAnswer: "This list practices the CH digraph pattern, as in child, chicken, catch, and beach."
+contentRole: skill
 category: phonics
 grade: "1"
 difficulty: developing

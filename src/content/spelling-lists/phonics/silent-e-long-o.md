@@ -3,7 +3,7 @@ id: silent-e-long-o
 urlSlug: silent-e-long-o
 contentRole: skill
 title: "Long O Silent E Words"
-description: "Words where a silent final 'e' produces the long 'o' sound — home, rose, stone — completing the silent-e pattern across three vowels."
+description: "Words where a silent final 'e' produces the long 'o' sound, such as home, rose, and stone."
 shortAnswer: "This list practices the silent-e pattern for long 'o' sounds, as in home, hope, and stone."
 category: phonics
 grade: "2"

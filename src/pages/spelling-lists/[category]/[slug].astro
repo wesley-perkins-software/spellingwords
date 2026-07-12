@@ -82,11 +82,15 @@ const faqJsonLd =
 
 const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
 
-const gradeDisplay = data.grade
-  ? data.grade === 'K'
-    ? 'Kindergarten'
-    : `Grade ${data.grade}`
-  : null;
+const roleDisplay = data.contentRole === 'skill' ? 'Skill' : null;
+const gradeDisplay =
+  data.contentRole === 'skill'
+    ? null
+    : data.grade
+      ? data.grade === 'K'
+        ? 'Kindergarten'
+        : `Grade ${data.grade}`
+      : null;
 
 const easierList = prerequisites[0];
 const harderList = next[0];
@@ -115,6 +119,13 @@ const harderList = next[0];
           <div class={`absolute inset-x-0 top-0 h-1.5 ${cardAccent.bg}`} aria-hidden="true"></div>
 
           <div class="flex flex-wrap items-center gap-2">
+            {
+              roleDisplay && (
+                <span class="rounded-full bg-app-cloud px-3 py-1 text-sm font-semibold text-ink">
+                  {roleDisplay}
+                </span>
+              )
+            }
             {
               gradeDisplay && (
                 <span class="rounded-full bg-app-cloud px-3 py-1 text-sm font-semibold text-ink">

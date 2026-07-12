@@ -35,9 +35,28 @@ export const CONSONANT_DIGRAPHS_SKILL_FAMILY = {
   ],
 } as const;
 
+export const SILENT_E_SKILL_FAMILY = {
+  title: 'Silent E',
+  description: 'Practice long-vowel words with final silent e.',
+  guidance: 'Choose the vowel sound your child needs to practice.',
+  /**
+   * This family is ready for public Skill browsing, but it does not have its
+   * own destination yet. The index uses the family as a grouping label and
+   * links directly to the focused reusable Skill pages.
+   */
+  skillIds: [
+    'silent-e-long-a',
+    'silent-e-long-e',
+    'silent-e-long-i',
+    'silent-e-long-o',
+    'silent-e-long-u',
+  ],
+} as const;
+
 export const SPELLING_SKILL_FAMILIES = [
   SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
   CONSONANT_DIGRAPHS_SKILL_FAMILY,
+  SILENT_E_SKILL_FAMILY,
 ] as const;
 
 export const CURATED_SPELLING_SKILL_IDS = SPELLING_SKILL_FAMILIES.flatMap(

@@ -1,6 +1,7 @@
 ---
 id: grade-1-long-vowels-silent-e
 urlSlug: 1st-grade-long-vowels-silent-e
+contentRole: grade-unit
 title: "Long Vowels with Silent e (VCe)"
 description: "A first-grade core spelling lesson on silent-e long vowels."
 shortAnswer: "This Grade 1 core unit teaches silent-e long vowels with a focused word list, parent-friendly explanation, misconceptions, and curriculum navigation."

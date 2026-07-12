@@ -6,7 +6,6 @@ import {
   GRADE_1_GATEWAY_IDS,
   GRADE_1_TARGETED_SKILL_IDS,
 } from './grade1Progression';
-import { KINDERGARTEN_CORE_IDS } from './kindergartenProgression';
 import {
   CONSONANT_DIGRAPHS_SKILL_FAMILY,
   CURATED_SPELLING_SKILL_IDS,
@@ -18,36 +17,33 @@ import {
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const skillsIndexRoutePath = join(process.cwd(), 'src/pages/spelling-lists/skills/index.astro');
 
-const CONSONANT_DIGRAPH_SKILL_IDS = [
-  'digraph-ch-words',
-  'digraph-sh-words',
-  'digraph-th-words',
-  'digraph-wh-words',
+const SILENT_E_SKILL_IDS = [
+  'silent-e-long-a',
+  'silent-e-long-e',
+  'silent-e-long-i',
+  'silent-e-long-o',
+  'silent-e-long-u',
 ] as const;
 
-const CONSONANT_DIGRAPH_FAMILY_IDS = [
-  ...CONSONANT_DIGRAPH_SKILL_IDS,
-  'kindergarten-consonant-digraphs',
-  'grade-1-consonant-digraphs-final-ck',
-  'grade-1-consonant-digraph-practice',
+const SILENT_E_FAMILY_IDS = [
+  ...SILENT_E_SKILL_IDS,
+  'grade-1-long-vowels-silent-e',
+  'grade-1-silent-e-practice',
 ] as const;
 
 const EXPECTED_URL_INPUTS: Record<string, { category: string; urlSlug: string }> = {
-  'digraph-ch-words': { category: 'phonics', urlSlug: 'digraph-ch-words' },
-  'digraph-sh-words': { category: 'phonics', urlSlug: 'digraph-sh-words' },
-  'digraph-th-words': { category: 'phonics', urlSlug: 'digraph-th-words' },
-  'digraph-wh-words': { category: 'phonics', urlSlug: 'digraph-wh-words' },
-  'kindergarten-consonant-digraphs': {
+  'silent-e-long-a': { category: 'phonics', urlSlug: 'silent-e-long-a' },
+  'silent-e-long-e': { category: 'phonics', urlSlug: 'silent-e-long-e' },
+  'silent-e-long-i': { category: 'phonics', urlSlug: 'silent-e-long-i' },
+  'silent-e-long-o': { category: 'phonics', urlSlug: 'silent-e-long-o' },
+  'silent-e-long-u': { category: 'phonics', urlSlug: 'silent-e-long-u' },
+  'grade-1-long-vowels-silent-e': {
     category: 'phonics',
-    urlSlug: 'kindergarten-consonant-digraphs',
+    urlSlug: '1st-grade-long-vowels-silent-e',
   },
-  'grade-1-consonant-digraphs-final-ck': {
+  'grade-1-silent-e-practice': {
     category: 'phonics',
-    urlSlug: '1st-grade-consonant-digraphs-final-ck',
-  },
-  'grade-1-consonant-digraph-practice': {
-    category: 'phonics',
-    urlSlug: '1st-grade-consonant-digraph-practice',
+    urlSlug: '1st-grade-silent-e-practice',
   },
 };
 
@@ -73,7 +69,7 @@ function readFrontmatter(filePath: string): string {
 
 function readScalar(frontmatter: string, key: string): string | undefined {
   const match = frontmatter.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));
-  return match?.[1].trim().replace(/^['"]|['"]$/g, '');
+  return match?.[1].trim().replace(/^[ '\"]|[ '\"]$/g, '');
 }
 
 function readArray(frontmatter: string, key: string): string[] {
@@ -86,7 +82,7 @@ function readArray(frontmatter: string, key: string): string[] {
   if (inline) {
     return inline[1]
       .split(',')
-      .map((item) => item.trim().replace(/^['"]|['"]$/g, ''))
+      .map((item) => item.trim().replace(/^[ '\"]|[ '\"]$/g, ''))
       .filter(Boolean);
   }
 
@@ -95,7 +91,7 @@ function readArray(frontmatter: string, key: string): string[] {
     if (/^[a-zA-Z][\w]*:/.test(line)) break;
     const trimmed = line.trim();
     if (trimmed.startsWith('- ')) {
-      values.push(trimmed.slice(2).trim().replace(/^['"]|['"]$/g, ''));
+      values.push(trimmed.slice(2).trim().replace(/^[ '\"]|[ '\"]$/g, ''));
     }
   }
 
@@ -132,8 +128,8 @@ const summaries = allSummaries();
 const byId = new Map(summaries.map((entry) => [entry.id, entry]));
 const allIds = new Set(summaries.map((entry) => entry.id));
 
-describe('Consonant Digraphs Skill Family', () => {
-  it('publishes Consonant Digraphs as the second public Skill family after Short Vowels', () => {
+describe('Silent E Skill Family', () => {
+  it('publishes Silent E as the third public Skill family after Short Vowels and Consonant Digraphs', () => {
     expect(SPELLING_SKILL_FAMILIES.map((family) => family.title)).toEqual([
       'Short Vowels',
       'Consonant Digraphs',
@@ -144,21 +140,24 @@ describe('Consonant Digraphs Skill Family', () => {
     expect(SPELLING_SKILL_FAMILIES[2]).toBe(SILENT_E_SKILL_FAMILY);
   });
 
-  it('uses the requested CH, SH, TH, WH curated Skill order', () => {
-    expect(CONSONANT_DIGRAPHS_SKILL_FAMILY.skillIds).toEqual(CONSONANT_DIGRAPH_SKILL_IDS);
+  it('uses the requested five curated Silent E Skill IDs', () => {
+    expect(SILENT_E_SKILL_FAMILY.skillIds).toEqual(SILENT_E_SKILL_IDS);
     expect(CURATED_SPELLING_SKILL_IDS).toEqual([
       ...SHORT_VOWELS_AND_CVC_SKILL_FAMILY.skillIds,
-      ...CONSONANT_DIGRAPH_SKILL_IDS,
-      ...SILENT_E_SKILL_FAMILY.skillIds,
+      ...CONSONANT_DIGRAPHS_SKILL_FAMILY.skillIds,
+      ...SILENT_E_SKILL_IDS,
     ]);
   });
 
-  it('keeps family guidance specific while preserving Short Vowels guidance', () => {
+  it('keeps family guidance specific while preserving earlier family guidance', () => {
     expect(SHORT_VOWELS_AND_CVC_SKILL_FAMILY.guidance).toBe(
       'Choose the vowel sound your child needs to practice.',
     );
     expect(CONSONANT_DIGRAPHS_SKILL_FAMILY.guidance).toBe(
       'Choose the letter pair your child needs to practice.',
+    );
+    expect(SILENT_E_SKILL_FAMILY.guidance).toBe(
+      'Choose the vowel sound your child needs to practice.',
     );
 
     const route = readFileSync(skillsIndexRoutePath, 'utf8');
@@ -175,41 +174,40 @@ describe('Consonant Digraphs Skill Family', () => {
     expect(route).toContain('position: ++itemListPosition');
 
     expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(14);
-    expect(CURATED_SPELLING_SKILL_IDS.slice(5, 9)).toEqual(CONSONANT_DIGRAPH_SKILL_IDS);
-    expect(CURATED_SPELLING_SKILL_IDS.slice(9)).toEqual(SILENT_E_SKILL_FAMILY.skillIds);
+    expect(CURATED_SPELLING_SKILL_IDS.slice(9)).toEqual(SILENT_E_SKILL_IDS);
   });
 
-  it('marks CH, SH, TH, and WH as reusable Skills', () => {
-    for (const id of CONSONANT_DIGRAPH_SKILL_IDS) {
+  it('marks all five Silent E pages as reusable Skills', () => {
+    for (const id of SILENT_E_SKILL_IDS) {
       expect(byId.get(id), id).toMatchObject({ id, contentRole: 'skill' });
     }
   });
 
-  it('marks the Kindergarten Consonant Digraphs page as a Grade Unit', () => {
-    expect(byId.get('kindergarten-consonant-digraphs')).toMatchObject({
-      id: 'kindergarten-consonant-digraphs',
+  it('marks the Grade 1 Silent E page as a Grade Unit', () => {
+    expect(byId.get('grade-1-long-vowels-silent-e')).toMatchObject({
+      id: 'grade-1-long-vowels-silent-e',
       contentRole: 'grade-unit',
     });
   });
 
   it('preserves stable ids, categories, slugs, and public URL inputs', () => {
-    for (const id of CONSONANT_DIGRAPH_FAMILY_IDS) {
+    for (const id of SILENT_E_FAMILY_IDS) {
       expect(byId.get(id), id).toMatchObject({ id, ...EXPECTED_URL_INPUTS[id] });
     }
   });
 
-  it('keeps every active Consonant Digraphs family Practice Set in the 8-16 word range', () => {
-    for (const id of CONSONANT_DIGRAPH_FAMILY_IDS) {
+  it('keeps active Silent E family Practice Sets concise without padding Long E Silent E', () => {
+    for (const id of SILENT_E_FAMILY_IDS) {
       const entry = byId.get(id);
       expect(entry, id).toBeDefined();
       expect(entry!.status, id).toBe('published');
-      expect(entry!.words.length, id).toBeGreaterThanOrEqual(8);
+      expect(entry!.words.length, id).toBeGreaterThanOrEqual(id === 'silent-e-long-e' ? 7 : 8);
       expect(entry!.words.length, id).toBeLessThanOrEqual(16);
     }
   });
 
-  it('keeps Consonant Digraphs family relationship ids resolvable', () => {
-    for (const id of CONSONANT_DIGRAPH_FAMILY_IDS) {
+  it('keeps Silent E family relationship ids resolvable', () => {
+    for (const id of SILENT_E_FAMILY_IDS) {
       const entry = byId.get(id)!;
       for (const ref of [...entry.relatedLists, ...entry.prerequisiteLists, ...entry.nextLists]) {
         expect(allIds.has(ref), `${entry.id} references ${ref}`).toBe(true);
@@ -217,25 +215,17 @@ describe('Consonant Digraphs Skill Family', () => {
     }
   });
 
-  it('does not put rigid next-step sequencing on reusable Consonant Digraph Skills', () => {
-    for (const id of CONSONANT_DIGRAPH_SKILL_IDS) {
+  it('does not put rigid next-step sequencing on reusable Silent E Skills', () => {
+    for (const id of SILENT_E_SKILL_IDS) {
       expect(byId.get(id)!.nextLists, id).toEqual([]);
     }
   });
 
-  it('keeps Kindergarten roadmap focused on the Kindergarten Grade Unit, not reusable Skills', () => {
-    expect(KINDERGARTEN_CORE_IDS).toContain('kindergarten-consonant-digraphs');
-
-    for (const id of CONSONANT_DIGRAPH_SKILL_IDS) {
-      expect(KINDERGARTEN_CORE_IDS).not.toContain(id);
-    }
-  });
-
   it('keeps Grade 1 coverage resolving through core, gateway, and targeted Skill sections', () => {
-    expect(GRADE_1_CORE_IDS).toContain('grade-1-consonant-digraphs-final-ck');
-    expect(GRADE_1_GATEWAY_IDS).toContain('grade-1-consonant-digraph-practice');
+    expect(GRADE_1_CORE_IDS).toContain('grade-1-long-vowels-silent-e');
+    expect(GRADE_1_GATEWAY_IDS).toContain('grade-1-silent-e-practice');
 
-    for (const id of CONSONANT_DIGRAPH_SKILL_IDS) {
+    for (const id of SILENT_E_SKILL_IDS) {
       expect(GRADE_1_TARGETED_SKILL_IDS).toContain(id);
     }
   });

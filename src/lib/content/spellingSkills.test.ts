@@ -102,7 +102,7 @@ describe('curated spelling Skills browse index', () => {
   });
 
   it('curates only the completed Short Vowels and CVC focused Skills', () => {
-    expect(SHORT_VOWELS_AND_CVC_SKILL_FAMILY.title).toBe('Short Vowels and CVC Words');
+    expect(SHORT_VOWELS_AND_CVC_SKILL_FAMILY.title).toBe('Short Vowels');
     expect(CURATED_SPELLING_SKILL_IDS).toEqual([
       'short-a-words',
       'short-e-words',

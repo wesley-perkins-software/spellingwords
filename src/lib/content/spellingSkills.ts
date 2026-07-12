@@ -1,8 +1,8 @@
 export const SPELLING_SKILLS_INDEX_PATH = '/spelling-lists/skills/';
 
 export const SHORT_VOWELS_AND_CVC_SKILL_FAMILY = {
-  title: 'Short Vowels and CVC Words',
-  description: 'Practice simple words with short A, E, I, O, and U sounds.',
+  title: 'Short Vowels',
+  description: 'Practice short A, E, I, O, and U sounds.',
   /**
    * This family is ready for public Skill browsing, but it does not have its
    * own destination yet. The index uses the family as a grouping label and

@@ -32,6 +32,15 @@ const spellingLists = defineCollection({
     title: z.string(),
     description: z.string(),
     shortAnswer: z.string().optional(),
+    contentRole: z
+      .enum([
+        'grade-unit',
+        'skill',
+        'sight-word-set',
+        'vocabulary-theme',
+        'teaching-guide',
+      ])
+      .optional(),
     category,
     grade: z.string().optional(),
     difficulty,

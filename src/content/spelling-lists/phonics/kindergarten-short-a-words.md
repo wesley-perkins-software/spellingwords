@@ -4,6 +4,7 @@ urlSlug: kindergarten-short-a-words
 title: 'Kindergarten Short A Words'
 description: 'Eight simple words built around the short "a" sound — hat, mat, sat, man, can, bag, cap, and map — the first single-vowel stop in the kindergarten spelling progression.'
 shortAnswer: 'Eight kindergarten short "a" words — hat, mat, sat, man, can, bag, cap, and map — practicing one vowel sound at a time after First Words.'
+contentRole: grade-unit
 category: phonics
 grade: 'K'
 difficulty: beginner
@@ -44,4 +45,4 @@ words:
 
 The short "a" sound is one of the first single vowel sounds a kindergartener practices on its own — the crisp, open sound heard in the middle of *hat*, *can*, and *map*. Every word in this list is a simple consonant-vowel-consonant pattern, so hearing and spelling that one sound over and over helps it settle into memory.
 
-There is no rush here — just steady, calm practice with short words like these, one at a time.
+There is no rush here — just steady, calm practice with short words like these, one at a time. If a child needs more practice with this same vowel sound, [Short A Words](/spelling-lists/phonics/short-a-words) offers a focused extra practice set.

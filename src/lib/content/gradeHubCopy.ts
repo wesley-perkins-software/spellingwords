@@ -17,7 +17,7 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
       'Kindergarten spelling practice should feel simple, encouraging, and concrete. There is one obvious next step at every point in the core progression, and no timers, scores, or required detours — just calm, supported practice.',
     ],
     guidanceBody:
-      'Start with First Words and work through the core progression in order — each list picks up exactly where the last one left off. Animal Words and Number and Color Words are optional additional practice you can explore anytime, in any order, alongside the core progression.',
+      'Start with First Words and work through the core progression in order—each unit builds on the skills practiced before it. Heart Words offers additional practice with common words, while Animal Words and Number and Color Words are optional vocabulary practice you can explore at any time.',
     emptyStateLabel: 'Kindergarten',
   },
   '1': {

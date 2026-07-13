@@ -12,11 +12,11 @@ tags: ["phonics", "vowel-teams", "long-vowels", "early-elementary"]
 order: 7
 estimatedDurationMinutes: 9
 status: published
+contentRole: skill
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["vowel-teams-ee-ea", "vowel-teams-oi-oy"]
 prerequisiteLists: ["vowel-teams-ee-ea"]
-nextLists: ["vowel-teams-oi-oy"]
 featured: false
 readinessSignals:
   - "Can recognize the long-o sound from silent-e words before meeting OA and OW spellings"

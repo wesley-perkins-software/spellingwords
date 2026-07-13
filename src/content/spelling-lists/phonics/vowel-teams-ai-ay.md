@@ -12,11 +12,11 @@ tags: ["phonics", "vowel-teams", "long-vowels", "early-elementary"]
 order: 5
 estimatedDurationMinutes: 10
 status: published
+contentRole: skill
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["silent-e-long-o", "vowel-teams-ee-ea"]
 prerequisiteLists: ["silent-e-long-o"]
-nextLists: ["vowel-teams-ee-ea"]
 featured: false
 readinessSignals:
   - "Can read long-a silent-e words and recognize the same long-a sound in a new spelling pattern"

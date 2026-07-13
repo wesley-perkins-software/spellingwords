@@ -27,18 +27,20 @@ const edgeClass =
 
 {
   items.length > 0 && (
-    <div class="mt-8">
-      <h2 class="mb-3 font-display text-base font-semibold text-ink">{heading}</h2>
-      <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+    <div class="min-w-0">
+      <h3 class="mb-4 font-display text-sm font-bold uppercase tracking-wide text-ink-soft">
+        {heading}
+      </h3>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {items.map((linked) => (
           <a
             href={listLink(linked)}
-            class={`relative flex-1 overflow-hidden rounded-3xl border border-line bg-white py-3 pl-5 pr-4 shadow-card text-sm transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:content-[''] ${edgeClass} hover:-translate-y-0.5 hover:shadow-card-md sm:flex-none sm:min-w-[14rem]`}
+            class={`relative block min-w-0 overflow-hidden rounded-2xl border border-line bg-app-paper py-4 pl-6 pr-5 shadow-card transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:content-[''] ${edgeClass} hover:-translate-y-0.5 hover:bg-white hover:shadow-card-md`}
           >
-            <span class="block font-display text-base font-semibold text-ink">
+            <span class="block font-display text-base font-semibold text-ink sm:text-lg">
               {linked.data.title}
             </span>
-            <span class="mt-1 block text-sm leading-relaxed text-ink-soft line-clamp-2">
+            <span class="mt-1.5 block text-base leading-relaxed text-ink-soft line-clamp-2">
               {linked.data.description}
             </span>
           </a>

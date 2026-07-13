@@ -5,18 +5,30 @@ interface Props {
 }
 
 const { words, accentClass = 'bg-brand-blue' } = Astro.props;
+
+// Cycle a soft accent dot per tile for a warm, handmade practice-card feel —
+// same palette family as the homepage's word-preview panel.
+const dotColors = ['bg-chip-sky', 'bg-chip-grass', 'bg-chip-sun', 'bg-chip-berry'];
 ---
 
 <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-card-lg">
-  <div class={`h-1.5 ${accentClass}`} aria-hidden="true"></div>
+  <div class={`h-2 ${accentClass}`} aria-hidden="true"></div>
   <ul
-    class="grid grid-cols-2 gap-x-6 gap-y-3 px-6 py-7 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-4 sm:px-8 sm:py-8"
+    class="grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-3 p-6 sm:gap-4 sm:p-8"
     aria-label="Words in this list"
   >
     {
-      words.map((word) => (
-        <li class="font-word text-lg font-semibold leading-snug text-ink sm:text-xl md:text-2xl">
-          {word.word}
+      words.map((word, index) => (
+        <li
+          class="flex items-center gap-3 rounded-2xl border border-line/70 bg-app-paper px-5 py-4 shadow-[0_1px_3px_rgba(43,35,24,0.06)] transition hover:-translate-y-0.5 hover:border-line hover:shadow-card sm:px-6 sm:py-5"
+        >
+          <span
+            class={`h-2 w-2 flex-shrink-0 rounded-full ${dotColors[index % dotColors.length]}`}
+            aria-hidden="true"
+          />
+          <span class="font-word text-lg font-semibold leading-snug text-ink sm:text-xl">
+            {word.word}
+          </span>
         </li>
       ))
     }

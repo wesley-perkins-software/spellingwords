@@ -17,6 +17,8 @@ import {
 import { categoryLabels, cardAccent } from '@/lib/content/categoryMeta';
 import { getListPath } from '@/lib/content/learningPaths';
 import { SPELLING_SKILLS_INDEX_PATH, isCuratedSpellingSkillId } from '@/lib/content/spellingSkills';
+import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
+import { gradeConfig } from '@/lib/content/gradeConfig';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('spelling-lists')).filter(isPublished);
@@ -100,6 +102,37 @@ const gradeDisplay =
         : `Grade ${data.grade}`
       : null;
 
+const isSkill = data.contentRole === 'skill';
+const isGradeUnit = data.contentRole === 'grade-unit';
+// A Grade Unit adopts the sequencing-page presentation (roadmap step, word
+// sentences, Skill callout) only once it declares its canonical Skill. This
+// keeps un-migrated grade-unit pages rendering exactly as before.
+const isContractUnit = isGradeUnit && Boolean(data.conceptSkillId);
+
+// "Kindergarten Spelling · Step N of M" context for core-progression Grade Units.
+const roadmapPosition = isContractUnit ? getKindergartenRoadmapPosition(data.id) : undefined;
+const gradeHub = gradeConfig.find((g) => g.grade === data.grade);
+
+// Grade Unit → its canonical reusable Skill ("Learn more about …").
+const conceptSkill = isContractUnit
+  ? allEntries.find((e) => e.data.id === data.conceptSkillId)
+  : undefined;
+
+// Skill → the Grade Units that declare it as their concept ("Where this fits").
+const curriculumPlacements = isSkill
+  ? allEntries
+      .filter((e) => e.data.conceptSkillId === data.id)
+      .map((unit) => ({
+        unit,
+        position: getKindergartenRoadmapPosition(unit.data.id),
+        gradeLabel: gradeConfig.find((g) => g.grade === unit.data.grade)?.label,
+      }))
+  : [];
+
+const bodyHeading = isSkill
+  ? 'Understanding the pattern — and how to practice it'
+  : 'Why these words — and what they teach';
+
 const easierList = prerequisites[0];
 const harderList = next[0];
 ---
@@ -125,6 +158,20 @@ const harderList = next[0];
           class="relative overflow-hidden rounded-3xl border border-line bg-white px-6 py-8 shadow-card-lg sm:px-10 sm:py-10"
         >
           <div class={`absolute inset-x-0 top-0 h-1.5 ${cardAccent.bg}`} aria-hidden="true"></div>
+
+          {
+            roadmapPosition && gradeHub && (
+              <p class="mb-3 text-sm font-semibold text-brand-blue">
+                <a href={gradeHub.hubHref} class="hover:underline">
+                  {gradeHub.label} Spelling
+                </a>
+                <span aria-hidden="true"> · </span>
+                <span>
+                  Step {roadmapPosition.step} of {roadmapPosition.total}
+                </span>
+              </p>
+            )
+          }
 
           <div class="flex flex-wrap items-center gap-2">
             {
@@ -173,6 +220,22 @@ const harderList = next[0];
         </div>
       </div>
     </section>
+
+    <!-- Skill answer block: the extractable "What is …?" definition -->
+    {
+      isSkill && data.shortAnswer && (
+        <section class="px-5 pb-10 sm:px-6 md:pb-14" aria-labelledby="answer-heading">
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
+            <div class={`rounded-3xl bg-cream-deep px-6 py-6 sm:px-8 border-l-[3px] ${cardAccent.border}`}>
+              <h2 id="answer-heading" class="font-display text-lg font-semibold text-ink">
+                What are {data.title.toLowerCase()}?
+              </h2>
+              <p class="mt-2 text-base leading-relaxed text-ink-soft">{data.shortAnswer}</p>
+            </div>
+          </div>
+        </section>
+      )
+    }
 
     <!-- Is this the right list? -->
     {
@@ -243,9 +306,13 @@ const harderList = next[0];
     <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="word-list-heading">
       <div class="mx-auto max-w-2xl md:max-w-3xl">
         <h2 id="word-list-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-          All {data.words.length} words in this list
+          {
+            isContractUnit
+              ? `The ${data.words.length} words to practice in this step`
+              : `All ${data.words.length} words in this list`
+          }
         </h2>
-        <WordListPreview words={playWords} accentClass={cardAccent.bg} />
+        <WordListPreview words={playWords} accentClass={cardAccent.bg} showSentences={isContractUnit} />
       </div>
     </section>
 
@@ -253,7 +320,7 @@ const harderList = next[0];
     <section class="bg-cream-deep px-5 py-12 sm:px-6 md:py-16" aria-labelledby="why-heading">
       <div class="mx-auto max-w-2xl md:max-w-3xl">
         <div class={`border-l-[3px] pl-5 sm:pl-6 ${cardAccent.border}`}>
-          <h2 class="text-display-md">Why these words — and what they teach</h2>
+          <h2 class="text-display-md">{bodyHeading}</h2>
           <div
             class="text-body-lg [&_strong]:font-semibold [&_strong]:text-ink mt-4 max-w-2xl space-y-5 text-ink-soft sm:space-y-6"
           >
@@ -262,6 +329,71 @@ const harderList = next[0];
         </div>
       </div>
     </section>
+
+    <!-- Grade Unit → canonical Skill: the one "go deeper" recommendation -->
+    {
+      conceptSkill && (
+        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="concept-skill-heading">
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
+            <h2 id="concept-skill-heading" class="mb-3 font-display text-lg font-semibold text-ink">
+              Go deeper on this pattern
+            </h2>
+            <a
+              href={listLink(conceptSkill)}
+              class="relative block overflow-hidden rounded-3xl border border-line bg-white px-6 py-5 shadow-card transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-brand-blue before:content-[''] hover:-translate-y-0.5 hover:shadow-card-md"
+            >
+              <span class="block font-display text-lg font-semibold text-brand-blue">
+                Learn more about {conceptSkill.data.title.replace(/ Words$/i, '')} →
+              </span>
+              <span class="mt-1 block text-sm leading-relaxed text-ink-soft sm:text-base">
+                {conceptSkill.data.title} is the full guide to this pattern — how to hear it, what
+                trips children up, and more words to practice beyond this step.
+              </span>
+            </a>
+          </div>
+        </section>
+      )
+    }
+
+    <!-- Skill → Grade Units: where this concept sits in the grade progression -->
+    {
+      curriculumPlacements.length > 0 && (
+        <section
+          class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
+          aria-labelledby="curriculum-heading"
+        >
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
+            <h2 id="curriculum-heading" class="mb-2 font-display text-lg font-semibold text-ink">
+              Where this fits in the curriculum
+            </h2>
+            <p class="mb-5 max-w-2xl text-base leading-relaxed text-ink-soft">
+              This page is the reusable home for the pattern — use it for a first introduction,
+              later review, or extra practice at any age. In the grade-by-grade progression, it is
+              taught here:
+            </p>
+            <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+              {curriculumPlacements.map(({ unit, position, gradeLabel }) => (
+                <a
+                  href={listLink(unit)}
+                  class="relative flex-1 overflow-hidden rounded-3xl border border-line bg-white py-4 pl-5 pr-4 shadow-card transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-brand-blue before:content-[''] hover:-translate-y-0.5 hover:shadow-card-md sm:flex-none sm:min-w-[16rem]"
+                >
+                  {(gradeLabel || position) && (
+                    <span class="block text-sm font-semibold text-brand-blue">
+                      {gradeLabel}
+                      {gradeLabel && position && <span aria-hidden="true"> · </span>}
+                      {position && `Step ${position.step} of ${position.total}`}
+                    </span>
+                  )}
+                  <span class="mt-0.5 block font-display text-base font-semibold text-ink">
+                    {unit.data.title}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
 
     <!-- FAQ -->
     {

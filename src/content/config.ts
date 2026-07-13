@@ -41,6 +41,10 @@ const spellingLists = defineCollection({
         'teaching-guide',
       ])
       .optional(),
+    // For grade-units only: the stable id of the reusable Skill that owns this
+    // unit's concept. Powers the unit's "Learn more" callout and the Skill's
+    // reverse-lookup "Where this fits in the curriculum" section.
+    conceptSkillId: z.string().optional(),
     category,
     grade: z.string().optional(),
     difficulty,

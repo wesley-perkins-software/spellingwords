@@ -165,3 +165,51 @@ describe('Short A reference Skill content roles', () => {
     expect(route).toContain('data.grade');
   });
 });
+
+describe('Grade Unit ↔ Skill page contract (Short A prototype)', () => {
+  it('adds conceptSkillId to the schema as an optional field', () => {
+    const config = readFileSync(contentConfigPath, 'utf8');
+
+    expect(config).toContain('conceptSkillId: z.string().optional()');
+  });
+
+  it('links the Kindergarten unit to its canonical Skill via conceptSkillId', () => {
+    const frontmatter = readFrontmatter(kindergartenShortAPath);
+
+    expect(readScalar(frontmatter, 'conceptSkillId')).toBe('short-a-words');
+    expect(allListIds().has('short-a-words')).toBe(true);
+  });
+
+  it('keeps FAQ and readiness signals only on the Skill, not the Grade Unit', () => {
+    const unit = readFrontmatter(kindergartenShortAPath);
+    const skill = readFrontmatter(shortASkillPath);
+
+    expect(unit).not.toMatch(/^faq:/m);
+    expect(unit).not.toMatch(/^readinessSignals:/m);
+
+    expect(skill).toMatch(/^faq:/m);
+    expect(skill.match(/- question:/g)?.length ?? 0).toBeGreaterThanOrEqual(4);
+    expect(skill).toMatch(/^readinessSignals:/m);
+  });
+
+  it('gives the Skill a substantive extractable shortAnswer', () => {
+    const shortAnswer = readScalar(readFrontmatter(shortASkillPath), 'shortAnswer');
+
+    expect(shortAnswer).toBeDefined();
+    expect(shortAnswer!.length).toBeGreaterThan(100);
+  });
+
+  it('renders the contract in the shared detail template without new page types', () => {
+    const route = readFileSync(listDetailRoutePath, 'utf8');
+
+    // Grade Unit side: roadmap position, sentences, and the Skill callout,
+    // gated so only units that declare conceptSkillId adopt the new contract.
+    expect(route).toContain('getKindergartenRoadmapPosition');
+    expect(route).toContain('showSentences={isContractUnit}');
+    expect(route).toContain('data.conceptSkillId');
+
+    // Skill side: answer block and reverse-lookup curriculum placement.
+    expect(route).toContain('isSkill && data.shortAnswer');
+    expect(route).toContain('curriculumPlacements');
+  });
+});

@@ -48,6 +48,20 @@ export const kindergartenBadges: Record<string, string> = {
 };
 
 /**
+ * Returns a unit's 1-based position within the Kindergarten core progression,
+ * for the "Kindergarten spelling · Step N of M" indicator on Grade Unit pages.
+ * Returns undefined for anything outside the core roadmap (additional-practice
+ * lists, Skills, other grades), which renders no indicator.
+ */
+export function getKindergartenRoadmapPosition(
+  id: string,
+): { step: number; total: number } | undefined {
+  const index = KINDERGARTEN_CORE_IDS.indexOf(id);
+  if (index === -1) return undefined;
+  return { step: index + 1, total: KINDERGARTEN_CORE_IDS.length };
+}
+
+/**
  * Resolves the curated core/additional id lists against a grade's published
  * entries, in curated order. An id with no matching published entry is
  * silently dropped rather than throwing, matching `resolveListRefs()`'s

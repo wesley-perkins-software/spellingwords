@@ -12,6 +12,7 @@ tags: ["first-grade", "core-spelling"]
 order: 114
 estimatedDurationMinutes: 10
 status: published
+contentRole: grade-unit
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["vowel-teams-ee-ea"]

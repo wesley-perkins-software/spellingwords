@@ -12,6 +12,7 @@ import {
   SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
   SILENT_E_SKILL_FAMILY,
   SPELLING_SKILL_FAMILIES,
+  VOWEL_TEAMS_SKILL_FAMILY,
 } from './spellingSkills';
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
@@ -134,10 +135,12 @@ describe('Silent E Skill Family', () => {
       'Short Vowels',
       'Consonant Digraphs',
       'Silent E',
+      'Vowel Teams',
     ]);
     expect(SPELLING_SKILL_FAMILIES[0]).toBe(SHORT_VOWELS_AND_CVC_SKILL_FAMILY);
     expect(SPELLING_SKILL_FAMILIES[1]).toBe(CONSONANT_DIGRAPHS_SKILL_FAMILY);
     expect(SPELLING_SKILL_FAMILIES[2]).toBe(SILENT_E_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[3]).toBe(VOWEL_TEAMS_SKILL_FAMILY);
   });
 
   it('uses the requested five curated Silent E Skill IDs', () => {
@@ -146,6 +149,7 @@ describe('Silent E Skill Family', () => {
       ...SHORT_VOWELS_AND_CVC_SKILL_FAMILY.skillIds,
       ...CONSONANT_DIGRAPHS_SKILL_FAMILY.skillIds,
       ...SILENT_E_SKILL_IDS,
+      ...VOWEL_TEAMS_SKILL_FAMILY.skillIds,
     ]);
   });
 
@@ -173,8 +177,9 @@ describe('Silent E Skill Family', () => {
     expect(route).toContain('itemListElement: skillFamilies.flatMap((family) =>');
     expect(route).toContain('position: ++itemListPosition');
 
-    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(14);
-    expect(CURATED_SPELLING_SKILL_IDS.slice(9)).toEqual(SILENT_E_SKILL_IDS);
+    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(17);
+    expect(CURATED_SPELLING_SKILL_IDS.slice(9, 14)).toEqual(SILENT_E_SKILL_IDS);
+    expect(CURATED_SPELLING_SKILL_IDS.slice(14)).toEqual(VOWEL_TEAMS_SKILL_FAMILY.skillIds);
   });
 
   it('marks all five Silent E pages as reusable Skills', () => {

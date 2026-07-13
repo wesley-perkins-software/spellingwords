@@ -12,11 +12,11 @@ tags: ["phonics", "vowel-teams", "long-vowels", "early-elementary"]
 order: 6
 estimatedDurationMinutes: 10
 status: published
+contentRole: skill
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["vowel-teams-ai-ay", "vowel-teams-oa-ow"]
 prerequisiteLists: ["vowel-teams-ai-ay"]
-nextLists: ["vowel-teams-oa-ow"]
 featured: false
 readinessSignals:
   - "Can read long-e words and notice that two vowel letters may work together for the sound"

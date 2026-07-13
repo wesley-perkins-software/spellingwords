@@ -86,6 +86,7 @@ export const K1_ENTRIES: SentenceBankEntry[] = [
   { word: 'cat', exampleSentence: 'The cat sat on the soft rug.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'cereal', exampleSentence: 'She poured cereal into her bowl for breakfast.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'chair', exampleSentence: 'Please sit in your chair.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'chain', exampleSentence: 'The chain on the swing was shiny and strong.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'chalk', exampleSentence: 'The teacher wrote the word on the board with chalk.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'chat', exampleSentence: 'We chat with grandma on the phone.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'chip', exampleSentence: 'He ate one chip with his lunch.', gradeBand: 'K-1', sourceType: 'curated' },

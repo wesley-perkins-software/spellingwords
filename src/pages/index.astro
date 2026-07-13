@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
+import { CURATED_SPELLING_SKILL_IDS, SPELLING_SKILLS_INDEX_PATH } from '@/lib/content/spellingSkills';
 
 const sampleWords = [
   'friend',
@@ -45,10 +46,10 @@ const categories = [
     accentClass: 'bg-chip-berry',
   },
   {
-    href:        '/spelling-lists/phonics',
-    count:       '64 words',
-    name:        'Silent E',
-    desc:        'Magic-E patterns for stronger phonics',
+    href:        SPELLING_SKILLS_INDEX_PATH,
+    count:       `${CURATED_SPELLING_SKILL_IDS.length} skills`,
+    name:        'Practice by Skill',
+    desc:        'Choose focused sounds and spelling patterns',
     accentClass: 'bg-brand-red',
   },
   {

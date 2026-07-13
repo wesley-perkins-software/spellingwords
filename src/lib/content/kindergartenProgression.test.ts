@@ -5,6 +5,7 @@ import {
   KINDERGARTEN_ADDITIONAL_IDS,
   KINDERGARTEN_CORE_IDS,
   buildKindergartenSections,
+  getKindergartenRoadmapPosition,
   kindergartenBadges,
 } from './kindergartenProgression';
 import type { SpellingListEntry } from './spellingLists';
@@ -140,6 +141,29 @@ describe('buildKindergartenSections', () => {
 
   it('returns empty sections for an empty grade list', () => {
     expect(buildKindergartenSections([])).toEqual({ core: [], additional: [] });
+  });
+});
+
+describe('getKindergartenRoadmapPosition', () => {
+  it('returns 1-based positions over the full core progression', () => {
+    expect(getKindergartenRoadmapPosition('kindergarten-first-words')).toEqual({
+      step: 1,
+      total: KINDERGARTEN_CORE_IDS.length,
+    });
+    expect(getKindergartenRoadmapPosition('kindergarten-short-a-words')).toEqual({
+      step: 2,
+      total: KINDERGARTEN_CORE_IDS.length,
+    });
+    expect(getKindergartenRoadmapPosition('kindergarten-double-consonants')).toEqual({
+      step: KINDERGARTEN_CORE_IDS.length,
+      total: KINDERGARTEN_CORE_IDS.length,
+    });
+  });
+
+  it('returns undefined for anything outside the core progression', () => {
+    expect(getKindergartenRoadmapPosition('kindergarten-heart-words')).toBeUndefined();
+    expect(getKindergartenRoadmapPosition('short-a-words')).toBeUndefined();
+    expect(getKindergartenRoadmapPosition('')).toBeUndefined();
   });
 });
 

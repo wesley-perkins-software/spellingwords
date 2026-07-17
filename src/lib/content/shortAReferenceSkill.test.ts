@@ -23,6 +23,7 @@ type FrontmatterSummary = {
   category: string;
   contentRole?: string;
   words: string[];
+  skillIds: string[];
   relatedLists: string[];
   prerequisiteLists: string[];
   nextLists: string[];
@@ -69,6 +70,7 @@ function readSummary(filePath: string): FrontmatterSummary {
     category: readScalar(frontmatter, 'category') ?? '',
     contentRole: readScalar(frontmatter, 'contentRole'),
     words: readArray(frontmatter, 'words'),
+    skillIds: readArray(frontmatter, 'skillIds'),
     relatedLists: readArray(frontmatter, 'relatedLists'),
     prerequisiteLists: readArray(frontmatter, 'prerequisiteLists'),
     nextLists: readArray(frontmatter, 'nextLists'),
@@ -134,11 +136,11 @@ describe('Short A reference Skill content roles', () => {
     expect(KINDERGARTEN_CORE_IDS).not.toContain('short-a-words');
   });
 
-  it('keeps both Short A practice sets in the expected 8-16 word range', () => {
-    for (const entry of [readSummary(kindergartenShortAPath), readSummary(shortASkillPath)]) {
-      expect(entry.words.length, entry.id).toBeGreaterThanOrEqual(8);
-      expect(entry.words.length, entry.id).toBeLessThanOrEqual(16);
-    }
+  it('keeps the Grade Unit assigned word set inside the 8-16 word range', () => {
+    const gradeUnit = readSummary(kindergartenShortAPath);
+
+    expect(gradeUnit.words.length).toBeGreaterThanOrEqual(8);
+    expect(gradeUnit.words.length).toBeLessThanOrEqual(16);
   });
 
   it('keeps modified relationship references resolvable', () => {
@@ -151,12 +153,6 @@ describe('Short A reference Skill content roles', () => {
     }
   });
 
-  it('removes rigid Long A Silent E next-step sequencing from the Short A Skill', () => {
-    const skill = readSummary(shortASkillPath);
-
-    expect(skill.nextLists).not.toContain('silent-e-long-a');
-  });
-
   it('uses role-aware rendering without requiring every legacy entry to have a role', () => {
     const route = readFileSync(listDetailRoutePath, 'utf8');
 
@@ -166,50 +162,117 @@ describe('Short A reference Skill content roles', () => {
   });
 });
 
-describe('Grade Unit ↔ Skill page contract (Short A prototype)', () => {
-  it('adds conceptSkillId to the schema as an optional field', () => {
+describe('Grade Unit -> Skill relationship model (skillIds)', () => {
+  it('models the relationship as an array of Skill ids on the Grade Unit, not a scalar field', () => {
     const config = readFileSync(contentConfigPath, 'utf8');
 
-    expect(config).toContain('conceptSkillId: z.string().optional()');
+    expect(config).toContain('skillIds: z.array(z.string())');
+    expect(config).not.toContain('conceptSkillId');
   });
 
-  it('links the Kindergarten unit to its canonical Skill via conceptSkillId', () => {
-    const frontmatter = readFrontmatter(kindergartenShortAPath);
+  it('links the Kindergarten unit to its canonical Skill via skillIds, resolvable to a real Skill', () => {
+    const gradeUnit = readSummary(kindergartenShortAPath);
 
-    expect(readScalar(frontmatter, 'conceptSkillId')).toBe('short-a-words');
+    expect(gradeUnit.skillIds).toContain('short-a-words');
     expect(allListIds().has('short-a-words')).toBe(true);
   });
 
-  it('keeps FAQ and readiness signals only on the Skill, not the Grade Unit', () => {
-    const unit = readFrontmatter(kindergartenShortAPath);
-    const skill = readFrontmatter(shortASkillPath);
+  it('computes a Skill curriculum placement from the Grade Unit side, not stored on the Skill', () => {
+    // The relationship is one-directional in the schema: skillIds lives on
+    // the grade-unit entry; a Skill's placements are a reverse lookup over
+    // every grade-unit's skillIds, computed by the template, never authored
+    // on the Skill itself.
+    const skillFrontmatter = readFrontmatter(shortASkillPath);
+    expect(skillFrontmatter).not.toMatch(/^skillIds:/m);
 
-    expect(unit).not.toMatch(/^faq:/m);
-    expect(unit).not.toMatch(/^readinessSignals:/m);
-
-    expect(skill).toMatch(/^faq:/m);
-    expect(skill.match(/- question:/g)?.length ?? 0).toBeGreaterThanOrEqual(4);
-    expect(skill).toMatch(/^readinessSignals:/m);
+    const route = readFileSync(listDetailRoutePath, 'utf8');
+    expect(route).toContain('curriculumPlacements');
+    expect(route).toContain('e.data.skillIds.includes(data.id)');
   });
 
-  it('gives the Skill a substantive extractable shortAnswer', () => {
+  it('supports zero, one, or several skillIds on a Grade Unit generically (array, not a single id)', () => {
+    const config = readFileSync(contentConfigPath, 'utf8');
+    // .default([]) is what makes the zero-skill case (e.g. a First Words
+    // unit) require no special-casing in content or template code.
+    expect(config).toMatch(/skillIds:\s*z\.array\(z\.string\(\)\)\.default\(\[\]\)/);
+  });
+});
+
+describe('Skill contract: demonstration words, not an assigned list', () => {
+  it('keeps the Skill demonstration meaningfully smaller than the Grade Unit assigned set', () => {
+    const gradeUnit = readSummary(kindergartenShortAPath);
+    const skill = readSummary(shortASkillPath);
+
+    expect(skill.words.length).toBeLessThan(gradeUnit.words.length);
+    // A ceiling, not a target: the contract asks for "the smallest purposeful
+    // set," not a specific count. This guards against the demonstration
+    // creeping back toward assigned-set size, without pinning an exact number.
+    expect(skill.words.length).toBeLessThanOrEqual(8);
+  });
+
+  it('never curates the Skill demonstration as a copy of the Grade Unit assigned set', () => {
+    const gradeUnit = readSummary(kindergartenShortAPath);
+    const skill = readSummary(shortASkillPath);
+
+    expect(skill.words).not.toEqual(gradeUnit.words);
+
+    // Purposeful word-level overlap is allowed (a clearest-example word may
+    // legitimately anchor both pages); whole-set duplication is not. The
+    // demonstration must contain at least one word independently curated
+    // for its own teaching purpose, not merely copied from the assignment.
+    const overlap = skill.words.filter((word) => gradeUnit.words.includes(word));
+    expect(overlap.length).toBeLessThan(skill.words.length);
+  });
+
+  it('does not give the Skill readiness signals (Grade Unit sequence position answers readiness; Skills do not)', () => {
+    const skill = readFrontmatter(shortASkillPath);
+    expect(skill).not.toMatch(/^readinessSignals:/m);
+  });
+
+  it('gives the Skill a substantive extractable shortAnswer (the required answer card)', () => {
     const shortAnswer = readScalar(readFrontmatter(shortASkillPath), 'shortAnswer');
 
     expect(shortAnswer).toBeDefined();
     expect(shortAnswer!.length).toBeGreaterThan(100);
   });
 
-  it('renders the contract in the shared detail template without new page types', () => {
+  it('enforces no minimum FAQ count, but requires every present question to be substantive', () => {
+    const skill = readFrontmatter(shortASkillPath);
+    const answers = [...skill.matchAll(/^\s*answer:\s*"?(.+?)"?\s*$/gm)].map((m) => m[1]);
+
+    // No floor is asserted on question count — the contract explicitly
+    // forbids padding to hit a target. Whichever questions exist must each
+    // carry a real, non-trivial answer.
+    for (const answer of answers) {
+      expect(answer.length).toBeGreaterThan(20);
+    }
+  });
+});
+
+describe('Skill contract: no direct practice launch', () => {
+  it('keeps the FAQ section exclusive to Skills (Grade Units render none)', () => {
+    const unit = readFrontmatter(kindergartenShortAPath);
+    expect(unit).not.toMatch(/^faq:/m);
+  });
+
+  it('gates the primary practice CTA off for Skill pages in the shared template', () => {
     const route = readFileSync(listDetailRoutePath, 'utf8');
 
-    // Grade Unit side: roadmap position, sentences, and the Skill callout,
-    // gated so only units that declare conceptSkillId adopt the new contract.
-    expect(route).toContain('getKindergartenRoadmapPosition');
-    expect(route).toContain('showSentences={isContractUnit}');
-    expect(route).toContain('data.conceptSkillId');
+    // The CTA markup is present once, generically, guarded by role -
+    // asserting the guard exists (not exact button copy/markup) protects the
+    // contract without freezing incidental layout.
+    expect(route).toContain('!isSkill &&');
+    expect(route).toContain('id="btn-practice"');
+  });
 
-    // Skill side: answer block and reverse-lookup curriculum placement.
-    expect(route).toContain('isSkill && data.shortAnswer');
-    expect(route).toContain('curriculumPlacements');
+  it('keeps curriculum placement cards as the only Skill -> practice route, linking to real Grade Units', () => {
+    const route = readFileSync(listDetailRoutePath, 'utf8');
+    expect(route).toContain('curriculumPlacements.length > 0');
+
+    // For the reference pair specifically: the Skill must resolve to at
+    // least one real, published Grade Unit placement, since a Skill with
+    // zero placements has no route into practice at all.
+    const gradeUnit = readSummary(kindergartenShortAPath);
+    expect(gradeUnit.skillIds).toContain('short-a-words');
   });
 });

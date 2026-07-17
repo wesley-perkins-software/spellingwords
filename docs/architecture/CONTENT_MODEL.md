@@ -77,8 +77,10 @@ A Grade Unit typically has:
 - parent-friendly explanation;
 - one grade-appropriate primary Practice Set, usually 8–16 active words;
 - sequence context, such as prerequisite and curriculum-next relationships;
-- optional linked Skills;
+- zero, one, or several linked Skills (`skillIds`), the concepts the unit teaches;
 - status.
+
+A Grade Unit's `skillIds` is the only stored half of the Grade Unit ↔ Skill relationship. A Skill never stores its own list of Grade Units — its curriculum placements are computed by scanning every Grade Unit's `skillIds` for the Skill's own ID. This keeps the relationship a simple one-directional array with a derived reverse lookup, and it means a Skill correctly renders zero placements (and, per the lifecycle rule in §10, stays in draft status) if no Grade Unit currently declares it.
 
 A Grade Unit may overlap with a reusable Skill, but it remains distinct when it has grade-specific intent, framing, word selection, or roadmap context. A Grade 1 Silent E unit and a reusable Silent E Skill are not duplicates if one serves a Grade 1 progression and the other serves cross-grade focused practice.
 
@@ -95,11 +97,13 @@ A Skill typically has:
 - optional broader/narrower Skill relationships;
 - prerequisite and related Skill relationships where useful;
 - introduced or recommended grade information where useful;
-- one Practice Set, or multiple named Practice Sets only when justified;
+- one demonstration — a small set of words (or word pairs, or a single highlighted example) chosen to make the pattern audible, visible, and recognizable, not a Practice Set;
 - links to related Grade Units or Teaching Guides;
 - status.
 
 A Skill must not be owned by one grade merely because it is first taught there. Short A, SH Digraph, Silent E, Prefixes, Suffixes, and Homophones can all be used across grades, review situations, intervention, search, and focused practice.
+
+A Skill's demonstration is not a Practice Set (see §4) and does not launch the practice experience. It exists to teach the concept — hearing the sound, highlighting the shared pattern, comparing forms — and it must not be curated as a copy of any Grade Unit's assigned words. Purposeful word-level overlap is allowed when a word is genuinely one of the clearest examples of the concept (a word may anchor both a Grade Unit's assigned set and its Skill's demonstration), but the demonstration as a whole must never duplicate a Grade Unit's full assigned set or read as a second assignment. A user who wants to practice the concept is routed, via the Skill's curriculum-placement links, to the Grade Unit(s) where it is actually assigned.
 
 Broad Skills and focused subskills can use the same conceptual identity. For example, Consonant Digraphs and SH Digraph may both be Skills, with one broader than the other.
 
@@ -184,11 +188,11 @@ A Practice Set may include:
 - maximum active-session size;
 - status.
 
-Initial compatibility rule: existing `words` on a spelling-list entry represent that item’s primary Practice Set. This does not require Practice Sets to immediately become a separate Astro collection, separate files, separate routes, or database records.
+Initial compatibility rule: existing `words` on a Grade Unit entry represent that item's primary Practice Set. This does not require Practice Sets to immediately become a separate Astro collection, separate files, separate routes, or database records.
 
-Later, a broad Skill may support multiple named Practice Sets only when there is a genuine product need. For example, a Silent E Skill might support a mixed silent-e set, a long-a silent-e set, and a long-i silent-e set. That does not mean every Skill needs multiple sets.
+A Skill's `words` are a demonstration (see §3), not a Practice Set — a Skill does not launch the practice experience directly. The practice experience is reached exclusively through a Grade Unit's Practice Set (or custom words); a Skill routes there via its curriculum-placement links rather than exposing a second, grade-neutral Practice Set of its own. Should a genuine product need for named, grade-neutral practice sets on Skills emerge later, that is an additive change to this model, not an assumption it currently makes.
 
-The 8–16-word guideline applies to a single active curated Practice Set. A broad Skill can organize several sets without forcing every possible word bank to become a page.
+The 8–16-word guideline applies to a Grade Unit's Practice Set. A Skill's demonstration is deliberately smaller — the smallest set that clearly teaches the concept, not a target word count — and is capped well below Practice Set size so it cannot be mistaken for one.
 
 A Practice Set is not automatically an independently discoverable content item. SH Digraph is a focused Skill when it has an independent reusable identity, explanation, relationships, discovery value, or assignable destination. SH words are only a Practice Set when they exist solely as a selectable word set within a broader Consonant Digraphs Skill experience.
 
@@ -289,6 +293,8 @@ The current lifecycle of draft, published, and archived is enough for most near-
 Archived content is not deleted content. It can preserve editorial work, old references, and migration context.
 
 If the project later needs deprecated or superseded states, those should indicate that a canonical replacement exists. Superseded content should reference its replacement by stable ID. Do not add these states until they solve a real migration or editorial problem.
+
+A Skill with zero Grade Unit curriculum placements (see §3) stays `draft`, since it has no route into the practice experience. It becomes eligible for `published` once at least one published Grade Unit declares it in `skillIds`. If a Skill later drops back to zero placements — for example, its only Grade Unit is archived — it should generally revert to `draft` unless there is a specific editorial reason to keep it published as a stand-alone reference page. This uses the existing lifecycle states; it does not require a new status value or a conditional practice-launch mechanism for orphaned Skills.
 
 ## 11. Public and technical labels
 

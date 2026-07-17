@@ -105,23 +105,29 @@ const gradeDisplay =
 const isSkill = data.contentRole === 'skill';
 const isGradeUnit = data.contentRole === 'grade-unit';
 // A Grade Unit adopts the sequencing-page presentation (roadmap step, word
-// sentences, Skill callout) only once it declares its canonical Skill. This
-// keeps un-migrated grade-unit pages rendering exactly as before.
-const isContractUnit = isGradeUnit && Boolean(data.conceptSkillId);
+// sentences, Skill callout cards) only once it declares at least one
+// canonical Skill. This keeps un-migrated grade-unit pages rendering exactly
+// as before.
+const isContractUnit = isGradeUnit && data.skillIds.length > 0;
 
 // "Kindergarten Spelling · Step N of M" context for core-progression Grade Units.
 const roadmapPosition = isContractUnit ? getKindergartenRoadmapPosition(data.id) : undefined;
 const gradeHub = gradeConfig.find((g) => g.grade === data.grade);
 
-// Grade Unit → its canonical reusable Skill ("Learn more about …").
-const conceptSkill = isContractUnit
-  ? allEntries.find((e) => e.data.id === data.conceptSkillId)
-  : undefined;
+// Grade Unit → its canonical reusable Skill(s) ("Go deeper"). Zero, one, or
+// several — a mixed-review unit may declare more than one.
+const conceptSkills = isContractUnit
+  ? data.skillIds
+      .map((id) => allEntries.find((e) => e.data.id === id))
+      .filter((entry): entry is (typeof allEntries)[number] => entry !== undefined)
+  : [];
 
-// Skill → the Grade Units that declare it as their concept ("Where this fits").
+// Skill → the Grade Units that declare it in their skillIds ("Where this
+// fits"). Computed here, not stored on the Skill — the Skill never lists its
+// own placements.
 const curriculumPlacements = isSkill
   ? allEntries
-      .filter((e) => e.data.conceptSkillId === data.id)
+      .filter((e) => e.data.skillIds.includes(data.id))
       .map((unit) => ({
         unit,
         position: getKindergartenRoadmapPosition(unit.data.id),
@@ -130,7 +136,7 @@ const curriculumPlacements = isSkill
   : [];
 
 const bodyHeading = isSkill
-  ? 'Understanding the pattern — and how to practice it'
+  ? 'Understanding the pattern'
   : 'Why these words — and what they teach';
 
 const easierList = prerequisites[0];
@@ -198,25 +204,28 @@ const harderList = next[0];
           <h1 class="text-display-lg mt-3">{data.title}</h1>
           <p class="text-body-lg mt-3 max-w-2xl text-ink-soft">{data.description}</p>
 
-          <div class="mt-8">
-            <button
-              id="btn-practice"
-              type="button"
-              data-words={playWordsJson}
-              data-list-title={data.title}
-              class="btn-primary w-full px-9 py-4 text-base sm:w-auto"
-              aria-label={`Practice these ${playWords.length} words in ${data.title}`}
-            >
-              Practice these words
-            </button>
-            <p
-              id="start-test-status"
-              class="mt-3 text-sm text-feedback-incorrect"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-            </p>
-          </div>
+          {
+            !isSkill && (
+              <div class="mt-8">
+                <button
+                  id="btn-practice"
+                  type="button"
+                  data-words={playWordsJson}
+                  data-list-title={data.title}
+                  class="btn-primary w-full px-9 py-4 text-base sm:w-auto"
+                  aria-label={`Practice these ${playWords.length} words in ${data.title}`}
+                >
+                  Practice these words
+                </button>
+                <p
+                  id="start-test-status"
+                  class="mt-3 text-sm text-feedback-incorrect"
+                  aria-live="polite"
+                  aria-atomic="true"
+                />
+              </div>
+            )
+          }
         </div>
       </div>
     </section>
@@ -307,9 +316,11 @@ const harderList = next[0];
       <div class="mx-auto max-w-2xl md:max-w-3xl">
         <h2 id="word-list-heading" class="mb-4 font-display text-lg font-semibold text-ink">
           {
-            isContractUnit
-              ? `The ${data.words.length} words to practice in this step`
-              : `All ${data.words.length} words in this list`
+            isSkill
+              ? 'Hear the pattern in these words'
+              : isContractUnit
+                ? `The ${data.words.length} words to practice in this step`
+                : `All ${data.words.length} words in this list`
           }
         </h2>
         <WordListPreview words={playWords} accentClass={cardAccent.bg} showSentences={isContractUnit} />
@@ -330,32 +341,36 @@ const harderList = next[0];
       </div>
     </section>
 
-    <!-- Grade Unit → canonical Skill: the one "go deeper" recommendation -->
+    <!-- Grade Unit → canonical Skill(s): the "go deeper" recommendation(s) -->
     {
-      conceptSkill && (
+      conceptSkills.length > 0 && (
         <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="concept-skill-heading">
           <div class="mx-auto max-w-2xl md:max-w-3xl">
             <h2 id="concept-skill-heading" class="mb-3 font-display text-lg font-semibold text-ink">
-              Go deeper on this pattern
+              {conceptSkills.length > 1 ? 'Go deeper on these patterns' : 'Go deeper on this pattern'}
             </h2>
-            <a
-              href={listLink(conceptSkill)}
-              class="relative block overflow-hidden rounded-3xl border border-line bg-white px-6 py-5 shadow-card transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-brand-blue before:content-[''] hover:-translate-y-0.5 hover:shadow-card-md"
-            >
-              <span class="block font-display text-lg font-semibold text-brand-blue">
-                Learn more about {conceptSkill.data.title.replace(/ Words$/i, '')} →
-              </span>
-              <span class="mt-1 block text-sm leading-relaxed text-ink-soft sm:text-base">
-                {conceptSkill.data.title} is the full guide to this pattern — how to hear it, what
-                trips children up, and more words to practice beyond this step.
-              </span>
-            </a>
+            <div class="flex flex-col gap-3">
+              {conceptSkills.map((conceptSkill) => (
+                <a
+                  href={listLink(conceptSkill)}
+                  class="relative block overflow-hidden rounded-3xl border border-line bg-white px-6 py-5 shadow-card transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-brand-blue before:content-[''] hover:-translate-y-0.5 hover:shadow-card-md"
+                >
+                  <span class="block font-display text-lg font-semibold text-brand-blue">
+                    Learn more about {conceptSkill.data.title.replace(/ Words$/i, '')} →
+                  </span>
+                  <span class="mt-1 block text-sm leading-relaxed text-ink-soft sm:text-base">
+                    {conceptSkill.data.title} is the full guide to this pattern — how it works, what
+                    trips children up, and where else it's taught.
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
       )
     }
 
-    <!-- Skill → Grade Units: where this concept sits in the grade progression -->
+    <!-- Skill → Grade Units: the only route from here into assigned practice -->
     {
       curriculumPlacements.length > 0 && (
         <section
@@ -367,9 +382,8 @@ const harderList = next[0];
               Where this fits in the curriculum
             </h2>
             <p class="mb-5 max-w-2xl text-base leading-relaxed text-ink-soft">
-              This page is the reusable home for the pattern — use it for a first introduction,
-              later review, or extra practice at any age. In the grade-by-grade progression, it is
-              taught here:
+              This page explains the pattern — practice it in the grade-level lesson where it's
+              taught:
             </p>
             <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
               {curriculumPlacements.map(({ unit, position, gradeLabel }) => (
@@ -386,6 +400,9 @@ const harderList = next[0];
                   )}
                   <span class="mt-0.5 block font-display text-base font-semibold text-ink">
                     {unit.data.title}
+                  </span>
+                  <span class="mt-1 block text-sm font-semibold text-brand-blue">
+                    {unit.data.words.length} words to practice →
                   </span>
                 </a>
               ))}

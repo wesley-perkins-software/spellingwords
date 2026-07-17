@@ -396,7 +396,7 @@ Internal metadata may continue to track concepts such as CVC, closed syllables, 
 | Consonant Blends | Broad Skill Family | Canonical Broad Skill Family | Beginning Blends, Ending Blends | introduced 1, practiced 1–2 | Individual blends are usually filters. |
 | Beginning / Ending Blends | Focused Skills | Canonical Focused Skills | L/R/S groups, final blend groups | introduced 1, practiced/reviewed later | L/R/S groups are likely Practice Sets. |
 | Individual blends | Practice Sets | Practice Set / Filter | BL, BR, ND, NK, MP, etc. | practiced as needed | Not canonical Skills by default. |
-| One-Syllable Spelling Patterns | Broad Skill Family | Canonical Broad Skill Family | CK, FLOSS, TCH/DGE, C/K/CK | introduced K–2, practiced 1–3 | Broad destination must provide practice, not only links. |
+| One-Syllable Spelling Patterns | Broad Skill Family | Canonical Broad Skill Family | CK, FLOSS, TCH/DGE, C/K/CK | introduced K–2, practiced 1–3 | Broad destination must teach the pattern and route to real practice, not only list links. |
 | Silent E | Broad Skill Family | Canonical Broad Skill Family | Long A/I/O/U Silent E | introduced 1, practiced 1–3 | Also relates to Dropping Silent E. |
 | Long A/I/O/U Silent E | Focused Skills | Canonical Focused Skills | vowel-specific VCe sets | introduced/practiced 1–2 | Long E Silent E requires autonomy review. |
 | Vowel Teams | Broad Skill Family | Canonical Broad Skill Family | AI/AY, EE/EA, OA/OW, others | introduced 1–2, practiced 2–3 | Diphthongs may nest here. |
@@ -490,7 +490,7 @@ Good Teaching Guide topics include:
 - What are heart words?
 - How should students practice homophones?
 
-A Skill page should remain practice-first. It may include concise explanation, examples, and links to related practice. A Teaching Guide can carry deeper explanation, terminology, parent guidance, and curriculum context without interrupting immediate practice.
+A Skill page is concept-first: its job is to teach the pattern clearly, demonstrate it, and route the user to the Grade Unit(s) where it is actually practiced — it does not launch a practice session of its own. A Teaching Guide can carry deeper explanation, terminology, parent guidance, and curriculum context beyond what a Skill's own concise explanation covers.
 
 ## 16. Gateway-page principles
 
@@ -600,7 +600,7 @@ ND, NK, MP, and similar endings should not automatically become canonical Skills
 
 Grade 1 Silent E → Silent E → Long A/I/O/U Silent E.
 
-The broad Skill should explain the pattern, provide practice, and connect later to Dropping Silent E.
+The broad Skill should explain the pattern, demonstrate it, route to where it's practiced, and connect later to Dropping Silent E.
 
 ### Vowel Teams
 

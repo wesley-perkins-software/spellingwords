@@ -241,9 +241,11 @@ Grade Units should be useful even if a user never clicks any optional supporting
 
 ## 10. Skill Principles
 
-Skill or focused-practice experiences should answer: “I need practice with this spelling concept, word type, or named set.”
+Skill experiences should answer: “What is this spelling concept, how does it work, and where is it taught?”
 
-They should use recognizable parent and teacher language, provide direct practice, remain grade-neutral unless the content itself is explicitly grade-specific, support assignment and intervention, link to relevant Grade Roadmaps where helpful, identify prerequisites and related practice when useful, and avoid unnecessary technical terminology.
+They should use recognizable parent and teacher language, teach the concept as its primary job, remain grade-neutral unless the content itself is explicitly grade-specific, identify prerequisites and related concepts when useful, and avoid unnecessary technical terminology.
+
+A Skill explains and demonstrates a concept; it does not launch its own practice session. The dedicated practice experience (`/play`) is reached exclusively through Grade Units (and custom words) — a Skill routes the user to the Grade Unit(s) where the concept is assigned, rather than offering a second, grade-neutral practice set of its own. This keeps exactly one canonical practice destination per concept: a Skill's demonstration words illustrate the pattern (for hearing it, highlighting it, comparing forms), not a second word list to spell.
 
 Not every micro-pattern deserves a separate destination. Focused practice should exist only when it provides real value, such as instructional isolation, teacher assignment utility, distinct user intent, a useful word set, or meaningful search and bookmarking value.
 
@@ -322,7 +324,7 @@ Calm optional continuity, such as “continue where you left off,” may be expl
 
 SpellingWords.app should focus on words children are expected to spell, not merely words they are expected to understand.
 
-Curriculum word lists should be deliberately curated. A single curated practice set should generally contain 8–16 words. A broader Skill may organize several curated practice sets, but it should not expose every possible word in one enormous session.
+Curriculum word lists should be deliberately curated. A single Grade Unit's curated practice set should generally contain 8–16 words; a Skill's demonstration is smaller still, curated to teach the pattern rather than to be assigned. Neither should expose every possible word in one enormous session.
 
 Every page must answer a clear user question and have one primary purpose. Page count is not a product goal.
 

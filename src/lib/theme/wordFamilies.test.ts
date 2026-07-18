@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { groupByWordFamily, shouldGroupByWordFamily } from './wordFamilies';
+import { groupByWordFamily, shouldGroupByWordFamily, splitVowelHighlight } from './wordFamilies';
 
 describe('groupByWordFamily', () => {
   it('groups the real Kindergarten Short A word list into its natural families', () => {
@@ -55,5 +55,40 @@ describe('shouldGroupByWordFamily', () => {
     expect(shouldGroupByWordFamily(['grade-K', 'short-vowels', 'mixed-short-vowels', 'cvc'])).toBe(
       true,
     );
+  });
+});
+
+describe('splitVowelHighlight', () => {
+  it('highlights only the "a" in a Short A word, not the whole ending', () => {
+    expect(splitVowelHighlight('hat')).toEqual([
+      { text: 'h', isVowel: false },
+      { text: 'a', isVowel: true },
+      { text: 't', isVowel: false },
+    ]);
+  });
+
+  it('highlights the "i" in a Short I word', () => {
+    expect(splitVowelHighlight('pig')).toEqual([
+      { text: 'p', isVowel: false },
+      { text: 'i', isVowel: true },
+      { text: 'g', isVowel: false },
+    ]);
+  });
+
+  it('highlights each word\'s own vowel on a mixed-short-vowel review list', () => {
+    expect(splitVowelHighlight('dog').filter((s) => s.isVowel).map((s) => s.text)).toEqual(['o']);
+    expect(splitVowelHighlight('web').filter((s) => s.isVowel).map((s) => s.text)).toEqual(['e']);
+  });
+
+  it('groups consecutive vowels into one run', () => {
+    expect(splitVowelHighlight('boat')).toEqual([
+      { text: 'b', isVowel: false },
+      { text: 'oa', isVowel: true },
+      { text: 't', isVowel: false },
+    ]);
+  });
+
+  it('handles a word with no vowels without throwing', () => {
+    expect(splitVowelHighlight('shh')).toEqual([{ text: 'shh', isVowel: false }]);
   });
 });

@@ -1,25 +1,24 @@
 ---
 import type { WordFamily } from '@/lib/theme/wordFamilies';
+import { splitVowelHighlight } from '@/lib/theme/wordFamilies';
 
 interface Props {
   /** Every word in the list, in list order — used when `wordFamilies` is omitted. */
   words: string[];
-  /** word -> example sentence, revealed on tap alongside the slow read-aloud. */
-  sentences: Record<string, string>;
   /**
    * Pre-grouped word families (see shouldGroupByWordFamily) — only pass this
-   * when the content actually teaches a shared-ending pattern. Omit it for
+   * when the content actually teaches a shared vowel pattern. Omit it for
    * anything else (digraphs, vowel teams, spelling rules, etc.) and the field
-   * renders a plain word list instead of a potentially misleading grouping.
+   * renders a plain word list with no vowel highlighting instead.
    */
   wordFamilies?: WordFamily[];
 }
 
-const { words, sentences, wordFamilies } = Astro.props;
+const { words, wordFamilies } = Astro.props;
 
-const groups: { rime: string; words: string[]; highlightRime: boolean }[] = wordFamilies
-  ? wordFamilies.map((f) => ({ ...f, highlightRime: true }))
-  : words.map((word) => ({ rime: '', words: [word], highlightRime: false }));
+const groups: { words: string[]; highlightVowel: boolean }[] = wordFamilies
+  ? wordFamilies.map((f) => ({ words: f.words, highlightVowel: true }))
+  : words.map((word) => ({ words: [word], highlightVowel: false }));
 ---
 
 <div class="word-field" role="list" aria-label="Words in this list">
@@ -27,36 +26,20 @@ const groups: { rime: string; words: string[]; highlightRime: boolean }[] = word
     groups.map((group) => (
       <div class="family" role="listitem">
         <div class="family-words">
-          {group.words.map((word) => {
-            const onset = group.highlightRime ? word.slice(0, word.length - group.rime.length) : word;
-            const sentence = sentences[word];
-            return (
-              <span class="word-wrap">
-                <span
-                  class="word"
-                  role="button"
-                  tabindex="0"
-                  data-word={word}
-                  aria-expanded="false"
-                  aria-label={`Hear "${word}" said slowly, and show an example sentence`}
-                >
-                  <span class="onset">{onset}</span>
-                  {group.highlightRime && <span class="rime">{group.rime}</span>}
-                </span>
-                {sentence && (
-                  <span class="sentence-reveal" hidden>
-                    {sentence}
-                  </span>
-                )}
-              </span>
-            );
-          })}
+          {group.words.map((word) => (
+            <span
+              class="word"
+              role="button"
+              tabindex="0"
+              data-word={word}
+              aria-label={`Hear "${word}" said slowly`}
+            >{group.highlightVowel
+              ? splitVowelHighlight(word).map((seg) =>
+                  seg.isVowel ? <span class="vowel">{seg.text}</span> : seg.text,
+                )
+              : word}</span>
+          ))}
         </div>
-        {group.highlightRime && group.words.length > 1 && (
-          <p class="family-caption">
-            the <span class="rime-label">-{group.rime}</span> family
-          </p>
-        )}
       </div>
     ))
   }
@@ -90,13 +73,8 @@ const groups: { rime: string; words: string[]; highlightRime: boolean }[] = word
     gap: 8px;
   }
 
-  .word-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .word {
+    display: inline-block;
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-weight: 700;
     font-size: clamp(28px, 5.6vw, 44px);
@@ -116,37 +94,9 @@ const groups: { rime: string; words: string[]; highlightRime: boolean }[] = word
     outline: 2px solid var(--world-ink);
     outline-offset: 3px;
   }
-  .word .onset {
-    color: var(--world-ink);
-  }
-  .word .rime {
+  .word .vowel {
     color: var(--world-accent);
     text-shadow: 0 0 22px var(--world-accent-soft);
-  }
-
-  .sentence-reveal {
-    font-family: 'Nunito', sans-serif;
-    font-style: italic;
-    font-weight: 600;
-    font-size: 14.5px;
-    color: var(--world-ink);
-    opacity: 0.75;
-    max-width: 22ch;
-    text-align: center;
-    margin-top: 2px;
-  }
-
-  .family-caption {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    font-size: 13.5px;
-    color: var(--world-ink);
-    opacity: 0.6;
-    margin: 4px 0 0;
-  }
-  .family-caption .rime-label {
-    color: var(--world-accent);
-    opacity: 1;
   }
 
   @media (max-width: 640px) {
@@ -168,31 +118,17 @@ const groups: { rime: string; words: string[]; highlightRime: boolean }[] = word
 
   const controller = createSpeechController();
 
-  function toggleWord(el: HTMLElement): void {
+  function speakSlowly(el: HTMLElement): void {
     const word = el.dataset.word;
     if (word) controller.speakWord(word, { rate: 0.7 });
-
-    const reveal = el.nextElementSibling as HTMLElement | null;
-    if (!reveal || !reveal.classList.contains('sentence-reveal')) return;
-
-    const isHidden = reveal.hidden;
-    document
-      .querySelectorAll<HTMLElement>('.sentence-reveal:not([hidden])')
-      .forEach((el) => (el.hidden = true));
-    document
-      .querySelectorAll<HTMLElement>('.word[aria-expanded="true"]')
-      .forEach((el) => el.setAttribute('aria-expanded', 'false'));
-
-    reveal.hidden = !isHidden;
-    el.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
   }
 
   document.querySelectorAll<HTMLElement>('.word-field .word').forEach((el) => {
-    el.addEventListener('click', () => toggleWord(el));
+    el.addEventListener('click', () => speakSlowly(el));
     el.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        toggleWord(el);
+        speakSlowly(el);
       }
     });
   });

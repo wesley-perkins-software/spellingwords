@@ -59,9 +59,6 @@ const conceptSkills = data.skillIds
 
 const playWords = toPlayableWords(entry);
 const playWordsJson = JSON.stringify(playWords);
-const sentences = Object.fromEntries(
-  playWords.filter((w) => w.exampleSentence).map((w) => [w.word, w.exampleSentence as string]),
-);
 
 const words = data.words.map((w) => (typeof w === 'string' ? w : w.word));
 const wordFamilies = shouldGroupByWordFamily(data.skillTags) ? groupByWordFamily(words) : undefined;
@@ -144,7 +141,7 @@ const breadcrumbItems = [
       <h2 class="word-field-heading">
         The {words.length} words to practice in this step
       </h2>
-      <WorldWordField words={words} sentences={sentences} wordFamilies={wordFamilies} />
+      <WorldWordField words={words} wordFamilies={wordFamilies} />
     </section>
 
     <!-- Why these words (real markdown body, quieter, paper-toned) -->

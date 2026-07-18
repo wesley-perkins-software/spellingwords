@@ -56,3 +56,34 @@ export function shouldGroupByWordFamily(skillTags: string[]): boolean {
 
   return isPlainShortVowelCvc && !teachesADifferentPattern;
 }
+
+export interface WordSegment {
+  text: string;
+  isVowel: boolean;
+}
+
+/**
+ * Splits a word into consonant/vowel runs for highlighting, e.g. "hat" ->
+ * [{text:"h",isVowel:false},{text:"a",isVowel:true},{text:"t",isVowel:false}].
+ *
+ * Used instead of highlighting a word's whole shared ending: for a Short A
+ * word the taught sound is the letter "a" itself, not "-at" as a unit — and
+ * this scales correctly to a mixed-short-vowel review list too, where each
+ * word carries its own vowel rather than one shared across the list.
+ */
+export function splitVowelHighlight(word: string): WordSegment[] {
+  const vowels = new Set(['a', 'e', 'i', 'o', 'u']);
+  const segments: WordSegment[] = [];
+
+  for (const char of word) {
+    const isVowel = vowels.has(char.toLowerCase());
+    const last = segments[segments.length - 1];
+    if (last && last.isVowel === isVowel) {
+      last.text += char;
+    } else {
+      segments.push({ text: char, isVowel });
+    }
+  }
+
+  return segments;
+}

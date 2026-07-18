@@ -1,0 +1,10 @@
+---
+// Stress test 3: Grade 1, 12 words (top of the 8-16 contract range), and a
+// spelling-rule list (c/k/ck) where word-family grouping is deliberately
+// OFF — shouldGroupByWordFamily excludes it despite carrying both "cvc" and
+// "short-vowels" tags, since the taught pattern is the c/k/ck spelling rule,
+// not a shared rime. Also carries 6 related lists and 2 prerequisites.
+import GradeUnitWorldPage from '@/components/GradeUnitWorldPage.astro';
+---
+
+<GradeUnitWorldPage listId="grade-1-cvc-short-vowels-c-k-rule" />

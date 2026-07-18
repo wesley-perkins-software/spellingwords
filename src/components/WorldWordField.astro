@@ -2,36 +2,61 @@
 import type { WordFamily } from '@/lib/theme/wordFamilies';
 
 interface Props {
-  families: WordFamily[];
+  /** Every word in the list, in list order — used when `wordFamilies` is omitted. */
+  words: string[];
+  /** word -> example sentence, revealed on tap alongside the slow read-aloud. */
+  sentences: Record<string, string>;
+  /**
+   * Pre-grouped word families (see shouldGroupByWordFamily) — only pass this
+   * when the content actually teaches a shared-ending pattern. Omit it for
+   * anything else (digraphs, vowel teams, spelling rules, etc.) and the field
+   * renders a plain word list instead of a potentially misleading grouping.
+   */
+  wordFamilies?: WordFamily[];
 }
 
-const { families } = Astro.props;
+const { words, sentences, wordFamilies } = Astro.props;
+
+const groups: { rime: string; words: string[]; highlightRime: boolean }[] = wordFamilies
+  ? wordFamilies.map((f) => ({ ...f, highlightRime: true }))
+  : words.map((word) => ({ rime: '', words: [word], highlightRime: false }));
 ---
 
-<div class="word-field" role="list" aria-label="Words in this list, grouped by shared ending sound">
+<div class="word-field" role="list" aria-label="Words in this list">
   {
-    families.map((family) => (
+    groups.map((group) => (
       <div class="family" role="listitem">
         <div class="family-words">
-          {family.words.map((word) => {
-            const onset = word.slice(0, word.length - family.rime.length);
+          {group.words.map((word) => {
+            const onset = group.highlightRime ? word.slice(0, word.length - group.rime.length) : word;
+            const sentence = sentences[word];
             return (
-              <span
-                class="word"
-                role="button"
-                tabindex="0"
-                data-word={word}
-                aria-label={`Hear "${word}" said slowly`}
-              >
-                <span class="onset">{onset}</span>
-                <span class="rime">{family.rime}</span>
+              <span class="word-wrap">
+                <span
+                  class="word"
+                  role="button"
+                  tabindex="0"
+                  data-word={word}
+                  aria-expanded="false"
+                  aria-label={`Hear "${word}" said slowly, and show an example sentence`}
+                >
+                  <span class="onset">{onset}</span>
+                  {group.highlightRime && <span class="rime">{group.rime}</span>}
+                </span>
+                {sentence && (
+                  <span class="sentence-reveal" hidden>
+                    {sentence}
+                  </span>
+                )}
               </span>
             );
           })}
         </div>
-        <p class="family-caption">
-          the <span class="rime-label">-{family.rime}</span> family
-        </p>
+        {group.highlightRime && group.words.length > 1 && (
+          <p class="family-caption">
+            the <span class="rime-label">-{group.rime}</span> family
+          </p>
+        )}
       </div>
     ))
   }
@@ -44,7 +69,8 @@ const { families } = Astro.props;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 44px 56px;
+    align-items: flex-start;
+    gap: 40px 52px;
     padding: 12px 20px 8px;
   }
 
@@ -54,36 +80,45 @@ const { families } = Astro.props;
     align-items: center;
     gap: 10px;
   }
-  .family:nth-child(2n) {
-    transform: translateY(18px);
+  .family:nth-child(3n + 2) {
+    transform: translateY(16px);
   }
-  .family:nth-child(3n) {
-    transform: translateY(-10px);
+  .family:nth-child(3n + 3) {
+    transform: translateY(-8px);
   }
 
   .family-words {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+  }
+
+  .word-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .word {
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-weight: 700;
-    font-size: clamp(30px, 6vw, 46px);
+    font-size: clamp(28px, 5.6vw, 44px);
     line-height: 1.15;
     letter-spacing: 0.01em;
     color: var(--world-ink);
-    cursor: default;
+    cursor: pointer;
     border-radius: 10px;
-    padding: 2px 8px;
+    padding: 2px 10px;
     transition: transform 0.18s ease;
   }
   .word:hover,
   .word:focus-visible {
     transform: scale(1.06);
-    outline: none;
+  }
+  .word:focus-visible {
+    outline: 2px solid var(--world-ink);
+    outline-offset: 3px;
   }
   .word .onset {
     color: var(--world-ink);
@@ -93,12 +128,24 @@ const { families } = Astro.props;
     text-shadow: 0 0 22px var(--world-accent-soft);
   }
 
+  .sentence-reveal {
+    font-family: 'Nunito', sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--world-ink);
+    opacity: 0.75;
+    max-width: 22ch;
+    text-align: center;
+    margin-top: 2px;
+  }
+
   .family-caption {
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 13.5px;
     color: var(--world-ink);
-    opacity: 0.62;
+    opacity: 0.6;
     margin: 4px 0 0;
   }
   .family-caption .rime-label {
@@ -108,11 +155,17 @@ const { families } = Astro.props;
 
   @media (max-width: 640px) {
     .word-field {
-      gap: 32px 20px;
+      gap: 30px 22px;
     }
-    .family:nth-child(2n),
-    .family:nth-child(3n) {
+    .family:nth-child(3n + 2),
+    .family:nth-child(3n + 3) {
       transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .word {
+      transition: none;
     }
   }
 </style>
@@ -122,20 +175,32 @@ const { families } = Astro.props;
 
   const controller = createSpeechController();
 
-  function speakSlowly(el: HTMLElement): void {
+  function toggleWord(el: HTMLElement): void {
     const word = el.dataset.word;
-    if (!word) return;
-    controller.speakWord(word, { rate: 0.7 });
+    if (word) controller.speakWord(word, { rate: 0.7 });
+
+    const reveal = el.nextElementSibling as HTMLElement | null;
+    if (!reveal || !reveal.classList.contains('sentence-reveal')) return;
+
+    const isHidden = reveal.hidden;
+    document
+      .querySelectorAll<HTMLElement>('.sentence-reveal:not([hidden])')
+      .forEach((el) => (el.hidden = true));
+    document
+      .querySelectorAll<HTMLElement>('.word[aria-expanded="true"]')
+      .forEach((el) => el.setAttribute('aria-expanded', 'false'));
+
+    reveal.hidden = !isHidden;
+    el.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
   }
 
   document.querySelectorAll<HTMLElement>('.word-field .word').forEach((el) => {
-    el.addEventListener('click', () => speakSlowly(el));
+    el.addEventListener('click', () => toggleWord(el));
     el.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        speakSlowly(el);
+        toggleWord(el);
       }
     });
   });
 </script>
-

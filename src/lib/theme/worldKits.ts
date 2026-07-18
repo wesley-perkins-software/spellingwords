@@ -146,6 +146,14 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
 /**
  * FNV-1a 32-bit hash. Deterministic across Node and browser, stable across
  * builds — the same list `id` always produces the same integer.
+ *
+ * FNV-1a's low bits are known to mix weakly for short, similarly-prefixed
+ * strings (exactly what content ids are — "kindergarten-...", "grade-1-...").
+ * Taking `% 6` straight off the raw hash measurably clusters real ids: the
+ * 11 real Grade Units published today landed 7-of-11 on the same kit, with
+ * half the kits never assigned at all. `avalanche()` re-mixes the bits
+ * (the fmix32 finalizer from MurmurHash3) before the modulo specifically to
+ * fix that — verified against the real id set in worldKits.test.ts.
  */
 export function hashListId(id: string): number {
   let hash = 2166136261;
@@ -153,7 +161,16 @@ export function hashListId(id: string): number {
     hash ^= id.charCodeAt(i);
     hash = Math.imul(hash, 16777619);
   }
-  return hash >>> 0;
+  return avalanche(hash >>> 0);
+}
+
+function avalanche(h: number): number {
+  h ^= h >>> 16;
+  h = Math.imul(h, 0x85ebca6b);
+  h ^= h >>> 13;
+  h = Math.imul(h, 0xc2b2ae35);
+  h ^= h >>> 16;
+  return h >>> 0;
 }
 
 /** Deterministically assigns a Grade Unit's permanent id to one of the world kits. */

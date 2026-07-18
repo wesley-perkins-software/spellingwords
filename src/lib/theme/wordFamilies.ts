@@ -27,3 +27,32 @@ export function groupByWordFamily(words: string[], rimeLength = 2): WordFamily[]
 
   return families;
 }
+
+/**
+ * Whether a Grade Unit's word list should be displayed as shared-ending
+ * "word families" at all (hat/mat/sat → the -at family) rather than as a
+ * plain word list.
+ *
+ * This is a real phonics distinction, not a stylistic one: grouping by
+ * shared ending is only the actual pattern being taught for plain
+ * short-vowel CVC lists. Applying it to a consonant-digraph list (ship/chip
+ * share "-ip", but the taught pattern is the sh-/ch- onset, not the rime)
+ * or a spelling-rule list like c/k/ck (back/neck/kick/lock/duck/sack would
+ * cluster under "-ck" while cat/cot/cup/kid/kit/cap are left as meaningless
+ * families of one) would visually teach the wrong pattern. Gated on the
+ * content's own `skillTags` rather than re-deriving intent from the words
+ * themselves, since only the content model knows what's actually being
+ * taught.
+ */
+export function shouldGroupByWordFamily(skillTags: string[]): boolean {
+  const tags = new Set(skillTags);
+  const isPlainShortVowelCvc = tags.has('cvc') && tags.has('short-vowels');
+  const teachesADifferentPattern =
+    tags.has('spelling-rules') ||
+    tags.has('digraphs') ||
+    tags.has('blends') ||
+    tags.has('vowel-teams') ||
+    tags.has('silent-e');
+
+  return isPlainShortVowelCvc && !teachesADifferentPattern;
+}

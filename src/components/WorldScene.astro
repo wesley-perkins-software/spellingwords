@@ -78,18 +78,37 @@ const { kitId } = Astro.props;
   {
     kitId === 'seaside' && (
       <>
+        <div class="sun" />
+        <div class="bird" style="top:6%; left:58%;">
+          <svg viewBox="0 0 24 10" width="22" height="10">
+            <path d="M0 8 Q6 0 12 8 Q18 0 24 8" fill="none" stroke="var(--world-ink)" stroke-width="1.6" stroke-linecap="round" opacity="0.4" />
+          </svg>
+        </div>
+        <div class="bird" style="top:12%; left:66%; transform:scale(0.7);">
+          <svg viewBox="0 0 24 10" width="22" height="10">
+            <path d="M0 8 Q6 0 12 8 Q18 0 24 8" fill="none" stroke="var(--world-ink)" stroke-width="1.6" stroke-linecap="round" opacity="0.35" />
+          </svg>
+        </div>
+
         <div class="wave-line" />
+        <div class="wave-line wave-line-2" />
+
         <div class="boat">
           <svg viewBox="0 0 60 34" width="60" height="34">
             <path d="M4 24 L56 24 L48 30 L12 30 Z" fill="var(--world-ink)" opacity="0.5" />
             <path d="M30 24 L30 4 L46 24 Z" fill="var(--world-ink)" opacity="0.35" />
           </svg>
         </div>
-        <div class="bird" style="top:16%; left:24%;">
-          <svg viewBox="0 0 24 10" width="22" height="10">
-            <path d="M0 8 Q6 0 12 8 Q18 0 24 8" fill="none" stroke="var(--world-ink)" stroke-width="1.6" stroke-linecap="round" opacity="0.4" />
+        <div class="boat boat-small">
+          <svg viewBox="0 0 60 34" width="34" height="19">
+            <path d="M4 24 L56 24 L48 30 L12 30 Z" fill="var(--world-ink)" opacity="0.32" />
+            <path d="M30 24 L30 8 L44 24 Z" fill="var(--world-ink)" opacity="0.22" />
           </svg>
         </div>
+
+        <div class="shell" style="left:20%;" />
+        <div class="shell small" style="left:62%;" />
+        <div class="shell" style="left:82%;" />
       </>
     )
   }
@@ -107,8 +126,8 @@ const { kitId } = Astro.props;
   {
     kitId === 'sky-adventure' && (
       <>
-        <div class="cloud-drift" style="top:20%; left:12%;" />
-        <div class="cloud-drift" style="top:34%; left:70%; transform:scale(0.7);" />
+        <div class="cloud-drift" style="top:8%; left:62%;" />
+        <div class="cloud-drift" style="top:22%; left:80%; transform:scale(0.7);" />
         <div class="balloon">
           <svg viewBox="0 0 40 60" width="40" height="60">
             <ellipse cx="20" cy="20" rx="18" ry="20" fill="var(--world-accent)" opacity="0.85" />
@@ -371,41 +390,81 @@ const { kitId } = Astro.props;
     opacity: 0.55;
     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
   }
+  .wave-line-2 {
+    bottom: 40px;
+    height: 30px;
+    opacity: 0.35;
+    background: var(--world-ground-back);
+  }
   .boat {
     position: absolute;
     left: 12%;
     bottom: 66px;
   }
+  .boat-small {
+    left: auto;
+    right: 16%;
+    bottom: 50px;
+    opacity: 0.9;
+  }
+  .shell {
+    position: absolute;
+    bottom: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50% 50% 50% 0;
+    background: var(--world-accent);
+    opacity: 0.5;
+    transform: rotate(-20deg);
+  }
+  .shell.small {
+    width: 7px;
+    height: 7px;
+    bottom: 30px;
+    opacity: 0.4;
+  }
 
   /* ============ Mountain Trail ============ */
+  /* Jagged range via clip-path, not a border-triangle — keeps visible height
+     small and predictable so it can never grow tall enough to collide with
+     a wrapped, multi-row word field (a real bug: the old 220px border-triangle
+     peaks overlapped a 12-word two-row list). */
   .peak {
     position: absolute;
-    bottom: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 220px solid transparent;
-    border-right: 220px solid transparent;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
   .peak-back {
-    border-bottom: 260px solid var(--world-ground-back);
-    opacity: 0.8;
-    left: 30%;
+    height: 92px;
+    background: var(--world-ground-back);
+    opacity: 0.85;
+    clip-path: polygon(
+      0% 100%,
+      0% 62%,
+      16% 22%,
+      30% 50%,
+      46% 10%,
+      62% 46%,
+      78% 18%,
+      100% 55%,
+      100% 100%
+    );
   }
   .peak-front {
-    border-bottom: 220px solid var(--world-ground);
-    left: 68%;
+    height: 66px;
+    background: var(--world-ground);
+    clip-path: polygon(0% 100%, 8% 45%, 24% 72%, 40% 25%, 56% 60%, 72% 20%, 88% 50%, 100% 35%, 100% 100%);
   }
   .trail {
     position: absolute;
     bottom: 0;
     left: 50%;
-    width: 6px;
-    height: 120px;
+    width: 5px;
+    height: 60px;
     background: var(--world-accent-soft);
-    opacity: 0.4;
-    transform: translateX(-50%) rotate(6deg);
+    opacity: 0.5;
+    transform: translateX(-50%) rotate(5deg);
     border-radius: 4px;
   }
 

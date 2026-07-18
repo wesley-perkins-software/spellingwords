@@ -59,7 +59,7 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
     tagline: 'a sunny hillside, just after sunrise',
     palette: {
       skyTop: '#6FA6DE',
-      skyMid: '#BEE0E8',
+      skyMid: '#CDE6C6',
       skyHorizon: '#FCEFC6',
       ground: '#6FB07A',
       groundBack: '#93C99A',
@@ -103,12 +103,13 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
     name: 'Seaside',
     tagline: 'sand, salt air, and one small boat',
     palette: {
-      skyTop: '#6FB6D9',
-      skyMid: '#A9D9DD',
+      // Teal/emerald, not sky-blue — distinct from Meadow Morning and Sky Adventure.
+      skyTop: '#2E9088',
+      skyMid: '#7DC4B8',
       skyHorizon: '#F2E4C4',
       ground: '#3D8A93',
       groundBack: '#65AEB2',
-      ink: '#153037',
+      ink: '#123330',
       accent: '#E0714A',
       accentSoft: '#F0B79C',
     },
@@ -118,14 +119,16 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
     name: 'Mountain Trail',
     tagline: 'a winding path between the peaks',
     palette: {
-      skyTop: '#7FB0DE',
-      skyMid: '#BFD9EA',
-      skyHorizon: '#F5E6C6',
+      // Warm alpenglow (rose/peach dawn light) against cool slate-green peaks —
+      // deliberately warm-dominant so it doesn't read as "another blue sky".
+      skyTop: '#C97A88',
+      skyMid: '#EBAE8E',
+      skyHorizon: '#FBE6C8',
       ground: '#5B6E6A',
       groundBack: '#7C8D87',
-      ink: '#20303A',
-      accent: '#C97A46',
-      accentSoft: '#EAC09B',
+      ink: '#2E2430',
+      accent: '#B15A8C',
+      accentSoft: '#E9BFD6',
     },
   },
   'sky-adventure': {
@@ -133,10 +136,12 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
     name: 'Sky Adventure',
     tagline: 'up above the clouds, going somewhere',
     palette: {
-      skyTop: '#4F8FD6',
-      skyMid: '#8FC0E8',
+      // The one kit allowed to actually be blue — pushed deeper/more saturated
+      // (cobalt, not pale sky-blue) so it doesn't collide with Meadow Morning.
+      skyTop: '#2F5FB0',
+      skyMid: '#6D95D6',
       skyHorizon: '#D9EDF6',
-      ink: '#1B3350',
+      ink: '#16233F',
       accent: '#F2B23C',
       accentSoft: '#FBDFA0',
     },

@@ -1,0 +1,383 @@
+---
+// Stress-test build of the deterministic "world kit" system for Grade Unit
+// pages (see src/lib/theme/worldKits.ts). Renders the real
+// kindergarten-short-a-words content-collection entry — real words, real
+// sentences, real prerequisite/next links, real practice CTA — through the
+// new hero + word-family treatment.
+//
+// Deliberately placed under /preview rather than replacing
+// src/pages/spelling-lists/[category]/[slug].astro: that route serves all
+// ~100 published lists today, and this is a one-page stress test of a new
+// direction, not yet a decision to roll the world-kit system out everywhere.
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import RelatedListCards from '@/components/RelatedListCards.astro';
+import WorldScene from '@/components/WorldScene.astro';
+import WorldWordField from '@/components/WorldWordField.astro';
+import { isPublished, resolveListRefs, toPlayableWords } from '@/lib/content/spellingLists';
+import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
+import { pickWorldKit } from '@/lib/theme/worldKits';
+import { groupByWordFamily } from '@/lib/theme/wordFamilies';
+
+const entries = (await getCollection('spelling-lists')).filter(isPublished);
+const entry = entries.find((e) => e.data.id === 'kindergarten-short-a-words');
+
+if (!entry) {
+  throw new Error(
+    'kindergarten-short-a-words not found in the spelling-lists collection — has the content file moved?',
+  );
+}
+
+const { data } = entry;
+const { Content } = await entry.render();
+
+const prerequisites = resolveListRefs(data.prerequisiteLists, entries);
+const next = resolveListRefs(data.nextLists, entries);
+const conceptSkill = entries.find((e) => e.data.id === data.skillIds[0]);
+
+const playWords = toPlayableWords(entry);
+const playWordsJson = JSON.stringify(playWords);
+
+const words = data.words.map((w) => (typeof w === 'string' ? w : w.word));
+const families = groupByWordFamily(words);
+
+const kit = pickWorldKit(data.id);
+const roadmapPosition = getKindergartenRoadmapPosition(data.id);
+
+function listLink(e: (typeof entries)[number]) {
+  return `/spelling-lists/${e.data.category}/${e.data.urlSlug}`;
+}
+
+const worldStyleVars = [
+  `--world-sky-top:${kit.palette.skyTop}`,
+  `--world-sky-mid:${kit.palette.skyMid}`,
+  `--world-sky-horizon:${kit.palette.skyHorizon}`,
+  `--world-ground:${kit.palette.ground ?? kit.palette.skyHorizon}`,
+  `--world-ground-back:${kit.palette.groundBack ?? kit.palette.skyHorizon}`,
+  `--world-ink:${kit.palette.ink}`,
+  `--world-accent:${kit.palette.accent}`,
+  `--world-accent-soft:${kit.palette.accentSoft}`,
+].join('; ');
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Spelling Lists Library', href: '/spelling-lists' },
+  { label: 'Phonics', href: '/spelling-lists/phonics' },
+  { label: data.title },
+];
+---
+
+<Layout title={`${data.title} — spellingwords`} description={data.description}>
+  <SiteHeader variant="discovery" currentPath="/spelling-lists" />
+
+  <main id="main-content">
+    <!-- World Hero — the memorable, child-facing arrival moment -->
+    <section class="world-hero" style={worldStyleVars}>
+      <WorldScene kitId={kit.id} />
+
+      <div class="world-hero-inner">
+        <div class="crumbs-row">
+          <Breadcrumbs items={breadcrumbItems} />
+        </div>
+
+        {
+          roadmapPosition && (
+            <p class="roadmap">
+              Kindergarten Spelling · Step {roadmapPosition.step} of {roadmapPosition.total}
+            </p>
+          )
+        }
+
+        <p class="eyebrow">Kindergarten · Short A Words</p>
+        <h1 class="hero-title">Words with the Short A Sound</h1>
+        <p class="hero-desc">{data.description}</p>
+
+        <div class="cta-row">
+          <button
+            id="btn-practice"
+            type="button"
+            data-words={playWordsJson}
+            data-list-title={data.title}
+            class="practice-token"
+            aria-label={`Practice these ${playWords.length} words in ${data.title}`}
+          >
+            Start practice
+          </button>
+          <p id="start-test-status" class="cta-error" aria-live="polite" aria-atomic="true" />
+          <span class="world-tag">You're in: {kit.name}</span>
+        </div>
+      </div>
+
+      <WorldWordField families={families} />
+
+      <p class="grownup-hint">for the grown-up nearby: tap a word to hear it slow down</p>
+    </section>
+
+    <!-- Why these words (real markdown body, quieter, paper-toned) -->
+    <section class="why-section" aria-labelledby="why-heading">
+      <div class="why-inner">
+        <h2 id="why-heading" class="text-display-md">A note for whoever's sitting beside them</h2>
+        <div class="why-body text-body-lg [&_strong]:font-semibold [&_strong]:text-ink">
+          <Content />
+        </div>
+      </div>
+    </section>
+
+    <!-- Go deeper on the pattern -->
+    {
+      conceptSkill && (
+        <section class="mx-auto max-w-2xl px-5 py-10 sm:px-6 md:max-w-3xl md:py-14">
+          <h2 class="mb-3 font-display text-lg font-semibold text-ink">Go deeper on this pattern</h2>
+          <a
+            href={listLink(conceptSkill)}
+            class="relative block overflow-hidden rounded-3xl border border-line bg-white px-6 py-5 shadow-card transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-brand-blue before:content-[''] hover:-translate-y-0.5 hover:shadow-card-md"
+          >
+            <span class="block font-display text-lg font-semibold text-brand-blue">
+              Learn more about Short A Words →
+            </span>
+            <span class="mt-1 block text-sm leading-relaxed text-ink-soft sm:text-base">
+              {conceptSkill.data.title} is the full guide to this pattern — how it works, what trips
+              children up, and where else it's taught.
+            </span>
+          </a>
+        </section>
+      )
+    }
+
+    <!-- What's next -->
+    {
+      (prerequisites.length > 0 || next.length > 0) && (
+        <section class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14" aria-labelledby="progression-heading">
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
+            <h2 id="progression-heading" class="mb-4 font-display text-lg font-semibold text-ink">
+              What's next
+            </h2>
+            <RelatedListCards heading="Review first" items={prerequisites} listLink={listLink} accent="previous" />
+            <RelatedListCards heading="Ready for next" items={next} listLink={listLink} accent="forward" />
+          </div>
+        </section>
+      )
+    }
+  </main>
+
+  <SiteFooter />
+</Layout>
+
+<style define:vars={{ worldAccent: kit.palette.accent }}>
+  .world-hero {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 46px;
+    background: linear-gradient(
+      180deg,
+      var(--world-sky-top) 0%,
+      var(--world-sky-mid) 42%,
+      var(--world-sky-horizon) 72%,
+      #fbf8f3 100%
+    );
+  }
+
+  .world-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 28px 22px 8px;
+  }
+
+  .crumbs-row {
+    opacity: 0.75;
+    margin-bottom: 22px;
+  }
+  .crumbs-row :global(a),
+  .crumbs-row :global(span) {
+    color: var(--world-ink) !important;
+  }
+
+  .roadmap {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--world-ink);
+    opacity: 0.7;
+    margin: 0 0 10px;
+  }
+
+  .eyebrow {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--world-accent);
+    margin: 0 0 14px;
+  }
+
+  .hero-title {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: clamp(34px, 6vw, 54px);
+    line-height: 1.08;
+    color: var(--world-ink);
+    margin: 0 0 16px;
+    text-wrap: balance;
+    max-width: 16ch;
+  }
+
+  .hero-desc {
+    font-family: 'Nunito', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--world-ink);
+    opacity: 0.82;
+    max-width: 52ch;
+    margin: 0 0 28px;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .practice-token {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--world-ink);
+    background: linear-gradient(180deg, var(--world-accent-soft), var(--world-accent));
+    border: none;
+    border-radius: 999px;
+    padding: 15px 34px;
+    cursor: pointer;
+    box-shadow:
+      0 6px 0 0 color-mix(in srgb, var(--world-accent) 55%, black),
+      0 14px 24px -10px color-mix(in srgb, var(--world-accent) 60%, transparent);
+    transition:
+      transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.15s ease;
+  }
+  .practice-token:hover {
+    transform: translateY(-2px);
+  }
+  .practice-token:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 0 color-mix(in srgb, var(--world-accent) 55%, black) !important;
+  }
+  .practice-token:focus-visible {
+    outline: 2px solid var(--world-ink);
+    outline-offset: 3px;
+  }
+
+  .cta-error {
+    width: 100%;
+    order: 3;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13.5px;
+    color: #a83226;
+    min-height: 1.1em;
+  }
+
+  .world-tag {
+    font-family: 'Nunito', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--world-ink);
+    opacity: 0.6;
+  }
+
+  .grownup-hint {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    color: var(--world-ink);
+    opacity: 0.45;
+    margin: 18px 0 0;
+  }
+
+  .why-section {
+    background: #fbf8f3;
+    padding: 56px 20px;
+  }
+  .why-inner {
+    max-width: 42rem;
+    margin: 0 auto;
+    border-left: 3px solid rgba(0, 0, 0, 0.12);
+    padding-left: 22px;
+  }
+  .why-body {
+    margin-top: 16px;
+    max-width: 42rem;
+  }
+  .why-body :global(p) {
+    margin-bottom: 1.1em;
+  }
+
+  @media (max-width: 640px) {
+    .why-inner {
+      padding-left: 16px;
+    }
+  }
+</style>
+
+<script>
+  import { encodeWordList } from '@/lib/words';
+
+  interface SpellingWordData {
+    word: string;
+    hint?: string;
+    exampleSentence?: string;
+    phonicsPattern?: string[];
+  }
+
+  const statusEl = document.getElementById('start-test-status');
+
+  function getSpellingWords(button: HTMLButtonElement): SpellingWordData[] {
+    try {
+      const parsed: unknown = JSON.parse(button.dataset.words ?? '[]');
+      if (!Array.isArray(parsed)) return [];
+      return parsed.filter(
+        (e): e is SpellingWordData =>
+          typeof e === 'object' && e !== null && typeof (e as SpellingWordData).word === 'string',
+      );
+    } catch {
+      return [];
+    }
+  }
+
+  function handleStart(event: Event): void {
+    const button = event.currentTarget as HTMLButtonElement;
+    const words = getSpellingWords(button);
+    if (words.length === 0) return;
+
+    const result = encodeWordList(words.map((w) => w.word));
+    if (!result.ok) {
+      if (statusEl) {
+        statusEl.textContent =
+          result.code === 'payload_too_long'
+            ? 'There are too many words to start automatically. Please try a shorter list.'
+            : 'Could not start this spelling test. Please try again.';
+      }
+      return;
+    }
+
+    const listTitle = button.dataset.listTitle ?? '';
+    try {
+      sessionStorage.setItem(`sw:words:${result.payload}`, JSON.stringify(words));
+      if (listTitle) sessionStorage.setItem(`sw:title:${result.payload}`, listTitle);
+    } catch {
+      /* quota exceeded or private browsing — non-fatal */
+    }
+
+    window.location.href = `/play?list=${result.payload}`;
+  }
+
+  document.getElementById('btn-practice')?.addEventListener('click', handleStart);
+</script>

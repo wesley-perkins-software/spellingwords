@@ -1,0 +1,141 @@
+---
+import type { WordFamily } from '@/lib/theme/wordFamilies';
+
+interface Props {
+  families: WordFamily[];
+}
+
+const { families } = Astro.props;
+---
+
+<div class="word-field" role="list" aria-label="Words in this list, grouped by shared ending sound">
+  {
+    families.map((family) => (
+      <div class="family" role="listitem">
+        <div class="family-words">
+          {family.words.map((word) => {
+            const onset = word.slice(0, word.length - family.rime.length);
+            return (
+              <span
+                class="word"
+                role="button"
+                tabindex="0"
+                data-word={word}
+                aria-label={`Hear "${word}" said slowly`}
+              >
+                <span class="onset">{onset}</span>
+                <span class="rime">{family.rime}</span>
+              </span>
+            );
+          })}
+        </div>
+        <p class="family-caption">
+          the <span class="rime-label">-{family.rime}</span> family
+        </p>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .word-field {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 44px 56px;
+    padding: 12px 20px 8px;
+  }
+
+  .family {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .family:nth-child(2n) {
+    transform: translateY(18px);
+  }
+  .family:nth-child(3n) {
+    transform: translateY(-10px);
+  }
+
+  .family-words {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .word {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-weight: 700;
+    font-size: clamp(30px, 6vw, 46px);
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    color: var(--world-ink);
+    cursor: default;
+    border-radius: 10px;
+    padding: 2px 8px;
+    transition: transform 0.18s ease;
+  }
+  .word:hover,
+  .word:focus-visible {
+    transform: scale(1.06);
+    outline: none;
+  }
+  .word .onset {
+    color: var(--world-ink);
+  }
+  .word .rime {
+    color: var(--world-accent);
+    text-shadow: 0 0 22px var(--world-accent-soft);
+  }
+
+  .family-caption {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 13.5px;
+    color: var(--world-ink);
+    opacity: 0.62;
+    margin: 4px 0 0;
+  }
+  .family-caption .rime-label {
+    color: var(--world-accent);
+    opacity: 1;
+  }
+
+  @media (max-width: 640px) {
+    .word-field {
+      gap: 32px 20px;
+    }
+    .family:nth-child(2n),
+    .family:nth-child(3n) {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  import { createSpeechController } from '@/modules/speech';
+
+  const controller = createSpeechController();
+
+  function speakSlowly(el: HTMLElement): void {
+    const word = el.dataset.word;
+    if (!word) return;
+    controller.speakWord(word, { rate: 0.7 });
+  }
+
+  document.querySelectorAll<HTMLElement>('.word-field .word').forEach((el) => {
+    el.addEventListener('click', () => speakSlowly(el));
+    el.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        speakSlowly(el);
+      }
+    });
+  });
+</script>
+

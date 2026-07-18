@@ -90,9 +90,42 @@ const breadcrumbItems = [
   { label: categoryLabel, href: `/spelling-lists/${data.category}` },
   { label: data.title },
 ];
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
+
+const faqJsonLd =
+  data.faq.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: data.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
+      }
+    : null;
+
+const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
 ---
 
-<Layout title={`${data.title} — spellingwords`} description={data.description}>
+<Layout
+  title={`${data.title} — spellingwords`}
+  description={data.description}
+  ogType="article"
+  jsonLd={jsonLdBlocks}
+>
   <SiteHeader variant="discovery" currentPath="/spelling-lists" />
 
   <main id="main-content">
@@ -144,11 +177,40 @@ const breadcrumbItems = [
       <WorldWordField words={words} wordFamilies={wordFamilies} />
     </section>
 
+    <!-- Is this the right list? -->
+    {
+      data.readinessSignals.length > 0 && (
+        <section class="section-block readiness-section" style={worldStyleVars}>
+          <h2 class="section-heading">These spelling words are a good fit for students who...</h2>
+          <ul class="readiness-list">
+            {data.readinessSignals.map((signal) => (
+              <li>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="var(--world-accent)"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span>{signal}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
     <!-- Why these words (real markdown body, quieter, paper-toned) -->
     <section class="why-section" style={worldStyleVars} aria-labelledby="why-heading">
       <div class="why-inner">
-        <h2 id="why-heading" class="text-display-md">Why these words — and what they teach</h2>
-        <div class="why-body text-body-lg [&_strong]:font-semibold [&_strong]:text-ink">
+        <h2 id="why-heading" class="section-heading">Why these words — and what they teach</h2>
+        <div class="why-body">
           <Content />
         </div>
       </div>
@@ -223,7 +285,7 @@ const breadcrumbItems = [
   .world-hero {
     position: relative;
     overflow: hidden;
-    padding-bottom: 50px;
+    padding-bottom: 132px;
     background: linear-gradient(
       180deg,
       var(--world-sky-top) 0%,
@@ -368,11 +430,62 @@ const breadcrumbItems = [
     padding-left: 22px;
   }
   .why-body {
-    margin-top: 16px;
-    max-width: 42rem;
+    margin-top: 18px;
+    max-width: 40rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #211d16;
   }
   .why-body :global(p) {
-    margin-bottom: 1.1em;
+    margin: 0 0 1.15em;
+  }
+  .why-body :global(strong) {
+    font-weight: 800;
+    color: #211d16;
+  }
+  .why-body :global(em) {
+    font-style: italic;
+  }
+  .why-body :global(h2),
+  .why-body :global(h3) {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 600;
+    color: #211d16;
+    margin: 1.7em 0 0.55em;
+    line-height: 1.3;
+  }
+  .why-body :global(h2) {
+    font-size: 19px;
+  }
+  .why-body :global(h3) {
+    font-size: 16.5px;
+  }
+  .why-body :global(h2:first-child),
+  .why-body :global(h3:first-child) {
+    margin-top: 0;
+  }
+  .why-body :global(ul),
+  .why-body :global(ol) {
+    margin: 0 0 1.15em;
+    padding-left: 1.35em;
+  }
+  .why-body :global(li) {
+    margin-bottom: 0.5em;
+    padding-left: 0.2em;
+  }
+  .why-body :global(ul li) {
+    list-style: disc;
+  }
+  .why-body :global(ul li)::marker {
+    color: var(--world-accent);
+  }
+  .why-body :global(ol li) {
+    list-style: decimal;
+  }
+  .why-body :global(ol li)::marker {
+    color: var(--world-accent);
+    font-weight: 800;
   }
 
   .section-block {
@@ -380,6 +493,34 @@ const breadcrumbItems = [
     padding: 8px 20px 56px;
     max-width: 42rem;
     margin: 0 auto;
+  }
+  /* Directly follows the hero, not another section-block, so it needs its
+     own top breathing room rather than the 8px other sections use. */
+  .readiness-section {
+    padding-top: 48px;
+    padding-bottom: 8px;
+  }
+  .readiness-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .readiness-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #211d16;
+    opacity: 0.85;
+  }
+  .readiness-list svg {
+    flex-shrink: 0;
+    margin-top: 3px;
   }
   .section-heading {
     font-family: 'Baloo 2', sans-serif;
@@ -400,29 +541,37 @@ const breadcrumbItems = [
     overflow: hidden;
     border-radius: 16px;
     background: #ffffff;
-    border: 1px solid rgba(43, 33, 21, 0.12);
+    border: 1px solid rgba(43, 33, 21, 0.1);
+    box-shadow: 0 2px 8px -3px rgba(43, 33, 21, 0.14);
     padding: 18px 20px 18px 22px;
     text-decoration: none;
     transition:
       transform 0.15s ease,
-      box-shadow 0.15s ease;
+      box-shadow 0.15s ease,
+      border-color 0.15s ease;
   }
   .go-deeper-card::before {
     content: '';
     position: absolute;
     inset: 0 auto 0 0;
-    width: 5px;
+    width: 4px;
     background: var(--world-accent);
   }
   .go-deeper-card:hover {
     transform: translateY(-2px);
+    border-color: rgba(43, 33, 21, 0.16);
     box-shadow: 0 12px 24px -14px rgba(43, 33, 21, 0.35);
+  }
+  .go-deeper-card:focus-visible {
+    outline: 2px solid var(--world-accent);
+    outline-offset: 2px;
   }
   .go-deeper-title {
     display: block;
     font-family: 'Baloo 2', sans-serif;
     font-weight: 600;
     font-size: 17px;
+    line-height: 1.3;
     color: var(--world-accent);
   }
   .go-deeper-desc {
@@ -440,12 +589,13 @@ const breadcrumbItems = [
   }
   .faq-list {
     background: #ffffff;
-    border: 1px solid rgba(43, 33, 21, 0.12);
+    border: 1px solid rgba(43, 33, 21, 0.1);
+    box-shadow: 0 2px 8px -3px rgba(43, 33, 21, 0.1);
     border-radius: 16px;
     overflow: hidden;
   }
   .faq-item {
-    padding: 18px 22px;
+    padding: 20px 22px;
     border-bottom: 1px solid rgba(43, 33, 21, 0.08);
   }
   .faq-item:last-child {
@@ -455,7 +605,8 @@ const breadcrumbItems = [
     font-family: 'Baloo 2', sans-serif;
     font-weight: 600;
     font-size: 16px;
-    margin: 0 0 6px;
+    line-height: 1.35;
+    margin: 0 0 7px;
     color: #211d16;
   }
   .faq-answer {
@@ -463,7 +614,7 @@ const breadcrumbItems = [
     font-size: 14.5px;
     line-height: 1.65;
     color: #211d16;
-    opacity: 0.78;
+    opacity: 0.75;
     margin: 0;
   }
 

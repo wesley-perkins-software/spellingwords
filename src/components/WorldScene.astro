@@ -165,6 +165,15 @@ const { kitId } = Astro.props;
     background: radial-gradient(circle, #fff3d1, var(--world-accent-soft) 70%);
     box-shadow: 0 0 70px 22px rgba(224, 162, 51, 0.35);
   }
+  @media (max-width: 640px) {
+    .sun {
+      top: 4%;
+      right: 6%;
+      width: 52px;
+      height: 52px;
+      box-shadow: 0 0 40px 14px rgba(224, 162, 51, 0.3);
+    }
+  }
 
   .hill {
     position: absolute;
@@ -514,6 +523,20 @@ const { kitId } = Astro.props;
     .seed,
     .balloon {
       animation: none !important;
+    }
+  }
+
+  /* Defensive mobile scaling for the larger decorative elements that sit near
+     the top of the hero, so they never crowd the breadcrumb/title column on
+     a narrow phone screen — matches the .sun mobile rule above. */
+  @media (max-width: 640px) {
+    .arch {
+      width: 170px;
+      height: 90px;
+      top: -18px;
+    }
+    .trunk-frame {
+      width: 34px;
     }
   }
 </style>

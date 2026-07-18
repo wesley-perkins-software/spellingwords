@@ -9,38 +9,43 @@ interface Props {
    * Pre-grouped word families (see shouldGroupByWordFamily) — only pass this
    * when the content actually teaches a shared vowel pattern. Omit it for
    * anything else (digraphs, vowel teams, spelling rules, etc.) and the field
-   * renders a plain word list with no vowel highlighting instead.
+   * renders with no vowel highlighting instead.
    */
   wordFamilies?: WordFamily[];
 }
 
 const { words, wordFamilies } = Astro.props;
 
-const groups: { words: string[]; highlightVowel: boolean }[] = wordFamilies
-  ? wordFamilies.map((f) => ({ words: f.words, highlightVowel: true }))
-  : words.map((word) => ({ words: [word], highlightVowel: false }));
+// One flowing, baseline-aligned line — not a grid of family "columns". Real
+// family sizes are uneven (Short A is 3/2/1/2), and a grid forces every
+// column in a row to match its tallest neighbor, which is what produced
+// lopsided gaps and pushed the last word down into the horizon artwork.
+// A family's membership still drives which letter gets the vowel tint;
+// `newFamily` just adds a little extra breathing room at the boundary
+// between one family and the next, so the grouping still reads without
+// needing a separate layout track per family.
+const items: { word: string; highlightVowel: boolean; newFamily: boolean }[] = wordFamilies
+  ? wordFamilies.flatMap((family) =>
+      family.words.map((word, i) => ({ word, highlightVowel: true, newFamily: i === 0 })),
+    )
+  : words.map((word) => ({ word, highlightVowel: false, newFamily: false }));
 ---
 
-<div class="word-field" role="list" aria-label="Words in this list">
+<div class="word-field" role="group" aria-label="Words in this list">
   {
-    groups.map((group) => (
-      <div class="family" role="listitem">
-        <div class="family-words">
-          {group.words.map((word) => (
-            <span
-              class="word"
-              role="button"
-              tabindex="0"
-              data-word={word}
-              aria-label={`Hear "${word}" said slowly`}
-            >{group.highlightVowel
-              ? splitVowelHighlight(word).map((seg) =>
-                  seg.isVowel ? <span class="vowel">{seg.text}</span> : seg.text,
-                )
-              : word}</span>
-          ))}
-        </div>
-      </div>
+    items.map((item) => (
+      <span
+        class="word"
+        class:list={{ 'word--new-group': item.newFamily }}
+        role="button"
+        tabindex="0"
+        data-word={item.word}
+        aria-label={`Hear "${item.word}" said slowly`}
+      >{item.highlightVowel
+        ? splitVowelHighlight(item.word).map((seg) =>
+            seg.isVowel ? <span class="vowel">{seg.text}</span> : seg.text,
+          )
+        : item.word}</span>
     ))
   }
 </div>
@@ -49,46 +54,41 @@ const groups: { words: string[]; highlightVowel: boolean }[] = wordFamilies
   .word-field {
     position: relative;
     z-index: 2;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    justify-items: center;
-    align-items: start;
-    max-width: 52rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    max-width: 46rem;
     margin: 0 auto;
-    gap: 36px 24px;
-    padding: 12px 24px 8px;
-  }
-
-  .family {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .family-words {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    row-gap: 22px;
+    column-gap: 30px;
+    padding: 4px 24px 8px;
   }
 
   .word {
     display: inline-block;
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-weight: 700;
-    font-size: clamp(28px, 5.6vw, 44px);
-    line-height: 1.15;
-    letter-spacing: 0.01em;
+    font-size: clamp(28px, 5.2vw, 42px);
+    line-height: 1;
+    letter-spacing: 0.005em;
     color: var(--world-ink);
     cursor: pointer;
-    border-radius: 10px;
-    padding: 2px 10px;
+    border-radius: 8px;
+    padding: 4px 6px;
     transition: transform 0.18s ease;
   }
+  /* the extra gap that hints at family grouping, without a separate column */
+  .word--new-group {
+    margin-left: 14px;
+  }
+  .word--new-group:first-child {
+    margin-left: 0;
+  }
+
   .word:hover,
   .word:focus-visible {
-    transform: scale(1.06);
+    transform: translateY(-3px);
   }
   .word:focus-visible {
     outline: 2px solid var(--world-ink);
@@ -101,8 +101,12 @@ const groups: { words: string[]; highlightVowel: boolean }[] = wordFamilies
 
   @media (max-width: 640px) {
     .word-field {
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 28px 16px;
+      row-gap: 18px;
+      column-gap: 22px;
+      padding: 4px 20px 8px;
+    }
+    .word--new-group {
+      margin-left: 8px;
     }
   }
 

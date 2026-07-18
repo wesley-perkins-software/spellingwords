@@ -138,7 +138,6 @@ const breadcrumbItems = [
             Start practice
           </button>
           <p id={`start-test-status-${data.id}`} class="cta-error" aria-live="polite" aria-atomic="true" />
-          <span class="world-tag">You're in: {kit.name}</span>
         </div>
       </div>
 
@@ -146,8 +145,6 @@ const breadcrumbItems = [
         The {words.length} words to practice in this step
       </h2>
       <WorldWordField words={words} sentences={sentences} wordFamilies={wordFamilies} />
-
-      <p class="grownup-hint">for the grown-up nearby: tap a word to hear it slowly, with its sentence</p>
     </section>
 
     <!-- Why these words (real markdown body, quieter, paper-toned) -->
@@ -348,14 +345,6 @@ const breadcrumbItems = [
     min-height: 1.1em;
   }
 
-  .world-tag {
-    font-family: 'Nunito', sans-serif;
-    font-style: italic;
-    font-size: 14px;
-    color: var(--world-ink);
-    opacity: 0.6;
-  }
-
   .word-field-heading {
     position: relative;
     z-index: 2;
@@ -367,18 +356,7 @@ const breadcrumbItems = [
     text-transform: uppercase;
     color: var(--world-ink);
     opacity: 0.55;
-    margin: 6px 0 6px;
-  }
-
-  .grownup-hint {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    font-family: 'Nunito', sans-serif;
-    font-size: 13px;
-    color: var(--world-ink);
-    opacity: 0.45;
-    margin: 18px 0 0;
+    margin: 6px 0 28px;
   }
 
   /* ---------- below-the-fold sections: paper ground, world-accent touches ---------- */

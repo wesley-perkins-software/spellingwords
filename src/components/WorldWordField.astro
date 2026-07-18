@@ -66,12 +66,14 @@ const groups: { rime: string; words: string[]; highlightRime: boolean }[] = word
   .word-field {
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px 52px;
-    padding: 12px 20px 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    justify-items: center;
+    align-items: start;
+    max-width: 52rem;
+    margin: 0 auto;
+    gap: 36px 24px;
+    padding: 12px 24px 8px;
   }
 
   .family {
@@ -79,12 +81,6 @@ const groups: { rime: string; words: string[]; highlightRime: boolean }[] = word
     flex-direction: column;
     align-items: center;
     gap: 10px;
-  }
-  .family:nth-child(3n + 2) {
-    transform: translateY(16px);
-  }
-  .family:nth-child(3n + 3) {
-    transform: translateY(-8px);
   }
 
   .family-words {
@@ -155,11 +151,8 @@ const groups: { rime: string; words: string[]; highlightRime: boolean }[] = word
 
   @media (max-width: 640px) {
     .word-field {
-      gap: 30px 22px;
-    }
-    .family:nth-child(3n + 2),
-    .family:nth-child(3n + 3) {
-      transform: none;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 28px 16px;
     }
   }
 

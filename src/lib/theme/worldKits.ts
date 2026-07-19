@@ -30,12 +30,14 @@ export interface WorldKitPalette {
   skyHorizon: string;
   /**
    * The world's single accent color: CTA, underlines, word-family highlight.
-   * Chosen (and darkened from the "prettiest" version of the hue, where
-   * needed) to hold at least 4.5:1 contrast against both `skyHorizon` and
-   * the paper background the hero fades into — the highlighted grapheme in
-   * the practice words renders in this color directly on that fade, so it
-   * has to stay readable at the palest end of the gradient, not just look
-   * good against `skyTop`.
+   * Deliberately a hue family DIFFERENT from the kit's own sky gradient
+   * (not a darker shade of the same hue) — a same-family accent can pass a
+   * numeric contrast check yet still read as "the same color" as the
+   * background at a glance (this happened for real: Lavender's old purple
+   * accent on its own purple-pink gradient). Each accent also holds at
+   * least 4.5:1 contrast against both `skyHorizon` and the paper background
+   * the hero fades into, since the highlighted grapheme in the practice
+   * words renders in this color directly on that fade.
    */
   accent: string;
   accentSoft: string;
@@ -71,8 +73,8 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#4A78C7',
       skyMid: '#8CB2E6',
       skyHorizon: '#E4F1FA',
-      accent: '#886422',
-      accentSoft: '#FBDFA0',
+      accent: '#C63A2F',
+      accentSoft: '#E9B4B0',
     },
   },
   'soft-sage': {
@@ -83,8 +85,8 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#7C9A82',
       skyMid: '#A9C2A0',
       skyHorizon: '#E8EDD9',
-      accent: '#945B2D',
-      accentSoft: '#E9C39A',
+      accent: '#7151D6',
+      accentSoft: '#C9BDEF',
     },
   },
   'warm-peach': {
@@ -95,8 +97,8 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#F0A691',
       skyMid: '#F7C9A8',
       skyHorizon: '#FDE8D2',
-      accent: '#B1446C',
-      accentSoft: '#F5B9CF',
+      accent: '#1B746C',
+      accentSoft: '#A8CAC7',
     },
   },
   lavender: {
@@ -107,8 +109,8 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#7A5C85',
       skyMid: '#B27C9C',
       skyHorizon: '#F3D6E0',
-      accent: '#844A97',
-      accentSoft: '#D9B9E3',
+      accent: '#216B19',
+      accentSoft: '#ABC7A8',
     },
   },
   cream: {
@@ -119,8 +121,8 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#F5E9D3',
       skyMid: '#FAF1E0',
       skyHorizon: '#FFFBF3',
-      accent: '#9B632C',
-      accentSoft: '#EFC48D',
+      accent: '#217C8C',
+      accentSoft: '#ABCDD3',
     },
   },
   'golden-meadow': {
@@ -131,8 +133,8 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#6FA6DE',
       skyMid: '#CDE6C6',
       skyHorizon: '#FCEFC6',
-      accent: '#8A641F',
-      accentSoft: '#F3D693',
+      accent: '#7751D6',
+      accentSoft: '#CBBDEF',
     },
   },
   'forest-green': {
@@ -143,8 +145,8 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#4C6B54',
       skyMid: '#7C9A73',
       skyHorizon: '#EFD59E',
-      accent: '#815325',
-      accentSoft: '#EFC48D',
+      accent: '#6239D0',
+      accentSoft: '#C3B4ED',
     },
   },
   sunset: {
@@ -155,8 +157,8 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#C97A88',
       skyMid: '#EBAE8E',
       skyHorizon: '#FBE6C8',
-      accent: '#984D78',
-      accentSoft: '#E9BFD6',
+      accent: '#1B7466',
+      accentSoft: '#A8CAC5',
     },
   },
   'soft-coral': {
@@ -167,8 +169,8 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#E8768A',
       skyMid: '#F0A6A0',
       skyHorizon: '#FBDCC8',
-      accent: '#A2415F',
-      accentSoft: '#EBB6C9',
+      accent: '#196B48',
+      accentSoft: '#A8C7B9',
     },
   },
 };

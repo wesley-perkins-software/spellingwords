@@ -1,15 +1,15 @@
 /**
- * Grade Unit "world kits" — a small, curated set of illustrated places
- * (not just backgrounds) that a Grade Unit page is deterministically
- * assigned to, based on its permanent content `id`. The id never changes
- * once published, so a given list always renders in the same world across
- * builds — no client-side randomness, no hydration mismatch.
+ * Grade Unit "world kits" — a small, curated set of color moods that a Grade
+ * Unit page is deterministically assigned to, based on its permanent content
+ * `id`. The id never changes once published, so a given list always renders
+ * in the same kit across builds — no client-side randomness, no hydration
+ * mismatch.
  *
- * Nine kits exist today; several are gradient-led with only a light touch
- * of environmental detail (a couple of clouds, a flower or two) rather than
- * a full landscape scene — not every world needs a sun, hills, and trees.
- * Adding a tenth kit redistributes all existing lists automatically —
- * nothing about an existing list needs to change.
+ * Nine kits exist today. Each is just a gradient (sky-top down to a paper
+ * horizon) plus one accent color used for the CTA button and the
+ * highlighted spelling pattern in the practice words — no illustration
+ * elements. Adding a tenth kit redistributes all existing lists
+ * automatically — nothing about an existing list needs to change.
  */
 
 export type WorldKitId =
@@ -24,14 +24,19 @@ export type WorldKitId =
   | 'soft-coral';
 
 export interface WorldKitPalette {
-  /** Sky/backdrop gradient stops, top to bottom (or back to front). */
+  /** Sky/backdrop gradient stops, top to bottom. */
   skyTop: string;
   skyMid: string;
   skyHorizon: string;
-  /** Foreground ground silhouette color(s), where the world has a ground. */
-  ground?: string;
-  groundBack?: string;
-  /** The world's single accent color: CTA, underlines, word-family highlight. */
+  /**
+   * The world's single accent color: CTA, underlines, word-family highlight.
+   * Chosen (and darkened from the "prettiest" version of the hue, where
+   * needed) to hold at least 4.5:1 contrast against both `skyHorizon` and
+   * the paper background the hero fades into — the highlighted grapheme in
+   * the practice words renders in this color directly on that fade, so it
+   * has to stay readable at the palest end of the gradient, not just look
+   * good against `skyTop`.
+   */
   accent: string;
   accentSoft: string;
 }
@@ -39,7 +44,7 @@ export interface WorldKitPalette {
 export interface WorldKit {
   id: WorldKitId;
   name: string;
-  /** One line describing the place, used as a small in-page caption. */
+  /** One line describing the mood. */
   tagline: string;
   palette: WorldKitPalette;
 }
@@ -66,7 +71,7 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#4A78C7',
       skyMid: '#8CB2E6',
       skyHorizon: '#E4F1FA',
-      accent: '#F2B23C',
+      accent: '#886422',
       accentSoft: '#FBDFA0',
     },
   },
@@ -78,7 +83,7 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#7C9A82',
       skyMid: '#A9C2A0',
       skyHorizon: '#E8EDD9',
-      accent: '#C97B3D',
+      accent: '#945B2D',
       accentSoft: '#E9C39A',
     },
   },
@@ -90,19 +95,19 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#F0A691',
       skyMid: '#F7C9A8',
       skyHorizon: '#FDE8D2',
-      accent: '#E2578A',
+      accent: '#B1446C',
       accentSoft: '#F5B9CF',
     },
   },
   lavender: {
     id: 'lavender',
     name: 'Lavender',
-    tagline: 'dusky purple, where the flowers climb',
+    tagline: 'a dusky purple evening',
     palette: {
       skyTop: '#7A5C85',
       skyMid: '#B27C9C',
       skyHorizon: '#F3D6E0',
-      accent: '#8C4FA0',
+      accent: '#844A97',
       accentSoft: '#D9B9E3',
     },
   },
@@ -114,63 +119,55 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyTop: '#F5E9D3',
       skyMid: '#FAF1E0',
       skyHorizon: '#FFFBF3',
-      accent: '#D98B3E',
+      accent: '#9B632C',
       accentSoft: '#EFC48D',
     },
   },
   'golden-meadow': {
     id: 'golden-meadow',
     name: 'Golden Meadow',
-    tagline: 'a sunny hillside, just after sunrise',
+    tagline: 'warm gold, just after sunrise',
     palette: {
       skyTop: '#6FA6DE',
       skyMid: '#CDE6C6',
       skyHorizon: '#FCEFC6',
-      ground: '#6FB07A',
-      groundBack: '#93C99A',
-      accent: '#E0A233',
+      accent: '#8A641F',
       accentSoft: '#F3D693',
     },
   },
   'forest-green': {
     id: 'forest-green',
     name: 'Forest Green',
-    tagline: 'dappled light between tall trees',
+    tagline: 'deep green, quiet and still',
     palette: {
       skyTop: '#4C6B54',
       skyMid: '#7C9A73',
       skyHorizon: '#EFD59E',
-      ground: '#3C2E20',
-      groundBack: '#54402C',
-      accent: '#D98B3E',
+      accent: '#815325',
       accentSoft: '#EFC48D',
     },
   },
   sunset: {
     id: 'sunset',
     name: 'Sunset',
-    tagline: 'a winding path between the peaks',
+    tagline: 'rose and gold at the end of the day',
     palette: {
-      // Warm alpenglow (rose/peach dusk light) against cool slate-green peaks —
-      // deliberately warm-dominant so it doesn't read as "another blue sky".
       skyTop: '#C97A88',
       skyMid: '#EBAE8E',
       skyHorizon: '#FBE6C8',
-      ground: '#5B6E6A',
-      groundBack: '#7C8D87',
-      accent: '#B15A8C',
+      accent: '#984D78',
       accentSoft: '#E9BFD6',
     },
   },
   'soft-coral': {
     id: 'soft-coral',
     name: 'Soft Coral',
-    tagline: 'warm pink, salt air, gulls overhead',
+    tagline: 'warm coral pink, soft and easy',
     palette: {
       skyTop: '#E8768A',
       skyMid: '#F0A6A0',
       skyHorizon: '#FBDCC8',
-      accent: '#C24E72',
+      accent: '#A2415F',
       accentSoft: '#EBB6C9',
     },
   },

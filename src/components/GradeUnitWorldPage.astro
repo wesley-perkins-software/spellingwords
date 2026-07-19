@@ -13,7 +13,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import SourceAttribution from '@/components/SourceAttribution.astro';
-import WorldScene from '@/components/WorldScene.astro';
 import WorldWordField from '@/components/WorldWordField.astro';
 import WorldChip from '@/components/WorldChip.astro';
 import WorldRelatedCards from '@/components/WorldRelatedCards.astro';
@@ -79,8 +78,6 @@ const worldStyleVars = [
   `--world-sky-top:${kit.palette.skyTop}`,
   `--world-sky-mid:${kit.palette.skyMid}`,
   `--world-sky-horizon:${kit.palette.skyHorizon}`,
-  `--world-ground:${kit.palette.ground ?? kit.palette.skyHorizon}`,
-  `--world-ground-back:${kit.palette.groundBack ?? kit.palette.skyHorizon}`,
   `--world-ink:${WORLD_INK}`,
   `--world-accent:${kit.palette.accent}`,
   `--world-accent-soft:${kit.palette.accentSoft}`,
@@ -133,8 +130,6 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
   <main id="main-content">
     <!-- World Hero — the memorable, child-facing arrival moment -->
     <section class="world-hero" style={worldStyleVars}>
-      <WorldScene kitId={kit.id} />
-
       <div class="world-hero-inner">
         <div class="crumbs-row">
           <Breadcrumbs items={breadcrumbItems} />

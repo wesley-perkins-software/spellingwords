@@ -27,7 +27,6 @@ import { categoryLabels } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 import { pickWorldKit } from '@/lib/theme/worldKits';
-import { groupByWordFamily, shouldGroupByWordFamily } from '@/lib/theme/wordFamilies';
 
 interface Props {
   listId: string;
@@ -61,7 +60,6 @@ const playWords = toPlayableWords(entry);
 const playWordsJson = JSON.stringify(playWords);
 
 const words = data.words.map((w) => (typeof w === 'string' ? w : w.word));
-const wordFamilies = shouldGroupByWordFamily(data.skillTags) ? groupByWordFamily(words) : undefined;
 
 const kit = pickWorldKit(data.id);
 const roadmapPosition = getKindergartenRoadmapPosition(data.id);
@@ -174,7 +172,7 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
       <h2 class="word-field-heading">
         The {words.length} words to practice in this step
       </h2>
-      <WorldWordField words={words} wordFamilies={wordFamilies} />
+      <WorldWordField words={words} skillTags={data.skillTags} />
     </section>
 
     <!-- Is this the right list? -->

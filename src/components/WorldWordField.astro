@@ -1,34 +1,22 @@
 ---
-import type { WordFamily } from '@/lib/theme/wordFamilies';
-import { splitVowelHighlight } from '@/lib/theme/wordFamilies';
+import { prepareWordDisplay } from '@/lib/theme/phonicsPatterns';
 
 interface Props {
-  /** Every word in the list, in list order — used when `wordFamilies` is omitted. */
+  /** Every word in the list, in list order. */
   words: string[];
-  /**
-   * Pre-grouped word families (see shouldGroupByWordFamily) — only pass this
-   * when the content actually teaches a shared vowel pattern. Omit it for
-   * anything else (digraphs, vowel teams, spelling rules, etc.) and the field
-   * renders with no vowel highlighting instead.
-   */
-  wordFamilies?: WordFamily[];
+  /** The content entry's own skillTags — decides which pattern (if any) to highlight. */
+  skillTags: string[];
 }
 
-const { words, wordFamilies } = Astro.props;
+const { words, skillTags } = Astro.props;
 
-// One flowing, baseline-aligned line — not a grid of family "columns". Real
-// family sizes are uneven (Short A is 3/2/1/2), and a grid forces every
+// One flowing, baseline-aligned line — not a grid of pattern-group "columns".
+// Real groups are uneven sizes (Short A is 3/2/1/2), and a grid forces every
 // column in a row to match its tallest neighbor, which is what produced
 // lopsided gaps and pushed the last word down into the horizon artwork.
-// A family's membership still drives which letter gets the vowel tint;
-// `newFamily` just adds a little extra breathing room at the boundary
-// between one family and the next, so the grouping still reads without
-// needing a separate layout track per family.
-const items: { word: string; highlightVowel: boolean; newFamily: boolean }[] = wordFamilies
-  ? wordFamilies.flatMap((family) =>
-      family.words.map((word, i) => ({ word, highlightVowel: true, newFamily: i === 0 })),
-    )
-  : words.map((word) => ({ word, highlightVowel: false, newFamily: false }));
+// `newGroup` just adds a little extra breathing room at each pattern
+// boundary, so the grouping still reads without a separate layout track.
+const items = prepareWordDisplay(words, skillTags);
 ---
 
 <div class="word-field" role="group" aria-label="Words in this list">
@@ -36,16 +24,12 @@ const items: { word: string; highlightVowel: boolean; newFamily: boolean }[] = w
     items.map((item) => (
       <span
         class="word"
-        class:list={{ 'word--new-group': item.newFamily }}
+        class:list={{ 'word--new-group': item.newGroup }}
         role="button"
         tabindex="0"
         data-word={item.word}
         aria-label={`Hear "${item.word}" said slowly`}
-      >{item.highlightVowel
-        ? splitVowelHighlight(item.word).map((seg) =>
-            seg.isVowel ? <span class="vowel">{seg.text}</span> : seg.text,
-          )
-        : item.word}</span>
+      >{item.segments.map((seg) => (seg.highlight ? <span class="highlight">{seg.text}</span> : seg.text))}</span>
     ))
   }
 </div>
@@ -94,7 +78,7 @@ const items: { word: string; highlightVowel: boolean; newFamily: boolean }[] = w
     outline: 2px solid var(--world-ink);
     outline-offset: 3px;
   }
-  .word .vowel {
+  .word .highlight {
     color: var(--world-accent);
     text-shadow: 0 0 22px var(--world-accent-soft);
   }

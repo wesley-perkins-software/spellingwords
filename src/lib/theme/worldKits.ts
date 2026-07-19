@@ -12,8 +12,6 @@
  * automatically — nothing about an existing list needs to change.
  */
 
-import { meetsContrast } from './contrast';
-
 export type WorldKitId =
   | 'morning-blue'
   | 'soft-sage'
@@ -39,10 +37,9 @@ export interface WorldKitPalette {
    * accent on its own purple-pink gradient).
    *
    * NOTE: the accent is decorative only. It is NOT guaranteed to be
-   * readable against every zone of the hero gradient (in practice it never
-   * clears 4.5:1 against `skyTop`/`skyMid` for any kit) — the highlighted
+   * readable against every zone of the hero gradient — the highlighted
    * grapheme in the practice words never uses this color directly. See
-   * `resolveHighlightColor()` below for the readability-guaranteed color.
+   * `HIGHLIGHT_PILL` below for the highlighter-mark treatment used instead.
    */
   accent: string;
   accentSoft: string;
@@ -111,9 +108,7 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
     name: 'Lavender',
     tagline: 'a dusky purple evening',
     palette: {
-      // Lightened ~12% from #7A5C85 (same hue) so the highlight-color
-      // guarantee in resolveHighlightColor() can hold against this zone.
-      skyTop: '#8a7094',
+      skyTop: '#7A5C85',
       skyMid: '#B27C9C',
       skyHorizon: '#F3D6E0',
       accent: '#216B19',
@@ -149,9 +144,7 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
     name: 'Forest Green',
     tagline: 'deep green, quiet and still',
     palette: {
-      // Lightened ~15% from #4C6B54 (same hue) so the highlight-color
-      // guarantee in resolveHighlightColor() can hold against this zone.
-      skyTop: '#67816e',
+      skyTop: '#4C6B54',
       skyMid: '#7C9A73',
       skyHorizon: '#EFD59E',
       accent: '#6239D0',
@@ -250,64 +243,23 @@ export function assignWorldKitsInSequence(orderedIds: readonly string[]): Map<st
 }
 
 export interface HighlightColors {
-  /** Text color for the highlighted grapheme in the practice words. */
-  color: string;
-  /** Soft glow color for the highlight's text-shadow. */
-  glow: string;
+  /** Pill background behind the highlighted letters. */
+  background: string;
+  /** Text color on top of the pill. */
+  text: string;
 }
 
-/** The paper background the hero gradient fades into (matches the literal in GradeUnitWorldPage.astro's <style>). */
-const HERO_PAPER_BACKGROUND = '#fbf8f3';
-
 /**
- * Preferred fallback when a kit's own `accent` can't clear 4.5:1 against
- * every hero gradient zone (the common case — see the note on
- * `WorldKitPalette.accent`). A vivid, richly saturated "teaching ink",
- * deliberately not black, so the highlighted grapheme stays visually
- * distinct from the plain-black word ink around it. Clears 4.5:1 against
- * every zone for kits whose `skyTop` isn't especially dark.
+ * The grapheme highlight treatment: a warm, bright "highlighter marker" pill
+ * behind the highlighted letters, with dark ink text on top — like a
+ * teacher marked the pattern with a highlighter. Deliberately the same for
+ * every world kit: the pill fully occludes whatever hero gradient sits
+ * behind it, so the highlight reads as consistently bright and immediately
+ * recognizable regardless of scene, instead of chasing a text color that
+ * has to work against nine different (and sometimes very dark) gradients.
+ * `text` vs `background` contrast is verified in worldKits.test.ts.
  */
-export const SAFE_HIGHLIGHT_PRIMARY: HighlightColors = {
-  color: '#3a1240',
-  glow: 'rgba(58, 18, 64, 0.35)',
+export const HIGHLIGHT_PILL: HighlightColors = {
+  background: '#FFC93C',
+  text: '#241505',
 };
-
-/**
- * Deepest fallback, used only when even `SAFE_HIGHLIGHT_PRIMARY` can't clear
- * 4.5:1 against a kit's darkest zone (today: morning-blue, lavender,
- * forest-green — the three kits with the darkest `skyTop`). Still a
- * deliberate off-black hue, not literal `#000000`, and verified (in
- * worldKits.test.ts) to clear 4.5:1 against every zone for every kit in
- * `WORLD_KITS` — this is the true accessibility floor.
- */
-export const SAFE_HIGHLIGHT_DEEP: HighlightColors = {
-  color: '#150014',
-  glow: 'rgba(21, 0, 20, 0.35)',
-};
-
-/**
- * Resolves the guaranteed-readable highlight color for a kit's palette,
- * checking candidates in priority order — theme consistency (the kit's own
- * accent) first, then educational emphasis (a vivid, distinct teaching
- * color), then the readability floor (a near-black but still-hued fallback)
- * — against every zone the highlighted grapheme could render over: the
- * hero's sky gradient (`skyTop`, `skyMid`, `skyHorizon`) and the paper
- * background it fades into. Returns the first candidate that clears 4.5:1
- * against all four zones.
- */
-export function resolveHighlightColor(palette: WorldKitPalette): HighlightColors {
-  const zones = [palette.skyTop, palette.skyMid, palette.skyHorizon, HERO_PAPER_BACKGROUND];
-  const candidates: HighlightColors[] = [
-    { color: palette.accent, glow: palette.accentSoft },
-    SAFE_HIGHLIGHT_PRIMARY,
-    SAFE_HIGHLIGHT_DEEP,
-  ];
-
-  for (const candidate of candidates) {
-    if (zones.every((zone) => meetsContrast(candidate.color, zone))) {
-      return candidate;
-    }
-  }
-
-  return SAFE_HIGHLIGHT_DEEP;
-}

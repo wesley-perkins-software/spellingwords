@@ -26,7 +26,7 @@ import { categoryLabels } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { buildGradeUnitSequence } from '@/lib/content/gradeUnitSequence';
 import { gradeConfig } from '@/lib/content/gradeConfig';
-import { assignWorldKitsInSequence, pickWorldKit, resolveHighlightColor } from '@/lib/theme/worldKits';
+import { assignWorldKitsInSequence, pickWorldKit } from '@/lib/theme/worldKits';
 
 interface Props {
   listId: string;
@@ -64,7 +64,6 @@ const words = data.words.map((w) => (typeof w === 'string' ? w : w.word));
 const gradeUnitSequence = buildGradeUnitSequence(entries);
 const kitAssignments = assignWorldKitsInSequence(gradeUnitSequence);
 const kit = kitAssignments.get(data.id) ?? pickWorldKit(data.id);
-const highlight = resolveHighlightColor(kit.palette);
 const roadmapPosition = getKindergartenRoadmapPosition(data.id);
 const gradeHub = gradeConfig.find((g) => g.grade === data.grade);
 const gradeLabel = data.grade === 'K' ? 'Kindergarten' : data.grade ? `Grade ${data.grade}` : null;
@@ -85,8 +84,6 @@ const worldStyleVars = [
   `--world-ink:${WORLD_INK}`,
   `--world-accent:${kit.palette.accent}`,
   `--world-accent-soft:${kit.palette.accentSoft}`,
-  `--world-highlight-color:${highlight.color}`,
-  `--world-highlight-glow:${highlight.glow}`,
 ].join('; ');
 
 const breadcrumbItems = [

@@ -1,15 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { contrastRatio } from './contrast';
-import {
-  assignWorldKitsInSequence,
-  hashListId,
-  pickWorldKit,
-  resolveHighlightColor,
-  SAFE_HIGHLIGHT_DEEP,
-  SAFE_HIGHLIGHT_PRIMARY,
-  WORLD_KITS,
-  type WorldKitPalette,
-} from './worldKits';
+import { assignWorldKitsInSequence, HIGHLIGHT_PILL, hashListId, pickWorldKit, WORLD_KITS } from './worldKits';
 
 const PUBLISHED_GRADE_UNIT_IDS = [
   'grade-1-cvc-short-vowels-c-k-rule',
@@ -89,65 +80,15 @@ describe('pickWorldKit', () => {
   });
 });
 
-describe('resolveHighlightColor', () => {
-  const HERO_ZONES = ['skyTop', 'skyMid', 'skyHorizon', 'paper'] as const;
-  const PAPER = '#fbf8f3';
-
-  function zonesFor(palette: WorldKitPalette): string[] {
-    return [palette.skyTop, palette.skyMid, palette.skyHorizon, PAPER];
-  }
-
-  it('meets 4.5:1 contrast against every hero zone for every real world kit', () => {
-    for (const kit of Object.values(WORLD_KITS)) {
-      const resolved = resolveHighlightColor(kit.palette);
-      const zones = zonesFor(kit.palette);
-      zones.forEach((zone, i) => {
-        expect(
-          contrastRatio(resolved.color, zone),
-          `${kit.id} highlight vs ${HERO_ZONES[i]}`,
-        ).toBeGreaterThanOrEqual(4.5);
-      });
-    }
+describe('HIGHLIGHT_PILL', () => {
+  it('has strong text-vs-background contrast, independent of any world kit', () => {
+    expect(contrastRatio(HIGHLIGHT_PILL.text, HIGHLIGHT_PILL.background)).toBeGreaterThanOrEqual(4.5);
   });
 
-  it('never resolves to plain black or the kit accent when they fail contrast', () => {
-    for (const kit of Object.values(WORLD_KITS)) {
-      const resolved = resolveHighlightColor(kit.palette);
-      expect(resolved.color).not.toBe('#000000');
-    }
-  });
-
-  it('prefers the kit accent when it clears every zone', () => {
-    const passingPalette: WorldKitPalette = {
-      skyTop: '#ffffff',
-      skyMid: '#ffffff',
-      skyHorizon: '#ffffff',
-      accent: '#000000',
-      accentSoft: '#888888',
-    };
-    expect(resolveHighlightColor(passingPalette)).toEqual({ color: '#000000', glow: '#888888' });
-  });
-
-  it('falls back to SAFE_HIGHLIGHT_PRIMARY when the accent fails but the primary fallback passes', () => {
-    const failingAccentPalette: WorldKitPalette = {
-      skyTop: '#ffffff',
-      skyMid: '#f0f0f0',
-      skyHorizon: '#fafafa',
-      accent: '#eeeeee', // near-white accent on a near-white sky: fails contrast
-      accentSoft: '#dddddd',
-    };
-    expect(resolveHighlightColor(failingAccentPalette)).toEqual(SAFE_HIGHLIGHT_PRIMARY);
-  });
-
-  it('falls back to SAFE_HIGHLIGHT_DEEP when only the deepest fallback passes (mimics the darkest real skyTop zones)', () => {
-    const darkestZonePalette: WorldKitPalette = {
-      skyTop: '#4A78C7', // morning-blue's real, unmodified skyTop
-      skyMid: '#8CB2E6',
-      skyHorizon: '#E4F1FA',
-      accent: '#C63A2F',
-      accentSoft: '#E9B4B0',
-    };
-    expect(resolveHighlightColor(darkestZonePalette)).toEqual(SAFE_HIGHLIGHT_DEEP);
+  it('defines two distinct, valid hex colors', () => {
+    expect(HIGHLIGHT_PILL.background).toMatch(/^#[0-9a-fA-F]{6}$/);
+    expect(HIGHLIGHT_PILL.text).toMatch(/^#[0-9a-fA-F]{6}$/);
+    expect(HIGHLIGHT_PILL.text).not.toBe(HIGHLIGHT_PILL.background);
   });
 });
 

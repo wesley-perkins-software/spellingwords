@@ -1,5 +1,6 @@
 ---
 import { prepareWordDisplay } from '@/lib/theme/phonicsPatterns';
+import { HIGHLIGHT_PILL } from '@/lib/theme/worldKits';
 
 interface Props {
   /** Every word in the list, in list order. */
@@ -34,7 +35,7 @@ const items = prepareWordDisplay(words, skillTags);
   }
 </div>
 
-<style>
+<style define:vars={{ pillBg: HIGHLIGHT_PILL.background, pillText: HIGHLIGHT_PILL.text }}>
   .word-field {
     position: relative;
     z-index: 2;
@@ -79,8 +80,12 @@ const items = prepareWordDisplay(words, skillTags);
     outline-offset: 3px;
   }
   .word .highlight {
-    color: var(--world-highlight-color);
-    text-shadow: 0 0 22px var(--world-highlight-glow);
+    display: inline-block;
+    background: var(--pillBg);
+    color: var(--pillText);
+    border-radius: 6px;
+    padding: 0 3px;
+    box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.16);
   }
 
   @media (max-width: 640px) {

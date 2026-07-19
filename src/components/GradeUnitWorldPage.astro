@@ -315,6 +315,14 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
   .crumbs-row :global(span) {
     color: var(--world-ink) !important;
   }
+  .crumbs-row :global(a) {
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--world-ink) 35%, transparent);
+    text-underline-offset: 2px;
+  }
+  .crumbs-row :global(a:hover) {
+    text-decoration-color: var(--world-ink);
+  }
 
   .roadmap {
     display: inline-flex;
@@ -550,8 +558,8 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
     overflow: hidden;
     border-radius: 16px;
     background: #ffffff;
-    border: 1px solid rgba(43, 33, 21, 0.1);
-    box-shadow: 0 2px 8px -3px rgba(43, 33, 21, 0.14);
+    border: 1px solid color-mix(in srgb, var(--world-ink) 10%, transparent);
+    box-shadow: 0 2px 8px -3px color-mix(in srgb, var(--world-ink) 14%, transparent);
     padding: 18px 20px 18px 22px;
     text-decoration: none;
     transition:
@@ -568,8 +576,8 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
   }
   .go-deeper-card:hover {
     transform: translateY(-2px);
-    border-color: rgba(43, 33, 21, 0.16);
-    box-shadow: 0 12px 24px -14px rgba(43, 33, 21, 0.35);
+    border-color: color-mix(in srgb, var(--world-ink) 16%, transparent);
+    box-shadow: 0 12px 24px -14px color-mix(in srgb, var(--world-ink) 35%, transparent);
   }
   .go-deeper-card:focus-visible {
     outline: 2px solid var(--world-accent);
@@ -593,19 +601,23 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
     opacity: 0.75;
   }
 
+  /* Slightly deeper than the #fbf8f3 paper used everywhere else below the
+     fold — deliberate: the FAQ block sits between two #fbf8f3 sections and
+     needs its own visual "beat" so the page doesn't read as one unbroken
+     paper field for its full scroll length. */
   .faq-section {
     background: #f3ede3;
   }
   .faq-list {
     background: #ffffff;
-    border: 1px solid rgba(43, 33, 21, 0.1);
-    box-shadow: 0 2px 8px -3px rgba(43, 33, 21, 0.1);
+    border: 1px solid color-mix(in srgb, var(--world-ink) 10%, transparent);
+    box-shadow: 0 2px 8px -3px color-mix(in srgb, var(--world-ink) 10%, transparent);
     border-radius: 16px;
     overflow: hidden;
   }
   .faq-item {
     padding: 20px 22px;
-    border-bottom: 1px solid rgba(43, 33, 21, 0.08);
+    border-bottom: 1px solid color-mix(in srgb, var(--world-ink) 8%, transparent);
   }
   .faq-item:last-child {
     border-bottom: none;

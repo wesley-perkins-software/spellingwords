@@ -12,6 +12,8 @@
  * automatically — nothing about an existing list needs to change.
  */
 
+import { meetsContrast } from './contrast';
+
 export type WorldKitId =
   | 'morning-blue'
   | 'soft-sage'
@@ -29,15 +31,18 @@ export interface WorldKitPalette {
   skyMid: string;
   skyHorizon: string;
   /**
-   * The world's single accent color: CTA, underlines, word-family highlight.
+   * The world's single accent color: CTA, underlines, decorative touches.
    * Deliberately a hue family DIFFERENT from the kit's own sky gradient
    * (not a darker shade of the same hue) — a same-family accent can pass a
    * numeric contrast check yet still read as "the same color" as the
    * background at a glance (this happened for real: Lavender's old purple
-   * accent on its own purple-pink gradient). Each accent also holds at
-   * least 4.5:1 contrast against both `skyHorizon` and the paper background
-   * the hero fades into, since the highlighted grapheme in the practice
-   * words renders in this color directly on that fade.
+   * accent on its own purple-pink gradient).
+   *
+   * NOTE: the accent is decorative only. It is NOT guaranteed to be
+   * readable against every zone of the hero gradient (in practice it never
+   * clears 4.5:1 against `skyTop`/`skyMid` for any kit) — the highlighted
+   * grapheme in the practice words never uses this color directly. See
+   * `resolveHighlightColor()` below for the readability-guaranteed color.
    */
   accent: string;
   accentSoft: string;
@@ -106,7 +111,9 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
     name: 'Lavender',
     tagline: 'a dusky purple evening',
     palette: {
-      skyTop: '#7A5C85',
+      // Lightened ~12% from #7A5C85 (same hue) so the highlight-color
+      // guarantee in resolveHighlightColor() can hold against this zone.
+      skyTop: '#8a7094',
       skyMid: '#B27C9C',
       skyHorizon: '#F3D6E0',
       accent: '#216B19',
@@ -142,7 +149,9 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
     name: 'Forest Green',
     tagline: 'deep green, quiet and still',
     palette: {
-      skyTop: '#4C6B54',
+      // Lightened ~15% from #4C6B54 (same hue) so the highlight-color
+      // guarantee in resolveHighlightColor() can hold against this zone.
+      skyTop: '#67816e',
       skyMid: '#7C9A73',
       skyHorizon: '#EFD59E',
       accent: '#6239D0',
@@ -209,4 +218,96 @@ function avalanche(h: number): number {
 export function pickWorldKit(id: string): WorldKit {
   const index = hashListId(id) % WORLD_KIT_ORDER.length;
   return WORLD_KITS[WORLD_KIT_ORDER[index]];
+}
+
+/**
+ * Assigns each id in `orderedIds` (the full cross-grade curriculum sequence,
+ * see `src/lib/content/gradeUnitSequence.ts`) to a world kit, starting from
+ * `pickWorldKit`'s per-id hash and only deviating when that would repeat the
+ * immediately preceding id's kit. Deterministic, no randomness, single
+ * left-to-right pass — a child progressing through the curriculum never
+ * sees the same scene kit twice in a row.
+ *
+ * With 9 kits and only one forbidden value (the previous entry's kit) to
+ * avoid at each step, stepping one slot forward in `WORLD_KIT_ORDER` always
+ * finds a substitute — this can never fail to satisfy "no two consecutive
+ * entries share a kit" for the sequences this app produces.
+ */
+export function assignWorldKitsInSequence(orderedIds: readonly string[]): Map<string, WorldKit> {
+  const assignments = new Map<string, WorldKit>();
+  let previousKitId: WorldKitId | undefined;
+
+  for (const id of orderedIds) {
+    const baseIndex = hashListId(id) % WORLD_KIT_ORDER.length;
+    const chosenIndex =
+      WORLD_KIT_ORDER[baseIndex] === previousKitId ? (baseIndex + 1) % WORLD_KIT_ORDER.length : baseIndex;
+    const kit = WORLD_KITS[WORLD_KIT_ORDER[chosenIndex]];
+    assignments.set(id, kit);
+    previousKitId = kit.id;
+  }
+
+  return assignments;
+}
+
+export interface HighlightColors {
+  /** Text color for the highlighted grapheme in the practice words. */
+  color: string;
+  /** Soft glow color for the highlight's text-shadow. */
+  glow: string;
+}
+
+/** The paper background the hero gradient fades into (matches the literal in GradeUnitWorldPage.astro's <style>). */
+const HERO_PAPER_BACKGROUND = '#fbf8f3';
+
+/**
+ * Preferred fallback when a kit's own `accent` can't clear 4.5:1 against
+ * every hero gradient zone (the common case — see the note on
+ * `WorldKitPalette.accent`). A vivid, richly saturated "teaching ink",
+ * deliberately not black, so the highlighted grapheme stays visually
+ * distinct from the plain-black word ink around it. Clears 4.5:1 against
+ * every zone for kits whose `skyTop` isn't especially dark.
+ */
+export const SAFE_HIGHLIGHT_PRIMARY: HighlightColors = {
+  color: '#3a1240',
+  glow: 'rgba(58, 18, 64, 0.35)',
+};
+
+/**
+ * Deepest fallback, used only when even `SAFE_HIGHLIGHT_PRIMARY` can't clear
+ * 4.5:1 against a kit's darkest zone (today: morning-blue, lavender,
+ * forest-green — the three kits with the darkest `skyTop`). Still a
+ * deliberate off-black hue, not literal `#000000`, and verified (in
+ * worldKits.test.ts) to clear 4.5:1 against every zone for every kit in
+ * `WORLD_KITS` — this is the true accessibility floor.
+ */
+export const SAFE_HIGHLIGHT_DEEP: HighlightColors = {
+  color: '#150014',
+  glow: 'rgba(21, 0, 20, 0.35)',
+};
+
+/**
+ * Resolves the guaranteed-readable highlight color for a kit's palette,
+ * checking candidates in priority order — theme consistency (the kit's own
+ * accent) first, then educational emphasis (a vivid, distinct teaching
+ * color), then the readability floor (a near-black but still-hued fallback)
+ * — against every zone the highlighted grapheme could render over: the
+ * hero's sky gradient (`skyTop`, `skyMid`, `skyHorizon`) and the paper
+ * background it fades into. Returns the first candidate that clears 4.5:1
+ * against all four zones.
+ */
+export function resolveHighlightColor(palette: WorldKitPalette): HighlightColors {
+  const zones = [palette.skyTop, palette.skyMid, palette.skyHorizon, HERO_PAPER_BACKGROUND];
+  const candidates: HighlightColors[] = [
+    { color: palette.accent, glow: palette.accentSoft },
+    SAFE_HIGHLIGHT_PRIMARY,
+    SAFE_HIGHLIGHT_DEEP,
+  ];
+
+  for (const candidate of candidates) {
+    if (zones.every((zone) => meetsContrast(candidate.color, zone))) {
+      return candidate;
+    }
+  }
+
+  return SAFE_HIGHLIGHT_DEEP;
 }

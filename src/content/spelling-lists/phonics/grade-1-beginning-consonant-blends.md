@@ -4,6 +4,7 @@ urlSlug: 1st-grade-beginning-consonant-blends
 title: "Beginning Consonant Blends"
 description: "A first-grade core spelling lesson on beginning consonant blends."
 shortAnswer: "This Grade 1 core unit teaches beginning consonant blends with a focused word list, parent-friendly explanation, misconceptions, and curriculum navigation."
+contentRole: grade-unit
 category: phonics
 grade: "1"
 difficulty: beginner

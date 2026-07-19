@@ -29,15 +29,17 @@ export interface WorldKitPalette {
   skyMid: string;
   skyHorizon: string;
   /**
-   * The world's single accent color: CTA, underlines, word-family highlight.
+   * The world's single accent color: CTA, underlines, decorative touches.
    * Deliberately a hue family DIFFERENT from the kit's own sky gradient
    * (not a darker shade of the same hue) — a same-family accent can pass a
    * numeric contrast check yet still read as "the same color" as the
    * background at a glance (this happened for real: Lavender's old purple
-   * accent on its own purple-pink gradient). Each accent also holds at
-   * least 4.5:1 contrast against both `skyHorizon` and the paper background
-   * the hero fades into, since the highlighted grapheme in the practice
-   * words renders in this color directly on that fade.
+   * accent on its own purple-pink gradient).
+   *
+   * NOTE: the accent is decorative only. It is NOT guaranteed to be
+   * readable against every zone of the hero gradient — the highlighted
+   * grapheme in the practice words never uses this color directly. See
+   * `HIGHLIGHT_PILL` below for the highlighter-mark treatment used instead.
    */
   accent: string;
   accentSoft: string;
@@ -210,3 +212,54 @@ export function pickWorldKit(id: string): WorldKit {
   const index = hashListId(id) % WORLD_KIT_ORDER.length;
   return WORLD_KITS[WORLD_KIT_ORDER[index]];
 }
+
+/**
+ * Assigns each id in `orderedIds` (the full cross-grade curriculum sequence,
+ * see `src/lib/content/gradeUnitSequence.ts`) to a world kit, starting from
+ * `pickWorldKit`'s per-id hash and only deviating when that would repeat the
+ * immediately preceding id's kit. Deterministic, no randomness, single
+ * left-to-right pass — a child progressing through the curriculum never
+ * sees the same scene kit twice in a row.
+ *
+ * With 9 kits and only one forbidden value (the previous entry's kit) to
+ * avoid at each step, stepping one slot forward in `WORLD_KIT_ORDER` always
+ * finds a substitute — this can never fail to satisfy "no two consecutive
+ * entries share a kit" for the sequences this app produces.
+ */
+export function assignWorldKitsInSequence(orderedIds: readonly string[]): Map<string, WorldKit> {
+  const assignments = new Map<string, WorldKit>();
+  let previousKitId: WorldKitId | undefined;
+
+  for (const id of orderedIds) {
+    const baseIndex = hashListId(id) % WORLD_KIT_ORDER.length;
+    const chosenIndex =
+      WORLD_KIT_ORDER[baseIndex] === previousKitId ? (baseIndex + 1) % WORLD_KIT_ORDER.length : baseIndex;
+    const kit = WORLD_KITS[WORLD_KIT_ORDER[chosenIndex]];
+    assignments.set(id, kit);
+    previousKitId = kit.id;
+  }
+
+  return assignments;
+}
+
+export interface HighlightColors {
+  /** Pill background behind the highlighted letters. */
+  background: string;
+  /** Text color on top of the pill. */
+  text: string;
+}
+
+/**
+ * The grapheme highlight treatment: a warm, bright "highlighter marker" pill
+ * behind the highlighted letters, with dark ink text on top — like a
+ * teacher marked the pattern with a highlighter. Deliberately the same for
+ * every world kit: the pill fully occludes whatever hero gradient sits
+ * behind it, so the highlight reads as consistently bright and immediately
+ * recognizable regardless of scene, instead of chasing a text color that
+ * has to work against nine different (and sometimes very dark) gradients.
+ * `text` vs `background` contrast is verified in worldKits.test.ts.
+ */
+export const HIGHLIGHT_PILL: HighlightColors = {
+  background: '#FFC93C',
+  text: '#241505',
+};

@@ -98,6 +98,90 @@ function vowelTeamStrategy(teams: string[]): PatternStrategy {
   return digraphStrategy(teams);
 }
 
+// Canonical inventories — not lesson-specific. A new blend/prefix/suffix
+// added to future content never requires a code change here, only a tag.
+const BEGINNING_BLENDS = [
+  'bl', 'br', 'cl', 'cr', 'dr', 'fl', 'fr', 'gl', 'gr', 'pl', 'pr',
+  'sc', 'sk', 'sl', 'sm', 'sn', 'sp', 'st', 'sw', 'tr', 'tw',
+];
+const ENDING_BLENDS = ['ct', 'ft', 'ld', 'lk', 'lp', 'lt', 'mp', 'nd', 'ng', 'nk', 'nt', 'pt', 'sk', 'sp', 'st'];
+
+// Longest-first, computed rather than hand-ordered, so a future addition to
+// either list can't silently break "under wins over un" style precedence.
+const PREFIXES = ['under', 'inter', 'trans', 'super', 'anti', 'over', 'non', 'sub', 'pre', 'dis', 'mis', 'un', 're'].sort(
+  (a, b) => b.length - a.length,
+);
+const SUFFIXES = [
+  'tion', 'sion', 'ness', 'ment', 'able', 'ible', 'ive', 'ous', 'ful', 'less', 'ity', 'est', 'ing', 'ed', 'er', 'ly',
+].sort((a, b) => b.length - a.length);
+
+/** First two letters, if they're a known consonant blend (bl-blend-words, grade-1-core beginning blends). */
+const beginningBlendStrategy: PatternStrategy = {
+  segments: (word) => {
+    const cluster = word.slice(0, 2).toLowerCase();
+    if (!BEGINNING_BLENDS.includes(cluster)) return [{ text: word, highlight: false }];
+    return segmentsFromMask(word, (i) => i < 2);
+  },
+  groupKey: (word) => {
+    const cluster = word.slice(0, 2).toLowerCase();
+    return BEGINNING_BLENDS.includes(cluster) ? cluster : word;
+  },
+};
+
+/** Last two letters, if they're a known consonant blend (ft-final-blend-words, grade-1-core ending blends). */
+const endingBlendStrategy: PatternStrategy = {
+  segments: (word) => {
+    const cluster = word.slice(-2).toLowerCase();
+    if (!ENDING_BLENDS.includes(cluster)) return [{ text: word, highlight: false }];
+    return segmentsFromMask(word, (i) => i >= word.length - 2);
+  },
+  groupKey: (word) => {
+    const cluster = word.slice(-2).toLowerCase();
+    return ENDING_BLENDS.includes(cluster) ? cluster : word;
+  },
+};
+
+/**
+ * Longest-match-first prefix from a canonical inventory — "under" wins over
+ * the "un" it contains, so "undercover" groups under "under", not "un".
+ * Requires at least 2 letters left after the prefix, a cheap guard against
+ * degenerate matches on very short words. Highlights only the prefix's own
+ * letters, same "literal matched substring" approach as ckRuleStrategy —
+ * no attempt to validate or reconstruct the base word.
+ */
+const prefixStrategy: PatternStrategy = {
+  segments: (word) => {
+    const lower = word.toLowerCase();
+    const prefix = PREFIXES.find((p) => lower.startsWith(p) && lower.length - p.length >= 2);
+    if (!prefix) return [{ text: word, highlight: false }];
+    return segmentsFromMask(word, (i) => i < prefix.length);
+  },
+  groupKey: (word) => {
+    const lower = word.toLowerCase();
+    return PREFIXES.find((p) => lower.startsWith(p) && lower.length - p.length >= 2) ?? word;
+  },
+};
+
+/**
+ * Longest-match-first suffix from a canonical inventory, mirroring
+ * prefixStrategy. Highlights only the matched trailing letters — this is
+ * safe even for words with a spelling change before the suffix ("bigger",
+ * "happiest") since the strategy never needs the base word's boundary,
+ * only the suffix's own letters.
+ */
+const suffixStrategy: PatternStrategy = {
+  segments: (word) => {
+    const lower = word.toLowerCase();
+    const suffix = SUFFIXES.find((s) => lower.endsWith(s) && lower.length - s.length >= 2);
+    if (!suffix) return [{ text: word, highlight: false }];
+    return segmentsFromMask(word, (i) => i >= word.length - suffix.length);
+  },
+  groupKey: (word) => {
+    const lower = word.toLowerCase();
+    return SUFFIXES.find((s) => lower.endsWith(s) && lower.length - s.length >= 2) ?? word;
+  },
+};
+
 /**
  * Silent-e (VCe): the earlier vowel and the final silent "e" both highlight,
  * with the consonant between them left plain — cake -> c[a]k[e], not "ake"
@@ -158,6 +242,21 @@ function pickPatternStrategy(skillTags: string[]): PatternStrategy | null {
     !tags.has('spelling-rules') &&
     !tags.has('digraphs');
   if (isPlainShortVowelCvc) return vowelStrategy;
+
+  // Single-blend files (bl-blend-words, ft-final-blend-words) tag
+  // "consonant-blends" (+"final-blends" for endings); the two grade-1-core
+  // mixed review lists use a coarser "beginning-/ending-consonant-blends"
+  // tag instead. Either way, direction — not the specific cluster — is all
+  // the dispatcher needs; the strategy itself matches against the full
+  // canonical blend inventory.
+  const isEndingBlend = tags.has('final-blends') || tags.has('ending-consonant-blends');
+  const isBeginningBlend = tags.has('beginning-consonant-blends');
+  if (tags.has('consonant-blends') || isBeginningBlend || isEndingBlend) {
+    return isEndingBlend ? endingBlendStrategy : beginningBlendStrategy;
+  }
+
+  if (tags.has('prefixes')) return prefixStrategy;
+  if (tags.has('suffixes')) return suffixStrategy;
 
   return null;
 }

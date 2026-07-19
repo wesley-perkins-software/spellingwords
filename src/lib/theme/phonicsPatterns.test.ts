@@ -200,6 +200,169 @@ describe('prepareWordDisplay — grade-1-long-vowels-silent-e', () => {
   });
 });
 
+describe('prepareWordDisplay — bl-blend-words (consonant-blends, bl)', () => {
+  const tags = ['consonant-blends', 'bl'];
+  const words = ['black', 'blade', 'blast', 'blend', 'blink', 'blanket', 'block', 'blow', 'bloom', 'blue'];
+  const result = prepareWordDisplay(words, tags);
+
+  it('highlights the beginning blend', () => {
+    expect(result.map((r) => render(r.segments))).toEqual([
+      '[bl]ack',
+      '[bl]ade',
+      '[bl]ast',
+      '[bl]end',
+      '[bl]ink',
+      '[bl]anket',
+      '[bl]ock',
+      '[bl]ow',
+      '[bl]oom',
+      '[bl]ue',
+    ]);
+  });
+});
+
+describe('prepareWordDisplay — grade-1-beginning-consonant-blends (mixed blends, no per-blend tag)', () => {
+  const tags = ['grade-1-core', 'beginning-consonant-blends'];
+  const words = ['black', 'clap', 'frog', 'glad', 'plum', 'crab', 'stop', 'swim', 'snack', 'train', 'grass', 'drip'];
+  const result = prepareWordDisplay(words, tags);
+
+  it('matches each word against the canonical blend inventory, not a single fixed cluster', () => {
+    expect(result.map((r) => render(r.segments))).toEqual([
+      '[bl]ack',
+      '[cl]ap',
+      '[fr]og',
+      '[gl]ad',
+      '[pl]um',
+      '[cr]ab',
+      '[st]op',
+      '[sw]im',
+      '[sn]ack',
+      '[tr]ain',
+      '[gr]ass',
+      '[dr]ip',
+    ]);
+  });
+
+  it('re-opens a new group for every word, since none of these 12 blends repeat consecutively', () => {
+    expect(result.map((r) => r.newGroup)).toEqual(new Array(12).fill(true));
+  });
+});
+
+describe('prepareWordDisplay — ft-final-blend-words (consonant-blends, ft, final-blends)', () => {
+  const tags = ['consonant-blends', 'ft', 'final-blends'];
+  const words = ['craft', 'drift', 'gift', 'left', 'lift', 'loft', 'shift', 'soft', 'tuft'];
+  const result = prepareWordDisplay(words, tags);
+
+  it('highlights the ending blend', () => {
+    expect(result.map((r) => render(r.segments))).toEqual([
+      'cra[ft]',
+      'dri[ft]',
+      'gi[ft]',
+      'le[ft]',
+      'li[ft]',
+      'lo[ft]',
+      'shi[ft]',
+      'so[ft]',
+      'tu[ft]',
+    ]);
+  });
+});
+
+describe('prepareWordDisplay — grade-1-ending-consonant-blends (mixed final blends, no per-blend tag)', () => {
+  const tags = ['grade-1-core', 'ending-consonant-blends'];
+  const words = ['hand', 'nest', 'jump', 'milk', 'belt', 'sink', 'desk', 'lamp', 'gift', 'cold', 'pond', 'help'];
+  const result = prepareWordDisplay(words, tags);
+
+  it('matches each word against the canonical ending-blend inventory, including the less common "lp" in help', () => {
+    expect(result.map((r) => render(r.segments))).toEqual([
+      'ha[nd]',
+      'ne[st]',
+      'ju[mp]',
+      'mi[lk]',
+      'be[lt]',
+      'si[nk]',
+      'de[sk]',
+      'la[mp]',
+      'gi[ft]',
+      'co[ld]',
+      'po[nd]',
+      'he[lp]',
+    ]);
+  });
+});
+
+describe('prepareWordDisplay — grade-3-prefix-words (prefixes)', () => {
+  const tags = ['grade-3', 'prefixes', 'morphology', 'word-study'];
+  const words = [
+    'unfair', 'unhappy', 'unkind', 'unsafe', 'unlock',
+    'redo', 'replay', 'reread', 'rewrite',
+    'prepare', 'predict',
+    'disagree', 'dislike', 'discover', 'dishonest',
+    'misplace', 'misread', 'misspell',
+  ];
+  const result = prepareWordDisplay(words, tags);
+
+  it('highlights each real prefix (un-, re-, pre-, dis-, mis-), all in one list', () => {
+    expect(result.map((r) => render(r.segments))).toEqual([
+      '[un]fair', '[un]happy', '[un]kind', '[un]safe', '[un]lock',
+      '[re]do', '[re]play', '[re]read', '[re]write',
+      '[pre]pare', '[pre]dict',
+      '[dis]agree', '[dis]like', '[dis]cover', '[dis]honest',
+      '[mis]place', '[mis]read', '[mis]spell',
+    ]);
+  });
+
+  it('groups contiguously by prefix: un(5), re(4), pre(2), dis(4), mis(3)', () => {
+    expect(result.map((r) => r.newGroup)).toEqual([
+      true, false, false, false, false,
+      true, false, false, false,
+      true, false,
+      true, false, false, false,
+      true, false, false,
+    ]);
+  });
+
+  it('prefers the longer "under" over the "un" it contains', () => {
+    const synthetic = prepareWordDisplay(['undercover', 'unhappy'], tags);
+    expect(synthetic.map((r) => render(r.segments))).toEqual(['[under]cover', '[un]happy']);
+  });
+});
+
+describe('prepareWordDisplay — grade-3-suffix-words (suffixes)', () => {
+  const tags = ['grade-3', 'suffixes', 'morphology', 'word-study'];
+  const words = [
+    'bigger', 'biggest', 'faster', 'fastest', 'easier', 'easiest',
+    'slowly', 'nearly', 'really',
+    'careful', 'helpful', 'useful',
+    'careless', 'restless',
+    'happiness', 'kindness',
+    'movement', 'enjoyment',
+  ];
+  const result = prepareWordDisplay(words, tags);
+
+  it('highlights only the trailing suffix letters, even across a doubled-consonant spelling change (bigger, biggest)', () => {
+    expect(result.map((r) => render(r.segments))).toEqual([
+      'bigg[er]', 'bigg[est]', 'fast[er]', 'fast[est]', 'easi[er]', 'easi[est]',
+      'slow[ly]', 'near[ly]', 'real[ly]',
+      'care[ful]', 'help[ful]', 'use[ful]',
+      'care[less]', 'rest[less]',
+      'happi[ness]', 'kind[ness]',
+      'move[ment]', 'enjoy[ment]',
+    ]);
+  });
+
+  it('groups by which suffix, matching the real, non-alphabetical word order', () => {
+    expect(result.map((r) => r.newGroup)).toEqual([
+      true, true, true, true, true, true, // er/est pairs alternate: none repeat consecutively
+      true, false, false, // ly: slowly, nearly, really
+      true, false, false, // ful: careful, helpful, useful
+      true, false, // less: careless, restless
+      true, false, // ness: happiness, kindness
+      true, false, // ment: movement, enjoyment
+    ]);
+  });
+});
+
 describe('prepareWordDisplay — no recognized pattern', () => {
   it('falls back to a fully plain, ungrouped list', () => {
     const result = prepareWordDisplay(['information', 'technology'], ['grade-5', 'academic-words']);

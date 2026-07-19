@@ -4,6 +4,7 @@ urlSlug: 1st-grade-ending-consonant-blends
 title: "Ending Consonant Blends"
 description: "A first-grade core spelling lesson on ending consonant blends."
 shortAnswer: "This Grade 1 core unit teaches ending consonant blends with a focused word list, parent-friendly explanation, misconceptions, and curriculum navigation."
+contentRole: grade-unit
 category: phonics
 grade: "1"
 difficulty: beginner

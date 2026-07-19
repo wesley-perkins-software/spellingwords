@@ -5,19 +5,23 @@
  * once published, so a given list always renders in the same world across
  * builds — no client-side randomness, no hydration mismatch.
  *
- * Six kits exist today; each is a whole pre-tuned bundle (palette + ink +
- * accent + landmark set) so no combination can land on poor contrast or a
- * clashing palette. Adding a seventh kit redistributes all existing lists
- * automatically — nothing about an existing list needs to change.
+ * Nine kits exist today; several are gradient-led with only a light touch
+ * of environmental detail (a couple of clouds, a flower or two) rather than
+ * a full landscape scene — not every world needs a sun, hills, and trees.
+ * Adding a tenth kit redistributes all existing lists automatically —
+ * nothing about an existing list needs to change.
  */
 
 export type WorldKitId =
-  | 'meadow-morning'
-  | 'forest-clearing'
-  | 'secret-garden'
-  | 'seaside'
-  | 'mountain-trail'
-  | 'sky-adventure';
+  | 'morning-blue'
+  | 'soft-sage'
+  | 'warm-peach'
+  | 'lavender'
+  | 'cream'
+  | 'golden-meadow'
+  | 'forest-green'
+  | 'sunset'
+  | 'soft-coral';
 
 export interface WorldKitPalette {
   /** Sky/backdrop gradient stops, top to bottom (or back to front). */
@@ -27,8 +31,6 @@ export interface WorldKitPalette {
   /** Foreground ground silhouette color(s), where the world has a ground. */
   ground?: string;
   groundBack?: string;
-  /** Body/heading text color — chosen per world for contrast, not pure black. */
-  ink: string;
   /** The world's single accent color: CTA, underlines, word-family highlight. */
   accent: string;
   accentSoft: string;
@@ -44,18 +46,81 @@ export interface WorldKit {
 
 /** Fixed order — this is what `hash(id) % length` indexes into. Never reorder. */
 const WORLD_KIT_ORDER: WorldKitId[] = [
-  'meadow-morning',
-  'forest-clearing',
-  'secret-garden',
-  'seaside',
-  'mountain-trail',
-  'sky-adventure',
+  'morning-blue',
+  'soft-sage',
+  'warm-peach',
+  'lavender',
+  'cream',
+  'golden-meadow',
+  'forest-green',
+  'sunset',
+  'soft-coral',
 ];
 
 export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
-  'meadow-morning': {
-    id: 'meadow-morning',
-    name: 'Meadow Morning',
+  'morning-blue': {
+    id: 'morning-blue',
+    name: 'Morning Blue',
+    tagline: 'a clear sky, just past sunrise',
+    palette: {
+      skyTop: '#4A78C7',
+      skyMid: '#8CB2E6',
+      skyHorizon: '#E4F1FA',
+      accent: '#F2B23C',
+      accentSoft: '#FBDFA0',
+    },
+  },
+  'soft-sage': {
+    id: 'soft-sage',
+    name: 'Soft Sage',
+    tagline: 'quiet green, like a calm afternoon',
+    palette: {
+      skyTop: '#7C9A82',
+      skyMid: '#A9C2A0',
+      skyHorizon: '#E8EDD9',
+      accent: '#C97B3D',
+      accentSoft: '#E9C39A',
+    },
+  },
+  'warm-peach': {
+    id: 'warm-peach',
+    name: 'Warm Peach',
+    tagline: 'soft light, like the last hour before dinner',
+    palette: {
+      skyTop: '#F0A691',
+      skyMid: '#F7C9A8',
+      skyHorizon: '#FDE8D2',
+      accent: '#E2578A',
+      accentSoft: '#F5B9CF',
+    },
+  },
+  lavender: {
+    id: 'lavender',
+    name: 'Lavender',
+    tagline: 'dusky purple, where the flowers climb',
+    palette: {
+      skyTop: '#7A5C85',
+      skyMid: '#B27C9C',
+      skyHorizon: '#F3D6E0',
+      accent: '#8C4FA0',
+      accentSoft: '#D9B9E3',
+    },
+  },
+  cream: {
+    id: 'cream',
+    name: 'Cream',
+    tagline: 'plain, warm, and unhurried',
+    palette: {
+      skyTop: '#F5E9D3',
+      skyMid: '#FAF1E0',
+      skyHorizon: '#FFFBF3',
+      accent: '#D98B3E',
+      accentSoft: '#EFC48D',
+    },
+  },
+  'golden-meadow': {
+    id: 'golden-meadow',
+    name: 'Golden Meadow',
     tagline: 'a sunny hillside, just after sunrise',
     palette: {
       skyTop: '#6FA6DE',
@@ -63,87 +128,50 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
       skyHorizon: '#FCEFC6',
       ground: '#6FB07A',
       groundBack: '#93C99A',
-      ink: '#20362F',
       accent: '#E0A233',
       accentSoft: '#F3D693',
     },
   },
-  'forest-clearing': {
-    id: 'forest-clearing',
-    name: 'Forest Clearing',
+  'forest-green': {
+    id: 'forest-green',
+    name: 'Forest Green',
     tagline: 'dappled light between tall trees',
     palette: {
-      skyTop: '#2F4A3B',
-      skyMid: '#5C7A54',
+      skyTop: '#4C6B54',
+      skyMid: '#7C9A73',
       skyHorizon: '#EFD59E',
       ground: '#3C2E20',
       groundBack: '#54402C',
-      ink: '#241D12',
       accent: '#D98B3E',
       accentSoft: '#EFC48D',
     },
   },
-  'secret-garden': {
-    id: 'secret-garden',
-    name: 'Secret Garden',
-    tagline: 'behind a gate, where the flowers climb',
-    palette: {
-      skyTop: '#6A4B72',
-      skyMid: '#B27C9C',
-      skyHorizon: '#F3D6E0',
-      ground: '#4C6B4A',
-      groundBack: '#6B8F66',
-      ink: '#382340',
-      accent: '#C24E72',
-      accentSoft: '#EBB6C9',
-    },
-  },
-  seaside: {
-    id: 'seaside',
-    name: 'Seaside',
-    tagline: 'sand, salt air, and one small boat',
-    palette: {
-      // Teal/emerald, not sky-blue — distinct from Meadow Morning and Sky Adventure.
-      skyTop: '#2E9088',
-      skyMid: '#7DC4B8',
-      skyHorizon: '#F2E4C4',
-      ground: '#3D8A93',
-      groundBack: '#65AEB2',
-      ink: '#123330',
-      accent: '#E0714A',
-      accentSoft: '#F0B79C',
-    },
-  },
-  'mountain-trail': {
-    id: 'mountain-trail',
-    name: 'Mountain Trail',
+  sunset: {
+    id: 'sunset',
+    name: 'Sunset',
     tagline: 'a winding path between the peaks',
     palette: {
-      // Warm alpenglow (rose/peach dawn light) against cool slate-green peaks —
+      // Warm alpenglow (rose/peach dusk light) against cool slate-green peaks —
       // deliberately warm-dominant so it doesn't read as "another blue sky".
       skyTop: '#C97A88',
       skyMid: '#EBAE8E',
       skyHorizon: '#FBE6C8',
       ground: '#5B6E6A',
       groundBack: '#7C8D87',
-      ink: '#2E2430',
       accent: '#B15A8C',
       accentSoft: '#E9BFD6',
     },
   },
-  'sky-adventure': {
-    id: 'sky-adventure',
-    name: 'Sky Adventure',
-    tagline: 'up above the clouds, going somewhere',
+  'soft-coral': {
+    id: 'soft-coral',
+    name: 'Soft Coral',
+    tagline: 'warm pink, salt air, gulls overhead',
     palette: {
-      // The one kit allowed to actually be blue — pushed deeper/more saturated
-      // (cobalt, not pale sky-blue) so it doesn't collide with Meadow Morning.
-      skyTop: '#2F5FB0',
-      skyMid: '#6D95D6',
-      skyHorizon: '#D9EDF6',
-      ink: '#16233F',
-      accent: '#F2B23C',
-      accentSoft: '#FBDFA0',
+      skyTop: '#E8768A',
+      skyMid: '#F0A6A0',
+      skyHorizon: '#FBDCC8',
+      accent: '#C24E72',
+      accentSoft: '#EBB6C9',
     },
   },
 };
@@ -154,11 +182,11 @@ export const WORLD_KITS: Record<WorldKitId, WorldKit> = {
  *
  * FNV-1a's low bits are known to mix weakly for short, similarly-prefixed
  * strings (exactly what content ids are — "kindergarten-...", "grade-1-...").
- * Taking `% 6` straight off the raw hash measurably clusters real ids: the
- * 11 real Grade Units published today landed 7-of-11 on the same kit, with
- * half the kits never assigned at all. `avalanche()` re-mixes the bits
- * (the fmix32 finalizer from MurmurHash3) before the modulo specifically to
- * fix that — verified against the real id set in worldKits.test.ts.
+ * Taking `% 6` straight off the raw hash measurably clustered real ids in an
+ * earlier version of this file (7 of 11 real Grade Units landed on the same
+ * kit). `avalanche()` re-mixes the bits (the fmix32 finalizer from
+ * MurmurHash3) before the modulo specifically to fix that — verified against
+ * the real id set in worldKits.test.ts.
  */
 export function hashListId(id: string): number {
   let hash = 2166136261;

@@ -3,10 +3,14 @@ import { contrastRatio } from './contrast';
 import { assignWorldKitsInSequence, HIGHLIGHT_PILL, hashListId, pickWorldKit, WORLD_KITS } from './worldKits';
 
 const PUBLISHED_GRADE_UNIT_IDS = [
+  'grade-1-beginning-consonant-blends',
   'grade-1-cvc-short-vowels-c-k-rule',
+  'grade-1-ending-consonant-blends',
   'grade-1-long-a-long-o-vowel-teams',
   'grade-1-long-e-vowel-teams',
   'grade-1-long-vowels-silent-e',
+  'grade-3-prefix-words',
+  'grade-3-suffix-words',
   'kindergarten-consonant-digraphs',
   'kindergarten-mixed-vowel-review',
   'kindergarten-short-a-words',

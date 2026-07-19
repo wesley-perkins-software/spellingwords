@@ -1,0 +1,542 @@
+---
+import type { WorldKitId } from '@/lib/theme/worldKits';
+
+interface Props {
+  kitId: WorldKitId;
+}
+
+const { kitId } = Astro.props;
+---
+
+<div class="world-scene" aria-hidden="true">
+  {
+    kitId === 'meadow-morning' && (
+      <>
+        <div class="sun" />
+        <div class="bird" style="top:6%; left:62%;">
+          <svg viewBox="0 0 24 10" width="22" height="10">
+            <path d="M0 8 Q6 0 12 8 Q18 0 24 8" fill="none" stroke="var(--world-ink)" stroke-width="1.6" stroke-linecap="round" opacity="0.4" />
+          </svg>
+        </div>
+        <div class="bird" style="top:11%; left:70%; transform:scale(0.75);">
+          <svg viewBox="0 0 24 10" width="22" height="10">
+            <path d="M0 8 Q6 0 12 8 Q18 0 24 8" fill="none" stroke="var(--world-ink)" stroke-width="1.6" stroke-linecap="round" opacity="0.35" />
+          </svg>
+        </div>
+
+        <div class="hill hill-back" />
+        <div class="hill hill-front" />
+
+        <div class="tree" style="left:6%;">
+          <div class="trunk" />
+          <div class="canopy c1" />
+          <div class="canopy c2" />
+          <div class="canopy c3" />
+        </div>
+        <div class="tree small" style="left:88%;">
+          <div class="trunk" />
+          <div class="canopy c1" />
+          <div class="canopy c2" />
+        </div>
+
+        <div class="fence" style="left:80%;">
+          <span class="post" /><span class="post" /><span class="post" />
+          <span class="rail" />
+        </div>
+
+        <div class="seed" style="left:16%; animation-delay:0s;" />
+        <div class="seed" style="left:46%; animation-delay:1.4s;" />
+        <div class="seed" style="left:78%; animation-delay:2.6s;" />
+      </>
+    )
+  }
+
+  {
+    kitId === 'forest-clearing' && (
+      <>
+        <div class="trunk-frame left" />
+        <div class="trunk-frame right" />
+        <div class="hill hill-front forest" />
+        <div class="toadstool" style="left:22%;" />
+        <div class="toadstool small" style="left:70%;" />
+      </>
+    )
+  }
+
+  {
+    kitId === 'secret-garden' && (
+      <>
+        <div class="arch" />
+        <div class="vine left" />
+        <div class="vine right" />
+        <div class="bloom" style="left:18%;" />
+        <div class="bloom" style="left:80%;" />
+      </>
+    )
+  }
+
+  {
+    kitId === 'seaside' && (
+      <>
+        <div class="sun" />
+        <div class="bird" style="top:6%; left:58%;">
+          <svg viewBox="0 0 24 10" width="22" height="10">
+            <path d="M0 8 Q6 0 12 8 Q18 0 24 8" fill="none" stroke="var(--world-ink)" stroke-width="1.6" stroke-linecap="round" opacity="0.4" />
+          </svg>
+        </div>
+        <div class="bird" style="top:12%; left:66%; transform:scale(0.7);">
+          <svg viewBox="0 0 24 10" width="22" height="10">
+            <path d="M0 8 Q6 0 12 8 Q18 0 24 8" fill="none" stroke="var(--world-ink)" stroke-width="1.6" stroke-linecap="round" opacity="0.35" />
+          </svg>
+        </div>
+
+        <div class="wave-line" />
+        <div class="wave-line wave-line-2" />
+
+        <div class="boat">
+          <svg viewBox="0 0 60 34" width="60" height="34">
+            <path d="M4 24 L56 24 L48 30 L12 30 Z" fill="var(--world-ink)" opacity="0.5" />
+            <path d="M30 24 L30 4 L46 24 Z" fill="var(--world-ink)" opacity="0.35" />
+          </svg>
+        </div>
+        <div class="boat boat-small">
+          <svg viewBox="0 0 60 34" width="34" height="19">
+            <path d="M4 24 L56 24 L48 30 L12 30 Z" fill="var(--world-ink)" opacity="0.32" />
+            <path d="M30 24 L30 8 L44 24 Z" fill="var(--world-ink)" opacity="0.22" />
+          </svg>
+        </div>
+
+        <div class="shell" style="left:20%;" />
+        <div class="shell small" style="left:62%;" />
+        <div class="shell" style="left:82%;" />
+      </>
+    )
+  }
+
+  {
+    kitId === 'mountain-trail' && (
+      <>
+        <div class="peak peak-back" />
+        <div class="peak peak-front" />
+        <div class="trail" />
+      </>
+    )
+  }
+
+  {
+    kitId === 'sky-adventure' && (
+      <>
+        <div class="cloud-drift" style="top:8%; left:62%;" />
+        <div class="cloud-drift" style="top:22%; left:80%; transform:scale(0.7);" />
+        <div class="balloon">
+          <svg viewBox="0 0 40 60" width="40" height="60">
+            <ellipse cx="20" cy="20" rx="18" ry="20" fill="var(--world-accent)" opacity="0.85" />
+            <path d="M10 38 L14 50 M30 38 L26 50 M20 40 L20 50" stroke="var(--world-ink)" stroke-width="1.2" opacity="0.5" />
+            <rect x="14" y="50" width="12" height="8" rx="2" fill="var(--world-ink)" opacity="0.45" />
+          </svg>
+        </div>
+      </>
+    )
+  }
+</div>
+
+<style>
+  .world-scene {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ---------- shared bits ---------- */
+  .bird {
+    position: absolute;
+  }
+
+  /* ============ Meadow Morning ============ */
+  .sun {
+    position: absolute;
+    top: 8%;
+    right: 10%;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff3d1, var(--world-accent-soft) 70%);
+    box-shadow: 0 0 70px 22px rgba(224, 162, 51, 0.35);
+  }
+  @media (max-width: 640px) {
+    .sun {
+      top: 4%;
+      right: 6%;
+      width: 52px;
+      height: 52px;
+      box-shadow: 0 0 40px 14px rgba(224, 162, 51, 0.3);
+    }
+  }
+
+  .hill {
+    position: absolute;
+    left: 50%;
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+  .hill-back {
+    bottom: -260px;
+    width: 1500px;
+    height: 400px;
+    background: var(--world-ground-back);
+    opacity: 0.9;
+  }
+  .hill-front {
+    bottom: -230px;
+    width: 1300px;
+    height: 360px;
+    background: var(--world-ground);
+  }
+
+  .tree {
+    position: absolute;
+    bottom: 58px;
+    width: 60px;
+    height: 90px;
+  }
+  .tree.small {
+    bottom: 46px;
+    transform: scale(0.6);
+  }
+  .tree .trunk {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 34px;
+    border-radius: 2px;
+    background: var(--world-ground-back);
+    opacity: 0.9;
+  }
+  .tree .canopy {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--world-ground);
+  }
+  .tree .c1 {
+    width: 48px;
+    height: 48px;
+    left: 6px;
+    bottom: 28px;
+  }
+  .tree .c2 {
+    width: 34px;
+    height: 34px;
+    left: -6px;
+    bottom: 40px;
+    opacity: 0.9;
+  }
+  .tree .c3 {
+    width: 34px;
+    height: 34px;
+    left: 30px;
+    bottom: 44px;
+    opacity: 0.9;
+  }
+
+  .fence {
+    position: absolute;
+    bottom: 84px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    height: 30px;
+  }
+  .fence .post {
+    width: 6px;
+    height: 30px;
+    background: var(--world-ink);
+    opacity: 0.55;
+    border-radius: 1px;
+  }
+  .fence .rail {
+    position: absolute;
+    left: 0;
+    right: -20px;
+    bottom: 16px;
+    height: 4px;
+    background: var(--world-ink);
+    opacity: 0.45;
+  }
+
+  .seed {
+    position: absolute;
+    top: 55%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.8);
+    opacity: 0.8;
+    animation: driftSeed 9s ease-in-out infinite;
+  }
+  @keyframes driftSeed {
+    0% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+    15% {
+      opacity: 0.85;
+    }
+    85% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translate(24px, -140px);
+      opacity: 0;
+    }
+  }
+
+  /* ============ Forest Clearing ============ */
+  .trunk-frame {
+    position: absolute;
+    top: -10%;
+    bottom: -10%;
+    width: 64px;
+    background: var(--world-ground-back);
+    opacity: 0.55;
+  }
+  .trunk-frame.left {
+    left: -10px;
+    border-radius: 0 40px 40px 0;
+  }
+  .trunk-frame.right {
+    right: -10px;
+    border-radius: 40px 0 0 40px;
+  }
+  .hill-front.forest {
+    background: var(--world-ground);
+    opacity: 0.9;
+  }
+  .toadstool {
+    position: absolute;
+    bottom: 50px;
+    width: 22px;
+    height: 22px;
+  }
+  .toadstool.small {
+    transform: scale(0.7);
+    bottom: 46px;
+  }
+  .toadstool::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    width: 6px;
+    height: 12px;
+    background: #e9dcc3;
+    border-radius: 2px;
+  }
+  .toadstool::after {
+    content: '';
+    position: absolute;
+    bottom: 9px;
+    left: 0;
+    width: 22px;
+    height: 14px;
+    background: var(--world-accent);
+    border-radius: 50% 50% 20% 20%;
+  }
+
+  /* ============ Secret Garden ============ */
+  .arch {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 140px;
+    border: 10px solid var(--world-ground);
+    border-bottom: none;
+    border-radius: 130px 130px 0 0;
+    opacity: 0.5;
+  }
+  .vine {
+    position: absolute;
+    top: -10px;
+    bottom: 50%;
+    width: 14px;
+    background: var(--world-ground);
+    opacity: 0.5;
+    border-radius: 10px;
+  }
+  .vine.left {
+    left: 18%;
+  }
+  .vine.right {
+    right: 18%;
+  }
+  .bloom {
+    position: absolute;
+    top: 8%;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--world-accent);
+    opacity: 0.75;
+    box-shadow:
+      12px 6px 0 -2px var(--world-accent-soft),
+      -10px 10px 0 -3px var(--world-accent-soft);
+  }
+
+  /* ============ Seaside ============ */
+  .wave-line {
+    position: absolute;
+    left: -5%;
+    right: -5%;
+    bottom: 60px;
+    height: 46px;
+    background: var(--world-ground);
+    opacity: 0.55;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+  .wave-line-2 {
+    bottom: 40px;
+    height: 30px;
+    opacity: 0.35;
+    background: var(--world-ground-back);
+  }
+  .boat {
+    position: absolute;
+    left: 12%;
+    bottom: 66px;
+  }
+  .boat-small {
+    left: auto;
+    right: 16%;
+    bottom: 50px;
+    opacity: 0.9;
+  }
+  .shell {
+    position: absolute;
+    bottom: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50% 50% 50% 0;
+    background: var(--world-accent);
+    opacity: 0.5;
+    transform: rotate(-20deg);
+  }
+  .shell.small {
+    width: 7px;
+    height: 7px;
+    bottom: 30px;
+    opacity: 0.4;
+  }
+
+  /* ============ Mountain Trail ============ */
+  /* Jagged range via clip-path, not a border-triangle — keeps visible height
+     small and predictable so it can never grow tall enough to collide with
+     a wrapped, multi-row word field (a real bug: the old 220px border-triangle
+     peaks overlapped a 12-word two-row list). */
+  .peak {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .peak-back {
+    height: 92px;
+    background: var(--world-ground-back);
+    opacity: 0.85;
+    clip-path: polygon(
+      0% 100%,
+      0% 62%,
+      16% 22%,
+      30% 50%,
+      46% 10%,
+      62% 46%,
+      78% 18%,
+      100% 55%,
+      100% 100%
+    );
+  }
+  .peak-front {
+    height: 66px;
+    background: var(--world-ground);
+    clip-path: polygon(0% 100%, 8% 45%, 24% 72%, 40% 25%, 56% 60%, 72% 20%, 88% 50%, 100% 35%, 100% 100%);
+  }
+  .trail {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 5px;
+    height: 60px;
+    background: var(--world-accent-soft);
+    opacity: 0.5;
+    transform: translateX(-50%) rotate(5deg);
+    border-radius: 4px;
+  }
+
+  /* ============ Sky Adventure ============ */
+  .cloud-drift {
+    position: absolute;
+    width: 90px;
+    height: 34px;
+  }
+  .cloud-drift::before,
+  .cloud-drift::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.85;
+  }
+  .cloud-drift::before {
+    width: 60px;
+    height: 34px;
+    left: 0;
+    top: 0;
+  }
+  .cloud-drift::after {
+    width: 40px;
+    height: 40px;
+    left: 30px;
+    top: -10px;
+  }
+  .balloon {
+    position: absolute;
+    top: 30%;
+    left: 76%;
+    animation: bobBalloon 5s ease-in-out infinite;
+  }
+  @keyframes bobBalloon {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .seed,
+    .balloon {
+      animation: none !important;
+    }
+  }
+
+  /* Defensive mobile scaling for the larger decorative elements that sit near
+     the top of the hero, so they never crowd the breadcrumb/title column on
+     a narrow phone screen — matches the .sun mobile rule above. */
+  @media (max-width: 640px) {
+    .arch {
+      width: 170px;
+      height: 90px;
+      top: -18px;
+    }
+    .trunk-frame {
+      width: 34px;
+    }
+  }
+</style>

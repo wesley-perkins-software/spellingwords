@@ -20,6 +20,10 @@ relatedLists: ['kindergarten-short-i-words', 'kindergarten-short-o-words', 'kind
 prerequisiteLists: ['kindergarten-first-words']
 nextLists: ['kindergarten-short-i-words']
 featured: false
+readinessSignals:
+  - 'Can segment a simple word like "cat" into its three sounds and blend them back together'
+  - 'Recognize the short "a" sound when it is spoken aloud, even before seeing it written down'
+  - 'Have practiced First Words successfully and are ready to slow down and focus on one vowel sound at a time'
 words:
   - hat
   - mat

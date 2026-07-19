@@ -1,0 +1,123 @@
+---
+import { prepareWordDisplay } from '@/lib/theme/phonicsPatterns';
+
+interface Props {
+  /** Every word in the list, in list order. */
+  words: string[];
+  /** The content entry's own skillTags — decides which pattern (if any) to highlight. */
+  skillTags: string[];
+}
+
+const { words, skillTags } = Astro.props;
+
+// One flowing, baseline-aligned line — not a grid of pattern-group "columns".
+// Real groups are uneven sizes (Short A is 3/2/1/2), and a grid forces every
+// column in a row to match its tallest neighbor, which is what produced
+// lopsided gaps and pushed the last word down into the horizon artwork.
+// `newGroup` just adds a little extra breathing room at each pattern
+// boundary, so the grouping still reads without a separate layout track.
+const items = prepareWordDisplay(words, skillTags);
+---
+
+<div class="word-field" role="group" aria-label="Words in this list">
+  {
+    items.map((item) => (
+      <span
+        class="word"
+        class:list={{ 'word--new-group': item.newGroup }}
+        role="button"
+        tabindex="0"
+        data-word={item.word}
+        aria-label={`Hear "${item.word}" said slowly`}
+      >{item.segments.map((seg) => (seg.highlight ? <span class="highlight">{seg.text}</span> : seg.text))}</span>
+    ))
+  }
+</div>
+
+<style>
+  .word-field {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    max-width: 46rem;
+    margin: 0 auto;
+    row-gap: 22px;
+    column-gap: 30px;
+    padding: 4px 24px 8px;
+  }
+
+  .word {
+    display: inline-block;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5.2vw, 42px);
+    line-height: 1;
+    letter-spacing: 0.005em;
+    color: var(--world-ink);
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 4px 6px;
+    transition: transform 0.18s ease;
+  }
+  /* the extra gap that hints at family grouping, without a separate column */
+  .word--new-group {
+    margin-left: 14px;
+  }
+  .word--new-group:first-child {
+    margin-left: 0;
+  }
+
+  .word:hover,
+  .word:focus-visible {
+    transform: translateY(-3px);
+  }
+  .word:focus-visible {
+    outline: 2px solid var(--world-ink);
+    outline-offset: 3px;
+  }
+  .word .highlight {
+    color: var(--world-accent);
+    text-shadow: 0 0 22px var(--world-accent-soft);
+  }
+
+  @media (max-width: 640px) {
+    .word-field {
+      row-gap: 18px;
+      column-gap: 22px;
+      padding: 4px 20px 8px;
+    }
+    .word--new-group {
+      margin-left: 8px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .word {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import { createSpeechController } from '@/modules/speech';
+
+  const controller = createSpeechController();
+
+  function speakSlowly(el: HTMLElement): void {
+    const word = el.dataset.word;
+    if (word) controller.speakWord(word, { rate: 0.7 });
+  }
+
+  document.querySelectorAll<HTMLElement>('.word-field .word').forEach((el) => {
+    el.addEventListener('click', () => speakSlowly(el));
+    el.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        speakSlowly(el);
+      }
+    });
+  });
+</script>

@@ -1,0 +1,36 @@
+---
+interface Props {
+  label: string;
+  /** "solid" for the category chip (the one true identity tag), "outline" for secondary context like grade. */
+  variant?: 'solid' | 'outline';
+}
+
+const { label, variant = 'outline' } = Astro.props;
+---
+
+<span class={`world-chip world-chip--${variant}`}>{label}</span>
+
+<style>
+  .world-chip {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    padding: 7px 13px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .world-chip--outline {
+    color: var(--world-ink);
+    background: color-mix(in srgb, var(--world-ink) 8%, transparent);
+    border: 1.5px solid color-mix(in srgb, var(--world-ink) 18%, transparent);
+  }
+  .world-chip--solid {
+    color: var(--world-ink);
+    background: var(--world-accent-soft);
+    border: 1.5px solid color-mix(in srgb, var(--world-accent) 55%, transparent);
+  }
+</style>

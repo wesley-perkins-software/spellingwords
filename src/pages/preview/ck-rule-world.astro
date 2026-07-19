@@ -1,0 +1,11 @@
+---
+// Stress test 3: Grade 1, 12 words (top of the 8-16 contract range), and a
+// spelling-rule list where the c/k/ck pattern strategy applies (see
+// src/lib/theme/phonicsPatterns.ts) rather than the plain vowel strategy,
+// even though it also carries "cvc" and "short-vowels" tags — the taught
+// pattern here is the c/k/ck spelling rule. Also carries 6 related lists
+// and 2 prerequisites.
+import GradeUnitWorldPage from '@/components/GradeUnitWorldPage.astro';
+---
+
+<GradeUnitWorldPage listId="grade-1-cvc-short-vowels-c-k-rule" />

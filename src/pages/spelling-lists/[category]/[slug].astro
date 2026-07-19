@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import WordListPreview from '@/components/WordListPreview.astro';
 import RelatedListCards from '@/components/RelatedListCards.astro';
 import SourceAttribution from '@/components/SourceAttribution.astro';
+import GradeUnitWorldPage from '@/components/GradeUnitWorldPage.astro';
 import {
   isPublished,
   resolveListRefs,
@@ -143,6 +144,9 @@ const easierList = prerequisites[0];
 const harderList = next[0];
 ---
 
+{isGradeUnit && <GradeUnitWorldPage listId={data.id} />}
+
+{!isGradeUnit && (
 <Layout
   title={`${data.title} — spellingwords`}
   description={data.description}
@@ -504,6 +508,7 @@ const harderList = next[0];
 
   <SiteFooter />
 </Layout>
+)}
 
 <script>
   import { encodeWordList } from '@/lib/words';

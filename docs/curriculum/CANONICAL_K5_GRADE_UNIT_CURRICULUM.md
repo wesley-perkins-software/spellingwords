@@ -8,8 +8,11 @@
 ## How this document should be used
 
 - This document is the educational source of truth for K–5 Grade Unit coverage.
+
 - It is not itself a page inventory.
+
 - It should be used to audit existing content and plan missing Grade Unit content.
+
 - Product-facing names or grouping may be refined later, but educational scope should not be silently changed.
 
 ## Framing the synthesis
@@ -122,8 +125,11 @@ The concepts absorbed into Grade 5 are proofreading transfer, dictionary/referen
 Several topics should be treated as spiral strands rather than as repeated Grade Units. The strongest examples are:
 
 - High-Frequency Words
+
 - dictation and spelling transfer
+
 - review of earlier short- and long-vowel patterns
+
 - multisyllabic word practice
 
 Standards and curricula repeatedly show that earlier knowledge is not abandoned; instead, it is re-used with greater complexity. Texas explicitly says the strands are recursive and that earlier standards are applied with greater depth over time. ILA similarly argues that all threads of spelling knowledge are useful across grades, even if some dominate at particular times.
@@ -131,10 +137,15 @@ Standards and curricula repeatedly show that earlier knowledge is not abandoned;
 Several major concepts from the broader taxonomy are absorbed rather than promoted to Grade Units:
 
 - Phonological awareness is absorbed primarily into Kindergarten Sounds, Letters, and Early Encoding and remains embedded in dictation and word-building work afterward.
+
 - Letter formation/handwriting remains foundational support, especially in Kindergarten and Grade 1, but is not a spelling Grade Unit in this blueprint.
+
 - Open and closed syllables are absorbed into Syllables and Two-Syllable Words in Grade 1 and Syllable Types and Multisyllabic Words in Grade 2, because those syllable labels are most useful as organizing tools rather than parent-facing yearlong units.
+
 - Consonant-le, schwa, and many specific subpatterns such as -tch, -dge, -mb, -kn, or oi/oy are absorbed into broader units—especially Syllable Types and Multisyllabic Words, Silent Letters and Ending Spelling Patterns, and Diphthongs and Other Vowel Patterns—so that the curriculum stays stable and intelligible.
+
 - Proofreading transfer, dictionary use, and editing for spelling in writing remain essential outcomes, but they are woven throughout upper elementary rather than repeated as standalone units.
+
 - The biggest area of disagreement across curricula is timing, not the concepts themselves. Digraphs may appear late in kindergarten in some programs and in Grade 1 in others. R-controlled vowels may appear in late Grade 1 or Grade 2. Prefixes and suffixes are exposed in Grade 2 by some standards, but they become full morphology units more often in Grade 3. Greek and Latin roots may appear as early hints in Grade 3, but the stronger consensus point for formal study is Grades 4–5. This blueprint resolves those differences by assigning each concept to the grade of primary educational coherence, not the earliest possible exposure.
 
 ## Canonical K–5 grade-unit curriculum

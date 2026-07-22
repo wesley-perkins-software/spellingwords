@@ -172,10 +172,18 @@ describe('curated spelling Skills browse index', () => {
       });
     }
 
+    // Phase 2 (Kindergarten normalization): these five pages' Grade Unit role
+    // merged into kindergarten-mixed-vowel-review, so they now carry no
+    // contentRole at all — still not curated Skills, but no longer Grade
+    // Units either.
     for (const id of KINDERGARTEN_SHORT_VOWEL_GRADE_UNIT_IDS) {
       expect(CURATED_SPELLING_SKILL_IDS).not.toContain(id);
-      expect(byId.get(id), id).toMatchObject({ data: { contentRole: 'grade-unit' } });
+      expect(byId.get(id), id).toMatchObject({ data: { contentRole: undefined } });
     }
+
+    expect(byId.get('kindergarten-mixed-vowel-review'), 'kindergarten-mixed-vowel-review').toMatchObject({
+      data: { contentRole: 'grade-unit' },
+    });
 
     for (const id of [
       'grade-1-cvc-short-vowels-c-k-rule',

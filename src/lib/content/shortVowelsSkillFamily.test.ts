@@ -145,12 +145,21 @@ describe('Short Vowels and CVC Words Skill Family', () => {
     }
   });
 
-  it('marks Kindergarten short-vowel pages and mixed review as Grade Units', () => {
-    for (const id of [
-      ...KINDERGARTEN_SHORT_VOWEL_GRADE_UNIT_IDS,
-      'kindergarten-mixed-vowel-review',
-    ]) {
-      expect(byId.get(id), id).toMatchObject({ id, contentRole: 'grade-unit' });
+  it('marks kindergarten-mixed-vowel-review as the sole Short Vowels and CVC Words Grade Unit', () => {
+    // Phase 2 (Kindergarten normalization): the five kindergarten-short-*-words
+    // pages are no longer Grade Units — their Grade Unit role merged into
+    // kindergarten-mixed-vowel-review, which is now the only Grade Unit in
+    // this family. The five pages stay published, with no declared
+    // contentRole (see the next test).
+    expect(byId.get('kindergarten-mixed-vowel-review'), 'kindergarten-mixed-vowel-review').toMatchObject({
+      id: 'kindergarten-mixed-vowel-review',
+      contentRole: 'grade-unit',
+    });
+  });
+
+  it('no longer marks the five kindergarten-short-*-words pages as Grade Units', () => {
+    for (const id of KINDERGARTEN_SHORT_VOWEL_GRADE_UNIT_IDS) {
+      expect(byId.get(id), id).toMatchObject({ id, contentRole: undefined });
     }
   });
 
@@ -167,9 +176,11 @@ describe('Short Vowels and CVC Words Skill Family', () => {
     }
   });
 
-  it('keeps Kindergarten core roadmap focused on Kindergarten Grade Units, not reusable Skills', () => {
+  it('keeps Kindergarten core roadmap focused on the merged Grade Unit, not the demoted pages or reusable Skills', () => {
+    expect(KINDERGARTEN_CORE_IDS).toContain('kindergarten-mixed-vowel-review');
+
     for (const id of KINDERGARTEN_SHORT_VOWEL_GRADE_UNIT_IDS) {
-      expect(KINDERGARTEN_CORE_IDS).toContain(id);
+      expect(KINDERGARTEN_CORE_IDS).not.toContain(id);
     }
 
     for (const id of SHORT_VOWEL_SKILL_IDS) {
@@ -219,7 +230,11 @@ describe('Short Vowels and CVC Words Skill Family', () => {
   });
 
   it('keeps legacy content without contentRole valid', () => {
-    expect(byId.get('kindergarten-first-words')?.contentRole).toBeUndefined();
+    // kindergarten-first-words is no longer a legacy no-role example as of
+    // Phase 2 — it's now the Sounds, Letters, and Early Encoding Grade Unit.
+    // kindergarten-short-a-words is the current no-role example instead,
+    // since its own Grade Unit role was retired in the same phase.
+    expect(byId.get('kindergarten-short-a-words')?.contentRole).toBeUndefined();
     expect(byId.get('grade-1-short-vowel-practice')?.contentRole).toBeUndefined();
   });
 

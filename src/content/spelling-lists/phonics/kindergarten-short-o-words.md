@@ -3,7 +3,6 @@ id: kindergarten-short-o-words
 urlSlug: kindergarten-short-o-words
 title: 'Kindergarten Short O Words'
 description: 'Eight simple words built around the short "o" sound — dog, fox, dot, pot, hot, hop, top, and box — continuing the kindergarten spelling progression one vowel at a time.'
-contentRole: grade-unit
 shortAnswer: 'Eight kindergarten short "o" words — dog, fox, dot, pot, hot, hop, top, and box — the third single-vowel stop after Short I Words.'
 category: phonics
 grade: 'K'
@@ -15,7 +14,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['kindergarten-short-a-words', 'kindergarten-short-i-words', 'kindergarten-short-u-words', 'kindergarten-short-e-words']
+relatedLists: ['kindergarten-mixed-vowel-review', 'kindergarten-short-a-words', 'kindergarten-short-i-words', 'kindergarten-short-u-words', 'kindergarten-short-e-words']
 prerequisiteLists: ['kindergarten-short-i-words']
 nextLists: ['kindergarten-short-u-words']
 featured: false
@@ -46,5 +45,7 @@ words:
 The short "o" sound is round and open — you can hear it in the middle of *dog*, *hot*, and *top*. This list continues the same steady pattern as Short A and Short I Words, practicing one more vowel sound a kindergartener already hears every day.
 
 Calm, repeated practice with words like these builds the kind of automatic recognition that makes longer words easier to tackle later.
+
+This is good focused practice any time a single vowel sound needs extra attention — for a check on hearing short vowels across a mix of words, Short Vowels and CVC Words is a natural next step.
 
 If a child needs more practice with this same vowel sound, [Short O Words](/spelling-lists/phonics/short-o-words) offers a focused extra practice set.

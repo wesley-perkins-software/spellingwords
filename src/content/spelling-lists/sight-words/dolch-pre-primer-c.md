@@ -4,6 +4,7 @@ urlSlug: dolch-pre-primer-c-sight-words
 title: "Dolch Pre-Primer Sight Words — Part C"
 description: "Part C of the complete canonical dolch pre-primer sight words tier, split into a practice-sized set for calm spelling review."
 shortAnswer: "This practice set covers part C of the complete canonical dolch pre-primer sight words tier."
+contentRole: sight-word-set
 category: sight-words
 grade: "K"
 difficulty: beginner
@@ -19,7 +20,7 @@ canonicalSource:
   tier: pre-primer
 relatedLists: ['dolch-pre-primer-a', 'dolch-pre-primer-b']
 prerequisiteLists: ['dolch-pre-primer-b']
-nextLists: ['dolch-primer-a']
+nextLists: ['dolch-primer-a', 'kindergarten-consonant-digraphs']
 featured: false
 readinessSignals:
   - "Can read very short sentences with common words such as see, the, to, we, and you"

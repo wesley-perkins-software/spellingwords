@@ -36,11 +36,13 @@ The repository’s content model is compatible with fixing these issues without 
 
 ### Current published Grade Units
 
-> **Amendment (discovered during Phase 2 implementation planning):** the table below originally omitted two live, published, tested Kindergarten core-roadmap entries — `kindergarten-ck-ending-words` and `kindergarten-double-consonants`. Both are corrected here. See the "Kindergarten Implementation Amendment" in `CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md` for their disposition.
+> **Amendment (discovered during Phase 2 implementation planning):** the table below originally omitted two live, published, tested Kindergarten core-roadmap entries — `kindergarten-ck-ending-words` and `kindergarten-double-consonants`. Both are live core-roadmap steps (orders 9–10) being reclassified to supporting/additional-practice content; see the "Kindergarten Implementation Amendment" in `CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md` for their disposition.
+>
+> **Correction (Phase 2 implementation):** this table's original correction also listed both as declaring `contentRole: grade-unit`. Direct inspection of their frontmatter (`src/content/spelling-lists/phonics/kindergarten-ck-ending-words.md`, `.../kindergarten-double-consonants.md`) shows neither field is actually set — both currently render via the ordinary list-detail template, not the Grade Unit template. They remain live core-roadmap entries being reclassified per the Amendment; only the specific `contentRole` claim below is corrected.
 
 | Grade | Current `contentRole: grade-unit` entries |
 |---|---|
-| K | `kindergarten-short-a-words`, `kindergarten-short-e-words`, `kindergarten-short-i-words`, `kindergarten-short-o-words`, `kindergarten-short-u-words`, `kindergarten-mixed-vowel-review`, `kindergarten-consonant-digraphs`, `kindergarten-ck-ending-words`, `kindergarten-double-consonants` |
+| K | `kindergarten-short-a-words`, `kindergarten-short-e-words`, `kindergarten-short-i-words`, `kindergarten-short-o-words`, `kindergarten-short-u-words`, `kindergarten-mixed-vowel-review`, `kindergarten-consonant-digraphs` (`kindergarten-ck-ending-words` and `kindergarten-double-consonants` are live K core-roadmap steps but do not declare `contentRole: grade-unit`) |
 | 1 | `grade-1-cvc-short-vowels-c-k-rule`, `grade-1-beginning-consonant-blends`, `grade-1-ending-consonant-blends`, `grade-1-long-vowels-silent-e`, `grade-1-long-a-long-o-vowel-teams`, `grade-1-long-e-vowel-teams` |
 | 2 | None |
 | 3 | `grade-3-prefix-words`, `grade-3-suffix-words` |

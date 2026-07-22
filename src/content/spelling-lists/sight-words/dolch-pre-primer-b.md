@@ -4,6 +4,7 @@ urlSlug: dolch-pre-primer-b-sight-words
 title: "Dolch Pre-Primer Sight Words — Part B"
 description: "Part B of the complete canonical dolch pre-primer sight words tier, split into a practice-sized set for calm spelling review."
 shortAnswer: "This practice set covers part B of the complete canonical dolch pre-primer sight words tier."
+contentRole: sight-word-set
 category: sight-words
 grade: "K"
 difficulty: beginner

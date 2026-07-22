@@ -1,8 +1,14 @@
 ---
-// Kindergarten Short A — the original stress-test page, now rendered through
-// the shared GradeUnitWorldPage template (see src/components/GradeUnitWorldPage.astro)
+// The original stress-test page, rendered through the shared
+// GradeUnitWorldPage template (see src/components/GradeUnitWorldPage.astro)
 // so it's provably the same code every other Grade Unit preview uses.
+//
+// Phase 2 (Kindergarten normalization) retired kindergarten-short-a-words'
+// Grade Unit role — it merged into kindergarten-mixed-vowel-review, the
+// Short Vowels and CVC Words canonical unit, which is now this preview's
+// target. It still exercises the "has linked Skills, Go deeper section
+// renders" case (skillIds populated with all five short-vowel Skills).
 import GradeUnitWorldPage from '@/components/GradeUnitWorldPage.astro';
 ---
 
-<GradeUnitWorldPage listId="kindergarten-short-a-words" />
+<GradeUnitWorldPage listId="kindergarten-mixed-vowel-review" />

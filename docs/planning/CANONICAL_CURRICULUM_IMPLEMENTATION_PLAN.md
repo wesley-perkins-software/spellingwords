@@ -1,6 +1,6 @@
 # Canonical K–5 Curriculum Implementation Plan
 
-**Status:** Draft engineering roadmap — architectural decisions below require product-owner approval before Phase 2 onward begins.
+**Status:** Approved — authoritative engineering roadmap. GD-1 through GD-8 are approved; GD-9 and GD-10 remain open and are explicitly scoped so they do not block execution (see those entries and Phase 9); GD-11 is out of scope by design.
 **Educational authority:** `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md` (unchanged; this document does not reinterpret it).
 **Advisory input:** `docs/curriculum/CANONICAL_CURRICULUM_AUDIT.md` (unchanged; every recommendation in it is dispositioned below).
 **Relationship to existing architecture docs:** This plan operates inside the model already defined by `docs/architecture/CONTENT_MODEL.md` and `docs/architecture/SKILLS_MODEL.md`, and it supersedes `docs/architecture/CURRICULUM_MAP.md`'s "freeze candidate" status for sequencing purposes once approved — that document's own Decision Register is folded into the decisions below rather than tracked twice.
@@ -63,22 +63,21 @@ Grades 2–5 will each get a curated, hand-sequenced Grade Roadmap analogous in 
 This plan is authoritative for sequencing/placement decisions going forward. `docs/architecture/CURRICULUM_MAP.md` stops being treated as "freeze candidate, pending review" and its Decision Register items are considered resolved by GD-1 through GD-9 below (cross-referenced inline). Older planning documents (`curriculum-bible.md`, `content-production-roadmap.md`, `K5_CURRICULUM_COVERAGE.md`, `curriculum-audit-phase-2.md`) are not edited by this plan itself; a reconciliation pass against this plan is scheduled as Phase 8 work (see Phased Roadmap), not performed now.
 *Rationale:* the task constraints for this plan forbid editing other documentation; this decision only schedules that follow-up rather than leaving it unaddressed.
 
-### GD-7. Kindergarten Consonant Digraphs placement — **Needs Discussion**
-The canonical curriculum places primary Consonant Digraph instruction in Grade 1, with only early exposure embedded in Kindergarten. `kindergarten-consonant-digraphs` currently ships as a tested, live step (#8 of 10) in the Kindergarten core sequence. Two directions are available:
-  - (a) keep it as a Kindergarten Grade Unit permanently, treating early-exposure placement as an acceptable, deliberate deviation from the canonical primary grade; or
-  - (b) reclassify it to embedded/supporting content once the Grade 1 Consonant Digraphs and Blends unit (GB-1 below) is live, retiring it from the K core sequence at that point.
-*This plan does not choose between (a) and (b).* Until decided, `kindergarten-consonant-digraphs` stays exactly where it is, unaffected by any other phase's work. See Grade K section for the concrete migration mapping under each option.
+### GD-7. Kindergarten Consonant Digraphs placement — **Approved**
+Direction **(b)** is adopted: `kindergarten-consonant-digraphs` is reclassified from a Kindergarten Grade Unit to embedded/supporting content once the Grade 1 Consonant Digraphs and Blends unit (Grade 1 table, above) is live, and it is retired from the Kindergarten core sequence at that point. Until Grade 1's unit ships (Phase 3), `kindergarten-consonant-digraphs` stays exactly as it currently is — this decision authorizes the eventual cutover but does not itself change anything before Phase 3 completes.
+*Rationale:* the canonical curriculum is explicit and high-confidence that Grade 1 is the primary placement; reclassification only changes roadmap role, not content — nothing is deleted.
 
-### GD-8. R-Controlled Vowels primary grade — **Needs Discussion, with a documented preferred direction**
-*Preferred direction:* Grade 2 is the canonical primary placement, matching `r-controlled-ar`/`r-controlled-or`/`r-controlled-er-ir-ur` content and the Grade 2 build-out in this plan. Grade 1's `grade-1-r-controlled-ar-or` and `grade-1-r-controlled-er-ir-ur` core steps would become optional early-preview/review content rather than the primary introduction, once the Grade 2 unit ships.
-*Why not simply Approved:* this changes two live, tested Grade 1 core-sequence steps. It is scheduled as Grade 2 build-out work (Phase 4), and Grade 1's steps are **not** touched until that unit is live and a cutover is explicitly approved. Until then, both placements coexist.
+### GD-8. R-Controlled Vowels primary grade — **Approved**
+Grade 2 is the canonical primary placement, matching `r-controlled-ar`/`r-controlled-or`/`r-controlled-er-ir-ur` content and the Grade 2 build-out in this plan. Grade 1's `grade-1-r-controlled-ar-or` and `grade-1-r-controlled-er-ir-ur` core steps become optional early-preview/review content rather than the primary introduction, once the Grade 2 unit (Phase 4) is live. Grade 1's steps are not touched before that unit ships and a cutover is executed — both placements coexist until then.
+*Rationale:* the content already built for Grade 2 is Grade-2-appropriate per the audit's high-confidence read; Grade 1's role becomes preview/review, not a parallel primary introduction.
 
-### GD-9. Grade 1 gateway pages and thin single-blend pages — **Needs Discussion, with a documented preferred direction**
-*Preferred direction:* per `SKILLS_MODEL.md` §16 and `CURRICULUM_MAP.md` Decision Register item 6, the 9 Grade 1 gateway pages (`grade-1-short-vowel-practice`, `grade-1-consonant-digraph-practice`, etc.) and the ~29 thin single-blend targeted pages are transitional and should be retired once a proper Skills-browsing experience makes their sibling Skill pages independently discoverable.
-*Why not simply Approved:* retiring live, linked pages is a larger and separately-scoped change (it depends on a Skills browsing experience that does not exist yet). This plan schedules it as Phase 8/9 follow-up work, contingent on that browsing experience, and takes no action on these pages before then.
+### GD-9. Grade 1 gateway pages and thin single-blend pages — **Needs Discussion (deferred)**
+*Preferred direction:* per `SKILLS_MODEL.md` §16 and `CURRICULUM_MAP.md` Decision Register item 6, the 9 Grade 1 gateway pages (`grade-1-short-vowel-practice`, `grade-1-consonant-digraph-practice`, etc.) and the ~29 thin single-blend targeted pages are transitional and should eventually be retired once a proper Skills-browsing experience makes their sibling Skill pages independently discoverable.
+*Why this stays open:* retiring live, linked pages depends on a Skills browsing experience that does not exist yet and is not scoped by this plan. It is deliberately left deferred rather than approved or rejected, and is scheduled only as contingent follow-up (Phase 9) once that browsing experience is designed and scoped separately. No phase in this plan (Phases 2–8) depends on this decision.
 
 ### GD-10. Diphthong family placement (OI/OY, OU/OW) — **Needs Discussion**
-Whether `vowel-teams-oi-oy`/`vowel-teams-ou-ow` fold into the existing Vowel Teams Skill Family or become a separate Diphthongs family is unresolved in `SKILLS_MODEL.md` §7 and inherited here unchanged. Both pages continue serving Grade 2's Diphthongs and Other Vowel Patterns Grade Unit (GB-6) regardless of which family they end up filed under; the Grade 2 build-out does not block on this answer.
+Whether `vowel-teams-oi-oy`/`vowel-teams-ou-ow` fold into the existing Vowel Teams Skill Family or become a separate Diphthongs family is unresolved in `SKILLS_MODEL.md` §7 and stays open here by deliberate choice: it is a navigation/taxonomy question, not a curriculum question, and is best decided alongside the public Skills-browsing experience design rather than in isolation now.
+*Why this doesn't block Grade 2:* both pages already serve Grade 2's Diphthongs and Other Vowel Patterns Grade Unit (Grade 2 table, above) regardless of which Skill Family they end up filed under. The Grade 2 build-out (Phase 4) proceeds unconditionally; only the eventual public Skill Family filing is deferred.
 
 ### GD-11. Kindergarten CVC scope (phonics-foundations format) — **Needs Discussion, out of scope**
 Whether Kindergarten needs a distinct pre-CVC phonics-foundations format (e.g., beginning-sound identification) alongside whole-word CVC spelling is a product/format question, not a curriculum-sequencing one. It is explicitly out of scope for this plan and is not scheduled in any phase below.
@@ -96,25 +95,25 @@ Each canonical Grade Unit is listed with its current implementation, the archite
 | Sounds, Letters, and Early Encoding | `kindergarten-first-words` (order 1 of K core) | GD-2, GD-3 | `kindergarten-first-words` as base | Yes — retitle/reframe as the explicit encoding milestone | None | Sound-letter mapping / phoneme-segmentation-to-writing framing text; no new word list required | None new | `kindergarten-first-words` ID and route kept | `kindergartenProgression.ts` step 1 description updated | High | None | Planned |
 | Short Vowels and CVC Words | `kindergarten-short-a/e/i/o/u-words` + `kindergarten-mixed-vowel-review` (orders 2–7) | GD-2, GD-3 | All six pages as contributing Practice Sets/Skills | None required | Merge presentation into one canonical Grade Unit; five vowel pages + review become Skills/subskills under it | Unit-level explanation/transfer framing | Reuses existing `short-a/e/i/o/u-words` Skills (already built) | `kindergarten-mixed-vowel-review` becomes the surviving canonical ID for the merged unit; five vowel IDs archived as Grade Unit role but kept live as Skills | `kindergartenProgression.ts` restructured from 6 steps to 1 merged step + linked Skills | High | Short Vowels Skill Family (already built) | Planned |
 | High-Frequency Words | `kindergarten-heart-words`, `dolch-pre-primer-a/b/c` | GD-2, GD-3 | All four as contributing Sight Word Sets | None | None (Sight Word Sets stay distinct identities per `CONTENT_MODEL.md`) | New Grade Unit/roadmap-milestone wrapper connecting Heart Words + Dolch Pre-Primer | None (Sight Word Set identity, not Skill) | New milestone ID; existing Sight Word Set IDs/routes untouched | `kindergartenProgression.ts` gains explicit milestone; K hub surfaces Dolch Pre-Primer in curated section | High | None | Planned |
-| *(Supporting, not canonical)* `kindergarten-consonant-digraphs` | Order 8 of K core, live/tested | GD-7 (**Needs Discussion**) | — | — | — | — | — | Unchanged until GD-7 resolved | — | — | Depends on GD-7 | Blocked on GD-7 |
+| *(Supporting, not canonical)* `kindergarten-consonant-digraphs` | Order 8 of K core, live/tested | GD-7 (**Approved** — direction (b)) | — | — | — | — | — | Route/ID preserved; reclassified from Grade Unit to embedded/supporting role | `kindergartenProgression.ts` drops it from the core sequence once Grade 1's unit ships | Medium | Grade 1 Consonant Digraphs and Blends unit (Phase 3) must ship first | Planned (executes at Phase 3 cutover) |
 
 ### Grade 1
 
 | Canonical Grade Unit | Current implementation | Decision applied | Reuse | Rename | Merge | New content | New Skills/Families | URL implications | Doc implications | Priority | Dependencies | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Consonant Digraphs and Blends | `grade-1-consonant-digraphs-final-ck`, `grade-1-beginning-consonant-blends`, `grade-1-ending-consonant-blends` | GD-2, GD-3, GD-7 | All three as contributors | None | Merge into one Grade 1 Grade Unit | Sequence framing joining digraphs + beginning/ending blends | Beginning Blends, Ending Blends (named-not-built per `SKILLS_MODEL.md` §8) | `grade-1-consonant-digraphs-final-ck` becomes canonical merged ID; blend pages archived as Grade Unit role, kept live as Skills | `grade1Progression.ts` steps 3–5 merged to 1 | High | GD-7 resolution affects whether K digraph exposure is referenced as prerequisite text | Planned |
+| Consonant Digraphs and Blends | `grade-1-consonant-digraphs-final-ck`, `grade-1-beginning-consonant-blends`, `grade-1-ending-consonant-blends` | GD-2, GD-3, GD-7 (Approved) | All three as contributors | None | Merge into one Grade 1 Grade Unit | Sequence framing joining digraphs + beginning/ending blends | Beginning Blends, Ending Blends (named-not-built per `SKILLS_MODEL.md` §8) | `grade-1-consonant-digraphs-final-ck` becomes canonical merged ID; blend pages archived as Grade Unit role, kept live as Skills | `grade1Progression.ts` steps 3–5 merged to 1; once this unit ships, `kindergarten-consonant-digraphs` is reclassified per GD-7 | High | None | Planned |
 | Inflectional Endings | `grade-1-inflectional-endings-s-es`, `grade-1-inflectional-endings-ed-ing` | GD-2, GD-3 | Both as contributors | None | Merge into one Grade Unit | Base-word/ending progression framing; 3-sounds-of-`-ed` explanation | Plurals and -s/-es, -ed and -ing (named-not-built) | One surviving ID; other archived | `grade1Progression.ts` steps 9–10 merged to 1 | High | None | Planned |
 | Silent E and Long Vowels | `grade-1-long-vowels-silent-e` | GD-2, GD-3 | As-is | None | None | None | Reuses existing `silent-e-long-a/e/i/o/u` Skills | None | Reconcile Skill grade metadata (currently tagged Grade 2) to Grade 1 introduced/Grade 2 practiced per `SKILLS_MODEL.md` §11 | Medium | None | Planned |
 | Vowel Teams | `grade-1-long-a-long-o-vowel-teams`, `grade-1-long-e-vowel-teams` | GD-2, GD-3 | Both as contributors | None | Merge into one Grade Unit | Unit-level sequence framing | Reuses `vowel-teams-ai-ay/ee-ea/oa-ow` Skills | One surviving ID; other archived | `grade1Progression.ts` steps 13–14 merged to 1 | High | None | Planned |
 | Syllables and Two-Syllable Words | `grade-1-open-syllables-final-y` (narrow: final-Y only) | GD-2, GD-3 | As partial contributor | Yes — broaden title/framing | None (no second page to merge) | Syllable hearing/counting instruction, regular two-syllable spelling, embedded open/closed-syllable use | Open Syllables (named-not-built, provisional per `SKILLS_MODEL.md` §7) | ID likely preserved with broadened scope, or new ID if scope change is judged material per `CONTENT_MODEL.md` §9 | `grade1Progression.ts` step 7 content expanded | Medium | None | Planned |
-| *(Relocating in)* R-Controlled Vowels | See Grade 2 | GD-8 (**Needs Discussion**) | — | — | — | — | — | Grade 1's `grade-1-r-controlled-ar-or`/`-er-ir-ur` steps unchanged until GD-8 resolved and Grade 2 unit ships | — | — | Blocked on GD-8 |
+| *(Relocating out)* R-Controlled Vowels | `grade-1-r-controlled-ar-or`, `grade-1-r-controlled-er-ir-ur` (current Grade 1 core steps) | GD-8 (**Approved**) | — | — | — | — | — | Route/IDs preserved; steps become optional preview/review once the Grade 2 R-Controlled Vowels unit ships | `grade1Progression.ts` reclassifies these steps from core to optional at Phase 4 cutover | Medium | Grade 2 R-Controlled Vowels unit (Phase 4) must ship first | Planned (executes at Phase 4 cutover) |
 
 ### Grade 2
 
 | Canonical Grade Unit | Current implementation | Decision applied | Reuse | Rename | Merge | New content | New Skills/Families | URL implications | Doc implications | Priority | Dependencies | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| R-Controlled Vowels (GB-obj) | `r-controlled-ar`, `r-controlled-or`, `r-controlled-er-ir-ur` (built as Skills, no Grade Unit role) | GD-2, GD-3, GD-8 | All three as contributing Skills | None | None | New Grade 2 Grade Unit wrapper treating all five spellings as one family | Promote R-Controlled Vowels to registered Skill Family (`SKILLS_MODEL.md` §7) | New Grade 2 Grade Unit ID; existing Skill IDs untouched | New Grade 2 roadmap entry | High | GD-8 resolution for Grade 1 cutover timing | Planned |
-| Diphthongs and Other Vowel Patterns | `vowel-teams-oi-oy`, `vowel-teams-ou-ow` | GD-2, GD-3, GD-10 | Both as contributors | None | None | New Grade 2 Grade Unit wrapper; optionally `oo`, `au/aw` coverage | Depends on GD-10 (fold into Vowel Teams vs. new Diphthongs family) | New Grade 2 Grade Unit ID | New Grade 2 roadmap entry | Medium | GD-10 | Planned |
+| R-Controlled Vowels | `r-controlled-ar`, `r-controlled-or`, `r-controlled-er-ir-ur` (built as Skills, no Grade Unit role) | GD-2, GD-3, GD-8 (Approved) | All three as contributing Skills | None | None | New Grade 2 Grade Unit wrapper treating all five spellings as one family | Promote R-Controlled Vowels to registered Skill Family (`SKILLS_MODEL.md` §7) | New Grade 2 Grade Unit ID; existing Skill IDs untouched | New Grade 2 roadmap entry | High | None | Planned |
+| Diphthongs and Other Vowel Patterns | `vowel-teams-oi-oy`, `vowel-teams-ou-ow` | GD-2, GD-3 | Both as contributors | None | None | New Grade 2 Grade Unit wrapper; optionally `oo`, `au/aw` coverage | Public Skill Family filing (Vowel Teams subfamily vs. separate Diphthongs family) left open per GD-10; does not affect this unit | New Grade 2 Grade Unit ID | New Grade 2 roadmap entry | Medium | None (GD-10 does not block this unit; see GD-10) | Planned |
 | Syllable Types and Multisyllabic Words | None (Grade 3 has `3rd-grade-multisyllabic-words`) | GD-2, GD-5 | None directly; Grade 3 content as forward reference only | — | None | Full new authoring: six syllable types, consonant-le, Grade-2-level multisyllabic spelling | Syllable Types (Teaching-Guide-level per `SKILLS_MODEL.md` §7), Multisyllabic Words (named-not-built) | New Grade 2 Grade Unit ID | New Grade 2 roadmap entry | High (closes the Grade 1→3 bridge gap `CURRICULUM_MAP.md` §6 finding 2 identifies) | None | Planned |
 | Silent Letters and Ending Spelling Patterns | `2nd-grade-silent-letter-words`, `grade-1-floss-rule`, `grade-1-tch-dge-ending-rules` | GD-2, GD-3 | `2nd-grade-silent-letter-words` as base; other two as review/prerequisite contributors | Yes — broaden title | None | Unified explanation and pattern sequence | Silent Letters (named-not-built) | `2nd-grade-silent-letter-words` likely canonical ID | New Grade 2 roadmap entry | Medium | None | Planned |
 | Hard and Soft C and G | None | GD-2 | None | — | — | Full new authoring: hard/soft C, hard/soft G, positional generalizations, contrast word sets | New Grade 2 Skill/Teaching Guide topic | New Grade 2 Grade Unit ID | New Grade 2 roadmap entry | Medium (highest authoring cost in Grade 2; sequence after the four units above) | None | Planned |
@@ -168,42 +167,45 @@ Every phase lists why it exists, what changes, its dependencies, and — per the
 
 ### Phase 1 — Architecture sign-off
 **Why:** No execution phase should start against unapproved architecture.
-**Changes:** None to code/content. Product owner reviews and signs off on Global Decisions GD-1 through GD-6 (Approved items) and records directional guidance on GD-7 through GD-11 (Needs Discussion items) — full resolution of the Needs Discussion items is not required to start Phase 2, only enough directional clarity to sequence Phases 2–3.
+**Changes:** None to code/content. Product owner reviews and signs off on Global Decisions.
 **Dependencies:** None.
 **Deliverables:**
-- [ ] GD-1 through GD-6 formally approved.
-- [ ] GD-7/GD-8/GD-9/GD-10 have a recorded product-owner lean (even if not fully closed) so Phases 2–4 aren't blocked on silence.
-**Status:** Planned
+- [x] GD-1 through GD-8 formally approved.
+- [x] GD-9 confirmed deferred, contingent on a future Skills-browsing experience; does not block Phases 2–8.
+- [x] GD-10 confirmed left open as a navigation/taxonomy question to revisit alongside the Skills-browsing experience design; does not block Phase 4.
+**Status:** Complete
 
 ### Phase 2 — Kindergarten normalization
 **Why:** Smallest, best-understood gap (audit confidence: High throughout); establishes the merge pattern reused in every later phase.
-**Changes:** `src/lib/content/kindergartenProgression.ts` restructured per the Grade K table above; `kindergarten-mixed-vowel-review` becomes the canonical Short Vowels and CVC Words ID; new High-Frequency Words milestone added; `kindergarten-first-words` reframed as Sounds/Letters/Early Encoding.
-**Dependencies:** Phase 1 sign-off. GD-7 resolution determines whether `kindergarten-consonant-digraphs` also moves in this phase or stays untouched.
+**Changes:** `src/lib/content/kindergartenProgression.ts` restructured per the Grade K table above; `kindergarten-mixed-vowel-review` becomes the canonical Short Vowels and CVC Words ID; new High-Frequency Words milestone added; `kindergarten-first-words` reframed as Sounds/Letters/Early Encoding. `kindergarten-consonant-digraphs` is **not** touched in this phase — its GD-7 reclassification executes at the Phase 3 cutover, once Grade 1's Consonant Digraphs and Blends unit ships.
+**Dependencies:** Phase 1 sign-off.
 **Deliverables:**
-- [ ] Kindergarten roadmap reflects exactly 3 canonical Grade Units (or 4, pending GD-7).
+- [ ] Kindergarten roadmap reflects exactly 3 canonical Grade Units (`kindergarten-consonant-digraphs` still present as a 4th, supporting step until Phase 3's cutover).
 - [ ] Five short-vowel pages + mixed review reclassified as Skills feeding the merged unit; archived Grade Unit role recorded.
 - [ ] High-Frequency Words milestone live, surfacing Heart Words + Dolch Pre-Primer.
 - [ ] `kindergartenProgression.ts` tests updated and passing.
 **Status:** Planned
 
 ### Phase 3 — Grade 1 normalization
-**Why:** Second-best-understood gap; resolves the largest number of narrow-duplicate Grade Units in one pass.
-**Changes:** `src/lib/content/grade1Progression.ts` restructured per the Grade 1 table (Consonant Digraphs and Blends merge, Inflectional Endings merge, Vowel Teams merge, Syllables unit broadened). R-controlled steps left untouched pending GD-8.
-**Dependencies:** Phase 2 pattern established. GD-8 direction from Phase 1 (does not require full resolution).
+**Why:** Second-best-understood gap; resolves the largest number of narrow-duplicate Grade Units in one pass, and executes the GD-7 Kindergarten cutover once its Consonant Digraphs and Blends unit is live.
+**Changes:** `src/lib/content/grade1Progression.ts` restructured per the Grade 1 table (Consonant Digraphs and Blends merge, Inflectional Endings merge, Vowel Teams merge, Syllables unit broadened). Once this ships, `kindergarten-consonant-digraphs` is reclassified per GD-7 (Kindergarten phase follow-up, not a Grade 1 file change). R-controlled steps stay in Grade 1's core sequence in this phase — their GD-8 reclassification to optional preview/review executes at the Phase 4 cutover, once Grade 2's R-Controlled Vowels unit ships.
+**Dependencies:** Phase 2 pattern established.
 **Deliverables:**
-- [ ] Grade 1 roadmap reflects the 5 canonical Grade Units (r-controlled placement handled per GD-8 status).
+- [ ] Grade 1 roadmap reflects the 5 canonical Grade Units.
 - [ ] Merged units' `skillIds` wired to Beginning/Ending Blends, Plurals-and--s/-es-adjacent, and Vowel Team Skills.
-- [ ] `grade1Progression.ts` tests updated and passing.
+- [ ] `kindergarten-consonant-digraphs` reclassified out of the K core sequence (GD-7 cutover).
+- [ ] `grade1Progression.ts` and `kindergartenProgression.ts` tests updated and passing.
 **Status:** Planned
 
 ### Phase 4 — Grade 2 build-out
 **Why:** Grade 2 currently has zero Grade Units; this is the first grade requiring net-new roadmap infrastructure, not just a restructure.
-**Changes:** New `src/lib/content/grade2Progression.ts`; new Grade 2 branch in `src/pages/spelling-lists/[gradeSlug].astro`; 5 Grade 2 Grade Units built per the Grade 2 table, including full new authoring for Hard and Soft C and G and for Syllable Types and Multisyllabic Words.
-**Dependencies:** Phase 3 (Grade 1 r-controlled steps must be stable/decided before Grade 2's R-Controlled Vowels unit can cut over per GD-8). GD-10 direction for Diphthongs family filing.
+**Changes:** New `src/lib/content/grade2Progression.ts`; new Grade 2 branch in `src/pages/spelling-lists/[gradeSlug].astro`; 5 Grade 2 Grade Units built per the Grade 2 table, including full new authoring for Hard and Soft C and G and for Syllable Types and Multisyllabic Words. Once this unit ships, Grade 1's r-controlled steps are reclassified to optional preview/review per the GD-8 cutover.
+**Dependencies:** Phase 3 (Grade 1 core sequence stable). GD-10 (Diphthong family filing) is explicitly **not** a dependency — the Diphthongs Grade Unit ships regardless of that open question.
 **Deliverables:**
 - [ ] `grade2Progression.ts` exists with 5 ordered Grade Units.
 - [ ] Grade 2 hub page renders the curated roadmap (not `buildGradeHubSections()` alone).
 - [ ] R-Controlled Vowels promoted to a registered Skill Family.
+- [ ] Grade 1's r-controlled steps reclassified to optional preview/review (GD-8 cutover); `grade1Progression.ts` tests updated.
 - [ ] Hard and Soft C and G content authored and reviewed.
 - [ ] Tests added for the new roadmap module.
 **Status:** Planned
@@ -251,13 +253,14 @@ Every phase lists why it exists, what changes, its dependencies, and — per the
 - [ ] `CURRICULUM_MAP.md` status changed from "freeze candidate" to authoritative, or retired in favor of this plan.
 **Status:** Planned
 
-### Phase 9 — Deferred/contingent follow-ups (GD-7, GD-9)
-**Why:** Some migrations are correct in direction but contingent on decisions or capabilities outside this plan's critical path (K digraph placement pending GD-7; gateway-page retirement pending a Skills-browsing experience per GD-9). Tracking them as a distinct phase keeps them visible without blocking Phases 2–8.
-**Changes:** Executed only once their blocking condition clears: GD-7 resolution (Kindergarten digraph cutover), and a Skills browsing experience shipping (Grade 1 gateway/thin-page retirement).
-**Dependencies:** GD-7 decision; a Skills browsing experience (not currently scheduled by this plan).
+### Phase 9 — Deferred/contingent follow-ups (GD-9, GD-10)
+**Why:** Two items are correct in direction but contingent on work outside this plan's critical path: gateway-page retirement depends on a Skills-browsing experience that doesn't exist yet (GD-9); Diphthong Skill Family filing is a navigation/taxonomy call best made as part of designing that same browsing experience (GD-10). Tracking them as a distinct phase keeps them visible without blocking Phases 2–8, all of which are unconditioned on either.
+**Changes:** Executed only once a Skills browsing experience is designed and scoped (a separate future plan): Grade 1 gateway/thin single-blend page retirement, and the Diphthongs-vs-Vowel-Teams family filing decision.
+**Dependencies:** A Skills browsing experience (not scheduled by this plan).
 **Deliverables:**
-- [ ] GD-7 resolved and, if direction (b) chosen, Kindergarten sequence updated accordingly.
-- [ ] Skills browsing experience scoped (separate plan) before any Grade 1 gateway/thin-page retirement begins.
+- [ ] Skills browsing experience scoped (separate plan).
+- [ ] GD-10 resolved as part of that scoping work; Diphthong pages filed accordingly.
+- [ ] GD-9 resolved; Grade 1 gateway/thin-page retirement executed or explicitly re-affirmed as permanent.
 **Status:** Planned (contingent)
 
 ---
@@ -272,4 +275,4 @@ Implementation of the canonical curriculum is complete when:
 4. Every published Grade Unit's `skillIds` links are wired to their intended Skills (Phase 8 deliverable).
 5. Every stable ID retired by a merge is archived, not deleted, with its replacement relationship recorded per `CONTENT_MODEL.md` §9.
 6. Named documentation (Phase 8) is internally consistent with the shipped structure — no document still describes a superseded placement as current without a note.
-7. All Needs Discussion items (GD-7 through GD-11) are either resolved and executed, or explicitly re-scoped into a follow-up plan — none remain silently unresolved indefinitely.
+7. GD-9 and GD-10 (the remaining open items) are either resolved and executed as part of the Skills-browsing-experience scoping work, or explicitly re-affirmed — neither remains silently unresolved indefinitely. GD-11 stays intentionally out of scope.

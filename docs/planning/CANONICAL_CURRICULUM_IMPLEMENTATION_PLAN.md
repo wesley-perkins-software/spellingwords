@@ -96,6 +96,17 @@ Each canonical Grade Unit is listed with its current implementation, the archite
 | Short Vowels and CVC Words | `kindergarten-short-a/e/i/o/u-words` + `kindergarten-mixed-vowel-review` (orders 2–7) | GD-2, GD-3 | All six pages as contributing Practice Sets/Skills | None required | Merge presentation into one canonical Grade Unit; five vowel pages + review become Skills/subskills under it | Unit-level explanation/transfer framing | Reuses existing `short-a/e/i/o/u-words` Skills (already built) | `kindergarten-mixed-vowel-review` becomes the surviving canonical ID for the merged unit; five vowel IDs archived as Grade Unit role but kept live as Skills | `kindergartenProgression.ts` restructured from 6 steps to 1 merged step + linked Skills | High | Short Vowels Skill Family (already built) | Planned |
 | High-Frequency Words | `kindergarten-heart-words`, `dolch-pre-primer-a/b/c` | GD-2, GD-3 | All four as contributing Sight Word Sets | None | None (Sight Word Sets stay distinct identities per `CONTENT_MODEL.md`) | New Grade Unit/roadmap-milestone wrapper connecting Heart Words + Dolch Pre-Primer | None (Sight Word Set identity, not Skill) | New milestone ID; existing Sight Word Set IDs/routes untouched | `kindergartenProgression.ts` gains explicit milestone; K hub surfaces Dolch Pre-Primer in curated section | High | None | Planned |
 | *(Supporting, not canonical)* `kindergarten-consonant-digraphs` | Order 8 of K core, live/tested | GD-7 (**Approved** — direction (b)) | — | — | — | — | — | Route/ID preserved; reclassified from Grade Unit to embedded/supporting role | `kindergartenProgression.ts` drops it from the core sequence once Grade 1's unit ships | Medium | Grade 1 Consonant Digraphs and Blends unit (Phase 3) must ship first | Planned (executes at Phase 3 cutover) |
+| *(Non-canonical, supporting)* `kindergarten-ck-ending-words`, `kindergarten-double-consonants` | Orders 9–10 of K core, live/tested; omitted from the original audit inventory | Kindergarten Implementation Amendment (below) | — | — | — | — | — | Routes/IDs preserved; removed from the canonical Kindergarten roadmap and published as supporting/additional-practice content | Kindergarten roadmap data updated so both move from the core sequence to the supporting/additional-practice section | Medium | None | Planned (executes in Phase 2) |
+
+#### Kindergarten Implementation Amendment
+
+During Phase 2 implementation planning, `kindergarten-ck-ending-words` and `kindergarten-double-consonants` were discovered to be live, published, tested Kindergarten core-roadmap steps (orders 9–10) that this plan's Grade K table and the audit's Kindergarten inventory both omitted entirely. Neither page is addressed by the canonical curriculum document, which defines exactly three canonical Kindergarten Grade Units.
+
+Disposition: both pages keep their existing stable IDs, routes, and word lists — untouched, never deleted, archived, or silently repointed. They are not canonical Kindergarten Grade Units under the approved three-unit curriculum, and they are not merged into the Short Vowels and CVC Words unit. Starting in Phase 2, both are removed from the canonical Kindergarten roadmap and published as supporting/additional-practice content instead. This differs in timing from `kindergarten-consonant-digraphs` (GD-7), whose reclassification is deferred to the Phase 3 cutover — this amendment's reclassification executes directly in Phase 2, since it only corrects an inventory omission rather than sequencing a cross-grade cutover.
+
+Phase 3 follow-up: once Grade 1's Consonant Digraphs and Blends unit ships, evaluate each page as potential supporting content for its Grade 1 counterpart — `kindergarten-ck-ending-words` for Grade 1 Final-CK/C-K-CK spelling instruction, `kindergarten-double-consonants` for Grade 1 FLOSS/double-final-consonant instruction — per `CURRICULUM_MAP.md`'s existing rows for these concepts. Neither page is automatically promoted to a canonical Grade 1 Grade Unit by this evaluation.
+
+*Rationale:* corrects an inventory omission discovered during Phase 2 implementation planning without treating it as project-wide architectural policy; it is scoped to these two pages rather than recorded as a new Global Decision.
 
 ### Grade 1
 
@@ -177,10 +188,10 @@ Every phase lists why it exists, what changes, its dependencies, and — per the
 
 ### Phase 2 — Kindergarten normalization
 **Why:** Smallest, best-understood gap (audit confidence: High throughout); establishes the merge pattern reused in every later phase.
-**Changes:** `src/lib/content/kindergartenProgression.ts` restructured per the Grade K table above; `kindergarten-mixed-vowel-review` becomes the canonical Short Vowels and CVC Words ID; new High-Frequency Words milestone added; `kindergarten-first-words` reframed as Sounds/Letters/Early Encoding. `kindergarten-consonant-digraphs` is **not** touched in this phase — its GD-7 reclassification executes at the Phase 3 cutover, once Grade 1's Consonant Digraphs and Blends unit ships.
+**Changes:** `src/lib/content/kindergartenProgression.ts` restructured per the Grade K table above; `kindergarten-mixed-vowel-review` becomes the canonical Short Vowels and CVC Words ID; new High-Frequency Words milestone added; `kindergarten-first-words` reframed as Sounds/Letters/Early Encoding. `kindergarten-consonant-digraphs` is **not** touched in this phase — its GD-7 reclassification executes at the Phase 3 cutover, once Grade 1's Consonant Digraphs and Blends unit ships. Per the Kindergarten Implementation Amendment above, `kindergarten-ck-ending-words` and `kindergarten-double-consonants` are removed from the canonical core roadmap and published as supporting/additional-practice content in this phase; their IDs, routes, and word lists are unchanged.
 **Dependencies:** Phase 1 sign-off.
 **Deliverables:**
-- [ ] Kindergarten roadmap reflects exactly 3 canonical Grade Units (`kindergarten-consonant-digraphs` still present as a 4th, supporting step until Phase 3's cutover).
+- [ ] Kindergarten roadmap reflects exactly 3 canonical Grade Units plus `kindergarten-consonant-digraphs` as the one temporary supporting core step (GD-7, until Phase 3's cutover); `kindergarten-ck-ending-words` and `kindergarten-double-consonants` move to supporting/additional-practice content (Kindergarten Implementation Amendment).
 - [ ] Five short-vowel pages + mixed review reclassified as Skills feeding the merged unit; archived Grade Unit role recorded.
 - [ ] High-Frequency Words milestone live, surfacing Heart Words + Dolch Pre-Primer.
 - [ ] `kindergartenProgression.ts` tests updated and passing.
@@ -194,6 +205,7 @@ Every phase lists why it exists, what changes, its dependencies, and — per the
 - [ ] Grade 1 roadmap reflects the 5 canonical Grade Units.
 - [ ] Merged units' `skillIds` wired to Beginning/Ending Blends, Plurals-and--s/-es-adjacent, and Vowel Team Skills.
 - [ ] `kindergarten-consonant-digraphs` reclassified out of the K core sequence (GD-7 cutover).
+- [ ] `kindergarten-ck-ending-words` and `kindergarten-double-consonants` evaluated as potential supporting content for their Grade 1 counterparts (Final-CK/C-K-CK and FLOSS/double-final-consonant instruction, respectively), per the Kindergarten Implementation Amendment; neither is automatically promoted to a canonical Grade 1 Grade Unit.
 - [ ] `grade1Progression.ts` and `kindergartenProgression.ts` tests updated and passing.
 **Status:** Planned
 

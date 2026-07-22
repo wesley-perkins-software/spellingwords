@@ -36,9 +36,11 @@ The repository’s content model is compatible with fixing these issues without 
 
 ### Current published Grade Units
 
+> **Amendment (discovered during Phase 2 implementation planning):** the table below originally omitted two live, published, tested Kindergarten core-roadmap entries — `kindergarten-ck-ending-words` and `kindergarten-double-consonants`. Both are corrected here. See the "Kindergarten Implementation Amendment" in `CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md` for their disposition.
+
 | Grade | Current `contentRole: grade-unit` entries |
 |---|---|
-| K | `kindergarten-short-a-words`, `kindergarten-short-e-words`, `kindergarten-short-i-words`, `kindergarten-short-o-words`, `kindergarten-short-u-words`, `kindergarten-mixed-vowel-review`, `kindergarten-consonant-digraphs` |
+| K | `kindergarten-short-a-words`, `kindergarten-short-e-words`, `kindergarten-short-i-words`, `kindergarten-short-o-words`, `kindergarten-short-u-words`, `kindergarten-mixed-vowel-review`, `kindergarten-consonant-digraphs`, `kindergarten-ck-ending-words`, `kindergarten-double-consonants` |
 | 1 | `grade-1-cvc-short-vowels-c-k-rule`, `grade-1-beginning-consonant-blends`, `grade-1-ending-consonant-blends`, `grade-1-long-vowels-silent-e`, `grade-1-long-a-long-o-vowel-teams`, `grade-1-long-e-vowel-teams` |
 | 2 | None |
 | 3 | `grade-3-prefix-words`, `grade-3-suffix-words` |
@@ -54,6 +56,7 @@ The repository’s content model is compatible with fixing these issues without 
 | **Sounds, Letters, and Early Encoding** | `kindergarten-first-words` begins the K core progression. The individual short-vowel units and mixed review contribute. | **Partial** | No explicit sound-letter mapping, phoneme segmentation-to-writing workflow, or early-encoding progression. No controlled beginning/middle/ending-sound practice set. Dictation and word-building are not modeled as embedded supports. | “First Words” is too vague for the foundational encoding milestone. | **Rename** and **merge** introductory material into one broader K Grade Unit; keep phonological awareness, handwriting, word building, and dictation embedded. | **High.** `src/content/spelling-lists/grade-level/kindergarten-first-words.md`; `src/lib/content/kindergartenProgression.ts`; canonical K overview. |
 | **Short Vowels and CVC Words** | Grade Units for Short A/E/I/O/U and `kindergarten-mixed-vowel-review`; reusable Skills `short-a-words` through `short-u-words`; `short-vowels-cvc-words` contributes. | **Substantially complete** | Needs one unit-level CVC explanation, unfamiliar-word transfer, and integrated review/dictation guidance. Raw short-vowel word coverage is strong. | Six Grade Units represent one canonical unit while the same narrow concepts also exist as Skills. | **Merge** the five vowel units and mixed review; keep individual vowel pages as Skills or focused practice sets. | **High.** `src/content/spelling-lists/phonics/kindergarten-short-*.md`; `src/content/spelling-lists/phonics/kindergarten-mixed-vowel-review.md`; `src/lib/content/spellingSkills.ts`. |
 | **High-Frequency Words** | `kindergarten-heart-words`; Dolch Pre-Primer Parts A–C. | **Partial** | Missing initial regular/irregular mapping, sentence-level use, and ongoing-review framing. The K hub omits Dolch Pre-Primer lists despite their K metadata. | The canonical introductory unit is split between Heart Words and Dolch with no shared roadmap treatment. | **Create new Grade Unit** or named K roadmap milestone backed by existing Sight Word Sets; do not duplicate word data. | **High.** `src/content/spelling-lists/sight-words/kindergarten-heart-words.md`; `src/content/spelling-lists/sight-words/dolch-pre-primer-*.md`; `src/lib/content/kindergartenProgression.ts`; `src/pages/spelling-lists/[gradeSlug].astro`. |
+| *(Non-canonical, supporting)* CK Ending / Double Consonants | `kindergarten-ck-ending-words`, `kindergarten-double-consonants` — live K core-roadmap steps (orders 9–10), omitted from this audit's original inventory. | **Live, not canonical** | Not evaluated against any canonical K unit; both are narrow orthographic-pattern pages, not one of the three canonical Kindergarten units. | Previously miscounted as absent from the K Grade Unit inventory; `CURRICULUM_MAP.md` ties them to future Grade 1 concepts (Final CK, FLOSS) rather than to Short Vowels and CVC Words. | **Remove** from the canonical Kindergarten roadmap while keeping both published as supporting/additional-practice content; preserve IDs, routes, and word lists; revisit at the Phase 3 Grade 1 cutover for possible Grade 1 supporting-content placement. | **High.** `src/content/spelling-lists/phonics/kindergarten-ck-ending-words.md`; `kindergarten-double-consonants.md`; `src/lib/content/kindergartenProgression.ts`; `docs/architecture/CURRICULUM_MAP.md` rows 9–10. |
 
 ### Grade 1
 
@@ -169,7 +172,7 @@ Focused phonics, spelling-rule, morphology, high-frequency, and vocabulary resou
 
 1. Approve Grade Unit-to-Skill/Sight Word Set migration rules before changing content identity.
 2. Reconcile the canonical curriculum with `docs/architecture/CONSTITUTION.md` and `docs/architecture/CONTENT_MODEL.md`; confirm how canonical units may compose existing resources.
-3. Normalize Kindergarten into the three canonical milestones and surface high-frequency content.
+3. Normalize Kindergarten into the three canonical milestones, move `kindergarten-ck-ending-words` and `kindergarten-double-consonants` to supporting/additional-practice content, and surface high-frequency content.
 4. Normalize Grade 1 into the five canonical units and move r-controlled vowels to Grade 2 primary placement.
 5. Build the missing Grade 2 roadmap and five Grade Units, beginning with syllable types/multisyllabic words and hard/soft C/G.
 6. Promote and merge existing Grade 3 rule/conventions content into the three missing Grade 3 Grade Units.

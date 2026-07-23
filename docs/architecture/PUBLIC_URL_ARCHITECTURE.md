@@ -40,7 +40,7 @@ These title-facing public slugs are intentional: `mixed-cvc-review` and `digraph
 | `kindergarten-color-words` | `/spelling-lists/grade-level/kindergarten-color-words/` | `/spelling-lists/kindergarten/color-words/` | Grade topic | 301 |
 | `kindergarten-animal-words` | `/spelling-lists/grade-level/kindergarten-animal-words/` | `/spelling-lists/kindergarten/animal-words/` | Grade topic | 301 |
 
-`kindergarten-number-color-words` is compatibility-only. Its existing URL `/spelling-lists/grade-level/kindergarten-number-color-words/` permanently redirects to `/spelling-lists/kindergarten/number-words/`; Number Words is a visible, complete component and is more specific than the hub. There is no `/spelling-lists/kindergarten/number-color-words/` route.
+`kindergarten-number-color-words` is compatibility-only. Its existing URL `/spelling-lists/grade-level/kindergarten-number-color-words/` permanently redirects to `/spelling-lists/kindergarten/`; the Kindergarten hub is the closest complete replacement because it links to both Number Words and Color Words. There is no `/spelling-lists/kindergarten/number-color-words/` route.
 
 ## Final visible Grade 1 Grade Unit routes
 

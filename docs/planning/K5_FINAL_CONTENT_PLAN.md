@@ -1,5 +1,7 @@
 # Final K–5 Spelling Website Content Plan
 
+> **Superseded.** Superseded: its proposed K–5 inventory and page totals have been reconciled against the repository. Use [K5_FINAL_CONTENT_ARCHITECTURE.md](./K5_FINAL_CONTENT_ARCHITECTURE.md) as the authoritative implementation reference; retain this document as educational research and historical rationale.
+
 ## Executive recommendation
 
 The three-section model is sound and should be kept. It matches what parents actually need from a grade-level spelling page: a clear starting path, a place for commonly assigned everyday words, and a place for optional topic-based review. The problem was not the three-part structure itself; the problem was vague labeling and an unclear boundary between transferable spelling instruction and miscellaneous word lists. A stable architecture for SpellingWords.app should therefore use these section names across all grades: Learn in Order, Common Words to Spell, and Practice by Topic. Those labels are clearer than Core Progression, High-Frequency Words, and Additional Practice because they use everyday search language, describe what the parent can do next, and avoid low-information-scent labels that usability research consistently warns against.

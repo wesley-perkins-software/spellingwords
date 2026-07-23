@@ -1,5 +1,7 @@
 # SpellingWords.app Curriculum Bible
 
+> **Superseded.** Superseded for K–5 public architecture decisions: use [K5_FINAL_CONTENT_ARCHITECTURE.md](../planning/K5_FINAL_CONTENT_ARCHITECTURE.md) as the single authoritative K–5 architecture reference. Retain this document as historical curriculum and list-coverage research.
+
 > **This is the single source of truth** for grade-level spelling coverage, existing list placement, content gaps, and all future roadmap decisions. Update it whenever lists are added, audited, or reorganized.
 
 ---

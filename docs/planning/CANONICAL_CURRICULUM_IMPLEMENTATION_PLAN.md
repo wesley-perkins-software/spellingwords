@@ -1,5 +1,7 @@
 # Canonical K–5 Curriculum Implementation Plan
 
+> **Superseded.** Superseded: its implementation phases and unresolved decisions have been replaced by the frozen architecture and validation slice in [K5_FINAL_CONTENT_ARCHITECTURE.md](./K5_FINAL_CONTENT_ARCHITECTURE.md). Retain this document as historical implementation context.
+
 **Status:** Approved — authoritative engineering roadmap. GD-1 through GD-8 are approved; GD-9 and GD-10 remain open and are explicitly scoped so they do not block execution (see those entries and Phase 9); GD-11 is out of scope by design.
 **Educational authority:** `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md` (unchanged; this document does not reinterpret it).
 **Advisory input:** `docs/curriculum/CANONICAL_CURRICULUM_AUDIT.md` (unchanged; every recommendation in it is dispositioned below).

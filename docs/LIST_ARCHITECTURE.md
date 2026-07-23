@@ -1,5 +1,7 @@
 # List Architecture
 
+> **Superseded.** Superseded for K–5 curriculum/list architecture decisions: use [K5_FINAL_CONTENT_ARCHITECTURE.md](./planning/K5_FINAL_CONTENT_ARCHITECTURE.md). Retain this document as historical taxonomy rationale.
+
 > **The central question this document answers:**
 > If a parent lands on spellingwords.app today, what families of lists should exist and how should they be organized?
 

@@ -1,5 +1,7 @@
 # Canonical Kindergarten Through Grade Five Spelling Grade Unit Curriculum
 
+> **Superseded.** Superseded for K–5 architecture decisions: use [K5_FINAL_CONTENT_ARCHITECTURE.md](../planning/K5_FINAL_CONTENT_ARCHITECTURE.md) as the authoritative public architecture and implementation reference. Retain this curriculum synthesis as supporting educational research.
+
 **Status:** Canonical educational research reference  
 **Purpose:** Defines the consensus K–5 Grade Unit curriculum used to audit and plan site content  
 **Source:** Deep research synthesis of U.S. standards and structured-literacy curricula  

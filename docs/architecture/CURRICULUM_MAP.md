@@ -1,5 +1,7 @@
 # SpellingWords.app Curriculum Map
 
+> **Superseded.** Superseded: this freeze candidate has been replaced by [K5_FINAL_CONTENT_ARCHITECTURE.md](../planning/K5_FINAL_CONTENT_ARCHITECTURE.md). Retain its Grade Unit ↔ Skill analysis as supporting technical/curriculum evidence.
+
 **Status: FREEZE CANDIDATE — pending product-owner review. Not yet authoritative.**
 
 ## 0. Purpose and how to read this document

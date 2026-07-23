@@ -25,15 +25,17 @@ type CardDefinition = {
 
 export type GradeHubSection = {
   title: string;
+  summary?: string;
   cards: GradeHubCard[];
 };
 
 export const KINDERGARTEN_HUB_SECTIONS: readonly {
   title: string;
+  summary?: string;
   cards: readonly CardDefinition[];
 }[] = [
   {
-    title: "Learn in Order",
+    title: "Core Spelling",
     cards: [
       {
         id: "kindergarten-first-words",
@@ -99,26 +101,60 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
     ],
   },
   {
-    title: "Common Words to Spell",
+    title: "High-Frequency Words",
+    summary:
+      "4 sets · 40 words · Common kindergarten sight words taught with phonics and Heart Word guidance for unexpected spelling parts.",
     cards: [
       {
-        id: "kindergarten-common-words",
-        title: "Kindergarten Common Words",
+        id: "kindergarten-common-words-1",
+        title: "Kindergarten High-Frequency Words 1",
         description:
-          "Practice four small, cumulative sets of everyday words, noticing the regular parts and the small parts learned by heart.",
-        badge: "Common Words",
-        kind: "collection",
+          "Start with common kindergarten sight words and use the sounds that work before learning small unexpected parts by heart.",
+        badge: "High-Frequency Words",
+        kind: "list",
+      },
+      {
+        id: "kindergarten-common-words-2",
+        title: "Kindergarten High-Frequency Words 2",
+        description:
+          "Continue with useful writing words, using phonics first and Heart Word guidance for the tricky parts.",
+        badge: "High-Frequency Words",
+        kind: "list",
+      },
+      {
+        id: "kindergarten-common-words-3",
+        title: "Kindergarten High-Frequency Words 3",
+        description:
+          "Practice high-use words for early sentences, stories, and classroom writing.",
+        badge: "High-Frequency Words",
+        kind: "list",
+      },
+      {
+        id: "kindergarten-common-words-4",
+        title: "Kindergarten High-Frequency Words 4",
+        description:
+          "Finish the sequence with common words for questions, counting, and simple stories.",
+        badge: "High-Frequency Words",
+        kind: "list",
       },
     ],
   },
   {
-    title: "Practice by Topic",
+    title: "Additional Practice",
     cards: [
       {
-        id: "kindergarten-number-color-words",
-        title: "Number and Color Words",
+        id: "kindergarten-number-words",
+        title: "Number Words",
         description:
-          "Practice useful number and color spellings from kindergarten math, art, and classroom routines.",
+          "Practice the number words one through ten for kindergarten counting and classroom routines.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "kindergarten-color-words",
+        title: "Color Words",
+        description:
+          "Practice familiar color spellings for art, sorting, books, and everyday classroom talk.",
         badge: "Vocabulary",
         kind: "list",
       },
@@ -136,10 +172,11 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
 
 export const GRADE_1_HUB_SECTIONS: readonly {
   title: string;
+  summary?: string;
   cards: readonly CardDefinition[];
 }[] = [
   {
-    title: "Learn in Order",
+    title: "Core Spelling",
     cards: [
       {
         id: "grade-1-cvc-short-vowels-c-k-rule",
@@ -240,7 +277,7 @@ export const GRADE_1_HUB_SECTIONS: readonly {
     ],
   },
   {
-    title: "Common Words to Spell",
+    title: "High-Frequency Words",
     cards: [
       {
         id: "grade-1-common-words",
@@ -266,6 +303,7 @@ export function buildGradeHubCards(
 
   return definitions.map((section) => ({
     title: section.title,
+    summary: section.summary,
     cards: section.cards.flatMap((definition): GradeHubCard[] => {
       if (definition.kind === "list") {
         const entry = listsById.get(definition.id);

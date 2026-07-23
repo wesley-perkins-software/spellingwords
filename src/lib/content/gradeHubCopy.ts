@@ -11,24 +11,24 @@ export interface GradeHubCopy {
 export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   K: {
     metaDescription:
-      "Free kindergarten spelling word lists with a learn-in-order phonics route, four cumulative common-word sets, and optional number, color, and animal word practice.",
+      "Free kindergarten spelling word lists with a core phonics route, four high-frequency-word sets, and optional number, color, and animal word practice.",
     heroParagraphs: [
-      "Start with Learn in Order for a short kindergarten spelling route from first words through short vowels, mixed CVC review, and a digraph preview. All lists include audio support — a child can hear each word read aloud before typing it.",
-      "Kindergarten spelling practice should feel simple, encouraging, and concrete. Common Words to Spell adds four small cumulative sets, while Practice by Topic offers optional number, color, and animal words.",
+      "Start with Core Spelling for a short kindergarten route from first words through short vowels, mixed CVC review, and a digraph preview. All lists include audio support — a child can hear each word read aloud before typing it.",
+      "Kindergarten spelling practice should feel simple, encouraging, and concrete. High-Frequency Words offers four small cumulative sets of common sight and writing words with phonics-first Heart Word guidance, while Additional Practice offers number, color, and animal words.",
     ],
     guidanceBody:
-      "Start with First Words and work through Learn in Order when possible. Use Kindergarten Common Words for everyday writing words with light Heart Word guidance, and choose Number and Color Words or Animal Words whenever a child wants optional topic practice.",
+      "Start with First Words and work through Core Spelling when possible. Use the Kindergarten High-Frequency Words sets for everyday sight and writing words with Heart Word guidance, and choose Number Words, Color Words, or Animal Words whenever a child wants additional practice.",
     emptyStateLabel: "Kindergarten",
   },
   "1": {
     metaDescription:
-      "Free 1st grade spelling curriculum with a learn-in-order route through phonics and spelling patterns plus six planned cumulative common-word sets.",
+      "Free 1st grade spelling curriculum with a core route through phonics and spelling patterns plus six planned cumulative high-frequency-word sets.",
     heroParagraphs: [
-      "Use Learn in Order for the Grade 1 spelling route: short-vowel review, spelling rules, digraphs, blends, long vowels, endings, r-controlled vowels, and final -tch and -dge. All lists include audio support so children can hear each word before typing it.",
-      "First grade spelling is about learning how words work, not memorizing giant vocabulary lists. Common Words to Spell adds small cumulative writing-word sets with Heart Word support for unexpected parts.",
+      "Use Core Spelling for the Grade 1 route: short-vowel review, spelling rules, digraphs, blends, long vowels, endings, r-controlled vowels, and final -tch and -dge. All lists include audio support so children can hear each word before typing it.",
+      "First grade spelling is about learning how words work, not memorizing giant vocabulary lists. High-Frequency Words adds small cumulative writing-word sets with Heart Word support for unexpected parts.",
     ],
     guidanceBody:
-      "Start with Learn in Order and move through the twelve major spelling concepts when possible. Use Grade 1 Common Words alongside the route for useful writing words; focused Skills remain available elsewhere when a child needs extra practice with one pattern.",
+      "Start with Core Spelling and move through the twelve major spelling concepts when possible. Use Grade 1 High-Frequency Words alongside the route for useful writing words; focused Skills remain available elsewhere when a child needs extra practice with one pattern.",
     emptyStateLabel: "First grade",
   },
   "2": {

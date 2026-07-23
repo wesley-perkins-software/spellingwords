@@ -8,9 +8,9 @@
 
 Every K–5 grade hub has these sections, in this order:
 
-1. **Learn in Order** — a recommended encoding/spelling route.
-2. **Common Words to Spell** — one gateway to cumulative common-word sets.
-3. **Practice by Topic** — small, optional, clearly scoped vocabulary collections.
+1. **Core Spelling** — a recommended encoding/spelling route.
+2. **High-Frequency Words** — cumulative common-word sets with phonics-first Heart Word guidance.
+3. **Additional Practice** — small, optional, clearly scoped vocabulary collections.
 
 Grade hubs recommend canonical content; they do not create alternate copies of it. A focused Skill can be reached from its Grade Unit, a Skill browse surface, search, and related links, but it has one canonical practice URL.
 
@@ -18,6 +18,7 @@ Grade hubs recommend canonical content; they do not create alternate copies of i
 
 - Keep the existing flat canonical-list URL shape: `/spelling-lists/{category}/{urlSlug}`.
 - A gateway is an existing `spelling-collections` entry when it is only an orientation page that lists child practice sets. Its canonical URL is `/spelling-lists/collections/{urlSlug}`.
+- A collection can remain the canonical explanatory landing page even when a grade hub links directly to its child practice sets.
 - A practice set remains a `spelling-lists` entry, normally in the existing `sight-words` category for Common Words during this validation slice. This preserves current routes and requires no new top-level category.
 - Keep stable IDs forever. A title, section placement, or helper copy can change without changing an ID or URL.
 - `grade-unit` is for an instructional roadmap page; `skill` is reusable focused pattern practice; `sight-word-set` is the appropriate existing content role for a numbered Common Words set; `vocabulary-theme` is for a bounded optional topic list.
@@ -64,10 +65,10 @@ The repository already contains a substantial raw library: published phonics, gr
 
 This is the final grade-level content map. “Existing” means reuse/reframe source material; “new” means author a genuine gap or gateway; “merge” means retain focused child pages while presenting one parent-facing roadmap item.
 
-| Grade | Learn in Order | Common Words | Practice by Topic |
+| Grade | Core Spelling | High-Frequency Words | Additional Practice |
 |---|---|---|---|
-| K | First Words; Short A, I, O, U, E; Mixed CVC Review; late-K Digraph preview. `-ck`/FLOSS are not required. | 4 sets + gateway. | Number and Color Words; Animal Words. |
-| 1 | Short Vowel Review & C/K; FLOSS; Digraphs & Final `-ck`; Beginning Blends; Ending Blends; Silent E; Open Syllables & Final Y; Vowel Teams; `-s/-es`; `-ed/-ing`; R-Controlled Vowels; `-tch/-dge`. | 6 sets + gateway. | Deferred in the first slice. |
+| K | First Words; Short A, I, O, U, E; Mixed CVC Review; late-K Digraph preview. `-ck`/FLOSS are not required. | Four direct numbered sets on the hub; the gateway remains live. | Number Words; Color Words; Animal Words. |
+| 1 | Short Vowel Review & C/K; FLOSS; Digraphs & Final `-ck`; Beginning Blends; Ending Blends; Silent E; Open Syllables & Final Y; Vowel Teams; `-s/-es`; `-ed/-ing`; R-Controlled Vowels; `-tch/-dge`. | Gateway retained in the first slice. | Deferred in the first slice. |
 | 2 | R-Controlled Vowels; Diphthongs/additional vowel patterns; Soft C/G **new**; Silent Letters/ending patterns; two-syllable and final-stable-`-le` bridge **new**; compounds; contractions; inflectional changes. | 6 sets + gateway. | Months; Math; one Plants/Animals science page; Story-Writing Words after audit. |
 | 3 | Longer words/syllable division; Prefixes; Suffixes; merged base-word changes; Homophones/confusions; review. | 5 sets + gateway. | Math; Earth/Weather; Maps/Communities; Writing Transitions after audit. |
 | 4 | Multisyllabic spelling/unstressed vowels; prefixes/derived words; suffixes/stable endings; Latin roots; Greek roots; confusions. | 4 sets + gateway. | Math; Science; Social Studies; opinion/explanation writing after audit. |
@@ -79,7 +80,7 @@ The prior 180-page recommendation is not a target. Reuse existing canonical prac
 
 ## 4. Exact Kindergarten grade-hub cards
 
-The visible Kindergarten hub has eleven cards: eight Learn in Order cards, one Common Words to Spell gateway, and two Practice by Topic cards. A direct page means its listed canonical route is the card destination. A Grade Unit keeps its existing practice page identity; a collection is a new Common Words gateway only.
+The visible Kindergarten hub has fifteen cards: eight Core Spelling cards, four direct High-Frequency Words set cards, and three Additional Practice cards. Its High-Frequency Words section visibly explains “4 sets · 40 words” with concise phonics-first Heart Word guidance. A direct page means its listed canonical route is the card destination. The collection remains the canonical explanatory landing page even though its children appear directly on this hub.
 
 | # | Section | Public title | Type and destination | Underlying content | Status | Parent-facing description | Role |
 |---:|---|---|---|---|---|---|---|
@@ -91,9 +92,10 @@ The visible Kindergarten hub has eleven cards: eight Learn in Order cards, one C
 | 6 | Learn in Order | **Short E Words** | Direct Grade Unit: `kindergarten-short-e-words` | Canonical focused Short E practice. | Existing. | Finish the focused short-vowel sequence with short-e words. | Essential |
 | 7 | Learn in Order | **Mixed CVC Review** | Direct Grade Unit: `kindergarten-mixed-vowel-review` | Mixed-vowel CVC review. | Existing. | Check whether a child can choose among short vowels instead of relying on one list pattern. | Review |
 | 8 | Learn in Order | **Digraph Words** | Direct late-K preview Grade Unit: `kindergarten-consonant-digraphs` → `/spelling-lists/phonics/kindergarten-consonant-digraphs` | Existing K preview; link onward to canonical CH/SH/TH/WH Skills where available. | Renamed/reframed. | Try common two-letter consonant sounds after CVC work; this is a preview, not a required kindergarten milestone. | Optional preview |
-| 1 | Common Words to Spell | **Kindergarten Common Words** | New collection gateway: `kindergarten-common-words` → `/spelling-lists/collections/kindergarten-common-words` | The four numbered K Common Words sets. | New. | Practice four small, cumulative sets of everyday words, noticing the regular parts and the small parts learned by heart. | Essential |
-| 1 | Practice by Topic | **Number and Color Words** | Direct vocabulary page: `kindergarten-number-color-words` → `/spelling-lists/grade-level/kindergarten-number-color-words` | Existing 10 number words plus red, blue, yellow, green. | Existing; intentionally not split. | Practice useful number and color spellings from kindergarten math, art, and classroom routines. | Optional |
-| 2 | Practice by Topic | **Animal Words** | Direct vocabulary page: `kindergarten-animal-words` → `/spelling-lists/grade-level/kindergarten-animal-words` | Existing familiar animal list. | Existing. | Practice concrete animal names while applying early sound-to-letter knowledge. | Optional |
+| 1–4 | High-Frequency Words | **Kindergarten High-Frequency Words 1–4** | Direct canonical sets: `kindergarten-common-words-1` through `-4` | The four numbered K Common Words sets. | Existing, displayed directly. | Four small cumulative sets of common sight and writing words, with phonics and Heart Word guidance. | Essential |
+| 1 | Additional Practice | **Number Words** | Direct vocabulary page: `kindergarten-number-words` → `/spelling-lists/grade-level/kindergarten-number-words` | One through ten. | New focused page. | Practice useful number spellings from kindergarten math and classroom routines. | Optional |
+| 2 | Additional Practice | **Color Words** | Direct vocabulary page: `kindergarten-color-words` → `/spelling-lists/grade-level/kindergarten-color-words` | Red, blue, green, yellow, black, white, brown, pink. | New focused page. | Practice familiar color spellings from art, sorting, books, and classroom routines. | Optional |
+| 3 | Additional Practice | **Animal Words** | Direct vocabulary page: `kindergarten-animal-words` → `/spelling-lists/grade-level/kindergarten-animal-words` | Existing familiar animal list. | Existing. | Practice concrete animal names while applying early sound-to-letter knowledge. | Optional |
 
 **First Words decision:** the final visible title is **First Words**. It is plain, short, and accurately describes the existing direct on-ramp; “Spell Your First Words” is an unnecessary imperative and “First Words and Letter Sounds” overpromises a distinct letter-sound lesson. It differs from the Short Vowel cards because it deliberately mixes familiar CVC words across vowels to establish sound-based spelling transfer before focused vowel discrimination.
 
@@ -101,11 +103,13 @@ The visible Kindergarten hub has eleven cards: eight Learn in Order cards, one C
 
 **`-ck`/FLOSS decision:** neither card is visible on the Kindergarten hub. They remain published related/support practice only, with no required or preview placement on the K hub.
 
-**Number/Color decision:** retain one canonical page. Its 14 words form two very small, complementary kindergarten classroom sets; splitting would create thin pages and duplicate the same parent intent.
+**Validation decision note:** the first K/Grade 1 validation slice showed that one gateway card hid too much important Kindergarten high-frequency content. The four canonical sets now appear directly on the K hub, while the collection stays published as the explanatory landing page.
+
+**Number/Color decision:** publish focused Number Words and Color Words pages because both have coherent, sentence-bank-supported Kindergarten sets. Preserve `kindergarten-number-color-words` as a published compatibility page, remove it from the hub, and direct families to the focused pages. Do not add orange or purple until sentence support exists.
 
 ## 5. Exact Grade 1 grade-hub cards
 
-The visible Grade 1 hub has thirteen cards: twelve Learn in Order cards and one Common Words gateway. It has no Practice by Topic card in the first slice.
+The visible Grade 1 hub has thirteen cards: twelve Core Spelling cards and one High-Frequency Words gateway. It has no rendered Additional Practice section in the first slice.
 
 | # | Section | Public title | Type and destination | Underlying content | Status | Parent-facing description | Role |
 |---:|---|---|---|---|---|---|---|
@@ -121,7 +125,7 @@ The visible Grade 1 hub has thirteen cards: twelve Learn in Order cards and one 
 | 10 | Learn in Order | **Verb Endings: -ed and -ing** | Direct Grade Unit: `grade-1-inflectional-endings-ed-ing` | Existing unit. | Renamed. | Add common verb endings while keeping the base word readable and spellable. | Essential |
 | 11 | Learn in Order | **R-Controlled Vowels** | Combined roadmap entry, destination `grade-1-r-controlled-ar-or`; link to `grade-1-r-controlled-er-ir-ur` and focused ar/or/er-ir-ur Skills. | Two existing Grade Units plus Skills. | Merged presentation; no duplicate route. | Practice vowel sounds changed by r, then use a focused pattern page for extra help. | Essential |
 | 12 | Learn in Order | **Final -tch and -dge** | Direct Grade Unit: `grade-1-tch-dge-ending-rules` | Existing unit plus `tch-dge-ending-words` Skill. | Renamed. | Learn useful endings for final /ch/ and /j/ after a short vowel. | Essential |
-| 1 | Common Words to Spell | **Grade 1 Common Words** | New collection gateway: `grade-1-common-words` → `/spelling-lists/collections/grade-1-common-words` | Six eventual numbered Grade 1 sets; first two are in the validation slice. | New. | Practice small cumulative sets of useful Grade 1 writing words, including words with parts learned by heart. | Essential |
+| 1 | High-Frequency Words | **Grade 1 Common Words** | Collection gateway: `grade-1-common-words` → `/spelling-lists/collections/grade-1-common-words` | Six eventual numbered Grade 1 sets; first two are in the validation slice. | Existing gateway retained. | Practice small cumulative sets of useful Grade 1 writing words, including words with parts learned by heart. | Essential |
 
 **Grade 1 Practice by Topic decision:** defer all topic cards. The current “1st Grade Everyday Words” set mixes words for places, time, and general vocabulary rather than providing one bounded, parent-recognizable writing task; Action and Describing Words are stronger but still do not justify a visible third section in the validation slice. Retain their routes as library/discovery content and reconsider only after usage and word-level editorial review.
 
@@ -234,8 +238,8 @@ Implement only the frozen Kindergarten and Grade 1 three-section layouts and the
 
 ### Acceptance criteria
 
-1. The K hub displays exactly the 11 cards in Section 4, in section/order shown.
-2. The Grade 1 hub displays exactly the 13 cards in Section 5, in section/order shown, with an intentionally empty/no-rendered Practice by Topic section.
+1. The K hub displays exactly the 15 cards in Section 4, in section/order shown, with four direct High-Frequency Words set cards and visible “4 sets · 40 words” context.
+2. The Grade 1 hub displays exactly the 13 cards in Section 5, in section/order shown, with no rendered empty Additional Practice section.
 3. All eight Common Words routes build, use the exact IDs/titles/word lists in Section 7, and expose crawlable parent/adjacent links.
 4. Existing canonical list and Skill routes remain unchanged and resolve.
 5. Gateway text visibly explains practice focus, set/word count, grade fit, and regular/irregular treatment.

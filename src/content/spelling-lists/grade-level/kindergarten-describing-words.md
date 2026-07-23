@@ -14,8 +14,8 @@ estimatedDurationMinutes: 9
 status: archived
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-number-color-words", "kindergarten-feelings-words"]
-prerequisiteLists: ["kindergarten-number-color-words"]
+relatedLists: ["kindergarten-color-words", "kindergarten-feelings-words"]
+prerequisiteLists: ["kindergarten-color-words"]
 nextLists: []
 featured: false
 readinessSignals:

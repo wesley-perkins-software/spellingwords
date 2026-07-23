@@ -140,6 +140,11 @@ const bodyHeading = isSkill
   ? 'Understanding the pattern'
   : 'Why these words — and what they teach';
 
+const commonWordsSetTitle = data.contentRole === 'sight-word-set' &&
+  (data.id.startsWith('kindergarten-common-words-') || data.id.startsWith('grade-1-common-words-'))
+  ? `${data.grade === '1' ? data.title.replace('Grade 1', '1st Grade') : data.title} | Sight Words and Spelling`
+  : undefined;
+
 const easierList = prerequisites[0];
 const harderList = next[0];
 ---
@@ -148,7 +153,7 @@ const harderList = next[0];
 
 {!isGradeUnit && (
 <Layout
-  title={`${data.title} — spellingwords`}
+  title={commonWordsSetTitle ?? `${data.title} — spellingwords`}
   description={data.description}
   ogType="article"
   jsonLd={jsonLdBlocks}

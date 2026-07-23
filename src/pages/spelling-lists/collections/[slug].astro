@@ -31,6 +31,17 @@ const totalWords = memberLists.reduce((sum, e) => sum + e.data.words.length, 0);
 const categoryLabel = categoryLabels[data.category] ?? data.category;
 const categoryHref = `/spelling-lists/${data.category}`;
 const gradeEntry = data.grade ? gradeConfig.find((g) => g.grade === data.grade) : undefined;
+const commonWordsMetadata = data.id === 'kindergarten-common-words'
+  ? {
+      heading: 'Kindergarten Common Words to Spell',
+      title: 'Kindergarten Common Words to Spell: 4 Sets | spellingwords',
+    }
+  : data.id === 'grade-1-common-words'
+    ? {
+        heading: 'Grade 1 Common Words to Spell',
+        title: '1st Grade Common Words to Spell: 6 Sets | spellingwords',
+      }
+    : undefined;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -68,7 +79,7 @@ const breadcrumbJsonLd = {
 ---
 
 <Layout
-  title={`${data.title} — spellingwords`}
+  title={commonWordsMetadata?.title ?? `${data.title} — spellingwords`}
   description={data.description}
   ogType="article"
   jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
@@ -90,7 +101,9 @@ const breadcrumbJsonLd = {
             {memberLists.length}-part collection
           </span>
         </div>
-        <h1 class="font-display text-2xl font-semibold text-ink md:text-3xl">{data.title}</h1>
+        <h1 class="font-display text-2xl font-semibold text-ink md:text-3xl">
+          {commonWordsMetadata?.heading ?? data.title}
+        </h1>
         <p class="max-w-2xl text-base leading-relaxed text-ink-soft">{data.description}</p>
         {data.shortAnswer && (
           <p class="max-w-2xl rounded-xl border border-brand-blue/20 bg-brand-blue/5 px-4 py-3 text-sm leading-relaxed text-ink-soft">

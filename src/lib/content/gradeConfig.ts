@@ -6,7 +6,7 @@ export interface GradeConfigEntry {
   label: string;
   /** Compact form for the grade-grid tiles on the library index page, e.g. "Grade 1". */
   shortLabel: string;
-  /** URL slug, e.g. "1st-grade". */
+  /** URL slug, e.g. "grade-1". */
   slug: string;
   /** Full path to the grade hub page. */
   hubHref: string;
@@ -14,11 +14,11 @@ export interface GradeConfigEntry {
 
 export const gradeConfig: readonly GradeConfigEntry[] = [
   { grade: 'K', label: 'Kindergarten', shortLabel: 'Kindergarten', slug: 'kindergarten', hubHref: '/spelling-lists/kindergarten' },
-  { grade: '1', label: '1st Grade', shortLabel: 'Grade 1', slug: '1st-grade', hubHref: '/spelling-lists/1st-grade' },
-  { grade: '2', label: '2nd Grade', shortLabel: 'Grade 2', slug: '2nd-grade', hubHref: '/spelling-lists/2nd-grade' },
-  { grade: '3', label: '3rd Grade', shortLabel: 'Grade 3', slug: '3rd-grade', hubHref: '/spelling-lists/3rd-grade' },
-  { grade: '4', label: '4th Grade', shortLabel: 'Grade 4', slug: '4th-grade', hubHref: '/spelling-lists/4th-grade' },
-  { grade: '5', label: '5th Grade', shortLabel: 'Grade 5', slug: '5th-grade', hubHref: '/spelling-lists/5th-grade' },
+  { grade: '1', label: '1st Grade', shortLabel: 'Grade 1', slug: 'grade-1', hubHref: '/spelling-lists/grade-1' },
+  { grade: '2', label: '2nd Grade', shortLabel: 'Grade 2', slug: 'grade-2', hubHref: '/spelling-lists/grade-2' },
+  { grade: '3', label: '3rd Grade', shortLabel: 'Grade 3', slug: 'grade-3', hubHref: '/spelling-lists/grade-3' },
+  { grade: '4', label: '4th Grade', shortLabel: 'Grade 4', slug: 'grade-4', hubHref: '/spelling-lists/grade-4' },
+  { grade: '5', label: '5th Grade', shortLabel: 'Grade 5', slug: 'grade-5', hubHref: '/spelling-lists/grade-5' },
 ];
 
 /** Returns the previous/next grade in sequence, omitting either end where there is no neighbor. */

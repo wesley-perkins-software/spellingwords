@@ -2,8 +2,9 @@
 id: kindergarten-first-words
 urlSlug: kindergarten-first-words
 title: 'Kindergarten First Words'
-description: 'Eight short, familiar spelling words that mix several short vowel sounds — cat, pig, dog, bug, bed, sun, cup, and hen — a gentle first step into sound-based spelling.'
-shortAnswer: 'A gentle starting list of eight familiar kindergarten words spanning several short vowel sounds — cat, pig, dog, bug, bed, sun, cup, and hen — simple, sound-based first spelling wins.'
+description: 'Eight short, familiar spelling words that mix several short vowel sounds — cat, pig, dog, bug, bed, sun, cup, and hen — connecting the sounds a child already hears to the letters that spell them.'
+shortAnswer: 'Eight familiar kindergarten words spanning several short vowel sounds — cat, pig, dog, bug, bed, sun, cup, and hen — the first step in connecting spoken sounds to written letters.'
+contentRole: grade-unit
 category: grade-level
 grade: 'K'
 difficulty: beginner
@@ -16,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 relatedLists: ['kindergarten-animal-words', 'kindergarten-number-color-words']
 prerequisiteLists: []
-nextLists: ['kindergarten-short-a-words']
+nextLists: ['kindergarten-mixed-vowel-review']
 featured: true
 readinessSignals:
   - 'Can identify most letters and the sounds they make'
@@ -30,7 +31,9 @@ faq:
   - question: 'Should these words be memorized, or just practiced?'
     answer: 'Practiced, not memorized. The goal is to hear the sounds in each word and connect them to letters — a skill that transfers to new words, not just these eight.'
   - question: 'What comes after this list?'
-    answer: 'Kindergarten Short A Words is the next step in the core spelling progression, narrowing the focus to one vowel sound at a time. Animal Words and Number and Color Words are also good optional practice whenever your child wants a change of pace.'
+    answer: 'Short Vowels and CVC Words is the next step in the core spelling progression, narrowing the focus to one vowel sound at a time before checking that the skill transfers to new words. Animal Words and Number and Color Words are also good optional practice whenever your child wants a change of pace.'
+  - question: 'What is this list actually teaching, underneath the words themselves?'
+    answer: "The skill, not the words: hearing the separate sounds inside a spoken word and writing down a letter for each one. That sound-to-letter connection — not memorizing these eight words specifically — is what carries a child into every spelling list that follows."
 words:
   - bed
   - bug
@@ -42,8 +45,8 @@ words:
   - sun
 ---
 
-These eight words were chosen because a kindergartener already knows them — not as spelling words, but as things they can point to and say. That's what makes them a good first step in **beginning spelling**: connecting sounds a child already makes to the letters that represent them, not learning new vocabulary at the same time.
+This is where spelling begins: connecting the sounds inside a spoken word to the letters that represent them. These eight words were chosen because a kindergartener already knows them — not as spelling words, but as things they can point to and say — so the only new skill being asked for is hearing a word's separate sounds and writing a letter for each one, not learning new vocabulary at the same time.
 
-Each word is short and phonetically regular — three letters, one syllable, and a sound-to-letter match with no silent letters or exceptions. On purpose, the list moves across several short vowel sounds instead of staying on just one: *cat* and *bug* and *bed* and *dog* and *sun* and *pig* and *cup* and *hen* each use a different short vowel. **That mix is the point** — it shows a child that the same sound-it-out-and-spell approach works everywhere, before the next lists slow down and practice one vowel sound at a time.
+Each word is short and phonetically regular — three letters, one syllable, and a sound-to-letter match with no silent letters or exceptions. On purpose, the list moves across several short vowel sounds instead of staying on just one: *cat* and *bug* and *bed* and *dog* and *sun* and *pig* and *cup* and *hen* each use a different short vowel. **That mix is the point** — it shows a child that the same segment-it-and-spell approach works for any short vowel, before the next lists slow down and practice one vowel sound at a time.
 
 There is no rush here — just the quiet satisfaction of hearing a word, sounding it out, and getting it right, one word at a time.

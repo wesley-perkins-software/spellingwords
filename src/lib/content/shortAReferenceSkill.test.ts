@@ -13,7 +13,15 @@ const CONTENT_ROLE_VALUES = [
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const shortASkillPath = join(contentRoot, 'phonics/short-a-words.md');
+// Phase 2 (Kindergarten normalization): kindergarten-short-a-words is no
+// longer the Grade Unit in this relationship — its Grade Unit role merged
+// into kindergarten-mixed-vowel-review (the Short Vowels and CVC Words
+// canonical unit), which now carries the skillIds link to short-a-words
+// (and its four vowel siblings). kindergartenShortAPath is kept only for the
+// "legacy content with no contentRole" example below, since that page is now
+// the one with no declared role.
 const kindergartenShortAPath = join(contentRoot, 'phonics/kindergarten-short-a-words.md');
+const kindergartenGradeUnitPath = join(contentRoot, 'phonics/kindergarten-mixed-vowel-review.md');
 const listDetailRoutePath = join(process.cwd(), 'src/pages/spelling-lists/[category]/[slug].astro');
 const contentConfigPath = join(process.cwd(), 'src/content/config.ts');
 
@@ -100,14 +108,15 @@ describe('Short A reference Skill content roles', () => {
   });
 
   it('preserves legacy entries without requiring contentRole', () => {
-    expect(
-      readSummary(join(contentRoot, 'grade-level/kindergarten-first-words.md')).contentRole,
-    ).toBeUndefined();
+    // kindergarten-short-a-words is the current example: its Grade Unit role
+    // merged into kindergarten-mixed-vowel-review in Phase 2, so it now
+    // renders as ordinary content with no declared contentRole.
+    expect(readSummary(kindergartenShortAPath).contentRole).toBeUndefined();
   });
 
-  it('marks Kindergarten Short A as a Grade Unit and Short A Words as a Skill', () => {
-    expect(readSummary(kindergartenShortAPath)).toMatchObject({
-      id: 'kindergarten-short-a-words',
+  it('marks the Short Vowels and CVC Words unit as a Grade Unit and Short A Words as a Skill', () => {
+    expect(readSummary(kindergartenGradeUnitPath)).toMatchObject({
+      id: 'kindergarten-mixed-vowel-review',
       contentRole: 'grade-unit',
     });
     expect(readSummary(shortASkillPath)).toMatchObject({
@@ -116,28 +125,29 @@ describe('Short A reference Skill content roles', () => {
     });
   });
 
-  it('keeps the two Short A identities and URL inputs distinct and stable', () => {
-    const gradeUnit = readSummary(kindergartenShortAPath);
+  it('keeps the demoted Kindergarten Short A page and the Skill distinct and stable', () => {
+    const demotedUnit = readSummary(kindergartenShortAPath);
     const skill = readSummary(shortASkillPath);
 
-    expect(gradeUnit.id).toBe('kindergarten-short-a-words');
+    expect(demotedUnit.id).toBe('kindergarten-short-a-words');
     expect(skill.id).toBe('short-a-words');
-    expect(gradeUnit.id).not.toBe(skill.id);
+    expect(demotedUnit.id).not.toBe(skill.id);
 
-    expect(gradeUnit).toMatchObject({
+    expect(demotedUnit).toMatchObject({
       category: 'phonics',
       urlSlug: 'kindergarten-short-a-words',
     });
     expect(skill).toMatchObject({ category: 'phonics', urlSlug: 'short-a-words' });
   });
 
-  it('keeps Kindergarten Short A in the Kindergarten core roadmap without adding the reusable Skill', () => {
-    expect(KINDERGARTEN_CORE_IDS).toContain('kindergarten-short-a-words');
+  it('keeps the Short Vowels and CVC Words unit in the Kindergarten core roadmap without adding the reusable Skill', () => {
+    expect(KINDERGARTEN_CORE_IDS).toContain('kindergarten-mixed-vowel-review');
+    expect(KINDERGARTEN_CORE_IDS).not.toContain('kindergarten-short-a-words');
     expect(KINDERGARTEN_CORE_IDS).not.toContain('short-a-words');
   });
 
   it('keeps the Grade Unit assigned word set inside the 8-16 word range', () => {
-    const gradeUnit = readSummary(kindergartenShortAPath);
+    const gradeUnit = readSummary(kindergartenGradeUnitPath);
 
     expect(gradeUnit.words.length).toBeGreaterThanOrEqual(8);
     expect(gradeUnit.words.length).toBeLessThanOrEqual(16);
@@ -171,7 +181,7 @@ describe('Grade Unit -> Skill relationship model (skillIds)', () => {
   });
 
   it('links the Kindergarten unit to its canonical Skill via skillIds, resolvable to a real Skill', () => {
-    const gradeUnit = readSummary(kindergartenShortAPath);
+    const gradeUnit = readSummary(kindergartenGradeUnitPath);
 
     expect(gradeUnit.skillIds).toContain('short-a-words');
     expect(allListIds().has('short-a-words')).toBe(true);
@@ -200,7 +210,7 @@ describe('Grade Unit -> Skill relationship model (skillIds)', () => {
 
 describe('Skill contract: demonstration words, not an assigned list', () => {
   it('keeps the Skill demonstration meaningfully smaller than the Grade Unit assigned set', () => {
-    const gradeUnit = readSummary(kindergartenShortAPath);
+    const gradeUnit = readSummary(kindergartenGradeUnitPath);
     const skill = readSummary(shortASkillPath);
 
     expect(skill.words.length).toBeLessThan(gradeUnit.words.length);
@@ -211,7 +221,7 @@ describe('Skill contract: demonstration words, not an assigned list', () => {
   });
 
   it('never curates the Skill demonstration as a copy of the Grade Unit assigned set', () => {
-    const gradeUnit = readSummary(kindergartenShortAPath);
+    const gradeUnit = readSummary(kindergartenGradeUnitPath);
     const skill = readSummary(shortASkillPath);
 
     expect(skill.words).not.toEqual(gradeUnit.words);
@@ -250,9 +260,18 @@ describe('Skill contract: demonstration words, not an assigned list', () => {
 });
 
 describe('Skill contract: no direct practice launch', () => {
-  it('keeps the FAQ section exclusive to Skills (Grade Units render none)', () => {
-    const unit = readFrontmatter(kindergartenShortAPath);
-    expect(unit).not.toMatch(/^faq:/m);
+  it('renders the FAQ section for any entry with faq content, not gated by role', () => {
+    // Corrected from an earlier, narrower claim ("Grade Units render none"):
+    // the shared template renders `data.faq.length > 0` unconditionally, with
+    // no role check at all — kindergarten-mixed-vowel-review (a Grade Unit)
+    // carries its own populated faq field, same as the Skill page does.
+    const route = readFileSync(listDetailRoutePath, 'utf8');
+    expect(route).toContain('data.faq.length > 0');
+    expect(route).not.toContain("data.faq.length > 0 && isSkill");
+    expect(route).not.toContain("isSkill && data.faq.length > 0");
+
+    expect(readFrontmatter(shortASkillPath)).toMatch(/^faq:/m);
+    expect(readFrontmatter(kindergartenGradeUnitPath)).toMatch(/^faq:/m);
   });
 
   it('gates the primary practice CTA off for Skill pages in the shared template', () => {
@@ -272,7 +291,7 @@ describe('Skill contract: no direct practice launch', () => {
     // For the reference pair specifically: the Skill must resolve to at
     // least one real, published Grade Unit placement, since a Skill with
     // zero placements has no route into practice at all.
-    const gradeUnit = readSummary(kindergartenShortAPath);
+    const gradeUnit = readSummary(kindergartenGradeUnitPath);
     expect(gradeUnit.skillIds).toContain('short-a-words');
   });
 });

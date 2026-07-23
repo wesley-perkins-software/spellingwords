@@ -3,7 +3,6 @@ id: kindergarten-short-i-words
 urlSlug: kindergarten-short-i-words
 title: 'Kindergarten Short I Words'
 description: 'Eight simple words built around the short "i" sound — pig, big, pin, dig, sit, bit, lip, and win — continuing the kindergarten spelling progression one vowel at a time.'
-contentRole: grade-unit
 shortAnswer: 'Eight kindergarten short "i" words — pig, big, pin, dig, sit, bit, lip, and win — the second single-vowel stop after Short A Words.'
 category: phonics
 grade: 'K'
@@ -15,7 +14,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['kindergarten-short-a-words', 'kindergarten-short-o-words', 'kindergarten-short-u-words', 'kindergarten-short-e-words']
+relatedLists: ['kindergarten-mixed-vowel-review', 'kindergarten-short-a-words', 'kindergarten-short-o-words', 'kindergarten-short-u-words', 'kindergarten-short-e-words']
 prerequisiteLists: ['kindergarten-short-a-words']
 nextLists: ['kindergarten-short-o-words']
 featured: false
@@ -46,5 +45,7 @@ words:
 The short "i" sound is quick and bright — you can hear it in the middle of *pig*, *sit*, and *win*. After practicing short "a" on its own, this list gives a child a second single vowel sound to hear and spell with the same calm, steady approach.
 
 Simple, familiar words like these make the pattern easy to notice and repeat, one word at a time.
+
+This is good focused practice any time a single vowel sound needs extra attention — for a check on hearing short vowels across a mix of words, Short Vowels and CVC Words is a natural next step.
 
 If a child needs more practice with this same vowel sound, [Short I Words](/spelling-lists/phonics/short-i-words) offers a focused extra practice set.

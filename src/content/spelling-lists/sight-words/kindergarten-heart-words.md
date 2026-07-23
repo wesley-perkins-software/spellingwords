@@ -3,7 +3,8 @@ id: kindergarten-heart-words
 urlSlug: kindergarten-heart-words
 title: 'Kindergarten Heart Words'
 description: 'Twelve common heart words — the, to, a, I, you, said, was, of, is, for, my, and are — words a kindergartener needs to know by heart because part of each one cannot be sounded out.'
-shortAnswer: 'Twelve kindergarten heart words — the, to, a, I, you, said, was, of, is, for, my, and are — the last stop in the core spelling progression, learned partly by heart.'
+shortAnswer: 'Twelve kindergarten heart words — the, to, a, I, you, said, was, of, is, for, my, and are — a core-progression milestone learned partly by heart.'
+contentRole: sight-word-set
 category: sight-words
 grade: 'K'
 difficulty: beginner
@@ -15,8 +16,8 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ['dolch-pre-primer-a']
-prerequisiteLists: ['kindergarten-double-consonants']
-nextLists: []
+prerequisiteLists: ['kindergarten-mixed-vowel-review']
+nextLists: ['dolch-pre-primer-a']
 featured: false
 readinessSignals:
   - 'Recognize these words by sight in books, even before being able to spell them'
@@ -30,7 +31,7 @@ faq:
   - question: 'How should heart words be practiced differently from the rest of the progression?'
     answer: 'Say the regular parts out loud together, then point out the one part that has to be remembered instead of sounded out. That keeps the child from feeling like the whole word is a mystery — only one small piece is.'
   - question: 'What comes after Kindergarten Heart Words?'
-    answer: 'This is the last stop in the core spelling progression. From here, Dolch Pre-Primer Sight Words continues with more common words at the same level, or Animal Words and Number and Color Words are good optional practice.'
+    answer: 'Dolch Pre-Primer Sight Words continues with more common words at the same level, rounding out this high-frequency-word stretch of the progression before Consonant Digraphs. Animal Words and Number and Color Words are also good optional practice any time.'
 words:
   - the
   - to

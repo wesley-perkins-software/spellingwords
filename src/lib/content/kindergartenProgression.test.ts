@@ -4,6 +4,8 @@ import { describe, expect, it } from 'vitest';
 import {
   KINDERGARTEN_ADDITIONAL_IDS,
   KINDERGARTEN_CORE_IDS,
+  KINDERGARTEN_CORE_STEPS,
+  KINDERGARTEN_SYNTHETIC_STEP_ID,
   buildKindergartenSections,
   getKindergartenRoadmapPosition,
   kindergartenBadges,
@@ -70,7 +72,11 @@ function readInlineArray(frontmatter: string, key: string): string[] {
 }
 
 function readWords(frontmatter: string): string[] {
-  const match = frontmatter.match(/^words:\s*\n([\s\S]*?)(?=\n---|\n[a-zA-Z][\w]*:|$)/m);
+  // Pre-existing bug fix (unrelated to Phase 2 content changes): the trailing
+  // `|$` alternative in the lookahead matched end-of-*line* under the `m`
+  // flag, not end-of-string, truncating every word list to its first item.
+  // `(?![\s\S])` matches only the true end of the string.
+  const match = frontmatter.match(/^words:\s*\n([\s\S]*?)(?=\n---|\n[a-zA-Z][\w]*:|(?![\s\S]))/m);
   if (!match) return [];
   return match[1]
     .split('\n')
@@ -104,8 +110,23 @@ function kindergartenContent(): FrontmatterSummary[] {
     .filter((entry) => entry.grade === 'K' || entry.id.startsWith('kindergarten-'));
 }
 
-const KINDERGARTEN_GRADE_UNIT_IDS = new Set(KINDERGARTEN_CORE_IDS);
-const KINDERGARTEN_SIGHT_WORD_SET_IDS = new Set(['kindergarten-heart-words']);
+// Ids that carry a Grade Unit role today: the 3 canonical steps plus the one
+// temporary GD-7 supporting step. The composed High-Frequency Words step's
+// members (kindergarten-heart-words, dolch-pre-primer-a/b/c) are Sight Word
+// Sets composed into the roadmap under GD-2, not Grade Units themselves —
+// this is a documented, intentional exception, not a general loosening of
+// "core progression = grade units only".
+const KINDERGARTEN_GRADE_UNIT_IDS = new Set([
+  'kindergarten-first-words',
+  'kindergarten-mixed-vowel-review',
+  'kindergarten-consonant-digraphs',
+]);
+const KINDERGARTEN_SIGHT_WORD_SET_IDS = new Set([
+  'kindergarten-heart-words',
+  'dolch-pre-primer-a',
+  'dolch-pre-primer-b',
+  'dolch-pre-primer-c',
+]);
 const KINDERGARTEN_VOCABULARY_THEME_IDS = new Set(['kindergarten-animal-words', 'kindergarten-number-color-words']);
 const ARCHIVED_KINDERGARTEN_THEME_IDS = new Set([
   'kindergarten-body-words',
@@ -118,7 +139,7 @@ const ARCHIVED_KINDERGARTEN_THEME_IDS = new Set([
 ]);
 
 describe('buildKindergartenSections', () => {
-  it('resolves all 10 core unit ids and 3 additional ids in curated order', () => {
+  it('resolves all 4 core steps (7 content ids) and 9 additional ids in curated order', () => {
     const gradeLists = [...KINDERGARTEN_CORE_IDS, ...KINDERGARTEN_ADDITIONAL_IDS]
       .slice()
       .reverse()
@@ -126,7 +147,17 @@ describe('buildKindergartenSections', () => {
 
     const { core, additional } = buildKindergartenSections(gradeLists);
 
-    expect(core.map((e) => e.data.id)).toEqual(KINDERGARTEN_CORE_IDS);
+    expect(core).toHaveLength(4);
+    expect(core.map((section) => section.entries.map((e) => e.data.id))).toEqual([
+      ['kindergarten-first-words'],
+      ['kindergarten-mixed-vowel-review'],
+      ['kindergarten-heart-words', 'dolch-pre-primer-a', 'dolch-pre-primer-b', 'dolch-pre-primer-c'],
+      ['kindergarten-consonant-digraphs'],
+    ]);
+    core.forEach((section, index) => {
+      expect(section.step).toBe(index + 1);
+      expect(section.total).toBe(4);
+    });
     expect(additional.map((e) => e.data.id)).toEqual(KINDERGARTEN_ADDITIONAL_IDS);
   });
 
@@ -135,35 +166,47 @@ describe('buildKindergartenSections', () => {
 
     const { core, additional } = buildKindergartenSections(gradeLists);
 
-    expect(core).toEqual([gradeLists[0]]);
+    expect(core[0].entries).toEqual([gradeLists[0]]);
+    expect(core[1].entries).toEqual([]);
+    expect(core[2].entries).toEqual([]);
+    expect(core[3].entries).toEqual([]);
     expect(additional).toEqual([]);
   });
 
   it('returns empty sections for an empty grade list', () => {
-    expect(buildKindergartenSections([])).toEqual({ core: [], additional: [] });
+    const { core, additional } = buildKindergartenSections([]);
+    expect(core.every((section) => section.entries.length === 0)).toBe(true);
+    expect(additional).toEqual([]);
   });
 });
 
 describe('getKindergartenRoadmapPosition', () => {
-  it('returns 1-based positions over the full core progression', () => {
-    expect(getKindergartenRoadmapPosition('kindergarten-first-words')).toEqual({
-      step: 1,
-      total: KINDERGARTEN_CORE_IDS.length,
-    });
-    expect(getKindergartenRoadmapPosition('kindergarten-short-a-words')).toEqual({
-      step: 2,
-      total: KINDERGARTEN_CORE_IDS.length,
-    });
-    expect(getKindergartenRoadmapPosition('kindergarten-double-consonants')).toEqual({
-      step: KINDERGARTEN_CORE_IDS.length,
-      total: KINDERGARTEN_CORE_IDS.length,
-    });
+  it('returns 1-based positions over the 4-step core progression', () => {
+    expect(getKindergartenRoadmapPosition('kindergarten-first-words')).toEqual({ step: 1, total: 4 });
+    expect(getKindergartenRoadmapPosition('kindergarten-mixed-vowel-review')).toEqual({ step: 2, total: 4 });
+    expect(getKindergartenRoadmapPosition('kindergarten-consonant-digraphs')).toEqual({ step: 4, total: 4 });
+  });
+
+  it('resolves every member of the composed High-Frequency Words step to the same position', () => {
+    const expected = { step: 3, total: 4 };
+    expect(getKindergartenRoadmapPosition('kindergarten-heart-words')).toEqual(expected);
+    expect(getKindergartenRoadmapPosition('dolch-pre-primer-a')).toEqual(expected);
+    expect(getKindergartenRoadmapPosition('dolch-pre-primer-b')).toEqual(expected);
+    expect(getKindergartenRoadmapPosition('dolch-pre-primer-c')).toEqual(expected);
   });
 
   it('returns undefined for anything outside the core progression', () => {
-    expect(getKindergartenRoadmapPosition('kindergarten-heart-words')).toBeUndefined();
+    expect(getKindergartenRoadmapPosition('kindergarten-short-a-words')).toBeUndefined();
     expect(getKindergartenRoadmapPosition('short-a-words')).toBeUndefined();
     expect(getKindergartenRoadmapPosition('')).toBeUndefined();
+  });
+
+  it('resolves the synthetic milestone id to its own step position, even though it has no content entry', () => {
+    // Real callers only ever query real content ids (the milestone's
+    // memberIds) since the synthetic id itself is never rendered as a page —
+    // this just confirms position lookup stays internally consistent if the
+    // bookkeeping id is ever queried directly.
+    expect(getKindergartenRoadmapPosition(KINDERGARTEN_SYNTHETIC_STEP_ID)).toEqual({ step: 3, total: 4 });
   });
 });
 
@@ -188,17 +231,23 @@ describe('Kindergarten roadmap architecture', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it('keeps only Grade Units in the core progression', () => {
+  it('keeps only Grade Units in the core progression, except the documented composed High-Frequency Words milestone (GD-2)', () => {
     for (const id of KINDERGARTEN_CORE_IDS) {
-      expect(KINDERGARTEN_GRADE_UNIT_IDS.has(id)).toBe(true);
-      expect(KINDERGARTEN_SIGHT_WORD_SET_IDS.has(id)).toBe(false);
-      expect(KINDERGARTEN_VOCABULARY_THEME_IDS.has(id)).toBe(false);
+      if (KINDERGARTEN_SIGHT_WORD_SET_IDS.has(id)) {
+        // Intentional, documented exception: the High-Frequency Words step
+        // composes existing Sight Word Sets under one roadmap milestone
+        // (its own step id is synthetic and has no content entry). This is
+        // not a general loosening of "core = grade units" — every other
+        // core id must still be a real Grade Unit.
+        continue;
+      }
+      expect(KINDERGARTEN_GRADE_UNIT_IDS.has(id), id).toBe(true);
+      expect(KINDERGARTEN_VOCABULARY_THEME_IDS.has(id), id).toBe(false);
     }
   });
 
-  it('keeps Sight Word Sets and Vocabulary or Theme Lists in Additional Practice', () => {
-    expect(KINDERGARTEN_ADDITIONAL_IDS).toContain('kindergarten-heart-words');
-    for (const id of [...KINDERGARTEN_SIGHT_WORD_SET_IDS, ...KINDERGARTEN_VOCABULARY_THEME_IDS]) {
+  it('keeps Vocabulary/Theme Lists in Additional Practice', () => {
+    for (const id of KINDERGARTEN_VOCABULARY_THEME_IDS) {
       expect(KINDERGARTEN_ADDITIONAL_IDS).toContain(id);
       expect(KINDERGARTEN_CORE_IDS).not.toContain(id);
     }
@@ -219,7 +268,7 @@ describe('Kindergarten roadmap architecture', () => {
     }
   });
 
-  it('keeps every Kindergarten Grade Unit practice set in the expected 8-16 word range', () => {
+  it('keeps every Kindergarten core-progression practice set in the expected 8-16 word range', () => {
     const byId = new Map(kindergartenContent().map((entry) => [entry.id, entry]));
 
     for (const id of KINDERGARTEN_CORE_IDS) {
@@ -230,7 +279,7 @@ describe('Kindergarten roadmap architecture', () => {
     }
   });
 
-  it('keeps the previous and next links coherent through the core progression', () => {
+  it('keeps the previous and next links coherent through the flattened core progression', () => {
     const byId = new Map(kindergartenContent().map((entry) => [entry.id, entry]));
 
     KINDERGARTEN_CORE_IDS.forEach((id, index) => {
@@ -243,5 +292,53 @@ describe('Kindergarten roadmap architecture', () => {
       if (previousId) expect(entry!.prerequisiteLists).toContain(previousId);
       if (nextId) expect(entry!.nextLists).toContain(nextId);
     });
+  });
+});
+
+describe('KINDERGARTEN_CORE_STEPS structural invariants', () => {
+  it('has unique step ids, including the synthetic milestone id', () => {
+    const stepIds = KINDERGARTEN_CORE_STEPS.map((step) => step.id);
+    expect(new Set(stepIds).size).toBe(stepIds.length);
+  });
+
+  it('resolves every non-synthetic step/member id to a published content entry', () => {
+    const byId = new Map(kindergartenContent().map((entry) => [entry.id, entry]));
+
+    for (const step of KINDERGARTEN_CORE_STEPS) {
+      const memberIds = step.memberIds ?? [step.id];
+      for (const id of memberIds) {
+        expect(byId.get(id), id).toMatchObject({ status: 'published' });
+      }
+    }
+  });
+
+  it('documents the one synthetic step id as configuration-only, with no content entry, route, or page', () => {
+    const byId = new Map(kindergartenContent().map((entry) => [entry.id, entry]));
+
+    expect(KINDERGARTEN_SYNTHETIC_STEP_ID).toBe('kindergarten-high-frequency-words');
+    // The synthetic milestone id itself must NOT resolve to any published
+    // content entry — only its memberIds are real, resolvable content.
+    expect(byId.has(KINDERGARTEN_SYNTHETIC_STEP_ID)).toBe(false);
+
+    const syntheticStep = KINDERGARTEN_CORE_STEPS.find((step) => step.id === KINDERGARTEN_SYNTHETIC_STEP_ID);
+    expect(syntheticStep).toBeDefined();
+    expect(syntheticStep!.memberIds && syntheticStep!.memberIds.length > 0).toBe(true);
+  });
+
+  it('does not repeat any member id across more than one core step', () => {
+    const seen = new Set<string>();
+    for (const step of KINDERGARTEN_CORE_STEPS) {
+      for (const id of step.memberIds ?? [step.id]) {
+        expect(seen.has(id), id).toBe(false);
+        seen.add(id);
+      }
+    }
+  });
+
+  it('keeps core and additional ids completely disjoint', () => {
+    const coreSet = new Set(KINDERGARTEN_CORE_IDS);
+    for (const id of KINDERGARTEN_ADDITIONAL_IDS) {
+      expect(coreSet.has(id), id).toBe(false);
+    }
   });
 });

@@ -16,7 +16,7 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: []
-prerequisiteLists: ['kindergarten-mixed-vowel-review']
+prerequisiteLists: ['dolch-pre-primer-c']
 nextLists: ['kindergarten-ck-ending-words']
 featured: false
 readinessSignals:
@@ -31,7 +31,7 @@ faq:
   - question: 'Should these words be sounded out or memorized?'
     answer: 'Sounded out, once a child treats each digraph as a single unit. A word like "wish" becomes three sounds instead of four: w-i-sh.'
   - question: 'What comes after Consonant Digraphs?'
-    answer: 'The -ck Ending Rule is next in the core spelling progression, a simple spelling-choice pattern at the end of short words.'
+    answer: 'This is the last stop in the core spelling progression. The -ck Ending Rule and Double Consonants are good optional practice with two more simple ending-spelling patterns any time.'
 words:
   - ship
   - shop

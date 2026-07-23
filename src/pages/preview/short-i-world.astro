@@ -1,9 +1,13 @@
 ---
-// Stress test 2: same content family as Short A (short-vowels + cvc, so
-// still word-family mode), but with a populated FAQ and a 4-item related
-// list — both absent from Short A — and no linked Skill (skillIds: []),
-// to prove the "Go deeper" section correctly disappears when there isn't one.
+// Stress test 2: a populated FAQ and a related list, but no linked Skill
+// (skillIds: []), to prove the "Go deeper" section correctly disappears
+// when there isn't one.
+//
+// Phase 2 (Kindergarten normalization) retired kindergarten-short-i-words'
+// Grade Unit role, so this preview now targets kindergarten-first-words,
+// which still has the same shape needed here: a populated FAQ, a related
+// list, and no skillIds.
 import GradeUnitWorldPage from '@/components/GradeUnitWorldPage.astro';
 ---
 
-<GradeUnitWorldPage listId="kindergarten-short-i-words" />
+<GradeUnitWorldPage listId="kindergarten-first-words" />

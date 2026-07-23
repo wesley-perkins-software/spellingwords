@@ -79,7 +79,7 @@ The prior 180-page recommendation is not a target. Reuse existing canonical prac
 
 ## 4. Exact Kindergarten grade-hub cards
 
-The visible Kindergarten hub has twelve cards. A direct page means its listed canonical route is the card destination. A Grade Unit keeps its existing practice page identity; a collection is a new Common Words gateway only.
+The visible Kindergarten hub has eleven cards: eight Learn in Order cards, one Common Words to Spell gateway, and two Practice by Topic cards. A direct page means its listed canonical route is the card destination. A Grade Unit keeps its existing practice page identity; a collection is a new Common Words gateway only.
 
 | # | Section | Public title | Type and destination | Underlying content | Status | Parent-facing description | Role |
 |---:|---|---|---|---|---|---|---|
@@ -194,7 +194,7 @@ Every gateway must server-render: (1) a concise answer block explaining what is 
 
 | Set | ID and route | Ordered words | Classification | Sources, overlap, and relationship |
 |---|---|---|---|---|
-| Grade 1 Common Words 1 | `grade-1-common-words-1`<br>`/spelling-lists/sight-words/grade-1-common-words-1` | **all, but, did, do, get, good, new, now, our, out, please, want** (12) | all T; but R; did R; do P (`o`); get R; good P (`oo`); new T; now T; our P (`ou`); out T; please T; want P (`a`). | Hybrid Dolch Primer plus grade-appropriate writing use. `do` has K incidental exposure but is deliberately introduced here as a canonical Grade 1 set member after the K sequence; no K Common Words set contains it. Prerequisite K gateway completion conceptually, not a hard route prerequisite; next `grade-1-common-words-2`. Intro: “Begin Grade 1 common words with useful words for sentences, directions, and everyday writing. Some sound out with known patterns; in good, our, do, and want, remember the part that is not yet predictable.” |
+| Grade 1 Common Words 1 | `grade-1-common-words-1`<br>`/spelling-lists/sight-words/grade-1-common-words-1` | **all, but, did, no, get, good, new, now, our, out, please, want** (12) | all T; but R; did R; no T; get R; good P (`oo`); new T; now T; our P (`ou`); out T; please T; want P (`a`). | Hybrid Dolch Primer plus grade-appropriate writing use. `do` remains a canonical Kindergarten Common Words 2 member; `no` is a useful, non-duplicated Dolch Primer word whose long-o spelling is not yet a Grade 1 starting pattern. Prerequisite K gateway completion conceptually, not a hard route prerequisite; next `grade-1-common-words-2`. Intro: “Begin Grade 1 common words with useful words for sentences, directions, and everyday writing. Some sound out with known patterns; in good, no, our, and want, remember the part that is not yet predictable.” |
 | Grade 1 Common Words 2 | `grade-1-common-words-2`<br>`/spelling-lists/sight-words/grade-1-common-words-2` | **after, again, any, ask, by, could, every, fly, from, give, going, had** (12) | after R; again P (`ai`); any P (`a`); ask T; by T; could P (`oul`); every P (`e`); fly T; from R; give T; going T; had R. | Hybrid Dolch First Grade A and Grade 1 Heart Word support. `give`, `fly`, `going`, and `by` connect incidentally to silent-e/final-y/vowel-pattern work; only this set owns their Common Words membership. Prerequisite `grade-1-common-words-1`; next eventual `grade-1-common-words-3`. Intro: “Continue with words first graders need for stories, questions, and classroom writing. Use familiar patterns when they help, and pay special attention to the unexpected spellings in again, any, could, and every.” |
 
 The remaining Grade 1 sets 3–6 and all Grade 2–5 set word lists require word-level editorial curation later. Their counts, IDs, gateway model, and canonical URL strategy are frozen now; their membership is intentionally not guessed in advance.
@@ -234,7 +234,7 @@ Implement only the frozen Kindergarten and Grade 1 three-section layouts and the
 
 ### Acceptance criteria
 
-1. The K hub displays exactly the 12 cards in Section 4, in section/order shown.
+1. The K hub displays exactly the 11 cards in Section 4, in section/order shown.
 2. The Grade 1 hub displays exactly the 13 cards in Section 5, in section/order shown, with an intentionally empty/no-rendered Practice by Topic section.
 3. All eight Common Words routes build, use the exact IDs/titles/word lists in Section 7, and expose crawlable parent/adjacent links.
 4. Existing canonical list and Skill routes remain unchanged and resolve.

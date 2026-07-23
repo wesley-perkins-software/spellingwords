@@ -17,7 +17,6 @@ import {
 } from '@/lib/content/spellingLists';
 import { categoryLabels, cardAccent } from '@/lib/content/categoryMeta';
 import { getListPath } from '@/lib/content/learningPaths';
-import { getListPath as getPublicListPath } from '@/lib/content/publicRoutes';
 import { SPELLING_SKILLS_INDEX_PATH, isCuratedSpellingSkillId } from '@/lib/content/spellingSkills';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { gradeConfig } from '@/lib/content/gradeConfig';
@@ -27,7 +26,7 @@ export async function getStaticPaths() {
   const allCollections = await getCollection('spelling-collections');
 
   return entries.map((entry) => ({
-    params: (() => { const path = getPublicListPath(entry).split('/').filter(Boolean); return { namespace: path[1], slug: path[2] }; })(),
+    params: { category: entry.data.category, slug: entry.data.urlSlug },
     props: { entry, allEntries: entries, allCollections },
   }));
 }
@@ -45,7 +44,7 @@ const playWords = toPlayableWords(entry);
 const playWordsJson = JSON.stringify(playWords);
 
 function listLink(e: (typeof allEntries)[number]) {
-  return getPublicListPath(e);
+  return `/spelling-lists/${e.data.category}/${e.data.urlSlug}`;
 }
 
 const categoryLabel = categoryLabels[data.category] ?? data.category;

@@ -8,7 +8,6 @@ import ListMetadataBadges from '@/components/ListMetadataBadges.astro';
 import { isPublished, resolveListRefs } from '@/lib/content/spellingLists';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { gradeConfig } from '@/lib/content/gradeConfig';
-import { getCollectionPath, getListPath } from '@/lib/content/publicRoutes';
 
 export async function getStaticPaths() {
   const collections = await getCollection('spelling-collections');
@@ -17,7 +16,7 @@ export async function getStaticPaths() {
   return collections
     .filter((c) => c.data.status === 'published')
     .map((collection) => ({
-      params: { slug: getCollectionPath(collection.data.id, collection.data.urlSlug).split('/').filter(Boolean).at(-1)! },
+      params: { slug: collection.data.urlSlug },
       props: { collection, allLists },
     }));
 }
@@ -63,7 +62,7 @@ const itemListJsonLd = {
     '@type': 'ListItem',
     position: i + 1,
     name: entry.data.title,
-    url: new URL(getListPath(entry), canonicalURL.origin).toString(),
+    url: new URL(`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`, canonicalURL.origin).toString(),
   })),
 };
 
@@ -131,7 +130,7 @@ const breadcrumbJsonLd = {
           {memberLists.map((entry, i) => (
             <li>
               <a
-                href={getListPath(entry)}
+                href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
                 class="flex items-start gap-4 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
                 aria-label={`Practice set ${i + 1}: ${entry.data.title}`}
               >

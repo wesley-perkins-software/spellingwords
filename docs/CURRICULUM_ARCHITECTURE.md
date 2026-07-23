@@ -1,5 +1,7 @@
 # Curriculum Architecture
 
+> **Superseded.** Superseded for public K–5 information architecture: its former section names and roadmap presentation have been replaced by [K5_FINAL_CONTENT_ARCHITECTURE.md](./planning/K5_FINAL_CONTENT_ARCHITECTURE.md). Retain its content-page mechanics as supporting reference.
+
 SpellingWords.app is a spelling curriculum resource, not a vocabulary website. Vocabulary practice is useful, but the curriculum is organized around the spelling concepts students are explicitly expected to learn to encode.
 
 ## Audience

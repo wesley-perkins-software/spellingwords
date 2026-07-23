@@ -1,5 +1,7 @@
 # K–5 Simple Website Content Plan
 
+> **Superseded.** Superseded: its simplified page plan predates the final repository reconciliation. Use [K5_FINAL_CONTENT_ARCHITECTURE.md](./K5_FINAL_CONTENT_ARCHITECTURE.md) for frozen architecture, exact K/Grade 1 presentation, and implementation order.
+
 **Purpose:** This is the parent-facing page plan for the three existing journeys: **Practice Your Own Words**, **Browse by Grade**, and **Browse by Skill**. It turns the approved K–5 curriculum direction into a small, ordered set of cards. It does not change the curriculum research, content model, URLs, or technical implementation.
 
 **Decision rule:** A grade answers **“What should my child practice at this grade?”** A Skill answers **“Which spelling pattern does my child need to practice?”** The same practice page may answer both questions. Reuse it rather than make a duplicate.

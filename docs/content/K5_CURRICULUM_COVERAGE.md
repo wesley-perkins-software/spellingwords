@@ -1,5 +1,7 @@
 # K-5 Curriculum Coverage Map and Implementation Backlog
 
+> **Superseded.** Superseded for K–5 public architecture and implementation priority: use [K5_FINAL_CONTENT_ARCHITECTURE.md](../planning/K5_FINAL_CONTENT_ARCHITECTURE.md). Retain this coverage inventory as supporting repository evidence.
+
 ## Purpose and governing documents
 
 This inventory maps current repository content to the remaining pre-launch K-5 curriculum work. It is an inspection artifact, not an architecture redesign and not a request to expose every internal resource publicly.

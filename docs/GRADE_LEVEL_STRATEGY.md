@@ -1,5 +1,7 @@
 # Grade-Level Strategy
 
+> **Superseded.** Superseded for K–5 grade-hub architecture: use [K5_FINAL_CONTENT_ARCHITECTURE.md](./planning/K5_FINAL_CONTENT_ARCHITECTURE.md). Retain this document as historical grade-level discovery research.
+
 > **The central question this document answers:**
 > How should grade-level spelling lists be organized, named, and sized — and how many should exist per grade at launch?
 

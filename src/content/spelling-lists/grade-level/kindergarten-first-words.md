@@ -14,7 +14,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['kindergarten-animal-words', 'kindergarten-number-color-words']
+relatedLists: ['kindergarten-animal-words', 'kindergarten-number-words', 'kindergarten-color-words']
 prerequisiteLists: []
 nextLists: ['kindergarten-short-a-words']
 featured: true

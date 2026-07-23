@@ -144,16 +144,20 @@ const itemListJsonLd = {
         <div class="mb-12 flex flex-col gap-10">
           {curatedSections.map((section) => (
             <section class="flex flex-col gap-4" aria-labelledby={`grade-section-${section.title.toLowerCase().replaceAll(' ', '-')}`}>
-              <div class="flex items-baseline gap-3">
+              <div class="flex flex-wrap items-baseline gap-3">
                 <h2
                   id={`grade-section-${section.title.toLowerCase().replaceAll(' ', '-')}`}
                   class="font-display text-lg font-semibold text-ink"
                 >
                   {section.title}
                 </h2>
-                <span class="text-sm text-ink-faint">
-                  {section.cards.length} {section.cards.length === 1 ? 'card' : 'cards'}
-                </span>
+                {section.summary ? (
+                  <p class="max-w-2xl text-sm leading-relaxed text-ink-faint">{section.summary}</p>
+                ) : (
+                  <span class="text-sm text-ink-faint">
+                    {section.cards.length} {section.cards.length === 1 ? 'card' : 'cards'}
+                  </span>
+                )}
               </div>
               <ol class="flex flex-col gap-4">
                 {section.cards.map((card, index) => (

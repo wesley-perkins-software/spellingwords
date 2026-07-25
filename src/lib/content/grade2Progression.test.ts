@@ -192,12 +192,51 @@ describe('Grade 2 Common Words', () => {
   });
 });
 
-// NOTE: "Grade 2 Core Spelling" coverage (every GRADE_2_CORE_IDS entry
-// resolves to published content, and the prerequisiteLists/nextLists chain
-// is coherent) is added once the five new Core Spelling pages (Phase 3) and
-// the five-page reframe + full 1-10 chaining (Phase 4) land, matching
-// kindergartenProgression.test.ts's equivalent block. Deferred here so this
-// file's tests are green immediately after Phase 2, its own scope.
+describe('Grade 2 Core Spelling', () => {
+  it('resolves every core id to published content', () => {
+    for (const id of GRADE_2_CORE_IDS) {
+      const entry = byId.get(id);
+      expect(entry, id).toBeDefined();
+      expect(entry!.status, id).toBe('published');
+    }
+  });
+
+  it('keeps every core id at contentRole grade-unit', () => {
+    for (const id of GRADE_2_CORE_IDS) {
+      const frontmatter = readFrontmatter(byId.get(id)!.filePath);
+      expect(readScalar(frontmatter, 'contentRole'), id).toBe('grade-unit');
+    }
+  });
+
+  it('keeps the previous and next links coherent through the core progression', () => {
+    GRADE_2_CORE_IDS.forEach((id, index) => {
+      const entry = byId.get(id);
+      expect(entry, id).toBeDefined();
+
+      const previousId = GRADE_2_CORE_IDS[index - 1];
+      const nextId = GRADE_2_CORE_IDS[index + 1];
+
+      if (previousId) expect(entry!.prerequisiteLists, id).toContain(previousId);
+      else expect(entry!.prerequisiteLists, id).toContain('grade-1-long-a-long-o-vowel-teams');
+
+      if (nextId) expect(entry!.nextLists, id).toContain(nextId);
+      else expect(entry!.nextLists, id).toEqual([]);
+    });
+  });
+
+  it('declares the r-controlled Skills as skillIds only on the Two-Syllable Words card', () => {
+    const rControlledIds = ['r-controlled-ar', 'r-controlled-or', 'r-controlled-er-ir-ur'];
+    for (const id of GRADE_2_CORE_IDS) {
+      const frontmatter = readFrontmatter(byId.get(id)!.filePath);
+      const skillIds = readInlineArray(frontmatter, 'skillIds');
+      if (id === 'grade-2-two-syllable-words') {
+        expect(skillIds, id).toEqual(rControlledIds);
+      } else {
+        expect(skillIds, id).toEqual([]);
+      }
+    }
+  });
+});
 
 describe('grade2Badges', () => {
   it('has a badge for every core, common-word, and vocabulary id', () => {

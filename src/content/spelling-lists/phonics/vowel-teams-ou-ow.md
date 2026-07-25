@@ -7,16 +7,17 @@ shortAnswer: "This list practices the OU and OW vowel teams that make the diphth
 category: phonics
 grade: "2"
 difficulty: developing
+contentRole: grade-unit
 skillTags: ["vowel-teams", "diphthongs", "ou", "ow"]
-tags: ["phonics", "vowel-teams", "diphthongs", "early-elementary"]
+tags: ["phonics", "vowel-teams", "diphthongs", "grade-2", "core-spelling"]
 order: 9
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["vowel-teams-oi-oy", "r-controlled-ar"]
+relatedLists: ["vowel-teams-oi-oy"]
 prerequisiteLists: ["vowel-teams-oi-oy"]
-nextLists: ["r-controlled-ar"]
+nextLists: ["grade-2-oo-two-sounds"]
 featured: false
 readinessSignals:
   - "Can recognize earlier vowel teams and are ready for OW to represent a different sound than it did in long-o words"
@@ -29,8 +30,8 @@ faq:
     answer: "There is no rule as dependable as AI/AY or OI/OY. OW often appears at the end, but both spellings can appear in the middle of words, so common examples need repeated practice."
   - question: "How is this OW different from the OW in 'snow'?"
     answer: "The same letters can spell different sounds. In 'snow,' OW spells long O; in 'cow' and 'down,' OW spells the OU/OW diphthong."
-  - question: "Why practice OU/OW before r-controlled vowels?"
-    answer: "OU/OW gives students more experience noticing vowel teams before they move to words where R changes the vowel. It also prepares them for comparing vowel spellings that cannot be chosen by sound alone."
+  - question: "What comes after OU/OW in the Grade 2 sequence?"
+    answer: "The Two Sounds of oo, another vowel team that does not follow a simple position rule. OU/OW gives students practice noticing that one team can spell one sound two different ways before oo teaches that one spelling can make two different sounds."
 words:
   - brown
   - cow

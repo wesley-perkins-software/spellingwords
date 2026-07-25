@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 relatedLists: ['kindergarten-number-words']
 prerequisiteLists: []
-nextLists: []
+nextLists: ['grade-2-number-words-20-100']
 featured: false
 words:
   - eleven

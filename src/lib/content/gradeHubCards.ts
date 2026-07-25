@@ -341,6 +341,181 @@ export const GRADE_1_HUB_SECTIONS: readonly {
   },
 ];
 
+export const GRADE_2_HUB_SECTIONS: readonly {
+  title: string;
+  summary?: string;
+  cards: readonly CardDefinition[];
+}[] = [
+  {
+    title: "Core Spelling",
+    cards: [
+      {
+        id: "vowel-teams-oi-oy",
+        title: "Diphthongs: oi and oy",
+        description:
+          "Learn the two ways to spell the vowel sound in boy and coin, and when each spelling is used.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "vowel-teams-ou-ow",
+        title: "Diphthongs: ou and ow",
+        description:
+          "Practice the sound in out and cow, where two spellings share one sound with no position rule.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-2-oo-two-sounds",
+        title: "Two Sounds of oo",
+        description:
+          "Learn the same two letters that spell two different sounds, in moon and in book.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-2-au-aw-words",
+        title: "Vowel Patterns: au and aw",
+        description:
+          "Practice the vowel sound in saw and because, and where each spelling belongs in a word.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-2-soft-c-soft-g",
+        title: "Soft C and Soft G",
+        description:
+          "Learn why c sounds like /s/ in city and g sounds like /j/ in page.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-2-two-syllable-words",
+        title: "Two-Syllable Words",
+        description:
+          "Break longer words into two beats so a child can spell them one syllable at a time.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-2-final-stable-le",
+        title: "Words Ending in -le",
+        description:
+          "Practice the quiet ending in little and table, where the last beat has no vowel sound you can hear.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-2-silent-letter-words",
+        title: "Silent Letter Words",
+        description:
+          "Spell words with letters you write but never say, like knee, write, and thumb.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-2-list-02",
+        title: "Compound Words",
+        description:
+          "Spell big words by finding the two small words inside them, like sun and shine.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-2-contractions",
+        title: "Contractions",
+        description:
+          "Join two words into one with an apostrophe, and know which letters it replaces.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+    ],
+  },
+  {
+    title: "High-Frequency Words",
+    summary:
+      "6 sets · 72 words · Common Grade 2 writing words taught with phonics and Heart Word guidance for unexpected spelling parts.",
+    cards: [
+      {
+        id: "grade-2-common-words-1",
+        title: "Grade 2 Common Words 1",
+        description:
+          "Begin with the words that hold second-grade sentences together.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-2-common-words-2",
+        title: "Grade 2 Common Words 2",
+        description:
+          "Practice the verbs children need to write about what already happened.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-2-common-words-3",
+        title: "Grade 2 Common Words 3",
+        description:
+          "Spell the school and reading words used in everyday classroom writing.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-2-common-words-4",
+        title: "Grade 2 Common Words 4",
+        description:
+          "Practice words for family, friends, and the people in a child's stories.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-2-common-words-5",
+        title: "Grade 2 Common Words 5",
+        description:
+          "Use describing and comparing words that go beyond big and good.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-2-common-words-6",
+        title: "Grade 2 Common Words 6",
+        description:
+          "Finish with the words children use to choose, compare, and explain.",
+        badge: "Common Words",
+        kind: "list",
+      },
+    ],
+  },
+  {
+    title: "Additional Practice",
+    cards: [
+      {
+        id: "grade-2-months-of-the-year",
+        title: "Months of the Year",
+        description: "Spell and capitalize all twelve months.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "grade-2-money-words",
+        title: "Money Words",
+        description:
+          "Practice the coin and dollar words second graders meet in math word problems.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "grade-2-number-words-20-100",
+        title: "Number Words 20–100",
+        description:
+          "Spell the eight number words that build every number from twenty to one hundred.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+    ],
+  },
+];
+
 export function buildGradeHubCards(
   definitions: readonly { title: string; cards: readonly CardDefinition[] }[],
   entries: SpellingListEntry[],

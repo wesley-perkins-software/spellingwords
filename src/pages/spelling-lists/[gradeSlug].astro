@@ -15,12 +15,13 @@ import {
 import {
   buildGradeHubCards,
   GRADE_1_HUB_SECTIONS,
+  GRADE_2_HUB_SECTIONS,
   KINDERGARTEN_HUB_SECTIONS,
 } from '@/lib/content/gradeHubCards';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { gradeConfig, getAdjacentGrades } from '@/lib/content/gradeConfig';
 import { gradeHubCopy } from '@/lib/content/gradeHubCopy';
-import type { GradeConfigEntry } from '@/lib/content/gradeConfig';
+import type { GradeCode, GradeConfigEntry } from '@/lib/content/gradeConfig';
 
 export async function getStaticPaths() {
   return gradeConfig.map((gradeEntry) => ({
@@ -28,6 +29,18 @@ export async function getStaticPaths() {
     props: { gradeEntry },
   }));
 }
+
+/**
+ * Grades with a hand-curated hub progression (Core Spelling / High-Frequency
+ * Words / Additional Practice). Every other grade falls back to the generic
+ * category-grouped renderer below. A Partial lookup here, rather than a
+ * nested ternary, keeps this readable as more grades are curated.
+ */
+const CURATED_HUB_SECTIONS: Partial<Record<GradeCode, typeof KINDERGARTEN_HUB_SECTIONS>> = {
+  K: KINDERGARTEN_HUB_SECTIONS,
+  '1': GRADE_1_HUB_SECTIONS,
+  '2': GRADE_2_HUB_SECTIONS,
+};
 
 const { gradeEntry } = Astro.props as { gradeEntry: GradeConfigEntry };
 const { grade, label } = gradeEntry;
@@ -45,11 +58,10 @@ const gradeCollections = allCollections.filter((c) => c.data.grade === grade);
 const totalItems = gradeCollections.length + gradeLists.length;
 
 const sections = buildGradeHubSections(gradeLists, gradeCollections);
-const curatedSections = grade === 'K'
-  ? buildGradeHubCards(KINDERGARTEN_HUB_SECTIONS, entries, allCollections)
-  : grade === '1'
-    ? buildGradeHubCards(GRADE_1_HUB_SECTIONS, entries, allCollections)
-    : null;
+const curatedDefinitions = CURATED_HUB_SECTIONS[grade];
+const curatedSections = curatedDefinitions
+  ? buildGradeHubCards(curatedDefinitions, entries, allCollections)
+  : null;
 const displayedItemCount = curatedSections
   ? curatedSections.reduce((count, section) => count + section.cards.length, 0)
   : totalItems;

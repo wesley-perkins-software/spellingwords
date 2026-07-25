@@ -33,13 +33,13 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   },
   "2": {
     metaDescription:
-      "Free 2nd grade spelling word lists for phonics, word study, contractions, prefixes, suffixes, plurals, homophones, silent letters, and everyday vocabulary. Simple audio-supported practice for second graders.",
+      "Free 2nd grade spelling curriculum with a ten-step Core Spelling route through vowel patterns, soft c and g, syllables, and word endings, plus six cumulative high-frequency-word sets.",
     heroParagraphs: [
-      "Here are free 2nd grade spelling word lists covering everyday words, compound words, contractions, prefixes, suffixes, regular plurals, homophones, silent letters, action and describing words, and Grade 2 phonics patterns. All lists include audio support so children can hear each word read aloud before typing it.",
-      "Second grade spelling practice connects everyday words with stronger phonics patterns, early word study, and vocabulary growth. These lists are a good match for children building fluency, learning how word parts work, and starting to write more independently.",
+      "Use Core Spelling for the Grade 2 route: the vowel patterns that finish the basic code — oi/oy, ou/ow, oo, au/aw — then soft c and g, two-syllable words, the quiet -le ending, silent letters, compound words, and contractions. All lists include audio support so children can hear each word before typing it.",
+      "Second grade is the year spelling stops being one syllable at a time. Children learn to break longer words into beats and to notice which letters do something unexpected. High-Frequency Words adds six cumulative sets of common writing words with Heart Word support for the parts that still need to be remembered.",
     ],
     guidanceBody:
-      "Start with Everyday Words for a general Grade 2 foundation, then use Compound Words, Contractions, Prefixes, Suffixes, Regular Plurals, Homophones, Silent Letter Words, and Comparatives for focused word-study practice. The action and describing word lists pair well with writing practice — they're the words children reach for often in sentences.",
+      "Start with Core Spelling and work through the ten steps in order — each one builds on the last, and the vowel patterns come first because everything longer depends on them. Use Grade 2 High-Frequency Words alongside the route rather than after it; the six sets are the words your child needs for everyday writing right now. Additional Practice is optional and can be used whenever a child wants something familiar.",
     emptyStateLabel: "Second grade",
   },
   "3": {

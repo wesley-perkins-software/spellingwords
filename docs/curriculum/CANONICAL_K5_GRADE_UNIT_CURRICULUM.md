@@ -6,7 +6,7 @@
 **Purpose:** Defines the consensus K–5 Grade Unit curriculum used to audit and plan site content  
 **Source:** Deep research synthesis of U.S. standards and structured-literacy curricula  
 **Implementation authority:** Educational blueprint only; public implementation details are governed by [K5_FINAL_CONTENT_ARCHITECTURE.md](../planning/K5_FINAL_CONTENT_ARCHITECTURE.md)
-**Implementation status:** Kindergarten and Grade 1 are implemented on the public website; Grades 2–5 remain future implementation work
+**Implementation status:** Kindergarten, Grade 1, and Grade 2 are implemented on the public website; Grades 3–5 remain future implementation work
 
 ## How this document should be used
 
@@ -22,7 +22,7 @@
 
 ### Current implementation note
 
-Kindergarten and Grade 1 are implementation-complete under the public architecture. Their hubs, Common Words sequences, and approved Additional Practice pages realize the educational progression in this document at a finer level of detail. Grades 2–5 remain educationally specified here and architecturally specified in the implementation reference, but are not yet implementation-complete.
+Kindergarten, Grade 1, and Grade 2 are implementation-complete under the public architecture. Their hubs, Common Words sequences, and approved Additional Practice pages realize the educational progression in this document at a finer level of detail. Grades 3–5 remain educationally specified here and architecturally specified in the implementation reference, but are not yet implementation-complete.
 
 ## Framing the synthesis
 
@@ -85,6 +85,10 @@ Grade 2 is where the curriculum typically consolidates the full basic phonics co
 The recommended Grade 2 ordering is: R-Controlled Vowels → Diphthongs and Other Vowel Patterns → Syllable Types and Multisyllabic Words → Silent Letters and Ending Spelling Patterns → Hard and Soft C and G. The order moves from larger vowel families into the syllable framework that organizes longer words, then into increasingly conventional and conditional patterns. Some programs place hard/soft c and g slightly earlier or slightly later, but broad consensus still places it after the initial vowel systems and before advanced upper-elementary morphology.
 
 The major concepts absorbed into Grade 2 units are early prefix/suffix exposure, consonant-le, open and closed syllables as stand-alone labels, and continuing high-frequency irregular words. Although standards mention common prefixes and suffixes in Grade 2, they are usually functioning here as support for longer-word decoding, not yet as the full morphology units that become more coherent in Grade 3.
+
+> **Implementation note:** Grade 2 is now implemented on the public website. The five broad curriculum units above are presented through ten Core Spelling cards: five existing pages reframed into the Grade 2 route (both diphthong Skills, Silent Letter Words, Compound Words, and Contractions) and five newly authored to close instructional gaps — Two Sounds of oo, Vowel Patterns: au/aw, Soft C and Soft G, Two-Syllable Words, and Words Ending in -le. (The companion architecture document records that five gaps were needed to realize this document's Grade 2 scope, not the two originally anticipated there.) The site also presents six cumulative Common Words sets containing 72 unique words and three bounded Additional Practice cards: Months of the Year, Money Words, and Number Words 20–100.
+>
+> The R-Controlled Vowels unit is realized differently from the other four Grade 2 units. Grade 1 already provides explicit instruction in ar, or, er, ir, and ur (see the Grade 1 implementation note above), so Grade 2 does not add a second public card reteaching those patterns from scratch. Instead, the Syllable Types and Multisyllabic Words unit — presented as the Two-Syllable Words card — revisits r-controlled patterns as one of the syllable types it formalizes, applying knowledge already taught inside longer words such as *winter* and *garden* rather than reteaching it. This follows the same absorption pattern this document already uses for related concepts (see "Spiral strands and absorbed concepts" below): R-Controlled Vowels remains a canonical Grade Unit assigned to Grade 2 in this blueprint; only its public card placement moved.
 
 ## Grade Three through Grade Five
 

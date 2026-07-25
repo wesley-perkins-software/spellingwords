@@ -14,9 +14,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-list-02"]
+relatedLists: []
 prerequisiteLists: []
-nextLists: ["grade-2-list-02"]
+nextLists: ["grade-2-list-03"]
 featured: true
 readinessSignals:
   - "Read early chapter-book or classroom text with increasing independence"

@@ -14,7 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-list-03", "grade-2-suffixes-ful-less", "grade-2-comparatives-er-est"]
+relatedLists: []
 prerequisiteLists: ["grade-2-list-03"]
 nextLists: []
 featured: false
@@ -30,7 +30,7 @@ faq:
   - question: "What writing mistake is common with this topic?"
     answer: "Students often choose a describing word that is generally positive or negative but not exact. Practice should include asking which word best fits this noun or action"
   - question: "What should learners study next?"
-    answer: "Comparative words with -er and -est are a strong next step because they teach students how describing words change when comparing two or more things."
+    answer: "Trying these describing words out in real sentences is the best next step. A child who can spell brave and important is ready to start choosing between similar words based on which one fits best."
 words:
   - afraid
   - brave

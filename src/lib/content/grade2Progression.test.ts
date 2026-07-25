@@ -181,7 +181,8 @@ describe('Grade 2 Common Words', () => {
       else expect(entry!.prerequisiteLists).toContain('grade-1-common-words-6');
 
       if (nextId) expect(entry!.nextLists).toContain(nextId);
-      else expect(entry!.nextLists).toEqual([]);
+      // Set 6 now feeds forward into the Grade 3 Common Words gateway's first set.
+      else expect(entry!.nextLists).toEqual(['grade-3-common-words-1']);
     });
   });
 

@@ -2,8 +2,8 @@
 id: grade-3-common-words-4
 urlSlug: grade-3-common-words-4
 title: "Grade 3 Common Words 4"
-description: "Proposed Grade 3 common words for feelings and description, including favorite, nervous, curious, and disappointed."
-shortAnswer: "Twelve proposed feeling and describing words for third graders, including favorite, wonderful, curious, and disappointed."
+description: "Grade 3 common words for feelings and description, including favorite, nervous, curious, and disappointed."
+shortAnswer: "Twelve feeling and describing words for third graders, including favorite, wonderful, curious, and disappointed."
 contentRole: sight-word-set
 category: sight-words
 grade: "3"
@@ -12,12 +12,12 @@ skillTags: ["common-words", "high-frequency"]
 tags: ["common-words", "sight-words", "high-frequency", "heart-words"]
 order: 104
 estimatedDurationMinutes: 7
-status: draft
+status: published
 masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 3 common words (proposal)"
+  tier: "Grade 3 common words"
 relatedLists: []
 prerequisiteLists: ["grade-3-common-words-3"]
 nextLists: ["grade-3-common-words-5"]
@@ -40,6 +40,6 @@ words:
   - "disappointed"
 ---
 
-**Proposal — not yet published.** These twelve words help third graders describe how a character or a writer feels — from *excited* and *curious* to *disappointed* — with more precision than *happy* or *sad*.
+These twelve words help third graders describe how a character or a writer feels — from *excited* and *curious* to *disappointed* — with more precision than *happy* or *sad*.
 
 This phonics-aware set uses regular sound-spelling patterns where they help. When a small part is not yet predictable, use the Heart Word hint as a reminder to learn that part by heart.

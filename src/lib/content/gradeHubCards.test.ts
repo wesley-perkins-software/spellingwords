@@ -126,8 +126,11 @@ describe("frozen K–2 grade hub cards", () => {
     expect(idsFor(GRADE_2_HUB_SECTIONS)).not.toContain("grade-2-common-words");
   });
 
-  it("renders the Grade 3 Core Spelling cards, holding Common Words and Additional Practice back until approved", () => {
-    expect(GRADE_3_HUB_SECTIONS.map((section) => section.title)).toEqual(["Core Spelling"]);
+  it("renders the Grade 3 Core Spelling and High-Frequency Words cards, holding Additional Practice back until approved", () => {
+    expect(GRADE_3_HUB_SECTIONS.map((section) => section.title)).toEqual([
+      "Core Spelling",
+      "High-Frequency Words",
+    ]);
     expect(idsFor(GRADE_3_HUB_SECTIONS)).toEqual([
       "grade-3-prefix-words",
       "grade-3-suffix-words",
@@ -136,24 +139,39 @@ describe("frozen K–2 grade hub cards", () => {
       "grade-3-multisyllabic-words",
       "grade-3-homophones",
       "grade-3-root-word-families",
+      "grade-3-common-words-1",
+      "grade-3-common-words-2",
+      "grade-3-common-words-3",
+      "grade-3-common-words-4",
+      "grade-3-common-words-5",
     ]);
-    expect(idsFor(GRADE_3_HUB_SECTIONS)).toHaveLength(7);
+    expect(idsFor(GRADE_3_HUB_SECTIONS)).toHaveLength(12);
+    expect(GRADE_3_HUB_SECTIONS[0].cards).toHaveLength(7);
+    expect(GRADE_3_HUB_SECTIONS[1].cards).toHaveLength(5);
+    expect(GRADE_3_HUB_SECTIONS[1].summary).toContain("5 sets · 60 words");
+    expect(GRADE_3_HUB_SECTIONS[1].summary).toContain("Heart Word guidance");
     expect(idsFor(GRADE_3_HUB_SECTIONS)).not.toContain("grade-3-doubling-final-consonants");
     expect(idsFor(GRADE_3_HUB_SECTIONS)).not.toContain("grade-3-changing-y-to-i");
-    expect(idsFor(GRADE_3_HUB_SECTIONS)).not.toContain("grade-3-common-words-1");
   });
 });
 
-describe("Grade 3 Common Words proposal (draft, not yet published)", () => {
-  it("drafts the gateway collection with its five ordered child sets, unpublished", () => {
+describe("Grade 3 Common Words", () => {
+  it("publishes the gateway collection with its five ordered child sets", () => {
     const collection = source("spelling-collections/grade-3-common-words.md");
-    expect(collection).toContain("status: draft");
+    expect(collection).toContain("status: published");
     expect(collection).toMatch(
       /listIds:\n {2}- grade-3-common-words-1\n {2}- grade-3-common-words-2\n {2}- grade-3-common-words-3\n {2}- grade-3-common-words-4\n {2}- grade-3-common-words-5/,
     );
   });
 
-  it("drafts five sets of 12 words each with zero overlap against the 184 words already owned by K–2", () => {
+  it("wires grade-2-common-words-6 forward into the Grade 3 gateway's first set", () => {
+    const lastGrade2Set = source("spelling-lists/sight-words/grade-2-common-words-6.md");
+    expect(lastGrade2Set).toContain('nextLists: ["grade-3-common-words-1"]');
+    const firstGrade3Set = source("spelling-lists/sight-words/grade-3-common-words-1.md");
+    expect(firstGrade3Set).toContain('prerequisiteLists: ["grade-2-common-words-6"]');
+  });
+
+  it("publishes five sets of 12 words each with zero overlap against the 184 words already owned by K–2", () => {
     const k2Words = new Set(
       [
         "a", "I", "am", "at", "can", "in", "it", "is", "and", "the",
@@ -181,7 +199,7 @@ describe("Grade 3 Common Words proposal (draft, not yet published)", () => {
       const set = source(`spelling-lists/sight-words/grade-3-common-words-${i}.md`);
       expect(set).toContain(`id: grade-3-common-words-${i}`);
       expect(set).toContain("contentRole: sight-word-set");
-      expect(set).toContain("status: draft");
+      expect(set).toContain("status: published");
       const words = [
         ...set.matchAll(/^\s*-\s+(?:word:\s+)?["']([^"']+)["']/gm),
       ].map((match) => match[1]);

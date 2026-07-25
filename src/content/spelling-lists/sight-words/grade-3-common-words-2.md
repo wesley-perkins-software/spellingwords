@@ -2,8 +2,8 @@
 id: grade-3-common-words-2
 urlSlug: grade-3-common-words-2
 title: "Grade 3 Common Words 2"
-description: "Proposed Grade 3 common words for irregular past-tense verbs, including the ought/aught family: brought, caught, taught, and fought."
-shortAnswer: "Twelve proposed irregular past-tense verbs for third graders, grouping brought, bought, caught, taught, fought, and sought as one shared family."
+description: "Grade 3 common words for irregular past-tense verbs, including the ought/aught family: brought, caught, taught, and fought."
+shortAnswer: "Twelve irregular past-tense verbs for third graders, grouping brought, bought, caught, taught, fought, and sought as one shared family."
 contentRole: sight-word-set
 category: sight-words
 grade: "3"
@@ -12,12 +12,12 @@ skillTags: ["common-words", "high-frequency"]
 tags: ["common-words", "sight-words", "high-frequency", "heart-words"]
 order: 102
 estimatedDurationMinutes: 7
-status: draft
+status: published
 masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 3 common words (proposal)"
+  tier: "Grade 3 common words"
 relatedLists: []
 prerequisiteLists: ["grade-3-common-words-1"]
 nextLists: ["grade-3-common-words-3"]
@@ -45,6 +45,6 @@ words:
     hint: "Heart part: eigh says long a, the same pattern as eight."
 ---
 
-**Proposal — not yet published.** These twelve words are irregular past-tense verbs that do not simply add *-ed*. Six of them — *brought*, *bought*, *caught*, *taught*, *fought*, and *sought* — share the same `ought`/`aught` spelling for the same ending sound, so teach that one family together instead of as six separate surprises.
+These twelve words are irregular past-tense verbs that do not simply add *-ed*. Six of them — *brought*, *bought*, *caught*, *taught*, *fought*, and *sought* — share the same `ought`/`aught` spelling for the same ending sound, so teach that one family together instead of as six separate surprises.
 
 This phonics-aware set uses regular sound-spelling patterns where they help. When a small part is not yet predictable, use the Heart Word hint as a reminder to learn that part by heart.

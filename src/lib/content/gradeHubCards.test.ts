@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import {
   GRADE_1_HUB_SECTIONS,
   GRADE_2_HUB_SECTIONS,
+  GRADE_3_HUB_SECTIONS,
   KINDERGARTEN_HUB_SECTIONS,
 } from "./gradeHubCards";
 
@@ -123,6 +124,74 @@ describe("frozen K–2 grade hub cards", () => {
     expect(GRADE_2_HUB_SECTIONS[1].summary).toContain("Heart Word guidance");
     expect(GRADE_2_HUB_SECTIONS[1].cards.every((card) => card.kind === "list")).toBe(true);
     expect(idsFor(GRADE_2_HUB_SECTIONS)).not.toContain("grade-2-common-words");
+  });
+
+  it("renders the Grade 3 Core Spelling cards, holding Common Words and Additional Practice back until approved", () => {
+    expect(GRADE_3_HUB_SECTIONS.map((section) => section.title)).toEqual(["Core Spelling"]);
+    expect(idsFor(GRADE_3_HUB_SECTIONS)).toEqual([
+      "grade-3-prefix-words",
+      "grade-3-suffix-words",
+      "grade-3-dropping-silent-e",
+      "grade-3-possessives",
+      "grade-3-multisyllabic-words",
+      "grade-3-homophones",
+      "grade-3-root-word-families",
+    ]);
+    expect(idsFor(GRADE_3_HUB_SECTIONS)).toHaveLength(7);
+    expect(idsFor(GRADE_3_HUB_SECTIONS)).not.toContain("grade-3-doubling-final-consonants");
+    expect(idsFor(GRADE_3_HUB_SECTIONS)).not.toContain("grade-3-changing-y-to-i");
+    expect(idsFor(GRADE_3_HUB_SECTIONS)).not.toContain("grade-3-common-words-1");
+  });
+});
+
+describe("Grade 3 Common Words proposal (draft, not yet published)", () => {
+  it("drafts the gateway collection with its five ordered child sets, unpublished", () => {
+    const collection = source("spelling-collections/grade-3-common-words.md");
+    expect(collection).toContain("status: draft");
+    expect(collection).toMatch(
+      /listIds:\n {2}- grade-3-common-words-1\n {2}- grade-3-common-words-2\n {2}- grade-3-common-words-3\n {2}- grade-3-common-words-4\n {2}- grade-3-common-words-5/,
+    );
+  });
+
+  it("drafts five sets of 12 words each with zero overlap against the 184 words already owned by K–2", () => {
+    const k2Words = new Set(
+      [
+        "a", "I", "am", "at", "can", "in", "it", "is", "and", "the",
+        "he", "she", "we", "me", "my", "go", "to", "do", "you", "like",
+        "for", "of", "was", "said", "have", "are", "here", "come", "look", "see",
+        "this", "that", "with", "they", "one", "two", "three", "where", "little", "play",
+        "all", "but", "did", "no", "get", "good", "new", "now", "our", "out", "please", "want",
+        "after", "again", "any", "ask", "by", "could", "every", "fly", "from", "give", "going", "had",
+        "on", "not", "an", "as", "if", "has", "his", "her", "him", "them", "be", "will",
+        "what", "when", "who", "why", "how", "there", "your", "their", "were", "some", "more", "because",
+        "up", "down", "back", "over", "into", "about", "home", "way", "time", "first", "next", "then",
+        "or", "so", "just", "us", "may", "make", "many", "very", "people", "know", "would", "should",
+        "always", "around", "before", "another", "between", "under", "until", "almost", "together", "enough", "without", "through",
+        "been", "does", "goes", "gave", "made", "found", "told", "began", "took", "came", "went", "done",
+        "school", "book", "page", "word", "letter", "sentence", "story", "question", "answer", "learn", "study", "never",
+        "friend", "family", "father", "mother", "sister", "brother", "children", "everyone", "someone", "something", "young", "kind",
+        "best", "both", "different", "important", "great", "large", "small", "high", "light", "cold", "fast", "right",
+        "which", "these", "those", "its", "own", "off", "only", "other", "use", "work", "thought", "read",
+      ],
+    );
+    expect(k2Words.size).toBe(184);
+
+    let totalWords = 0;
+    for (let i = 1; i <= 5; i++) {
+      const set = source(`spelling-lists/sight-words/grade-3-common-words-${i}.md`);
+      expect(set).toContain(`id: grade-3-common-words-${i}`);
+      expect(set).toContain("contentRole: sight-word-set");
+      expect(set).toContain("status: draft");
+      const words = [
+        ...set.matchAll(/^\s*-\s+(?:word:\s+)?["']([^"']+)["']/gm),
+      ].map((match) => match[1]);
+      expect(words).toHaveLength(12);
+      for (const word of words) {
+        expect(k2Words.has(word.toLowerCase())).toBe(false);
+      }
+      totalWords += words.length;
+    }
+    expect(totalWords).toBe(60);
   });
 });
 

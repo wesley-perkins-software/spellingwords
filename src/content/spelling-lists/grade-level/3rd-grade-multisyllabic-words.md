@@ -4,6 +4,7 @@ urlSlug: 3rd-grade-multisyllabic-words
 title: "3rd Grade Multisyllabic Words"
 description: "A Grade 3 multisyllabic word list that helps students spell longer two- and three-syllable words by breaking them into parts."
 shortAnswer: "Third graders practice multisyllabic words by breaking longer words into syllables and meaningful chunks, preparing for harder academic vocabulary in Grade 4."
+contentRole: grade-unit
 category: grade-level
 grade: "3"
 difficulty: intermediate
@@ -14,8 +15,8 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-changing-y-to-i", "grade-3-homophones", "grade-4-multisyllabic-academic-words"]
-prerequisiteLists: ["grade-3-changing-y-to-i"]
+relatedLists: ["grade-3-possessives", "grade-3-homophones", "grade-4-multisyllabic-academic-words"]
+prerequisiteLists: ["grade-3-possessives"]
 nextLists: ["grade-3-homophones", "grade-4-multisyllabic-academic-words"]
 readinessSignals:
   - "Can spell many one-syllable words accurately and are ready to manage longer word length"

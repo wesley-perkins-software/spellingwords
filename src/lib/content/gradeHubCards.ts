@@ -516,6 +516,82 @@ export const GRADE_2_HUB_SECTIONS: readonly {
   },
 ];
 
+/**
+ * Grade 3 hub — Core Spelling only for now. The Common Words proposal (5
+ * sets + gateway) is drafted but held at `status: draft` pending review, and
+ * Additional Practice candidates are held back entirely pending a separate
+ * editorial audit (see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`
+ * Section 9's contract for Grades 3–5). Add those two sections here once
+ * each is approved and published — do not wire in draft content early.
+ */
+export const GRADE_3_HUB_SECTIONS: readonly {
+  title: string;
+  summary?: string;
+  cards: readonly CardDefinition[];
+}[] = [
+  {
+    title: "Core Spelling",
+    cards: [
+      {
+        id: "grade-3-prefix-words",
+        title: "Prefixes",
+        description:
+          "Learn common prefixes such as un-, re-, pre-, dis-, and mis- that come before a base word and change its meaning.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-3-suffix-words",
+        title: "Suffixes",
+        description:
+          "Practice common suffixes such as -er, -est, -ly, -ful, -less, -ness, and -ment that come after a base word.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-3-dropping-silent-e",
+        title: "Suffix Spelling Changes",
+        description:
+          "Learn the three spelling changes a base word can make before a suffix: dropping silent e, doubling the final consonant, and changing y to i.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-3-possessives",
+        title: "Plurals, Possessives, and Contractions",
+        description:
+          "Use 's and s' to show ownership, and tell possessives apart from plurals and contractions.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-3-multisyllabic-words",
+        title: "Longer Words and Syllable Division",
+        description:
+          "Break two- and three-syllable words into parts so they are easier to spell.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-3-homophones",
+        title: "Homophones and Commonly Confused Words",
+        description:
+          "Choose the correct spelling for words that sound alike but have different meanings, such as there, their, and they're.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-3-root-word-families",
+        title: "Root Word Families",
+        description:
+          "Review how related words share a meaningful base, and preview the Greek and Latin root study that begins in Grade 4.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+    ],
+  },
+];
+
 export function buildGradeHubCards(
   definitions: readonly { title: string; cards: readonly CardDefinition[] }[],
   entries: SpellingListEntry[],

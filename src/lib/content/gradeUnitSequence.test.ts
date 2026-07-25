@@ -59,13 +59,39 @@ describe('buildGradeUnitSequence', () => {
 
   it('falls back to order-sorted published entries for a grade with no curated progression file', () => {
     const entries = [
-      makeEntry('grade-3-list-b', '3', 2, 'grade-unit'),
-      makeEntry('grade-3-list-a', '3', 1, 'grade-unit'),
+      makeEntry('grade-4-list-b', '4', 2, 'grade-unit'),
+      makeEntry('grade-4-list-a', '4', 1, 'grade-unit'),
     ];
 
     const sequence = buildGradeUnitSequence(entries);
 
-    expect(sequence).toEqual(['grade-3-list-a', 'grade-3-list-b']);
+    expect(sequence).toEqual(['grade-4-list-a', 'grade-4-list-b']);
+  });
+
+  it('keeps only the Grade 3 combined-roadmap-entry anchor, not its skill-role siblings', () => {
+    const entries = [
+      makeEntry('grade-3-prefix-words', '3', 4, 'grade-unit'),
+      makeEntry('grade-3-suffix-words', '3', 5, 'grade-unit'),
+      makeEntry('grade-3-dropping-silent-e', '3', 6, 'grade-unit'),
+      makeEntry('grade-3-doubling-final-consonants', '3', 7, 'skill'),
+      makeEntry('grade-3-changing-y-to-i', '3', 8, 'skill'),
+      makeEntry('grade-3-possessives', '3', 8.5, 'grade-unit'),
+      makeEntry('grade-3-multisyllabic-words', '3', 9, 'grade-unit'),
+      makeEntry('grade-3-homophones', '3', 10, 'grade-unit'),
+      makeEntry('grade-3-root-word-families', '3', 11, 'grade-unit'),
+    ];
+
+    const sequence = buildGradeUnitSequence(entries);
+
+    expect(sequence).toEqual([
+      'grade-3-prefix-words',
+      'grade-3-suffix-words',
+      'grade-3-dropping-silent-e',
+      'grade-3-possessives',
+      'grade-3-multisyllabic-words',
+      'grade-3-homophones',
+      'grade-3-root-word-families',
+    ]);
   });
 
   it('returns an empty sequence when there are no grade-unit entries', () => {

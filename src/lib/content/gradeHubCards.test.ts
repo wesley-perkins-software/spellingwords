@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   GRADE_1_HUB_SECTIONS,
+  GRADE_2_HUB_SECTIONS,
   KINDERGARTEN_HUB_SECTIONS,
 } from "./gradeHubCards";
 
@@ -23,7 +24,7 @@ function contentFiles(directory: string): string[] {
   });
 }
 
-describe("frozen K–1 grade hub cards", () => {
+describe("frozen K–2 grade hub cards", () => {
   it("renders the Kindergarten cards in the authoritative 15-card order", () => {
     expect(KINDERGARTEN_HUB_SECTIONS.map((section) => section.title)).toEqual([
       "Core Spelling",
@@ -86,6 +87,43 @@ describe("frozen K–1 grade hub cards", () => {
     expect(GRADE_1_HUB_SECTIONS[1].cards.every((card) => card.kind === "list")).toBe(true);
     expect(idsFor(GRADE_1_HUB_SECTIONS)).not.toContain("grade-1-common-words");
   });
+
+  it("renders the complete Grade 2 cards in the authoritative 19-card order", () => {
+    expect(GRADE_2_HUB_SECTIONS.map((section) => section.title)).toEqual([
+      "Core Spelling",
+      "High-Frequency Words",
+      "Additional Practice",
+    ]);
+    expect(idsFor(GRADE_2_HUB_SECTIONS)).toEqual([
+      "vowel-teams-oi-oy",
+      "vowel-teams-ou-ow",
+      "grade-2-oo-two-sounds",
+      "grade-2-au-aw-words",
+      "grade-2-soft-c-soft-g",
+      "grade-2-two-syllable-words",
+      "grade-2-final-stable-le",
+      "grade-2-silent-letter-words",
+      "grade-2-list-02",
+      "grade-2-contractions",
+      "grade-2-common-words-1",
+      "grade-2-common-words-2",
+      "grade-2-common-words-3",
+      "grade-2-common-words-4",
+      "grade-2-common-words-5",
+      "grade-2-common-words-6",
+      "grade-2-months-of-the-year",
+      "grade-2-money-words",
+      "grade-2-number-words-20-100",
+    ]);
+    expect(idsFor(GRADE_2_HUB_SECTIONS)).toHaveLength(19);
+    expect(GRADE_2_HUB_SECTIONS[0].cards).toHaveLength(10);
+    expect(GRADE_2_HUB_SECTIONS[1].cards).toHaveLength(6);
+    expect(GRADE_2_HUB_SECTIONS[2].cards).toHaveLength(3);
+    expect(GRADE_2_HUB_SECTIONS[1].summary).toContain("6 sets · 72 words");
+    expect(GRADE_2_HUB_SECTIONS[1].summary).toContain("Heart Word guidance");
+    expect(GRADE_2_HUB_SECTIONS[1].cards.every((card) => card.kind === "list")).toBe(true);
+    expect(idsFor(GRADE_2_HUB_SECTIONS)).not.toContain("grade-2-common-words");
+  });
 });
 
 describe("Common Words validation slice content", () => {
@@ -143,7 +181,11 @@ describe("Common Words validation slice content", () => {
       ["grade-1-common-words-3", "on, not, an, as, if, has, his, her, him, them, be, will", 'nextLists: ["grade-1-common-words-4"]'],
       ["grade-1-common-words-4", "what, when, who, why, how, there, your, their, were, some, more, because", 'nextLists: ["grade-1-common-words-5"]'],
       ["grade-1-common-words-5", "up, down, back, over, into, about, home, way, time, first, next, then", 'nextLists: ["grade-1-common-words-6"]'],
-      ["grade-1-common-words-6", "or, so, just, us, may, make, many, very, people, know, would, should", "nextLists: []"],
+      [
+        "grade-1-common-words-6",
+        "or, so, just, us, may, make, many, very, people, know, would, should",
+        'nextLists: ["grade-2-common-words-1"]',
+      ],
     ] as const;
 
     for (const [id, words, next] of expectations) {

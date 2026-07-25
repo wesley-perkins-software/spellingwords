@@ -6,7 +6,7 @@ title: "Long E Silent E Words"
 description: "Words where a silent final 'e' helps spell a long 'e' sound, completing the silent-e long-vowel sequence for early elementary spelling."
 shortAnswer: "This list focuses on long-E silent-e words, including these, theme, scene, and complete."
 category: phonics
-grade: "2"
+grade: "1"
 difficulty: developing
 skillTags: ["silent-e", "long-vowels", "long-e"]
 tags: ["phonics", "silent-e", "long-vowels", "early-elementary"]

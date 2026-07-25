@@ -1,22 +1,22 @@
 ---
 id: grade-2-regular-plurals
 urlSlug: 2nd-grade-regular-plurals
-title: "2nd Grade Regular Plural Words"
-description: "Regular plural nouns for second graders — words that become plural by adding -s or -es."
-shortAnswer: "Twelve regular plural words for second graders, including dogs, books, boxes, dishes, brushes, and lunches."
+title: "Regular Plural Words: Review"
+description: "Review practice for the -s and -es plural endings taught in Grade 1 — words that become plural by adding -s or -es."
+shortAnswer: "Twelve regular plural words including dogs, books, boxes, dishes, brushes, and lunches — review practice for the Grade 1 -s/-es plural endings lesson."
 category: grade-level
-grade: "2"
+grade: "1"
 difficulty: developing
-skillTags: ["grade-2", "plurals", "regular-plurals", "nouns", "word-study"]
-tags: ["grade-2", "plurals", "regular-plurals", "spelling", "word-study"]
-order: 6
+skillTags: ["grade-1", "plurals", "regular-plurals", "nouns", "word-study"]
+tags: ["grade-1", "plurals", "regular-plurals", "spelling", "word-study", "review"]
+order: 7
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-suffixes-ful-less", "grade-2-homophones", "grade-2-list-01"]
-prerequisiteLists: ["grade-2-suffixes-ful-less"]
-nextLists: ["grade-2-homophones"]
+relatedLists: []
+prerequisiteLists: ["grade-1-inflectional-endings-s-es"]
+nextLists: []
 readinessSignals:
   - "Can spell common singular nouns such as dog, book, box, dish, and lunch"
   - "Understand that plural nouns name more than one person, place, thing, or animal"
@@ -48,4 +48,4 @@ words:
 
 Most nouns become plural by adding *-s*, as in *dog* to *dogs*.
 
-Words ending in *s*, *x*, *sh*, or *ch* usually add *-es*. That is why second graders practice spellings like *buses*, *boxes*, *dishes*, *brushes*, and *lunches* together.
+Words ending in *s*, *x*, *sh*, or *ch* usually add *-es*. This page reviews the Grade 1 [Plural Endings: -s and -es](/spelling-lists/phonics/1st-grade-inflectional-endings-s-es) lesson with a slightly larger word set, including spellings like *buses*, *boxes*, *dishes*, *brushes*, and *lunches*.

@@ -7,15 +7,16 @@ shortAnswer: "This list practices compound words such as sunshine, backpack, and
 category: grade-level
 grade: "2"
 difficulty: developing
+contentRole: grade-unit
 skillTags: ["grade-2", "compound-words"]
-tags: ["grade-2", "compound-words", "word-structure"]
+tags: ["grade-2", "compound-words", "word-structure", "core-spelling"]
 order: 2
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-list-01", "grade-2-contractions", "grade-2-prefixes-un-re"]
-prerequisiteLists: ["grade-2-list-01"]
+relatedLists: []
+prerequisiteLists: ["grade-2-silent-letter-words"]
 nextLists: ["grade-2-contractions"]
 readinessSignals:
   - "Can read and spell many short everyday words before combining them into longer words"
@@ -44,4 +45,6 @@ words:
   - cupcake
 ---
 
-Recognizing that "sunshine" is just "sun" plus "shine" gives students a powerful spelling strategy: break a big word into smaller, familiar pieces.
+Recognizing that "sunshine" is just "sun" plus "shine" gives students a powerful spelling strategy: break a big word into smaller, familiar pieces. Every word on this list is a closed compound — the two smaller words are joined with no space and no hyphen, which is the most common and most predictable compound pattern for a second grader to learn first.
+
+This list is a natural next step after silent letters: both lessons teach that a longer or trickier-looking word is still built from parts a child already knows how to spell. Compound words lead directly into contractions, which join two words the opposite way — with an apostrophe standing in for missing letters instead of two whole words standing side by side.

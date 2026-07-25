@@ -5,7 +5,7 @@ title: "R-Controlled ER, IR, and UR Words"
 description: "Three spellings, one sound — the ER pattern in her, the IR pattern in bird, and the UR pattern in turn all make the same r-controlled vowel sound."
 shortAnswer: "This list practices the ER, IR, and UR r-controlled vowel patterns, as in her, bird, and turn."
 category: phonics
-grade: "2"
+grade: "1"
 difficulty: developing
 skillTags: ["r-controlled", "er", "ir", "ur"]
 tags: ["phonics", "r-controlled", "vowels", "early-elementary"]

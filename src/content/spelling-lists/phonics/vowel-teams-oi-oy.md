@@ -7,15 +7,16 @@ shortAnswer: "This list practices the OI and OY vowel teams that make the diphth
 category: phonics
 grade: "2"
 difficulty: developing
+contentRole: grade-unit
 skillTags: ["vowel-teams", "diphthongs", "oi", "oy"]
-tags: ["phonics", "vowel-teams", "diphthongs", "early-elementary"]
+tags: ["phonics", "vowel-teams", "diphthongs", "grade-2", "core-spelling"]
 order: 8
 estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["vowel-teams-oa-ow", "vowel-teams-ou-ow"]
-prerequisiteLists: ["vowel-teams-oa-ow"]
+relatedLists: ["grade-1-long-a-long-o-vowel-teams", "vowel-teams-ou-ow"]
+prerequisiteLists: ["grade-1-long-a-long-o-vowel-teams"]
 nextLists: ["vowel-teams-ou-ow"]
 featured: false
 readinessSignals:

@@ -6,7 +6,7 @@ title: "Long U Silent E Words"
 description: "Words where a silent final 'e' helps spell a long 'u' sound, such as cube, tube, and cute."
 shortAnswer: "This list practices long-U silent-e words, including cube, tube, cute, flute, and tune."
 category: phonics
-grade: "2"
+grade: "1"
 difficulty: developing
 skillTags: ["silent-e", "long-vowels", "long-u"]
 tags: ["phonics", "silent-e", "long-vowels", "early-elementary"]

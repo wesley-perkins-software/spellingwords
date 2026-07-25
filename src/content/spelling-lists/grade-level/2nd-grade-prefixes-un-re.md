@@ -1,22 +1,22 @@
 ---
 id: grade-2-prefixes-un-re
 urlSlug: 2nd-grade-prefixes-un-re
-title: "2nd Grade Prefix Words: UN and RE"
-description: "Common Grade 2 prefix words with un- and re- — word parts that come before a base word and change its meaning."
-shortAnswer: "Twelve prefix words for second graders, including unfair, unhappy, unlock, redo, reread, and retell."
+title: "Prefix Words: UN and RE"
+description: "Common prefix words with un- and re- — word parts that come before a base word and change its meaning."
+shortAnswer: "Twelve prefix words including unfair, unhappy, unlock, redo, reread, and retell — the basic un-/re- prefixes that lead into Grade 3's broader prefix work."
 category: grade-level
-grade: "2"
+grade: "3"
 difficulty: developing
-skillTags: ["grade-2", "prefixes", "un", "re", "morphology", "word-study"]
-tags: ["grade-2", "prefixes", "morphology", "spelling", "word-study"]
-order: 4
+skillTags: ["grade-3", "prefixes", "un", "re", "morphology", "word-study"]
+tags: ["grade-3", "prefixes", "morphology", "spelling", "word-study"]
+order: 3.5
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-contractions", "grade-2-suffixes-ful-less", "grade-2-list-02"]
-prerequisiteLists: ["grade-2-contractions"]
-nextLists: ["grade-2-suffixes-ful-less"]
+relatedLists: []
+prerequisiteLists: ["grade-3-reading-writing-words"]
+nextLists: ["grade-3-prefix-words"]
 readinessSignals:
   - "Can spell familiar base words such as kind, happy, lock, read, and tell before adding a beginning word part"
   - "Notice that un- usually means “not” while re- usually means “again” in everyday words"
@@ -48,4 +48,4 @@ words:
 
 A prefix is a word part added to the beginning of a base word. The prefix *un-* can mean "not" or "reverse," and *re-* often means "again."
 
-These words help second graders read the prefix first, then the base word. That makes longer words like *unhappy*, *reread*, and *retell* easier to spell and understand.
+These words help a young speller read the prefix first, then the base word. That makes longer words like *unhappy*, *reread*, and *retell* easier to spell and understand — and it is the same strategy the broader [Prefix Words](/spelling-lists/grade-level/3rd-grade-prefix-words) lesson builds on next.

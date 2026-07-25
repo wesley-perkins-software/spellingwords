@@ -14,8 +14,8 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-comparatives-er-est", "grade-2-describing-words", "grade-2-list-01"]
-prerequisiteLists: ["grade-2-comparatives-er-est"]
+relatedLists: []
+prerequisiteLists: ["grade-2-list-01"]
 nextLists: ["grade-2-describing-words"]
 featured: false
 readinessSignals:

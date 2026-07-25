@@ -1,22 +1,22 @@
 ---
 id: grade-2-comparatives-er-est
 urlSlug: 2nd-grade-comparatives-er-est
-title: "2nd Grade Comparative Words: ER and EST"
-description: "Comparative and superlative words for second graders — spelling words with -er and -est endings."
-shortAnswer: "Twelve comparative and superlative words for second graders, including faster, fastest, bigger, biggest, happier, and easiest."
+title: "Comparative Words: ER and EST"
+description: "Comparative and superlative words — spelling words with -er and -est endings."
+shortAnswer: "Twelve comparative and superlative words including faster, fastest, bigger, biggest, happier, and easiest — an early look at the spelling changes Grade 3's doubling and y-to-i lessons teach explicitly."
 category: grade-level
-grade: "2"
+grade: "3"
 difficulty: developing
-skillTags: ["grade-2", "comparatives", "superlatives", "suffixes", "er", "est", "word-study"]
-tags: ["grade-2", "comparatives", "superlatives", "suffixes", "spelling", "word-study"]
-order: 9
+skillTags: ["grade-3", "comparatives", "superlatives", "suffixes", "er", "est", "word-study"]
+tags: ["grade-3", "comparatives", "superlatives", "suffixes", "spelling", "word-study"]
+order: 5.5
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-suffixes-ful-less", "grade-2-silent-letter-words", "grade-2-describing-words"]
-prerequisiteLists: ["grade-2-silent-letter-words", "grade-2-suffixes-ful-less"]
-nextLists: ["grade-2-list-03"]
+relatedLists: []
+prerequisiteLists: ["grade-3-suffix-words"]
+nextLists: []
 readinessSignals:
   - "Can use describing words such as fast, slow, small, big, happy, and easy in speech or writing"
   - "Understand comparing two things versus naming the most of a group"

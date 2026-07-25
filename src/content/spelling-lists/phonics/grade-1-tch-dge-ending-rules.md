@@ -16,7 +16,7 @@ masteryThreshold: 90
 sourceType: curated
 relatedLists: ["tch-dge-ending-words"]
 prerequisiteLists: ["grade-1-long-e-vowel-teams"]
-nextLists: []
+nextLists: ["vowel-teams-oi-oy"]
 featured: false
 readinessSignals:
   - "Are ready for a focused first-grade spelling lesson on tch and dge ending rules"

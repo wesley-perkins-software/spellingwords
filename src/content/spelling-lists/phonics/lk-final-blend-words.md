@@ -5,7 +5,7 @@ title: "LK Final Blend Words"
 description: "Words ending with the LK consonant blend — two sounds at the end, as in milk, silk, and bulk."
 shortAnswer: "This list practices the LK blend pattern, as in milk, silk, bulk, and walk."
 category: phonics
-grade: "2"
+grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "lk", "final-blends"]
 tags: ["phonics", "consonant-blends", "final-blends", "early-elementary"]

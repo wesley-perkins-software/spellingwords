@@ -7,27 +7,28 @@ shortAnswer: "Twelve contractions for second graders, including can't, don't, I'
 category: grade-level
 grade: "2"
 difficulty: developing
+contentRole: grade-unit
 skillTags: ["grade-2", "contractions", "apostrophes", "word-study"]
-tags: ["grade-2", "contractions", "apostrophes", "spelling", "word-study"]
+tags: ["grade-2", "contractions", "apostrophes", "spelling", "word-study", "core-spelling"]
 order: 3
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-list-01", "grade-2-homophones", "grade-2-prefixes-un-re"]
+relatedLists: []
 prerequisiteLists: ["grade-2-list-02"]
-nextLists: ["grade-2-prefixes-un-re"]
+nextLists: []
 readinessSignals:
   - "Can read the two-word forms behind common contractions, such as can not, do not, and I am"
   - "Understand that an apostrophe shows where letters have been left out"
   - "Are beginning to use dialogue or informal sentences where contractions naturally appear"
 faq:
   - question: "What is a contraction?"
-    answer: "A contraction joins two words into a shorter form and uses an apostrophe to show missing letters. For example, do not becomes don’t and I am becomes I’m."
+    answer: "A contraction joins two words into a shorter form and uses an apostrophe to show missing letters. For example, do not becomes don't and I am becomes I'm."
   - question: "How do contractions help spelling?"
     answer: "They teach students to account for every letter, including the letters that disappear. The apostrophe is not decoration; it marks the missing part of the original words."
-  - question: "Why is won’t different from other contractions?"
-    answer: "Won’t comes from an older form of will not, so it does not look like will plus not. It is useful to teach as a high-frequency exception."
+  - question: "Why is won't different from other contractions?"
+    answer: "Won't comes from an older form of will not, so it does not look like will plus not. It is useful to teach as a high-frequency exception."
   - question: "What mistakes are common with contractions?"
     answer: "Students often put the apostrophe in the wrong place or leave it out entirely. Expanding the contraction back into two words helps them decide where the apostrophe belongs."
 featured: false
@@ -37,7 +38,8 @@ words:
   - didn't
   - isn't
   - wasn't
-  - won't
+  - word: "won't"
+    hint: "Heart part: won't comes from an older form of will not, so it doesn't look like will plus not."
   - I'm
   - I'll
   - we're

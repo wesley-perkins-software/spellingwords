@@ -7,16 +7,17 @@ shortAnswer: "Twelve silent letter words for second graders, including write, wr
 category: grade-level
 grade: "2"
 difficulty: developing
+contentRole: grade-unit
 skillTags: ["grade-2", "silent-letters", "wr", "kn", "mb", "phonics", "word-study"]
-tags: ["grade-2", "silent-letters", "phonics", "spelling", "word-study"]
+tags: ["grade-2", "silent-letters", "phonics", "spelling", "word-study", "core-spelling"]
 order: 8
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-homophones", "vowel-teams-oa-ow", "lk-final-blend-words"]
-prerequisiteLists: ["grade-2-homophones"]
-nextLists: ["grade-2-comparatives-er-est"]
+relatedLists: []
+prerequisiteLists: ["grade-2-final-stable-le"]
+nextLists: ["grade-2-list-02"]
 readinessSignals:
   - "Can spell basic consonant patterns and are ready for words where not every letter is pronounced"
   - "Recognize common words such as write, know, knee, lamb, and comb when reading"
@@ -49,3 +50,5 @@ words:
 Silent-letter words include letters that are written but not pronounced. This list teaches three common Grade 2 patterns.
 
 **WR words** begin with a silent *w*: *write*, *wrote*, *wrong*, *wrap*, and *wrist*. **KN words** begin with a silent *k*: *know*, *knew*, *knee*, and *knock*. **MB words** end with a silent *b*: *thumb*, *lamb*, and *comb*.
+
+This list leaves out *gn* words (*gnat*, *sign*) and *gh* words (*ghost*, *night*) on purpose — three clear, bounded patterns are easier to master than five mixed together, and *gh* already overlaps with the `igh` pattern taught in the Grade 2 Common Words sets.

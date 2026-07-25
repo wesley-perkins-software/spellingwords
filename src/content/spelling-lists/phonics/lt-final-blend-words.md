@@ -5,7 +5,7 @@ title: "LT Final Blend Words"
 description: "Words ending with the LT consonant blend — two sounds at the end, as in belt, melt, and bolt."
 shortAnswer: "This list practices the LT blend pattern, as in belt, felt, bolt, and tilt."
 category: phonics
-grade: "2"
+grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "lt", "final-blends"]
 tags: ["phonics", "consonant-blends", "final-blends", "early-elementary"]

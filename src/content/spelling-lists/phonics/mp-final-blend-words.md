@@ -5,7 +5,7 @@ title: "MP Final Blend Words"
 description: "Words ending with the MP consonant blend — two sounds at the end, as in bump, camp, and stamp."
 shortAnswer: "This list practices the MP blend pattern, as in bump, camp, jump, and stamp."
 category: phonics
-grade: "2"
+grade: "1"
 difficulty: developing
 skillTags: ["consonant-blends", "mp", "final-blends"]
 tags: ["phonics", "consonant-blends", "final-blends", "early-elementary"]

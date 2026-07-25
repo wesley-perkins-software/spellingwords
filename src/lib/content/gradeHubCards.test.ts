@@ -72,12 +72,19 @@ describe("frozen K–1 grade hub cards", () => {
       "grade-1-inflectional-endings-ed-ing",
       "grade-1-r-controlled-ar-or",
       "grade-1-tch-dge-ending-rules",
-      "grade-1-common-words",
+      "grade-1-common-words-1",
+      "grade-1-common-words-2",
+      "grade-1-common-words-3",
+      "grade-1-common-words-4",
+      "grade-1-common-words-5",
+      "grade-1-common-words-6",
       "grade-1-number-words-11-20",
       "grade-1-days-of-the-week",
       "grade-1-five-senses-words",
     ]);
     expect(GRADE_1_HUB_SECTIONS[1].summary).toContain("6 sets · 72 words");
+    expect(GRADE_1_HUB_SECTIONS[1].cards.every((card) => card.kind === "list")).toBe(true);
+    expect(idsFor(GRADE_1_HUB_SECTIONS)).not.toContain("grade-1-common-words");
   });
 });
 

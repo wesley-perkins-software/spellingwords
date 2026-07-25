@@ -282,12 +282,52 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       "6 sets · 72 words · Common Grade 1 writing words taught with phonics and Heart Word guidance for unexpected spelling parts.",
     cards: [
       {
-        id: "grade-1-common-words",
-        title: "Grade 1 Common Words",
+        id: "grade-1-common-words-1",
+        title: "Grade 1 Common Words 1",
         description:
-          "Practice six cumulative sets of useful Grade 1 writing words, including words with parts learned by heart.",
+          "Begin with useful words for sentences, directions, and everyday writing.",
         badge: "Common Words",
-        kind: "collection",
+        kind: "list",
+      },
+      {
+        id: "grade-1-common-words-2",
+        title: "Grade 1 Common Words 2",
+        description:
+          "Continue with words for stories, questions, and classroom writing.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-1-common-words-3",
+        title: "Grade 1 Common Words 3",
+        description:
+          "Build longer sentences with joining words, pronouns, and helping words.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-1-common-words-4",
+        title: "Grade 1 Common Words 4",
+        description:
+          "Practice words for questions, comparisons, explanations, and reasons.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-1-common-words-5",
+        title: "Grade 1 Common Words 5",
+        description:
+          "Use common place, movement, time, and sequence words in writing.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-1-common-words-6",
+        title: "Grade 1 Common Words 6",
+        description:
+          "Finish with flexible words for choices, explanations, opinions, and stories.",
+        badge: "Common Words",
+        kind: "list",
       },
     ],
   },

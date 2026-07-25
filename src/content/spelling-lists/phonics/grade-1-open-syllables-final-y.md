@@ -44,16 +44,18 @@ words:
 
 ## Introduction: what students learn
 
-This lesson teaches **open syllables and final y** as part of the Grade 1 core spelling progression. Students learn that some short words end with a long vowel sound and that final y can spell long i.
+This lesson teaches **open syllables and final y** as part of the Grade 1 core spelling progression. Students learn that every syllable contains a vowel sound, that some short words end with a long vowel sound, and that final y can spell long i. They begin to hear and spell simple two-syllable words one syllable at a time.
 
 ## Learning Objectives
 
 Students will learn to:
 
-- identify the spelling pattern in spoken and written words;
-- spell a focused set of words using the pattern;
+- hear or clap the syllables in a simple two-syllable word;
+- identify the vowel sound in each syllable;
+- divide a simple two-syllable word into manageable spoken parts;
+- spell one syllable at a time, using the pattern in each part;
+- reread the completed word to check every sound and spelling part;
 - explain the pattern in simple language;
-- read their spelling back to check every sound and letter team;
 - connect this lesson to the previous and next steps in the curriculum.
 
 ## Why this spelling concept matters
@@ -62,11 +64,13 @@ This concept helps first graders move from spelling one sound at a time to using
 
 ## Parent-friendly explanation
 
-An open syllable ends in a vowel sound. In short first-grade words, the vowel can be long, as in me, go, and hi. Final y can spell long i in my and fly.
+An open syllable ends in a vowel sound. In short first-grade words, the vowel can be long, as in *me*, *go*, and *hi*. Final y can spell long i in *my* and *fly*.
+
+For a simple two-syllable word, first clap or say the parts slowly. Every syllable has a vowel sound. Divide the word into the parts you hear, spell one syllable at a time, and then reread the whole word. For example, in *robot*, say *ro-bot*: spell *ro*, spell *bot*, then read *robot* again.
 
 ## The spelling rule or generalization
 
-When a syllable ends with a vowel, that vowel is often long; at the end of short words, y can spell long i.
+When a syllable ends with a vowel, that vowel is often long; at the end of short words, y can spell long i. Every syllable contains a vowel sound, so students can use those vowel sounds to hear and divide simple two-syllable words.
 
 This is a first-grade generalization. Students will meet exceptions and more advanced choices in later grades.
 
@@ -91,6 +95,8 @@ This is a first-grade generalization. Students will meet exceptions and more adv
 - I can use **he** in a sentence.
 - Find the spelling pattern in **she**.
 - Write **we** and check it from left to right.
+- Say **robot** as *ro-bot*, spell one syllable at a time, and reread the completed word.
+- Clap the two syllables in **music**, then listen for the vowel sound in each part.
 
 ## Common mistakes children make
 
@@ -109,7 +115,7 @@ This is a first-grade generalization. Students will meet exceptions and more adv
 
 ## How parents can practice at home
 
-Say one word, have your child repeat it, tap the sounds or spelling parts, write it, and then read it back. Ask, “What part of the word shows today’s pattern?” Keep practice short and focused: five strong words are better than twenty rushed words.
+Say one word, have your child repeat it, tap the sounds or spelling parts, write it, and then read it back. For a simple two-syllable word, clap or say the syllables, point out the vowel sound in each one, spell the first syllable, spell the second syllable, and reread the completed word. Ask, “What part of the word shows today’s pattern?” Keep practice short and focused: five strong words are better than twenty rushed words.
 
 ## Navigation and related practice
 

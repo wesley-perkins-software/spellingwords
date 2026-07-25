@@ -70,7 +70,7 @@ function readInlineArray(frontmatter: string, key: string): string[] {
 }
 
 function readWords(frontmatter: string): string[] {
-  const match = frontmatter.match(/^words:\s*\n([\s\S]*?)(?=\n---|\n[a-zA-Z][\w]*:|$)/m);
+  const match = frontmatter.match(/^words:\s*\n([\s\S]*)$/m);
   if (!match) return [];
   return match[1]
     .split('\n')

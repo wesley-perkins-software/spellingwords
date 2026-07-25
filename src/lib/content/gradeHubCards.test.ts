@@ -53,10 +53,11 @@ describe("frozen K–1 grade hub cards", () => {
     expect(idsFor(KINDERGARTEN_HUB_SECTIONS)).not.toContain("kindergarten-number-color-words");
   });
 
-  it("renders the Grade 1 cards in the authoritative order without an empty additional-practice section", () => {
+  it("renders the complete Grade 1 cards in the authoritative order", () => {
     expect(GRADE_1_HUB_SECTIONS.map((section) => section.title)).toEqual([
       "Core Spelling",
       "High-Frequency Words",
+      "Additional Practice",
     ]);
     expect(idsFor(GRADE_1_HUB_SECTIONS)).toEqual([
       "grade-1-cvc-short-vowels-c-k-rule",
@@ -72,8 +73,11 @@ describe("frozen K–1 grade hub cards", () => {
       "grade-1-r-controlled-ar-or",
       "grade-1-tch-dge-ending-rules",
       "grade-1-common-words",
+      "grade-1-number-words-11-20",
+      "grade-1-days-of-the-week",
+      "grade-1-five-senses-words",
     ]);
-    expect(GRADE_1_HUB_SECTIONS).not.toContainEqual(expect.objectContaining({ title: "Additional Practice" }));
+    expect(GRADE_1_HUB_SECTIONS[1].summary).toContain("6 sets · 72 words");
   });
 });
 
@@ -85,16 +89,16 @@ describe("Common Words validation slice content", () => {
     expect(collection).toContain("urlSlug: kindergarten-common-words");
     expect(collection).toContain('title: "Kindergarten High-Frequency Words"');
     expect(collection).toMatch(
-      /listIds:\n  - kindergarten-common-words-1\n  - kindergarten-common-words-2\n  - kindergarten-common-words-3\n  - kindergarten-common-words-4/,
+      /listIds:\n {2}- kindergarten-common-words-1\n {2}- kindergarten-common-words-2\n {2}- kindergarten-common-words-3\n {2}- kindergarten-common-words-4/,
     );
   });
 
-  it("publishes the two live Grade 1 child sets without future references", () => {
+  it("publishes all six Grade 1 child sets in sequence", () => {
     const collection = source("spelling-collections/grade-1-common-words.md");
     expect(collection).toMatch(
-      /listIds:\n  - grade-1-common-words-1\n  - grade-1-common-words-2/,
+      /listIds:\n {2}- grade-1-common-words-1\n {2}- grade-1-common-words-2\n {2}- grade-1-common-words-3\n {2}- grade-1-common-words-4\n {2}- grade-1-common-words-5\n {2}- grade-1-common-words-6/,
     );
-    expect(collection).not.toContain("grade-1-common-words-3");
+    expect(collection).toContain("72 words");
   });
 
   it("keeps exact set ids, roles, words, and live adjacent relationships", () => {
@@ -102,17 +106,17 @@ describe("Common Words validation slice content", () => {
       [
         "kindergarten-common-words-1",
         "a, I, am, at, can, in, it, is, and, the",
-        "nextLists: [kindergarten-common-words-2]",
+        'nextLists: ["kindergarten-common-words-2"]',
       ],
       [
         "kindergarten-common-words-2",
         "he, she, we, me, my, go, to, do, you, like",
-        "nextLists: [kindergarten-common-words-3]",
+        'nextLists: ["kindergarten-common-words-3"]',
       ],
       [
         "kindergarten-common-words-3",
         "for, of, was, said, have, are, here, come, look, see",
-        "nextLists: [kindergarten-common-words-4]",
+        'nextLists: ["kindergarten-common-words-4"]',
       ],
       [
         "kindergarten-common-words-4",
@@ -122,13 +126,17 @@ describe("Common Words validation slice content", () => {
       [
         "grade-1-common-words-1",
         "all, but, did, no, get, good, new, now, our, out, please, want",
-        "nextLists: [grade-1-common-words-2]",
+        'nextLists: ["grade-1-common-words-2"]',
       ],
       [
         "grade-1-common-words-2",
         "after, again, any, ask, by, could, every, fly, from, give, going, had",
-        "nextLists: []",
+        'nextLists: ["grade-1-common-words-3"]',
       ],
+      ["grade-1-common-words-3", "on, not, an, as, if, has, his, her, him, them, be, will", 'nextLists: ["grade-1-common-words-4"]'],
+      ["grade-1-common-words-4", "what, when, who, why, how, there, your, their, were, some, more, because", 'nextLists: ["grade-1-common-words-5"]'],
+      ["grade-1-common-words-5", "up, down, back, over, into, about, home, way, time, first, next, then", 'nextLists: ["grade-1-common-words-6"]'],
+      ["grade-1-common-words-6", "or, so, just, us, may, make, many, very, people, know, would, should", "nextLists: []"],
     ] as const;
 
     for (const [id, words, next] of expectations) {
@@ -136,9 +144,9 @@ describe("Common Words validation slice content", () => {
       expect(set).toContain(`id: ${id}`);
       expect(set).toContain(`urlSlug: ${id}`);
       expect(set).toContain("contentRole: sight-word-set");
-      expect(set).toContain(next);
+      expect(set.replaceAll("'", '"')).toContain(next);
       const actualWords = [
-        ...set.matchAll(/^\s*-\s+(?:word:\s+)?[\"']([^\"']+)[\"']/gm),
+        ...set.matchAll(/^\s*-\s+(?:word:\s+)?["']([^"']+)["']/gm),
       ].map((match) => match[1]);
       expect(actualWords).toEqual(words.split(", "));
     }
@@ -161,9 +169,9 @@ describe("Common Words validation slice content", () => {
     const combined = source("spelling-lists/grade-level/kindergarten-number-color-words.md");
 
     expect(numberWords).toContain("urlSlug: kindergarten-number-words");
-    expect(numberWords).toMatch(/words:\n  - one\n  - two\n  - three\n  - four\n  - five\n  - six\n  - seven\n  - eight\n  - nine\n  - ten/);
+    expect(numberWords).toMatch(/words:\n {2}- one\n {2}- two\n {2}- three\n {2}- four\n {2}- five\n {2}- six\n {2}- seven\n {2}- eight\n {2}- nine\n {2}- ten/);
     expect(colorWords).toContain("urlSlug: kindergarten-color-words");
-    expect(colorWords).toMatch(/words:\n  - red\n  - blue\n  - green\n  - yellow\n  - black\n  - white\n  - brown\n  - pink/);
+    expect(colorWords).toMatch(/words:\n {2}- red\n {2}- blue\n {2}- green\n {2}- yellow\n {2}- black\n {2}- white\n {2}- brown\n {2}- pink/);
     expect(combined).toContain("status: published");
     expect(combined).toContain("kindergarten-number-words");
     expect(combined).toContain("kindergarten-color-words");

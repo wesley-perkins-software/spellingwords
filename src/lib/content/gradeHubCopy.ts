@@ -44,13 +44,13 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   },
   "3": {
     metaDescription:
-      "Free 3rd grade spelling word lists for vocabulary, sight words, prefixes, suffixes, spelling rules, multisyllabic words, homophones, and root word families. Calm audio-supported practice.",
+      "Free 3rd grade spelling word lists with a seven-step Core Spelling route through prefixes, suffixes, suffix spelling changes, possessives, multisyllabic words, homophones, and root word families.",
     heroParagraphs: [
-      "Here are free 3rd grade spelling word lists including everyday words, reading and writing vocabulary, describing words, Dolch third grade sight words, prefixes, suffixes, spelling rules, multisyllabic words, homophones, and root word families. All lists include audio support so students can hear each word before typing it.",
-      "Third grade spelling is the bridge from phonics into morphology. Students still need high-frequency vocabulary, but they are also ready to study prefixes, suffixes, suffix spelling changes, longer multisyllabic words, and meaning-based spelling choices.",
+      "Use Core Spelling for the Grade 3 route: prefixes, suffixes, the spelling changes suffixes trigger, possessives, longer multisyllabic words, and homophones and commonly confused words. All lists include audio support so students can hear each word before typing it.",
+      "Third grade spelling is the bridge from phonics into morphology. Students build on the word-part knowledge from Grade 1 and Grade 2 to study prefixes, suffixes, suffix spelling changes, apostrophe conventions, longer words, and meaning-based spelling choices.",
     ],
     guidanceBody:
-      "Start with Everyday Words, Describing Words, and Reading & Writing Words for a Grade 3 vocabulary foundation. Then move into Prefix Words and Suffix Words before practicing the three spelling-rule lists: Dropping Silent E, Doubling Final Consonants, and Changing Y to I. Multisyllabic Words, Homophones, and Root Word Families complete the bridge into Grade 4 morphology.",
+      "Start with Core Spelling and move through the seven steps in order — Prefixes and Suffixes come first because the spelling-change, possessive, and multisyllabic-word lessons that follow all depend on them. Root Word Families closes the sequence and previews the Greek and Latin root study that begins in Grade 4.",
     emptyStateLabel: "Third grade",
   },
   "4": {

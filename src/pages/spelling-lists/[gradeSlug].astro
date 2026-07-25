@@ -16,6 +16,7 @@ import {
   buildGradeHubCards,
   GRADE_1_HUB_SECTIONS,
   GRADE_2_HUB_SECTIONS,
+  GRADE_3_HUB_SECTIONS,
   KINDERGARTEN_HUB_SECTIONS,
 } from '@/lib/content/gradeHubCards';
 import { categoryLabels } from '@/lib/content/categoryMeta';
@@ -40,6 +41,7 @@ const CURATED_HUB_SECTIONS: Partial<Record<GradeCode, typeof KINDERGARTEN_HUB_SE
   K: KINDERGARTEN_HUB_SECTIONS,
   '1': GRADE_1_HUB_SECTIONS,
   '2': GRADE_2_HUB_SECTIONS,
+  '3': GRADE_3_HUB_SECTIONS,
 };
 
 const { gradeEntry } = Astro.props as { gradeEntry: GradeConfigEntry };

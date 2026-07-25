@@ -4,6 +4,7 @@ urlSlug: 3rd-grade-changing-y-to-i
 title: "3rd Grade Spelling Rule: Changing Y to I"
 description: "A Grade 3 spelling rule list that teaches when y changes to i before endings like -ed, -er, -est, -es, and -ness."
 shortAnswer: "Third graders learn that a final y often changes to i before an ending, as in tried, carried, cities, happier, and happiness."
+contentRole: skill
 category: grade-level
 grade: "3"
 difficulty: intermediate
@@ -14,9 +15,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-doubling-final-consonants", "grade-3-multisyllabic-words"]
+relatedLists: ["grade-3-doubling-final-consonants", "grade-3-possessives"]
 prerequisiteLists: ["grade-3-doubling-final-consonants"]
-nextLists: ["grade-3-multisyllabic-words"]
+nextLists: ["grade-3-possessives"]
 readinessSignals:
   - "Can spell base words ending in consonant plus y, such as carry, study, happy, and city"
   - "Recognize common endings such as -ed, -es, -er, -est, and -ness"

@@ -4,6 +4,7 @@ urlSlug: 3rd-grade-dropping-silent-e
 title: "3rd Grade Spelling Rule: Dropping Silent E"
 description: "A Grade 3 spelling rule list that teaches when to drop the final silent e before adding suffixes like -ing and -ed."
 shortAnswer: "Third graders learn to drop the final silent e before many vowel suffixes, changing words like make to making and write to writing."
+contentRole: grade-unit
 category: grade-level
 grade: "3"
 difficulty: intermediate
@@ -14,8 +15,8 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-suffix-words", "grade-3-doubling-final-consonants"]
-prerequisiteLists: ["grade-3-suffix-words"]
+relatedLists: ["grade-3-suffix-words", "grade-3-doubling-final-consonants", "grade-3-changing-y-to-i"]
+prerequisiteLists: ["grade-3-suffix-words", "grade-2-comparatives-er-est"]
 nextLists: ["grade-3-doubling-final-consonants"]
 readinessSignals:
   - "Can spell silent-e base words such as make, take, come, write, and hope"
@@ -30,6 +31,8 @@ faq:
     answer: "Dropping silent e starts with a base word that already ends in e. Doubling final consonants usually starts with a short-vowel word ending in one consonant, such as run or stop."
   - question: "What silent-e mistake shows this rule is needed?"
     answer: "Students may write makeing because they attach the suffix without checking the final e. Have them identify the base word, circle the final e, and decide whether the suffix begins with a vowel."
+  - question: "Does -ed always sound the same after a suffix change?"
+    answer: "No — -ed has three sounds depending on the last sound of the base word: /t/ after a voiceless sound (hoped), /d/ after a voiced sound (loved), and /ed/ after a word already ending in t or d (wanted, added). Noticing which sound is used does not change the spelling, but it helps students hear that every -ed word still needs the same two letters."
 featured: false
 words:
   - making

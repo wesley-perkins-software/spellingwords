@@ -16,7 +16,7 @@ masteryThreshold: 90
 sourceType: curated
 relatedLists: []
 prerequisiteLists: ["grade-3-suffix-words"]
-nextLists: []
+nextLists: ["grade-3-dropping-silent-e"]
 readinessSignals:
   - "Can use describing words such as fast, slow, small, big, happy, and easy in speech or writing"
   - "Understand comparing two things versus naming the most of a group"

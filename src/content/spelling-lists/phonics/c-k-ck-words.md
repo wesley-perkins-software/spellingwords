@@ -5,7 +5,7 @@ title: "C, K, and CK Words"
 description: "A focused spelling-choice list for the /k/ sound: c before a, o, u; k before e, i; and ck after a short vowel at the end of a one-syllable word."
 shortAnswer: "This list helps students practice when to spell the /k/ sound with c, k, or ck."
 category: phonics
-grade: "2"
+grade: "1"
 difficulty: developing
 skillTags: ["spelling-patterns", "c-k-ck", "short-vowels"]
 tags: ["phonics", "spelling-rules", "c-k-ck", "early-elementary"]

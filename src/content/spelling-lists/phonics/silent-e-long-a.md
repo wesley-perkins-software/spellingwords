@@ -6,7 +6,7 @@ title: "Long A Silent E Words"
 description: "Words where a silent final 'e' turns a short vowel into a long 'a' sound, such as cake and gate — the natural next step after short-vowel CVC words."
 shortAnswer: "This list focuses on the silent-e pattern that produces the long 'a' sound, as in cake, gate, and brave."
 category: phonics
-grade: "2"
+grade: "1"
 difficulty: developing
 skillTags: ["silent-e", "long-vowels", "long-a"]
 tags: ["phonics", "silent-e", "long-vowels", "early-elementary"]

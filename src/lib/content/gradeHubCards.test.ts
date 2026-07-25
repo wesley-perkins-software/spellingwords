@@ -181,7 +181,11 @@ describe("Common Words validation slice content", () => {
       ["grade-1-common-words-3", "on, not, an, as, if, has, his, her, him, them, be, will", 'nextLists: ["grade-1-common-words-4"]'],
       ["grade-1-common-words-4", "what, when, who, why, how, there, your, their, were, some, more, because", 'nextLists: ["grade-1-common-words-5"]'],
       ["grade-1-common-words-5", "up, down, back, over, into, about, home, way, time, first, next, then", 'nextLists: ["grade-1-common-words-6"]'],
-      ["grade-1-common-words-6", "or, so, just, us, may, make, many, very, people, know, would, should", "nextLists: []"],
+      [
+        "grade-1-common-words-6",
+        "or, so, just, us, may, make, many, very, people, know, would, should",
+        'nextLists: ["grade-2-common-words-1"]',
+      ],
     ] as const;
 
     for (const [id, words, next] of expectations) {

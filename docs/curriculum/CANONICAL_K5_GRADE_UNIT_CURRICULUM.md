@@ -5,7 +5,8 @@
 **Status:** Canonical educational research reference  
 **Purpose:** Defines the consensus K–5 Grade Unit curriculum used to audit and plan site content  
 **Source:** Deep research synthesis of U.S. standards and structured-literacy curricula  
-**Implementation authority:** Educational blueprint only; product implementation requires a separate audit and approved plan
+**Implementation authority:** Educational blueprint only; public implementation details are governed by [K5_FINAL_CONTENT_ARCHITECTURE.md](../planning/K5_FINAL_CONTENT_ARCHITECTURE.md)
+**Implementation status:** Kindergarten and Grade 1 are implemented on the public website; Grades 2–5 remain future implementation work
 
 ## How this document should be used
 
@@ -16,6 +17,12 @@
 - It should be used to audit existing content and plan missing Grade Unit content.
 
 - Product-facing names or grouping may be refined later, but educational scope should not be silently changed.
+
+- A broad curriculum unit may be represented by multiple, more focused public Grade Units. This is presentation granularity, not a different curriculum progression.
+
+### Current implementation note
+
+Kindergarten and Grade 1 are implementation-complete under the public architecture. Their hubs, Common Words sequences, and approved Additional Practice pages realize the educational progression in this document at a finer level of detail. Grades 2–5 remain educationally specified here and architecturally specified in the implementation reference, but are not yet implementation-complete.
 
 ## Framing the synthesis
 
@@ -43,6 +50,8 @@ The recommended ordering is: Sounds, Letters, and Early Encoding → Short Vowel
 
 The main kindergarten concepts that should not become separate Grade Units are phonological awareness, handwriting/letter formation, sentence dictation, and early digraph exposure. They are essential, but they function better as embedded supports inside the kindergarten units rather than as independent yearlong topics. That is especially true because standards and curricula treat these foundations as intertwined rather than separate silos.
 
+> **Implementation note:** Kindergarten is now implemented on the public website. The three broad curriculum units above are presented through eight finer-grained Core Spelling cards, four High-Frequency Words sets containing 40 words, and three bounded Additional Practice cards. The focused short-vowel pages and late-kindergarten digraph preview make the learning path easier to navigate without changing the curriculum’s scope or progression.
+
 ### Grade One overview
 
 In Grade 1, spelling instruction broadens from basic closed-syllable words into new one-syllable patterns and the first systematic longer-word work. Common Core Grade 1 explicitly includes common consonant digraphs, final-e and common vowel-team conventions, basic syllable counting, two-syllable decoding by breaking words into syllables, inflectional endings, and irregular words. New York and Florida show the same general pattern. Fundations Level 1 and CKLA Grade 1 likewise move from short-vowel one-syllable words into long-vowel spellings, vowel teams, syllable concepts, and continued tricky-word work.
@@ -58,6 +67,8 @@ In Grade 1, spelling instruction broadens from basic closed-syllable words into 
 The best Grade 1 ordering is: Consonant Digraphs and Blends → Inflectional Endings → Silent E and Long Vowels → Vowel Teams → Syllables and Two-Syllable Words. That order preserves the logic that students first stabilize one-syllable consonant patterns, then work with common endings on familiar words, then shift into long-vowel spellings, and finally apply those patterns in longer words. Commercial curricula vary somewhat—some place long-vowel work before much endings work—but the overall dependency chain remains stable.
 
 The concepts absorbed into Grade 1 units rather than made separate units are open and closed syllables, schwa-free early syllable division, and continued high-frequency-word work. Open/closed syllables are real concepts, but at this stage they function better inside Syllables and Two-Syllable Words than as separate Grade Units. High-frequency words continue every year, but Grade 1 does not need a second standalone unit because the strand was already introduced in kindergarten.
+
+> **Implementation note:** Grade 1 is now implemented on the public website. The five broad curriculum units above map to twelve more granular Core Spelling cards; closely related patterns are separated when a focused public practice step improves sequencing and navigation. The site also presents six cumulative Common Words sets containing 72 unique words and three bounded Additional Practice cards. The dedicated **Open Syllables and Final Y** card is a focused presentation of the syllable work described above, and the Grade 1 **R-Controlled Vowels** card is an intentional early instructional treatment within the timing range acknowledged later in this research. Neither changes the canonical progression: the public architecture makes its components more explicit.
 
 ### Grade Two overview
 

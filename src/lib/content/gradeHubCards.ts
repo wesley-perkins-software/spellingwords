@@ -278,15 +278,65 @@ export const GRADE_1_HUB_SECTIONS: readonly {
   },
   {
     title: "High-Frequency Words",
+    summary:
+      "6 sets · 72 words · Common Grade 1 writing words taught with phonics and Heart Word guidance for unexpected spelling parts.",
     cards: [
       {
-        id: "grade-1-common-words",
-        title: "Grade 1 Common Words",
+        id: "grade-1-common-words-1",
+        title: "Grade 1 Common Words 1",
         description:
-          "Practice small cumulative sets of useful Grade 1 writing words, including words with parts learned by heart.",
+          "Begin with useful words for sentences, directions, and everyday writing.",
         badge: "Common Words",
-        kind: "collection",
+        kind: "list",
       },
+      {
+        id: "grade-1-common-words-2",
+        title: "Grade 1 Common Words 2",
+        description:
+          "Continue with words for stories, questions, and classroom writing.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-1-common-words-3",
+        title: "Grade 1 Common Words 3",
+        description:
+          "Build longer sentences with joining words, pronouns, and helping words.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-1-common-words-4",
+        title: "Grade 1 Common Words 4",
+        description:
+          "Practice words for questions, comparisons, explanations, and reasons.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-1-common-words-5",
+        title: "Grade 1 Common Words 5",
+        description:
+          "Use common place, movement, time, and sequence words in writing.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-1-common-words-6",
+        title: "Grade 1 Common Words 6",
+        description:
+          "Finish with flexible words for choices, explanations, opinions, and stories.",
+        badge: "Common Words",
+        kind: "list",
+      },
+    ],
+  },
+  {
+    title: "Additional Practice",
+    cards: [
+      { id: "grade-1-number-words-11-20", title: "Number Words 11–20", description: "Practice spelling the number words eleven through twenty.", badge: "Vocabulary", kind: "list" },
+      { id: "grade-1-days-of-the-week", title: "Days of the Week", description: "Practice spelling and capitalizing all seven days of the week.", badge: "Vocabulary", kind: "list" },
+      { id: "grade-1-five-senses-words", title: "Five Senses Words", description: "Practice words for the five senses and the body parts we use.", badge: "Vocabulary", kind: "list" },
     ],
   },
 ];

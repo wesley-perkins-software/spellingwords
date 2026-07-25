@@ -70,7 +70,7 @@ function readFrontmatter(filePath: string): string {
 
 function readScalar(frontmatter: string, key: string): string | undefined {
   const match = frontmatter.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));
-  return match?.[1].trim().replace(/^[ '\"]|[ '\"]$/g, '');
+  return match?.[1].trim().replace(/^[ '"]|[ '"]$/g, '');
 }
 
 function readArray(frontmatter: string, key: string): string[] {
@@ -83,7 +83,7 @@ function readArray(frontmatter: string, key: string): string[] {
   if (inline) {
     return inline[1]
       .split(',')
-      .map((item) => item.trim().replace(/^[ '\"]|[ '\"]$/g, ''))
+      .map((item) => item.trim().replace(/^[ '"]|[ '"]$/g, ''))
       .filter(Boolean);
   }
 
@@ -92,7 +92,7 @@ function readArray(frontmatter: string, key: string): string[] {
     if (/^[a-zA-Z][\w]*:/.test(line)) break;
     const trimmed = line.trim();
     if (trimmed.startsWith('- ')) {
-      values.push(trimmed.slice(2).trim().replace(/^[ '\"]|[ '\"]$/g, ''));
+      values.push(trimmed.slice(2).trim().replace(/^[ '"]|[ '"]$/g, ''));
     }
   }
 

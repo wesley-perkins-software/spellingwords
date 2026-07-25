@@ -41,7 +41,12 @@ const commonWordsMetadata = data.id === 'kindergarten-common-words'
         heading: 'Grade 1 Common Words to Spell',
         title: '1st Grade Common Words to Spell: 6 Sets | spellingwords',
       }
-    : undefined;
+    : data.id === 'grade-2-common-words'
+      ? {
+          heading: 'Grade 2 Common Words to Spell',
+          title: '2nd Grade Common Words to Spell: 6 Sets | spellingwords',
+        }
+      : undefined;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },

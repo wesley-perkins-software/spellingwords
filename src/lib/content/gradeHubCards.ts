@@ -639,10 +639,8 @@ export const GRADE_3_HUB_SECTIONS: readonly {
 ];
 
 /**
- * Grade 4 hub — Core Spelling only. High-Frequency Words and Additional
- * Practice remain planned (see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`
- * Section 8) and are added here once each clears review — do not wire in
- * draft content early.
+ * Grade 4 hub — Core Spelling, High-Frequency Words, and Additional Practice
+ * (see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 8).
  */
 export const GRADE_4_HUB_SECTIONS: readonly {
   title: string;
@@ -698,6 +696,58 @@ export const GRADE_4_HUB_SECTIONS: readonly {
         description:
           "See how one base word's family — such as nation, national, and nationality — keeps its spelling stable even as pronunciation and meaning shift.",
         badge: "Grade Unit",
+        kind: "list",
+      },
+    ],
+  },
+  {
+    title: "High-Frequency Words",
+    summary:
+      "4 sets · 48 words · Narrow, corrective Grade 4 writing words taught with Heart Word guidance for silent letters, doubled consonants, unstressed vowels, and confusable connecting words.",
+    cards: [
+      {
+        id: "grade-4-common-words-1",
+        title: "Grade 4 Common Words 1",
+        description:
+          "Practice words with a silent or unexpected letter, such as environment and receipt.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-4-common-words-2",
+        title: "Grade 4 Common Words 2",
+        description:
+          "Practice words with a doubled consonant that has to be remembered, such as necessary and embarrass.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-4-common-words-3",
+        title: "Grade 4 Common Words 3",
+        description:
+          "Practice words with an unstressed vowel, such as separate and particular.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-4-common-words-4",
+        title: "Grade 4 Common Words 4",
+        description:
+          "Finish with connecting and confusable words for longer writing, such as however, weather, and whether.",
+        badge: "Common Words",
+        kind: "list",
+      },
+    ],
+  },
+  {
+    title: "Additional Practice",
+    cards: [
+      {
+        id: "grade-4-measurement-words",
+        title: "Measurement Words",
+        description:
+          "Practice the customary units of length, weight, and liquid volume fourth graders meet in math.",
+        badge: "Vocabulary",
         kind: "list",
       },
     ],

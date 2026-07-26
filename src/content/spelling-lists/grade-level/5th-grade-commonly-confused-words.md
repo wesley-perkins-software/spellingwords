@@ -4,6 +4,7 @@ urlSlug: 5th-grade-commonly-confused-words
 title: "5th Grade Commonly Confused Words"
 description: "A fifth-grade commonly confused words list that helps students choose the right spelling for words that sound alike or look similar in writing."
 shortAnswer: "Fifth graders practice commonly confused words such as affect, effect, principal, principle, advice, advise, desert, dessert, loose, and lose."
+contentRole: grade-unit
 category: grade-level
 grade: "5"
 difficulty: intermediate
@@ -14,9 +15,9 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-reading-writing-words", "grade-5-opinion-argument-words", "grade-5-spelling-rules"]
-prerequisiteLists: ["grade-4-commonly-confused-words"]
-nextLists: ["grade-5-science-nature-words"]
+relatedLists: ["grade-5-reading-writing-words", "grade-5-opinion-argument-words", "grade-5-spelling-rules", "grade-5-spelling-changes-related-words"]
+prerequisiteLists: ["grade-4-commonly-confused-words", "grade-5-greek-latin-word-parts"]
+nextLists: ["grade-5-spelling-changes-related-words"]
 readinessSignals:
   - "Can compare word meanings closely enough to explain why one choice fits a sentence better than another"
   - "Write reports, arguments, stories, or explanations where precise vocabulary affects credibility and clarity"

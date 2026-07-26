@@ -9,7 +9,7 @@ grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "civics", "social-studies", "vocabulary"]
 tags: ["grade-5", "civics", "social-studies", "vocabulary", "content-area"]
-order: 11
+order: 12
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90

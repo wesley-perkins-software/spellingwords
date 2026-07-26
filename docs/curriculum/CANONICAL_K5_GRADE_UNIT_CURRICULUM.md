@@ -6,7 +6,7 @@
 **Purpose:** Defines the consensus K–5 Grade Unit curriculum used to audit and plan site content  
 **Source:** Deep research synthesis of U.S. standards and structured-literacy curricula  
 **Implementation authority:** Educational blueprint only; public implementation details are governed by [K5_FINAL_CONTENT_ARCHITECTURE.md](../planning/K5_FINAL_CONTENT_ARCHITECTURE.md)
-**Implementation status:** Kindergarten, Grade 1, Grade 2, Grade 3, and Grade 4 are implemented on the public website; Grade 5's Core Spelling section is now implemented, with High-Frequency Words and Additional Practice remaining as a separate future implementation phase (see [K5_FINAL_CONTENT_ARCHITECTURE.md](../planning/K5_FINAL_CONTENT_ARCHITECTURE.md) Section 14)
+**Implementation status:** Kindergarten, Grade 1, Grade 2, Grade 3, and Grade 4 are implemented on the public website; Grade 5's Core Spelling and High-Frequency Words sections are now implemented, with Additional Practice remaining as a separate future implementation phase (see [K5_FINAL_CONTENT_ARCHITECTURE.md](../planning/K5_FINAL_CONTENT_ARCHITECTURE.md) Sections 14–15)
 
 ## How this document should be used
 

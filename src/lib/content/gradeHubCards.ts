@@ -755,11 +755,10 @@ export const GRADE_4_HUB_SECTIONS: readonly {
 ];
 
 /**
- * Grade 5 hub — Core Spelling only for now (see
- * `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`). High-Frequency Words and
- * Additional Practice are a separate, later implementation phase: Grade 5
- * has no Common Words sets yet, and its content-area vocabulary
- * (`grade-5-science-nature-words`, `grade-5-community-civics-words`,
+ * Grade 5 hub — Core Spelling and High-Frequency Words (see
+ * `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`). Additional Practice
+ * remains a separate, later implementation phase: Grade 5's content-area
+ * vocabulary (`grade-5-science-nature-words`, `grade-5-community-civics-words`,
  * `grade-5-math-vocabulary`) is being held for that phase rather than wired
  * in early — the same discipline `GRADE_3_HUB_SECTIONS` documents above.
  */
@@ -809,6 +808,45 @@ export const GRADE_5_HUB_SECTIONS: readonly {
         description:
           "See how one base word's family — such as critic, critical, and criticism — keeps its spelling stable even as pronunciation shifts.",
         badge: "Grade Unit",
+        kind: "list",
+      },
+    ],
+  },
+  {
+    title: "High-Frequency Words",
+    summary:
+      "4 sets · 48 words · Narrow, corrective Grade 5 writing words taught with Heart Word guidance for silent letters, doubled letters, unstressed vowels, and editing and connecting words.",
+    cards: [
+      {
+        id: "grade-5-common-words-1",
+        title: "Grade 5 Common Words 1",
+        description:
+          "Practice words with a silent or hidden letter, such as foreign and conscience.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-5-common-words-2",
+        title: "Grade 5 Common Words 2",
+        description:
+          "Practice words with doubled letters in longer academic words, such as accommodate and committee.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-5-common-words-3",
+        title: "Grade 5 Common Words 3",
+        description:
+          "Practice words with an unstressed vowel, such as temperature and experience.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-5-common-words-4",
+        title: "Grade 5 Common Words 4",
+        description:
+          "Finish with connecting and editing words for longer writing, such as consequently, punctuation, and vocabulary.",
+        badge: "Common Words",
         kind: "list",
       },
     ],

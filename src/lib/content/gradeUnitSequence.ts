@@ -3,6 +3,7 @@ import { gradeConfig } from './gradeConfig';
 import { GRADE_1_CORE_IDS, GRADE_1_GATEWAY_IDS, GRADE_1_TARGETED_SKILL_IDS, GRADE_1_VOCABULARY_IDS } from './grade1Progression';
 import { GRADE_2_CORE_IDS } from './grade2Progression';
 import { GRADE_3_CORE_IDS } from './grade3Progression';
+import { GRADE_4_CORE_IDS } from './grade4Progression';
 import { KINDERGARTEN_ADDITIONAL_IDS, KINDERGARTEN_CORE_IDS } from './kindergartenProgression';
 import { getListsByGrade, type SpellingListEntry } from './spellingLists';
 
@@ -16,6 +17,7 @@ const CURATED_GRADE_ORDER: Partial<Record<GradeCode, readonly string[]>> = {
   '1': [...GRADE_1_CORE_IDS, ...GRADE_1_GATEWAY_IDS, ...GRADE_1_TARGETED_SKILL_IDS, ...GRADE_1_VOCABULARY_IDS],
   '2': [...GRADE_2_CORE_IDS],
   '3': [...GRADE_3_CORE_IDS],
+  '4': [...GRADE_4_CORE_IDS],
 };
 
 /**

@@ -638,6 +638,72 @@ export const GRADE_3_HUB_SECTIONS: readonly {
   },
 ];
 
+/**
+ * Grade 4 hub — Core Spelling only. High-Frequency Words and Additional
+ * Practice remain planned (see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`
+ * Section 8) and are added here once each clears review — do not wire in
+ * draft content early.
+ */
+export const GRADE_4_HUB_SECTIONS: readonly {
+  title: string;
+  summary?: string;
+  cards: readonly CardDefinition[];
+}[] = [
+  {
+    title: "Core Spelling",
+    cards: [
+      {
+        id: "grade-4-multisyllabic-academic-words",
+        title: "Advanced Multisyllabic Words",
+        description:
+          "Break longer academic words such as communicate and organize into syllables before moving into affixes and roots.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-4-advanced-prefixes",
+        title: "Advanced Prefixes",
+        description:
+          "Learn prefixes such as inter-, sub-, super-, trans-, and anti- that appear in longer academic words.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-4-advanced-suffixes",
+        title: "Advanced Suffixes and Final Stable Syllables",
+        description:
+          "Learn advanced suffixes such as -able, -ible, -ous, -ive, -tion, and -sion, then extend into the -ture and -sure endings that complete the Grade 4 final-stable-syllable set.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "tier-1-roots-and-patterns",
+        title: "Greek and Latin Roots",
+        description:
+          "Learn Latin roots such as port, dict, spect, rupt, and struct, then Greek roots such as tele, photo, graph, bio, demo, and scope.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-4-commonly-confused-words",
+        title: "Commonly Confused Words",
+        description:
+          "Choose the right spelling for words that sound alike or look similar, such as its/it's, than/then, and affect/effect.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-4-derived-words",
+        title: "Derived Words and Word Meaning",
+        description:
+          "See how one base word's family — such as nation, national, and nationality — keeps its spelling stable even as pronunciation and meaning shift.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+    ],
+  },
+];
+
 export function buildGradeHubCards(
   definitions: readonly { title: string; cards: readonly CardDefinition[] }[],
   entries: SpellingListEntry[],

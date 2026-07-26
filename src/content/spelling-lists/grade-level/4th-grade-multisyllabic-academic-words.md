@@ -4,6 +4,7 @@ urlSlug: 4th-grade-multisyllabic-academic-words
 title: "4th Grade Multisyllabic Academic Words"
 description: "Longer academic words fourth graders meet across subjects, chosen for syllable practice, spelling accuracy, and classroom usefulness."
 shortAnswer: "Fourth graders practice multisyllabic academic words such as communicate, consequence, knowledge, organize, purpose, and strategy."
+contentRole: grade-unit
 category: grade-level
 grade: "4"
 difficulty: intermediate

@@ -9,7 +9,7 @@ grade: "4"
 difficulty: intermediate
 skillTags: ["grade-4", "academic-vocabulary", "content-vocabulary"]
 tags: ["grade-4", "academic-vocabulary", "content-vocabulary", "science", "social-studies"]
-order: 9
+order: 11
 estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90

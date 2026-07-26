@@ -55,13 +55,13 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   },
   "4": {
     metaDescription:
-      "Free 4th grade spelling word lists for multisyllabic academic words, advanced prefixes and suffixes, Greek and Latin roots, commonly confused words, and content vocabulary.",
+      "Free 4th grade spelling word lists with a six-step Core Spelling route through advanced multisyllabic words, advanced prefixes, advanced suffixes and final stable syllables, Greek and Latin roots, commonly confused words, and derived words and word meaning.",
     heroParagraphs: [
-      "Here are free 4th grade spelling word lists covering everyday words, reading and writing vocabulary, multisyllabic academic words, advanced prefixes and suffixes, Greek and Latin roots, commonly confused words, and content-area vocabulary. All lists include audio support so students can hear each word read aloud before typing it.",
-      "Fourth grade spelling is the expansion year after introductory morphology. Students move from basic prefixes, suffixes, and root families into longer academic words, derivational suffixes, advanced prefixes, and Greek and Latin roots that support reading across subjects.",
+      "Use Core Spelling for the Grade 4 route: advanced multisyllabic words, advanced prefixes, advanced suffixes and final stable syllables, Greek and Latin roots, commonly confused words, and derived words and word meaning. All lists include audio support so students can hear each word before typing it.",
+      "Fourth grade spelling is the expansion year after introductory morphology. Students move from basic prefixes, suffixes, and root families into longer academic words, advanced affixes, the final stable syllables that complete common word endings, formal Greek and Latin root study, and the derived-word families that connect spelling and meaning across a base word.",
     ],
     guidanceBody:
-      "Start with Everyday Words and Reading & Writing Words, then practice Multisyllabic Academic Words before moving into Advanced Prefixes, Advanced Suffixes, Latin Root Words, and Greek Root Words. Commonly Confused Words supports more accurate writing, while Academic & Content Words gathers high-value science and social studies vocabulary without splitting fourth grade into narrow topical lists.",
+      "Start with Core Spelling and move through the six steps in order — Advanced Multisyllabic Words and Advanced Prefixes come first because the suffix, root, and confusable-word lessons that follow all build on them. Advanced Suffixes and Final Stable Syllables leads into Greek and Latin Roots, since recognizing a stable ending is part of the same skill as recognizing a root inside a longer word. Derived Words and Word Meaning closes the sequence and previews the related-word study that continues in Grade 5.",
     emptyStateLabel: "Fourth grade",
   },
   "5": {

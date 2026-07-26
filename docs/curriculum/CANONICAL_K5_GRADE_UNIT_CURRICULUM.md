@@ -6,7 +6,7 @@
 **Purpose:** Defines the consensus K–5 Grade Unit curriculum used to audit and plan site content  
 **Source:** Deep research synthesis of U.S. standards and structured-literacy curricula  
 **Implementation authority:** Educational blueprint only; public implementation details are governed by [K5_FINAL_CONTENT_ARCHITECTURE.md](../planning/K5_FINAL_CONTENT_ARCHITECTURE.md)
-**Implementation status:** Kindergarten, Grade 1, and Grade 2 are implemented on the public website; Grades 3–5 remain future implementation work
+**Implementation status:** Kindergarten, Grade 1, Grade 2, and Grade 3 are implemented on the public website; Grades 4–5 remain future implementation work
 
 ## How this document should be used
 
@@ -22,7 +22,7 @@
 
 ### Current implementation note
 
-Kindergarten, Grade 1, and Grade 2 are implementation-complete under the public architecture. Their hubs, Common Words sequences, and approved Additional Practice pages realize the educational progression in this document at a finer level of detail. Grades 3–5 remain educationally specified here and architecturally specified in the implementation reference, but are not yet implementation-complete.
+Kindergarten, Grade 1, Grade 2, and Grade 3 are implementation-complete under the public architecture. Their hubs, Common Words sequences, and approved Additional Practice pages realize the educational progression in this document at a finer level of detail. Grade 3 ships with no Additional Practice pages after its candidate topics were reviewed and rejected (see the Grade 3 implementation note below). Grades 4–5 remain educationally specified here and architecturally specified in the implementation reference, but are not yet implementation-complete.
 
 ## Framing the synthesis
 
@@ -107,6 +107,12 @@ Grade 3 is the clearest transition point from phonics-heavy spelling into formal
 The recommended ordering is: Prefixes → Suffixes → Spelling Changes When Adding Suffixes → Plurals, Possessives, and Contractions → Homophones and Commonly Confused Words. This sequence works because it moves from visible word parts, to what those parts do, to what happens when they are attached, and then into the writing conventions and meaning-based choices that depend on those skills. Words Their Way’s developmental model also supports this shift from within-word patterns into “syllables and affixes” and then toward derivational relations.
 
 The concepts absorbed into Grade 3 units are base-word awareness, part-of-speech change, and most review of earlier syllable types. Those ideas are important, but they are not better Grade Units than Prefixes, Suffixes, and Spelling Changes When Adding Suffixes. Proofreading transfer continues in Grade 3, but it is still better treated as a strand that runs through these units rather than as a standalone topic.
+
+> **Implementation note:** Grade 3 is now implemented on the public website. The five broad curriculum units above are presented through seven Core Spelling cards: Prefixes and Suffixes reuse existing canonical pages unchanged; Spelling Changes When Adding Suffixes is realized as a combined roadmap entry (dropping silent e as the anchor Grade Unit, with doubling final consonants and changing y to i as focused related practice, following the same pattern documented for Grade 1's Long Vowel Teams above); Longer Words and Syllable Division and Homophones and Commonly Confused Words reframe two existing Grade 3 pages that predated the three-section structure; and Root Word Families closes the sequence as a review/bridge card into Grade 4 root study. The site also presents five cumulative Common Words sets containing 60 words. Grade 3 currently has no Additional Practice cards.
+>
+> The Plurals, Possessives, and Contractions unit is realized using the same absorption technique documented for Grade 2's R-Controlled Vowels above. Plurals are already taught in Grade 1 (`-s/-es`) and contractions are already taught as a Grade 2 Core Spelling card, so Grade 3 does not repeat that instruction as separate cards. Instead, one new page — Possessives, the unit's one genuine content gap — was authored and linked back to the existing Grade 1 and Grade 2 pages. The canonical curriculum's Plurals, Possessives, and Contractions Grade Unit is unchanged; only possessives required new public content.
+>
+> **Additional Practice decision:** after reviewing candidate topics — Calendar Words, Clothing Words, and Transportation Words (Money Words was excluded from consideration because it already belongs to the completed Grade 2 implementation) — none cleared the bar for a permanent Grade 3 page. Calendar Words is a legitimate vocabulary category but does not add enough educational value to justify its own page; Clothing Words and Transportation Words overlap earlier instruction and common vocabulary. Grade 3 therefore currently has no Additional Practice section. This reflects the current implementation, not a permanent rule — Additional Practice may be revisited once the full K–5 curriculum is complete and broader cross-grade enrichment opportunities can be considered together. (See the Grade 3 Additional Practice decision in the companion architecture document for the full record.)
 
 ### Grade Four overview
 

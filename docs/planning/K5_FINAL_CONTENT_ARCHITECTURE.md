@@ -1,6 +1,6 @@
 # Authoritative K–5 Content Architecture
 
-> **Status: authoritative, frozen at the architecture level.** This document is the single implementation reference for K–5 grade hubs and their curriculum-facing content. Kindergarten, Grade 1, and Grade 2 are implementation-complete; Grades 3–5 remain governed by this specification for future implementation. It replaces the broad architecture recommendations in [K5_FINAL_CONTENT_PLAN.md](./K5_FINAL_CONTENT_PLAN.md), [K5_SIMPLE_WEBSITE_CONTENT_PLAN.md](./K5_SIMPLE_WEBSITE_CONTENT_PLAN.md), and [CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md](./CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md). Historical research remains useful evidence; it is not an implementation specification.
+> **Status: authoritative, frozen at the architecture level.** This document is the single implementation reference for K–5 grade hubs and their curriculum-facing content. Kindergarten, Grade 1, Grade 2, and Grade 3 are implementation-complete; Grades 4–5 remain governed by this specification for future implementation. It replaces the broad architecture recommendations in [K5_FINAL_CONTENT_PLAN.md](./K5_FINAL_CONTENT_PLAN.md), [K5_SIMPLE_WEBSITE_CONTENT_PLAN.md](./K5_SIMPLE_WEBSITE_CONTENT_PLAN.md), and [CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md](./CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md). Historical research remains useful evidence; it is not an implementation specification.
 
 ### Implementation status
 
@@ -9,7 +9,8 @@
 | Kindergarten | Implementation-complete | Eight Core Spelling cards, four direct High-Frequency Words sets (40 words), and three Additional Practice cards. |
 | Grade 1 | Implementation-complete | Twelve Core Spelling cards, six direct High-Frequency Words sets (72 unique words), and three Additional Practice cards. |
 | Grade 2 | Implementation-complete | Ten Core Spelling cards, six direct High-Frequency Words sets (72 unique words), and three Additional Practice cards. |
-| Grades 3–5 | Planned | Implement according to the frozen map and durable rules below, with later editorial curation where explicitly noted. |
+| Grade 3 | Implementation-complete | Seven Core Spelling cards, five direct High-Frequency Words sets (60 words), and no Additional Practice cards — three candidate topics were reviewed and rejected (Section 7). |
+| Grades 4–5 | Planned | Implement according to the frozen map and durable rules below, with later editorial curation where explicitly noted. |
 
 ## 1. Decisions that are frozen
 
@@ -50,7 +51,7 @@ Dolch and Fry are source/reference pools, not public curriculum taxonomies. “S
 
 ### What remains flexible
 
-The following are deliberately **not** architecture decisions: exact word membership for the still-unimplemented Grade 3–5 sets, the detailed K/Grade 1/Grade 2 card descriptions, which later topic pages meet quality thresholds, the exact Grade 4–5 root families, and the individual visual treatment of an annotation. They require editorial curation or implementation work, but may not change the three sections, URL/identity rule, or Common Words set counts without an explicit new architecture decision.
+The following are deliberately **not** architecture decisions: exact word membership for the still-unimplemented Grade 4–5 sets, the detailed K/Grade 1/Grade 2/Grade 3 card descriptions, which later topic pages meet quality thresholds, the exact Grade 4–5 root families, and the individual visual treatment of an annotation. They require editorial curation or implementation work, but may not change the three sections, URL/identity rule, or Common Words set counts without an explicit new architecture decision.
 
 ### Deferred optional content
 
@@ -79,13 +80,13 @@ This is the final grade-level content map. “Existing” means reuse/reframe so
 | K | First Words; Short A, I, O, U, E; Mixed CVC Review; late-K Digraph preview. `-ck`/FLOSS are not required. | Four direct numbered sets on the hub; the gateway remains live. | Number Words; Color Words; Animal Words. |
 | 1 | Short Vowel Review & C/K; FLOSS; Digraphs & Final `-ck`; Beginning Blends; Ending Blends; Silent E; Open Syllables & Final Y; Vowel Teams; `-s/-es`; `-ed/-ing`; R-Controlled Vowels; `-tch/-dge`. | Six direct numbered sets (72 unique words) on the hub; the gateway remains live. | Number Words 11–20; Days of the Week; Five Senses Words. |
 | 2 | Diphthongs oi/oy; Diphthongs ou/ow; Two Sounds of oo; Vowel Patterns au/aw; Soft C and Soft G; Two-Syllable Words (revisits Grade 1 r-controlled vowels within longer words — see the R-Controlled Vowels decision in Section 6); Words Ending in -le; Silent Letter Words; Compound Words; Contractions. | Six direct numbered sets (72 unique words) on the hub; the gateway remains live. | Months of the Year; Money Words; Number Words 20–100. |
-| 3 | Longer words/syllable division; Prefixes; Suffixes; merged base-word changes; Homophones/confusions; review. | 5 sets + gateway. | Math; Earth/Weather; Maps/Communities; Writing Transitions after audit. |
+| 3 | Longer Words and Syllable Division; Prefixes; Suffixes; Suffix Spelling Changes (merged, see Section 7); Plurals, Possessives, and Contractions; Homophones and Commonly Confused Words; Root Word Families (review). | Five direct numbered sets (60 words) on the hub; the gateway remains live. | None — Calendar, Clothing, and Transportation Words were reviewed and rejected; see the Additional Practice decision in Section 7. |
 | 4 | Multisyllabic spelling/unstressed vowels; prefixes/derived words; suffixes/stable endings; Latin roots; Greek roots; confusions. | 4 sets + gateway. | Math; Science; Social Studies; opinion/explanation writing after audit. |
 | 5 | Advanced multisyllabic spelling; academic prefixes; academic suffixes plus `-tion/-sion/-cian`; Greek/Latin word parts; related-word spellings **new**; confusions; editing. | 4 sets + gateway. | Math; Science; U.S. History/Civics; research/transition writing after audit. |
 
 ### Publishing estimate
 
-The prior 180-page recommendation is not a target. Reuse existing canonical practice URLs and add only coherent pages: 29 Common Words sets, 6 Common Words gateways, a small number of genuine instructional gaps per remaining grade, and later optional topic pages that clear editorial review. Kindergarten, Grade 1, and Grade 2 now provide 16 published sets and 3 gateways. Grades 3–5 Common Words pages remain future implementation work.
+The prior 180-page recommendation is not a target. Reuse existing canonical practice URLs and add only coherent pages: 29 Common Words sets, 6 Common Words gateways, a small number of genuine instructional gaps per remaining grade, and later optional topic pages that clear editorial review. Kindergarten, Grade 1, Grade 2, and Grade 3 now provide 21 published sets and 4 gateways. Grades 4–5 Common Words pages remain future implementation work.
 
 ## 4. Exact Kindergarten grade-hub cards
 
@@ -174,7 +175,34 @@ The visible Grade 2 hub is implementation-complete. It has nineteen cards: ten C
 
 **Legacy Grade 2 content decision:** the pre-architecture Grade 2 hub included eleven grade-level pages that predated the three-section structure. Four of them — prefix words (un-/re-), suffix words (-ful/-less), an early homophones set, and comparative words (-er/-est) — are canonically Grade 3 curriculum and are reclassified to `grade: "3"`; each was already a declared prerequisite of an existing Grade 3 page. One — regular plural words — duplicates the Grade 1 `-s/-es` lesson and is reclassified to `grade: "1"` as review practice. The remaining three (everyday words, action words, describing words) stay `grade: "2"` as non-hub library content pending later editorial review. No ID or route changed for any of the eight pages.
 
-## 7. Common Words content model and Heart Word treatment
+## 7. Exact Grade 3 grade-hub cards
+
+The visible Grade 3 hub is implementation-complete. It has twelve cards: seven Core Spelling cards and five direct High-Frequency Words set cards. There are no Additional Practice cards. The `grade-3-common-words` collection remains the canonical explanatory gateway, but the hub exposes its five children directly, matching the Kindergarten, Grade 1, and Grade 2 convention.
+
+| # | Section | Public title | Type and destination | Status | Parent-facing purpose |
+|---:|---|---|---|---|---|
+| 1 | Core Spelling | **Prefixes** | Direct Grade Unit: `grade-3-prefix-words` → `/spelling-lists/grade-level/3rd-grade-prefix-words` | Implemented | Learn common prefixes such as un-, re-, pre-, dis-, and mis- that come before a base word and change its meaning. |
+| 2 | Core Spelling | **Suffixes** | Direct Grade Unit: `grade-3-suffix-words` → `/spelling-lists/grade-level/3rd-grade-suffix-words` | Implemented | Practice common suffixes such as -er, -est, -ly, -ful, -less, -ness, and -ment that come after a base word. |
+| 3 | Core Spelling | **Suffix Spelling Changes** | Combined roadmap entry: `grade-3-dropping-silent-e` (anchor) → `/spelling-lists/grade-level/3rd-grade-dropping-silent-e`, with `grade-3-doubling-final-consonants` and `grade-3-changing-y-to-i` as focused related practice | Implemented | Learn the three spelling changes a base word can make before a suffix: dropping silent e, doubling the final consonant, and changing y to i. |
+| 4 | Core Spelling | **Plurals, Possessives, and Contractions** | Direct Grade Unit: `grade-3-possessives` → `/spelling-lists/grade-level/3rd-grade-possessives` | Implemented | Use 's and s' to show ownership, and tell possessives apart from plurals and contractions. |
+| 5 | Core Spelling | **Longer Words and Syllable Division** | Direct Grade Unit: `grade-3-multisyllabic-words` → `/spelling-lists/grade-level/3rd-grade-multisyllabic-words` | Implemented | Break two- and three-syllable words into parts so they are easier to spell. |
+| 6 | Core Spelling | **Homophones and Commonly Confused Words** | Direct Grade Unit: `grade-3-homophones` → `/spelling-lists/grade-level/3rd-grade-homophones` | Implemented | Choose the correct spelling for words that sound alike but have different meanings, such as there, their, and they're. |
+| 7 | Core Spelling | **Root Word Families** | Direct Grade Unit: `grade-3-root-word-families` → `/spelling-lists/grade-level/3rd-grade-root-word-families` | Implemented | Review how related words share a meaningful base, and preview the Greek and Latin root study that begins in Grade 4. |
+| 1–5 | High-Frequency Words | **Grade 3 Common Words 1–5** | Direct canonical sets: `grade-3-common-words-1` through `-5` | Implemented | Practice 60 Grade 3 writing words in five cumulative sets covering position/connecting words, irregular past-tense verbs, reading/writing vocabulary, feelings and description, and time/transition words. |
+
+**Suffix Spelling Changes decision:** rather than author a new merged page, the three existing rule pages — dropping silent e, doubling final consonants, and changing y to i — are presented as one combined roadmap entry, the same pattern used for Grade 1's Long Vowel Teams and R-Controlled Vowels cards. `grade-3-dropping-silent-e` is the anchor Grade Unit; `grade-3-doubling-final-consonants` and `grade-3-changing-y-to-i` are marked `contentRole: skill` and reached through the anchor's related-practice links. No new content was needed, only `contentRole` and relationship metadata.
+
+**Plurals, Possessives, and Contractions decision:** matching the absorption technique used for Grade 2's R-Controlled Vowels (Section 6, D1), Grade 3 does not re-teach plurals or contractions as their own cards. Plurals are already a Grade 1 Core Spelling card (`grade-1-inflectional-endings-s-es`) and contractions are already a Grade 2 Core Spelling card (`grade-2-contractions`). The one genuine gap was possessives (singular `'s` and plural `s'`), so a single new page, `grade-3-possessives`, was authored and linked back to both existing pages via `relatedLists`.
+
+**Longer Words and Syllable Division / Homophones and Commonly Confused Words decision:** both cards reframe existing Grade 3 pages (`grade-3-multisyllabic-words`, `grade-3-homophones`) that predated the three-section structure, promoted to `contentRole: grade-unit` with no content changes.
+
+**Root Word Families decision:** `grade-3-root-word-families` closes the Grade 3 Core Spelling sequence as a review/bridge card rather than off-hub library content, since it already links forward into the Grade 4 root-study pages (`tier-1-roots-and-patterns`).
+
+**Common Words decision:** show all five direct set cards rather than only the gateway, matching the Kindergarten, Grade 1, and Grade 2 convention. The five sets contain 60 words with zero overlap with the 184 words already owned by the sixteen Kindergarten, Grade 1, and Grade 2 Common Words sets. `grade-2-common-words-6`'s `nextLists` now points to `grade-3-common-words-1`, closing the sequence gap noted in Section 9.
+
+**Additional Practice decision:** three candidate topics were evaluated — Calendar Words, Clothing Words, and Transportation Words. (Money Words was excluded from consideration because it already belongs to the completed Grade 2 implementation, per the Additional Practice decision in Section 6.) None cleared the bounded-set quality bar used at every prior grade: Calendar Words is a legitimate vocabulary category but does not add enough educational value to justify a permanent page, and Clothing Words and Transportation Words overlap earlier instruction and common vocabulary already covered elsewhere. Grade 3 therefore ships with no Additional Practice cards. This is the current implementation decision, not a permanent rule — Additional Practice may be revisited once the full K–5 curriculum is complete, when broader cross-grade enrichment opportunities can be evaluated together across grades.
+
+## 8. Common Words content model and Heart Word treatment
 
 ### Model
 
@@ -223,7 +251,7 @@ A word has one canonical numbered-set membership. Appearance in a phonics/exampl
 
 Every gateway must server-render: (1) a concise answer block explaining what is practiced, set/approximate word count, grade fit, and regular/irregular treatment; (2) crawlable links to child sets; and (3) distinct introductory copy. The collection route’s existing breadcrumb and `ItemList` implementation is sufficient when the gateway’s visible text is authored well.
 
-## 8. Implemented Kindergarten, Grade 1, and Grade 2 Common Words content
+## 9. Implemented Kindergarten, Grade 1, Grade 2, and Grade 3 Common Words content
 
 ### Gateways
 
@@ -232,6 +260,7 @@ Every gateway must server-render: (1) a concise answer block explaining what is 
 | Kindergarten Common Words | `kindergarten-common-words` | `/spelling-lists/collections/kindergarten-common-words` | `kindergarten-common-words-1` through `-4`; 40 words total | “These four small sets help kindergarteners spell everyday words used in early reading and writing. Most words can be connected to sounds your child knows; when one small part does not match yet, the page points it out as a Heart Word part.” |
 | Grade 1 Common Words | `grade-1-common-words` | `/spelling-lists/collections/grade-1-common-words` | `grade-1-common-words-1` through `-6`; 72 unique words total | “These six cumulative sets build useful Grade 1 writing words without treating them as a list to memorize blindly. Children use familiar phonics when possible and learn only the unexpected spelling parts by heart.” |
 | Grade 2 Common Words | `grade-2-common-words` | `/spelling-lists/collections/grade-2-common-words` | `grade-2-common-words-1` through `-6`; 72 unique words total | “These six sets carry a second grader through the last heavy year of common-word learning. Most of these words can now be sounded out with the patterns your child already knows — vowel teams, syllables, and silent letters. Where one small part is still unexpected, the page names it so your child learns only that part by heart.” |
+| Grade 3 Common Words | `grade-3-common-words` | `/spelling-lists/collections/grade-3-common-words` | `grade-3-common-words-1` through `-5`; 60 words total | “These five sets carry a third grader through everyday writing words and persistent trouble words: words that no longer sound out with a single phonics rule and instead need to be recognized, used correctly in context, or partly remembered. Where a word repeats a pattern already flagged as a Heart Word earlier in the K–2 sequence (such as an -ough family word), the set names the connection instead of re-teaching it as new.” |
 
 ### Kindergarten sets
 
@@ -259,7 +288,7 @@ The object-form `hint` field marks only the unexpected or not-yet-taught portion
 
 ### Grade 2 sets
 
-All six sets are published, contain 12 words each, and form a live adjacent sequence (set 1's prerequisite is `grade-1-common-words-6`; set 6 has no next set, pending a Grade 3 gateway). Word membership is unique across the sequence and has zero overlap with the 112 words owned by the ten Kindergarten and Grade 1 sets. `relatedLists` is `[]` on every set — unlike the numbered sets above, Grade 2 has no Heart Words page to point at, and inventing one would duplicate an existing page family, so the sequence relationship lives entirely in `prerequisiteLists`/`nextLists`.
+All six sets are published, contain 12 words each, and form a live adjacent sequence (set 1's prerequisite is `grade-1-common-words-6`; set 6's `nextLists` now points to `grade-3-common-words-1`). Word membership is unique across the sequence and has zero overlap with the 112 words owned by the ten Kindergarten and Grade 1 sets. `relatedLists` is `[]` on every set — unlike the numbered sets above, Grade 2 has no Heart Words page to point at, and inventing one would duplicate an existing page family, so the sequence relationship lives entirely in `prerequisiteLists`/`nextLists`.
 
 | Set | Ordered words | Classification (`R` regular, `T` temporarily irregular, `P` permanently irregular portion) | Editorial focus |
 |---|---|---|---|
@@ -272,15 +301,29 @@ All six sets are published, contain 12 words each, and form a live adjacent sequ
 
 The gateway's introductory copy and each set's body copy are quoted in full in the content entries; this table freezes architecture, sequence, and word membership.
 
-## 9. Completed K–2 implementation and future-grade contract
+### Grade 3 sets
+
+All five sets are published, contain 12 words each, and form a live adjacent sequence (set 1's prerequisite is `grade-2-common-words-6`; set 5 has no next set). Word membership is unique across the sequence and has zero overlap with the 184 words owned by the sixteen Kindergarten, Grade 1, and Grade 2 sets. `relatedLists` is `[]` on every set, matching the Grade 2 convention — the sequence relationship lives entirely in `prerequisiteLists`/`nextLists`.
+
+| Set | Ordered words | Sequence relationship | Editorial focus |
+|---|---|---|---|
+| `grade-3-common-words-1` | across, above, below, beneath, beside, among, upon, toward, against, within, beyond, throughout | Prerequisite: `grade-2-common-words-6`; next: set 2 | Position and connecting words; groups *throughout* with the `ough` family already taught in Grade 2's *through* and *enough*. |
+| `grade-3-common-words-2` | brought, bought, caught, taught, fought, sought, built, heard, earned, paid, laid, weighed | Previous: set 1; next: set 3 | Irregular past-tense verbs; groups the six shared `-ought`/`-aught` words as one family. |
+| `grade-3-common-words-3` | library, dictionary, paragraph, subject, chapter, author, title, describe, explain, practice, opinion, nonfiction | Previous: set 2; next: set 4 | Reading and writing vocabulary for talking about books and student writing. |
+| `grade-3-common-words-4` | favorite, wonderful, terrible, awful, difficult, especially, excited, nervous, curious, jealous, proud, disappointed | Previous: set 3; next: set 5 | Feelings and description words with more precision than *happy* or *sad*. |
+| `grade-3-common-words-5` | finally, probably, actually, immediately, eventually, meanwhile, instead, otherwise, therefore, certainly, definitely, recently | Previous: set 4; no next set | Time and transition words that sequence ideas and connect sentences in writing. |
+
+The gateway's introductory copy and each set's body copy are quoted in full in the content entries; this table freezes architecture, sequence, and word membership.
+
+## 10. Completed K–3 implementation and future-grade contract
 
 ### Completed implementation
 
-Kindergarten, Grade 1, and Grade 2 now realize the three-section architecture on their public hubs. All three Common Words gateways and all sixteen K–2 child sets are published. Kindergarten exposes four sets and 40 words; Grade 1 and Grade 2 each expose six sets and 72 unique words. The public hubs link directly to their set cards while their collection gateways remain canonical explanatory landing pages.
+Kindergarten, Grade 1, Grade 2, and Grade 3 now realize the three-section architecture on their public hubs, except that Grade 3 ships with zero Additional Practice cards after its three candidate topics were reviewed and rejected (Section 7). All four Common Words gateways and all twenty-one K–3 child sets are published. Kindergarten exposes four sets and 40 words; Grade 1 and Grade 2 each expose six sets and 72 unique words; Grade 3 exposes five sets and 60 words. The public hubs link directly to their set cards while their collection gateways remain canonical explanatory landing pages.
 
-The completed implementation preserves existing flat canonical routes, stable IDs, parent/adjacent links, server-rendered gateway orientation, and visible-content-aligned breadcrumb and `ItemList` structured data. Focused Skills and compatibility pages retain their routes without becoming duplicate canonical curriculum pages. Grade 2's implementation additionally required no schema change — it reused `contentRole: grade-unit`, `skillIds`, `prerequisiteLists`/`nextLists`, and the existing `spelling-collections` gateway model exactly as documented above.
+The completed implementation preserves existing flat canonical routes, stable IDs, parent/adjacent links, server-rendered gateway orientation, and visible-content-aligned breadcrumb and `ItemList` structured data. Focused Skills and compatibility pages retain their routes without becoming duplicate canonical curriculum pages. Grade 2's and Grade 3's implementations additionally required no schema change — they reused `contentRole: grade-unit`/`skill`, `skillIds`, `prerequisiteLists`/`nextLists`, and the existing `spelling-collections` gateway model exactly as documented above.
 
-### Contract for Grades 3–5
+### Contract for Grades 4–5
 
 Future grade implementations must follow the frozen decisions in Sections 1–3:
 
@@ -292,7 +335,7 @@ Future grade implementations must follow the frozen decisions in Sections 1–3:
 - Keep breadcrumbs, `ItemList` data, and internal links aligned with visible published content.
 - Preserve focused Skills as reusable practice reached from Grade Units, browse surfaces, search, and related links.
 
-## 10. SEO, internal linking, and documentation governance
+## 11. SEO, internal linking, and documentation governance
 
 ### Durable SEO/AEO/GEO principles
 
@@ -306,10 +349,10 @@ Future grade implementations must follow the frozen decisions in Sections 1–3:
 
 This document supersedes only prior **planning documents** whose purpose was to choose a K–5 architecture. Retain technical and evidence documents that describe the current schema, routes, audits, curriculum research, source policies, or historical rationale. When implementation changes a technical contract, update that technical document separately; do not use this architecture plan as a substitute for code-level documentation.
 
-## 11. Implementation order for remaining grades
+## 12. Implementation order for remaining grades
 
 1. ~~Implement Grade 2 Common Words and its two genuine instructional gaps.~~ **Done.** Grade 2 shipped with its Common Words system and five genuine instructional gaps, not two — see the Core Spelling gap count decision (D3) in Section 6.
-2. Normalize Grade 3’s suffix-change and syllable-division route.
+2. ~~Normalize Grade 3’s suffix-change and syllable-division route.~~ **Done.** Grade 3 shipped its full three-section hub: seven Core Spelling cards (including the merged Suffix Spelling Changes combined roadmap entry and the new Possessives page), five Common Words sets, and a reviewed-and-rejected Additional Practice pass — see Section 7.
 3. Reframe Grades 4–5 morphology and multisyllabic material, and curate their narrower Common Words sequences.
 4. Add optional topic cards only after each grade’s core route and Common Words system are complete and the topics clear editorial review.
-5. Keep Kindergarten, Grade 1, and Grade 2 synchronized with implementation when maintenance changes their technical contracts; do not reopen their frozen architecture without an explicit architecture decision.
+5. Keep Kindergarten, Grade 1, Grade 2, and Grade 3 synchronized with implementation when maintenance changes their technical contracts; do not reopen their frozen architecture without an explicit architecture decision.

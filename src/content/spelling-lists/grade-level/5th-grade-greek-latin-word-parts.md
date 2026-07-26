@@ -4,19 +4,20 @@ urlSlug: 5th-grade-greek-latin-word-parts
 title: "5th Grade Greek & Latin Word Parts"
 description: "Twelve fifth-grade words that use Greek and Latin word parts inside longer academic vocabulary."
 shortAnswer: "Twelve fifth-grade Greek and Latin word-part words — photography, biology, geography, transportation, construction, and more."
+contentRole: grade-unit
 category: grade-level
 grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "greek-roots", "latin-roots", "morphology", "word-study"]
 tags: ["grade-5", "greek-roots", "latin-roots", "word-parts", "morphology"]
-order: 7
+order: 8
 estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-prefix-suffix-words", "grade-5-spelling-rules"]
-prerequisiteLists: ["tier-1-roots-and-patterns", "tier-2-greek-latin-roots"]
-nextLists: ["grade-5-spelling-rules"]
+relatedLists: ["grade-5-prefix-suffix-words", "grade-5-spelling-rules", "grade-5-commonly-confused-words"]
+prerequisiteLists: ["grade-5-spelling-rules", "tier-1-roots-and-patterns", "tier-2-greek-latin-roots"]
+nextLists: ["grade-5-commonly-confused-words"]
 readinessSignals:
   - "Can identify familiar Greek and Latin parts inside longer academic words"
   - "Are comfortable spelling words with three or more syllables when they can be broken into chunks"

@@ -754,6 +754,67 @@ export const GRADE_4_HUB_SECTIONS: readonly {
   },
 ];
 
+/**
+ * Grade 5 hub — Core Spelling only for now (see
+ * `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`). High-Frequency Words and
+ * Additional Practice are a separate, later implementation phase: Grade 5
+ * has no Common Words sets yet, and its content-area vocabulary
+ * (`grade-5-science-nature-words`, `grade-5-community-civics-words`,
+ * `grade-5-math-vocabulary`) is being held for that phase rather than wired
+ * in early — the same discipline `GRADE_3_HUB_SECTIONS` documents above.
+ */
+export const GRADE_5_HUB_SECTIONS: readonly {
+  title: string;
+  summary?: string;
+  cards: readonly CardDefinition[];
+}[] = [
+  {
+    title: "Core Spelling",
+    cards: [
+      {
+        id: "grade-5-multisyllabic-academic-words",
+        title: "Advanced Multisyllabic Academic Words",
+        description:
+          "Break longer academic words such as investigation and responsibility into syllables and word parts before moving into affixes and roots.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-5-prefix-suffix-words",
+        title: "Advanced Prefixes and Suffixes",
+        description:
+          "Combine prefixes such as inter-, trans-, and super- with suffixes such as -ive, -ible, and -ity, then extend into the -tion, -sion, -able, -ible, -ance, and -ence spelling rules that complete the set.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-5-greek-latin-word-parts",
+        title: "Greek and Latin Word Parts",
+        description:
+          "Use familiar Greek and Latin word parts such as photo, bio, geo, port, and struct inside longer Grade 5 academic vocabulary.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-5-commonly-confused-words",
+        title: "Commonly Confused Words",
+        description:
+          "Choose the right spelling for words that sound alike or look similar, such as affect/effect, principal/principle, and advice/advise.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-5-spelling-changes-related-words",
+        title: "Spelling Changes in Related Words",
+        description:
+          "See how one base word's family — such as critic, critical, and criticism — keeps its spelling stable even as pronunciation shifts.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+    ],
+  },
+];
+
 export function buildGradeHubCards(
   definitions: readonly { title: string; cards: readonly CardDefinition[] }[],
   entries: SpellingListEntry[],

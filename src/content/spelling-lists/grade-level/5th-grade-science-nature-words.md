@@ -9,7 +9,7 @@ grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "science", "vocabulary", "content-vocabulary"]
 tags: ["grade-5", "science", "vocabulary", "content-area", "academic-language"]
-order: 10
+order: 11
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90

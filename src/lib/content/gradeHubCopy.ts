@@ -66,13 +66,13 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   },
   "5": {
     metaDescription:
-      "Free 5th grade spelling word lists for academic words, multisyllabic words, prefixes and suffixes, Greek and Latin word parts, spelling rules, science, civics, and math vocabulary.",
+      "Free 5th grade spelling word lists with a five-step Core Spelling route through advanced multisyllabic academic words, advanced prefixes and suffixes, Greek and Latin word parts, commonly confused words, and spelling changes in related words.",
     heroParagraphs: [
-      "Here are free 5th grade spelling word lists covering everyday and academic words, reading and writing vocabulary, opinion and argument words, multisyllabic academic words, prefix and suffix words, Greek and Latin word parts, spelling rules, commonly confused words, and science, social studies, civics, and math vocabulary. All lists include audio support so students can hear each word read aloud before typing it.",
-      "Fifth grade is the capstone of elementary spelling. Students still need useful vocabulary, but they are also ready to use word parts, syllables, roots, suffix patterns, and careful word choice to spell longer words with confidence before middle school.",
+      "Use Core Spelling for the Grade 5 route: advanced multisyllabic academic words, advanced prefixes and suffixes, Greek and Latin word parts, commonly confused words, and spelling changes in related words. All lists include audio support so students can hear each word before typing it.",
+      "Fifth grade is the capstone of elementary spelling. Students bring together the roots, affixes, syllables, and careful word choice built up since Grade 3, then use meaning and word-family knowledge — not sound alone — to spell longer, more academic words with confidence before middle school.",
     ],
     guidanceBody:
-      "Start with Everyday Words and Academic Words for review, then use Reading & Writing Words and Opinion & Argument Words for ELA practice. Multisyllabic Academic Words, Prefix & Suffix Words, Greek & Latin Word Parts, Spelling Rules, and Commonly Confused Words form the Grade 5 word-study core. Science Words and Social Studies & Civics Words are the strongest content-area follow-ups; Math Vocabulary is available as a lower-priority extension when students need it.",
+      "Start with Core Spelling and move through the five steps in order — Advanced Multisyllabic Academic Words comes first because the prefix, suffix, and root lessons that follow all build on it. Advanced Prefixes and Suffixes leads into Greek and Latin Word Parts, since recognizing a stable suffix ending is part of the same skill as recognizing a word part inside a longer word. Commonly Confused Words checks accuracy before Spelling Changes in Related Words closes the sequence, bringing every earlier skill together into one integrated capstone for middle school.",
     emptyStateLabel: "Fifth grade",
   },
 };

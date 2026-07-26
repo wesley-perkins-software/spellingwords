@@ -4,6 +4,8 @@ urlSlug: 5th-grade-prefix-suffix-words
 title: "5th Grade Prefix & Suffix Words"
 description: "Twelve fifth-grade words with useful prefixes and suffixes that help students spell and understand longer academic vocabulary."
 shortAnswer: "Twelve fifth-grade prefix and suffix words — interact, transport, responsible, activity, agreement, and more."
+contentRole: grade-unit
+skillIds: ["grade-5-spelling-rules"]
 category: grade-level
 grade: "5"
 difficulty: intermediate
@@ -16,7 +18,7 @@ masteryThreshold: 90
 sourceType: curated
 relatedLists: ["grade-5-multisyllabic-academic-words", "grade-5-greek-latin-word-parts", "grade-5-spelling-rules"]
 prerequisiteLists: ["grade-4-advanced-prefixes", "grade-4-advanced-suffixes"]
-nextLists: ["grade-5-greek-latin-word-parts"]
+nextLists: ["grade-5-spelling-rules"]
 readinessSignals:
   - "Can identify both a beginning word part and an ending word part in longer vocabulary"
   - "Spell common prefix and suffix chunks accurately inside multisyllabic words"

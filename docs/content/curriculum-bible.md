@@ -446,6 +446,8 @@ Grade 5 is the capstone of the elementary spelling sequence. The center of the g
 
 Coverage: **Strong**. Grade 5 now has a 12-list architecture that keeps morphology central while remaining an elementary curriculum.
 
+**Core Spelling hub update:** five of these files are now the Grade 5 Core Spelling hub, with `contentRole` set and a new closing page added — see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 14 for the full record. In hub order: `5th-grade-multisyllabic-academic-words` → `5th-grade-prefix-suffix-words` (anchor, merged with `5th-grade-spelling-rules` as its `contentRole: skill` sibling) → `5th-grade-greek-latin-word-parts` → `5th-grade-commonly-confused-words` → the new `5th-grade-spelling-changes-related-words` (K–5 capstone). `5th-grade-everyday-words`, `5th-grade-academic-words`, `5th-grade-reading-writing-words`, and `5th-grade-opinion-argument-words` remain off-hub vocabulary, the same treatment Grade 4 gives its own everyday/reading-writing/community lists. `5th-grade-science-nature-words`, `5th-grade-community-civics-words`, and `5th-grade-math-vocabulary` are strong Additional Practice candidates but remain unwired pending that separate implementation phase.
+
 #### Target Coverage Checklist
 - [x] Academic vocabulary (general)
 - [x] Reading/writing/ELA academic vocabulary

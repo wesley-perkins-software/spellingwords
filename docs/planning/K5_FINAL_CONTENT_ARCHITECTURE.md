@@ -1,6 +1,6 @@
 # Authoritative K–5 Content Architecture
 
-> **Status: authoritative, frozen at the architecture level.** This document is the single implementation reference for K–5 grade hubs and their curriculum-facing content. Kindergarten, Grade 1, Grade 2, Grade 3, and Grade 4 are implementation-complete; Grade 5 Core Spelling and High-Frequency Words are now implemented, with Additional Practice remaining as a separate implementation phase. It replaces the broad architecture recommendations in [K5_FINAL_CONTENT_PLAN.md](./K5_FINAL_CONTENT_PLAN.md), [K5_SIMPLE_WEBSITE_CONTENT_PLAN.md](./K5_SIMPLE_WEBSITE_CONTENT_PLAN.md), and [CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md](./CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md). Historical research remains useful evidence; it is not an implementation specification.
+> **Status: authoritative, frozen at the architecture level.** This document is the single implementation reference for K–5 grade hubs and their curriculum-facing content. Kindergarten, Grade 1, Grade 2, Grade 3, Grade 4, and Grade 5 are all implementation-complete across all three public sections. It replaces the broad architecture recommendations in [K5_FINAL_CONTENT_PLAN.md](./K5_FINAL_CONTENT_PLAN.md), [K5_SIMPLE_WEBSITE_CONTENT_PLAN.md](./K5_SIMPLE_WEBSITE_CONTENT_PLAN.md), and [CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md](./CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md). Historical research remains useful evidence; it is not an implementation specification.
 
 ### Implementation status
 
@@ -11,7 +11,7 @@
 | Grade 2 | Implementation-complete | Ten Core Spelling cards, six direct High-Frequency Words sets (72 unique words), and three Additional Practice cards. |
 | Grade 3 | Implementation-complete | Seven Core Spelling cards, five direct High-Frequency Words sets (60 words), and no Additional Practice cards — three candidate topics were reviewed and rejected (Section 7). |
 | Grade 4 | Implementation-complete | Six Core Spelling cards, four direct High-Frequency Words sets (48 words), and one Additional Practice card, Measurement Words (Section 8). |
-| Grade 5 | Core Spelling and High-Frequency Words implementation-complete; Additional Practice planned | Five Core Spelling cards (Section 14) and four direct High-Frequency Words sets (48 words, Section 15). Additional Practice remains a separate, later implementation phase. |
+| Grade 5 | Implementation-complete | Five Core Spelling cards (Section 14), four direct High-Frequency Words sets (48 words, Section 15), and two Additional Practice cards, Civics and Government Words and Money Management Words (Section 16). |
 
 ## 1. Decisions that are frozen
 
@@ -83,7 +83,7 @@ This is the final grade-level content map. “Existing” means reuse/reframe so
 | 2 | Diphthongs oi/oy; Diphthongs ou/ow; Two Sounds of oo; Vowel Patterns au/aw; Soft C and Soft G; Two-Syllable Words (revisits Grade 1 r-controlled vowels within longer words — see the R-Controlled Vowels decision in Section 6); Words Ending in -le; Silent Letter Words; Compound Words; Contractions. | Six direct numbered sets (72 unique words) on the hub; the gateway remains live. | Months of the Year; Money Words; Number Words 20–100. |
 | 3 | Longer Words and Syllable Division; Prefixes; Suffixes; Suffix Spelling Changes (merged, see Section 7); Plurals, Possessives, and Contractions; Homophones and Commonly Confused Words; Root Word Families (review). | Five direct numbered sets (60 words) on the hub; the gateway remains live. | None — Calendar, Clothing, and Transportation Words were reviewed and rejected; see the Additional Practice decision in Section 7. |
 | 4 | Advanced Multisyllabic Words; Advanced Prefixes; Advanced Suffixes and Final Stable Syllables (merged, see Section 8); Greek and Latin Roots (merged, see Section 8); Commonly Confused Words; Derived Words and Word Meaning (new, closing/bridge). | Four direct numbered sets (48 words) on the hub; the gateway remains live (Section 8). | Measurement Words (customary units only) (Section 8). |
-| 5 | Advanced Multisyllabic Academic Words; Advanced Prefixes and Suffixes (merged with Spelling Rules for Word Endings, see Section 14); Greek and Latin Word Parts; Commonly Confused Words; Spelling Changes in Related Words (new, closing/capstone — see Section 14 for why the capstone slot is morphology, not the accuracy card). | 4 sets + gateway (Section 15): silent/hidden letters, doubled letters, unstressed vowels, editing and connecting words. | Planned, separate implementation phase: Math; Science; U.S. History/Civics; research/transition writing after audit. |
+| 5 | Advanced Multisyllabic Academic Words; Advanced Prefixes and Suffixes (merged with Spelling Rules for Word Endings, see Section 14); Greek and Latin Word Parts; Commonly Confused Words; Spelling Changes in Related Words (new, closing/capstone — see Section 14 for why the capstone slot is morphology, not the accuracy card). | 4 sets + gateway (Section 15): silent/hidden letters, doubled letters, unstressed vowels, editing and connecting words. | Civics and Government Words (existing content, corrected); Money Management Words (new) — see Section 16. Science, Math, and geography were evaluated and did not clear the bounded-set bar. |
 
 ### Publishing estimate
 
@@ -368,21 +368,19 @@ All five sets are published, contain 12 words each, and form a live adjacent seq
 
 The gateway's introductory copy and each set's body copy are quoted in full in the content entries; this table freezes architecture, sequence, and word membership.
 
-## 11. Completed K–4 implementation and future-grade contract
+## 11. Completed K–5 implementation
 
-### Completed implementation
-
-Kindergarten, Grade 1, Grade 2, Grade 3, and Grade 4 now realize the three-section architecture on their public hubs, except that Grade 3 ships with zero Additional Practice cards after its three candidate topics were reviewed and rejected (Section 7). All five Common Words gateways and all twenty-five K–4 child sets are published. Kindergarten exposes four sets and 40 words; Grade 1 and Grade 2 each expose six sets and 72 unique words; Grade 3 exposes five sets and 60 words; Grade 4 exposes four sets and 48 words. The public hubs link directly to their set cards while their collection gateways remain canonical explanatory landing pages.
+Kindergarten, Grade 1, Grade 2, Grade 3, Grade 4, and Grade 5 now all realize the three-section architecture on their public hubs, except that Grade 3 ships with zero Additional Practice cards after its three candidate topics were reviewed and rejected (Section 7). All six Common Words gateways and all twenty-nine K–5 child sets are published. Kindergarten exposes four sets and 40 words; Grade 1 and Grade 2 each expose six sets and 72 unique words; Grade 3 exposes five sets and 60 words; Grade 4 and Grade 5 each expose four sets and 48 words. The public hubs link directly to their set cards while their collection gateways remain canonical explanatory landing pages.
 
 Grade 4's Core Spelling section realizes the frozen hub pattern: six cards, two of them combined roadmap entries reusing existing pages, one wholly new closing page (Section 8). Grade 4's Common Words (four sets, 48 words) and Additional Practice (one card, Measurement Words) are also now implemented (Section 8), following the same audit process as every prior grade's Additional Practice decision — including, for Additional Practice, arriving at exactly one card rather than the three K–2 shipped, the same way Grade 3 arrived at zero.
 
-Grade 5's Core Spelling section also now realizes the hub pattern: five cards, one a combined roadmap entry, one wholly new closing page (Section 14). Grade 5's Common Words are also now implemented: four sets, 48 words, zero overlap with the 292 words already owned by Kindergarten–Grade 4 (Section 15). Grade 5 has no Additional Practice section yet — that is a deliberately separate, later implementation phase, so the Grade 5 hub currently renders two sections, not three; this is an intermediate, not a final, state.
+Grade 5's Core Spelling section also now realizes the hub pattern: five cards, one a combined roadmap entry, one wholly new closing page (Section 14). Grade 5's Common Words are also implemented: four sets, 48 words, zero overlap with the 292 words already owned by Kindergarten–Grade 4 (Section 15). Grade 5's Additional Practice is also now implemented: two cards, Civics and Government Words and Money Management Words, after auditing five candidates and rejecting three (Section 16). The Grade 5 hub now renders all three sections — Grade 5 is implementation-complete, with no phase remaining deferred.
 
 The completed implementation preserves existing flat canonical routes, stable IDs, parent/adjacent links, server-rendered gateway orientation, and visible-content-aligned breadcrumb and `ItemList` structured data. Focused Skills and compatibility pages retain their routes without becoming duplicate canonical curriculum pages. Grade 2's, Grade 3's, Grade 4's, and Grade 5's implementations additionally required no schema change — they reused `contentRole: grade-unit`/`skill`/`sight-word-set`/`vocabulary-theme`, `skillIds`, `prerequisiteLists`/`nextLists`, and the existing `spelling-collections` gateway model exactly as documented above.
 
-### Contract for Grade 5's remaining phase (Additional Practice)
+### Maintenance contract for all six grades
 
-Future implementation work on Grade 5 must follow the frozen decisions in Sections 1–3:
+Any future maintenance across Kindergarten–Grade 5 must continue to follow the frozen decisions in Sections 1–3:
 
 - Use the three public sections in order: Core Spelling, High-Frequency Words, and Additional Practice.
 - Reuse stable canonical practice URLs and add only genuine curricular gaps or approved bounded vocabulary topics.
@@ -391,6 +389,7 @@ Future implementation work on Grade 5 must follow the frozen decisions in Sectio
 - Use existing schema fields, adjacent-set relationships, and optional Heart Word hints; do not create duplicate route families or a parallel Heart Word taxonomy.
 - Keep breadcrumbs, `ItemList` data, and internal links aligned with visible published content.
 - Preserve focused Skills as reusable practice reached from Grade Units, browse surfaces, search, and related links.
+- Do not reopen any grade's frozen architecture without an explicit new architecture decision.
 
 ## 12. SEO, internal linking, and documentation governance
 
@@ -414,13 +413,13 @@ This document supersedes only prior **planning documents** whose purpose was to 
 4. ~~Curate Grade 4's narrower Common Words sequence and Additional Practice.~~ **Done.** Grade 4 shipped four Common Words sets (48 words) and one Additional Practice card (Measurement Words) — see Section 8.
 5. ~~Complete Grade 5's morphology and multisyllabic reframing.~~ **Done.** Grade 5 shipped five Core Spelling cards, including one combined roadmap entry (Advanced Prefixes and Suffixes, with Spelling Rules for Word Endings as its sibling) and one new closing page (Spelling Changes in Related Words) — see Section 14.
 6. ~~Curate Grade 5's Common Words sequence.~~ **Done.** Grade 5 shipped four Common Words sets (48 words), zero overlap with the 292 words already owned by Kindergarten–Grade 4 — see Section 15.
-7. Complete Grade 5's Additional Practice — a separate, later implementation phase.
-8. Add optional topic cards only after each grade’s core route and Common Words system are complete and the topics clear editorial review.
+7. ~~Complete Grade 5's Additional Practice.~~ **Done.** Grade 5 shipped two Additional Practice cards (Civics and Government Words; Money Management Words) after auditing five candidates and rejecting three — see Section 16.
+8. Add optional topic cards only after each grade’s core route and Common Words system are complete and the topics clear editorial review. All six K–5 grades are now implementation-complete; no grade has a pending phase.
 9. Keep Kindergarten, Grade 1, Grade 2, Grade 3, Grade 4, and Grade 5 synchronized with implementation when maintenance changes their technical contracts; do not reopen their frozen architecture without an explicit architecture decision.
 
 ## 14. Exact Grade 5 grade-hub cards (Core Spelling — Phase 1)
 
-The visible Grade 5 hub currently implements Core Spelling only. High-Frequency Words and Additional Practice are a separate, later implementation phase — Grade 5 has zero Common Words sets published today, and its three content-area vocabulary files (`grade-5-science-nature-words`, `grade-5-community-civics-words`, `grade-5-math-vocabulary`) are being held for that phase rather than wired in early, the same discipline Grade 3's Additional Practice review (Section 7) and Grade 4's placeholder-rejection decision (Section 8) both document.
+The Grade 5 hub's Core Spelling section was implemented first, as documented below. High-Frequency Words (Section 15) and Additional Practice (Section 16) followed as later phases; all three sections are now live — Grade 5's three content-area vocabulary files (`grade-5-science-nature-words`, `grade-5-community-civics-words`, `grade-5-math-vocabulary`) were held pending that later work rather than wired in early, the same discipline Grade 3's Additional Practice review (Section 7) and Grade 4's placeholder-rejection decision (Section 8) both document. Section 16 records the outcome: two of the three were promoted (one corrected first), one pair stayed off-hub.
 
 | # | Section | Public title | Type and destination | Underlying content | Status | Parent-facing purpose |
 |---:|---|---|---|---|---|---|
@@ -440,7 +439,24 @@ The visible Grade 5 hub currently implements Core Spelling only. High-Frequency 
 
 **Off-hub Grade 5 vocabulary:** `grade-5-list-01` (Everyday Words), `grade-5-academic-words`, `grade-5-reading-writing-words`, and `grade-5-opinion-argument-words` are not part of the Core Spelling hub — direct analogues of Grade 4's off-hub vocabulary (Section 8). `grade-5-academic-words`'s intentional word overlap with `challenge/academic-vocabulary` (documented in `curriculum-bible.md`) is unaffected by this implementation.
 
-**Deferred to the next Grade 5 phase:** Additional Practice only (`grade-5-science-nature-words`, `grade-5-community-civics-words`, `grade-5-math-vocabulary` are strong, non-placeholder candidates per Section 3's flexible row, but remain unwired pending that phase's own research and implementation pass). Common Words is no longer deferred — see Section 15.
+**Nothing remains deferred for Grade 5.** Additional Practice is no longer deferred — see Section 16.
+
+## 16. Exact Grade 5 Additional Practice
+
+Two cards, following an audit of five candidates against the same bounded-set, standard-anchored, non-duplicative bar every prior grade's Additional Practice candidates were held to (Sections 6–8).
+
+| Card | Words | Anchor | Disposition |
+|---|---|---|---|
+| **Civics and Government Words** | citizen, law, amendment, justice, constitution, congress, election, representative, liberty, rights, independence, capital | A single coherent civic-life/government topic, the same shape as Money Words (Section 6) or Days of the Week — not "social studies" as a whole. | Implemented. Reframed from the pre-existing, never-audited `grade-5-community-civics-words` (retitled from "Social Studies & Civics Words," which read as a broader subject than the list actually covers). |
+| **Money Management Words** | budget, income, expense, savings, interest, deposit, withdraw, credit, debit, borrow, balance, tax | Personal financial literacy — budgeting and banking specifically, not "money" broadly. Anchored the same way Money Words was anchored to CCSS 2.MD.C.8 and Measurement Words to CCSS 4.MD.A.1: Texas TEKS 5.10 (Personal Financial Literacy) names this exact closed vocabulary (income vs. expense, methods of payment, balancing a budget). | Implemented. New page — a genuine, non-duplicative extension of Grade 2's Money Words (that card teaches what money *is*, coin/dollar names; this teaches what you *do* with money). |
+
+**Audit findings on the three pre-existing, unwired Grade 5 files:** `grade-5-science-nature-words` and `grade-5-math-vocabulary` were rejected as Additional Practice candidates. Both read as "one word per subject strand" grab-bags rather than a genuinely closed set — the identical defect that sank Grade 2's and Grade 4's generic "Math"/"Science" placeholders (Sections 6, 8) — so promoting them as written would have applied a looser standard to Grade 5 than every other grade was held to. They remain published as off-hub vocabulary (`GRADE_5_VOCABULARY_IDS`), the same disposition as Grade 5's other general vocabulary lists, not deleted.
+
+The audit also caught real defects in the pre-existing civics content that had never been checked against the live word banks: `government` and `president` were already Grade 4 Common Words (Sets 1 and 3), and `responsibility` was already a Grade 5 Core Spelling word (Advanced Multisyllabic Academic Words) — all three replaced (`amendment`, `congress`, `liberty` respectively). During implementation, a fourth collision was found and fixed the same way: `democracy` was already a Grade 4 Core Spelling word (`tier-2-greek-latin-roots`, a Greek-root example), replaced with `justice`. This is exactly the kind of problem the "remain unwired pending research" holding pattern (Section 14) existed to catch.
+
+**Geography, technology, health, and arts were evaluated as candidates for a possible third card and rejected.** Geography is explicitly blocklisted by name in Section 1's "Deferred optional content" rule. Technology and health are open, ever-growing domains with no closed standard-named subset the way coins or customary units have — the same failure mode as generic "Math"/"Science." Arts vocabulary lacks a comparably universal standard anchor and reads as thinner/more arbitrary than the other candidates. Grade 5 ships with exactly two Additional Practice cards, not three, on the merits of each candidate — not to hit a round number.
+
+**Zero-overlap verification:** both new/corrected cards' 24 words were checked programmatically against every word in every published K–5 Common Words set and every K–5 Core Spelling (`contentRole: grade-unit`/`skill`) page — zero overlaps remain. This check is now a standing regression test (`gradeHubCards.test.ts`).
 
 ## 15. Exact Grade 5 Common Words (High-Frequency Words)
 

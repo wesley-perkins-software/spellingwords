@@ -450,6 +450,8 @@ Coverage: **Strong**. Grade 5 now has a 12-list architecture that keeps morpholo
 
 **Common Words update:** Grade 5 now has its own four-set, 48-word Common Words sequence (`grade-5-common-words-1` through `-4`, gateway `grade-5-common-words`), zero overlap with the 292 words already owned by Kindergarten–Grade 4 — see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 15 for the full record, including the theme table and the editorial decisions behind Set 4's connector/editing blend and the `guard` → `vague` substitution in Set 1.
 
+**Additional Practice update:** Grade 5 now has two Additional Practice cards, closing out the K–5 implementation. `5th-grade-community-civics-words` was retitled "5th Grade Civics and Government Words" and corrected (`government`, `president`, `responsibility`, and `democracy` were each swapped out for `amendment`, `congress`, `liberty`, and `justice` — the originals all silently duplicated existing Grade 4/5 Common Words or Core Spelling content). A new `5th-grade-money-management-words` page was added for budgeting/banking vocabulary, extending Grade 2's Money Words without duplicating it. `5th-grade-science-nature-words` and `5th-grade-math-vocabulary` were evaluated and did not clear the bounded-set bar (they read as one-word-per-subject-strand grab-bags); both remain published as off-hub vocabulary rather than promoted. See `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 16 for the full audit record.
+
 #### Target Coverage Checklist
 - [x] Academic vocabulary (general)
 - [x] Reading/writing/ELA academic vocabulary

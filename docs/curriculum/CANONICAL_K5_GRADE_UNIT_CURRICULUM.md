@@ -6,7 +6,7 @@
 **Purpose:** Defines the consensus K–5 Grade Unit curriculum used to audit and plan site content  
 **Source:** Deep research synthesis of U.S. standards and structured-literacy curricula  
 **Implementation authority:** Educational blueprint only; public implementation details are governed by [K5_FINAL_CONTENT_ARCHITECTURE.md](../planning/K5_FINAL_CONTENT_ARCHITECTURE.md)
-**Implementation status:** Kindergarten, Grade 1, Grade 2, and Grade 3 are implemented on the public website; Grades 4–5 remain future implementation work
+**Implementation status:** Kindergarten, Grade 1, Grade 2, Grade 3, and Grade 4 Core Spelling are implemented on the public website; Grade 4's Common Words and Additional Practice sections and all of Grade 5 remain future implementation work
 
 ## How this document should be used
 
@@ -22,7 +22,7 @@
 
 ### Current implementation note
 
-Kindergarten, Grade 1, Grade 2, and Grade 3 are implementation-complete under the public architecture. Their hubs, Common Words sequences, and approved Additional Practice pages realize the educational progression in this document at a finer level of detail. Grade 3 ships with no Additional Practice pages after its candidate topics were reviewed and rejected (see the Grade 3 implementation note below). Grades 4–5 remain educationally specified here and architecturally specified in the implementation reference, but are not yet implementation-complete.
+Kindergarten, Grade 1, Grade 2, and Grade 3 are implementation-complete under the public architecture. Their hubs, Common Words sequences, and approved Additional Practice pages realize the educational progression in this document at a finer level of detail. Grade 3 ships with no Additional Practice pages after its candidate topics were reviewed and rejected (see the Grade 3 implementation note below). Grade 4's Core Spelling section is now also implementation-complete (see the Grade 4 implementation note below); its Common Words and Additional Practice sections, and all of Grade 5, remain educationally specified here and architecturally specified in the implementation reference, but are not yet implementation-complete.
 
 ## Framing the synthesis
 
@@ -128,6 +128,8 @@ By Grade 4, standards stop listing many small phonics topics separately and inst
 The best Grade 4 ordering is: Greek and Latin Roots → Advanced Multisyllabic Words → Final Stable Syllables and Common Word Endings → Derived Words and Word Meaning. Roots give students meaningful handles on longer words; advanced multisyllabic work gives them structural control; final stable syllables add a major academic-word pattern set; and derived-word work integrates sound, spelling, and meaning across families. This sequencing is especially consistent with the upper-elementary shift described by Common Core, New York, Texas, LETRS, and Moats.
 
 The main concepts absorbed into Grade 4 rather than separated are schwa, dictionary syllabication/origin work, and hard/soft c and g review. Schwa is real and important, but it is usually best taught inside advanced multisyllabic and final-syllable work rather than as a separate Grade Unit. Hard and soft c and g continue to matter, but by Grade 4 they function more as part of advanced word analysis than as the whole instructional center.
+
+> **Implementation note:** Grade 4's Core Spelling section is now implemented on the public website. The four broad curriculum units above are presented through six Core Spelling cards: Advanced Multisyllabic Words and Commonly Confused Words reuse existing canonical pages unchanged; Advanced Prefixes carries forward Grade 3's parallel Prefixes/Suffixes rungs as a deliberate implementation card beyond the four canonical units, the same way Grade 3 added Longer Words and Syllable Division and Root Word Families beyond its five; Final Stable Syllables and Common Word Endings is realized as a combined roadmap entry anchored on the existing Advanced Suffixes page (which already teaches -tion/-sion), with a new -ture/-sure focused Skill as its one genuine content gap; Greek and Latin Roots is realized as a combined roadmap entry from two already-existing pages (Latin roots as anchor, Greek roots as focused Skill), following the same pattern documented for Grade 1's Long Vowel Teams and Grade 3's Suffix Spelling Changes; and Derived Words and Word Meaning closes the sequence as the one wholly new page, a review/bridge card into the Grade 5 related-word study this document describes below. Card order follows structured-literacy consensus (affixes before roots, since roots are the more abstract bound-morpheme skill) rather than this document's unit-listing order, and mirrors Grade 3's own precedent of ending Core Spelling on the meaning/morphology bridge card rather than the homophones/confused-words accuracy card. The site's Common Words and Additional Practice sections for Grade 4 remain future implementation work. (See the Grade 4 implementation note in the companion architecture document, Section 8, for the full record.)
 
 ### Grade Five overview
 

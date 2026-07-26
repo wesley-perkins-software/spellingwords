@@ -4,19 +4,20 @@ urlSlug: 4th-grade-commonly-confused-words
 title: "4th Grade Commonly Confused Words"
 description: "A fourth-grade commonly confused words list that helps students choose the right spelling for words that sound alike or look similar in writing."
 shortAnswer: "Fourth graders practice commonly confused words such as there, their, they're, its, it's, than, then, except, affect, effect, principal, and principle."
+contentRole: grade-unit
 category: grade-level
 grade: "4"
 difficulty: intermediate
 skillTags: ["grade-4", "homophones", "commonly-confused-words", "writing"]
 tags: ["grade-4", "homophones", "commonly-confused-words", "writing", "word-choice"]
-order: 8
+order: 9
 estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-homophones", "grade-4-reading-writing-words"]
-prerequisiteLists: ["grade-3-homophones"]
-nextLists: ["grade-5-reading-writing-words"]
+relatedLists: ["grade-3-homophones", "grade-4-reading-writing-words", "tier-2-greek-latin-roots"]
+prerequisiteLists: ["grade-3-homophones", "tier-2-greek-latin-roots"]
+nextLists: ["grade-4-derived-words"]
 readinessSignals:
   - "Can revise sentences for meaning and notice when a familiar word choice looks wrong"
   - "Understand that some confusing words sound alike while others are confused because they look similar or are used in similar contexts"
@@ -29,7 +30,7 @@ faq:
   - question: "How can a teacher tell whether a student is ready for this page?"
     answer: "A ready student can already spell many common words but still needs support choosing the exact word in explanations, reports, and stories. If the learner can discuss what a sentence means, this list is useful."
   - question: "What is a good follow-up after these words?"
-    answer: "Fifth-grade reading and writing words are a strong next step because they keep the focus on precise vocabulary in longer academic responses."
+    answer: "Derived Words and Word Meaning is the natural next step. It closes the fourth-grade sequence by showing how a base word's spelling stays stable across a whole family of related words."
 featured: false
 words:
   - there

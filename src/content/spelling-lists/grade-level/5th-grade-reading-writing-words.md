@@ -15,7 +15,7 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["grade-5-academic-words", "grade-5-opinion-argument-words"]
-prerequisiteLists: ["grade-4-reading-writing-words", "grade-4-commonly-confused-words"]
+prerequisiteLists: ["grade-4-reading-writing-words", "grade-4-commonly-confused-words", "grade-4-derived-words"]
 nextLists: ["grade-5-opinion-argument-words"]
 featured: false
 readinessSignals:

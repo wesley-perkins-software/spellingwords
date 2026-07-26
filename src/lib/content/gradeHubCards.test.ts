@@ -5,6 +5,7 @@ import {
   GRADE_1_HUB_SECTIONS,
   GRADE_2_HUB_SECTIONS,
   GRADE_3_HUB_SECTIONS,
+  GRADE_5_HUB_SECTIONS,
   KINDERGARTEN_HUB_SECTIONS,
 } from "./gradeHubCards";
 
@@ -152,6 +153,78 @@ describe("frozen K–2 grade hub cards", () => {
     expect(GRADE_3_HUB_SECTIONS[1].summary).toContain("Heart Word guidance");
     expect(idsFor(GRADE_3_HUB_SECTIONS)).not.toContain("grade-3-doubling-final-consonants");
     expect(idsFor(GRADE_3_HUB_SECTIONS)).not.toContain("grade-3-changing-y-to-i");
+  });
+});
+
+function wordsIn(fileContent: string): string[] {
+  const block = fileContent.match(/^words:\n([\s\S]*?)\n---/m)?.[1] ?? "";
+  return [...block.matchAll(/^\s{2}-\s+(?:word:\s+)?["']?([^"'\n]+?)["']?\s*$/gm)].map((match) =>
+    match[1].trim().toLowerCase(),
+  );
+}
+
+describe("Grade 5 grade hub cards", () => {
+  it("renders the complete Grade 5 cards across all three sections", () => {
+    expect(GRADE_5_HUB_SECTIONS.map((section) => section.title)).toEqual([
+      "Core Spelling",
+      "High-Frequency Words",
+      "Additional Practice",
+    ]);
+    expect(idsFor(GRADE_5_HUB_SECTIONS)).toEqual([
+      "grade-5-multisyllabic-academic-words",
+      "grade-5-prefix-suffix-words",
+      "grade-5-greek-latin-word-parts",
+      "grade-5-commonly-confused-words",
+      "grade-5-spelling-changes-related-words",
+      "grade-5-common-words-1",
+      "grade-5-common-words-2",
+      "grade-5-common-words-3",
+      "grade-5-common-words-4",
+      "grade-5-community-civics-words",
+      "grade-5-money-management-words",
+    ]);
+    expect(GRADE_5_HUB_SECTIONS[0].cards).toHaveLength(5);
+    expect(GRADE_5_HUB_SECTIONS[1].cards).toHaveLength(4);
+    expect(GRADE_5_HUB_SECTIONS[2].cards).toHaveLength(2);
+    expect(GRADE_5_HUB_SECTIONS[1].summary).toContain("4 sets · 48 words");
+  });
+
+  it("does not expand Grade 5 Additional Practice beyond the two approved cards", () => {
+    expect(idsFor(GRADE_5_HUB_SECTIONS)).not.toContain("grade-5-science-nature-words");
+    expect(idsFor(GRADE_5_HUB_SECTIONS)).not.toContain("grade-5-math-vocabulary");
+  });
+
+  it("publishes Grade 5 Additional Practice with contentRole: vocabulary-theme and zero overlap against any K–5 Common Words or Core Spelling word", () => {
+    const additionalPracticeIds = ["grade-5-community-civics-words", "grade-5-money-management-words"];
+    const additionalPracticeWords = new Set<string>();
+    for (const id of additionalPracticeIds) {
+      const fileName = id === "grade-5-community-civics-words"
+        ? "5th-grade-community-civics-words"
+        : "5th-grade-money-management-words";
+      const content = source(`spelling-lists/grade-level/${fileName}.md`);
+      expect(content).toContain("contentRole: vocabulary-theme");
+      for (const word of wordsIn(content)) {
+        additionalPracticeWords.add(word);
+      }
+    }
+    expect(additionalPracticeWords.size).toBe(24);
+
+    const bannedWords = new Set<string>();
+    for (const relativeDir of ["spelling-lists/sight-words", "spelling-lists/grade-level"]) {
+      for (const path of contentFiles(join(contentRoot, relativeDir))) {
+        const content = readFileSync(path, "utf8");
+        const isCommonWordsSet = /contentRole:\s*sight-word-set/.test(content);
+        const isCoreSpelling = /contentRole:\s*(grade-unit|skill)/.test(content);
+        if (!isCommonWordsSet && !isCoreSpelling) continue;
+        for (const word of wordsIn(content)) {
+          bannedWords.add(word);
+        }
+      }
+    }
+
+    for (const word of additionalPracticeWords) {
+      expect(bannedWords.has(word)).toBe(false);
+    }
   });
 });
 

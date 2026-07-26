@@ -16,7 +16,7 @@ masteryThreshold: 90
 sourceType: curated
 relatedLists: ["grade-5-academic-words", "grade-5-multisyllabic-academic-words"]
 prerequisiteLists: ["grade-4-list-02"]
-nextLists: ["grade-5-community-civics-words"]
+nextLists: ["grade-5-math-vocabulary"]
 featured: false
 readinessSignals:
   - "Read science passages and notice vocabulary tied to living things, earth systems, or investigation"

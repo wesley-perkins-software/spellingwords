@@ -14,8 +14,8 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-academic-words", "grade-5-science-nature-words", "grade-5-community-civics-words"]
-prerequisiteLists: []
+relatedLists: ["grade-5-academic-words", "grade-5-science-nature-words"]
+prerequisiteLists: ["grade-5-science-nature-words"]
 nextLists: []
 featured: false
 readinessSignals:

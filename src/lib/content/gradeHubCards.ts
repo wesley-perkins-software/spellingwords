@@ -517,11 +517,12 @@ export const GRADE_2_HUB_SECTIONS: readonly {
 ];
 
 /**
- * Grade 3 hub — Core Spelling and High-Frequency Words. Additional Practice
- * candidates are held back entirely pending a separate editorial audit (see
- * `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 9's contract for
- * Grades 3–5). Add that section here once it clears review — do not wire in
- * draft content early.
+ * Grade 3 hub — Core Spelling and High-Frequency Words. Three Additional
+ * Practice candidates (Calendar Words, Clothing Words, Transportation Words)
+ * were reviewed and rejected — see the Additional Practice decision in
+ * `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 7. Grade 3 ships
+ * with no Additional Practice section as a result; this is the current
+ * implementation decision, not a placeholder.
  */
 export const GRADE_3_HUB_SECTIONS: readonly {
   title: string;
@@ -755,12 +756,15 @@ export const GRADE_4_HUB_SECTIONS: readonly {
 ];
 
 /**
- * Grade 5 hub — Core Spelling and High-Frequency Words (see
- * `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`). Additional Practice
- * remains a separate, later implementation phase: Grade 5's content-area
- * vocabulary (`grade-5-science-nature-words`, `grade-5-community-civics-words`,
- * `grade-5-math-vocabulary`) is being held for that phase rather than wired
- * in early — the same discipline `GRADE_3_HUB_SECTIONS` documents above.
+ * Grade 5 hub — Core Spelling, High-Frequency Words, and Additional Practice
+ * (see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 16). Two
+ * Additional Practice cards shipped after an audit of five candidates:
+ * Civics and Government Words (reframed and corrected from the pre-existing
+ * `grade-5-community-civics-words`) and Money Management Words (new).
+ * `grade-5-science-nature-words` and `grade-5-math-vocabulary` were audited
+ * and rejected as open, subject-wide vocabulary rather than a genuinely
+ * closed set — the same defect that sank Grade 2's and Grade 4's generic
+ * "Math"/"Science" candidates — so they stay off-hub vocabulary instead.
  */
 export const GRADE_5_HUB_SECTIONS: readonly {
   title: string;
@@ -847,6 +851,27 @@ export const GRADE_5_HUB_SECTIONS: readonly {
         description:
           "Finish with connecting and editing words for longer writing, such as consequently, punctuation, and vocabulary.",
         badge: "Common Words",
+        kind: "list",
+      },
+    ],
+  },
+  {
+    title: "Additional Practice",
+    cards: [
+      {
+        id: "grade-5-community-civics-words",
+        title: "Civics and Government Words",
+        description:
+          "Practice words for reading and writing about the Constitution, government, and citizenship, such as democracy and amendment.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "grade-5-money-management-words",
+        title: "Money Management Words",
+        description:
+          "Practice words for budgeting, saving, and understanding how a bank account works, such as budget, interest, and deposit.",
+        badge: "Vocabulary",
         kind: "list",
       },
     ],

@@ -20,7 +20,7 @@ canonicalSource:
   tier: "Grade 4 common words"
 relatedLists: []
 prerequisiteLists: ["grade-4-common-words-3"]
-nextLists: []
+nextLists: ["grade-5-common-words-1"]
 featured: false
 words:
   - "however"

@@ -22,9 +22,9 @@
  * Meaning). Commonly Confused Words sits second-to-last, the same slot the
  * accuracy card holds in Grades 3-4.
  *
- * Grade 5 Common Words and Additional Practice are a separate, later
- * implementation phase — this file intentionally has no
- * GRADE_5_COMMON_WORD_IDS / GRADE_5_ADDITIONAL_PRACTICE_IDS exports yet.
+ * Grade 5 Additional Practice remains a separate, later implementation
+ * phase — this file intentionally has no GRADE_5_ADDITIONAL_PRACTICE_IDS
+ * export yet.
  */
 export const GRADE_5_CORE_IDS: readonly string[] = [
   'grade-5-multisyllabic-academic-words',
@@ -47,6 +47,20 @@ export const GRADE_5_VOCABULARY_IDS: readonly string[] = [
 ];
 
 /**
+ * Grade 5 Common Words sets, published. Documentation only —
+ * `sight-word-set` is not a `grade-unit`, so these ids never enter
+ * `buildGradeUnitSequence()`. The Grade 5 hub's High-Frequency Words section
+ * is driven directly by `GRADE_5_HUB_SECTIONS` in `gradeHubCards.ts`,
+ * independent of this file.
+ */
+export const GRADE_5_COMMON_WORD_IDS: readonly string[] = [
+  'grade-5-common-words-1',
+  'grade-5-common-words-2',
+  'grade-5-common-words-3',
+  'grade-5-common-words-4',
+];
+
+/**
  * Card badge label, independent of `category` — matches the convention in
  * `grade1Progression.ts`/`grade2Progression.ts`/`grade3Progression.ts`/
  * `grade4Progression.ts`.
@@ -58,4 +72,8 @@ export const grade5Badges: Record<string, string> = {
   'grade-5-greek-latin-word-parts': 'Core Unit',
   'grade-5-commonly-confused-words': 'Core Unit',
   'grade-5-spelling-changes-related-words': 'Core Unit',
+  'grade-5-common-words-1': 'Common Words',
+  'grade-5-common-words-2': 'Common Words',
+  'grade-5-common-words-3': 'Common Words',
+  'grade-5-common-words-4': 'Common Words',
 };

@@ -20,7 +20,7 @@ canonicalSource:
   tier: "Grade 3 common words"
 relatedLists: []
 prerequisiteLists: ["grade-3-common-words-4"]
-nextLists: []
+nextLists: ["grade-4-common-words-1"]
 featured: false
 words:
   - "finally"

@@ -55,13 +55,13 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   },
   "4": {
     metaDescription:
-      "Free 4th grade spelling word lists with a six-step Core Spelling route through advanced multisyllabic words, advanced prefixes, advanced suffixes and final stable syllables, Greek and Latin roots, commonly confused words, and derived words and word meaning.",
+      "Free 4th grade spelling word lists with a six-step Core Spelling route through advanced multisyllabic words, advanced prefixes, advanced suffixes and final stable syllables, Greek and Latin roots, commonly confused words, and derived words and word meaning, plus four high-frequency-word sets and customary measurement words.",
     heroParagraphs: [
       "Use Core Spelling for the Grade 4 route: advanced multisyllabic words, advanced prefixes, advanced suffixes and final stable syllables, Greek and Latin roots, commonly confused words, and derived words and word meaning. All lists include audio support so students can hear each word before typing it.",
-      "Fourth grade spelling is the expansion year after introductory morphology. Students move from basic prefixes, suffixes, and root families into longer academic words, advanced affixes, the final stable syllables that complete common word endings, formal Greek and Latin root study, and the derived-word families that connect spelling and meaning across a base word.",
+      "Fourth grade spelling is the expansion year after introductory morphology. Students move from basic prefixes, suffixes, and root families into longer academic words, advanced affixes, the final stable syllables that complete common word endings, formal Greek and Latin root study, and the derived-word families that connect spelling and meaning across a base word. High-Frequency Words adds four narrower, corrective sets for silent letters, doubled consonants, unstressed vowels, and confusable connecting words, while Additional Practice offers customary measurement words.",
     ],
     guidanceBody:
-      "Start with Core Spelling and move through the six steps in order — Advanced Multisyllabic Words and Advanced Prefixes come first because the suffix, root, and confusable-word lessons that follow all build on them. Advanced Suffixes and Final Stable Syllables leads into Greek and Latin Roots, since recognizing a stable ending is part of the same skill as recognizing a root inside a longer word. Derived Words and Word Meaning closes the sequence and previews the related-word study that continues in Grade 5.",
+      "Start with Core Spelling and move through the six steps in order — Advanced Multisyllabic Words and Advanced Prefixes come first because the suffix, root, and confusable-word lessons that follow all build on them. Advanced Suffixes and Final Stable Syllables leads into Greek and Latin Roots, since recognizing a stable ending is part of the same skill as recognizing a root inside a longer word. Derived Words and Word Meaning closes the sequence and previews the related-word study that continues in Grade 5. Use the Grade 4 High-Frequency Words sets alongside the route for words your child still needs to nail down, and reach for Measurement Words whenever measurement vocabulary comes up in math.",
     emptyStateLabel: "Fourth grade",
   },
   "5": {

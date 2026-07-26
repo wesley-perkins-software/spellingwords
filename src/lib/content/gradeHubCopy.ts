@@ -44,13 +44,13 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   },
   "3": {
     metaDescription:
-      "Free 3rd grade spelling word lists with a seven-step Core Spelling route through prefixes, suffixes, suffix spelling changes, possessives, multisyllabic words, homophones, and root word families.",
+      "Free 3rd grade spelling word lists with a seven-step Core Spelling route through prefixes, suffixes, suffix spelling changes, possessives, multisyllabic words, homophones, and root word families, plus five cumulative high-frequency-word sets.",
     heroParagraphs: [
       "Use Core Spelling for the Grade 3 route: prefixes, suffixes, the spelling changes suffixes trigger, possessives, longer multisyllabic words, and homophones and commonly confused words. All lists include audio support so students can hear each word before typing it.",
-      "Third grade spelling is the bridge from phonics into morphology. Students build on the word-part knowledge from Grade 1 and Grade 2 to study prefixes, suffixes, suffix spelling changes, apostrophe conventions, longer words, and meaning-based spelling choices.",
+      "Third grade spelling is the bridge from phonics into morphology. Students build on the word-part knowledge from Grade 1 and Grade 2 to study prefixes, suffixes, suffix spelling changes, apostrophe conventions, longer words, and meaning-based spelling choices. High-Frequency Words adds five cumulative sets of everyday writing words and persistent trouble words with Heart Word support for unexpected parts.",
     ],
     guidanceBody:
-      "Start with Core Spelling and move through the seven steps in order — Prefixes and Suffixes come first because the spelling-change, possessive, and multisyllabic-word lessons that follow all depend on them. Root Word Families closes the sequence and previews the Greek and Latin root study that begins in Grade 4.",
+      "Start with Core Spelling and move through the seven steps in order — Prefixes and Suffixes come first because the spelling-change, possessive, and multisyllabic-word lessons that follow all depend on them. Root Word Families closes the sequence and previews the Greek and Latin root study that begins in Grade 4. Use the Grade 3 High-Frequency Words sets alongside the route for the writing words your child needs right now.",
     emptyStateLabel: "Third grade",
   },
   "4": {

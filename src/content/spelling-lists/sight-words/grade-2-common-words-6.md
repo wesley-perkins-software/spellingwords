@@ -20,7 +20,7 @@ canonicalSource:
   tier: "Grade 2 common words"
 relatedLists: []
 prerequisiteLists: ["grade-2-common-words-5"]
-nextLists: []
+nextLists: ["grade-3-common-words-1"]
 featured: false
 words:
   - "which"

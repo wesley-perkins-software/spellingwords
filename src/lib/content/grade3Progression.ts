@@ -24,10 +24,10 @@ export const GRADE_3_CORE_IDS: readonly string[] = [
 ];
 
 /**
- * Grade 3 Common Words proposal — drafted, not yet published. Documentation
- * only until the words/gateway are approved and `status` flips to
- * `published`; `sight-word-set` is not a `grade-unit`, so these ids never
- * enter `buildGradeUnitSequence()` regardless of status.
+ * Grade 3 Common Words, published. Documentation only — `sight-word-set` is
+ * not a `grade-unit`, so these ids never enter `buildGradeUnitSequence()`.
+ * The Grade 3 hub's High-Frequency Words section is driven directly by
+ * `GRADE_3_HUB_SECTIONS` in `gradeHubCards.ts`, independent of this file.
  */
 export const GRADE_3_COMMON_WORD_IDS: readonly string[] = [
   'grade-3-common-words-1',

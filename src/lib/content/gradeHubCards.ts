@@ -517,12 +517,11 @@ export const GRADE_2_HUB_SECTIONS: readonly {
 ];
 
 /**
- * Grade 3 hub — Core Spelling only for now. The Common Words proposal (5
- * sets + gateway) is drafted but held at `status: draft` pending review, and
- * Additional Practice candidates are held back entirely pending a separate
- * editorial audit (see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`
- * Section 9's contract for Grades 3–5). Add those two sections here once
- * each is approved and published — do not wire in draft content early.
+ * Grade 3 hub — Core Spelling and High-Frequency Words. Additional Practice
+ * candidates are held back entirely pending a separate editorial audit (see
+ * `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 9's contract for
+ * Grades 3–5). Add that section here once it clears review — do not wire in
+ * draft content early.
  */
 export const GRADE_3_HUB_SECTIONS: readonly {
   title: string;
@@ -586,6 +585,53 @@ export const GRADE_3_HUB_SECTIONS: readonly {
         description:
           "Review how related words share a meaningful base, and preview the Greek and Latin root study that begins in Grade 4.",
         badge: "Grade Unit",
+        kind: "list",
+      },
+    ],
+  },
+  {
+    title: "High-Frequency Words",
+    summary:
+      "5 sets · 60 words · Common Grade 3 writing words taught with phonics and Heart Word guidance for unexpected spelling parts.",
+    cards: [
+      {
+        id: "grade-3-common-words-1",
+        title: "Grade 3 Common Words 1",
+        description:
+          "Begin with words that show where something is or connect one idea to another.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-3-common-words-2",
+        title: "Grade 3 Common Words 2",
+        description:
+          "Practice irregular past-tense verbs, including the shared brought/bought/caught/taught/fought/sought family.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-3-common-words-3",
+        title: "Grade 3 Common Words 3",
+        description:
+          "Spell the reading and writing words third graders use to talk about books and their own writing.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-3-common-words-4",
+        title: "Grade 3 Common Words 4",
+        description:
+          "Describe feelings and characters with more precision than happy or sad.",
+        badge: "Common Words",
+        kind: "list",
+      },
+      {
+        id: "grade-3-common-words-5",
+        title: "Grade 3 Common Words 5",
+        description:
+          "Finish with time and transition words that sequence ideas and connect sentences in writing.",
+        badge: "Common Words",
         kind: "list",
       },
     ],

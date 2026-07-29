@@ -274,7 +274,7 @@
 
 - **Internal ID:** `grade-2-soft-c-soft-g`
 - **Word count:** 12
-- **Words (published order):** city, space, circus, place, face, race, ice, nice, page, cage, large, change
+- **Words (published order):** city, giant, circus, place, face, race, ice, nice, page, cage, large, change
 
 #### Two-Syllable Words
 
@@ -372,7 +372,7 @@
 
 - **Internal ID:** `grade-3-prefix-words`
 - **Word count:** 18
-- **Words (published order):** unfair, unhappy, unkind, unsafe, unlock, redo, replay, reread, rewrite, prepare, predict, disagree, dislike, discover, dishonest, misplace, misread, misspell
+- **Words (published order):** unfair, unhappy, unkind, unsafe, unlock, redo, replay, reread, rewrite, preview, predict, disagree, dislike, discover, dishonest, misplace, misread, misspell
 
 #### 3rd Grade Suffix Words
 
@@ -396,7 +396,7 @@
 
 - **Internal ID:** `grade-3-multisyllabic-words`
 - **Word count:** 18
-- **Words (published order):** basket, because, careful, different, remember, suddenly, usually, afternoon, airplane, already, animal, birthday, building, attention, connection, important, information, solution
+- **Words (published order):** basket, because, umbrella, different, remember, suddenly, usually, afternoon, airplane, already, animal, birthday, building, attention, connection, important, information, solution
 
 #### 3rd Grade Homophones and Commonly Confused Words
 
@@ -466,13 +466,13 @@ _No published lists are owned by this section._
 
 - **Internal ID:** `grade-4-advanced-suffixes`
 - **Word count:** 12
-- **Words (published order):** breakable, visible, flexible, creative, protective, dangerous, famous, connection, solution, discussion, conclusion, portable
+- **Words (published order):** breakable, visible, flexible, creative, protective, dangerous, famous, connection, solution, discussion, conclusion, enjoyable
 
 #### 4th Grade Latin Root Words
 
 - **Internal ID:** `tier-1-roots-and-patterns`
 - **Word count:** 10
-- **Words (published order):** portable, transport, dictate, predict, inspect, spectator, interrupt, construct, structure, instruct
+- **Words (published order):** portable, transport, dictate, predict, inspect, spectator, interrupt, construct, erupt, instruct
 
 #### 4th Grade Commonly Confused Words
 
@@ -534,7 +534,7 @@ _No published lists are owned by this section._
 
 - **Internal ID:** `grade-5-prefix-suffix-words`
 - **Word count:** 12
-- **Words (published order):** interact, international, transfer, transport, supervise, submarine, protective, creative, responsible, activity, dangerous, agreement
+- **Words (published order):** interfere, international, transfer, transport, supervise, substitute, attractive, creative, responsible, activity, courageous, agreement
 
 #### 5th Grade Greek & Latin Word Parts
 
@@ -608,13 +608,13 @@ _No published lists are owned by this section._
 
 ### Grand total unique words
 
-**891 unique words** across the entire grade-owned K–5 curriculum (1012 published list entries).
+**898 unique words** across the entire grade-owned K–5 curriculum (1012 published list entries).
 
 ## Duplicate-word inventory
 
 ### Intentional duplicates
 
-The following 105 words recur across architecture-valid Core Spelling and/or Additional Practice contexts. Occurrences are shown as `Grade / section / internal ID (position)`.
+The following 98 words recur across architecture-valid Core Spelling and/or Additional Practice contexts. Occurrences are shown as `Grade / section / internal ID (position)`.
 
 - **affect:** Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (10); Grade 5 / Core Spelling / `grade-5-commonly-confused-words` (3)
 - **author:** Grade 2 / Core Spelling / `grade-2-au-aw-words` (8); Grade 3 / High-Frequency Words / `grade-3-common-words-3` (6)
@@ -631,7 +631,6 @@ The following 105 words recur across architecture-valid Core Spelling and/or Add
 - **by:** Grade 1 / Core Spelling / `grade-1-open-syllables-final-y` (10); Grade 1 / High-Frequency Words / `grade-1-common-words-2` (5)
 - **can:** Kindergarten / Core Spelling / `kindergarten-short-a-words` (5); Kindergarten / High-Frequency Words / `kindergarten-common-words-1` (5)
 - **cap:** Kindergarten / Core Spelling / `kindergarten-short-a-words` (7); Grade 1 / Core Spelling / `grade-1-cvc-short-vowels-c-k-rule` (6)
-- **careful:** Grade 3 / Core Spelling / `grade-3-suffix-words` (10); Grade 3 / Core Spelling / `grade-3-multisyllabic-words` (3)
 - **cat:** Kindergarten / Core Spelling / `kindergarten-first-words` (3); Kindergarten / Additional Practice / `kindergarten-animal-words` (2); Grade 1 / Core Spelling / `grade-1-cvc-short-vowels-c-k-rule` (1)
 - **change:** Grade 2 / Core Spelling / `grade-2-soft-c-soft-g` (12); Grade 2 / Additional Practice / `grade-2-money-words` (8)
 - **chat:** Kindergarten / Core Spelling / `kindergarten-consonant-digraphs` (5); Grade 1 / Core Spelling / `grade-1-consonant-digraphs-final-ck` (4)
@@ -642,7 +641,6 @@ The following 105 words recur across architecture-valid Core Spelling and/or Add
 - **connection:** Grade 3 / Core Spelling / `grade-3-multisyllabic-words` (15); Grade 4 / Core Spelling / `grade-4-advanced-suffixes` (8)
 - **creative:** Grade 4 / Core Spelling / `grade-4-advanced-suffixes` (4); Grade 5 / Core Spelling / `grade-5-prefix-suffix-words` (8)
 - **cup:** Kindergarten / Core Spelling / `kindergarten-first-words` (4); Kindergarten / Core Spelling / `kindergarten-short-u-words` (7); Grade 1 / Core Spelling / `grade-1-cvc-short-vowels-c-k-rule` (3); Grade 4 / Additional Practice / `grade-4-measurement-words` (8)
-- **dangerous:** Grade 4 / Core Spelling / `grade-4-advanced-suffixes` (6); Grade 5 / Core Spelling / `grade-5-prefix-suffix-words` (11)
 - **different:** Grade 2 / High-Frequency Words / `grade-2-common-words-5` (3); Grade 3 / Core Spelling / `grade-3-multisyllabic-words` (4)
 - **dog:** Kindergarten / Core Spelling / `kindergarten-first-words` (5); Kindergarten / Core Spelling / `kindergarten-short-o-words` (1); Kindergarten / Core Spelling / `kindergarten-mixed-vowel-review` (3); Kindergarten / Additional Practice / `kindergarten-animal-words` (3)
 - **down:** Grade 1 / High-Frequency Words / `grade-1-common-words-5` (2); Grade 2 / Core Spelling / `vowel-teams-ou-ow` (3)
@@ -665,7 +663,6 @@ The following 105 words recur across architecture-valid Core Spelling and/or Add
 - **hop:** Kindergarten / Core Spelling / `kindergarten-short-o-words` (6); Kindergarten / Core Spelling / `kindergarten-mixed-vowel-review` (10)
 - **important:** Grade 2 / High-Frequency Words / `grade-2-common-words-5` (4); Grade 3 / Core Spelling / `grade-3-multisyllabic-words` (16)
 - **information:** Grade 3 / Core Spelling / `grade-3-multisyllabic-words` (17); Grade 5 / Core Spelling / `grade-5-multisyllabic-academic-words` (1)
-- **interact:** Grade 4 / Core Spelling / `grade-4-advanced-prefixes` (1); Grade 5 / Core Spelling / `grade-5-prefix-suffix-words` (1)
 - **international:** Grade 4 / Core Spelling / `grade-4-advanced-prefixes` (3); Grade 5 / Core Spelling / `grade-5-prefix-suffix-words` (2)
 - **it's:** Grade 2 / Core Spelling / `grade-2-contractions` (11); Grade 3 / Core Spelling / `grade-3-homophones` (7); Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (5)
 - **its:** Grade 2 / High-Frequency Words / `grade-2-common-words-6` (4); Grade 3 / Core Spelling / `grade-3-homophones` (6); Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (4)
@@ -689,12 +686,9 @@ The following 105 words recur across architecture-valid Core Spelling and/or Add
 - **people:** Grade 1 / High-Frequency Words / `grade-1-common-words-6` (9); Grade 2 / Core Spelling / `grade-2-final-stable-le` (10)
 - **pig:** Kindergarten / Core Spelling / `kindergarten-first-words` (7); Kindergarten / Core Spelling / `kindergarten-short-i-words` (1); Kindergarten / Additional Practice / `kindergarten-animal-words` (8)
 - **play:** Kindergarten / High-Frequency Words / `kindergarten-common-words-4` (10); Grade 1 / Core Spelling / `grade-1-long-a-long-o-vowel-teams` (6)
-- **portable:** Grade 4 / Core Spelling / `grade-4-advanced-suffixes` (12); Grade 4 / Core Spelling / `tier-1-roots-and-patterns` (1)
 - **predict:** Grade 3 / Core Spelling / `grade-3-prefix-words` (11); Grade 4 / Core Spelling / `tier-1-roots-and-patterns` (4)
-- **prepare:** Grade 3 / Core Spelling / `grade-3-prefix-words` (10); Grade 4 / Core Spelling / `grade-4-multisyllabic-academic-words` (8)
 - **principal:** Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (12); Grade 5 / Core Spelling / `grade-5-commonly-confused-words` (5)
 - **principle:** Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (13); Grade 5 / Core Spelling / `grade-5-commonly-confused-words` (6)
-- **protective:** Grade 4 / Core Spelling / `grade-4-advanced-suffixes` (5); Grade 5 / Core Spelling / `grade-5-prefix-suffix-words` (7)
 - **red:** Kindergarten / Core Spelling / `kindergarten-short-e-words` (2); Kindergarten / Additional Practice / `kindergarten-color-words` (1)
 - **right:** Grade 2 / High-Frequency Words / `grade-2-common-words-5` (12); Grade 3 / Core Spelling / `grade-3-homophones` (8)
 - **see:** Kindergarten / High-Frequency Words / `kindergarten-common-words-3` (10); Grade 1 / Additional Practice / `grade-1-five-senses-words` (1)
@@ -703,7 +697,6 @@ The following 105 words recur across architecture-valid Core Spelling and/or Add
 - **shop:** Kindergarten / Core Spelling / `kindergarten-consonant-digraphs` (2); Grade 1 / Core Spelling / `grade-1-consonant-digraphs-final-ck` (2)
 - **so:** Grade 1 / Core Spelling / `grade-1-open-syllables-final-y` (7); Grade 1 / High-Frequency Words / `grade-1-common-words-6` (2)
 - **solution:** Grade 3 / Core Spelling / `grade-3-multisyllabic-words` (18); Grade 4 / Core Spelling / `grade-4-advanced-suffixes` (9)
-- **submarine:** Grade 4 / Core Spelling / `grade-4-advanced-prefixes` (5); Grade 5 / Core Spelling / `grade-5-prefix-suffix-words` (6)
 - **sun:** Kindergarten / Core Spelling / `kindergarten-first-words` (8); Kindergarten / Core Spelling / `kindergarten-short-u-words` (3)
 - **supervise:** Grade 4 / Core Spelling / `grade-4-advanced-prefixes` (6); Grade 5 / Core Spelling / `grade-5-prefix-suffix-words` (5)
 - **their:** Grade 1 / High-Frequency Words / `grade-1-common-words-4` (8); Grade 3 / Core Spelling / `grade-3-homophones` (2); Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (2)

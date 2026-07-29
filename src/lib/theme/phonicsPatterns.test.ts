@@ -296,7 +296,7 @@ describe('prepareWordDisplay — grade-3-prefix-words (prefixes)', () => {
   const words = [
     'unfair', 'unhappy', 'unkind', 'unsafe', 'unlock',
     'redo', 'replay', 'reread', 'rewrite',
-    'prepare', 'predict',
+    'preview', 'predict',
     'disagree', 'dislike', 'discover', 'dishonest',
     'misplace', 'misread', 'misspell',
   ];
@@ -306,7 +306,7 @@ describe('prepareWordDisplay — grade-3-prefix-words (prefixes)', () => {
     expect(result.map((r) => render(r.segments))).toEqual([
       '[un]fair', '[un]happy', '[un]kind', '[un]safe', '[un]lock',
       '[re]do', '[re]play', '[re]read', '[re]write',
-      '[pre]pare', '[pre]dict',
+      '[pre]view', '[pre]dict',
       '[dis]agree', '[dis]like', '[dis]cover', '[dis]honest',
       '[mis]place', '[mis]read', '[mis]spell',
     ]);

@@ -42,7 +42,7 @@ words:
   - replay
   - reread
   - rewrite
-  - prepare
+  - preview
   - predict
   - disagree
   - dislike

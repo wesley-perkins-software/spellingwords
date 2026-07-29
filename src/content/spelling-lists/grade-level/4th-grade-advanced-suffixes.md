@@ -44,7 +44,7 @@ words:
   - solution
   - discussion
   - conclusion
-  - portable
+  - enjoyable
 ---
 
 In fourth grade, suffixes do more than make simple endings. They help students see how longer words are built and how spelling can signal meaning. Endings like *-able*, *-ible*, *-ous*, *-ive*, *-tion*, and *-sion* appear often in academic vocabulary.

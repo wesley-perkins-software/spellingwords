@@ -34,7 +34,7 @@ faq:
     answer: "Practicing soft c and soft g together, in the same lesson, helps children apply one shared idea — the letter after c or g controls the sound — to two letters at once, instead of learning two unrelated rules."
 words:
   - city
-  - space
+  - giant
   - circus
   - place
   - face

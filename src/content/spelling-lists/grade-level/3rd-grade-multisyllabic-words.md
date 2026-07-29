@@ -35,7 +35,7 @@ featured: false
 words:
   - basket
   - because
-  - careful
+  - umbrella
   - different
   - remember
   - suddenly

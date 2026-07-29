@@ -3,7 +3,7 @@ id: grade-5-prefix-suffix-words
 urlSlug: 5th-grade-prefix-suffix-words
 title: "5th Grade Prefix & Suffix Words"
 description: "Twelve fifth-grade words with useful prefixes and suffixes that help students spell and understand longer academic vocabulary."
-shortAnswer: "Twelve fifth-grade prefix and suffix words — interact, transport, responsible, activity, agreement, and more."
+shortAnswer: "Twelve fifth-grade prefix and suffix words — interfere, transport, responsible, activity, agreement, and more."
 contentRole: grade-unit
 skillIds: ["grade-5-spelling-rules"]
 category: grade-level
@@ -34,17 +34,17 @@ faq:
     answer: "It is a combined morphology list. The teaching focus is how prefixes and suffixes work together in academic words, not only how one affix behaves by itself."
 featured: false
 words:
-  - interact
+  - interfere
   - international
   - transfer
   - transport
   - supervise
-  - submarine
-  - protective
+  - substitute
+  - attractive
   - creative
   - responsible
   - activity
-  - dangerous
+  - courageous
   - agreement
 ---
 

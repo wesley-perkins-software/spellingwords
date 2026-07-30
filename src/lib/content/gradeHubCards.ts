@@ -143,6 +143,22 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
     title: "Additional Practice",
     cards: [
       {
+        id: "kindergarten-animal-words",
+        title: "Animal Words",
+        description:
+          "Practice concrete animal names while applying early sound-to-letter knowledge.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "kindergarten-body-words",
+        title: "Body Words",
+        description:
+          "Practice everyday body-part words like eyes, hand, and foot.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
         id: "kindergarten-number-words",
         title: "Number Words",
         description:
@@ -159,10 +175,10 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "kindergarten-animal-words",
-        title: "Animal Words",
+        id: "kindergarten-family-words",
+        title: "Family Words",
         description:
-          "Practice concrete animal names while applying early sound-to-letter knowledge.",
+          "Practice warm, familiar words for the people closest to a kindergartener.",
         badge: "Vocabulary",
         kind: "list",
       },
@@ -334,9 +350,11 @@ export const GRADE_1_HUB_SECTIONS: readonly {
   {
     title: "Additional Practice",
     cards: [
+      { id: "grade-1-weather-words", title: "Weather Words", description: "Practice spelling everyday weather words like sunny, rainy, and cloudy.", badge: "Vocabulary", kind: "list" },
+      { id: "grade-1-clothing-words", title: "Clothing Words", description: "Practice spelling everyday clothing words like shirt, pants, and jacket.", badge: "Vocabulary", kind: "list" },
+      { id: "grade-1-shape-words", title: "Shape Words", description: "Practice spelling common shape names like circle, square, and triangle.", badge: "Vocabulary", kind: "list" },
       { id: "grade-1-number-words-11-20", title: "Number Words 11–20", description: "Practice spelling the number words eleven through twenty.", badge: "Vocabulary", kind: "list" },
       { id: "grade-1-days-of-the-week", title: "Days of the Week", description: "Practice spelling and capitalizing all seven days of the week.", badge: "Vocabulary", kind: "list" },
-      { id: "grade-1-five-senses-words", title: "Five Senses Words", description: "Practice words for the five senses and the body parts we use.", badge: "Vocabulary", kind: "list" },
     ],
   },
 ];
@@ -490,9 +508,10 @@ export const GRADE_2_HUB_SECTIONS: readonly {
     title: "Additional Practice",
     cards: [
       {
-        id: "grade-2-months-of-the-year",
-        title: "Months of the Year",
-        description: "Spell and capitalize all twelve months.",
+        id: "grade-2-transportation-words",
+        title: "Transportation Words",
+        description:
+          "Practice spelling everyday transportation words like car, bus, and bicycle.",
         badge: "Vocabulary",
         kind: "list",
       },
@@ -512,17 +531,34 @@ export const GRADE_2_HUB_SECTIONS: readonly {
         badge: "Vocabulary",
         kind: "list",
       },
+      {
+        id: "grade-2-community-helpers",
+        title: "Community Helpers",
+        description:
+          "Practice spelling community helper words like doctor, firefighter, and librarian.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "grade-2-months-of-the-year",
+        title: "Months of the Year",
+        description: "Spell and capitalize all twelve months.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
     ],
   },
 ];
 
 /**
- * Grade 3 hub — Core Spelling and High-Frequency Words. Three Additional
- * Practice candidates (Calendar Words, Clothing Words, Transportation Words)
- * were reviewed and rejected — see the Additional Practice decision in
- * `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 7. Grade 3 ships
- * with no Additional Practice section as a result; this is the current
- * implementation decision, not a placeholder.
+ * Grade 3 hub — Core Spelling, High-Frequency Words, and Additional Practice.
+ * An earlier pass rejected Calendar Words, Clothing Words, and Transportation
+ * Words for Grade 3 specifically (see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`
+ * Section 7) and shipped with no Additional Practice section. A later editorial
+ * pass revisited the bar — a topic no longer needs to trace to a named academic
+ * standard, only to be a recognizable, bounded, non-duplicative theme — and
+ * approved four new Grade 3 topics under that revised philosophy: Map & Globe
+ * Words, Life Cycle Words, Time Words, and Multiplication & Division Words.
  */
 export const GRADE_3_HUB_SECTIONS: readonly {
   title: string;
@@ -633,6 +669,43 @@ export const GRADE_3_HUB_SECTIONS: readonly {
         description:
           "Finish with time and transition words that sequence ideas and connect sentences in writing.",
         badge: "Common Words",
+        kind: "list",
+      },
+    ],
+  },
+  {
+    title: "Additional Practice",
+    cards: [
+      {
+        id: "grade-3-map-globe-words",
+        title: "Map & Globe Words",
+        description:
+          "Practice spelling map-skills words like compass, continent, and legend.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "grade-3-life-cycle-words",
+        title: "Life Cycle Words",
+        description:
+          "Practice spelling life-cycle words like caterpillar, cocoon, and tadpole.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "grade-3-time-words",
+        title: "Time Words",
+        description:
+          "Practice spelling time words like hour, minute, schedule, and o'clock.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "grade-3-multiplication-division-words",
+        title: "Multiplication & Division Words",
+        description:
+          "Practice spelling math words like multiply, divide, factor, and quotient.",
+        badge: "Vocabulary",
         kind: "list",
       },
     ],
@@ -751,20 +824,48 @@ export const GRADE_4_HUB_SECTIONS: readonly {
         badge: "Vocabulary",
         kind: "list",
       },
+      {
+        id: "grade-4-solar-system-words",
+        title: "Solar System Words",
+        description:
+          "Practice spelling solar system words like astronaut, telescope, and galaxy.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "grade-4-career-occupation-words",
+        title: "Career & Occupation Words",
+        description:
+          "Practice spelling career words like engineer, journalist, and photographer.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "grade-4-geometry-words",
+        title: "Geometry Words",
+        description:
+          "Practice spelling geometry words like perimeter, quadrilateral, and angle.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
     ],
   },
 ];
 
 /**
  * Grade 5 hub — Core Spelling, High-Frequency Words, and Additional Practice
- * (see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 16). Two
- * Additional Practice cards shipped after an audit of five candidates:
- * Civics and Government Words (reframed and corrected from the pre-existing
- * `grade-5-community-civics-words`) and Money Management Words (new).
- * `grade-5-science-nature-words` and `grade-5-math-vocabulary` were audited
- * and rejected as open, subject-wide vocabulary rather than a genuinely
- * closed set — the same defect that sank Grade 2's and Grade 4's generic
- * "Math"/"Science" candidates — so they stay off-hub vocabulary instead.
+ * (see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 16). Civics
+ * and Government Words and Money Management Words shipped first, after an
+ * audit of five candidates; `grade-5-science-nature-words` and
+ * `grade-5-math-vocabulary` were rejected at that stage as open, subject-wide
+ * "one word per strand" vocabulary rather than a genuinely closed set. A
+ * later editorial pass revisited the bar under a broader philosophy (a topic
+ * no longer needs a named academic standard, only to be a recognizable,
+ * bounded, non-duplicative theme) and trimmed those two draft files down to
+ * two new bounded cards: Ecosystem & Environment Words (dropping the
+ * `environment` word itself, since it collides with the live
+ * `grade-5-multisyllabic-academic-words` Core Spelling list) and Fraction &
+ * Decimal Words.
  */
 export const GRADE_5_HUB_SECTIONS: readonly {
   title: string;
@@ -859,18 +960,34 @@ export const GRADE_5_HUB_SECTIONS: readonly {
     title: "Additional Practice",
     cards: [
       {
-        id: "grade-5-community-civics-words",
-        title: "Civics and Government Words",
-        description:
-          "Practice words for reading and writing about the Constitution, government, and citizenship, such as democracy and amendment.",
-        badge: "Vocabulary",
-        kind: "list",
-      },
-      {
         id: "grade-5-money-management-words",
         title: "Money Management Words",
         description:
           "Practice words for budgeting, saving, and understanding how a bank account works, such as budget, interest, and deposit.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "grade-5-ecosystem-environment-words",
+        title: "Ecosystem & Environment Words",
+        description:
+          "Practice spelling ecosystem words like habitat, adaptation, and predator.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "grade-5-fraction-decimal-words",
+        title: "Fraction & Decimal Words",
+        description:
+          "Practice spelling fraction and decimal words like numerator, denominator, and equivalent.",
+        badge: "Vocabulary",
+        kind: "list",
+      },
+      {
+        id: "grade-5-community-civics-words",
+        title: "Civics and Government Words",
+        description:
+          "Practice words for reading and writing about the Constitution, government, and citizenship, such as democracy and amendment.",
         badge: "Vocabulary",
         kind: "list",
       },

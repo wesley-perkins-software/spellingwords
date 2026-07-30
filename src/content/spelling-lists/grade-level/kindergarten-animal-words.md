@@ -14,9 +14,9 @@ estimatedDurationMinutes: 6
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-first-words", "kindergarten-number-words", "kindergarten-color-words"]
+relatedLists: ["kindergarten-first-words", "kindergarten-body-words", "kindergarten-number-words"]
 prerequisiteLists: ["kindergarten-first-words"]
-nextLists: []
+nextLists: ["kindergarten-body-words"]
 featured: false
 readinessSignals:
   - "Can name common animals in pictures, books, or real life"

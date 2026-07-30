@@ -27,7 +27,7 @@ function contentFiles(directory: string): string[] {
 }
 
 describe("frozen K–2 grade hub cards", () => {
-  it("renders the Kindergarten cards in the authoritative 15-card order", () => {
+  it("renders the Kindergarten cards in the authoritative 17-card order", () => {
     expect(KINDERGARTEN_HUB_SECTIONS.map((section) => section.title)).toEqual([
       "Core Spelling",
       "High-Frequency Words",
@@ -46,11 +46,13 @@ describe("frozen K–2 grade hub cards", () => {
       "kindergarten-common-words-2",
       "kindergarten-common-words-3",
       "kindergarten-common-words-4",
+      "kindergarten-animal-words",
+      "kindergarten-body-words",
       "kindergarten-number-words",
       "kindergarten-color-words",
-      "kindergarten-animal-words",
+      "kindergarten-family-words",
     ]);
-    expect(idsFor(KINDERGARTEN_HUB_SECTIONS)).toHaveLength(15);
+    expect(idsFor(KINDERGARTEN_HUB_SECTIONS)).toHaveLength(17);
     expect(KINDERGARTEN_HUB_SECTIONS[1].summary).toContain("4 sets · 40 words");
     expect(KINDERGARTEN_HUB_SECTIONS[1].summary).toContain("Heart Word guidance");
     expect(idsFor(KINDERGARTEN_HUB_SECTIONS)).not.toContain("kindergarten-number-color-words");
@@ -81,16 +83,18 @@ describe("frozen K–2 grade hub cards", () => {
       "grade-1-common-words-4",
       "grade-1-common-words-5",
       "grade-1-common-words-6",
+      "grade-1-weather-words",
+      "grade-1-clothing-words",
+      "grade-1-shape-words",
       "grade-1-number-words-11-20",
       "grade-1-days-of-the-week",
-      "grade-1-five-senses-words",
     ]);
     expect(GRADE_1_HUB_SECTIONS[1].summary).toContain("6 sets · 72 words");
     expect(GRADE_1_HUB_SECTIONS[1].cards.every((card) => card.kind === "list")).toBe(true);
     expect(idsFor(GRADE_1_HUB_SECTIONS)).not.toContain("grade-1-common-words");
   });
 
-  it("renders the complete Grade 2 cards in the authoritative 19-card order", () => {
+  it("renders the complete Grade 2 cards in the authoritative 21-card order", () => {
     expect(GRADE_2_HUB_SECTIONS.map((section) => section.title)).toEqual([
       "Core Spelling",
       "High-Frequency Words",
@@ -113,24 +117,27 @@ describe("frozen K–2 grade hub cards", () => {
       "grade-2-common-words-4",
       "grade-2-common-words-5",
       "grade-2-common-words-6",
-      "grade-2-months-of-the-year",
+      "grade-2-transportation-words",
       "grade-2-money-words",
       "grade-2-number-words-20-100",
+      "grade-2-community-helpers",
+      "grade-2-months-of-the-year",
     ]);
-    expect(idsFor(GRADE_2_HUB_SECTIONS)).toHaveLength(19);
+    expect(idsFor(GRADE_2_HUB_SECTIONS)).toHaveLength(21);
     expect(GRADE_2_HUB_SECTIONS[0].cards).toHaveLength(10);
     expect(GRADE_2_HUB_SECTIONS[1].cards).toHaveLength(6);
-    expect(GRADE_2_HUB_SECTIONS[2].cards).toHaveLength(3);
+    expect(GRADE_2_HUB_SECTIONS[2].cards).toHaveLength(5);
     expect(GRADE_2_HUB_SECTIONS[1].summary).toContain("6 sets · 72 words");
     expect(GRADE_2_HUB_SECTIONS[1].summary).toContain("Heart Word guidance");
     expect(GRADE_2_HUB_SECTIONS[1].cards.every((card) => card.kind === "list")).toBe(true);
     expect(idsFor(GRADE_2_HUB_SECTIONS)).not.toContain("grade-2-common-words");
   });
 
-  it("renders the Grade 3 Core Spelling and High-Frequency Words cards, holding Additional Practice back until approved", () => {
+  it("renders the complete Grade 3 cards across all three sections", () => {
     expect(GRADE_3_HUB_SECTIONS.map((section) => section.title)).toEqual([
       "Core Spelling",
       "High-Frequency Words",
+      "Additional Practice",
     ]);
     expect(idsFor(GRADE_3_HUB_SECTIONS)).toEqual([
       "grade-3-prefix-words",
@@ -145,10 +152,15 @@ describe("frozen K–2 grade hub cards", () => {
       "grade-3-common-words-3",
       "grade-3-common-words-4",
       "grade-3-common-words-5",
+      "grade-3-map-globe-words",
+      "grade-3-life-cycle-words",
+      "grade-3-time-words",
+      "grade-3-multiplication-division-words",
     ]);
-    expect(idsFor(GRADE_3_HUB_SECTIONS)).toHaveLength(12);
+    expect(idsFor(GRADE_3_HUB_SECTIONS)).toHaveLength(16);
     expect(GRADE_3_HUB_SECTIONS[0].cards).toHaveLength(7);
     expect(GRADE_3_HUB_SECTIONS[1].cards).toHaveLength(5);
+    expect(GRADE_3_HUB_SECTIONS[2].cards).toHaveLength(4);
     expect(GRADE_3_HUB_SECTIONS[1].summary).toContain("5 sets · 60 words");
     expect(GRADE_3_HUB_SECTIONS[1].summary).toContain("Heart Word guidance");
     expect(idsFor(GRADE_3_HUB_SECTIONS)).not.toContain("grade-3-doubling-final-consonants");
@@ -180,34 +192,44 @@ describe("Grade 5 grade hub cards", () => {
       "grade-5-common-words-2",
       "grade-5-common-words-3",
       "grade-5-common-words-4",
-      "grade-5-community-civics-words",
       "grade-5-money-management-words",
+      "grade-5-ecosystem-environment-words",
+      "grade-5-fraction-decimal-words",
+      "grade-5-community-civics-words",
     ]);
     expect(GRADE_5_HUB_SECTIONS[0].cards).toHaveLength(5);
     expect(GRADE_5_HUB_SECTIONS[1].cards).toHaveLength(4);
-    expect(GRADE_5_HUB_SECTIONS[2].cards).toHaveLength(2);
+    expect(GRADE_5_HUB_SECTIONS[2].cards).toHaveLength(4);
     expect(GRADE_5_HUB_SECTIONS[1].summary).toContain("4 sets · 48 words");
   });
 
-  it("does not expand Grade 5 Additional Practice beyond the two approved cards", () => {
+  it("does not reuse the rejected draft science/math vocabulary files on the hub", () => {
     expect(idsFor(GRADE_5_HUB_SECTIONS)).not.toContain("grade-5-science-nature-words");
     expect(idsFor(GRADE_5_HUB_SECTIONS)).not.toContain("grade-5-math-vocabulary");
   });
 
   it("publishes Grade 5 Additional Practice with contentRole: vocabulary-theme and zero overlap against any K–5 Common Words or Core Spelling word", () => {
-    const additionalPracticeIds = ["grade-5-community-civics-words", "grade-5-money-management-words"];
+    const additionalPracticeIds = [
+      "grade-5-community-civics-words",
+      "grade-5-money-management-words",
+      "grade-5-ecosystem-environment-words",
+      "grade-5-fraction-decimal-words",
+    ];
+    const fileNames: Record<string, string> = {
+      "grade-5-community-civics-words": "5th-grade-community-civics-words",
+      "grade-5-money-management-words": "5th-grade-money-management-words",
+      "grade-5-ecosystem-environment-words": "5th-grade-ecosystem-environment-words",
+      "grade-5-fraction-decimal-words": "5th-grade-fraction-decimal-words",
+    };
     const additionalPracticeWords = new Set<string>();
     for (const id of additionalPracticeIds) {
-      const fileName = id === "grade-5-community-civics-words"
-        ? "5th-grade-community-civics-words"
-        : "5th-grade-money-management-words";
-      const content = source(`spelling-lists/grade-level/${fileName}.md`);
+      const content = source(`spelling-lists/grade-level/${fileNames[id]}.md`);
       expect(content).toContain("contentRole: vocabulary-theme");
       for (const word of wordsIn(content)) {
         additionalPracticeWords.add(word);
       }
     }
-    expect(additionalPracticeWords.size).toBe(24);
+    expect(additionalPracticeWords.size).toBe(40);
 
     const bannedWords = new Set<string>();
     for (const relativeDir of ["spelling-lists/sight-words", "spelling-lists/grade-level"]) {

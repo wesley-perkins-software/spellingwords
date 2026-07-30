@@ -15,9 +15,9 @@ estimatedDurationMinutes: 6
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-first-words", "kindergarten-number-words", "kindergarten-number-color-words"]
-prerequisiteLists: ["kindergarten-first-words"]
-nextLists: []
+relatedLists: ["kindergarten-number-words", "kindergarten-family-words", "kindergarten-number-color-words"]
+prerequisiteLists: ["kindergarten-number-words"]
+nextLists: ["kindergarten-family-words"]
 featured: false
 readinessSignals:
   - "Can name familiar colors in pictures, art materials, or classroom objects"

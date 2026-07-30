@@ -15,8 +15,8 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-academic-words"]
-prerequisiteLists: []
+relatedLists: ["grade-5-academic-words", "grade-5-fraction-decimal-words"]
+prerequisiteLists: ["grade-5-fraction-decimal-words"]
 nextLists: []
 featured: false
 readinessSignals:

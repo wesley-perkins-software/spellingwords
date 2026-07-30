@@ -15,8 +15,8 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: []
-prerequisiteLists: []
+relatedLists: ['grade-1-number-words-11-20']
+prerequisiteLists: ['grade-1-number-words-11-20']
 nextLists: []
 featured: false
 words:

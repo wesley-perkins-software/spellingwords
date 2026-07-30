@@ -1,5 +1,7 @@
 # SpellingWords.app Skills Model
 
+> **Superseded notice:** §7 (Canonical public Skill Families), §8 (Focused Skills), and §10 (Canonical K–5 taxonomy summary) are superseded by the frozen `docs/architecture/SKILLS_ARCHITECTURE.md`, which is the authoritative reference for the final 12-family, 41-skill taxonomy. The rest of this document — the Skill/Focused-Skill/Practice-Set model, the autonomy rule, and the editorial philosophy in §1–§6, §9, and §11–§20 — still governs.
+
 ## 1. Purpose and precedence
 
 This document defines the canonical reusable Skills model for SpellingWords.app from Kindergarten through Grade 5. It is an editorial and product model, not an implementation plan. It should guide future Skill content, Grade Roadmap relationships, Skills browsing, internal linking, and later URL decisions.

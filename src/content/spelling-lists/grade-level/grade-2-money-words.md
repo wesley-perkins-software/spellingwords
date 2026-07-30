@@ -15,9 +15,9 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: []
-prerequisiteLists: []
-nextLists: []
+relatedLists: ["grade-2-transportation-words", "grade-2-number-words-20-100"]
+prerequisiteLists: ["grade-2-transportation-words"]
+nextLists: ["grade-2-number-words-20-100"]
 featured: false
 words:
   - penny

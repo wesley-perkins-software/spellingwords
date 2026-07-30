@@ -15,9 +15,9 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-1-number-words-11-20"]
-prerequisiteLists: ["grade-1-number-words-11-20"]
-nextLists: []
+relatedLists: ["grade-1-number-words-11-20", "grade-2-money-words", "grade-2-community-helpers"]
+prerequisiteLists: ["grade-2-money-words"]
+nextLists: ["grade-2-community-helpers"]
 featured: false
 words:
   - thirty

@@ -15,9 +15,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-money-words"]
+relatedLists: ["grade-2-money-words", "grade-5-ecosystem-environment-words"]
 prerequisiteLists: []
-nextLists: []
+nextLists: ["grade-5-ecosystem-environment-words"]
 featured: false
 readinessSignals:
   - "Can explain the difference between spending, saving, and borrowing money"

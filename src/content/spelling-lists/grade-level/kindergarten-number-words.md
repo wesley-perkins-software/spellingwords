@@ -15,9 +15,9 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-first-words", "kindergarten-color-words", "kindergarten-number-color-words"]
-prerequisiteLists: ["kindergarten-first-words"]
-nextLists: []
+relatedLists: ["kindergarten-body-words", "kindergarten-color-words", "kindergarten-number-color-words"]
+prerequisiteLists: ["kindergarten-body-words"]
+nextLists: ["kindergarten-color-words"]
 featured: false
 readinessSignals:
   - "Can count small sets and name numerals from one through ten"

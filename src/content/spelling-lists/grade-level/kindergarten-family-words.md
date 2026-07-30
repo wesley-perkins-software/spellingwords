@@ -9,14 +9,14 @@ grade: "K"
 difficulty: beginner
 skillTags: ["grade-K", "family", "vocabulary"]
 tags: ["kindergarten", "beginner", "family", "vocabulary"]
-order: 6
-estimatedDurationMinutes: 7
-status: archived
+order: 9
+estimatedDurationMinutes: 8
+status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-animal-words", "kindergarten-school-words", "kindergarten-body-words", "kindergarten-food-words"]
-prerequisiteLists: ["kindergarten-animal-words"]
-nextLists: ["kindergarten-school-words"]
+relatedLists: ["kindergarten-animal-words", "kindergarten-body-words", "kindergarten-color-words"]
+prerequisiteLists: ["kindergarten-color-words"]
+nextLists: []
 featured: false
 readinessSignals:
   - "Can name familiar family roles in speech or pictures"
@@ -29,21 +29,19 @@ faq:
     answer: "They give children useful words for labels, drawings, simple sentences, and personal stories. A child who can spell mom, dad, or sister can write about real experiences sooner."
   - question: "What should adults be sensitive to with this topic?"
     answer: "Family structures vary. Use the words as vocabulary, but invite children to choose the terms that match their own lives and writing."
-  - question: "Which kindergarten list fits after family words?"
-    answer: "School words and everyday first words are good next steps because they expand from home vocabulary into classroom and daily-life vocabulary."
+  - question: "Why does this list come last in Additional Practice?"
+    answer: "A few of these words — grandma, grandpa, brother, sister — are longer and less predictable than the other kindergarten Additional Practice words, so this page is a good place to finish."
 words:
-  - aunt
-  - baby
-  - brother
+  - mom
   - dad
-  - family
+  - sister
+  - brother
+  - baby
   - grandma
   - grandpa
-  - mom
-  - sister
-  - uncle
+  - family
 ---
 
 The people closest to a kindergartener are often the very first words they want to write — *mom*, *dad*, *grandma*, *grandpa* — the family members who tuck them in and pick them up from school.
 
-These ten words are warm and familiar, which makes them a gentle, motivating place to practice spelling. A child who can already say these words with confidence is ready to learn how to write them just as confidently.
+These eight words are warm and familiar, which makes them a gentle, motivating place to practice spelling. A few, like *grandma* and *grandpa*, are longer than the other kindergarten Additional Practice words — a natural, calm way to close out this section.

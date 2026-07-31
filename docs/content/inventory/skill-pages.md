@@ -19,10 +19,10 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Every page below is e
 
 | Skill id | Title | urlSlug | Grade (frontmatter) | Source file | Editorial status | Instructional variant | Content brief status |
 |---|---|---|---|---|---|---|---|
-| digraph-ch-words | CH Digraph Words | digraph-ch-words | 1 | `src/content/spelling-lists/phonics/digraph-ch-words.md` | Not audited | 1 | Not started |
-| digraph-sh-words | SH Digraph Words | digraph-sh-words | 1 | `src/content/spelling-lists/phonics/digraph-sh-words.md` | Not audited | 1 | Not started |
-| digraph-th-words | TH Digraph Words | digraph-th-words | 1 | `src/content/spelling-lists/phonics/digraph-th-words.md` | Not audited | 1 | Not started |
-| digraph-wh-words | WH Digraph Words | digraph-wh-words | 1 | `src/content/spelling-lists/phonics/digraph-wh-words.md` | Not audited | 1 | Not started |
+| digraph-ch-words | CH Digraph Words | digraph-ch-words | 1 | `src/content/spelling-lists/phonics/digraph-ch-words.md` | Needs review — content drafted to the Standard (Variant 1), demonstration set trimmed, readinessSignals removed; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
+| digraph-sh-words | SH Digraph Words | digraph-sh-words | 1 | `src/content/spelling-lists/phonics/digraph-sh-words.md` | Needs review — content drafted to the Standard (Variant 1), demonstration set trimmed, readinessSignals removed; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
+| digraph-th-words | TH Digraph Words | digraph-th-words | 1 | `src/content/spelling-lists/phonics/digraph-th-words.md` | Needs review — content drafted to the Standard (Variant 1), voiced/unvoiced TH treated as the Level 1 distinction, readinessSignals removed; TH claims flagged for particular human attention (see roadmap note); pending independent human editorial sign-off before "Complete" | 1 | Needs review |
+| digraph-wh-words | WH Digraph Words | digraph-wh-words | 1 | `src/content/spelling-lists/phonics/digraph-wh-words.md` | Needs review — content drafted to the Standard (Variant 1), who/whole exception and wine–whine dialect note included, readinessSignals removed; WH claims flagged for particular human attention (see roadmap note); pending independent human editorial sign-off before "Complete" | 1 | Needs review |
 
 ## Consonant Blends
 

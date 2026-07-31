@@ -5,6 +5,7 @@ title: 'Consonant Digraphs'
 description: 'Nine words built on the SH, CH, and TH digraphs — ship, shop, fish, wish, chat, chin, chip, bath, and path — where two letters team up to make one new sound.'
 shortAnswer: 'Nine kindergarten digraph words — ship, shop, fish, wish, chat, chin, chip, bath, and path — practicing SH, CH, and TH, where two letters make one sound.'
 contentRole: grade-unit
+skillIds: ['digraph-sh-words', 'digraph-ch-words', 'digraph-th-words']
 category: phonics
 grade: 'K'
 difficulty: beginner

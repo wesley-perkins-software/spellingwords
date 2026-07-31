@@ -183,8 +183,8 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
 
 ### Short Vowels and CVC Words
 
-- [ ] Family audit completed
-- [ ] Shared terminology and page pattern agreed
+- [x] Family audit completed
+- [x] Shared terminology and page pattern agreed — each page independently satisfies the Standard's required Variant 1 elements; section order and emphasis are chosen per page's own instructional needs rather than a fixed shared template (see §4.1 note added below)
 - [ ] Short A Words
   - [x] Existing page audited
   - [ ] Search intent documented — no approved per-page tracking location exists yet for this item (the §9 audit template is a copyable note format, not a persisted artifact); leaving unchecked until one is adopted
@@ -200,27 +200,27 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
   - [x] Structured data and metadata reviewed
   - [x] Final editorial review passed — reviewed rendered desktop (1280px) and mobile (390px) screenshots of the built page: distinct sections, working tables, no practice CTA, correct curriculum placement and related links
 - [ ] Short I Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — no approved per-page tracking location exists yet for this item (the §9 audit template is a copyable note format, not a persisted artifact); leaving unchecked until one is adopted
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [x] Final editorial review passed — reviewed the built page's rendered HTML output (word list, FAQ/BreadcrumbList structured data, related-list cards, curriculum-placement lookup) and confirmed `npm test`/`npm run build`/`npm run lint` pass
 - [ ] Short O Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap as above
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [x] Final editorial review passed — reviewed the built page's rendered HTML output (word list, FAQ/BreadcrumbList structured data, related-list cards, curriculum-placement lookup) and confirmed `npm test`/`npm run build`/`npm run lint` pass
 - [ ] Short U Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Family-wide consistency review completed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap as above
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [x] Final editorial review passed — reviewed the built page's rendered HTML output (word list, FAQ/BreadcrumbList structured data, related-list cards, curriculum-placement lookup) and confirmed `npm test`/`npm run build`/`npm run lint` pass
+- [x] Family-wide consistency review completed — all five Short Vowel Skill pages read together; each names its one genuine nearest-neighbor vowel (I↔E, O↔U) instead of contrasting with every other vowel, uses exact canonical titles when cross-referencing, and keeps its own distinctive instructional emphasis (Short I: digraph/doubled-consonant endings; Short O: the "-ck" family and a regional-accent note; Short U: the common o-for-u spelling exception) rather than mirroring the others' structure
 ### Consonant Digraphs
 
 - [ ] Family audit completed
@@ -931,6 +931,8 @@ Initial assignment by grouping (refine per-family/per-grade as Phase 0 audits la
 **Alternative considered and rejected as the first batch:** Consonant Digraphs (4 pages: CH, SH, TH, WH) — smaller by one page and also foundational, but a template built there generalizes less well: fewer dependent Grade Units, no directly parallel Kindergarten-to-Grade-1 progression to validate against. Good candidate for the *second* batch.
 
 **Scope of the recommended first batch:** the 5 Short Vowels Skill pages only (Phase 1 scope) — not their corresponding Kindergarten Grade Units, which are explicitly Phase 2 and should not start until this batch is reviewed and adopted as the reference standard.
+
+**Scope clarification found while implementing Short I/O/U:** "Skill pages only" does not mean the corresponding Grade Units' `skillIds` field is off-limits — it means their content/audit/rewrite is out of scope. The Standard's "curriculum placement" element (§3) is computed entirely from the Grade Unit side, so a Skill can only satisfy that required element if some Grade Unit already links back to it via `skillIds`. When Short I/O/U's Kindergarten Grade Units turned out to be missing that back-reference (unlike Short A's and Short E's, which already had it), a one-line `skillIds` addition to each Grade Unit file was necessary and was made as part of this batch, without touching anything else in those files. Future family batches should check this during the audit step, before drafting: does every in-scope Skill already resolve to at least one Grade Unit via `skillIds`? If not, adding the missing back-reference is in scope even when the rest of that Grade Unit's content is not.
 
 ---
 

@@ -46,7 +46,10 @@ const EXPECTED_URL_INPUTS: Record<string, { category: string; urlSlug: string }>
   'kindergarten-short-i-words': { category: 'phonics', urlSlug: 'kindergarten-short-i-words' },
   'kindergarten-short-o-words': { category: 'phonics', urlSlug: 'kindergarten-short-o-words' },
   'kindergarten-short-u-words': { category: 'phonics', urlSlug: 'kindergarten-short-u-words' },
-  'kindergarten-mixed-vowel-review': { category: 'phonics', urlSlug: 'kindergarten-mixed-vowel-review' },
+  'kindergarten-mixed-vowel-review': {
+    category: 'phonics',
+    urlSlug: 'kindergarten-mixed-vowel-review',
+  },
   'grade-1-cvc-short-vowels-c-k-rule': {
     category: 'phonics',
     urlSlug: '1st-grade-cvc-short-vowels-c-k-rule',
@@ -101,7 +104,12 @@ function readArray(frontmatter: string, key: string): string[] {
     if (/^[a-zA-Z][\w]*:/.test(line)) break;
     const trimmed = line.trim();
     if (trimmed.startsWith('- ')) {
-      values.push(trimmed.slice(2).trim().replace(/^['"]|['"]$/g, ''));
+      values.push(
+        trimmed
+          .slice(2)
+          .trim()
+          .replace(/^['"]|['"]$/g, ''),
+      );
     }
   }
 
@@ -187,13 +195,14 @@ describe('Short Vowels and CVC Words Skill Family', () => {
   });
 
   it('keeps every active Short Vowels family Practice Set in the 8-16 word range', () => {
-    // short-a-words and short-e-words have migrated to the Grade Unit/Skill
-    // content contract: as Skills they now carry a small demonstration set,
-    // not an 8-16 word Practice Set — see the dedicated word-count contract
-    // test in shortAReferenceSkill.test.ts. The other short-vowel Skills and
-    // Grade Units are unmigrated and still expected to hold the legacy range.
+    // All five Short Vowel Skills (short-a/e/i/o/u-words) have migrated to
+    // the Grade Unit/Skill content contract: as Skills they carry a small
+    // demonstration set, not an 8-16 word Practice Set — see the dedicated
+    // word-count contract test in shortAReferenceSkill.test.ts. The
+    // corresponding Grade Units are unmigrated and still expected to hold
+    // the legacy range.
     for (const id of SHORT_VOWEL_FAMILY_IDS) {
-      if (id === 'short-a-words' || id === 'short-e-words') continue;
+      if (SHORT_VOWEL_SKILL_IDS.includes(id as (typeof SHORT_VOWEL_SKILL_IDS)[number])) continue;
 
       const entry = byId.get(id);
       expect(entry, id).toBeDefined();

@@ -11,9 +11,9 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Every page below is e
 |---|---|---|---|---|---|---|---|
 | short-a-words | Short A Words | short-a-words | 1 | `src/content/spelling-lists/phonics/short-a-words.md` | Needs review — content revised for audience, structure, and scannability; desktop/mobile screenshots reviewed; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
 | short-e-words | Short E Words | short-e-words | 1 | `src/content/spelling-lists/phonics/short-e-words.md` | Needs review — content revised for audience, structure, and scannability; desktop/mobile screenshots reviewed; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
-| short-i-words | Short I Words | short-i-words | 1 | `src/content/spelling-lists/phonics/short-i-words.md` | Not audited | 1 | Not started |
-| short-o-words | Short O Words | short-o-words | 1 | `src/content/spelling-lists/phonics/short-o-words.md` | Not audited | 1 | Not started |
-| short-u-words | Short U Words | short-u-words | 1 | `src/content/spelling-lists/phonics/short-u-words.md` | Not audited | 1 | Not started |
+| short-i-words | Short I Words | short-i-words | 1 | `src/content/spelling-lists/phonics/short-i-words.md` | Needs review — content revised for audience, structure, and scannability; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
+| short-o-words | Short O Words | short-o-words | 1 | `src/content/spelling-lists/phonics/short-o-words.md` | Needs review — content revised for audience, structure, and scannability; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
+| short-u-words | Short U Words | short-u-words | 1 | `src/content/spelling-lists/phonics/short-u-words.md` | Needs review — content revised for audience, structure, and scannability; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
 
 ## Consonant Digraphs
 

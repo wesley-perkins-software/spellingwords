@@ -2,13 +2,22 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  COMMON_SPELLING_PATTERNS_SKILL_FAMILY,
+  CONSONANT_BLENDS_SKILL_FAMILY,
   CONSONANT_DIGRAPHS_SKILL_FAMILY,
   CURATED_SPELLING_SKILL_IDS,
+  GREEK_AND_LATIN_ROOTS_SKILL_FAMILY,
+  HOMOPHONES_AND_COMMONLY_CONFUSED_WORDS_SKILL_FAMILY,
+  MULTISYLLABIC_WORDS_SKILL_FAMILY,
+  PREFIXES_SKILL_FAMILY,
+  PROVISIONAL_SPELLING_SKILLS,
+  R_CONTROLLED_VOWELS_SKILL_FAMILY,
   SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
   SILENT_E_SKILL_FAMILY,
   SPELLING_SKILL_FAMILIES,
   SPELLING_SKILLS_INDEX_PATH,
   VOWEL_TEAMS_SKILL_FAMILY,
+  WORD_BUILDING_AND_ENDINGS_SKILL_FAMILY,
   getSpellingSkillPath,
   isCuratedSpellingSkillId,
   resolveCuratedSkillFamilyEntries,
@@ -111,27 +120,44 @@ describe('curated spelling Skills browse index', () => {
     expect(SPELLING_SKILLS_INDEX_PATH).toBe('/spelling-lists/skills/');
   });
 
-  it('publishes the current curated Skill families in stable public order', () => {
+  it('publishes the frozen canonical 12-family taxonomy in stable public order', () => {
     expect(SPELLING_SKILL_FAMILIES).toEqual([
       SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
       CONSONANT_DIGRAPHS_SKILL_FAMILY,
+      CONSONANT_BLENDS_SKILL_FAMILY,
+      COMMON_SPELLING_PATTERNS_SKILL_FAMILY,
       SILENT_E_SKILL_FAMILY,
       VOWEL_TEAMS_SKILL_FAMILY,
+      R_CONTROLLED_VOWELS_SKILL_FAMILY,
+      MULTISYLLABIC_WORDS_SKILL_FAMILY,
+      WORD_BUILDING_AND_ENDINGS_SKILL_FAMILY,
+      PREFIXES_SKILL_FAMILY,
+      GREEK_AND_LATIN_ROOTS_SKILL_FAMILY,
+      HOMOPHONES_AND_COMMONLY_CONFUSED_WORDS_SKILL_FAMILY,
     ]);
 
     expect(SPELLING_SKILL_FAMILIES.map((family) => family.title)).toEqual([
       'Short Vowels',
       'Consonant Digraphs',
+      'Consonant Blends',
+      'Common Spelling Patterns',
       'Silent E',
       'Vowel Teams',
+      'R-Controlled Vowels',
+      'Multisyllabic Words',
+      'Word Building and Endings',
+      'Prefixes',
+      'Greek and Latin Roots',
+      'Homophones and Commonly Confused Words',
     ]);
   });
 
-  it('derives curated Skill IDs from the published family order', () => {
+  it('derives curated Skill IDs from the published family order (40 published, per the frozen architecture)', () => {
     const expectedSkillIds = SPELLING_SKILL_FAMILIES.flatMap((family) => family.skillIds);
 
     expect(CURATED_SPELLING_SKILL_IDS).toEqual(expectedSkillIds);
     expect(new Set(CURATED_SPELLING_SKILL_IDS).size).toBe(CURATED_SPELLING_SKILL_IDS.length);
+    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(40);
     expect(CURATED_SPELLING_SKILL_IDS).toEqual([
       'short-a-words',
       'short-e-words',
@@ -142,14 +168,37 @@ describe('curated spelling Skills browse index', () => {
       'digraph-sh-words',
       'digraph-th-words',
       'digraph-wh-words',
+      'beginning-blends',
+      'ending-blends',
+      'ck-tch-dge-word-endings',
+      'silent-letters',
+      'soft-c-soft-g',
       'silent-e-long-a',
-      'silent-e-long-e',
       'silent-e-long-i',
       'silent-e-long-o',
       'silent-e-long-u',
       'vowel-teams-ai-ay',
       'vowel-teams-ee-ea',
       'vowel-teams-oa-ow',
+      'oi-and-oy-words',
+      'ou-and-ow-words',
+      'oo-words',
+      'au-and-aw-words',
+      'r-controlled-ar',
+      'r-controlled-or',
+      'r-controlled-er-ir-ur',
+      'multisyllabic-words',
+      'plurals',
+      'ed-and-ing',
+      'common-suffixes',
+      'suffix-spelling-changes',
+      'compound-words',
+      'contractions',
+      'un-and-re-prefixes',
+      'common-prefixes',
+      'greek-and-latin-roots',
+      'homophones',
+      'commonly-confused-words',
     ]);
   });
 
@@ -159,6 +208,11 @@ describe('curated spelling Skills browse index', () => {
 
       expect(resolved.map((entry) => entry.data.id)).toEqual(family.skillIds);
     }
+  });
+
+  it('renders single-skill families (Multisyllabic Words, Greek and Latin Roots) as a one-item list', () => {
+    expect(MULTISYLLABIC_WORDS_SKILL_FAMILY.skillIds).toEqual(['multisyllabic-words']);
+    expect(GREEK_AND_LATIN_ROOTS_SKILL_FAMILY.skillIds).toEqual(['greek-and-latin-roots']);
   });
 
   it('exposes only published reusable Skills, not Grade Units or archived content', () => {
@@ -201,11 +255,13 @@ describe('curated spelling Skills browse index', () => {
     expect(byId.get('short-vowels-cvc-words')).toMatchObject({ data: { status: 'archived' } });
   });
 
-  it('keeps curated Skill links on their current legacy spelling-list URLs', () => {
+  it('keeps curated Skill links resolved against each entry\'s own category', () => {
     for (const id of CURATED_SPELLING_SKILL_IDS) {
       const entry = byId.get(id);
       expect(entry, id).toBeDefined();
-      expect(getSpellingSkillPath(entry!)).toBe(`/spelling-lists/phonics/${entry!.data.urlSlug}`);
+      expect(getSpellingSkillPath(entry!)).toBe(
+        `/spelling-lists/${entry!.data.category}/${entry!.data.urlSlug}`,
+      );
     }
   });
 
@@ -236,6 +292,28 @@ describe('curated spelling Skills browse index', () => {
       for (const relationshipId of relationshipIds) {
         expect(byId.has(relationshipId), `${id} references ${relationshipId}`).toBe(true);
       }
+    }
+  });
+
+  it('never publishes the provisional IE and IGH Words Skill (no backing content exists yet)', () => {
+    expect(CURATED_SPELLING_SKILL_IDS).not.toContain('ie-and-igh-words');
+    expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).not.toContain('ie-and-igh-words');
+    expect(isCuratedSpellingSkillId('ie-and-igh-words')).toBe(false);
+    expect(byId.has('ie-and-igh-words')).toBe(false);
+
+    expect(PROVISIONAL_SPELLING_SKILLS).toEqual([
+      { id: 'ie-and-igh-words', title: 'IE and IGH Words', family: 'Vowel Teams' },
+    ]);
+  });
+
+  it('reverted the Skills that the frozen architecture folds into merged pages back to grade-unit', () => {
+    for (const id of [
+      'grade-3-doubling-final-consonants',
+      'grade-3-changing-y-to-i',
+      'tier-2-greek-latin-roots',
+    ]) {
+      expect(CURATED_SPELLING_SKILL_IDS).not.toContain(id);
+      expect(byId.get(id), id).toMatchObject({ data: { contentRole: 'grade-unit' } });
     }
   });
 });

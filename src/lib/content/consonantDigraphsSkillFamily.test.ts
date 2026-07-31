@@ -11,9 +11,7 @@ import {
   CONSONANT_DIGRAPHS_SKILL_FAMILY,
   CURATED_SPELLING_SKILL_IDS,
   SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
-  SILENT_E_SKILL_FAMILY,
   SPELLING_SKILL_FAMILIES,
-  VOWEL_TEAMS_SKILL_FAMILY,
 } from './spellingSkills';
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
@@ -134,27 +132,19 @@ const byId = new Map(summaries.map((entry) => [entry.id, entry]));
 const allIds = new Set(summaries.map((entry) => entry.id));
 
 describe('Consonant Digraphs Skill Family', () => {
-  it('publishes Consonant Digraphs as the second public Skill family after Short Vowels', () => {
-    expect(SPELLING_SKILL_FAMILIES.map((family) => family.title)).toEqual([
-      'Short Vowels',
-      'Consonant Digraphs',
-      'Silent E',
-      'Vowel Teams',
-    ]);
+  it('publishes Consonant Digraphs as the second of 12 public Skill families, after Short Vowels', () => {
     expect(SPELLING_SKILL_FAMILIES[0]).toBe(SHORT_VOWELS_AND_CVC_SKILL_FAMILY);
     expect(SPELLING_SKILL_FAMILIES[1]).toBe(CONSONANT_DIGRAPHS_SKILL_FAMILY);
-    expect(SPELLING_SKILL_FAMILIES[2]).toBe(SILENT_E_SKILL_FAMILY);
-    expect(SPELLING_SKILL_FAMILIES[3]).toBe(VOWEL_TEAMS_SKILL_FAMILY);
   });
 
   it('uses the requested CH, SH, TH, WH curated Skill order', () => {
     expect(CONSONANT_DIGRAPHS_SKILL_FAMILY.skillIds).toEqual(CONSONANT_DIGRAPH_SKILL_IDS);
-    expect(CURATED_SPELLING_SKILL_IDS).toEqual([
-      ...SHORT_VOWELS_AND_CVC_SKILL_FAMILY.skillIds,
-      ...CONSONANT_DIGRAPH_SKILL_IDS,
-      ...SILENT_E_SKILL_FAMILY.skillIds,
-      ...VOWEL_TEAMS_SKILL_FAMILY.skillIds,
-    ]);
+    expect(
+      CURATED_SPELLING_SKILL_IDS.slice(
+        SHORT_VOWELS_AND_CVC_SKILL_FAMILY.skillIds.length,
+        SHORT_VOWELS_AND_CVC_SKILL_FAMILY.skillIds.length + CONSONANT_DIGRAPH_SKILL_IDS.length,
+      ),
+    ).toEqual(CONSONANT_DIGRAPH_SKILL_IDS);
   });
 
   it('keeps family guidance specific while preserving Short Vowels guidance', () => {
@@ -178,10 +168,8 @@ describe('Consonant Digraphs Skill Family', () => {
     expect(route).toContain('itemListElement: skillFamilies.flatMap((family) =>');
     expect(route).toContain('position: ++itemListPosition');
 
-    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(17);
+    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(40);
     expect(CURATED_SPELLING_SKILL_IDS.slice(5, 9)).toEqual(CONSONANT_DIGRAPH_SKILL_IDS);
-    expect(CURATED_SPELLING_SKILL_IDS.slice(9, 14)).toEqual(SILENT_E_SKILL_FAMILY.skillIds);
-    expect(CURATED_SPELLING_SKILL_IDS.slice(14)).toEqual(VOWEL_TEAMS_SKILL_FAMILY.skillIds);
   });
 
   it('marks CH, SH, TH, and WH as reusable Skills', () => {

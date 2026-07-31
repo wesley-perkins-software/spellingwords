@@ -7,6 +7,8 @@ import {
   GRADE_1_TARGETED_SKILL_IDS,
 } from './grade1Progression';
 import {
+  COMMON_SPELLING_PATTERNS_SKILL_FAMILY,
+  CONSONANT_BLENDS_SKILL_FAMILY,
   CONSONANT_DIGRAPHS_SKILL_FAMILY,
   CURATED_SPELLING_SKILL_IDS,
   SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
@@ -18,9 +20,10 @@ import {
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const skillsIndexRoutePath = join(process.cwd(), 'src/pages/spelling-lists/skills/index.astro');
 
+// Long E Silent E is deliberately excluded per SKILLS_ARCHITECTURE.md §5: it
+// stays published at its own URL but is not a curated family member.
 const SILENT_E_SKILL_IDS = [
   'silent-e-long-a',
-  'silent-e-long-e',
   'silent-e-long-i',
   'silent-e-long-o',
   'silent-e-long-u',
@@ -28,6 +31,7 @@ const SILENT_E_SKILL_IDS = [
 
 const SILENT_E_FAMILY_IDS = [
   ...SILENT_E_SKILL_IDS,
+  'silent-e-long-e',
   'grade-1-long-vowels-silent-e',
   'grade-1-silent-e-practice',
 ] as const;
@@ -130,27 +134,21 @@ const byId = new Map(summaries.map((entry) => [entry.id, entry]));
 const allIds = new Set(summaries.map((entry) => entry.id));
 
 describe('Silent E Skill Family', () => {
-  it('publishes Silent E as the third public Skill family after Short Vowels and Consonant Digraphs', () => {
-    expect(SPELLING_SKILL_FAMILIES.map((family) => family.title)).toEqual([
-      'Short Vowels',
-      'Consonant Digraphs',
-      'Silent E',
-      'Vowel Teams',
-    ]);
+  it('publishes Silent E as the fifth of 12 public Skill families', () => {
+    expect(SPELLING_SKILL_FAMILIES.map((family) => family.title)[4]).toBe('Silent E');
     expect(SPELLING_SKILL_FAMILIES[0]).toBe(SHORT_VOWELS_AND_CVC_SKILL_FAMILY);
     expect(SPELLING_SKILL_FAMILIES[1]).toBe(CONSONANT_DIGRAPHS_SKILL_FAMILY);
-    expect(SPELLING_SKILL_FAMILIES[2]).toBe(SILENT_E_SKILL_FAMILY);
-    expect(SPELLING_SKILL_FAMILIES[3]).toBe(VOWEL_TEAMS_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[2]).toBe(CONSONANT_BLENDS_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[3]).toBe(COMMON_SPELLING_PATTERNS_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[4]).toBe(SILENT_E_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[5]).toBe(VOWEL_TEAMS_SKILL_FAMILY);
   });
 
-  it('uses the requested five curated Silent E Skill IDs', () => {
+  it('uses exactly four curated Silent E Skill IDs (Long E demoted to a labeled section, not a peer page)', () => {
     expect(SILENT_E_SKILL_FAMILY.skillIds).toEqual(SILENT_E_SKILL_IDS);
-    expect(CURATED_SPELLING_SKILL_IDS).toEqual([
-      ...SHORT_VOWELS_AND_CVC_SKILL_FAMILY.skillIds,
-      ...CONSONANT_DIGRAPHS_SKILL_FAMILY.skillIds,
-      ...SILENT_E_SKILL_IDS,
-      ...VOWEL_TEAMS_SKILL_FAMILY.skillIds,
-    ]);
+    expect(SILENT_E_SKILL_FAMILY.skillIds).not.toContain('silent-e-long-e');
+    expect(CURATED_SPELLING_SKILL_IDS).not.toContain('silent-e-long-e');
+    expect(SILENT_E_SKILL_FAMILY.guidance).toContain('Long E Silent E');
   });
 
   it('keeps family guidance specific while preserving earlier family guidance', () => {
@@ -160,7 +158,7 @@ describe('Silent E Skill Family', () => {
     expect(CONSONANT_DIGRAPHS_SKILL_FAMILY.guidance).toBe(
       'Choose the letter pair your child needs to practice.',
     );
-    expect(SILENT_E_SKILL_FAMILY.guidance).toBe(
+    expect(SILENT_E_SKILL_FAMILY.guidance).toContain(
       'Choose the vowel sound your child needs to practice.',
     );
 
@@ -177,15 +175,33 @@ describe('Silent E Skill Family', () => {
     expect(route).toContain('itemListElement: skillFamilies.flatMap((family) =>');
     expect(route).toContain('position: ++itemListPosition');
 
-    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(17);
-    expect(CURATED_SPELLING_SKILL_IDS.slice(9, 14)).toEqual(SILENT_E_SKILL_IDS);
-    expect(CURATED_SPELLING_SKILL_IDS.slice(14)).toEqual(VOWEL_TEAMS_SKILL_FAMILY.skillIds);
+    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(40);
+
+    const silentEStart = SHORT_VOWELS_AND_CVC_SKILL_FAMILY.skillIds.length +
+      CONSONANT_DIGRAPHS_SKILL_FAMILY.skillIds.length +
+      CONSONANT_BLENDS_SKILL_FAMILY.skillIds.length +
+      COMMON_SPELLING_PATTERNS_SKILL_FAMILY.skillIds.length;
+
+    expect(
+      CURATED_SPELLING_SKILL_IDS.slice(silentEStart, silentEStart + SILENT_E_SKILL_IDS.length),
+    ).toEqual(SILENT_E_SKILL_IDS);
+    expect(
+      CURATED_SPELLING_SKILL_IDS.slice(silentEStart + SILENT_E_SKILL_IDS.length).slice(
+        0,
+        VOWEL_TEAMS_SKILL_FAMILY.skillIds.length,
+      ),
+    ).toEqual(VOWEL_TEAMS_SKILL_FAMILY.skillIds);
   });
 
-  it('marks all five Silent E pages as reusable Skills', () => {
+  it('marks the four curated Silent E pages as reusable Skills, and Long E Silent E as an unlinked-but-published Skill', () => {
     for (const id of SILENT_E_SKILL_IDS) {
       expect(byId.get(id), id).toMatchObject({ id, contentRole: 'skill' });
     }
+    expect(byId.get('silent-e-long-e')).toMatchObject({
+      id: 'silent-e-long-e',
+      contentRole: 'skill',
+      status: 'published',
+    });
   });
 
   it('marks the Grade 1 Silent E page as a Grade Unit', () => {

@@ -4,6 +4,7 @@ urlSlug: r-controlled-er-ir-ur
 title: "R-Controlled ER, IR, and UR Words"
 description: "Three spellings, one sound — the ER pattern in her, the IR pattern in bird, and the UR pattern in turn all make the same r-controlled vowel sound."
 shortAnswer: "This list practices the ER, IR, and UR r-controlled vowel patterns, as in her, bird, and turn."
+contentRole: skill
 category: phonics
 grade: "1"
 difficulty: developing
@@ -20,10 +21,6 @@ relatedLists:
   - r-controlled-or
 prerequisiteLists: []
 nextLists: []
-readinessSignals:
-  - "Can already recognize simpler r-controlled patterns like AR or OR in reading"
-  - "Can hear the shared /er/ sound in spoken words such as 'her,' 'bird,' and 'turn'"
-  - "Are ready to notice that the same sound can have more than one correct spelling"
 faq:
   - question: "Why are ER, IR, and UR taught together?"
     answer: "They are taught together because they can all spell the same r-controlled vowel sound. That makes this list a spelling-choice lesson, not just a sound lesson."

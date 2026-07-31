@@ -4,7 +4,7 @@ urlSlug: 3rd-grade-doubling-final-consonants
 title: "3rd Grade Spelling Rule: Doubling Final Consonants"
 description: "A Grade 3 spelling rule list that teaches why some words double the final consonant before suffixes like -ing, -ed, -er, and -est."
 shortAnswer: "Third graders learn that some short-vowel words double the final consonant before a suffix, as in running, sitting, bigger, and stopped."
-contentRole: skill
+contentRole: grade-unit
 category: grade-level
 grade: "3"
 difficulty: intermediate

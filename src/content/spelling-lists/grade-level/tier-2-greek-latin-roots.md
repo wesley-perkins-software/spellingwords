@@ -4,7 +4,7 @@ urlSlug: tier-2-greek-latin-roots
 title: "4th Grade Greek Root Words"
 description: "A fourth-grade Greek roots list built around tele, photo, graph, bio, demo, and scope — roots students meet in reading, science, and social studies."
 shortAnswer: "Fourth graders study Greek roots in words such as telephone, photograph, autograph, biography, democracy, microscope, and telescope."
-contentRole: skill
+contentRole: grade-unit
 category: grade-level
 grade: "4"
 difficulty: intermediate

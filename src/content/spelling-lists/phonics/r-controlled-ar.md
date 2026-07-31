@@ -4,6 +4,7 @@ urlSlug: r-controlled-ar
 title: "R-Controlled AR Words"
 description: "Words where the letter R changes the vowel sound that comes before it — the AR pattern heard in car, farm, and dark."
 shortAnswer: "This list practices the AR r-controlled vowel pattern, as in car, farm, dark, and yard."
+contentRole: skill
 category: phonics
 grade: "1"
 difficulty: developing
@@ -18,10 +19,6 @@ relatedLists: ["vowel-teams-ou-ow"]
 prerequisiteLists: ["vowel-teams-ou-ow"]
 nextLists: []
 featured: false
-readinessSignals:
-  - "Can spell short-a and long-a words, then notice that AR makes a third sound rather than either familiar vowel sound"
-  - "Can hear the /ar/ sound in spoken words like 'car' and 'farm' before choosing the letters"
-  - "Are beginning to read one-syllable words where the vowel sound changes because R follows it"
 faq:
   - question: "What is an r-controlled AR word?"
     answer: "In an r-controlled word, the letter R changes the vowel sound before it. AR usually makes the sound heard in 'car,' so learners need to treat the A and R as a team instead of sounding the A as short or long."

@@ -2,9 +2,9 @@
 id: short-u-words
 urlSlug: short-u-words
 title: "Short U Words"
-description: "Ten simple words built around the short 'u' sound — the sturdy, central vowel heard in bug, sun, and run — for early phonics practice."
+description: "The short 'u' sound — the sturdy, central vowel heard in bug, sun, and run — explained and demonstrated, with links to where it's taught across the curriculum."
 contentRole: skill
-shortAnswer: "This list practices the short 'u' sound in simple words like bug, sun, and run — a core early phonics pattern."
+shortAnswer: "Short U words use the /u/ sound heard in the middle of bug, sun, and cup. Most are three-letter consonant-vowel-consonant (CVC) words where every letter maps to one sound, which makes the pattern easy to sound out and spell."
 category: phonics
 grade: "1"
 difficulty: beginner
@@ -24,32 +24,24 @@ relatedLists:
 prerequisiteLists: []
 nextLists: []
 featured: false
-readinessSignals:
-  - "Blend and segment a three-sound word without hesitation — the core skill this list keeps sharpening"
-  - "Recognize the short 'u' sound when it's spoken aloud, even before seeing it written down"
-  - "Can hear the 'ck' ending in a word like 'duck' as one unit rather than two separate letters"
 faq:
-  - question: "What is the short 'u' sound and when is this practice useful?"
-    answer: "It's the warm, central sound in 'sun' and 'cup' — one of the five core short-vowel sounds children may practice when learning, reviewing, or strengthening CVC spelling."
-  - question: "How is short 'u' different from short 'o'?"
-    answer: "Short 'u' (as in 'hut') sits more centrally in the mouth than short 'o' (as in 'hot'), which is made with rounded lips — practicing them together is the fastest way to stop mixing them up."
+  - question: "What is the short 'u' sound?"
+    answer: "It's the warm, central sound in the middle of words like 'bug' and 'sun' — one of five short-vowel sounds children encounter in early phonics learning, review, or focused practice."
   - question: "Should short U words be sounded out or memorized?"
-    answer: "Sounded out. Nine of the ten words are fully regular CVC words; 'duck' adds the 'ck' ending, the same dependable spelling children may have already met in Short O Words' 'rock.'"
-  - question: "What else is useful after Short U practice?"
-    answer: "Keep practicing the other short-vowel Skills as needed, especially Short O because the two sounds can feel close to early spellers. Mixed short-vowel review is useful once several vowel sounds feel steady."
+    answer: "Sounded out, for the fully regular words in this set — 'duck' is the one exception worth naming, since the 'ck' ending spells one sound with two letters, the same pattern used in short-o words like 'rock.'"
+  - question: "How is short 'u' different from short 'o'?"
+    answer: "Short 'u' (as in 'hut') sits more centrally in the mouth than short 'o' (as in 'hot'), which is made with rounded lips. Practicing the two side by side can help the difference stick."
 words:
-  - bug
-  - sun
-  - run
-  - cup
-  - nut
-  - cut
-  - fun
   - bus
   - but
+  - cut
   - duck
 ---
 
-The short "u" sound has a warm, sturdy quality — it sits right at the heart of words like sun, run, and cup. Children often find it satisfying to spell because the vowel sound is clear and the words are short enough to hold in mind all at once. That makes this a great list for building early spelling confidence.
+The short "u" sound — the warm, central /u/ in the middle of *bug* and *sun* — is one of the five short-vowel sounds a beginning speller works through. Like the other short vowels, most short-u words a child meets are simple consonant-vowel-consonant (CVC) patterns, so the same sound-by-sound approach applies.
 
-Working through words like these quietly and carefully, without hurrying, gives young spellers the chance to really hear each sound in order. The short "u" pattern turns up in hundreds of useful words, and every one mastered here is a small, solid step forward.
+**How to hear it.** Say *cut* slowly and stretch it out: *c... u... t*. The middle sound is short "u." A child who can pull a spoken word apart into its sounds this way has everything needed to spell it — write the letter for each sound, in order.
+
+**A simple practice tip.** Say the word aloud, then stretch out the sounds together — *b... u... s* — before writing or typing it. If a word comes out wrong, read back exactly what was written and let your child listen for which sound needs fixing.
+
+**What trips children up.** Most words here are fully regular, but *duck* ends in "ck" rather than a single "k" — two letters spelling one sound, the same pattern as *rock* in Short O Words. Naming that pattern once, rather than treating it as a spelling to memorize, helps it register as a dependable rule.

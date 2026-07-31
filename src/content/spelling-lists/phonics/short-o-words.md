@@ -77,13 +77,11 @@ The most common short-vowel mix-up is between short o and its nearest neighbor, 
 
 Saying both sounds in a pair and exaggerating the difference — rounded lips for short o versus a relaxed, open mouth for short u — usually resolves the confusion faster than pointing at the letter itself. If a learner is also working on Short U Words, practicing a few matched pairs from both lists together tends to sharpen the distinction faster than drilling either sound alone.
 
-### A Note on Regional Accents
-
-Depending on where a learner lives, some short-o words may be pronounced closer to the vowel in _saw_ than to the crisp "aw-in-hot" description above — a well-documented regional pattern called the cot–caught merger, common across much of North America. Where that's true for a learner, it's a pronunciation difference worth accepting rather than correcting: the spelling still follows the pattern of the word, not the accent.
-
 ### Common Short O Mistakes
 
-Beyond the o/u mix-up above, two smaller slips are worth naming so they don't get treated as exceptions to explain away. First, writing the letter's name instead of its sound — the stretch-and-listen habit above tends to resolve this quickly. Second, treating _rock_'s "-ck" ending or _pond_'s consonant pair "-nd" as something unusual: both are dependable, regular spellings a learner will meet again and again, not surprises specific to this word.
+Beyond the o/u mix-up above, a few smaller points are worth naming so they don't get treated as exceptions to explain away. Writing the letter's name instead of its sound is the most common — the stretch-and-listen habit above tends to resolve this quickly. Treating _rock_'s "-ck" ending or _pond_'s consonant pair "-nd" as something unusual is another: both are dependable, regular spellings a learner will meet again and again, not surprises specific to this word.
+
+One more point is a matter of accent, not error: depending on where a learner lives, some short-o words may be pronounced closer to the vowel in _saw_ than to the crisp "aw-in-hot" description above — a well-documented regional pattern called the cot–caught merger, common across much of North America. Where that's true for a learner, it's worth accepting rather than correcting: the spelling still follows the pattern of the word, not the accent.
 
 ### How to Practice Short O Words
 

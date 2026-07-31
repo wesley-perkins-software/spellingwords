@@ -36,6 +36,12 @@ words:
   - dust
 ---
 
+### Hearing the Short U Sound — and Its One Common Spelling Swap
+
+Short u is the quick, central vowel sound in the middle of _sun_ — not the name of the letter _u_, which sounds like "you," as in the alphabet. Say _sun_ slowly and the difference is easy to feel: _s... u... n_. That middle sound is short u, and it's the sound this page focuses on: the letter _u_ in simple, regular words like _sun_, _cup_, and _drum_. It isn't a catalogue of every way English can spell or pronounce this sound, or of every sound the letter _u_ can make.
+
+One spelling swap is common enough to name up front, because it affects some of the most frequent words a young speller meets: a small group of everyday words — _son_, _love_, _come_, _some_, _mother_ — carry this exact same short u sound but spell it with the letter _o_ instead. Sound one of these out the way a regular short-o word works and the spelling comes out wrong every time, because here the sound and the letter simply don't match the way they do in _sun_ or _cup_. Rather than trying to sound these out, it's more effective to teach them by sight as a short, named group — a handful of familiar exceptions to recognize on their own, not a pattern to generalize from.
+
 ### Short U Word Families
 
 Grouping words by their ending — their rime — makes the short u pattern easy to see and hear across many familiar words at once:
@@ -48,14 +54,6 @@ Grouping words by their ending — their rime — makes the short u pattern easy
 | -ust   | dust, just, must, trust |
 
 Read a row aloud and notice that the middle vowel sound stays exactly the same, even though the word around it keeps changing. This is a representative set, not a complete one — the same short u sound continues in words outside these families too, including words that start with a consonant pair, like _drum_ and _trust_, once the CVC pattern feels secure.
-
-### What Is the Short U Sound?
-
-Short u is the quick, central vowel sound in the middle of _sun_ — not the name of the letter _u_, which sounds like "you," as in the alphabet. Say _sun_ slowly and the difference is easy to feel: _s... u... n_. That middle sound is short u, and it's the sound this page focuses on: the letter _u_ in simple, regular words. It isn't a catalogue of every way English can spell or pronounce this sound, or of every sound the letter _u_ can make.
-
-### Short U Spelled With the Letter O
-
-A small group of extremely common words use the short u sound but spell it with the letter _o_ instead of _u_ — words like _son_, _love_, _come_, _some_, and _mother_. Sound these words out the way a regular short-o word works and the spelling comes out wrong every time, because the sound and the letter simply don't match here the way they do in _sun_ or _cup_. Rather than trying to sound these out, it's more effective to teach them by sight as a short, named group — a handful of familiar exceptions to recognize on their own, not a pattern to generalize from.
 
 ### What Should the Learner Notice
 

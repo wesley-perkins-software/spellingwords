@@ -36,6 +36,10 @@ words:
   - hill
 ---
 
+### What Is the Short I Sound?
+
+Short i is the quick, thin vowel sound in the middle of _pig_ — not the name of the letter _i_, which sounds like "eye," as in the alphabet. Say _pig_ slowly and the difference is easy to feel: _p... i... g_. That middle sound is short i, and it's the sound this page focuses on: the letter _i_ in simple, regular words. It isn't a catalogue of every way English can spell or pronounce this sound, or of every sound the letter _i_ can make.
+
 ### Short I Word Families
 
 Grouping words by their ending — their rime — makes the short i pattern easy to see and hear across many familiar words at once:
@@ -48,11 +52,7 @@ Grouping words by their ending — their rime — makes the short i pattern easy
 | -ip    | dip, hip, lip, rip, tip |
 | -ish   | dish, fish, wish        |
 
-Read a row aloud and notice that the middle vowel sound stays exactly the same, even though the word around it keeps changing. This is a representative set, not a complete one — the same short i sound continues in words outside these families too.
-
-### What Is the Short I Sound?
-
-Short i is the quick, thin vowel sound in the middle of _pig_ — not the name of the letter _i_, which sounds like "eye," as in the alphabet. Say _pig_ slowly and the difference is easy to feel: _p... i... g_. That middle sound is short i, and it's the sound this page focuses on: the letter _i_ in simple, regular words. It isn't a catalogue of every way English can spell or pronounce this sound, or of every sound the letter _i_ can make.
+Read a row aloud and notice that the middle vowel sound stays exactly the same, even though the word around it keeps changing. This is a representative set, not a complete one — the same short i sound continues in words outside these families too, including the digraph and doubled-consonant endings covered next.
 
 ### Short I Beyond Simple Three-Letter Words
 

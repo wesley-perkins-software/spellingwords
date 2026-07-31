@@ -246,6 +246,10 @@ Recommended default editorial flow (not a mandatory identical heading sequence �
 - Sentences should be readable aloud in one breath; avoid stacked subordinate clauses.
 - Define technical terms at first use, in the same sentence or the next one — never assume prior knowledge of *phoneme*, *digraph*, *syllable*, *base word*, *prefix*, *suffix*, *morpheme*, *closed syllable*, or any other term used.
 
+**`shortAnswer` must stand alone:** `shortAnswer` renders before the Markdown body and is the unit most likely to be read in isolation — by a reader who never scrolls further, a search snippet, or an AI system quoting or summarizing the page. Because of that, every term used inside `shortAnswer` must already be defined or avoided within `shortAnswer` itself; do not introduce a technical term there and rely on a later body section to complete the explanation. (The Short A page's first draft introduced "closed-syllable (CVC)" in `shortAnswer` without unpacking it — the definition didn't arrive until several body sections later, which meant the answer failed the standalone test even though the full page was accurate.)
+
+**Presentation format:** prose is the default, but use a short bullet list, checklist, or compact table where it genuinely improves scanning — observational lists (e.g. "what to notice," "signs the pattern is becoming secure"), minimal-pair or before/after comparisons, and word groupings are the clearest cases. This is guidance, not a mandated structure: don't convert working prose into bullets purely to break it up, and don't let a page become entirely bulleted.
+
 **Terminology precision — do not loosely interchange:**
 - *Sound* and *letter*. A sound is heard; a letter is written. "The short a sound" and "the letter a" are not interchangeable.
 - *Silent e* and *vowel-consonant-e (VCe)*. "Silent e" names what's silent; VCe names the spelling pattern. Use consistently within a page; if both are used, define the relationship once.
@@ -330,6 +334,8 @@ Link only to canonical, active destinations — no invented destinations, no lin
 
 Every link must explain *why* the relationship matters in the surrounding prose — do not add a link purely to raise link count, and do not reuse an identical related-link block across every sibling in a family when the actual relationships differ (e.g. Short A's nearest contrast is Short E, not every other short vowel equally).
 
+When prose names another canonical Skill (whether or not it's also linked via `relatedLists`/`prerequisiteLists`/`nextLists`), use that Skill's exact canonical title from `SKILLS_ARCHITECTURE.md` (e.g. "Long A Silent E Words," not a shortened "Long A Silent E") unless a specific readability reason justifies a deviation.
+
 When a useful concept lacks a canonical standalone page (e.g. a sub-pattern folded into a larger Skill, like Open Syllables inside Multisyllabic Words), explain it locally in prose or link to the closest legitimate destination — never invent a page or link to something outside the 41-slot taxonomy.
 
 ---
@@ -343,7 +349,7 @@ When a useful concept lacks a canonical standalone page (e.g. a sub-pattern fold
 - helping an adult decide what to teach or do;
 - answering a meaningful adjacent search intent.
 
-**Prohibited:** repeating a definition already given in the body; keyword-variant questions that exist only to catch search phrasing; questions manufactured to pad schema; forcing every page in a family to carry the same FAQ count. FAQ content exists for user value — it is not a guaranteed rich-result tactic, and should never be treated as one.
+**Prohibited:** repeating a definition, example, or explanation already given in the body — including restating the same example words in Q&A form, which is repetition even when it isn't a literal repeated definition; keyword-variant questions that exist only to catch search phrasing; questions manufactured to pad schema; forcing every page in a family to carry the same FAQ count. When a candidate FAQ turns out to duplicate the body, remove it rather than keep it to preserve a target count — there is no FAQ-count floor. FAQ content exists for user value — it is not a guaranteed rich-result tactic, and should never be treated as one.
 
 ---
 
@@ -471,7 +477,7 @@ Source of truth for id/title/urlSlug/source-file cross-checked directly against 
 
 | Canonical id | Title | Family | Variant | Status | Source file | Note |
 |---|---|---|---|---|---|---|
-| `short-a-words` | Short A Words | Short Vowels and CVC Words | 1 | Live | `src/content/spelling-lists/phonics/short-a-words.md` | Reference implementation target — see §22 worked brief |
+| `short-a-words` | Short A Words | Short Vowels and CVC Words | 1 | Live | `src/content/spelling-lists/phonics/short-a-words.md` | Reference implementation — drafted and merged; see §22 |
 | `short-e-words` | Short E Words | Short Vowels and CVC Words | 1 | Live | `src/content/spelling-lists/phonics/short-e-words.md` | |
 | `short-i-words` | Short I Words | Short Vowels and CVC Words | 1 | Live | `src/content/spelling-lists/phonics/short-i-words.md` | |
 | `short-o-words` | Short O Words | Short Vowels and CVC Words | 1 | Live | `src/content/spelling-lists/phonics/short-o-words.md` | |
@@ -519,4 +525,6 @@ Source of truth for id/title/urlSlug/source-file cross-checked directly against 
 
 ## 22. Short A worked brief
 
-A completed example content brief for `short-a-words` lives at `docs/content/examples/SHORT_A_SKILL_PAGE_BRIEF.md`. It is an implementation planning document, not final public prose — `short-a-words.md` itself is not rewritten as part of this standard (see the roadmap's Phase 1 note for the actual drafting task, which this standard's approval enables but does not perform).
+A completed example content brief for `short-a-words` lives at `docs/content/examples/SHORT_A_SKILL_PAGE_BRIEF.md`. It is an implementation planning document, not final public prose — drafting `short-a-words.md` itself was Phase 1 editorial work under the roadmap, not something this standard performs.
+
+**Status:** `short-a-words.md` has since been drafted against this standard and merged. It is the project's first live Variant 1 implementation — treat the live file itself, not just the brief, as the concrete model for the remaining Variant 1 pages' structure, section flow, and tone. This is a pointer to the file, not a license to copy its exact word lists, headings, or FAQ content verbatim into a different Skill's page; each page's specifics still come from its own content, screened per §8.

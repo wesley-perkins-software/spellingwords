@@ -15,6 +15,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
+skillIds: ['short-e-words']
 relatedLists: ['kindergarten-short-a-words', 'kindergarten-short-i-words', 'kindergarten-short-o-words', 'kindergarten-short-u-words']
 prerequisiteLists: ['kindergarten-short-u-words']
 nextLists: ['kindergarten-mixed-vowel-review']

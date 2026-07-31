@@ -187,13 +187,13 @@ describe('Short Vowels and CVC Words Skill Family', () => {
   });
 
   it('keeps every active Short Vowels family Practice Set in the 8-16 word range', () => {
-    // short-a-words has migrated to the Grade Unit/Skill content contract:
-    // as a Skill it now carries a small demonstration set, not an 8-16 word
-    // Practice Set — see the dedicated word-count contract test in
-    // shortAReferenceSkill.test.ts. The other short-vowel Skills and Grade
-    // Units are unmigrated and still expected to hold the legacy range.
+    // short-a-words and short-e-words have migrated to the Grade Unit/Skill
+    // content contract: as Skills they now carry a small demonstration set,
+    // not an 8-16 word Practice Set — see the dedicated word-count contract
+    // test in shortAReferenceSkill.test.ts. The other short-vowel Skills and
+    // Grade Units are unmigrated and still expected to hold the legacy range.
     for (const id of SHORT_VOWEL_FAMILY_IDS) {
-      if (id === 'short-a-words') continue;
+      if (id === 'short-a-words' || id === 'short-e-words') continue;
 
       const entry = byId.get(id);
       expect(entry, id).toBeDefined();

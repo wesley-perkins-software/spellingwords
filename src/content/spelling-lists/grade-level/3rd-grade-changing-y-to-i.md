@@ -4,7 +4,7 @@ urlSlug: 3rd-grade-changing-y-to-i
 title: "3rd Grade Spelling Rule: Changing Y to I"
 description: "A Grade 3 spelling rule list that teaches when y changes to i before endings like -ed, -er, -est, -es, and -ness."
 shortAnswer: "Third graders learn that a final y often changes to i before an ending, as in tried, carried, cities, happier, and happiness."
-contentRole: skill
+contentRole: grade-unit
 category: grade-level
 grade: "3"
 difficulty: intermediate

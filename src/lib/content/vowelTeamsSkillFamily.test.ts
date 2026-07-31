@@ -7,12 +7,20 @@ import {
   GRADE_1_TARGETED_SKILL_IDS,
 } from './grade1Progression';
 import {
+  COMMON_SPELLING_PATTERNS_SKILL_FAMILY,
+  CONSONANT_BLENDS_SKILL_FAMILY,
   CONSONANT_DIGRAPHS_SKILL_FAMILY,
   CURATED_SPELLING_SKILL_IDS,
+  GREEK_AND_LATIN_ROOTS_SKILL_FAMILY,
+  HOMOPHONES_AND_COMMONLY_CONFUSED_WORDS_SKILL_FAMILY,
+  MULTISYLLABIC_WORDS_SKILL_FAMILY,
+  PREFIXES_SKILL_FAMILY,
+  R_CONTROLLED_VOWELS_SKILL_FAMILY,
   SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
   SILENT_E_SKILL_FAMILY,
   SPELLING_SKILL_FAMILIES,
   VOWEL_TEAMS_SKILL_FAMILY,
+  WORD_BUILDING_AND_ENDINGS_SKILL_FAMILY,
 } from './spellingSkills';
 import { getSentenceBankEntry, getSentenceForWord } from '@/lib/sentenceBank';
 
@@ -24,8 +32,15 @@ const VOWEL_TEAM_SKILL_IDS = [
   'vowel-teams-ai-ay',
   'vowel-teams-ee-ea',
   'vowel-teams-oa-ow',
+  'oi-and-oy-words',
+  'ou-and-ow-words',
+  'oo-words',
+  'au-and-aw-words',
 ] as const;
 
+// The grade-unit source files these new Skills were promoted from keep their
+// own distinct ids/slugs (per SKILLS_ARCHITECTURE.md §3) and must never
+// appear in the curated Skill id list themselves.
 const EXCLUDED_DIPHTHONG_IDS = ['vowel-teams-oi-oy', 'vowel-teams-ou-ow'] as const;
 
 const VOWEL_TEAM_FAMILY_IDS = [
@@ -39,6 +54,10 @@ const EXPECTED_URL_INPUTS: Record<string, { category: string; urlSlug: string }>
   'vowel-teams-ai-ay': { category: 'phonics', urlSlug: 'vowel-teams-ai-ay' },
   'vowel-teams-ee-ea': { category: 'phonics', urlSlug: 'vowel-teams-ee-ea' },
   'vowel-teams-oa-ow': { category: 'phonics', urlSlug: 'vowel-teams-oa-ow' },
+  'oi-and-oy-words': { category: 'phonics', urlSlug: 'oi-and-oy-words' },
+  'ou-and-ow-words': { category: 'phonics', urlSlug: 'ou-and-ow-words' },
+  'oo-words': { category: 'phonics', urlSlug: 'oo-words' },
+  'au-and-aw-words': { category: 'phonics', urlSlug: 'au-and-aw-words' },
   'grade-1-long-a-long-o-vowel-teams': {
     category: 'phonics',
     urlSlug: '1st-grade-long-a-long-o-vowel-teams',
@@ -135,30 +154,42 @@ const byId = new Map(summaries.map((entry) => [entry.id, entry]));
 const allIds = new Set(summaries.map((entry) => entry.id));
 
 describe('Vowel Teams Skill Family', () => {
-  it('publishes Vowel Teams as the fourth public Skill family', () => {
+  it('publishes Vowel Teams as the sixth of 12 public Skill families', () => {
     expect(SPELLING_SKILL_FAMILIES.map((family) => family.title)).toEqual([
       'Short Vowels',
       'Consonant Digraphs',
+      'Consonant Blends',
+      'Common Spelling Patterns',
       'Silent E',
       'Vowel Teams',
+      'R-Controlled Vowels',
+      'Multisyllabic Words',
+      'Word Building and Endings',
+      'Prefixes',
+      'Greek and Latin Roots',
+      'Homophones and Commonly Confused Words',
     ]);
     expect(SPELLING_SKILL_FAMILIES[0]).toBe(SHORT_VOWELS_AND_CVC_SKILL_FAMILY);
     expect(SPELLING_SKILL_FAMILIES[1]).toBe(CONSONANT_DIGRAPHS_SKILL_FAMILY);
-    expect(SPELLING_SKILL_FAMILIES[2]).toBe(SILENT_E_SKILL_FAMILY);
-    expect(SPELLING_SKILL_FAMILIES[3]).toBe(VOWEL_TEAMS_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[2]).toBe(CONSONANT_BLENDS_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[3]).toBe(COMMON_SPELLING_PATTERNS_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[4]).toBe(SILENT_E_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[5]).toBe(VOWEL_TEAMS_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[6]).toBe(R_CONTROLLED_VOWELS_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[7]).toBe(MULTISYLLABIC_WORDS_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[8]).toBe(WORD_BUILDING_AND_ENDINGS_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[9]).toBe(PREFIXES_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[10]).toBe(GREEK_AND_LATIN_ROOTS_SKILL_FAMILY);
+    expect(SPELLING_SKILL_FAMILIES[11]).toBe(HOMOPHONES_AND_COMMONLY_CONFUSED_WORDS_SKILL_FAMILY);
   });
 
-  it('uses exactly the approved curated Vowel Teams Skill IDs in public order', () => {
+  it('uses exactly the approved curated Vowel Teams Skill IDs in public order (8 skills, 1 provisional)', () => {
     expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).toEqual(VOWEL_TEAM_SKILL_IDS);
     expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).not.toEqual(
       expect.arrayContaining(EXCLUDED_DIPHTHONG_IDS),
     );
-    expect(CURATED_SPELLING_SKILL_IDS).toEqual([
-      ...SHORT_VOWELS_AND_CVC_SKILL_FAMILY.skillIds,
-      ...CONSONANT_DIGRAPHS_SKILL_FAMILY.skillIds,
-      ...SILENT_E_SKILL_FAMILY.skillIds,
-      ...VOWEL_TEAM_SKILL_IDS,
-    ]);
+    expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).not.toContain('ie-and-igh-words');
+    expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).toHaveLength(7);
   });
 
   it('keeps family-specific browse copy and JSON-LD derived from curated family order', () => {
@@ -177,17 +208,20 @@ describe('Vowel Teams Skill Family', () => {
     expect(route).toContain('itemListElement: skillFamilies.flatMap((family) =>');
     expect(route).toContain('position: ++itemListPosition');
 
-    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(17);
-    expect(CURATED_SPELLING_SKILL_IDS.slice(0, 5)).toEqual(
-      SHORT_VOWELS_AND_CVC_SKILL_FAMILY.skillIds,
-    );
-    expect(CURATED_SPELLING_SKILL_IDS.slice(5, 9)).toEqual(
-      CONSONANT_DIGRAPHS_SKILL_FAMILY.skillIds,
-    );
-    expect(CURATED_SPELLING_SKILL_IDS.slice(9, 14)).toEqual(
-      SILENT_E_SKILL_FAMILY.skillIds,
-    );
-    expect(CURATED_SPELLING_SKILL_IDS.slice(14)).toEqual(VOWEL_TEAM_SKILL_IDS);
+    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(40);
+
+    const vowelTeamsStart = SHORT_VOWELS_AND_CVC_SKILL_FAMILY.skillIds.length +
+      CONSONANT_DIGRAPHS_SKILL_FAMILY.skillIds.length +
+      CONSONANT_BLENDS_SKILL_FAMILY.skillIds.length +
+      COMMON_SPELLING_PATTERNS_SKILL_FAMILY.skillIds.length +
+      SILENT_E_SKILL_FAMILY.skillIds.length;
+
+    expect(
+      CURATED_SPELLING_SKILL_IDS.slice(
+        vowelTeamsStart,
+        vowelTeamsStart + VOWEL_TEAM_SKILL_IDS.length,
+      ),
+    ).toEqual(VOWEL_TEAM_SKILL_IDS);
   });
 
   it('marks curated Vowel Team pages as reusable Skills and Grade 1 core pages as Grade Units', () => {
@@ -267,7 +301,11 @@ describe('Vowel Teams Skill Family', () => {
     expect(GRADE_1_CORE_IDS).toContain('grade-1-long-e-vowel-teams');
     expect(GRADE_1_GATEWAY_IDS).toContain('grade-1-vowel-team-practice');
 
-    for (const id of VOWEL_TEAM_SKILL_IDS) {
+    // Only the three Vowel Team Skills already part of the Grade 1 core
+    // progression are targeted there; the four newly-promoted Skills
+    // (oi/oy, ou/ow, oo, au/aw) are Grade 2 concepts with no Grade 1 roadmap
+    // entry.
+    for (const id of ['vowel-teams-ai-ay', 'vowel-teams-ee-ea', 'vowel-teams-oa-ow']) {
       expect(GRADE_1_TARGETED_SKILL_IDS).toContain(id);
     }
 
@@ -295,7 +333,6 @@ describe('Vowel Teams Skill Family', () => {
     ]);
     expect(SILENT_E_SKILL_FAMILY.skillIds).toEqual([
       'silent-e-long-a',
-      'silent-e-long-e',
       'silent-e-long-i',
       'silent-e-long-o',
       'silent-e-long-u',

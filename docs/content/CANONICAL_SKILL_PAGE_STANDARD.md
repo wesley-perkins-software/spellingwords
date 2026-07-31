@@ -81,7 +81,8 @@ These are content elements, not a mandated visible heading sequence — recommen
 | Curriculum placement ("where this fits") | Required when applicable | Supported now — reverse `skillIds` lookup, template's "Where this fits in the curriculum" section |
 | Related canonical Skills | Required when applicable | Supported now — `relatedLists`/`prerequisiteLists`/`nextLists` |
 | Selective FAQs | Optional | Supported now — `faq` |
-| Sourcing and editorial review note | Required when applicable | Future component opportunity — no per-page reviewer/date field exists today (§14, §17) |
+| Source attribution | Required when applicable | Supported now — `canonicalSource` |
+| Editorial reviewer and meaningful review date | Required when the real editorial process supports it | Future component opportunity — no dedicated reviewer or review-date field exists today (§14, §17) |
 | Metadata (title tag, description) | Required | Supported now — `Layout.astro`'s `title`/`description` props, sourced from `data.title`/`data.description` |
 | Structured data | Required when applicable | Partially supported — `BreadcrumbList` and `FAQPage` exist; `WebPage`/`Article`/`LearningResource` do not (§18) |
 
@@ -97,10 +98,10 @@ A variant is a **content shape**, not a rigid template — a variant's "required
 
 **Canonical Skills:** Short Vowels and CVC Words (5), Consonant Digraphs (4), Consonant Blends (2), Silent E (4), Vowel Teams (8, including provisional IE and IGH Words), R-Controlled Vowels (3). 26 of 41 slots.
 
-**Linguistic focus:** a target sound and the spelling(s) that represent it.
+**Linguistic focus:** one or more closely related speech sounds and the spelling pattern or letter sequence being taught, including cases where a spelling has multiple common pronunciations (e.g. OO Words) or where the component consonant sounds remain audible (e.g. consonant blends, where each letter still represents its own sound, unlike a digraph's single fused sound).
 
 **Required middle-page elements:**
-- The target sound, described in plain terms a parent can say aloud (not just IPA).
+- The target sound or sound relationship, described in plain terms a parent can say aloud (not just IPA).
 - The target spelling(s), and — where the family has more than one spelling for the sound (e.g. AI/AY, OI/OY) — the spelling-choice condition (word position, neighboring letters).
 - Explicit sound-versus-letter-name framing wherever confusion is likely (short a vs. the letter name "a").
 - Pronunciation/hearing guidance an adult can use with a child (e.g. "stretch the word and listen to the middle sound").
@@ -114,7 +115,7 @@ A variant is a **content shape**, not a rigid template — a variant's "required
 
 **Variant-specific editorial checks:** does the page let a parent *hear* the difference, not just read about it; is the neighboring-pattern contrast present where confusion is common; are irregular or borderline words kept out of the demonstration set (§8)?
 
-**When sections may be omitted:** single-spelling patterns (e.g. Short A) can skip the spelling-choice-condition element entirely — there is no choice to explain.
+**When sections may be omitted:** pages that teach only one spelling within their bounded instructional scope — such as the canonical Short A page's focus on the letter *a* — can omit the spelling-choice-condition element entirely, since there is no choice to explain within that scope. They must not imply that the page catalogues every possible spelling or pronunciation found elsewhere in English.
 
 ### 4.2 Variant 2 — Spelling conventions and rules
 
@@ -232,6 +233,8 @@ Recommended default editorial flow (not a mandatory identical heading sequence �
 
 **Current rendering reality vs. this recommendation:** today's `[category]/[slug].astro` template renders, in fixed order: Breadcrumbs → Hero → `shortAnswer` block ("What are {title}?") → readiness signals (rare on Skills) → word list ("Hear the pattern in these words") → Markdown body (single "Understanding the pattern" heading) → "Where this fits in the curriculum" → FAQ → related/next cards → source attribution. That is **implementation reality**, not this standard's required structure. The template's single generic "Understanding the pattern" heading is where items 3–7 above currently have to live as sub-headings within one Markdown body section; it does not mean this standard only requires one section. Where the template's fixed order and this standard's recommended flow diverge (e.g. curriculum placement rendering after the body rather than near the end of it), follow this standard's content organization *within* the Markdown body and treat the template's section order as a future implementation opportunity (§18), not a reason to compress content.
 
+**Note on the generated direct-answer heading:** the current automatically generated "What are {title}?" heading may not read naturally for every variant (e.g. it fits "What are Short A Words?" better than it fits a Variant 2/3/4 concept phrased as a rule or distinction rather than a noun phrase). Authors should still write `shortAnswer` as a direct response to the concept regardless of how the surrounding heading reads; improving the generated heading logic is a future template opportunity, not something this task or a content draft should work around.
+
 ---
 
 ## 7. Writing and terminology standards
@@ -250,7 +253,7 @@ Recommended default editorial flow (not a mandatory identical heading sequence �
 - *Phonographic word family* (words sharing a rime, e.g. *-at*: cat, hat, bat) and *morphological word family* (words sharing a morpheme, e.g. *nation, national, nationality*). These are different groupings and must be labeled as what they are.
 
 **Sound and letter notation:**
-- When precision is needed, use IPA in slashes for sounds (`/æ/`) — but always pair it with a plain-language description ("the short, open vowel in *cat*"); never present bare IPA as sufficient on its own for a parent audience.
+- When notation helps, use the notation most understandable for the audience and define it. Parent-facing phonics notation such as `/ă/` may be used for accessibility; IPA such as `/æ/` may be added where greater linguistic precision is useful. Always pair either notation with a familiar example word, such as "the vowel sound in *cat*."
 - Letters/spellings referenced as letters should be visually distinguished from words (e.g. italics or quotation marks — match existing page conventions, such as `short-a-words.md`'s *c... a... t* stretching example).
 
 **Capitalization:** Skill titles and canonical concept names follow `SKILLS_ARCHITECTURE.md`'s exact casing (e.g. "Short A Words," not "short a words," when referring to the canonical Skill); mid-sentence references to the sound or letter itself are lowercase ("the short a sound").
@@ -357,7 +360,9 @@ This section applies the roadmap's research policy (`CONTENT_IMPROVEMENT_ROADMAP
 | Etymological or historical claim (root origin, word history) | Requires verification — see `SKILLS_ARCHITECTURE.md` §3's existing safeguard for Greek and Latin Roots derived-word examples as the model. |
 | Exception or dialect claim | Requires verification if presented as a general linguistic fact rather than this site's own bounded observation. |
 
-**Restrained public sourcing:** attribute sitewide editorial methodology and reviewer/organization generically (e.g. "reviewed by the spellingwords.app editorial team") rather than naming unverifiable external credentials; keep a `dateModified`/last-reviewed date accurate (§17); cite direct sources only when a claim on the evidence ladder actually requires one. Internal content briefs (§20) may carry fuller sourcing notes than the public page. Do not require a citation for every basic definition or example — that would violate §15's anti-keyword-stuffing, anti-overengineering stance.
+**Restrained public sourcing:** attribute sitewide editorial methodology and reviewer/organization generically (e.g. "reviewed by the spellingwords.app editorial team") rather than naming unverifiable external credentials; keep a `dateModified`/last-reviewed date accurate (§17); cite direct sources only when a claim on the evidence ladder actually requires one. Internal content briefs (§20) may carry fuller sourcing notes than the public page. Do not require a citation for every basic definition or example — that would overengineer otherwise straightforward parent-facing content and reduce readability without adding meaningful trust.
+
+**Review-language safeguard:** public authorship or review language must describe the real editorial process. Use "reviewed by the spellingwords.app editorial team" only after the page has completed the project's documented review workflow; do not add generic review claims merely as trust signals.
 
 **On this standard's own research basis:** recommendations in this document originate from the project's internal Skill-page research review and are adopted here as project editorial policy — no external Deep Research artifact is preserved in this repository to cite directly (checked: no such file exists under `docs/`). Do not attribute claims in this standard, or in any Skill page written to it, to an unnamed or unverifiable external source.
 
@@ -392,7 +397,7 @@ A page that satisfies §3's required elements at 900 words is done; a page that 
 **Recommendations for future editorial passes** (do not implement live changes as part of this task):
 - **H1:** should match the frozen `title` exactly — do not editorialize the H1 independently of the canonical title.
 - **Title tag:** the current `${title} — spellingwords` pattern is acceptable; avoid adding keyword chains to the frontmatter `title` field itself, since `title` also drives the visible H1 and breadcrumb — a title tag written purely for search should not distort the reader-facing heading.
-- **Meta description:** `description` should read as a genuine, specific summary (already the case in the audited examples) — not a keyword list. Since `description` also feeds the meta tag directly, write it for the dual audience of a search snippet and an on-page opening sentence.
+- **Meta description:** `description` should be a specific, natural summary of the page rather than a keyword list. It should complement, not mechanically duplicate, the visible `shortAnswer`. Because it currently feeds the meta tag directly, write it primarily as an accurate search-result summary.
 - **Canonical topic naming:** stay consistent with the exact Skill title from `SKILLS_ARCHITECTURE.md` — do not introduce a synonym-based alternate name in metadata that isn't also used on the page itself.
 - **`dateModified`-equivalent accuracy:** no field currently exists for this (§18 gap); when one exists, it must reflect genuine content review dates, not be refreshed artificially to appear current (§19).
 
@@ -404,8 +409,8 @@ A page that satisfies §3's required elements at 900 words is done; a page that 
 
 **Intended semantic approach, documented for future implementation — not built here:**
 - **`WebPage`** is appropriate as the base type for every Skill page.
-- **`Article`** may layer on top where the page's Markdown body is substantial, authored prose (which is true of essentially every Skill page under this standard) — appropriate, not yet implemented.
-- **`LearningResource`** is appropriate only where it can be filled out honestly from real page content (e.g. `teaches`, `educationalLevel`) — not as a default addition to every page.
+- **`Article`** may be appropriate for substantial authored explanatory content (true of essentially every Skill page under this standard). Future implementation should determine whether it is represented as the primary type, an additional type, or a related entity within the page graph. Do not assume that every Skill page needs both `WebPage` and `Article`.
+- **`LearningResource`** is an optional semantic possibility, not an eventual requirement — appropriate only where it can be evaluated honestly and filled out from real page content (e.g. `teaches`, `educationalLevel`), never added by default.
 - **`BreadcrumbList`** — already correctly implemented; no change needed.
 - **Author or publisher** — should reflect the site's actual editorial process once §14's sourcing note exists as real content, not a placeholder.
 - **Accurate dates** — `datePublished`/`dateModified` should be added only once the underlying field/process exists (§17 gap) — do not fabricate dates in schema that visible content doesn't support.
@@ -456,6 +461,7 @@ The copyable brief lives at `docs/content/templates/SKILL_PAGE_CONTENT_BRIEF.md`
 - [ ] Any claim requiring verification (§14) is flagged with what needs checking.
 - [ ] Metadata and structured-data notes describe current-capability behavior accurately (§17, §18) rather than assuming unbuilt features.
 - [ ] Duplication risk against the corresponding Grade Unit(s) has been explicitly considered, not just assumed away.
+- [ ] Demonstration words and planned instructional examples have been screened for conceptual fit, distracting patterns, irregularity, dialect sensitivity, and hidden morphology under §8.
 
 ---
 

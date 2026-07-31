@@ -180,44 +180,44 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
 
 ### Short Vowels and CVC Words
 
-- [ ] Family audit completed
-- [ ] Shared terminology and page pattern agreed
-- [ ] Short A Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Short E Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Short I Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Short O Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Short U Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Family-wide consistency review completed
+- [x] Family audit completed
+- [x] Shared terminology and page pattern agreed — see `inventory/skill-pages.md` audit notes for the per-page search-intent record and the shared editorial conventions below
+- [x] Short A Words
+  - [x] Existing page audited (found and fixed: FAQ/body duplication on the short-a-vs-long-a point; missing `silent-e-long-a` relatedLists link)
+  - [x] Search intent documented
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [x] Final editorial review passed
+- [x] Short E Words
+  - [x] Existing page audited
+  - [x] Search intent documented
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [x] Final editorial review passed
+- [x] Short I Words
+  - [x] Existing page audited
+  - [x] Search intent documented
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [x] Final editorial review passed
+- [x] Short O Words
+  - [x] Existing page audited
+  - [x] Search intent documented
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [x] Final editorial review passed
+- [x] Short U Words
+  - [x] Existing page audited
+  - [x] Search intent documented
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [x] Final editorial review passed
+- [x] Family-wide consistency review completed
 ### Consonant Digraphs
 
 - [ ] Family audit completed
@@ -933,12 +933,12 @@ Initial assignment by grouping (refine per-family/per-grade as Phase 0 audits la
 
 ## 14. Progress summary
 
-No editorial work has started under this roadmap yet — all totals below reflect **existence within canonical-active scope**, not completion. Populate the Complete/In progress/Blocked columns as work lands.
+Phase 1, Batch 1 (Short Vowels and CVC Words — 5 of 41 skill slots) is complete; all other totals below still reflect **existence within canonical-active scope**, not completion. Populate the Complete/In progress/Blocked columns as further work lands.
 
 | Phase | Total items (canonical active) | Complete | In progress | Remaining | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + 36 unresolved rows + 3 taxonomy-mismatch decisions | 6 (roadmap + inventory files created) | 0 | 36 unresolved rows + 3 mismatch decisions | 0 |
-| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 0 | 40 | 1 (IE and IGH Words — content-pending) |
+| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 5 (Short A/E/I/O/U Words — Short Vowels and CVC Words family) | 0 | 35 | 1 (IE and IGH Words — content-pending) |
 | Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages | 0 | 0 | 75 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |

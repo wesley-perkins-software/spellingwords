@@ -20,14 +20,15 @@ relatedLists:
   - short-i-words
   - short-o-words
   - short-u-words
+  - silent-e-long-a
 prerequisiteLists: []
 nextLists: []
 featured: false
 faq:
   - question: "What is the short 'a' sound and why is it taught first?"
     answer: "It's one of the simplest vowel sounds to hear and say — a brief, open sound, as in 'cat' — so pairing it with simple consonant-vowel-consonant words gives children an early, reliable win before more complex vowel patterns show up."
-  - question: "How is short 'a' different from long 'a'?"
-    answer: "Short 'a' is the quick sound in words like 'hat' and 'cat,' while long 'a' says its own name, as in 'hate' or 'cake' — noticing the difference now can make a later silent-e pattern feel like one small change, not a whole new rule."
+  - question: "Does the silent-e pattern change every short-a word?"
+    answer: "No — the vowel only changes if a silent e is deliberately added at the end, turning 'hat' into 'hate' or 'can' into 'cane.' Seeing the same letters again elsewhere doesn't change the sound on its own."
   - question: "Should short A words be sounded out or memorized?"
     answer: "Sounded out. A fully regular short-a word yields to sound-by-sound spelling every time — memorizing isn't necessary, and it skips the skill that transfers to new words."
 words:

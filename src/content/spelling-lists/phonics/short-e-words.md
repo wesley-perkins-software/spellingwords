@@ -2,9 +2,9 @@
 id: short-e-words
 urlSlug: short-e-words
 title: "Short E Words"
-description: "Ten simple words built around the short 'e' sound — the soft, mid-mouth vowel heard in bed, red, and hen — for early phonics practice."
+description: "The short 'e' sound — the soft, mid-mouth vowel heard in bed, red, and hen — explained and demonstrated, with links to where it's taught across the curriculum."
 contentRole: skill
-shortAnswer: "This list practices the short 'e' sound in simple words like bed, red, and hen — a key early phonics pattern."
+shortAnswer: "Short E words use the /e/ sound heard in the middle of bed, red, and hen. Like the other short vowels, most are three-letter consonant-vowel-consonant (CVC) words where every letter maps to one sound, which makes them straightforward to spell by sounding out."
 category: phonics
 grade: "1"
 difficulty: beginner
@@ -24,32 +24,22 @@ relatedLists:
 prerequisiteLists: []
 nextLists: []
 featured: false
-readinessSignals:
-  - "Blend three sounds into a word smoothly, and can reverse the process — breaking a word like 'bed' back into b-e-d"
-  - "Recognize the short 'e' sound when it's spoken aloud, even before seeing it written down"
-  - "Already know the individual consonant sounds in this list — b, d, g, h, l, m, n, p, r, s, t, w"
 faq:
-  - question: "What is the short 'e' sound and when is this practice useful?"
-    answer: "It's the brief, flat vowel sound in words like 'bed' and 'pet' — one of five short-vowel sounds children use in early phonics, review, and extra focused practice."
-  - question: "How is short 'e' different from short 'i'?"
-    answer: "The two sounds sit close together in the mouth and are the pair young spellers mix up most — short 'e' (as in 'bed') is a bit more open, while short 'i' (as in 'bit') is quicker and higher. Practicing the two lists side by side is often the fastest way to tell them apart."
+  - question: "What is the short 'e' sound?"
+    answer: "It's the soft, flat vowel sound in the middle of words like 'bed' and 'pet' — one of five short-vowel sounds children encounter in early phonics learning, review, or focused practice."
   - question: "Should short E words be sounded out or memorized?"
-    answer: "Sounded out. Every word here follows the regular short-vowel pattern, so segmenting each sound (b-e-d) and blending it back builds a skill that carries over to new words, not just these ten."
-  - question: "What else is useful after Short E practice?"
-    answer: "Keep practicing the other short-vowel Skills as needed, especially Short I because the two sounds are easy to mix up. When all five short vowels feel steady, mixed CVC review or simple silent-e work can be useful next practice."
+    answer: "Sounded out. A regular short-e word yields to sound-by-sound spelling every time, so segmenting each sound and blending it back is what carries over to new words — memorizing isn't necessary."
 words:
-  - bed
-  - red
-  - hen
-  - leg
-  - pet
   - ten
-  - wet
   - set
   - met
   - get
 ---
 
-The short "e" is a soft, friendly sound that appears in many of the first words children learn to read and write. Words like bed and red follow a simple consonant-vowel-consonant pattern that makes the vowel sound clear and predictable — exactly what young spellers need when they are building confidence.
+The short "e" sound — the soft, flat /e/ in the middle of *bed* and *hen* — is one of the five short-vowel sounds a beginning speller works through. Like the other short vowels, nearly every short-e word a child meets is a simple consonant-vowel-consonant (CVC) pattern, so it responds to the same sound-by-sound approach.
 
-Practicing this sound in short, calm sessions helps children recognize it quickly in new words they encounter. Each word mastered here is a small step toward reading and spelling fluently, and that steady progress is worth celebrating quietly.
+**How to hear it.** Say *bed* slowly and stretch it out: *b... e... d*. The middle sound is short "e." A child who can pull a spoken word apart into its sounds this way has everything needed to spell it — write the letter for each sound, in order.
+
+**Short "e" versus short "i."** Short "e" (as in *bed*) and short "i" (as in *bid*) sit close together in the mouth, and they're a pair many young spellers swap — writing *bid* for *bed*, or the reverse. Saying the two words side by side, exaggerating the difference, usually does more to fix a mix-up than pointing at the letter.
+
+**A simple practice tip.** Say the word aloud, then stretch out the sounds together — *g... e... t* — before writing or typing it. If a word comes out wrong, read back exactly what was written and let your child listen for which sound needs fixing.

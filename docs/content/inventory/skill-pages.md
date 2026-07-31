@@ -7,11 +7,23 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Every page below is e
 
 | Skill id | Title | urlSlug | Grade (frontmatter) | Source file | Editorial status |
 |---|---|---|---|---|---|
-| short-a-words | Short A Words | short-a-words | 1 | `src/content/spelling-lists/phonics/short-a-words.md` | Not audited |
-| short-e-words | Short E Words | short-e-words | 1 | `src/content/spelling-lists/phonics/short-e-words.md` | Not audited |
-| short-i-words | Short I Words | short-i-words | 1 | `src/content/spelling-lists/phonics/short-i-words.md` | Not audited |
-| short-o-words | Short O Words | short-o-words | 1 | `src/content/spelling-lists/phonics/short-o-words.md` | Not audited |
-| short-u-words | Short U Words | short-u-words | 1 | `src/content/spelling-lists/phonics/short-u-words.md` | Not audited |
+| short-a-words | Short A Words | short-a-words | 1 | `src/content/spelling-lists/phonics/short-a-words.md` | Complete |
+| short-e-words | Short E Words | short-e-words | 1 | `src/content/spelling-lists/phonics/short-e-words.md` | Complete |
+| short-i-words | Short I Words | short-i-words | 1 | `src/content/spelling-lists/phonics/short-i-words.md` | Complete |
+| short-o-words | Short O Words | short-o-words | 1 | `src/content/spelling-lists/phonics/short-o-words.md` | Complete |
+| short-u-words | Short U Words | short-u-words | 1 | `src/content/spelling-lists/phonics/short-u-words.md` | Complete |
+
+### Audit notes (Phase 1, Batch 1 — Short Vowels and CVC Words)
+
+Primary search/answer intent recorded per page, all served by the visible `shortAnswer` card plus a matching FAQPage entry (verified in the built output):
+
+- **short-a-words** — "what is short A / why is it an early pattern" + "does silent-e change it automatically." Reference implementation; audited and given one fix (a genuine FAQ/body duplication on the short-a-vs-long-a point, and a missing `silent-e-long-a` relatedLists link that its E/I/O/U siblings already had).
+- **short-e-words** — "what is the short e sound" + "sounded out or memorized." The e/i confusable-vowel explanation lives once, in the body, not duplicated in FAQ.
+- **short-i-words** — same two topics, plus a third FAQ specific to this page's one spelling wrinkle ("fish" / the sh digraph).
+- **short-o-words** — same two topics, plus "how is short o different from short u" (the family's other real confusable pair, alongside e/i).
+- **short-u-words** — same two topics, plus the reciprocal "short u vs short o" question and the "duck"/"rock" ck-ending cross-reference.
+
+Verified for all five: tests (`npm test`, 516/516) and build (`npm run build`, 280 pages) pass; each page's "Where this fits in the curriculum" card resolves to a real, published Kindergarten Grade Unit (previously zero for E/I/O/U — see roadmap note below); FAQPage structured data present and non-empty; manually reviewed at 1280px and 390px viewports.
 
 ## Consonant Digraphs
 

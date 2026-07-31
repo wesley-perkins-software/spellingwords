@@ -2,9 +2,9 @@
 id: short-i-words
 urlSlug: short-i-words
 title: "Short I Words"
-description: "Ten simple words built around the short 'i' sound — the quick, bright vowel heard in pig, sit, and hill — for early phonics practice."
+description: "The short 'i' sound — the quick, bright vowel heard in pig, sit, and hill — explained and demonstrated, with links to where it's taught across the curriculum."
 contentRole: skill
-shortAnswer: "This list practices the short 'i' sound in simple words like pig, sit, and hill — a core early phonics pattern."
+shortAnswer: "Short I words use the /i/ sound heard in the middle of pig, sit, and hill. Most are three-letter consonant-vowel-consonant (CVC) words where every letter maps to one sound, which is what makes the pattern easy to sound out and spell."
 category: phonics
 grade: "1"
 difficulty: beginner
@@ -24,32 +24,24 @@ relatedLists:
 prerequisiteLists: []
 nextLists: []
 featured: false
-readinessSignals:
-  - "Segment a word like 'sit' into its three sounds without help, and blend them back together just as easily"
-  - "Recognize the short 'i' sound when it's spoken aloud, even before seeing it written down"
-  - "Can already hear the 'sh' digraph and a double consonant as single units, as in 'fish' and 'hill'"
 faq:
-  - question: "What is the short 'i' sound and when is this practice useful?"
-    answer: "It's the quick, high sound in 'pig' and 'sit' — a short-vowel pattern children may use for early learning, review, or extra focused practice."
-  - question: "How is short 'i' different from short 'e'?"
-    answer: "Short 'i' (as in 'sit') is quicker and sits higher in the mouth than short 'e' (as in 'set') — they're the two short vowels children mix up most, so hearing them named and contrasted directly, rather than just practiced separately, helps the difference stick."
+  - question: "What is the short 'i' sound?"
+    answer: "It's the quick, high sound in the middle of words like 'pig' and 'sit' — one of five short-vowel sounds children encounter in early phonics learning, review, or focused practice."
   - question: "Should short I words be sounded out or memorized?"
-    answer: "Sounded out, for most of the list — though 'fish' and 'hill' add a digraph and a double consonant, both worth calling out by name so children notice they're still regular, not exceptions."
-  - question: "What else is useful after Short I practice?"
-    answer: "Keep practicing the other short-vowel Skills as needed, especially Short E because the two sounds are easy to mix up. Mixed short-vowel review is useful once several vowel sounds feel steady."
+    answer: "Sounded out, for the fully regular words in this set — 'fish' is the one exception worth naming, since 'sh' spells a single sound with two letters rather than one letter per sound."
+  - question: "Why does 'fish' spell one sound with two letters?"
+    answer: "'sh' is a consonant digraph — two letters that work together to spell one sound. It's common enough in everyday words that it's worth naming explicitly, so a child recognizes it as a dependable spelling rather than an exception to worry about."
 words:
-  - pig
-  - sit
-  - fish
-  - hill
   - hit
-  - six
-  - big
   - him
   - his
-  - win
+  - fish
 ---
 
-The short "i" sound is quick and crisp — you can hear it in the middle of pig, sit, and hill. Many everyday words use this vowel, which makes it one of the most useful sounds for early readers and spellers to lock in. Simple, familiar words like these make the pattern easy to hear and remember.
+The short "i" sound — the quick, bright /i/ in the middle of *pig* and *sit* — is one of the five short-vowel sounds a beginning speller works through. Like the other short vowels, most short-i words a child meets are simple consonant-vowel-consonant (CVC) patterns, so the same sound-by-sound approach applies.
 
-Repeating short, focused practice sessions with words like these helps children build automatic recognition of the short "i" sound, so it does not slow them down when they meet it inside longer words. Calm repetition, not speed, is what makes it stick.
+**How to hear it.** Say *sit* slowly and stretch it out: *s... i... t*. The middle sound is short "i." A child who can pull a spoken word apart into its sounds this way has everything needed to spell it — write the letter for each sound, in order.
+
+**Short "i" versus short "e."** Short "i" (as in *sit*) sits a little higher and quicker in the mouth than short "e" (as in *set*), and the two are a pair many young spellers swap. Saying both out loud, side by side, helps the difference stand out more than a written explanation can.
+
+**A simple practice tip.** Say the word aloud, then stretch out the sounds together — *h... i... m* — before writing or typing it. If a word comes out wrong, read back exactly what was written and let your child listen for which sound needs fixing.

@@ -15,6 +15,8 @@ This document is the operating plan for improving the written content of every c
 
 Keep this file and the inventory files synchronized: this file owns strategy, phases, definitions of done, priority framework, and running totals; the inventory files own per-page rows and per-page editorial status. See §15.
 
+**Editorial content standard for the Skill layer:** `docs/content/CANONICAL_SKILL_PAGE_STANDARD.md` governs the detailed content structure, instructional variants, example selection, and editorial review for canonical Skill pages (Layer 1, §2). It is subordinate to this roadmap for scope, sequencing, priority, and definition of done, and subordinate to the frozen architecture docs for taxonomy and identity — see §5 and the Phase 1 entry in §3.
+
 ---
 
 ## 1. Status and purpose
@@ -121,6 +123,7 @@ Editorial order: **Skill pages → Grade curriculum pages → Grade Hub pages �
 **Dependencies:** Phase 0 complete for the family being worked; the 3 non-taxonomy "skill"-tagged pages resolved or explicitly deferred so family membership is unambiguous before drafting begins.
 **Outputs:** 40 (41 once IE/IGH is authored) strong, differentiated, internally consistent canonical explanations — the terminology and structural pattern later work will reuse.
 **Must not do prematurely:** IE and IGH Words cannot be completed here — no content file exists yet, and authoring its word bank is separate future work, not a Phase 1 task.
+**Editorial standard:** every Phase 1 page must follow `docs/content/CANONICAL_SKILL_PAGE_STANDARD.md`, which governs page structure, the four instructional variants, example selection, teaching guidance, and editorial review for the Skill layer. A Skill page should have an approved content brief (`docs/content/templates/SKILL_PAGE_CONTENT_BRIEF.md`, acceptance checklist in the standard §20) before drafting begins. This roadmap still owns scope, sequencing, priority, and the page-level definition of done (§8); the standard does not change any of that.
 
 ### Phase 2 — Grade curriculum content
 **Position rationale:** each Grade Unit page needs a finished canonical Skill page to link back to and differentiate itself from (§2) — writing grade content first risks re-deriving the same explanation 5–6 times per family and then retrofitting links.

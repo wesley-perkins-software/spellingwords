@@ -191,7 +191,7 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
   - [x] Written content completed
   - [x] Internal links completed
   - [x] Structured data and metadata reviewed
-  - [ ] Final editorial review passed — manual desktop/mobile review not performed in this environment
+  - [x] Final editorial review passed — reviewed rendered desktop (1280px) and mobile (390px) screenshots of the built page: distinct sections, working tables, no practice CTA, correct curriculum placement and related links
 - [ ] Short E Words
   - [ ] Existing page audited
   - [ ] Search intent documented

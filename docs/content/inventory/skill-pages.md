@@ -9,7 +9,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Every page below is e
 
 | Skill id | Title | urlSlug | Grade (frontmatter) | Source file | Editorial status | Instructional variant | Content brief status |
 |---|---|---|---|---|---|---|---|
-| short-a-words | Short A Words | short-a-words | 1 | `src/content/spelling-lists/phonics/short-a-words.md` | Needs review — content rewritten to the standard; final desktop/mobile review outstanding | 1 | Needs review |
+| short-a-words | Short A Words | short-a-words | 1 | `src/content/spelling-lists/phonics/short-a-words.md` | Needs review — content revised for audience, structure, and scannability; desktop/mobile screenshots reviewed; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
 | short-e-words | Short E Words | short-e-words | 1 | `src/content/spelling-lists/phonics/short-e-words.md` | Not audited | 1 | Not started |
 | short-i-words | Short I Words | short-i-words | 1 | `src/content/spelling-lists/phonics/short-i-words.md` | Not audited | 1 | Not started |
 | short-o-words | Short O Words | short-o-words | 1 | `src/content/spelling-lists/phonics/short-o-words.md` | Not audited | 1 | Not started |

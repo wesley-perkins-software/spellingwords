@@ -1,19 +1,19 @@
 # Content Improvement Roadmap — spellingwords.app
 
-**Status:** Living document. Created to open the editorial-improvement phase after architecture freeze.
-**Owner of updates:** whoever is doing the content work — see §15 Maintenance.
-**Scope:** written content quality only. See §1.
+**Status:** Living document. Operating plan for the editorial-improvement phase, now that curriculum, taxonomy, and page architecture are frozen.
+**Scope:** all pages included in the frozen canonical public architecture. See §1.
 
-This document is the single operating plan for improving the written content of every public page on spellingwords.app now that curriculum, taxonomy, and page architecture are frozen. It is both a strategy document and a checkbox-driven implementation checklist. A new contributor (human, Claude Code, or Codex) should be able to pick up work from this file alone, without reconstructing project history from chat logs or commit messages.
+This document is the operating plan for improving the written content of every canonical active page on spellingwords.app. It is both a strategy document and a checkbox-driven implementation checklist. A new contributor — human, Claude Code, or Codex — should be able to pick up work from this file alone, without reconstructing project history from chat logs or commit messages.
 
-**Companion inventory files** (detailed, full page-by-page tables — this document stays readable by linking out to them rather than embedding all ~267 rows inline):
+**Companion inventory files** (full page-by-page tables; this document stays readable by linking out to them rather than embedding every row inline):
 
 - `docs/content/inventory/skill-pages.md` — every canonical Skill page, by family
-- `docs/content/inventory/grade-curriculum-pages.md` — every Grade Unit and vocabulary/theme page, by grade
-- `docs/content/inventory/sight-words-and-common-words.md` — Common Words (High-Frequency Words) gateways/sets and legacy Dolch tiers
-- `docs/content/inventory/untagged-and-data-quality.md` — pages missing `contentRole`, archived pages, taxonomy mismatches, and other repository findings
+- `docs/content/inventory/grade-curriculum-pages.md` — every canonical Grade Unit and Additional Practice page, by grade
+- `docs/content/inventory/sight-words-and-common-words.md` — the canonical Common Words (High-Frequency Words) gateways and sets
+- `docs/content/inventory/deprecated-and-legacy-pages.md` — pages that exist in the repository but are **not** part of the canonical architecture; repository awareness only, not an editorial worklist
+- `docs/content/inventory/untagged-and-data-quality.md` — pages that couldn't yet be classified canonical-active or deprecated-legacy, plus repository findings
 
-Keep this file and the inventory files synchronized: this file owns strategy, phases, definitions of done, priority framework, and running totals; the inventory files own the per-page rows and per-page editorial status. See §15.
+Keep this file and the inventory files synchronized: this file owns strategy, phases, definitions of done, priority framework, and running totals; the inventory files own per-page rows and per-page editorial status. See §15.
 
 ---
 
@@ -21,146 +21,161 @@ Keep this file and the inventory files synchronized: this file owns strategy, ph
 
 ### What is frozen (do not reopen)
 
-- The K–5 Grade Unit curriculum and sequence (`docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`, canonical for educational scope/sequence).
+- The K–5 Grade Unit curriculum and sequence (`docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`).
 - The Grade Hub architecture — Core Spelling / High-Frequency Words / Additional Practice, three sections per grade (`docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`, frozen, authoritative for public architecture).
 - Common Words (High-Frequency Words) set counts and structure per grade.
 - Additional Practice: the specific, bounded set of approved cards per grade (including the grades — Grade 3 currently has zero — that intentionally have none).
-- The canonical Skills architecture: 12 families, 41 skill slots (40 backed by content, 1 — IE and IGH Words — provisional/content-pending) (`docs/architecture/SKILLS_ARCHITECTURE.md`, frozen canonical spec).
+- The canonical Skills architecture: 12 families, 41 skill slots (40 backed by content, 1 — IE and IGH Words — provisional/content-pending) (`docs/architecture/SKILLS_ARCHITECTURE.md`).
 - The Skills Hub organization and the set of public pages that should exist.
 
-"Finished" for all of the above means: the pages exist, their roles are known, their position in the site architecture is settled, and it's been decided which pages are publicly displayed. **It does not mean the pages are editorially complete.**
+"Finished" for all of the above means the pages exist, their roles are known, their position in the site architecture is settled, and it's been decided which pages are publicly displayed. **It does not mean the pages are editorially complete.**
+
+### Scope is the canonical architecture, not the repository
+
+The repository contains more published content than the frozen architecture defines — most notably a legacy Dolch sight-word system and a set of orphaned single-pattern phonics pages that predate the current Grade Hub/Skills design. Every page in this roadmap's active scope is classified using one test:
+
+**A page is canonical active if it is explicitly defined by `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` or `docs/architecture/SKILLS_ARCHITECTURE.md`, or it is a required implementation artifact of that architecture** (a Grade Hub, the Skills Hub, or the main browse page). Live code (`src/lib/content/gradeHubCards.ts`, `src/lib/content/spellingSkills.ts`) verifies the architecture is actually wired into navigation and surfaces drift — it does not redefine what's canonical.
+
+Every content-collection page in the repository falls into exactly one of three buckets:
+
+| Classification | Meaning | Where it lives |
+|---|---|---|
+| **Canonical active** | Defined by the frozen architecture; in this roadmap's editorial scope | `skill-pages.md`, `grade-curriculum-pages.md`, `sight-words-and-common-words.md` |
+| **Deprecated / legacy** | Exists in the repository, sometimes still live and linked, but not part of the frozen architecture; documented for awareness only | `deprecated-and-legacy-pages.md` — no checklists, no DoD, no priority, no phase membership |
+| **Unresolved** | Not named by the architecture docs and not matched by a documented legacy pattern; needs a classification decision before any work | `untagged-and-data-quality.md` |
+
+Current counts: **150 canonical-active pages** (plus 1 provisional Skill taxonomy slot with no content file yet) · **81 deprecated/legacy pages** · **36 unresolved pages**. See §4 and §14 for the breakdown, and §15 for how a page moves between buckets as facts change.
+
+A deprecated/legacy classification is not a judgment that the content is bad — it means the frozen architecture doesn't currently define a role for it. The legacy Dolch tier is, in fact, still linked from the main browse page today (`/spelling-lists` → `/spelling-lists/sight-words` → the Dolch collections) — real, reachable, and still explicitly out of this roadmap's scope, because reachability and canonical status are different questions. If a future product decision brings a deprecated page back into the architecture, move it into the active inventory at that time (§15) — don't start improving it first.
 
 ### What this phase includes
 
-Rewriting, strengthening, and completing the *written content* of existing pages so they serve parents, teachers, and students well, and so they perform for traditional search, AI answer engines, topical authority, SEO, GEO, and AEO. This includes: educational accuracy and clarity, direct-answer quality, internal linking, metadata/structured-data accuracy, and editorial consistency within and across Skill families and grades.
+Rewriting, strengthening, and completing the *written content* of canonical-active pages so they serve parents, teachers, and students well, and perform for traditional search, AI answer engines, topical authority, SEO, GEO, and AEO: educational accuracy and clarity, direct-answer quality, internal linking, metadata/structured-data accuracy, and editorial consistency within and across Skill families and grades.
 
 ### What this phase excludes
 
-- Visual and presentation redesign — explicitly deferred to a later phase. Do not touch layout, components, or styling as part of this work.
-- Re-deciding curriculum, page taxonomy, Skill families, Grade Unit sequence, Common Words, Additional Practice, or the public page hierarchy. If a page's *content* work surfaces a real architectural gap (see §11 and the mismatches logged in the inventory files), record it — do not silently fix it by moving pages, renaming ids/slugs, or inventing new pages.
+- Visual and presentation redesign — deferred to a later phase. Do not touch layout, components, or styling.
+- Re-deciding curriculum, page taxonomy, Skill families, Grade Unit sequence, Common Words, Additional Practice, or the public page hierarchy. If content work surfaces a real architectural gap, record it (§11, and the mismatches already logged in the inventory files) — don't resolve it by moving pages, renaming ids/slugs, or inventing new pages.
+- Editorial work of any kind on deprecated/legacy or unresolved pages, until a product-owner decision moves a page into canonical-active scope.
 - New curriculum pages, page deletions, or page merges.
-- Full research citations for every page as part of this planning task (see §11 for the policy that governs *future* page work).
+- Full research citations for every page as part of this planning task (§11 governs future page work).
 
 ---
 
 ## 2. Content-layer model
 
-Five page layers exist in the repository today. Understanding what belongs on each, and what must *not* be duplicated there, is the main defense against the site turning into 267 pages saying the same six things in different words.
+Five page layers exist within the canonical architecture. Each layer's page set is defined by the classification test in §1 — not by the `category` folder or `contentRole` frontmatter field, which are implementation details that can drift from the architecture. Understanding what belongs on each layer, and what must *not* be duplicated there, is the main defense against the site turning into near-identical pages saying the same six things in different words.
 
 ### Layer 1 — Skill pages
-**Purpose:** the canonical, grade-independent reference for a spelling concept (e.g. Short A Words, SH Digraph Words, Common Prefixes). **Backed by:** `spelling-lists` entries with `contentRole: skill`, organized into the 12 frozen families (`src/lib/content/spellingSkills.ts`).
+**Purpose:** the canonical, grade-independent reference for a spelling concept (e.g. Short A Words, SH Digraph Words, Common Prefixes). **Defined by:** the 41-slot taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`, implemented as `spelling-lists` entries with `contentRole: skill`.
 **Belongs here:** the strongest possible explanation of the pattern itself — what it is, how to hear/recognize it, how it's typically taught, common misconceptions, a representative (not exhaustive) word set, and links out to every grade that touches the concept.
-**Must not duplicate:** grade-specific pacing, a specific grade's expectations, or a single grade's full word list treatment — that's Layer 2's job.
+**Must not duplicate:** grade-specific pacing, a specific grade's expectations, or a single grade's full word-list treatment — that's Layer 2's job.
 **Linking role:** the anchor other layers link *into*. Every Grade Unit that teaches this concept should link back here (via `skillIds`, currently almost unpopulated — see the data-quality file). This is the page most likely to earn topical authority and answer-engine citations, so it carries the most SEO/GEO/AEO weight per page.
 
 ### Layer 2 — Grade curriculum pages
-**Purpose:** explain and provide practice for a concept at a specific grade's expectations and difficulty (e.g. 3rd Grade Prefix Words, Grade 2 Silent Letter Words). **Backed by:** `spelling-lists` entries with `contentRole: grade-unit` (44 today) and `vocabulary-theme` (25 today, generally Additional Practice content).
+**Purpose:** explain and provide practice for a concept at a specific grade's expectations and difficulty (e.g. 3rd Grade Prefix Words, Grade 2 Silent Letter Words). **Defined by:** the per-grade Core Spelling and Additional Practice cards named in `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`, implemented as `spelling-lists` entries with `contentRole: grade-unit` or `vocabulary-theme`.
 **Belongs here:** what children at *this* grade practice, why this word set was chosen at this level, grade-appropriate examples, and a link back to the canonical Skill page plus adjacent grade-units (`prerequisiteLists`/`nextLists`).
-**Must not duplicate:** the full conceptual explanation already on the Skill page — link to it instead of re-deriving it. A Grade Unit page that fully re-explains "what a prefix is" from first principles is doing the Skill page's job.
+**Must not duplicate:** the full conceptual explanation already on the Skill page — link to it instead of re-deriving it.
 **Linking role:** links up to its canonical Skill page, sideways to `prerequisiteLists`/`nextLists`, and up to its Grade Hub.
 
 ### Layer 3 — Grade Hub pages
-**Purpose:** summarize and organize one grade's Core Spelling, Common Words, and any approved Additional Practice (e.g. "3rd Grade Spelling Words"). **Backed by:** code (`src/pages/spelling-lists/[gradeSlug].astro` + `src/lib/content/gradeHubCards.ts`/`gradeHubCopy.ts`), not a content file.
+**Purpose:** summarize and organize one grade's Core Spelling, Common Words, and any approved Additional Practice (e.g. "3rd Grade Spelling Words"). **Defined by:** `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`; implemented as code (`src/pages/spelling-lists/[gradeSlug].astro` + `src/lib/content/gradeHubCards.ts`/`gradeHubCopy.ts`), not a content file.
 **Belongs here:** short orienting copy, a scannable map of the grade's three sections, and links into every child page.
-**Must not duplicate:** lesson content from any child page. A hub that explains prefixes in depth is competing with its own Grade Unit page.
+**Must not duplicate:** lesson content from any child page.
 **Linking role:** routes down into every Grade Unit/Common Words/Additional Practice page for that grade, and up to the Skills Hub / main browse page.
 
 ### Layer 4 — Skills Hub
-**Purpose:** the main "Browse by Skill" directory across all 12 frozen families. **Backed by:** `src/pages/spelling-lists/skills/index.astro` + `spellingSkills.ts`.
+**Purpose:** the main "Browse by Skill" directory across all 12 frozen families. **Defined by:** `docs/architecture/SKILLS_ARCHITECTURE.md`; implemented as `src/pages/spelling-lists/skills/index.astro` + `spellingSkills.ts`.
 **Belongs here:** brief family descriptions and a clear path into each Skill page.
 **Must not duplicate:** any single Skill page's explanation of its pattern.
 **Linking role:** routes down into every Skill page; sits alongside (not beneath) the Grade Hubs as a second, skill-first way to reach the same underlying content.
 
 ### Layer 5 — Main spelling-list browse page
 **Purpose:** the top-level entry point where a user chooses Grade-based or Skill-based browsing (`src/pages/spelling-lists/index.astro`).
-**Belongs here:** a short explanation of the two journeys (plus "practice your own words," per `docs/architecture/CONSTITUTION.md`'s three user journeys) and links to the Grade Hubs and the Skills Hub.
+**Belongs here:** a short explanation of the journeys — Grade-based, Skill-based, and "practice your own words," per `docs/architecture/CONSTITUTION.md`'s three user journeys — and links to the Grade Hubs and Skills Hub.
 **Must not duplicate:** hub-level or page-level content — this page should be the shortest, least detailed page in the whole hierarchy.
+**Note:** this page currently also links to legacy category pages (`/spelling-lists/sight-words`, etc.) that are outside canonical scope — see §1 and `deprecated-and-legacy-pages.md`. That linkage is a fact about today's implementation, not something this roadmap resolves.
 
 ### The Skill-page vs. Grade-unit distinction (the one most at risk of duplication)
 
-A Skill page and a Grade Unit page covering the same pattern (e.g. `oi-and-oy-words.md` vs. `vowel-teams-oi-oy.md`, a Grade 2 unit) must read as **complements, not clones**:
+A Skill page and a Grade Unit page covering the same pattern (e.g. `oi-and-oy-words` vs. `vowel-teams-oi-oy`, a Grade 2 unit) must read as **complements, not clones**:
 
 - The Skill page answers "what is this pattern and how does it work" for any parent regardless of their child's grade.
-- The Grade Unit page answers "what does *this grade* practice, and how does the selected word list express the concept at this level of difficulty" — it assumes the reader already knows (or has just linked to) the general explanation.
-- Concretely: word lists should differ in difficulty/length, framing should differ in specificity ("third graders are ready to..." vs. a grade-neutral "children learn to..."), and the Grade Unit page should link to the Skill page rather than re-explaining the pattern from scratch.
-- See the data-quality inventory for concrete near-duplicate pairs already in the repository that the audit pass should look at first.
+- The Grade Unit page answers "what does *this grade* practice, and how does the selected word list express the concept at this level of difficulty" — it assumes the reader already knows, or has just linked to, the general explanation.
+- Word lists should differ in difficulty/length; framing should differ in specificity ("third graders are ready to..." vs. a grade-neutral "children learn to..."); the Grade Unit page should link to the Skill page rather than re-explaining the pattern from scratch.
 
 ---
 
 ## 3. Recommended work sequence
 
-Editorial order: **Skill pages → Grade curriculum pages → Grade Hub pages → Skills Hub → Main browse page.** This was evaluated against the actual repository (content-role split, the near-empty `skillIds` linking field, hub implementation) and holds up: nothing found makes it impractical, and the dependency logic below is real, not just tidy-looking.
+Editorial order: **Skill pages → Grade curriculum pages → Grade Hub pages → Skills Hub → Main browse page.** Evaluated against the actual repository (the canonical-active/deprecated split, the near-empty `skillIds` linking field, hub implementation) and holds up — the dependency logic below is real, not just tidy-looking. All phases operate on canonical-active pages only.
 
 ### Phase 0 — Inventory and baseline
-**Position rationale:** you cannot sequence "complete families together" (the central planning principle) without first knowing, per page, its real `contentRole`, status, and current editorial state — and right now 126 of 267 files (47%) have no `contentRole` set at all (see `untagged-and-data-quality.md`).
-**Dependencies:** none — this is the starting point, and this roadmap plus its inventory files are Phase 0's first deliverable.
-**Outputs:** this document; the four inventory files; a backfilled `contentRole` field across the 126 untagged files (recommend doing this as a fast, low-risk frontmatter-only pass, verified against page content, before Phase 1 content rewrites begin in earnest); resolved or explicitly deferred product-owner decisions on the three taxonomy mismatches in `skill-pages.md` §Flagged.
-**Must not do prematurely:** rewrite any page's prose content — Phase 0 is metadata and inventory only.
+**Position rationale:** sequencing "complete families together" (the central planning principle) requires first knowing which pages are actually in scope. This roadmap's classification pass is Phase 0's main deliverable.
+**Dependencies:** none — this is the starting point.
+**Outputs:** this document; the five inventory files; resolved or explicitly deferred product-owner decisions on the 3 non-taxonomy "skill"-tagged pages and the remaining unresolved pages (§1, `untagged-and-data-quality.md`); `contentRole` backfilled only on pages already confirmed canonical-active.
+**Must not do prematurely:** rewrite any page's prose content, or begin editorial work on an unresolved or deprecated/legacy page before it's confirmed canonical-active.
 
 ### Phase 1 — Skill-page content
-**Position rationale:** Skill pages are Layer 1 — the grade-independent anchor every Grade Unit page should eventually link to, and the page most likely to earn direct search/AI-answer citations. Fixing the anchor before the pages that cite it avoids rewriting Grade Unit links twice.
-**Dependencies:** Phase 0 complete for the families being worked (contentRole backfilled, at minimum for phonics/grade-level files touching that family); the 3 flagged non-taxonomy "skill" pages resolved or explicitly deferred so family membership is unambiguous before drafting begins.
-**Outputs:** 40 (41 once IE/IGH is authored) strong, differentiated, internally consistent canonical explanations — the terminology and structural pattern later grade-unit and hub work will reuse.
-**Must not do prematurely:** IE and IGH Words cannot be completed in this phase — no content file exists yet. Authoring its word bank is a separate, later content decision (per `SKILLS_ARCHITECTURE.md`), not a Phase 1 task. Grade curriculum work should not race ahead of the Skill pages it needs to link to.
+**Position rationale:** Skill pages are Layer 1 — the grade-independent anchor every Grade Unit page should eventually link to, and the page most likely to earn direct search/AI-answer citations.
+**Dependencies:** Phase 0 complete for the family being worked; the 3 non-taxonomy "skill"-tagged pages resolved or explicitly deferred so family membership is unambiguous before drafting begins.
+**Outputs:** 40 (41 once IE/IGH is authored) strong, differentiated, internally consistent canonical explanations — the terminology and structural pattern later work will reuse.
+**Must not do prematurely:** IE and IGH Words cannot be completed here — no content file exists yet, and authoring its word bank is separate future work, not a Phase 1 task.
 
 ### Phase 2 — Grade curriculum content
-**Position rationale:** each Grade Unit page needs a finished canonical Skill page to link back to and differentiate itself from (see §2's Skill-vs-Grade-Unit rule) — writing grade content first risks re-deriving the same explanation 5–6 times per family and then having to retrofit links.
-**Dependencies:** the corresponding Skill page(s) for a given family reach "Complete" (§8 definition of done) before that family's Grade Unit pages are drafted. Organize by grade **within** a family once its Skill pages are done, per the canonical Grade Unit sequence (K→5), not by grade first.
-**Outputs:** 44 grade-unit pages (plus 25 vocabulary-theme pages) each clearly differentiated from its Skill page, with populated `skillIds` back-links (currently 3/44) and correct `prerequisiteLists`/`nextLists`.
-**Must not do prematurely:** don't write Grade 4/5 content ahead of earlier grades within the same family if doing so would require guessing at a still-unwritten earlier grade's terminology — canonical sequence matters for consistency, not just architecture.
+**Position rationale:** each Grade Unit page needs a finished canonical Skill page to link back to and differentiate itself from (§2) — writing grade content first risks re-deriving the same explanation 5–6 times per family and then retrofitting links.
+**Dependencies:** the corresponding Skill page(s) for a family reach "Complete" (§8) before that family's Grade Unit pages are drafted. Organize by grade **within** a family once its Skill pages are done, per the canonical Grade Unit sequence (K→5), not by grade first.
+**Outputs:** canonical-active grade-unit and vocabulary-theme pages differentiated from their Skill pages, with populated `skillIds` back-links and correct `prerequisiteLists`/`nextLists`.
+**Must not do prematurely:** don't write later grades ahead of earlier grades within the same family if doing so requires guessing at a still-unwritten earlier grade's terminology.
 
 ### Phase 3 — Grade Hub content
-**Position rationale:** a Grade Hub's job is to accurately summarize and route to its children (Core Spelling, Common Words, Additional Practice) — writing hub copy before the children are in good shape means the hub either lies about what's there or has to be rewritten once they improve.
-**Dependencies:** that grade's Core Spelling (Grade Unit) content and Common Words content substantially complete.
+**Position rationale:** a Grade Hub's job is to accurately summarize and route to its children — writing hub copy before the children are in good shape means the hub either misrepresents what's there or has to be rewritten later.
+**Dependencies:** that grade's Core Spelling and Common Words content substantially complete.
 **Outputs:** 6 Grade Hub pages (K–5) with accurate, non-duplicative orienting copy.
-**Must not do prematurely:** don't let hub copy expand into full lessons — see §7's explicit anti-goal.
+**Must not do prematurely:** don't let hub copy expand into full lessons (§7).
 
 ### Phase 4 — Skills Hub content
 **Position rationale:** the Skills Hub's family summaries only make sense once the Skill pages they point to are finished and consistent within each family.
-**Dependencies:** Phase 1 (Skill pages) substantially complete across all 12 families.
+**Dependencies:** Phase 1 substantially complete across all 12 families.
 **Outputs:** one polished Skills Hub page.
-**Must not do prematurely:** don't write final family descriptions while a family's Skill pages are still mid-draft — the summary will drift from the pages it's summarizing.
+**Must not do prematurely:** don't finalize family descriptions while a family's Skill pages are still mid-draft.
 
 ### Phase 5 — Main browse-page content
-**Position rationale:** this page explains the two (arguably three, per the Constitution's three user journeys) top-level ways into the site — it should be written last among the five layers because it's the shortest, most derivative page, entirely dependent on the Grade Hubs and Skills Hub it links to being in good shape.
+**Position rationale:** the shortest, most derivative page — entirely dependent on the Grade Hubs and Skills Hub it links to being in good shape — so it's written last.
 **Dependencies:** Phases 3 and 4 complete.
 **Outputs:** one refined top-level browse page.
-**Must not do prematurely:** don't reproduce hub content here — see §2 Layer 5.
+**Must not do prematurely:** don't reproduce hub content here (§2, Layer 5).
 
 ### Phase 6 — Cross-site consistency and final editorial audit
-**Position rationale:** only after every layer has had its dedicated pass does a global consistency sweep make sense — terminology, internal linking completeness, and duplicate-content checks are cheapest to do once, at the end, rather than repeatedly mid-flight.
+**Position rationale:** a global consistency sweep is cheapest to do once, at the end, after every layer has had its dedicated pass.
 **Dependencies:** Phases 1–5 complete.
 **Outputs:** a site-wide audit confirming no orphaned links, no unresolved near-duplicates, consistent terminology across all layers, and that every page meets §8's definition of done.
-**Must not do prematurely:** this is explicitly the last phase — don't run a "final" audit while earlier phases are still in progress; do targeted spot-checks instead (see §6/§7 per-batch consistency-review checkboxes) and save the full sweep for here.
+**Must not do prematurely:** this is explicitly the last phase — use targeted spot-checks (the per-batch consistency-review items in §6/§7) mid-flight instead.
 
 ---
 
 ## 4. Repository-backed page inventory
 
-Full per-page tables live in the companion inventory files (linked at the top of this document) because embedding all 267 rows here would make this operating document unusable as a quick-reference plan. Summary:
+Full per-page tables live in the companion inventory files (linked at the top of this document). Summary:
 
-| Layer / grouping | Count | Inventory file |
-|---|---:|---|
-| Skill pages (`contentRole: skill`, matched to the 41-slot taxonomy) | 40 live + 1 provisional (no file) | `inventory/skill-pages.md` |
-| Skill-tagged pages outside the frozen taxonomy (flagged mismatch) | 3 | `inventory/skill-pages.md` §Flagged |
-| Grade-unit pages (`contentRole: grade-unit`) | 44 | `inventory/grade-curriculum-pages.md` |
-| Vocabulary/theme pages (`contentRole: vocabulary-theme`) | 25 | `inventory/grade-curriculum-pages.md` |
-| Common Words gateway pages (`spelling-collections`, grade-N-common-words) | 6 | `inventory/sight-words-and-common-words.md` |
-| Common Words member sets (`contentRole: sight-word-set`) | 29 | `inventory/sight-words-and-common-words.md` |
-| Dolch tier gateway pages (`spelling-collections`, legacy) | 6 | `inventory/sight-words-and-common-words.md` |
-| Pages with no `contentRole` set (triage required) | 126 | `inventory/untagged-and-data-quality.md` |
-| Grade Hubs (code-driven, not content files) | 6 (K–5) | this file, §7 |
-| Skills Hub (code-driven) | 1 | this file, §7 |
-| Main browse page (code-driven) | 1 | this file, §7 |
-| **Total content-collection files** | **267** (255 `spelling-lists` + 12 `spelling-collections`) | all inventory files combined |
+| Layer / grouping | Count | Classification | Inventory file |
+|---|---:|---|---|
+| Skill pages (41-slot taxonomy) | 40 live + 1 provisional (no file) | Canonical active | `inventory/skill-pages.md` |
+| Grade Unit + Additional Practice pages | 75 | Canonical active | `inventory/grade-curriculum-pages.md` |
+| Common Words gateway pages | 6 | Canonical active | `inventory/sight-words-and-common-words.md` |
+| Common Words member sets | 29 | Canonical active | `inventory/sight-words-and-common-words.md` |
+| Grade Hubs, Skills Hub, main browse page | 8 (6 + 1 + 1, code-driven) | Canonical active | this file, §7 |
+| Dolch tier gateways + member sets, orphaned phonics pages, archived pages | 81 | Deprecated / legacy | `inventory/deprecated-and-legacy-pages.md` |
+| Pages not resolved by the classification test | 36 | Unresolved | `inventory/untagged-and-data-quality.md` |
+| **Total content-collection files** | **267** (255 `spelling-lists` + 12 `spelling-collections`) | — | all inventory files combined |
 
-Every row in the inventory files was read from actual frontmatter — none of the layer assignments above were inferred from filenames. Where a file's role could not be confirmed from frontmatter, it is listed under "untagged" rather than guessed into a layer.
+**Active editorial scope = 150 canonical-active pages** (plus the 1 provisional Skill slot, plus 8 code-driven pages). Every classification was made against the frozen architecture documents, verified against live code, and cross-checked directly with each file's frontmatter — none of it was inferred from filenames or folder names.
 
 ---
 
 ## 5. Canonical Skill-family checklist
 
-Generated from the frozen taxonomy in `src/lib/content/spellingSkills.ts`, cross-checked against `docs/architecture/SKILLS_ARCHITECTURE.md`. 12 families, 41 skill slots (40 backed by a live published page today; 1 — IE and IGH Words — provisional). Check items only once the definition of done (§8) is actually met; see per-page detail and source files in `inventory/skill-pages.md`.
+Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`, verified against `src/lib/content/spellingSkills.ts`. 12 families, 41 skill slots (40 backed by a live published page today; 1 — IE and IGH Words — provisional). All 41 slots are canonical active by definition — this layer has no deprecated/legacy content. Check items only once the definition of done (§8) is actually met; per-page detail is in `inventory/skill-pages.md`.
 
 
 ### Short Vowels and CVC Words
@@ -367,7 +382,7 @@ Generated from the frozen taxonomy in `src/lib/content/spellingSkills.ts`, cross
   - [ ] Internal links completed
   - [ ] Structured data and metadata reviewed
   - [ ] Final editorial review passed
-- [ ] IE and IGH Words — **blocked, content-pending** (no source file exists; taxonomy slot is final per `SKILLS_ARCHITECTURE.md`, word bank authorship is separate future work, not a normal editorial pass)
+- [ ] IE and IGH Words — **blocked, content-pending** (no source file exists; taxonomy slot is final, word bank authorship is separate future work, not a normal editorial pass)
 - [ ] Family-wide consistency review completed
 ### R-Controlled Vowels
 
@@ -505,15 +520,15 @@ Generated from the frozen taxonomy in `src/lib/content/spellingSkills.ts`, cross
   - [ ] Final editorial review passed
 - [ ] Family-wide consistency review completed
 
-**IE and IGH Words note:** do not check off any sub-item for this skill under normal Skill-page workflow. Its taxonomy placement is final; nothing else about it should be treated as "not started yet" in the same sense as an audited-but-unwritten page — it is architecturally blocked until a word bank is authored, which is a distinct decision outside this roadmap's scope.
+**IE and IGH Words note:** its taxonomy placement is final; it is not "not started yet" in the same sense as an audited-but-unwritten page — it is architecturally blocked until a word bank is authored, a separate decision outside this roadmap's scope.
 
-**Flagged, not on this checklist:** `silent-e-long-e`, `grade-4-final-stable-syllables`, `grade-5-spelling-rules` are tagged `contentRole: skill` but are not part of the 41-slot taxonomy above. See `inventory/skill-pages.md` §Flagged for detail. Resolve their status with the product owner before folding them into either this checklist or §6's grade checklist.
+**Not on this checklist:** `silent-e-long-e`, `grade-4-final-stable-syllables`, `grade-5-spelling-rules` are tagged `contentRole: skill` but are not part of the 41-slot taxonomy and are unresolved (§1, `untagged-and-data-quality.md`). Resolve their status with the product owner before folding them into this checklist.
 
 ---
 
 ## 6. Grade curriculum checklist
 
-One section per grade, K–5, preserving canonical Grade Unit order from `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`. Per-page detail (id, urlSlug, status, `skillIds`) is in `inventory/grade-curriculum-pages.md`; this checklist tracks editorial progress at a glance. Complete a grade systematically top-to-bottom once that grade's relevant Skill-family checklists (§5) are done.
+One section per grade, K–5, preserving canonical Grade Unit order from `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`. **Only canonical-active pages appear here** — pages confirmed by their presence in `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` and their Grade Hub card in `gradeHubCards.ts`. Per-page detail is in `inventory/grade-curriculum-pages.md`; unresolved grade-scoped pages are tracked separately in `inventory/untagged-and-data-quality.md` and are not part of this checklist until confirmed canonical-active.
 
 
 ### Kindergarten
@@ -523,15 +538,19 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 **Frozen hub structure:** 8 Core Spelling cards · 4 Common Words sets (40 words) · 3 Additional Practice card(s)
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
-- [ ] Core Spelling / Grade Unit pages (7 in repository)
-  - [ ] Kindergarten Short A Words (`kindergarten-short-a-words`) — Skill: short-a-words
-  - [ ] Kindergarten Short I Words (`kindergarten-short-i-words`) — Skill: no Skill link set
-  - [ ] Kindergarten Short O Words (`kindergarten-short-o-words`) — Skill: no Skill link set
-  - [ ] Kindergarten Short U Words (`kindergarten-short-u-words`) — Skill: no Skill link set
-  - [ ] Kindergarten Short E Words (`kindergarten-short-e-words`) — Skill: no Skill link set
-  - [ ] Mixed Vowel CVC Review (`kindergarten-mixed-vowel-review`) — Skill: no Skill link set
-  - [ ] Consonant Digraphs (`kindergarten-consonant-digraphs`) — Skill: no Skill link set
-- [ ] Additional Practice / vocabulary-theme pages (2 in repository — compare against the frozen count of 3 approved Additional Practice cards; extra vocabulary-theme files may be unrouted or archived-candidate content, confirm in Phase 0)
+- [ ] Core Spelling / Grade Unit pages (11 canonical-active)
+  - [ ] Kindergarten First Words (`kindergarten-first-words`)
+  - [ ] Kindergarten Animal Words (`kindergarten-animal-words`)
+  - [ ] Kindergarten Body Words (`kindergarten-body-words`)
+  - [ ] Kindergarten Family Words (`kindergarten-family-words`)
+  - [ ] Kindergarten Short A Words (`kindergarten-short-a-words`)
+  - [ ] Kindergarten Short I Words (`kindergarten-short-i-words`)
+  - [ ] Kindergarten Short O Words (`kindergarten-short-o-words`)
+  - [ ] Kindergarten Short U Words (`kindergarten-short-u-words`)
+  - [ ] Kindergarten Short E Words (`kindergarten-short-e-words`)
+  - [ ] Mixed Vowel CVC Review (`kindergarten-mixed-vowel-review`)
+  - [ ] Consonant Digraphs (`kindergarten-consonant-digraphs`)
+- [ ] Additional Practice pages (2 canonical-active)
   - [ ] Kindergarten Number Words (`kindergarten-number-words`)
   - [ ] Kindergarten Color Words (`kindergarten-color-words`)
 - [ ] Common Words sets audited (see `inventory/sight-words-and-common-words.md` for the Kindergarten rows)
@@ -543,18 +562,22 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 **Frozen hub structure:** 12 Core Spelling cards · 6 Common Words sets (72 words) · 3 Additional Practice card(s)
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
-- [ ] Core Spelling / Grade Unit pages (7 in repository)
-  - [ ] CVC Short Vowel Review & The C/K Rule (`grade-1-cvc-short-vowels-c-k-rule`) — Skill: no Skill link set
-  - [ ] Consonant Digraphs & Final -ck (`grade-1-consonant-digraphs-final-ck`) — Skill: no Skill link set
-  - [ ] Beginning Consonant Blends (`grade-1-beginning-consonant-blends`) — Skill: no Skill link set
-  - [ ] Ending Consonant Blends (`grade-1-ending-consonant-blends`) — Skill: no Skill link set
-  - [ ] Long Vowels with Silent e (VCe) (`grade-1-long-vowels-silent-e`) — Skill: no Skill link set
-  - [ ] Long A & Long O Vowel Teams (`grade-1-long-a-long-o-vowel-teams`) — Skill: no Skill link set
-  - [ ] Long E Vowel Teams (`grade-1-long-e-vowel-teams`) — Skill: no Skill link set
-- [ ] Additional Practice / vocabulary-theme pages (6 in repository — compare against the frozen count of 3 approved Additional Practice cards; extra vocabulary-theme files may be unrouted or archived-candidate content, confirm in Phase 0)
+- [ ] Core Spelling / Grade Unit pages (12 canonical-active)
+  - [ ] CVC Short Vowel Review & The C/K Rule (`grade-1-cvc-short-vowels-c-k-rule`)
+  - [ ] The Floss Rule (`grade-1-floss-rule`)
+  - [ ] Consonant Digraphs & Final -ck (`grade-1-consonant-digraphs-final-ck`)
+  - [ ] Beginning Consonant Blends (`grade-1-beginning-consonant-blends`)
+  - [ ] Ending Consonant Blends (`grade-1-ending-consonant-blends`)
+  - [ ] Long Vowels with Silent e (VCe) (`grade-1-long-vowels-silent-e`)
+  - [ ] Short Words with Long Vowels: Open Syllables & Final Y (`grade-1-open-syllables-final-y`)
+  - [ ] Inflectional Endings: -s and -es (`grade-1-inflectional-endings-s-es`)
+  - [ ] Inflectional Endings: -ed and -ing (`grade-1-inflectional-endings-ed-ing`)
+  - [ ] R-Controlled Vowels: ar / or (`grade-1-r-controlled-ar-or`)
+  - [ ] Long A & Long O Vowel Teams (`grade-1-long-a-long-o-vowel-teams`)
+  - [ ] Short Vowel Ending Rules: -tch and -dge (`grade-1-tch-dge-ending-rules`)
+- [ ] Additional Practice pages (5 canonical-active)
   - [ ] Grade 1 Number Words 11–20 (`grade-1-number-words-11-20`)
   - [ ] Grade 1 Days of the Week (`grade-1-days-of-the-week`)
-  - [ ] Grade 1 Five Senses Words (`grade-1-five-senses-words`)
   - [ ] Grade 1 Weather Words (`grade-1-weather-words`)
   - [ ] Grade 1 Clothing Words (`grade-1-clothing-words`)
   - [ ] Grade 1 Shape Words (`grade-1-shape-words`)
@@ -567,18 +590,18 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 **Frozen hub structure:** 10 Core Spelling cards · 6 Common Words sets (72 words) · 3 Additional Practice card(s)
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
-- [ ] Core Spelling / Grade Unit pages (10 in repository)
-  - [ ] 2nd Grade Compound Words (`grade-2-list-02`) — Skill: no Skill link set
-  - [ ] 2nd Grade Contractions (`grade-2-contractions`) — Skill: no Skill link set
-  - [ ] 2nd Grade Silent Letter Words (`grade-2-silent-letter-words`) — Skill: no Skill link set
-  - [ ] OI and OY Words (`vowel-teams-oi-oy`) — Skill: no Skill link set
-  - [ ] OU and OW Words (`vowel-teams-ou-ow`) — Skill: no Skill link set
-  - [ ] Two Sounds of oo (`grade-2-oo-two-sounds`) — Skill: no Skill link set
-  - [ ] Vowel Patterns: au and aw (`grade-2-au-aw-words`) — Skill: no Skill link set
-  - [ ] Soft C and Soft G (`grade-2-soft-c-soft-g`) — Skill: no Skill link set
-  - [ ] Two-Syllable Words (`grade-2-two-syllable-words`) — Skill: r-controlled-ar, r-controlled-or, r-controlled-er-ir-ur
-  - [ ] Words Ending in -le (`grade-2-final-stable-le`) — Skill: no Skill link set
-- [ ] Additional Practice / vocabulary-theme pages (5 in repository — compare against the frozen count of 3 approved Additional Practice cards; extra vocabulary-theme files may be unrouted or archived-candidate content, confirm in Phase 0)
+- [ ] Core Spelling / Grade Unit pages (10 canonical-active)
+  - [ ] 2nd Grade Compound Words (`grade-2-list-02`)
+  - [ ] 2nd Grade Contractions (`grade-2-contractions`)
+  - [ ] 2nd Grade Silent Letter Words (`grade-2-silent-letter-words`)
+  - [ ] OI and OY Words (`vowel-teams-oi-oy`)
+  - [ ] OU and OW Words (`vowel-teams-ou-ow`)
+  - [ ] Two Sounds of oo (`grade-2-oo-two-sounds`)
+  - [ ] Vowel Patterns: au and aw (`grade-2-au-aw-words`)
+  - [ ] Soft C and Soft G (`grade-2-soft-c-soft-g`)
+  - [ ] Two-Syllable Words (`grade-2-two-syllable-words`)
+  - [ ] Words Ending in -le (`grade-2-final-stable-le`)
+- [ ] Additional Practice pages (5 canonical-active)
   - [ ] Grade 2 Transportation Words (`grade-2-transportation-words`)
   - [ ] Grade 2 Months of the Year (`grade-2-months-of-the-year`)
   - [ ] Grade 2 Money Words (`grade-2-money-words`)
@@ -593,16 +616,15 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 **Frozen hub structure:** 7 Core Spelling cards · 5 Common Words sets (60 words) · 0 Additional Practice card(s)
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
-- [ ] Core Spelling / Grade Unit pages (8 in repository)
-  - [ ] 3rd Grade Prefix Words (`grade-3-prefix-words`) — Skill: no Skill link set
-  - [ ] 3rd Grade Suffix Words (`grade-3-suffix-words`) — Skill: no Skill link set
-  - [ ] 3rd Grade Spelling Rule: Dropping Silent E (`grade-3-dropping-silent-e`) — Skill: no Skill link set
-  - [ ] 3rd Grade Spelling Rule: Doubling Final Consonants (`grade-3-doubling-final-consonants`) — Skill: no Skill link set
-  - [ ] 3rd Grade Spelling Rule: Changing Y to I (`grade-3-changing-y-to-i`) — Skill: no Skill link set
-  - [ ] 3rd Grade Possessive Words (`grade-3-possessives`) — Skill: no Skill link set
-  - [ ] 3rd Grade Multisyllabic Words (`grade-3-multisyllabic-words`) — Skill: no Skill link set
-  - [ ] 3rd Grade Homophones and Commonly Confused Words (`grade-3-homophones`) — Skill: no Skill link set
-- [ ] Additional Practice / vocabulary-theme pages (4 in repository — compare against the frozen count of 0 approved Additional Practice cards; extra vocabulary-theme files may be unrouted or archived-candidate content, confirm in Phase 0)
+- [ ] Core Spelling / Grade Unit pages (7 canonical-active)
+  - [ ] 3rd Grade Prefix Words (`grade-3-prefix-words`)
+  - [ ] 3rd Grade Suffix Words (`grade-3-suffix-words`)
+  - [ ] 3rd Grade Spelling Rule: Dropping Silent E (`grade-3-dropping-silent-e`)
+  - [ ] 3rd Grade Possessive Words (`grade-3-possessives`)
+  - [ ] 3rd Grade Multisyllabic Words (`grade-3-multisyllabic-words`)
+  - [ ] 3rd Grade Homophones and Commonly Confused Words (`grade-3-homophones`)
+  - [ ] 3rd Grade Root Word Families (`grade-3-root-word-families`)
+- [ ] Additional Practice pages (4 canonical-active)
   - [ ] 3rd Grade Map & Globe Words (`grade-3-map-globe-words`)
   - [ ] 3rd Grade Life Cycle Words (`grade-3-life-cycle-words`)
   - [ ] 3rd Grade Time Words (`grade-3-time-words`)
@@ -616,15 +638,14 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 **Frozen hub structure:** 6 Core Spelling cards · 4 Common Words sets (48 words) · 1 Additional Practice card(s)
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
-- [ ] Core Spelling / Grade Unit pages (7 in repository)
-  - [ ] 4th Grade Multisyllabic Academic Words (`grade-4-multisyllabic-academic-words`) — Skill: no Skill link set
-  - [ ] 4th Grade Advanced Prefix Words (`grade-4-advanced-prefixes`) — Skill: no Skill link set
-  - [ ] 4th Grade Advanced Suffix Words (`grade-4-advanced-suffixes`) — Skill: no Skill link set
-  - [ ] 4th Grade Latin Root Words (`tier-1-roots-and-patterns`) — Skill: no Skill link set
-  - [ ] 4th Grade Greek Root Words (`tier-2-greek-latin-roots`) — Skill: no Skill link set
-  - [ ] 4th Grade Commonly Confused Words (`grade-4-commonly-confused-words`) — Skill: no Skill link set
-  - [ ] 4th Grade Derived Words and Word Meaning (`grade-4-derived-words`) — Skill: no Skill link set
-- [ ] Additional Practice / vocabulary-theme pages (4 in repository — compare against the frozen count of 1 approved Additional Practice cards; extra vocabulary-theme files may be unrouted or archived-candidate content, confirm in Phase 0)
+- [ ] Core Spelling / Grade Unit pages (6 canonical-active)
+  - [ ] 4th Grade Multisyllabic Academic Words (`grade-4-multisyllabic-academic-words`)
+  - [ ] 4th Grade Advanced Prefix Words (`grade-4-advanced-prefixes`)
+  - [ ] 4th Grade Advanced Suffix Words (`grade-4-advanced-suffixes`)
+  - [ ] 4th Grade Latin Root Words (`tier-1-roots-and-patterns`)
+  - [ ] 4th Grade Commonly Confused Words (`grade-4-commonly-confused-words`)
+  - [ ] 4th Grade Derived Words and Word Meaning (`grade-4-derived-words`)
+- [ ] Additional Practice pages (4 canonical-active)
   - [ ] 4th Grade Measurement Words (`grade-4-measurement-words`)
   - [ ] 4th Grade Solar System Words (`grade-4-solar-system-words`)
   - [ ] 4th Grade Career & Occupation Words (`grade-4-career-occupation-words`)
@@ -638,23 +659,25 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 **Frozen hub structure:** 5 Core Spelling cards · 4 Common Words sets (48 words) · 2 Additional Practice card(s)
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
-- [ ] Core Spelling / Grade Unit pages (5 in repository)
-  - [ ] 5th Grade Multisyllabic Academic Words (`grade-5-multisyllabic-academic-words`) — Skill: no Skill link set
-  - [ ] 5th Grade Prefix & Suffix Words (`grade-5-prefix-suffix-words`) — Skill: grade-5-spelling-rules
-  - [ ] 5th Grade Greek & Latin Word Parts (`grade-5-greek-latin-word-parts`) — Skill: no Skill link set
-  - [ ] 5th Grade Commonly Confused Words (`grade-5-commonly-confused-words`) — Skill: no Skill link set
-  - [ ] 5th Grade Spelling Changes in Related Words (`grade-5-spelling-changes-related-words`) — Skill: no Skill link set
-- [ ] Additional Practice / vocabulary-theme pages (4 in repository — compare against the frozen count of 2 approved Additional Practice cards; extra vocabulary-theme files may be unrouted or archived-candidate content, confirm in Phase 0)
+- [ ] Core Spelling / Grade Unit pages (5 canonical-active)
+  - [ ] 5th Grade Multisyllabic Academic Words (`grade-5-multisyllabic-academic-words`)
+  - [ ] 5th Grade Prefix & Suffix Words (`grade-5-prefix-suffix-words`)
+  - [ ] 5th Grade Greek & Latin Word Parts (`grade-5-greek-latin-word-parts`)
+  - [ ] 5th Grade Commonly Confused Words (`grade-5-commonly-confused-words`)
+  - [ ] 5th Grade Spelling Changes in Related Words (`grade-5-spelling-changes-related-words`)
+- [ ] Additional Practice pages (4 canonical-active)
   - [ ] 5th Grade Civics and Government Words (`grade-5-community-civics-words`)
   - [ ] 5th Grade Money Management Words (`grade-5-money-management-words`)
   - [ ] 5th Grade Ecosystem & Environment Words (`grade-5-ecosystem-environment-words`)
   - [ ] 5th Grade Fraction & Decimal Words (`grade-5-fraction-decimal-words`)
 - [ ] Common Words sets audited (see `inventory/sight-words-and-common-words.md` for the Grade 5 rows)
 - [ ] Grade-wide consistency review completed (terminology matches this grade's Skill-page links; word-list difficulty appropriately bounded for the grade)
+
 ---
+
 ## 7. Hub-page checklist
 
-Hub pages are code-driven (`gradeHubCards.ts`, `gradeHubCopy.ts`, `spellingSkills.ts`, `spelling-lists/index.astro`), not standalone content files — there is no frontmatter row for these in the inventory files. The same checkpoint list applies to every hub; **do not** let any hub page grow into a long educational article that competes with its child pages — that is the one failure mode this checklist exists to prevent.
+Hub pages are code-driven, always canonical active, and have no frontmatter row in the inventory files. The same checkpoint list applies to every hub; **do not** let any hub page grow into a long educational article that competes with its child pages.
 
 **Standard hub checkpoints** (apply to every hub below):
 - [ ] Introductory copy is short, accurate, and non-duplicative of child-page content
@@ -662,11 +685,11 @@ Hub pages are code-driven (`gradeHubCards.ts`, `gradeHubCopy.ts`, `spellingSkill
 - [ ] Section descriptions are accurate and scannable
 - [ ] Internal links to all live child pages are present and correct
 - [ ] Terminology matches the child pages it summarizes
-- [ ] Primary search intent for the hub itself is addressed (not the intent of any child page)
+- [ ] Primary search intent for the hub itself is addressed
 - [ ] No duplication with child-page content
 - [ ] Metadata (title/description) accurately reflects the hub's actual content
 - [ ] Structured data (if any) accurately reflects visible content
-- [ ] Summary text accurately reflects the current editorial state of child content (don't claim a section is strong if its pages are still "Not audited")
+- [ ] Summary text accurately reflects the current editorial state of child content
 
 
 ### Kindergarten Hub
@@ -723,6 +746,7 @@ Hub pages are code-driven (`gradeHubCards.ts`, `gradeHubCopy.ts`, `spellingSkill
 - [ ] Terminology consistency with child pages verified
 - [ ] Metadata and structured data reviewed
 - [ ] Summary accuracy re-checked against current child-page editorial status
+
 ### Skills Hub
 
 - [ ] Introductory copy reviewed
@@ -735,60 +759,61 @@ Hub pages are code-driven (`gradeHubCards.ts`, `gradeHubCopy.ts`, `spellingSkill
 
 ### Main spelling-list browse page
 
-- [ ] Explains the Grade-based and Skill-based journeys (and "practice your own words," per the Constitution's three user journeys) without reproducing either hub
+- [ ] Explains the Grade-based, Skill-based, and "practice your own words" journeys without reproducing either hub
 - [ ] Introductory copy reviewed
 - [ ] Internal links to all Grade Hubs and the Skills Hub verified
 - [ ] Metadata and structured data reviewed
 - [ ] Shortest, least detailed page in the hierarchy — confirmed no lesson content has crept in
+- [ ] Legacy category-page links (e.g. `/spelling-lists/sight-words`) reviewed for whether they should remain, per a product-owner decision — not silently removed or expanded as part of a content pass
 
 ---
 
 ## 8. Definition of done for an individual content page
 
-A page is **Complete** only when every applicable item below is true. Existence, publication, or having a `contentRole` set are not on this list on purpose — they're prerequisites, not the definition.
+Applies to canonical-active pages only. A page is **Complete** only when every applicable item below is true — existence, publication, or `contentRole` being set are prerequisites, not the definition.
 
 ### Educational quality
 - [ ] The concept is explained accurately
-- [ ] Language is parent-friendly (matches the reading level in §Editorial quality below)
+- [ ] Language is parent-friendly
 - [ ] Examples are representative of the pattern, not cherry-picked exceptions
-- [ ] The word list is coherent and intentionally selected (not padded to hit a round number)
+- [ ] The word list is coherent and intentionally selected, not padded to hit a round number
 - [ ] Likely misconceptions or common spelling errors for this pattern are addressed
-- [ ] Practice advice is actionable (a parent could follow it today, not just nod at it)
-- [ ] Grade claims are appropriately bounded (a Skill page doesn't claim one grade "owns" a pattern; a Grade Unit page doesn't claim universality)
+- [ ] Practice advice is actionable
+- [ ] Grade claims are appropriately bounded
 - [ ] Content makes no unsupported universal claims ("all children," "every time," "always")
 
 ### Search and answer quality
 - [ ] Primary search intent is clearly answered
-- [ ] A concise direct answer appears near the top where appropriate (the `shortAnswer` field should reflect this)
+- [ ] A concise direct answer appears near the top where appropriate (`shortAnswer` reflects this)
 - [ ] Headings reflect real user questions, not generic section labels
-- [ ] The page can stand alone as a useful answer without requiring the reader to visit another page first
+- [ ] The page can stand alone as a useful answer without requiring another page first
 - [ ] Important terminology and synonyms are naturally included
-- [ ] Content is helpful rather than padded — length follows what's needed, not a target word count
-- [ ] FAQ content (the `faq` field) is not repetitive with the body or with itself
+- [ ] Content is helpful rather than padded — length follows what's needed
+- [ ] FAQ content (`faq`) is not repetitive with the body or with itself
 - [ ] Metadata (`description`) accurately describes the page
 - [ ] Structured data accurately reflects visible content
 
 ### Site architecture
 - [ ] Page links to its parent hub
-- [ ] Page links to appropriate prerequisite, related, or next-step content (`prerequisiteLists`/`relatedLists`/`nextLists`, and `skillIds` where applicable)
-- [ ] Grade Unit and Skill pages covering the same concept do not read as near-duplicates (see §2's differentiation rule and §10)
+- [ ] Page links to appropriate prerequisite, related, or next-step content (`prerequisiteLists`/`relatedLists`/`nextLists`, `skillIds` where applicable)
+- [ ] Grade Unit and Skill pages covering the same concept do not read as near-duplicates (§2, §10)
 - [ ] All links resolve
-- [ ] Canonical ids, titles, roles, and slugs are unchanged, unless a frozen specification explicitly requires otherwise (in which case, note it — don't silently rename)
+- [ ] Canonical ids, titles, roles, and slugs are unchanged unless a frozen specification explicitly requires otherwise
 
 ### Editorial quality
-- [ ] No awkward AI-style repetition (restating the same point in slightly different words across paragraphs)
+- [ ] No awkward AI-style repetition
 - [ ] No vague filler
-- [ ] No contradictory guidance (within the page, or against a sibling page in the same family/grade)
+- [ ] No contradictory guidance, within the page or against a sibling page in the same family/grade
 - [ ] Spelling terminology is consistent with the rest of the site
-- [ ] Reading level matches parents and elementary educators — not a child's reading level (the page is written *to the adult helping*, even though the words on it are for the child)
+- [ ] Reading level matches parents and elementary educators — the page is written *to the adult helping*, not to the child
 - [ ] Word counts and examples are not padded merely for cross-page uniformity
-- [ ] Content passes a cold final read (read it once with no context, as a stranger would)
+- [ ] Content passes a cold final read
 
 ### Verification
 - [ ] Relevant tests pass (`npm test`)
 - [ ] Build passes (`npm run build`)
 - [ ] Page is manually reviewed on desktop and mobile
-- [ ] No accidental visual or functional regression introduced (remember: visual redesign is out of scope — this checkpoint is about not breaking what exists, not improving it)
+- [ ] No accidental visual or functional regression introduced — visual redesign is out of scope; this checkpoint is about not breaking what exists
 
 ---
 
@@ -833,11 +858,11 @@ Explicit rules to prevent duplication, validated against the frozen architecture
 
 **Skill page vs. Skills Hub.** The Skills Hub explains families briefly and helps users choose a destination; it must not contain any family's actual pattern explanation — that stays on the Skill page.
 
-**Common Words gateway vs. individual Common Words set.** The gateway page (e.g. "Kindergarten High-Frequency Words") explains the cumulative structure and Heart Word approach once; individual sets (`kindergarten-common-words-1` etc.) should not each re-explain what a Heart Word is — link back to the gateway instead.
+**Common Words gateway vs. individual Common Words set.** The gateway page (e.g. "Kindergarten High-Frequency Words") explains the cumulative structure and Heart Word approach once; individual sets should not each re-explain what a Heart Word is — link back to the gateway instead.
 
-**Core Spelling vs. Additional Practice.** Core Spelling is the recommended encoding/spelling route for the grade — the default path. Additional Practice is small, optional, bounded vocabulary content; it should not present itself as equally central, and its pages should be shorter and lighter than Core Spelling pages by design, not through neglect.
+**Core Spelling vs. Additional Practice.** Core Spelling is the recommended encoding/spelling route for the grade — the default path. Additional Practice is small, optional, bounded vocabulary content; its pages should be shorter and lighter than Core Spelling pages by design, not through neglect.
 
-**Top-level browse page vs. either hub.** The browse page explains the two (or three, including "practice your own words") user journeys — it does not reproduce either hub's content.
+**Top-level browse page vs. either hub.** The browse page explains the user journeys — it does not reproduce either hub's content.
 
 ---
 
@@ -845,45 +870,46 @@ Explicit rules to prevent duplication, validated against the frozen architecture
 
 This planning task did not perform research for individual pages — that is future work this policy governs.
 
-**Supportable directly from the frozen curriculum and repository, no external check needed:** which grade teaches which Grade Unit; which Skill family a pattern belongs to; word-list membership; internal site structure and navigation claims ("this page is part of the Grade 3 Prefixes unit").
+**Supportable directly from the frozen curriculum and repository, no external check needed:** which grade teaches which Grade Unit; which Skill family a pattern belongs to; word-list membership; internal site structure and navigation claims.
 
 **Educational claims that should be checked against authoritative literacy sources before publishing:** claims about *how* children typically acquire a skill, developmental sequencing claims not already fixed by the canonical curriculum, claims about common error patterns, and any claim phrased as a general pedagogical fact rather than a description of this site's own approach.
 
 **Claims about current standards, programs, or search behavior that require external verification:** references to specific state standards, named commercial curricula, or claims about what "most schools" or "most search queries" do. Prefer not making these claims at all over making them unverified.
 
-**Editorial judgment that should be labeled as such:** practice tips, phrasing suggestions, and "what trips children up" observations that come from the site's own pedagogical stance rather than a citable source — these are fine to keep, but should read as guidance, not as a claimed fact.
+**Editorial judgment that should be labeled as such:** practice tips, phrasing suggestions, and "what trips children up" observations from the site's own pedagogical stance rather than a citable source — fine to keep, but should read as guidance, not a claimed fact.
 
-**Sourcing preferences, when a check is needed:** authoritative primary sources over secondary summaries; structured-literacy organizations and official curriculum documentation over general parenting blogs; reputable educational institutions over uncredited web content. Prefer restrained, well-chosen claims over citation density — a page with three well-placed, accurate statements beats one with ten thin ones.
+**Sourcing preferences, when a check is needed:** authoritative primary sources over secondary summaries; structured-literacy organizations and official curriculum documentation over general parenting blogs; reputable educational institutions over uncredited web content. Prefer restrained, well-chosen claims over citation density.
 
-Do not perform full research for every page as part of this roadmap-creation task; apply this policy during Phase 1 onward as each page is actually drafted.
+Apply this policy during Phase 1 onward as each canonical-active page is drafted.
 
 ---
 
 ## 12. Prioritization system
 
-A page or batch earns higher priority when it is a canonical Skill page supporting multiple Grade Units, carries high internal-link importance, currently reads thin or duplicated, represents a foundational concept, supports a large family, is likely to directly answer a clear parent/teacher query, or is required before a parent Grade Hub can be completed accurately. No keyword-volume or traffic numbers are used or fabricated anywhere in this system — priority is structural, not estimated-demand-based.
+Priority applies to canonical-active pages only — deprecated/legacy and unresolved pages get no P0–P3 tier, because they are not in scope, not "low priority within scope." No keyword-volume or traffic numbers are used or fabricated anywhere in this system; priority is structural.
 
-- **P0 — Foundational Skill pages with broad downstream dependency.** Skill pages that multiple Grade Units link to (or should link to) and that anchor an entire family's terminology. Blocking further work in their family and any grade that touches them until done.
-- **P1 — Remaining Skill pages in an in-progress or next-up family, and any Grade Unit page whose Grade Hub is scheduled soon.** Important but not yet blocking other work.
-- **P2 — Grade Unit and vocabulary-theme pages in families/grades not yet reached, and Hub pages once their children are mostly done.** Sequenced work, not urgent relative to P0/P1.
-- **P3 — Lower-dependency content:** vocabulary-theme/Additional Practice pages with no downstream dependents, legacy Dolch-tier content, and polish passes (Phase 6 consistency sweep items).
+A page or batch earns higher priority when it is a canonical Skill page supporting multiple Grade Units, carries high internal-link importance, currently reads thin or duplicated, represents a foundational concept, supports a large family, is likely to directly answer a clear parent/teacher query, or is required before a parent Grade Hub can be completed accurately.
 
-Initial assignment by layer (refine per-family/per-grade as Phase 0 audits land):
+- **P0 — Foundational Skill pages with broad downstream dependency.** Skill pages that multiple Grade Units link to (or should) and that anchor an entire family's terminology.
+- **P1 — Remaining Skill pages in an in-progress or next-up family, and Grade Unit pages whose Grade Hub is scheduled soon.**
+- **P2 — Grade Unit and Additional Practice pages in families/grades not yet reached, and Hub pages once their children are mostly done.**
+- **P3 — Lower-dependency canonical content:** Additional Practice pages with no downstream dependents, and polish passes (Phase 6 consistency sweep items).
+
+Initial assignment by grouping (refine per-family/per-grade as Phase 0 audits land):
 
 | Grouping | Priority | Why |
 |---|---|---|
 | Short Vowels and CVC Words family (5 Skill pages) | P0 | Most foundational family; underlies Kindergarten and Grade 1 curriculum; smallest fully-live family; template-setting |
 | Consonant Digraphs, Consonant Blends, Silent E families | P0 | Foundational Grade 1 concepts with multiple dependent Grade Units |
 | Remaining 8 Skill families | P1 | Important, sequenced after the P0 foundational set |
-| IE and IGH Words | Blocked (not prioritized until content-pending status is resolved) | No content file exists; see §5 |
-| Grade K–2 Grade Unit pages | P1 | High-traffic early grades, many dependent on P0/P1 Skill pages already prioritized |
+| IE and IGH Words | Blocked | No content file exists; see §5 |
+| Grade K–2 Grade Unit pages | P1 | High-traffic early grades, dependent on the P0/P1 Skill pages already prioritized |
 | Grade 3–5 Grade Unit pages | P2 | Sequenced after earlier grades and their Skill-page dependencies |
 | Common Words gateway + member-set pages | P2 | Structurally frozen and functional; editorial polish, not urgent |
 | Grade Hubs (K–5) | P2 | Depend on Phase 1–2 completion before final copy is accurate |
 | Skills Hub, main browse page | P2 | Depend on Phase 1/3–4 completion |
-| Vocabulary-theme / Additional Practice pages | P3 | Small, optional, bounded; lowest dependency weight |
-| Legacy Dolch-tier gateway + member pages | P3 | Outside the frozen Common Words system; low priority pending a product decision on their long-term role |
-| 3 non-taxonomy "skill"-tagged pages (`silent-e-long-e`, `grade-4-final-stable-syllables`, `grade-5-spelling-rules`) | Blocked | Needs a product-owner decision on role before any content work, per §5/§10 |
+| Additional Practice pages | P3 | Small, optional, bounded; lowest dependency weight |
+| 3 non-taxonomy "skill"-tagged pages | Blocked | Needs a product-owner decision on role before any content work; see §5/§10 |
 
 ---
 
@@ -894,12 +920,12 @@ Initial assignment by layer (refine per-family/per-grade as Phase 0 audits land)
 **Why this family over the alternatives considered:**
 
 - **Size.** Five pages is small enough to complete, review, and use as the reference standard before scaling to a 12-page family like Vowel Teams or a 6-page family like Word Building and Endings.
-- **Foundational weight.** Short Vowels and CVC Words is the first Grade Unit taught in Kindergarten (per `CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`) and the concept every later phonics pattern (Silent E, Vowel Teams, R-Controlled Vowels) is explicitly taught in relation to. Getting its terminology and structure right pays off across the rest of the phonics families.
-- **Clean skill↔grade-unit correspondence already in the repository.** Each Skill page (`short-a-words.md` etc.) has a directly corresponding Kindergarten Grade Unit (`kindergarten-short-a-words.md` etc.), making this family the cleanest available example for establishing the Skill-vs-Grade-Unit differentiation pattern (§2, §10) before it has to be applied to messier families.
-- **Existing test coverage.** `src/lib/content/shortVowelsSkillFamily.test.ts` and `shortAReferenceSkill.test.ts` already exist, giving this family more structural safety net than most others during content changes.
-- **No open taxonomy questions.** Unlike Silent E (folds Long E in without its own page) or Vowel Teams (contains the provisional IE/IGH slot), Short Vowels has no unresolved architecture question attached — a clean template run, not tangled up with a pending product decision.
+- **Foundational weight.** Short Vowels and CVC Words is the first Grade Unit taught in Kindergarten and the concept every later phonics pattern (Silent E, Vowel Teams, R-Controlled Vowels) is explicitly taught in relation to.
+- **Clean skill↔grade-unit correspondence.** Each Skill page (`short-a-words` etc.) has a directly corresponding Kindergarten Grade Unit (`kindergarten-short-a-words` etc.), making this family the cleanest available example for establishing the Skill-vs-Grade-Unit differentiation pattern (§2, §10) before it has to be applied to messier families.
+- **Existing test coverage.** `src/lib/content/shortVowelsSkillFamily.test.ts` and `shortAReferenceSkill.test.ts` already exist.
+- **No open taxonomy questions.** Unlike Silent E (folds Long E in without its own page) or Vowel Teams (contains the provisional IE/IGH slot), Short Vowels has no unresolved architecture question attached.
 
-**Alternative considered and rejected as the first batch:** Consonant Digraphs (4 pages: CH, SH, TH, WH) — smaller by one page, and also foundational, but a template built there generalizes less well: it has fewer dependent Grade Units and no directly parallel Kindergarten-to-Grade-1 progression to validate against, so the differentiation pattern would be tested on thinner ground. Good candidate for the *second* batch, immediately after Short Vowels.
+**Alternative considered and rejected as the first batch:** Consonant Digraphs (4 pages: CH, SH, TH, WH) — smaller by one page and also foundational, but a template built there generalizes less well: fewer dependent Grade Units, no directly parallel Kindergarten-to-Grade-1 progression to validate against. Good candidate for the *second* batch.
 
 **Scope of the recommended first batch:** the 5 Short Vowels Skill pages only (Phase 1 scope) — not their corresponding Kindergarten Grade Units, which are explicitly Phase 2 and should not start until this batch is reviewed and adopted as the reference standard.
 
@@ -907,35 +933,35 @@ Initial assignment by layer (refine per-family/per-grade as Phase 0 audits land)
 
 ## 14. Progress summary
 
-No editorial work has started under this roadmap yet — all totals below reflect **existence**, not completion. Populate the Complete/In progress/Blocked columns as work lands; do not count a page as complete because it merely exists (see §1).
+No editorial work has started under this roadmap yet — all totals below reflect **existence within canonical-active scope**, not completion. Populate the Complete/In progress/Blocked columns as work lands.
 
-| Phase | Total items | Complete | In progress | Remaining | Blocked |
+| Phase | Total items (canonical active) | Complete | In progress | Remaining | Blocked |
 |---|---:|---:|---:|---:|---:|
-| Phase 0 — Inventory and baseline | 1 roadmap + 4 inventory files + 126 untagged-file triage rows + 3 taxonomy-mismatch decisions | 4 (this roadmap + inventory files created) | 0 | 126 untagged rows + 3 mismatch decisions | 0 |
+| Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + 36 unresolved rows + 3 taxonomy-mismatch decisions | 6 (roadmap + inventory files created) | 0 | 36 unresolved rows + 3 mismatch decisions | 0 |
 | Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 0 | 40 | 1 (IE and IGH Words — content-pending) |
-| Phase 2 — Grade curriculum content | 44 grade-unit pages + 25 vocabulary-theme pages = 69 | 0 | 0 | 69 | 0 |
+| Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages | 0 | 0 | 75 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |
 | Phase 5 — Main browse-page content | 1 page | 0 | 0 | 1 | 0 |
 | Phase 6 — Cross-site consistency and final audit | 1 site-wide pass | 0 | 0 | 1 | 0 |
 | *(Reference, not a phase)* Common Words gateway + member sets | 6 + 29 = 35 | 0 | 0 | 35 | 0 |
-| *(Reference, not a phase)* Legacy Dolch tier gateway + member pages | 6 gateways + remaining untagged sight-words files | 0 | 0 | all | 0 (pending product decision on long-term role, §4 in `sight-words-and-common-words.md`) |
 
-**Repository totals (for cross-checking against the inventory files):** 267 content-collection files (255 `spelling-lists` + 12 `spelling-collections`); 43 files tagged `contentRole: skill` (40 matched to the frozen taxonomy + 3 flagged mismatches); 44 `grade-unit`; 25 `vocabulary-theme`; 29 `sight-word-set`; 126 with no `contentRole` set; 6 `archived`.
+**Excluded from every phase and total above — transparency only, not part of active scope:** 81 deprecated/legacy pages (`deprecated-and-legacy-pages.md`) and 36 unresolved pages pending classification (`untagged-and-data-quality.md`). Canonical-active total: **150 pages** (255 `spelling-lists` + 12 `spelling-collections` = 267 total content files repository-wide).
 
 ---
 
 ## 15. Maintenance instructions
 
 - Check an item only after the relevant definition of done (§8, or the hub checkpoints in §7) is actually met — not when a page merely exists or has been touched.
-- Update the page's row in the relevant inventory file (`Editorial status` column) whenever its status changes, using the values: `Not audited`, `Audit complete`, `Drafting`, `Needs review`, `Complete`, `Blocked`.
+- Update the page's row in the relevant inventory file (`Editorial status` column) whenever its status changes: `Not audited`, `Audit complete`, `Drafting`, `Needs review`, `Complete`, `Blocked`.
 - Update §14's phase totals whenever a batch of pages changes status — this table should stay a true reflection of the inventory files, not drift from them.
-- Record blockers explicitly (in the relevant inventory file row, or as a new entry in `untagged-and-data-quality.md` if it's a repository-level finding) rather than silently skipping a page.
-- Do not silently change frozen architecture (curriculum, taxonomy, page hierarchy, ids/slugs/roles) while doing content work. If content work surfaces a real architectural question, log it as a flagged mismatch and raise it for a product-owner decision — don't resolve it by editing architecture files or renaming content.
-- When an editorial choice affects multiple pages (a terminology preference, a new FAQ pattern, a word-list selection rule), add a short decision note near the relevant checklist section so later pages stay consistent — don't make the same judgment call silently five different ways across a family.
-- Keep completed items visible (checked, not deleted) — this roadmap is a historical record of what's been done as much as a plan for what's left.
-- Treat this roadmap and its inventory files as the source of truth for content progress — status living anywhere else (a chat thread, a PR description) should be reflected back here before it's considered authoritative.
+- **Moving a page between canonical-active, deprecated/legacy, and unresolved requires the same evidentiary standard used to build this roadmap** — a citation to `K5_FINAL_CONTENT_ARCHITECTURE.md`, `SKILLS_ARCHITECTURE.md`, or `PUBLIC_URL_ARCHITECTURE.md`, or a documented Grade Hub/Skills Hub reachability check — not an ad hoc judgment call. Record the move and its justification in the destination inventory file.
+- Record blockers explicitly (in the relevant inventory file row, or as a new entry in `untagged-and-data-quality.md` for a repository-level finding) rather than silently skipping a page.
+- Do not silently change frozen architecture (curriculum, taxonomy, page hierarchy, ids/slugs/roles) while doing content work. If content work surfaces a real architectural question, log it as a flagged mismatch and raise it for a product-owner decision.
+- When an editorial choice affects multiple pages (a terminology preference, a new FAQ pattern, a word-list selection rule), add a short decision note near the relevant checklist section so later pages stay consistent.
+- Keep completed items visible (checked, not deleted) — this roadmap is a historical record as much as a plan for what's left.
+- Treat this roadmap and its inventory files as the source of truth for content progress.
 
 ---
 
-*This document was generated from a full read of the repository's frontmatter and code (not inferred from filenames) as of the date in the git history of this file. See the inventory files for the underlying per-page data and the specific mismatches flagged during generation.*
+*Generated from a full read of the frozen architecture documents, the repository's frontmatter, and live navigation code — not inferred from filenames or folder structure. See the inventory files for per-page data and the specific mismatches flagged during generation.*

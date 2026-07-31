@@ -186,12 +186,12 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
 - [ ] Family audit completed
 - [ ] Shared terminology and page pattern agreed
 - [ ] Short A Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — no approved per-page tracking location exists yet for this item (the §9 audit template is a copyable note format, not a persisted artifact); leaving unchecked until one is adopted
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — manual desktop/mobile review not performed in this environment
 - [ ] Short E Words
   - [ ] Existing page audited
   - [ ] Search intent documented

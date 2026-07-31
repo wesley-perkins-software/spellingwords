@@ -3,7 +3,7 @@ id: short-a-words
 urlSlug: short-a-words
 title: "Short A Words"
 description: "How to recognize, group, and teach the short 'a' sound — the quick vowel in cat, hat, and pan — with word families, what to notice, and common mix-ups, for parents, teachers, and tutors."
-shortAnswer: "Short a words use the quick, open /ă/ vowel sound heard in the middle of cat and hat — different from saying the letter's own name, \"ay.\" Within this page's scope, that sound is the letter a in simple closed-syllable (CVC) words like cat, pan, and mad, where every letter matches its expected sound. Below are grouped word families, teaching guidance, and common mix-ups to watch for."
+shortAnswer: "Short a words use the quick, open /ă/ vowel sound heard in the middle of cat and hat — different from saying the letter's own name, \"ay.\" Within this page's scope, that sound is the letter a in simple three-letter words like cat, pan, and mad, where each letter stands for one sound in order: consonant, vowel, consonant. Below are grouped word families, teaching guidance, and common mix-ups to watch for."
 contentRole: skill
 category: phonics
 grade: "1"
@@ -26,8 +26,6 @@ faq:
     answer: "It's the quick, open vowel in cat and hat — one of the simplest vowel sounds to hear and say, which is why simple closed-syllable words built on it are usually where a learner's spelling practice starts."
   - question: "Does every letter 'a' make the short-a sound?"
     answer: "No — the letter 'a' also appears in long-a words like cake and rain, and in other words like father, where it makes a different sound again. This page focuses on the common short a sound in simple, regular words, not every sound the letter can make."
-  - question: "Are all short-a words three-letter CVC words?"
-    answer: "Most early examples are, because that's the clearest way to hear the pattern, but the same short a sound continues in longer words with more consonants, like hand, flag, and stamp. The vowel sound is what defines the pattern, not the word's length."
   - question: "Should short-a words be sounded out or memorized?"
     answer: "Sounded out. A regular short-a word yields to sound-by-sound spelling every time, so memorizing isn't necessary — and skipping straight to memorization would skip the skill that transfers to new words."
 words:
@@ -72,7 +70,7 @@ Most early short-a words follow the same simple shape: consonant, vowel, consona
 
 ### How to Help a Learner Hear Short A
 
-Stretch the word out sound by sound — *c... a... t*, *p... a... n* — and listen together for the middle sound. A learner who can pull a spoken word apart into its sounds this way (teachers call it segmenting) has everything needed to spell a short-a word: say the word, say each sound, write a letter for each sound. Parents and teachers can use this same stretch-and-listen step with any new short-a word, not just the ones on this page.
+Stretch the word out sound by sound — *c... a... t*, *b... a... d* — and listen together for the middle sound. A learner who can pull a spoken word apart into its sounds this way (teachers call it segmenting) has everything needed to spell a short-a word: say the word, say each sound, write a letter for each sound. Parents and teachers can use this same stretch-and-listen step with any new short-a word, not just the ones on this page.
 
 ### Short A Compared With Long A
 
@@ -84,7 +82,7 @@ Short a and long a use the same letter but different sounds, and the difference 
 | tap | tape |
 | mad | made |
 
-Long a says the letter's own name, as in *cape* or *made*. A learner who already keeps the short a sound separate from the letter's name has an easier time noticing this later pattern — it becomes one small addition (a silent e added at the end) rather than a whole new sound to learn. This page doesn't teach that silent-e pattern in full; it's covered on its own Long A Silent E page.
+Long a says the letter's own name, as in *cape* or *made*. A learner who already keeps the short a sound separate from the letter's name has an easier time noticing this later pattern — it becomes one small addition (a silent e added at the end) rather than a whole new sound to learn. This page doesn't teach that silent-e pattern in full; it's covered on its own Long A Silent E Words page.
 
 ### Common Short A Mistakes
 
@@ -103,4 +101,10 @@ If a word comes out wrong, step 4 is the key one: read back exactly what was wri
 
 ### Signs the Short A Pattern Is Becoming Secure
 
-Signs the pattern is becoming secure include hearing short a in a new, unfamiliar word; telling it apart from a nearby sound like short e; reading a short-a word not seen before; spelling a representative short-a word from dictation; and explaining, in their own words, how the short a sound is different from the letter's name.
+Signs the pattern is becoming secure include:
+
+- Hearing short a in a new, unfamiliar word.
+- Telling it apart from a nearby sound like short e.
+- Reading a short-a word not seen before.
+- Spelling a representative short-a word from dictation.
+- Explaining, in their own words, how the short a sound is different from the letter's name.

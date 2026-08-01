@@ -2,8 +2,8 @@
 id: digraph-ch-words
 urlSlug: digraph-ch-words
 title: "CH Digraph Words"
-description: "How to recognize, group, and teach the CH digraph — the fused sound at the start of chin and the end of lunch — including how it differs from a consonant blend, a comparison with SH, and common mix-ups, for parents and teachers."
-shortAnswer: "A digraph is two letters that team up to spell one sound. This list practices the CH digraph, where the letters C and H combine into one new sound — not the /k/ sound C usually makes or the /h/ sound H usually makes — heard at the start of chin and the end of lunch. CH begins with a brief stopping sound, almost like a quiet \"t,\" which sets it apart from smoother digraphs like SH."
+description: "How to recognize, group, and teach the CH digraph — the single sound at the start of chin and the end of lunch — including how it differs from a consonant blend, a comparison with SH, and common mix-ups, for parents and teachers."
+shortAnswer: "A digraph is two letters that work together as one spelling unit for a single sound. This list practices the CH digraph, where C and H together spell one sound — not the /k/ sound C usually spells or the /h/ sound H usually spells — heard at the start of chin and the end of lunch. CH begins with a brief stopping sound, almost like a quiet \"t,\" which sets it apart from smoother digraphs like SH."
 contentRole: skill
 category: phonics
 grade: "1"
@@ -26,39 +26,40 @@ faq:
   - question: "Doesn't the word 'chef' break this pattern?"
     answer: "Yes — in a small number of words borrowed from French, like chef and machine, CH makes a sound closer to SH instead of the usual CH sound. Those are worth learning separately, as exceptions, once the regular CH pattern used in most everyday English words feels secure."
   - question: "How can I tell whether two letters are a digraph or a blend?"
-    answer: "Try saying each letter's sound separately and slowly. If you can still hear both sounds, as in the b and l of black, it's a blend. If the two letters have merged into one completely new sound, as in chin, it's a digraph."
+    answer: "Try saying each letter's sound separately and slowly. If you can still hear both sounds, as in the b and l of black, it's a blend. If the two letters together spell a single sound you can't split in two, as in chin, it's a digraph."
   - question: "Should CH words be sounded out or memorized?"
-    answer: "Sounded out, once a child learns to treat CH as one unit rather than two separate letters — from there, the rest of each word, such as child, chin, and teacher, follows regular spelling."
+    answer: "Sounded out, once a child learns to treat CH as one unit rather than two separate letters — from there, the rest of each word, such as chin, chop, and lunch, follows regular spelling."
 words:
   - chin
   - chip
-  - kitchen
+  - chop
   - lunch
-  - beach
   - much
+  - rich
 ---
 
 ### What Is the CH Digraph?
 
-A digraph is a pair of letters that work as a team to spell one sound instead of two. In CH, the letters C and H set aside their individual sounds completely: C's usual /k/ sound and H's usual breathy sound disappear, replaced by one new sound — the one heard at the start of *chin*, *chip*, and *kitchen*, and at the end of *lunch*, *beach*, and *much*. Say *chin* slowly and notice there's no separate "k" sound or "h" sound hiding inside it — just one sound, made once, right at the start.
+A digraph is a pair of letters that work together as one spelling unit, standing for a single sound rather than two. In CH, neither letter keeps the sound it usually spells: C's usual /k/ and H's usual breathy sound are both set aside, and the two letters together spell one sound — the one heard at the start of *chin*, *chip*, and *chop*, and at the end of *lunch*, *much*, and *rich*. Say *chin* slowly and notice there's no separate "k" sound or "h" sound hiding inside it — just one sound, made once, right at the start.
 
 ### A Stop, Then a Release — Not a Blend
 
 It helps to notice how CH actually behaves in the mouth: it starts with a very brief stopping of air, similar to the start of a quiet "t," then releases into a soft, hushing sound. That two-part shape — stop, then release — is part of why CH can feel a little trickier to isolate than a smoother digraph like SH, which flows evenly from start to finish with no stop at all.
 
-This is also what separates CH from a true consonant blend. In a blend like the *bl* in *black* or the *st* in *stop*, both letters keep their own individual sounds — slow the word down and you can still hear the *b* and the *l* separately. CH is the opposite: once C and H join, their separate sounds are gone, replaced by one fused sound. A useful test for a learner (or the adult helping them) is simply to ask: *do I still hear both letters, or just one new sound?*
+This is also what separates CH from a true consonant blend. In a blend like the *bl* in *black* or the *st* in *stop*, both letters keep their own individual sounds — slow the word down and you can still hear the *b* and the *l* separately. CH is different: C and H together spell one sound that can't be split into two. A useful test for a learner (or the adult helping them) is simply to ask: *do I still hear both letters, or just one sound?*
 
 ### Where CH Shows Up
 
-CH appears in all three word positions, and it helps a learner to see all three rather than only the most familiar one:
+CH is most common at the very beginning and the very end of short words:
 
 | Position | Example words |
 |---|---|
-| Beginning | chin, chip, chicken |
-| Middle | kitchen, teacher |
-| End | lunch, beach, much |
+| Beginning | chin, chip, chop, chest |
+| End | lunch, much, rich, such |
 
 Hearing the same sound at the start of *chin* and the end of *much* helps a learner treat CH as one dependable, portable unit — not a pattern that only counts when it happens to open a word.
+
+CH does appear inside longer words too, as in *teacher* and *orchard*. It's worth knowing that right after a short vowel in the middle or end of a word, this same sound is usually spelled *tch* instead — as in *kitchen* and *catch* — which is a separate spelling pattern covered on its own page, CK, Double Letters, and TCH/DGE Word Endings. Naming that briefly keeps a learner from expecting CH everywhere they hear the sound.
 
 ### CH Compared With SH
 

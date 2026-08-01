@@ -2,8 +2,8 @@
 id: digraph-wh-words
 urlSlug: digraph-wh-words
 title: "WH Digraph Words"
-description: "How to recognize, group, and teach the WH digraph — the sound at the start of most question words — including the small set of exceptions where the W is silent, such as who and whole, for parents and teachers."
-shortAnswer: "A digraph is two letters that team up to spell one sound. This list practices the WH digraph, where the letters W and H combine into a sound that, for most modern speakers, matches a plain /w/, as in what and when. In a small number of words, including who and whole, the pattern flips: the W is silent, and the word begins with an /h/ sound instead. WH is most useful to learn as a closed set of everyday words, especially question words, rather than as a rule that applies to any new word with a /w/ sound."
+description: "How to recognize, group, and teach the WH digraph — the sound at the start of most question words — including the small group of words where the W is silent, such as who, whom, whose, and whole, for parents and teachers."
+shortAnswer: "A digraph is two letters that work together as one spelling unit for a single sound. This list practices the WH digraph, where W and H together spell a sound that, for most speakers today, matches a plain /w/, as in what and when. In a small group of words — including who, whom, whose, and whole — the pattern works differently: the W is silent, and the word begins with an /h/ sound instead. WH is most useful to learn as a bounded set of everyday words, especially question words, rather than as a rule that applies to any new word with a /w/ sound."
 contentRole: skill
 category: phonics
 grade: "1"
@@ -24,56 +24,49 @@ prerequisiteLists: []
 nextLists: []
 faq:
   - question: "Why does 'who' sound completely different from 'what' or 'when'?"
-    answer: "'Who' is one of a small number of WH words where the W is silent, so the word starts with an /h/ sound instead of the usual /w/ sound. Because it doesn't sound anything like a typical WH word, it's more effective to treat 'who' as a word to memorize by sight than to try sounding it out."
+    answer: "'Who' belongs to a small group of WH words — who, whom, whose, and whole among them — where the W is silent, so the word starts with an /h/ sound instead of the usual /w/ sound. Because these don't sound anything like a typical WH word, it's more effective to learn them by sight than to try sounding them out."
   - question: "Is WH supposed to sound different from a plain W, like in 'wag' or 'went'?"
-    answer: "Historically, yes — WH once stood for a distinct breathy sound, and some speakers, especially in parts of Scotland and Ireland, still pronounce whale slightly differently from wail. For most speakers today, though, WH and a plain W sound identical, so choosing the right spelling comes down to knowing the word, not hearing a different sound."
+    answer: "It depends on the speaker. Some accents pronounce whale and wail differently; many others pronounce them identically. Both are ordinary, established pronunciations. Either way the spelling is the same, so choosing WH comes down to knowing the word rather than hearing a difference."
   - question: "Should WH words be sounded out or memorized?"
-    answer: "Mostly sounded out, since the regular /w/ pattern covers most of this list — but who and whole are worth calling out specifically as sight words, so they don't feel like a surprise later."
+    answer: "Mostly sounded out, since the regular /w/ pattern covers most of this list — but the silent-W group (who, whom, whose, whole) is worth calling out specifically as words to learn by sight, so they don't feel like a surprise later."
 words:
   - what
   - when
   - where
+  - whip
   - while
-  - wheel
   - who
 ---
 
 ### What Is the WH Digraph?
 
-A digraph is a pair of letters that work together as one. WH shows up at the start of many of English's most frequently used words — including *what*, *when*, *where*, and *while* — and for most speakers today, it sounds exactly like a plain /w/, the same sound at the start of *west* or *win*. Because so many WH words are also question words children use in conversation every day, this pattern connects a familiar spelling shape to words a learner already knows how to say.
+A digraph is a pair of letters that work together as one spelling unit, standing for a single sound rather than two. WH shows up at the start of many of English's most frequently used words — including *what*, *when*, *where*, and *while* — and for most speakers today it matches a plain /w/, the same sound at the start of *west* or *win*. Because so many WH words are also question words children use in conversation every day, this pattern connects a familiar spelling shape to words a learner already knows how to say.
 
-### A Closed Set, Not an Open Rule
+### A Bounded Set, Not an Open Rule
 
-Unlike a sound-and-spelling pattern that applies broadly across English, WH is best understood as a small, specific set of words rather than a rule a learner can apply to any new word with a /w/ sound. New words that use the /w/ sound are usually spelled with a plain W (*wet*, *win*, *west*), not WH — WH is reserved for a bounded group that includes the common question words, plus a handful of others like *white*, *while*, and *wheel*. Naming this scope up front helps a learner treat WH as a list to learn, not a spelling choice to work out from the sound alone.
+Unlike a sound-and-spelling pattern that applies broadly across English, WH is best understood as a limited group of words rather than a rule a learner can apply to any new word with a /w/ sound. New words that use the /w/ sound are usually spelled with a plain W (*wet*, *win*, *west*), not WH — WH belongs to a bounded group that includes the common question words, plus others like *white*, *while*, *wheel*, and *whip*. Naming this scope up front helps a learner treat WH as a set of words to learn, not a spelling choice to work out from the sound alone.
 
-### The WH Exception: Who, Whole, and Whose
+### The Silent-W Group: Who, Whom, Whose, and Whole
 
-In a small number of WH words — *who*, *whole*, and *whose* among them — the pattern flips entirely: the W is silent, and the word begins with an /h/ sound instead, as if it had been spelled with just an H. Comparing *what* (starts with /w/) and *who* (starts with /h/) side by side is the clearest way to notice the difference:
+A small group of WH words works differently: the W is silent, and the word begins with an /h/ sound instead, as if it had been spelled with just an H. The group includes *who*, *whom*, *whose*, and *whole*, along with words built from them like *whoever* and *wholly*. Comparing *what* (starts with /w/) and *who* (starts with /h/) side by side is the clearest way to notice the difference:
 
-| Regular WH words (sound like /w/) | The exception (sounds like /h/) |
+| WH spelling the /w/ sound | WH spelling the /h/ sound |
 |---|---|
-| what, when, where, while, wheel | who, whole, whose |
+| what, when, where, whip, while | who, whom, whose, whole |
 
-Because *who* doesn't sound anything like the rest of the WH words on this list, it's the one most worth naming explicitly as an exception rather than letting a learner discover the mismatch on their own and assume they misheard the pattern.
+Because these don't sound anything like the rest of the WH words on this list, they're worth naming explicitly rather than letting a learner discover the mismatch on their own and assume they misheard the pattern.
 
-### A Sound That Used to Be Different
+### A Sound That Varies by Accent
 
-It's worth knowing, without needing to teach it at length, that WH once represented its own distinct sound — a breathy "hw," as if H and W were both said together. Some speakers, particularly in parts of Scotland, Ireland, and among some older speakers elsewhere, still pronounce *whale* slightly differently from *wail*. For most speakers today, though, that distinction has faded, and WH and a plain W sound the same — which is exactly why WH works better as a spelling pattern to recognize by sight than as a sound to listen for.
+WH has a second thing worth knowing about, separate from the silent-W group: speakers differ in whether they pronounce it distinctly from a plain W. Some accents make *whale* and *wail* sound slightly different; many others make them sound exactly the same. Both are ordinary, established pronunciations, and neither is the correct one to teach toward. Since the spelling doesn't change either way, WH works better as a spelling pattern to recognize by sight than as a sound to listen for.
 
 ### Where WH Shows Up
 
-WH appears almost entirely at the beginning of words, which makes it more predictable to spot than digraphs that can appear in any position:
-
-| Word | Sound |
-|---|---|
-| what, when, where, while, wheel | /w/ |
-| who | /h/ (the exception) |
-
-Many of these are also among the first "wh-question" words children use to ask about the world — *what*, *when*, *where*, *why*, and *who* — so practicing the spelling alongside words already used in daily speech tends to go quickly.
+WH appears almost entirely at the beginning of words, which makes it more predictable to spot than digraphs that can turn up in any position. Many WH words are also among the first "wh-question" words children use to ask about the world — *what*, *when*, *where*, *why*, and *who* — so practicing the spelling alongside words already used in daily speech tends to go quickly.
 
 ### Common WH Mistakes
 
-The most frequent slip is dropping the H entirely and writing *wat* for *what* or *wen* for *when* — an easy mistake since the H isn't heard on its own in modern pronunciation. The second, specific to the exception words, is spelling *who* the way it sounds, as *hoo*, since nothing about hearing the word suggests it starts with a W at all. Both are best handled the same way: by treating WH words as a known list to check against, not purely by sound.
+The most frequent slip is dropping the H entirely and writing *wat* for *what* or *wen* for *when* — an easy mistake, since for most speakers there's nothing in the sound of the word that points to an H. The second, specific to the silent-W group, is spelling *who* the way it sounds, as *hoo*, since nothing about hearing the word suggests it starts with a W at all. Both are best handled the same way: by treating WH words as a known set to check against, not purely by sound.
 
 ### How to Practice WH Words
 
@@ -89,6 +82,6 @@ If a word comes out wrong, step 4 is the key one: read back exactly what was wri
 Signs the pattern is becoming secure include:
 
 - Spelling regular WH words correctly from dictation, including the silent H.
-- Recognizing *who* (and, later, *whole* and *whose*) as words that break the usual WH sound and need to be remembered by sight.
+- Recognizing *who* (and, later, *whom*, *whose*, and *whole*) as words that don't follow the usual WH sound and need to be remembered by sight.
 - Reading a WH word not seen before.
 - Explaining, in their own words, that WH usually sounds like W, except in a small number of words where it sounds like H instead.

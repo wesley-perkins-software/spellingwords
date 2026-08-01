@@ -2,8 +2,8 @@
 id: digraph-sh-words
 urlSlug: digraph-sh-words
 title: "SH Digraph Words"
-description: "How to recognize, group, and teach the SH digraph — the smooth, continuous sound at the start of she and the end of wish — including a comparison with CH and common mix-ups, for parents and teachers."
-shortAnswer: "A digraph is two letters that team up to spell one sound. This list practices the SH digraph, where the letters S and H combine into one smooth, continuous sound — not the hissing /s/ sound S usually makes or the breathy /h/ sound H usually makes — heard at the start of she and the end of wish. Unlike CH, which starts with a brief stop, SH flows evenly from start to finish."
+description: "How to recognize, group, and teach the SH digraph — the smooth, continuous sound at the start of ship and the end of wish — including a comparison with CH and common mix-ups, for parents and teachers."
+shortAnswer: "A digraph is two letters that work together as one spelling unit for a single sound. This list practices the SH digraph, where S and H together spell one smooth, continuous sound — not the hissing /s/ sound S usually spells or the breathy /h/ sound H usually spells — heard at the start of ship and the end of wish. Unlike CH, which starts with a brief stop, SH flows evenly from start to finish."
 contentRole: skill
 category: phonics
 grade: "1"
@@ -26,21 +26,21 @@ faq:
   - question: "Does every SH sound get spelled with the letters S and H?"
     answer: "No. This list focuses on the plain SH spelling, but the same sound also shows up spelled other ways in words like sugar, sure, and mansion. Those are worth treating as separate, later exceptions rather than folding them into SH digraph practice."
   - question: "How can I tell whether S and H are a digraph here, or just two letters that happen to sit next to each other?"
-    answer: "Say the word slowly and listen for whether S and H still sound like two separate letters. In a word like mishap, you can hear a clear s and a clear h (mis-hap) because they belong to different word parts — that's not a digraph. In ship, they've fully merged into one sound — that is."
+    answer: "Say the word slowly and listen for whether S and H still sound like two separate letters. In a word like mishap, you can hear a clear s and a clear h (mis-hap) because they belong to different word parts — that's not a digraph. In ship, the two letters spell a single sound that can't be split in two — that is."
   - question: "Should SH words be sounded out or memorized?"
-    answer: "Sounded out. Once a child treats SH as a single unit, words like shell, shape, and short follow completely regular spelling from there."
+    answer: "Sounded out. Once a child treats SH as a single unit, words like shell, shut, and brush follow completely regular spelling from there."
 words:
-  - she
   - ship
+  - shop
+  - shut
   - wish
   - brush
-  - shape
   - dish
 ---
 
 ### What Is the SH Digraph?
 
-A digraph is a pair of letters that work together to make a single sound. In the SH digraph, the letters S and H set aside their individual sounds entirely and blend into one quiet, smooth sound — the one at the start of *she*, *ship*, and *shape*, and at the end of *wish*, *brush*, and *dish*. Say *ship* slowly and listen: there's no separate "s" hiss followed by a separate "h" breath, just one steady sound from the very start of the word.
+A digraph is a pair of letters that work together as one spelling unit, standing for a single sound rather than two. In the SH digraph, neither letter keeps the sound it usually spells: S's usual hiss and H's usual breath are both set aside, and the two letters together spell one quiet, smooth sound — the one at the start of *ship*, *shop*, and *shut*, and at the end of *wish*, *brush*, and *dish*. Say *ship* slowly and listen: there's no separate "s" hiss followed by a separate "h" breath, just one steady sound from the very start of the word.
 
 ### One Continuous Sound, No Stop
 
@@ -48,15 +48,14 @@ The clearest way to describe SH is that it's smooth: air flows through it evenly
 
 ### Where SH Shows Up
 
-SH shows up in every position a word can have, and practicing all three helps a learner recognize it as one dependable spelling wherever it lands:
+Unlike some patterns that only work in one spot, SH keeps the same spelling and the same sound wherever it lands in a word:
 
 | Position | Example words |
 |---|---|
-| Beginning | she, ship, shape |
-| Middle | fishing, washer |
+| Beginning | ship, shop, shut |
 | End | wish, brush, dish |
 
-Practicing words across all three positions helps children recognize the SH team quickly — whether it opens a word, sits in the middle, or closes it out — and builds the confidence to spell it without hesitating.
+It turns up in the middle of longer words too — *fishing* and *washing* are built from *fish* and *wash* with an ending added, and the SH inside them behaves exactly as it does on its own. Practicing words in more than one position helps children recognize the SH team quickly, whether it opens a word or closes it out, and builds the confidence to spell it without hesitating.
 
 ### SH Compared With CH
 
@@ -75,7 +74,7 @@ Saying a pair aloud back to back — "sh...ip," then "ch...ip" — and noticing 
 
 The most frequent slip is dropping the H and spelling only the S sound — writing *sip* for *ship*, for instance, because the S alone can sound close enough to pass in casual speech. Slowing the word down and confirming there's a full SH sound, not just a hiss, usually resolves this quickly.
 
-The second most common mix-up is swapping SH for CH or the reverse, especially in words that share the same ending, like *wish* and *witch*. Since both patterns are typically taught around the same time, comparing a matched pair from each list side by side — as in the table above — tends to sharpen the distinction faster than practicing either sound alone.
+The second most common mix-up is swapping SH for CH or the reverse — writing *ship* for *chip*, or *shop* for *chop*. Since both patterns are typically taught around the same time, comparing a matched pair side by side — as in the table above — tends to sharpen the distinction faster than practicing either sound alone.
 
 ### How to Practice SH Words
 

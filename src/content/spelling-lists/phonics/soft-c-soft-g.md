@@ -35,7 +35,7 @@ words:
   - gym
 ---
 
-*C* and *g* each have a hard sound and a soft sound. Hard *c* says /k/, as in *cat*. Hard *g* says its own sound, /g/, as in *game*. But both letters change when the very next letter is *e*, *i*, or *y*: *c* softens to /s/, the sound at the start of *city* and *ice*. *G* softens to /j/, the sound at the start of *giant* and *page*. This is a genuine spelling pattern, reliable enough to use when deciding how to spell a word — not just a rule for reading.
+*C* and *g* each have a hard sound and a soft sound. Hard *c* says /k/, as in *cat*. Hard *g* says its own sound, /g/, as in *game*. But both letters change when the very next letter is *e*, *i*, or *y*: *c* softens to /s/, the sound at the start of *city* and *ice*. *G* softens to /j/, the sound at the start of *giant* and *page*. This is a genuine spelling pattern, useful for deciding how to spell a word, not just for reading — though, as the sections below show, it's considerably more dependable for c than for g.
 
 ### How the Condition Works
 
@@ -59,7 +59,7 @@ Soft g also shows up in all three positions: *giant* (before *i*), *page* (befor
 - *get* — hard g, not "jet"
 - *give* — hard g, not "jive"
 - *girl* — hard g, not "jirl"
-- *gift* — hard g, not a soft-g word
+- *gift* — hard g, not "jift"
 
 This is the single most important thing to watch for with this pattern. A child who has just learned "g goes soft before e, i, or y" will often overapply it to these very familiar words — reading *get* as if it started like *gem*, or second-guessing how to spell it. Because *get*, *give*, *girl*, and *gift* are so common, it's worth naming this directly rather than letting a child discover it through repeated correction: soft g is a strong pattern, not an absolute one, and these four words are worth learning by sight as the exceptions to watch for.
 
@@ -71,7 +71,7 @@ This is the single most important thing to watch for with this pattern. A child 
 
 ### Why Bridge Isn't Spelled "Brige"
 
-Soft g explains a spelling choice from another Skill. Words like *bridge*, *badge*, and *edge* need the /j/ sound right after a short vowel — but they can't simply add e after the g (as in *page*), because adding a silent e after a single consonant is exactly the signal that turns a short vowel into a long one (the pattern behind *page*, *cake*, and the rest of the Silent E family). Spelling it "brige" would suggest a long i, not the short i in *bridge*. English uses *dge* instead, which keeps the /j/ sound without disturbing the vowel before it. The CK, Double Letters, and TCH/DGE Word Endings Skill covers this ending in full; soft g is what makes the workaround necessary in the first place.
+Soft g explains a spelling choice from another Skill. Words like *bridge*, *badge*, and *edge* need the /j/ sound right after a short vowel — but they don't simply add e after the g (as in *page*), because adding a silent e after a single consonant is usually the signal that turns a short vowel into a long one (the pattern behind *page*, *cake*, and the rest of the Silent E family). Spelling it "brige" would look, by that usual pattern, like it should rhyme with a long i (as in *ride*), not the short i in *bridge*. English uses *dge* instead, which keeps the /j/ sound without disturbing the vowel before it. The CK, Double Letters, and TCH/DGE Word Endings Skill covers this ending in full; soft g is what makes the workaround necessary in the first place.
 
 ### A Routine for Practicing Soft C and Soft G
 

@@ -258,23 +258,25 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
 - [ ] Family-wide consistency review completed — self-review passed (siblings read as distinct, not clones; internal links resolve; curriculum placement now resolves for all four; no Grade Unit duplication found); leaving unchecked pending the same independent human sign-off as the per-page items above
 ### Consonant Blends
 
-- [ ] Family audit completed
-- [ ] Shared terminology and page pattern agreed
+**Third batch note:** the audit step found both existing pages pre-dated the Standard: `beginning-blends.md`'s demonstration set included "black," which carries an untaught competing pattern (a final `ck` digraph); `ending-blends.md`'s six-word set only actually represented four distinct ending-blend patterns (two words each for `nd` and `st`), with `sk`/`ft`/`lt`/`lk` unrepresented; neither page contrasted blends with digraphs at all despite that being this family's defining distinction (Standard §4.1 names consonant blends by name for exactly this reason); neither had a word-family table, mistakes section, teaching routine, diagnostic response, or "signs of security" section — each was a single unstructured paragraph; both pages' first FAQ merely restated their own `shortAnswer`, a §13 violation; and `relatedLists`/`prerequisiteLists`/`nextLists` were empty on both, including no link between the two sibling pages. As with the Digraphs batch, `grade-1-beginning-consonant-blends.md` and `grade-1-ending-consonant-blends.md` were confirmed to have no `skillIds` back-reference to their Skills — the same gap class as Short I/O/U and Consonant Digraphs (§13) — so a one-line `skillIds` addition was made to each, with no other change to those Grade Unit files. **Content-brief process note:** consistent with the Digraphs batch, no separate persisted brief file was produced; the brief's substance was reasoned through inline during drafting (`inventory/skill-pages.md` shows `Needs review`, not `Approved`, for this batch too).
+
+- [x] Family audit completed
+- [x] Shared terminology and page pattern agreed — both pages share the blend-vs-digraph distinction as their conceptual spine, but organize around it differently: Beginning Blends carries the full contrast (a minimal-pair table set against beginning digraphs, since digraphs are taught immediately before blends in the Grade 1 sequence), while Ending Blends treats the contrast in one brief paragraph and instead centers its own distinct theme — why final blends are harder to hear than beginning blends — with a nasal-blend-vs-other-blend table that Beginning Blends has no reason to need
 - [ ] Beginning Blends
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for Short Vowels and Consonant Digraphs
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — pending independent human review (see this batch's report)
 - [ ] Ending Blends
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Family-wide consistency review completed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for Short Vowels and Consonant Digraphs
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — pending independent human review (see this batch's report)
+- [ ] Family-wide consistency review completed — self-review passed (siblings read as distinct in structure and emphasis rather than mirrored clones; internal links resolve and are not symmetric for their own sake — Beginning Blends links to both digraph pages used in its contrast table, Ending Blends links to only the one digraph page its own brief mention actually uses; curriculum placement now resolves for both; no Grade Unit duplication found); leaving unchecked pending the same independent human sign-off as the per-page items above
 ### Common Spelling Patterns
 
 - [ ] Family audit completed
@@ -945,7 +947,7 @@ No editorial work has started under this roadmap yet — all totals below reflec
 | Phase | Total items (canonical active) | Complete | In progress | Remaining | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + 36 unresolved rows + 3 taxonomy-mismatch decisions | 6 (roadmap + inventory files created) | 0 | 36 unresolved rows + 3 mismatch decisions | 0 |
-| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 9 (5 Short Vowels + 4 Consonant Digraphs — both batches drafted and self-reviewed, pending independent human sign-off before moving to Complete) | 31 | 1 (IE and IGH Words — content-pending) |
+| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 11 (5 Short Vowels + 4 Consonant Digraphs + 2 Consonant Blends — all three batches drafted and self-reviewed, pending independent human sign-off before moving to Complete) | 29 | 1 (IE and IGH Words — content-pending) |
 | Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages | 0 | 0 | 75 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |

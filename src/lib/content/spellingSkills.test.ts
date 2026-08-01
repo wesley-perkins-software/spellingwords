@@ -15,7 +15,7 @@ import {
   SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
   SILENT_E_FAMILY_ANCHOR_ID,
   SILENT_E_FAMILY_URL,
-  SILENT_E_LONG_E_OVERVIEW_NOTE,
+  SILENT_E_LONG_E_EXAMPLES,
   SILENT_E_SKILL_FAMILY,
   SPELLING_SKILL_FAMILIES,
   SPELLING_SKILLS_INDEX_PATH,
@@ -369,25 +369,31 @@ describe('curated spelling Skills browse index', () => {
       expect(SILENT_E_FAMILY_URL).toBe(`${SPELLING_SKILLS_INDEX_PATH}#${SILENT_E_FAMILY_ANCHOR_ID}`);
     });
 
-    it('keeps a compact, audited Long E treatment in the Silent E family overview', () => {
+    it('keeps the Long E treatment to one concise sentence in the family guidance, not a separate block', () => {
       expect(SILENT_E_SKILL_FAMILY.anchorId).toBe(SILENT_E_FAMILY_ANCHOR_ID);
-      expect(SILENT_E_SKILL_FAMILY.longEOverviewNote).toBe(SILENT_E_LONG_E_OVERVIEW_NOTE);
+      expect(SILENT_E_SKILL_FAMILY).not.toHaveProperty('longEOverviewNote');
 
-      const note = SILENT_E_LONG_E_OVERVIEW_NOTE;
-      expect(note.heading).toMatch(/long e/i);
-      expect(note.body).toMatch(/long e/i);
+      expect(SILENT_E_SKILL_FAMILY.guidance).toMatch(/long e/i);
+      // Exactly two sentences: the normal per-family instruction, plus the
+      // one-sentence Long E clarification — no separate paragraph/block.
+      expect(SILENT_E_SKILL_FAMILY.guidance.split('. ')).toHaveLength(2);
 
       // Kept intentionally small — a curated subset of the retired page's
       // word list, not a copy of the whole thing.
-      expect(note.examples.length).toBeGreaterThan(0);
-      expect(note.examples.length).toBeLessThanOrEqual(4);
+      expect(SILENT_E_LONG_E_EXAMPLES.length).toBeGreaterThan(0);
+      expect(SILENT_E_LONG_E_EXAMPLES.length).toBeLessThanOrEqual(4);
 
-      // Every example must be a real word the retired page actually taught,
-      // so the overview note can't drift from audited, verified content.
+      // Every example must be a real, one-syllable word the retired page
+      // actually taught, so the guidance sentence can't drift from audited
+      // content — and must never include a multisyllabic word like
+      // "complete", since the thin one-syllable word bank is the entire
+      // rationale for not having a standalone page.
       const retiredWords = byId.get('silent-e-long-e')!.data.words;
-      for (const example of note.examples) {
+      for (const example of SILENT_E_LONG_E_EXAMPLES) {
         expect(retiredWords, example).toContain(example);
+        expect(SILENT_E_SKILL_FAMILY.guidance, example).toContain(example);
       }
+      expect(SILENT_E_LONG_E_EXAMPLES).not.toContain('complete');
     });
   });
 });

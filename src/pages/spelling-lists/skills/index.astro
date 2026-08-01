@@ -79,7 +79,6 @@ const itemListJsonLd = {
       {skillFamilies.map((family) => {
         const headingId =
           'anchorId' in family ? family.anchorId : `${family.title.toLowerCase().replaceAll(' ', '-')}-heading`;
-        const longEOverviewNote = 'longEOverviewNote' in family ? family.longEOverviewNote : undefined;
 
         return (
           <section aria-labelledby={headingId} class="mb-12 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] sm:p-6">
@@ -105,13 +104,6 @@ const itemListJsonLd = {
                 </a>
               ))}
             </div>
-
-            {longEOverviewNote && (
-              <p class="mt-4 text-sm leading-relaxed text-ink-soft">
-                <span class="font-semibold text-ink">{longEOverviewNote.heading}:</span>{' '}
-                {longEOverviewNote.body}
-              </p>
-            )}
           </section>
         );
       })}

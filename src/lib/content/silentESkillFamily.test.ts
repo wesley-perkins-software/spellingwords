@@ -13,7 +13,7 @@ import {
   CURATED_SPELLING_SKILL_IDS,
   SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
   SILENT_E_FAMILY_ANCHOR_ID,
-  SILENT_E_LONG_E_OVERVIEW_NOTE,
+  SILENT_E_LONG_E_EXAMPLES,
   SILENT_E_SKILL_FAMILY,
   SPELLING_SKILL_FAMILIES,
   VOWEL_TEAMS_SKILL_FAMILY,
@@ -148,13 +148,16 @@ describe('Silent E Skill Family', () => {
     expect(SPELLING_SKILL_FAMILIES[5]).toBe(VOWEL_TEAMS_SKILL_FAMILY);
   });
 
-  it('uses exactly four curated Silent E Skill IDs (Long E demoted to a labeled section, not a peer page)', () => {
+  it('uses exactly four curated Silent E Skill IDs (Long E folded into guidance copy, not a peer page or separate block)', () => {
     expect(SILENT_E_SKILL_FAMILY.skillIds).toEqual(SILENT_E_SKILL_IDS);
     expect(SILENT_E_SKILL_FAMILY.skillIds).not.toContain('silent-e-long-e');
     expect(CURATED_SPELLING_SKILL_IDS).not.toContain('silent-e-long-e');
     expect(SILENT_E_SKILL_FAMILY.anchorId).toBe(SILENT_E_FAMILY_ANCHOR_ID);
-    expect(SILENT_E_SKILL_FAMILY.longEOverviewNote).toBe(SILENT_E_LONG_E_OVERVIEW_NOTE);
-    expect(SILENT_E_LONG_E_OVERVIEW_NOTE.heading).toContain('Long E Silent E');
+    expect(SILENT_E_SKILL_FAMILY).not.toHaveProperty('longEOverviewNote');
+    expect(SILENT_E_SKILL_FAMILY.guidance).toContain('Long E Silent E');
+    for (const example of SILENT_E_LONG_E_EXAMPLES) {
+      expect(SILENT_E_SKILL_FAMILY.guidance, example).toContain(example);
+    }
   });
 
   it('keeps family guidance specific while preserving earlier family guidance', () => {
@@ -171,6 +174,7 @@ describe('Silent E Skill Family', () => {
     const route = readFileSync(skillsIndexRoutePath, 'utf8');
     expect(route).toContain('{family.description} {family.guidance}');
     expect(route).toContain('getSpellingSkillPath(entry)');
+    expect(route).not.toContain('longEOverviewNote');
   });
 
   it('keeps Skills browse JSON-LD counts and item order derived from curated family order', () => {

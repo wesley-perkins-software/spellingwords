@@ -279,8 +279,8 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
 - [ ] Family-wide consistency review completed — self-review passed (siblings read as distinct in structure and emphasis rather than mirrored clones; internal links resolve and are not symmetric for their own sake — Beginning Blends links to both digraph pages used in its contrast table, Ending Blends links to only the one digraph page its own brief mention actually uses; curriculum placement now resolves for both; no Grade Unit duplication found); leaving unchecked pending the same independent human sign-off as the per-page items above
 ### Common Spelling Patterns
 
-- [ ] Family audit completed — CK/Double Letters/TCH/DGE and Silent Letters have been audited; Soft C and Soft G remains not started
-- [ ] Shared terminology and page pattern agreed
+- [x] Family audit completed — CK/Double Letters/TCH/DGE, Silent Letters, and Soft C and Soft G have all been audited
+- [ ] Shared terminology and page pattern agreed — leaving unchecked deliberately: each page's structure grew from its own instructional needs rather than a shared template (final-position conventions for CK/TCH/DGE, near-homophone risk for Silent Letters, a reliability asymmetry between two letters sharing one condition for Soft C and Soft G) — see the family-wide consistency review item below
 - [ ] CK, Double Letters, and TCH/DGE Word Endings
   - [x] Existing page audited
   - [ ] Search intent documented — same open tracking-location gap noted for Short Vowels, Consonant Digraphs, and Consonant Blends
@@ -296,13 +296,13 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
   - [x] Structured data and metadata reviewed
   - [ ] Final editorial review passed — drafted and self-reviewed through a 9-pass adversarial review plus a reading-specialist critique pass; pending independent human editorial sign-off before "Complete"
 - [ ] Soft C and Soft G
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Family-wide consistency review completed
+  - [x] Existing page audited — prior stub had no bounded-scope statement, no "what to notice," no mistakes/exceptions treatment, no teaching routine, no diagnostic response, no "signs of security" section, empty `relatedLists`/`prerequisiteLists`/`nextLists`, a demonstration set that never actually exemplified the "y" trigger despite the page's own rule naming it, one FAQ that merely restated the body, and a second FAQ referencing a non-canonical "C, K, and CK" Skill that does not exist in the taxonomy
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — third Variant 2 page; c and g share one trigger condition (a combined condition table is used for exactly that reason) but are then treated in separately conditioned sections because their reliability differs sharply — soft c is reliable, soft g has common, high-frequency exceptions (get, give, girl, gift) treated as the page's central caution; an explicit cross-reference explains why bridge/badge/edge use dge instead of plain g, connecting to CK, Double Letters, and TCH/DGE Word Endings; demonstration set corrected to city/ice/icy/giant/page/gym so all three trigger letters (e, i, y) are actually demonstrated for both c and g, dropping a prior word (large) whose r-controlled confound added nothing to a minimal set
+  - [x] Internal links completed — missing `skillIds` back-reference added to the one canonical-active Grade 2 unit that teaches this content (`grade-2-soft-c-soft-g`); `relatedLists` populated with CK, Double Letters, and TCH/DGE Word Endings (the dge connection) and Long A/Long I Silent E Words (the page's own demonstration words rely on silent e as the softening trigger), each justified in body prose rather than added for family symmetry
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed through an adversarial review pass that independently re-verified every example word's pronunciation and fit rather than assuming correctness from surface pattern-matching; pending independent human editorial sign-off before "Complete"
+- [x] Family-wide consistency review completed — all three Common Spelling Patterns Skill pages read together; each keeps its own distinctive instructional emphasis (CK/TCH/DGE: three merged final-position conventions; Silent Letters: near-homophone risk as the central point; Soft C and Soft G: a reliability asymmetry between two letters sharing one condition) rather than mirroring a shared structure; internal links resolve and are individually justified per page; curriculum placement now resolves for all three via their respective Grade Unit `skillIds` back-references
 ### Silent E
 
 - [ ] Family audit completed

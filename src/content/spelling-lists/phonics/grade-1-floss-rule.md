@@ -4,6 +4,7 @@ urlSlug: 1st-grade-floss-rule
 title: "The Floss Rule"
 description: "A first-grade core spelling lesson on doubling f, l, s, and sometimes z after a short vowel in one-syllable words."
 shortAnswer: "This Grade 1 core unit teaches the Floss Rule: many one-syllable short-vowel words double f, l, s, and sometimes z at the end."
+skillIds: ["ck-tch-dge-word-endings"]
 category: phonics
 grade: "1"
 difficulty: beginner

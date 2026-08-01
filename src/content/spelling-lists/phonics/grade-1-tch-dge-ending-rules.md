@@ -4,6 +4,7 @@ urlSlug: 1st-grade-tch-dge-ending-rules
 title: "Short Vowel Ending Rules: -tch and -dge"
 description: "A first-grade core spelling lesson on tch and dge ending rules."
 shortAnswer: "This Grade 1 core unit teaches tch and dge ending rules with a focused word list, parent-friendly explanation, misconceptions, and curriculum navigation."
+skillIds: ["ck-tch-dge-word-endings"]
 category: phonics
 grade: "1"
 difficulty: beginner

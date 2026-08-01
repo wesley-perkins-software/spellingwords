@@ -7,7 +7,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. This file has two job
 A page is canonical active if `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` or `docs/architecture/SKILLS_ARCHITECTURE.md` explicitly defines it, verified against `src/lib/content/gradeHubCards.ts` / `src/lib/content/spellingSkills.ts`. A page is deprecated/legacy if `docs/architecture/PUBLIC_URL_ARCHITECTURE.md` names its class explicitly (Dolch, other legacy Sight Words, legacy phonics and focused children) and it is confirmed unreferenced in the same two code files. Everything else — a page that is neither named by the architecture docs nor matched by a documented legacy pattern — is **unresolved** and listed below.
 
 
-## Unresolved pages (36)
+## Unresolved pages (35)
 
 | Title | id | Category | Grade | contentRole | Source file | Why unresolved |
 |---|---|---|---|---|---|---|
@@ -44,11 +44,12 @@ A page is canonical active if `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` o
 | Kindergarten Number and Color Words | kindergarten-number-color-words | grade-level | K | — | `src/content/spelling-lists/grade-level/kindergarten-number-color-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | Long E Vowel Teams | grade-1-long-e-vowel-teams | phonics | 1 | grade-unit | `src/content/spelling-lists/phonics/grade-1-long-e-vowel-teams.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | R-Controlled Vowels: er / ir / ur | grade-1-r-controlled-er-ir-ur | phonics | 1 | — | `src/content/spelling-lists/phonics/grade-1-r-controlled-er-ir-ur.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
-| Long E Silent E Words | silent-e-long-e | phonics | 1 | skill | `src/content/spelling-lists/phonics/silent-e-long-e.md` | tagged contentRole:skill but not in the frozen 41-slot taxonomy; orphaned from Skills Hub and every Grade Hub card list — needs product-owner decision |
 | The -ck Ending Rule | kindergarten-ck-ending-words | phonics | K | — | `src/content/spelling-lists/phonics/kindergarten-ck-ending-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | Double Consonants | kindergarten-double-consonants | phonics | K | — | `src/content/spelling-lists/phonics/kindergarten-double-consonants.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 
-**What to do with this list:** confirm each row against the product owner's intent before touching it. Likely outcomes per row: (a) it's an older, finer-grained page superseded by a combined page that *is* in the active architecture (e.g. `3rd-grade-changing-y-to-i` and `3rd-grade-doubling-final-consonants` look like predecessors to the live `grade-3-dropping-silent-e` "Suffix Spelling Changes" card) — likely deprecated-legacy once confirmed, not currently asserted here without that confirmation; (b) it's real content the architecture doc simply doesn't enumerate at this level of detail — likely canonical-active as supporting content once confirmed; (c) it's the same three non-taxonomy "skill"-tagged pages already flagged in `skill-pages.md`, which need a product-owner taxonomy decision, not a content read.
+**Resolved and moved:** `silent-e-long-e` (Long E Silent E Words) was previously listed here as one of the three non-taxonomy `skill`-tagged pages. It is now resolved per `docs/architecture/SKILLS_ARCHITECTURE.md` §5 — folded into the Silent E family's normal guidance sentence on the Skills Hub (no separate block, matching every other family's presentation), set to `status: archived` so no standalone page is emitted, and its former URL permanently redirects (301) to `/spelling-lists/skills/#silent-e-family`. Moved to `deprecated-and-legacy-pages.md`'s "Archived-status pages" table; no longer counted in the 35 unresolved pages above.
+
+**What to do with this list:** confirm each row against the product owner's intent before touching it. Likely outcomes per row: (a) it's an older, finer-grained page superseded by a combined page that *is* in the active architecture (e.g. `3rd-grade-changing-y-to-i` and `3rd-grade-doubling-final-consonants` look like predecessors to the live `grade-3-dropping-silent-e` "Suffix Spelling Changes" card) — likely deprecated-legacy once confirmed, not currently asserted here without that confirmation; (b) it's real content the architecture doc simply doesn't enumerate at this level of detail — likely canonical-active as supporting content once confirmed; (c) it's one of the two remaining non-taxonomy "skill"-tagged pages already flagged in `skill-pages.md`, which need a product-owner taxonomy decision, not a content read.
 
 
 ## Data-quality notes
@@ -66,7 +67,9 @@ This is a schema difference, not missing data — the `spellingCollections` sche
 
 ### Pages tagged `contentRole: skill` outside the frozen 41-slot taxonomy
 
-`silent-e-long-e`, `grade-4-final-stable-syllables`, `grade-5-spelling-rules` — three published pages tagged as Skill pages that are not part of `SKILLS_ARCHITECTURE.md`'s taxonomy and are not linked from the Skills Hub or any Grade Hub. Listed in the unresolved table above; full detail in `skill-pages.md`.
+`grade-4-final-stable-syllables`, `grade-5-spelling-rules` — two published pages tagged as Skill pages that are not part of `SKILLS_ARCHITECTURE.md`'s taxonomy and are not linked from the Skills Hub or any Grade Hub. Listed in the unresolved table above; full detail in `skill-pages.md`.
+
+A third page in this category, `silent-e-long-e`, is now resolved (see the "Resolved and moved" note above) — it carries `status: archived`, not `published`, and has moved to `deprecated-and-legacy-pages.md`.
 
 
 ### `skillIds` linking from Grade Unit pages to canonical Skill pages is almost entirely unpopulated

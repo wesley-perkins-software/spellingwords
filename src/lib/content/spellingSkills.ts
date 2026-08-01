@@ -46,11 +46,40 @@ export const COMMON_SPELLING_PATTERNS_SKILL_FAMILY = {
   ],
 } as const;
 
+/**
+ * Stable anchor id for the Silent E family section on the Skills Hub
+ * (`/spelling-lists/skills/`). Declared explicitly, rather than computed from
+ * `family.title` at render time, so it can be depended on by a permanent
+ * redirect (see `netlify.toml`) without drifting silently if the title copy
+ * ever changes.
+ */
+export const SILENT_E_FAMILY_ANCHOR_ID = 'silent-e-family';
+
+/**
+ * Canonical destination for the retired `silent-e-long-e` Skill page's
+ * permanent redirect (see `netlify.toml`). Derived from
+ * `SILENT_E_FAMILY_ANCHOR_ID` so the two can't drift apart, and asserted
+ * against the redirect config in tests.
+ */
+export const SILENT_E_FAMILY_URL = `${SPELLING_SKILLS_INDEX_PATH}#${SILENT_E_FAMILY_ANCHOR_ID}`;
+
+/**
+ * A small, independently-curated subset of one-syllable words from the
+ * retired `silent-e-long-e` page, used only to keep the family guidance
+ * sentence below concrete. Deliberately excludes multisyllabic examples
+ * (e.g. "complete") since the pattern's one-syllable word bank being thin is
+ * the reason Long E has no Skill page of its own (see
+ * docs/architecture/SKILLS_ARCHITECTURE.md §5) — an example proving the
+ * opposite would undercut the point.
+ */
+export const SILENT_E_LONG_E_EXAMPLES = ['eve', 'these', 'theme'] as const;
+
 export const SILENT_E_SKILL_FAMILY = {
   title: 'Silent E',
   description: 'Practice long-vowel words with final silent e.',
   guidance:
-    "Choose the vowel sound your child needs to practice. Long E Silent E words (eve, these, theme) are covered within this overview rather than as a separate practice page.",
+    'Choose the vowel sound your child needs to practice. Long E Silent E words (eve, these, theme) are covered here rather than as a Skill page of their own.',
+  anchorId: SILENT_E_FAMILY_ANCHOR_ID,
   skillIds: [
     'silent-e-long-a',
     'silent-e-long-i',

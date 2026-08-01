@@ -28,8 +28,8 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Every page below is e
 
 | Skill id | Title | urlSlug | Grade (frontmatter) | Source file | Editorial status | Instructional variant | Content brief status |
 |---|---|---|---|---|---|---|---|
-| beginning-blends | Beginning Blends | beginning-blends | 1 | `src/content/spelling-lists/phonics/beginning-blends.md` | Not audited | 1 | Not started |
-| ending-blends | Ending Blends | ending-blends | 1 | `src/content/spelling-lists/phonics/ending-blends.md` | Not audited | 1 | Not started |
+| beginning-blends | Beginning Blends | beginning-blends | 1 | `src/content/spelling-lists/phonics/beginning-blends.md` | Needs review — content drafted to the Standard (Variant 1), demonstration set re-curated to remove a competing untaught pattern ("black"'s ck ending), full blend-vs-digraph contrast added, missing `skillIds` back-reference from the Grade 1 Grade Unit added; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
+| ending-blends | Ending Blends | ending-blends | 1 | `src/content/spelling-lists/phonics/ending-blends.md` | Needs review — content drafted to the Standard (Variant 1), demonstration set re-curated for broader blend-family coverage, "why ending blends are harder to hear" treated as the family's central instructional point, missing `skillIds` back-reference from the Grade 1 Grade Unit added; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
 
 ## Common Spelling Patterns
 

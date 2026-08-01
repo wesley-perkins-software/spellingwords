@@ -15,6 +15,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
+skillIds: ["ending-blends"]
 relatedLists: ["ld-final-blend-words", "nd-final-blend-words", "ng-final-blend-words", "nk-final-blend-words", "nt-final-blend-words", "st-final-blend-words", "ft-final-blend-words", "lk-final-blend-words", "lt-final-blend-words", "mp-final-blend-words", "sk-final-blend-words"]
 prerequisiteLists: ["grade-1-beginning-consonant-blends"]
 nextLists: ["grade-1-long-vowels-silent-e"]

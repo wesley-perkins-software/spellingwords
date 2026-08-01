@@ -35,7 +35,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Every page below is e
 
 | Skill id | Title | urlSlug | Grade (frontmatter) | Source file | Editorial status | Instructional variant | Content brief status |
 |---|---|---|---|---|---|---|---|
-| ck-tch-dge-word-endings | CK, Double Letters, and TCH/DGE Word Endings | ck-tch-dge-word-endings | 1 | `src/content/spelling-lists/phonics/ck-tch-dge-word-endings.md` | Not audited | 2 | Not started |
+| ck-tch-dge-word-endings | CK, Double Letters, and TCH/DGE Word Endings | ck-tch-dge-word-endings | 1 | `src/content/spelling-lists/phonics/ck-tch-dge-word-endings.md` | Needs review — content drafted to the Standard (Variant 2), the three merged conventions (final ck, FLOSS doubling, tch/dge) kept as separately conditioned sections with decision tables and differentiated exception groups, missing `skillIds` back-references added to the three canonical-active Grade 1 units that teach this content (`grade-1-floss-rule`, `grade-1-tch-dge-ending-rules`, `grade-1-consonant-digraphs-final-ck`); pending independent human editorial sign-off before "Complete" | 2 | Needs review |
 | silent-letters | Silent Letters | silent-letters | 2 | `src/content/spelling-lists/grade-level/silent-letters.md` | Not audited | 2 | Not started |
 | soft-c-soft-g | Soft C and Soft G | soft-c-soft-g | 2 | `src/content/spelling-lists/phonics/soft-c-soft-g.md` | Not audited | 2 | Not started |
 

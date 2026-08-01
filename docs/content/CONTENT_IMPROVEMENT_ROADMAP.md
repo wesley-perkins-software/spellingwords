@@ -46,7 +46,7 @@ Every content-collection page in the repository falls into exactly one of three 
 | **Deprecated / legacy** | Exists in the repository, sometimes still live and linked, but not part of the frozen architecture; documented for awareness only | `deprecated-and-legacy-pages.md` — no checklists, no DoD, no priority, no phase membership |
 | **Unresolved** | Not named by the architecture docs and not matched by a documented legacy pattern; needs a classification decision before any work | `untagged-and-data-quality.md` |
 
-Current counts: **150 canonical-active pages** (plus 1 provisional Skill taxonomy slot with no content file yet) · **81 deprecated/legacy pages** · **36 unresolved pages**. See §4 and §14 for the breakdown, and §15 for how a page moves between buckets as facts change.
+Current counts: **150 canonical-active pages** (plus 1 provisional Skill taxonomy slot with no content file yet) · **82 deprecated/legacy pages** · **35 unresolved pages**. See §4 and §14 for the breakdown, and §15 for how a page moves between buckets as facts change.
 
 A deprecated/legacy classification is not a judgment that the content is bad — it means the frozen architecture doesn't currently define a role for it. The legacy Dolch tier is, in fact, still linked from the main browse page today (`/spelling-lists` → `/spelling-lists/sight-words` → the Dolch collections) — real, reachable, and still explicitly out of this roadmap's scope, because reachability and canonical status are different questions. If a future product decision brings a deprecated page back into the architecture, move it into the active inventory at that time (§15) — don't start improving it first.
 
@@ -168,8 +168,8 @@ Full per-page tables live in the companion inventory files (linked at the top of
 | Common Words gateway pages | 6 | Canonical active | `inventory/sight-words-and-common-words.md` |
 | Common Words member sets | 29 | Canonical active | `inventory/sight-words-and-common-words.md` |
 | Grade Hubs, Skills Hub, main browse page | 8 (6 + 1 + 1, code-driven) | Canonical active | this file, §7 |
-| Dolch tier gateways + member sets, orphaned phonics pages, archived pages | 81 | Deprecated / legacy | `inventory/deprecated-and-legacy-pages.md` |
-| Pages not resolved by the classification test | 36 | Unresolved | `inventory/untagged-and-data-quality.md` |
+| Dolch tier gateways + member sets, orphaned phonics pages, archived pages | 82 | Deprecated / legacy | `inventory/deprecated-and-legacy-pages.md` |
+| Pages not resolved by the classification test | 35 | Unresolved | `inventory/untagged-and-data-quality.md` |
 | **Total content-collection files** | **267** (255 `spelling-lists` + 12 `spelling-collections`) | — | all inventory files combined |
 
 **Active editorial scope = 150 canonical-active pages** (plus the 1 provisional Skill slot, plus 8 code-driven pages). Every classification was made against the frozen architecture documents, verified against live code, and cross-checked directly with each file's frontmatter — none of it was inferred from filenames or folder names.
@@ -946,7 +946,7 @@ No editorial work has started under this roadmap yet — all totals below reflec
 
 | Phase | Total items (canonical active) | Complete | In progress | Remaining | Blocked |
 |---|---:|---:|---:|---:|---:|
-| Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + 36 unresolved rows + 3 taxonomy-mismatch decisions | 6 (roadmap + inventory files created) | 0 | 36 unresolved rows + 3 mismatch decisions | 0 |
+| Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + 35 unresolved rows + 2 taxonomy-mismatch decisions | 7 (roadmap + inventory files created + `silent-e-long-e` taxonomy-mismatch decision resolved: merged into the Silent E family overview, archived, redirected) | 0 | 35 unresolved rows + 2 mismatch decisions | 0 |
 | Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 13 (5 Short Vowels + 4 Consonant Digraphs + 2 Consonant Blends — all three Variant 1 batches drafted and self-reviewed; + CK, Double Letters, and TCH/DGE Word Endings and Silent Letters — two Variant 2 pages, drafted and self-reviewed; all 13 pending independent human sign-off before moving to Complete) | 27 | 1 (IE and IGH Words — content-pending) |
 | Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages | 0 | 0 | 75 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
@@ -955,7 +955,7 @@ No editorial work has started under this roadmap yet — all totals below reflec
 | Phase 6 — Cross-site consistency and final audit | 1 site-wide pass | 0 | 0 | 1 | 0 |
 | *(Reference, not a phase)* Common Words gateway + member sets | 6 + 29 = 35 | 0 | 0 | 35 | 0 |
 
-**Excluded from every phase and total above — transparency only, not part of active scope:** 81 deprecated/legacy pages (`deprecated-and-legacy-pages.md`) and 36 unresolved pages pending classification (`untagged-and-data-quality.md`). Canonical-active total: **150 pages** (255 `spelling-lists` + 12 `spelling-collections` = 267 total content files repository-wide).
+**Excluded from every phase and total above — transparency only, not part of active scope:** 82 deprecated/legacy pages (`deprecated-and-legacy-pages.md`) and 35 unresolved pages pending classification (`untagged-and-data-quality.md`). Canonical-active total: **150 pages** (255 `spelling-lists` + 12 `spelling-collections` = 267 total content files repository-wide).
 
 ---
 

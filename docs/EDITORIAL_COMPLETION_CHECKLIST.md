@@ -8,6 +8,7 @@ This is the master tracking document for the Editorial Completion project: writi
 - Update it every time a list's `readinessSignals`/`faq` is written — not only at PR boundaries.
 - Status symbols: `✅` done · `⬜` not started. Aggregate fractions/percentages live only in the summary tables below, not per row.
 - `phonics/short-vowels-cvc-words.md` has `status: archived` (superseded by the five separate short-vowel lists) and never renders a page — it is excluded from every count in this document and marked `N/A` in its row rather than `⬜`.
+- `phonics/silent-e-long-e.md` is likewise `status: archived` (merged into the Silent E family overview on the Skills Hub per `docs/architecture/SKILLS_ARCHITECTURE.md` §5; its former URL permanently redirects) and never renders a page — excluded from every count here the same way, marked `N/A`.
 - Archetype numbers refer to the 10 archetypes defined in `docs/EDITORIAL_SYSTEM.md`. For `phonics/` and `sight-words/`, every list shares one archetype (3 and 5 respectively), so the per-list tables for those folders omit a redundant Archetype column. For `grade-level/` and `challenge/`, archetype varies row by row; the assignments below are a **first-pass, best-guess classification made from filenames/content during checklist scaffolding, not from reading every list's full body** — treat any row marked *(provisional)* as needing a quick confirm (not a rewrite) when that archetype's rollout actually reaches it.
 - **Before marking any batch's rows `✅`, run the Batch QA checklist in `docs/EDITORIAL_SYSTEM.md`** (duplicate readiness/FAQ checks, resolving every prerequisite/next/related ID, confirming no archived list is referenced, and confirming readiness signals describe learner ability rather than curriculum completion). It exists because every item on it was a real defect caught in the first phonics batch, not a hypothetical.
 
@@ -19,7 +20,7 @@ This is the master tracking document for the Editorial Completion project: writi
 |---|---|---:|---:|---:|
 | 1 | Beginning vocabulary | 10 | 10 | 0 |
 | 2 | Grade-level vocabulary | 20 | 20 | 0 |
-| 3 | Phonics pattern pages | 53 | 53 | 0 |
+| 3 | Phonics pattern pages | 52 | 52 | 0 |
 | 4 | Spelling rule pages | 6 | 6 | 0 |
 | 5 | Sight-word pages | 24 | 24 | 0 |
 | 6 | Prefix pages | 4 | 4 | 0 |
@@ -27,17 +28,17 @@ This is the master tracking document for the Editorial Completion project: writi
 | 8 | Root-word pages | 4 | 4 | 0 |
 | 9 | Homophone and confusable-word pages | 4 | 4 | 0 |
 | 10 | Morphology pages | 4 | 4 | 0 |
-| — | **Total (excludes 1 archived phonics list)** | **134** | **134** | **0** |
+| — | **Total (excludes 2 archived phonics lists)** | **133** | **133** | **0** |
 
 ## Progress summary by category folder
 
 | Category | Total | Complete | Remaining | Notes |
 |---|---:|---:|---:|---|
-| phonics | 53 | 53 | 0 | Excludes `short-vowels-cvc-words` (archived, not counted) |
+| phonics | 52 | 52 | 0 | Excludes `short-vowels-cvc-words` and `silent-e-long-e` (both archived, not counted) |
 | sight-words | 24 | 24 | 0 | Dolch service-word sequence and supplemental Dolch nouns complete |
 | grade-level | 54 | 54 | 0 | Grade-level vocabulary, beginning vocabulary, morphology-domain grade-level pages, and homophone/commonly-confused pages are complete |
 | challenge | 3 | 3 | 0 | Root-word challenge lists and academic vocabulary challenge page complete; `tier-2-greek-latin-roots.md` frontmatter category mismatch remains a pre-existing content-model note |
-| **Total** | **134** | **134** | **0** | Editorial completion project complete across every published list page |
+| **Total** | **133** | **133** | **0** | Editorial completion project complete across every published list page |
 
 ---
 
@@ -61,7 +62,7 @@ This is the master tracking document for the Editorial Completion project: writi
 | silent-e-long-a | ✅ | ✅ | fine as-is | |
 | silent-e-long-i | ✅ | ✅ | fine as-is | |
 | silent-e-long-o | ✅ | ✅ | fine as-is | |
-| silent-e-long-e | ✅ | ✅ | fine as-is | Shortest word list (7 words) — real, not padded |
+| silent-e-long-e | N/A | N/A | N/A | `status: archived` — merged into the Silent E family overview on the Skills Hub, no longer a standalone page; excluded from scope |
 | silent-e-long-u | ✅ | ✅ | fine as-is | |
 
 ### Digraphs

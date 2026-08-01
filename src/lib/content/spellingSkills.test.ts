@@ -13,6 +13,9 @@ import {
   PROVISIONAL_SPELLING_SKILLS,
   R_CONTROLLED_VOWELS_SKILL_FAMILY,
   SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
+  SILENT_E_FAMILY_ANCHOR_ID,
+  SILENT_E_FAMILY_URL,
+  SILENT_E_LONG_E_OVERVIEW_NOTE,
   SILENT_E_SKILL_FAMILY,
   SPELLING_SKILL_FAMILIES,
   SPELLING_SKILLS_INDEX_PATH,
@@ -22,6 +25,24 @@ import {
   isCuratedSpellingSkillId,
   resolveCuratedSkillFamilyEntries,
 } from './spellingSkills';
+
+const netlifyTomlPath = join(process.cwd(), 'netlify.toml');
+
+function findNetlifyRedirect(from: string): { to: string; status: string } | undefined {
+  const source = readFileSync(netlifyTomlPath, 'utf8');
+  const blocks = source.split('[[redirects]]').slice(1);
+
+  for (const block of blocks) {
+    const fromMatch = block.match(/^\s*from\s*=\s*"([^"]+)"/m);
+    if (fromMatch?.[1] !== from) continue;
+
+    const toMatch = block.match(/^\s*to\s*=\s*"([^"]+)"/m);
+    const statusMatch = block.match(/^\s*status\s*=\s*(\d+)/m);
+    return { to: toMatch?.[1] ?? '', status: statusMatch?.[1] ?? '' };
+  }
+
+  return undefined;
+}
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 
@@ -315,5 +336,58 @@ describe('curated spelling Skills browse index', () => {
       expect(CURATED_SPELLING_SKILL_IDS).not.toContain(id);
       expect(byId.get(id), id).toMatchObject({ data: { contentRole: 'grade-unit' } });
     }
+  });
+
+  describe('retired Long E Silent E page (docs/architecture/SKILLS_ARCHITECTURE.md §5)', () => {
+    it('is not one of the 40 canonical Skill slots', () => {
+      expect(CURATED_SPELLING_SKILL_IDS).not.toContain('silent-e-long-e');
+      expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(40);
+    });
+
+    it('is not a Silent E family peer', () => {
+      expect(SILENT_E_SKILL_FAMILY.skillIds).not.toContain('silent-e-long-e');
+      expect(SILENT_E_SKILL_FAMILY.skillIds).toEqual([
+        'silent-e-long-a',
+        'silent-e-long-i',
+        'silent-e-long-o',
+        'silent-e-long-u',
+      ]);
+    });
+
+    it('no longer emits a standalone content page (archived status excludes it from getStaticPaths)', () => {
+      expect(byId.get('silent-e-long-e'), 'silent-e-long-e').toMatchObject({
+        data: { status: 'archived' },
+      });
+    });
+
+    it('permanently redirects its former URL to the canonical Silent E family anchor', () => {
+      const redirect = findNetlifyRedirect('/spelling-lists/phonics/silent-e-long-e');
+
+      expect(redirect).toBeDefined();
+      expect(redirect?.status).toBe('301');
+      expect(redirect?.to).toBe(SILENT_E_FAMILY_URL);
+      expect(SILENT_E_FAMILY_URL).toBe(`${SPELLING_SKILLS_INDEX_PATH}#${SILENT_E_FAMILY_ANCHOR_ID}`);
+    });
+
+    it('keeps a compact, audited Long E treatment in the Silent E family overview', () => {
+      expect(SILENT_E_SKILL_FAMILY.anchorId).toBe(SILENT_E_FAMILY_ANCHOR_ID);
+      expect(SILENT_E_SKILL_FAMILY.longEOverviewNote).toBe(SILENT_E_LONG_E_OVERVIEW_NOTE);
+
+      const note = SILENT_E_LONG_E_OVERVIEW_NOTE;
+      expect(note.heading).toMatch(/long e/i);
+      expect(note.body).toMatch(/long e/i);
+
+      // Kept intentionally small — a curated subset of the retired page's
+      // word list, not a copy of the whole thing.
+      expect(note.examples.length).toBeGreaterThan(0);
+      expect(note.examples.length).toBeLessThanOrEqual(4);
+
+      // Every example must be a real word the retired page actually taught,
+      // so the overview note can't drift from audited, verified content.
+      const retiredWords = byId.get('silent-e-long-e')!.data.words;
+      for (const example of note.examples) {
+        expect(retiredWords, example).toContain(example);
+      }
+    });
   });
 });

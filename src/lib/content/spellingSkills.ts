@@ -46,11 +46,44 @@ export const COMMON_SPELLING_PATTERNS_SKILL_FAMILY = {
   ],
 } as const;
 
+/**
+ * Stable anchor id for the Silent E family section on the Skills Hub
+ * (`/spelling-lists/skills/`). Declared explicitly, rather than computed from
+ * `family.title` at render time, so it can be depended on by a permanent
+ * redirect (see `netlify.toml`) without drifting silently if the title copy
+ * ever changes.
+ */
+export const SILENT_E_FAMILY_ANCHOR_ID = 'silent-e-family';
+
+/**
+ * Canonical destination for the retired `silent-e-long-e` Skill page's
+ * permanent redirect (see `netlify.toml`). Derived from
+ * `SILENT_E_FAMILY_ANCHOR_ID` so the two can't drift apart, and asserted
+ * against the redirect config in tests.
+ */
+export const SILENT_E_FAMILY_URL = `${SPELLING_SKILLS_INDEX_PATH}#${SILENT_E_FAMILY_ANCHOR_ID}`;
+
+/**
+ * Long E Silent E has no standalone Skill page (see
+ * docs/architecture/SKILLS_ARCHITECTURE.md §5): its one-syllable word bank is
+ * too thin to justify a fifth peer page, so it's covered here as a compact,
+ * labeled note within the family overview instead. Examples are a small,
+ * independently-curated subset of the retired page's word list — not the
+ * full list — chosen for being the clearest, most everyday one-syllable
+ * examples of the pattern.
+ */
+export const SILENT_E_LONG_E_OVERVIEW_NOTE = {
+  heading: 'Long E Silent E',
+  body: "Long E Silent E words (these, theme, complete) are covered here rather than as a separate practice page — the pattern is real, but genuine one-syllable examples are rarer than for the other silent-e vowels.",
+  examples: ['these', 'theme', 'complete'],
+} as const;
+
 export const SILENT_E_SKILL_FAMILY = {
   title: 'Silent E',
   description: 'Practice long-vowel words with final silent e.',
-  guidance:
-    "Choose the vowel sound your child needs to practice. Long E Silent E words (eve, these, theme) are covered within this overview rather than as a separate practice page.",
+  guidance: 'Choose the vowel sound your child needs to practice.',
+  anchorId: SILENT_E_FAMILY_ANCHOR_ID,
+  longEOverviewNote: SILENT_E_LONG_E_OVERVIEW_NOTE,
   skillIds: [
     'silent-e-long-a',
     'silent-e-long-i',

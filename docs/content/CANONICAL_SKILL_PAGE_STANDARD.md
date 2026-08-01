@@ -475,7 +475,7 @@ The copyable brief lives at `docs/content/templates/SKILL_PAGE_CONTENT_BRIEF.md`
 
 ## 21. Variant mapping for all 41 canonical Skills
 
-Source of truth for id/title/urlSlug/source-file cross-checked directly against `docs/content/inventory/skill-pages.md` and `docs/architecture/SKILLS_ARCHITECTURE.md` §3–4. All 41 taxonomy slots appear exactly once. 40 rows are `Live`; 1 (`ie-and-igh-words`) is `Provisional`. The three non-taxonomy pages flagged in `skill-pages.md` (`silent-e-long-e`, `grade-4-final-stable-syllables`, `grade-5-spelling-rules`) are intentionally **excluded** — they are not canonical Skills.
+Source of truth for id/title/urlSlug/source-file cross-checked directly against `docs/content/inventory/skill-pages.md` and `docs/architecture/SKILLS_ARCHITECTURE.md` §3–4. All 41 taxonomy slots appear exactly once. 40 rows are `Live`; 1 (`ie-and-igh-words`) is `Provisional`. The two remaining non-taxonomy pages flagged in `skill-pages.md` (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) are intentionally **excluded** — they are not canonical Skills. A third, `silent-e-long-e`, was previously flagged here too; it is now resolved per `SKILLS_ARCHITECTURE.md` §5 (merged into the Silent E family overview, archived, redirected — see `deprecated-and-legacy-pages.md`) and is no longer a non-taxonomy Skill page at all.
 
 | Canonical id | Title | Family | Variant | Status | Source file | Note |
 |---|---|---|---|---|---|---|

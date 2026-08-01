@@ -12,7 +12,7 @@ skillTags: ["silent-e", "long-vowels", "long-e"]
 tags: ["phonics", "silent-e", "long-vowels", "early-elementary"]
 order: 5
 estimatedDurationMinutes: 8
-status: published
+status: archived
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u", "short-e-words"]

@@ -76,32 +76,45 @@ const itemListJsonLd = {
         </p>
       </section>
 
-      {skillFamilies.map((family) => (
-        <section aria-labelledby={`${family.title.toLowerCase().replaceAll(' ', '-')}-heading`} class="mb-12 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] sm:p-6">
-          <div class="mb-5">
-            <h2 id={`${family.title.toLowerCase().replaceAll(' ', '-')}-heading`} class="font-display text-lg font-semibold text-ink">
-              {family.title}
-            </h2>
-            <p class="mt-1 max-w-xl text-sm leading-relaxed text-ink-soft">
-              {family.description} {family.guidance}
-            </p>
-          </div>
+      {skillFamilies.map((family) => {
+        const headingId =
+          'anchorId' in family ? family.anchorId : `${family.title.toLowerCase().replaceAll(' ', '-')}-heading`;
+        const longEOverviewNote = 'longEOverviewNote' in family ? family.longEOverviewNote : undefined;
 
-          <div class="divide-y divide-line border-y border-line">
-            {family.entries.map((entry) => (
-              <a href={getSpellingSkillPath(entry)} class="group flex items-start justify-between gap-4 rounded-xl px-3 py-4 transition hover:bg-app-cloud sm:items-center">
-                <div>
-                  <h3 class="font-display text-base font-semibold text-ink transition group-hover:text-brand-blue">
-                    {entry.data.title}
-                  </h3>
-                  <p class="mt-1 text-sm leading-relaxed text-ink-soft">{entry.data.description}</p>
-                </div>
-                <span class="mt-1 shrink-0 text-sm font-semibold text-brand-blue transition group-hover:translate-x-0.5 sm:mt-0" aria-hidden="true">→</span>
-              </a>
-            ))}
-          </div>
-        </section>
-      ))}
+        return (
+          <section aria-labelledby={headingId} class="mb-12 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] sm:p-6">
+            <div class="mb-5">
+              <h2 id={headingId} class="font-display text-lg font-semibold text-ink">
+                {family.title}
+              </h2>
+              <p class="mt-1 max-w-xl text-sm leading-relaxed text-ink-soft">
+                {family.description} {family.guidance}
+              </p>
+            </div>
+
+            <div class="divide-y divide-line border-y border-line">
+              {family.entries.map((entry) => (
+                <a href={getSpellingSkillPath(entry)} class="group flex items-start justify-between gap-4 rounded-xl px-3 py-4 transition hover:bg-app-cloud sm:items-center">
+                  <div>
+                    <h3 class="font-display text-base font-semibold text-ink transition group-hover:text-brand-blue">
+                      {entry.data.title}
+                    </h3>
+                    <p class="mt-1 text-sm leading-relaxed text-ink-soft">{entry.data.description}</p>
+                  </div>
+                  <span class="mt-1 shrink-0 text-sm font-semibold text-brand-blue transition group-hover:translate-x-0.5 sm:mt-0" aria-hidden="true">→</span>
+                </a>
+              ))}
+            </div>
+
+            {longEOverviewNote && (
+              <p class="mt-4 text-sm leading-relaxed text-ink-soft">
+                <span class="font-semibold text-ink">{longEOverviewNote.heading}:</span>{' '}
+                {longEOverviewNote.body}
+              </p>
+            )}
+          </section>
+        );
+      })}
 
       <p class="text-sm leading-relaxed text-ink-soft">
         Not sure what to choose?{' '}

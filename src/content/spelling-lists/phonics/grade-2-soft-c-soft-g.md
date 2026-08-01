@@ -19,6 +19,7 @@ relatedLists: ["c-k-ck-words", "grade-1-tch-dge-ending-rules"]
 prerequisiteLists: ["grade-2-au-aw-words"]
 nextLists: ["grade-2-two-syllable-words"]
 featured: false
+skillIds: ["soft-c-soft-g"]
 readinessSignals:
   - "Can spell the /k/ sound with c, k, and ck and is ready to learn when c changes to a different sound"
   - "Can hear that the c in city sounds different from the c in cat, and the g in page sounds different from the g in game"

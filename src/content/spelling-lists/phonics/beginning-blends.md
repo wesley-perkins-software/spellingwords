@@ -42,7 +42,7 @@ A beginning consonant blend is two or three consonant letters at the start of a 
 
 ### Common Beginning Blend Families
 
-Beginning blends fall into three loose groups, based on which letter comes second:
+Beginning blends are often grouped by whichever letter they share — l or r as the second letter, or s as the first:
 
 | Blend group | Blends | Example words |
 |---|---|---|

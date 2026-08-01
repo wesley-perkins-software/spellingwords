@@ -126,6 +126,15 @@ const conceptSkills = isContractUnit
 // Skill → the Grade Units that declare it in their skillIds ("Where this
 // fits"). Computed here, not stored on the Skill — the Skill never lists its
 // own placements.
+// Placements are sorted into canonical K-5 order (gradeConfig) rather than
+// left in whatever order the content collection happens to return them —
+// without this, cards can appear out of grade sequence whenever a Skill is
+// placed in more than one grade (e.g. a Kindergarten and a Grade 1 unit).
+function gradeSortIndex(grade?: string): number {
+  const index = gradeConfig.findIndex((g) => g.grade === grade);
+  return index === -1 ? gradeConfig.length : index;
+}
+
 const curriculumPlacements = isSkill
   ? allEntries
       .filter((e) => e.data.skillIds.includes(data.id))
@@ -134,6 +143,7 @@ const curriculumPlacements = isSkill
         position: getKindergartenRoadmapPosition(unit.data.id),
         gradeLabel: gradeConfig.find((g) => g.grade === unit.data.grade)?.label,
       }))
+      .sort((a, b) => gradeSortIndex(a.unit.data.grade) - gradeSortIndex(b.unit.data.grade))
   : [];
 
 const bodyHeading = isSkill

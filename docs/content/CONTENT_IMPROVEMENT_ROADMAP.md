@@ -223,37 +223,39 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
 - [x] Family-wide consistency review completed — all five Short Vowel Skill pages read together; each names its one genuine nearest-neighbor vowel (I↔E, O↔U) instead of contrasting with every other vowel, uses exact canonical titles when cross-referencing, and keeps its own distinctive instructional emphasis (Short I: digraph/doubled-consonant endings; Short O: the "-ck" family and a regional-accent note; Short U: the common o-for-u spelling exception) rather than mirroring the others' structure
 ### Consonant Digraphs
 
-- [ ] Family audit completed
-- [ ] Shared terminology and page pattern agreed
+**Second batch note:** this is the first Variant 1 family drafted after Short Vowels and the first that isn't a vowel pattern. As part of the audit step, `kindergarten-consonant-digraphs.md` and `grade-1-consonant-digraphs-final-ck.md` were confirmed to have no `skillIds` back-reference to any of the four Skills — the same gap Short I/O/U hit (§13) — so a one-line `skillIds` addition was made to each (SH/CH/TH only on the Kindergarten unit, which doesn't teach WH; all four on the Grade 1 unit), with no other change to those files. **Content-brief process note:** per the Standard §20, a Skill page should have an approved content brief before drafting. No separate persisted brief file was produced for CH/SH/TH/WH — the brief's substance (scope, demonstration set vs. example system, Level 1 distinction, routine, links, FAQ candidates) was reasoned through inline as part of drafting instead, the same gap already present for Short I/O/U (`inventory/skill-pages.md` shows `Needs review`, not `Approved`, for that batch too). Flagging this as a real, unresolved mismatch between the documented brief workflow and actual practice, not treating it as satisfied.
+
+- [x] Family audit completed
+- [x] Shared terminology and page pattern agreed — each page independently satisfies the Standard's required Variant 1 elements; CH and SH share their nearest-neighbor contrast (stop vs. continuous), TH is built around its own internal voiced/unvoiced distinction rather than an external neighbor, and WH is built around its who/whole exception and a brief historical/dialect note — no shared template forced across the four
 - [ ] CH Digraph Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for Short Vowels
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — pending independent human review (see this batch's report)
 - [ ] SH Digraph Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for Short Vowels
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — pending independent human review (see this batch's report)
 - [ ] TH Digraph Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for Short Vowels
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — pending independent human review; voiced/unvoiced framing and the th-fronting note specifically flagged for review (see this batch's report)
 - [ ] WH Digraph Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Family-wide consistency review completed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for Short Vowels
+  - [x] Written content completed
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — pending independent human review; the who/whole exception and the wine–whine historical/dialect note specifically flagged for review (see this batch's report)
+- [ ] Family-wide consistency review completed — self-review passed (siblings read as distinct, not clones; internal links resolve; curriculum placement now resolves for all four; no Grade Unit duplication found); leaving unchecked pending the same independent human sign-off as the per-page items above
 ### Consonant Blends
 
 - [ ] Family audit completed
@@ -943,7 +945,7 @@ No editorial work has started under this roadmap yet — all totals below reflec
 | Phase | Total items (canonical active) | Complete | In progress | Remaining | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + 36 unresolved rows + 3 taxonomy-mismatch decisions | 6 (roadmap + inventory files created) | 0 | 36 unresolved rows + 3 mismatch decisions | 0 |
-| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 0 | 40 | 1 (IE and IGH Words — content-pending) |
+| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 9 (5 Short Vowels + 4 Consonant Digraphs — both batches drafted and self-reviewed, pending independent human sign-off before moving to Complete) | 31 | 1 (IE and IGH Words — content-pending) |
 | Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages | 0 | 0 | 75 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |

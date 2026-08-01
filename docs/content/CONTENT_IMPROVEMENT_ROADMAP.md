@@ -279,7 +279,7 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
 - [ ] Family-wide consistency review completed — self-review passed (siblings read as distinct in structure and emphasis rather than mirrored clones; internal links resolve and are not symmetric for their own sake — Beginning Blends links to both digraph pages used in its contrast table, Ending Blends links to only the one digraph page its own brief mention actually uses; curriculum placement now resolves for both; no Grade Unit duplication found); leaving unchecked pending the same independent human sign-off as the per-page items above
 ### Common Spelling Patterns
 
-- [ ] Family audit completed — only the CK/Double Letters/TCH/DGE page has been audited so far; Silent Letters and Soft C and Soft G remain not started
+- [ ] Family audit completed — CK/Double Letters/TCH/DGE and Silent Letters have been audited; Soft C and Soft G remains not started
 - [ ] Shared terminology and page pattern agreed
 - [ ] CK, Double Letters, and TCH/DGE Word Endings
   - [x] Existing page audited
@@ -289,12 +289,12 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
   - [x] Structured data and metadata reviewed
   - [ ] Final editorial review passed — drafted and self-reviewed through a 9-pass adversarial review; pending independent human editorial sign-off before "Complete"
 - [ ] Silent Letters
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited — prior stub had no boundary statement, no teaching routine, no diagnostic guidance, no mistakes/exceptions treatment, no "signs of security" section, empty `relatedLists`/`prerequisiteLists`/`nextLists`, and FAQs that merely restated the demonstration words
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — second Variant 2 page; the three patterns (wr, kn, mb) kept as separately conditioned sections; near-homophone risk (wrap/rap, write/rite, know/no, knot/not) identified as the pattern's central, most concrete teaching point; explicit contrast added distinguishing this page's scope from the unrelated Silent E family; demonstration set individually screened (comb swapped for crumb to avoid an incidental, untaught irregular-vowel spelling; lamb's "lam" homophone risk checked and disclosed rather than assumed absent)
+  - [x] Internal links completed — missing `skillIds` back-reference added to the one canonical-active Grade 2 unit that teaches this content (`grade-2-silent-letter-words`); a previously locked test (`grade2Progression.test.ts`) that asserted no Grade 2 core card besides Two-Syllable Words could carry a `skillIds` value was updated to allow this addition
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed through a 9-pass adversarial review plus a reading-specialist critique pass; pending independent human editorial sign-off before "Complete"
 - [ ] Soft C and Soft G
   - [ ] Existing page audited
   - [ ] Search intent documented
@@ -947,7 +947,7 @@ No editorial work has started under this roadmap yet — all totals below reflec
 | Phase | Total items (canonical active) | Complete | In progress | Remaining | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + 36 unresolved rows + 3 taxonomy-mismatch decisions | 6 (roadmap + inventory files created) | 0 | 36 unresolved rows + 3 mismatch decisions | 0 |
-| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 12 (5 Short Vowels + 4 Consonant Digraphs + 2 Consonant Blends — all three Variant 1 batches drafted and self-reviewed; + 1 CK, Double Letters, and TCH/DGE Word Endings — first Variant 2 page, drafted and self-reviewed; all 12 pending independent human sign-off before moving to Complete) | 28 | 1 (IE and IGH Words — content-pending) |
+| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 13 (5 Short Vowels + 4 Consonant Digraphs + 2 Consonant Blends — all three Variant 1 batches drafted and self-reviewed; + CK, Double Letters, and TCH/DGE Word Endings and Silent Letters — two Variant 2 pages, drafted and self-reviewed; all 13 pending independent human sign-off before moving to Complete) | 27 | 1 (IE and IGH Words — content-pending) |
 | Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages | 0 | 0 | 75 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |

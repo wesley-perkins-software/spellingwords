@@ -8,6 +8,7 @@ category: grade-level
 grade: "2"
 difficulty: developing
 contentRole: grade-unit
+skillIds: ["silent-letters"]
 skillTags: ["grade-2", "silent-letters", "wr", "kn", "mb", "phonics", "word-study"]
 tags: ["grade-2", "silent-letters", "phonics", "spelling", "word-study", "core-spelling"]
 order: 8

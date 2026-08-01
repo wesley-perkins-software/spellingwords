@@ -225,16 +225,15 @@ describe('Grade 2 Core Spelling', () => {
     });
   });
 
-  it('declares the r-controlled Skills as skillIds only on the Two-Syllable Words card', () => {
-    const rControlledIds = ['r-controlled-ar', 'r-controlled-or', 'r-controlled-er-ir-ur'];
+  it('declares the expected Skill back-references on each core card', () => {
+    const expectedSkillIds: Record<string, string[]> = {
+      'grade-2-two-syllable-words': ['r-controlled-ar', 'r-controlled-or', 'r-controlled-er-ir-ur'],
+      'grade-2-silent-letter-words': ['silent-letters'],
+    };
     for (const id of GRADE_2_CORE_IDS) {
       const frontmatter = readFrontmatter(byId.get(id)!.filePath);
       const skillIds = readInlineArray(frontmatter, 'skillIds');
-      if (id === 'grade-2-two-syllable-words') {
-        expect(skillIds, id).toEqual(rControlledIds);
-      } else {
-        expect(skillIds, id).toEqual([]);
-      }
+      expect(skillIds, id).toEqual(expectedSkillIds[id] ?? []);
     }
   });
 });

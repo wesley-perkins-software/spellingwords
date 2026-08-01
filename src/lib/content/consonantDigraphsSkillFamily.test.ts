@@ -7,6 +7,7 @@ import {
   GRADE_1_TARGETED_SKILL_IDS,
 } from './grade1Progression';
 import { KINDERGARTEN_CORE_IDS } from './kindergartenProgression';
+import { gradeConfig } from './gradeConfig';
 import {
   CONSONANT_DIGRAPHS_SKILL_FAMILY,
   CURATED_SPELLING_SKILL_IDS,
@@ -16,6 +17,7 @@ import {
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const skillsIndexRoutePath = join(process.cwd(), 'src/pages/spelling-lists/skills/index.astro');
+const listDetailRoutePath = join(process.cwd(), 'src/pages/spelling-lists/[category]/[slug].astro');
 
 const CONSONANT_DIGRAPH_SKILL_IDS = [
   'digraph-ch-words',
@@ -56,6 +58,7 @@ type FrontmatterSummary = {
   category: string;
   status: string;
   contentRole?: string;
+  grade?: string;
   words: string[];
   skillIds: string[];
   relatedLists: string[];
@@ -110,6 +113,7 @@ function readSummary(filePath: string): FrontmatterSummary {
     category: readScalar(frontmatter, 'category') ?? '',
     status: readScalar(frontmatter, 'status') ?? '',
     contentRole: readScalar(frontmatter, 'contentRole'),
+    grade: readScalar(frontmatter, 'grade'),
     words: readArray(frontmatter, 'words'),
     skillIds: readArray(frontmatter, 'skillIds'),
     relatedLists: readArray(frontmatter, 'relatedLists'),
@@ -132,6 +136,12 @@ function allSummaries(): FrontmatterSummary[] {
 const summaries = allSummaries();
 const byId = new Map(summaries.map((entry) => [entry.id, entry]));
 const allIds = new Set(summaries.map((entry) => entry.id));
+
+function gradeConfigOrder(id: string): number {
+  const grade = byId.get(id)?.grade;
+  const index = gradeConfig.findIndex((g) => g.grade === grade);
+  return index === -1 ? gradeConfig.length : index;
+}
 
 describe('Consonant Digraphs Skill Family', () => {
   it('publishes Consonant Digraphs as the second of 12 public Skill families, after Short Vowels', () => {
@@ -286,6 +296,23 @@ describe('Consonant Digraphs Skill Family', () => {
       );
       expect(hasPlacement, skillId).toBe(true);
     }
+  });
+
+  it('sorts curriculum placement cards into canonical K-5 grade order, not content-collection order', () => {
+    // digraph-sh/ch/th-words is the first live case of a Skill placed in
+    // both a Kindergarten and a Grade 1 Grade Unit, which exposed that
+    // placements were previously left in whatever order the content
+    // collection returned them (Grade 1's lower `order` value sorted it
+    // ahead of Kindergarten). This is a shared-template contract, not a
+    // digraph-specific one — it protects every current and future Skill
+    // placed across more than one grade.
+    const route = readFileSync(listDetailRoutePath, 'utf8');
+    expect(route).toContain('gradeSortIndex');
+    expect(route).toContain('.sort((a, b) => gradeSortIndex(a.unit.data.grade) - gradeSortIndex(b.unit.data.grade))');
+
+    const kindergartenOrder = gradeConfigOrder('kindergarten-consonant-digraphs');
+    const grade1Order = gradeConfigOrder('grade-1-consonant-digraphs-final-ck');
+    expect(kindergartenOrder, 'Kindergarten must sort before Grade 1').toBeLessThan(grade1Order);
   });
 
   it('does not claim a WH placement on the Kindergarten unit, which does not teach WH', () => {

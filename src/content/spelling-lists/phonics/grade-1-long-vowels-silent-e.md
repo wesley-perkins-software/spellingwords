@@ -18,6 +18,7 @@ sourceType: curated
 relatedLists: ["silent-e-long-a", "silent-e-long-e", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u"]
 prerequisiteLists: ["grade-1-ending-consonant-blends"]
 nextLists: ["grade-1-open-syllables-final-y"]
+skillIds: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u"]
 featured: false
 readinessSignals:
   - "Are ready for a focused first-grade spelling lesson on silent-e long vowels"

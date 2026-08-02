@@ -63,6 +63,7 @@ type FrontmatterSummary = {
   status: string;
   contentRole?: string;
   words: string[];
+  skillIds: string[];
   relatedLists: string[];
   prerequisiteLists: string[];
   nextLists: string[];
@@ -116,6 +117,7 @@ function readSummary(filePath: string): FrontmatterSummary {
     status: readScalar(frontmatter, 'status') ?? '',
     contentRole: readScalar(frontmatter, 'contentRole'),
     words: readArray(frontmatter, 'words'),
+    skillIds: readArray(frontmatter, 'skillIds'),
     relatedLists: readArray(frontmatter, 'relatedLists'),
     prerequisiteLists: readArray(frontmatter, 'prerequisiteLists'),
     nextLists: readArray(frontmatter, 'nextLists'),
@@ -227,13 +229,33 @@ describe('Silent E Skill Family', () => {
     }
   });
 
-  it('keeps active Silent E family Practice Sets concise without padding Long E Silent E', () => {
+  it('keeps active Silent E family entries published and Long E Silent E archived', () => {
     for (const id of SILENT_E_FAMILY_IDS) {
       const entry = byId.get(id);
       expect(entry, id).toBeDefined();
       expect(entry!.status, id).toBe(id === 'silent-e-long-e' ? 'archived' : 'published');
-      expect(entry!.words.length, id).toBeGreaterThanOrEqual(id === 'silent-e-long-e' ? 7 : 8);
-      expect(entry!.words.length, id).toBeLessThanOrEqual(16);
+    }
+  });
+
+  it('keeps Grade Unit Practice Sets within the legacy 8-16 word range', () => {
+    // The four reusable Silent E Skills use a small, unpadded demonstration
+    // set instead (see the dedicated word-count contract test below) — the
+    // 8-16 range is a Grade Unit/Practice Set contract, not a Skill one.
+    for (const id of SILENT_E_FAMILY_IDS) {
+      if (SILENT_E_SKILL_IDS.includes(id as (typeof SILENT_E_SKILL_IDS)[number])) continue;
+      if (id === 'silent-e-long-e') continue;
+
+      const entry = byId.get(id)!;
+      expect(entry.words.length, id).toBeGreaterThanOrEqual(8);
+      expect(entry.words.length, id).toBeLessThanOrEqual(16);
+    }
+  });
+
+  it('keeps reusable Silent E Skill demonstration sets small and unpadded, not sized to match a Practice Set', () => {
+    for (const id of SILENT_E_SKILL_IDS) {
+      const entry = byId.get(id)!;
+      expect(entry.words.length, id).toBeGreaterThanOrEqual(3);
+      expect(entry.words.length, id).toBeLessThanOrEqual(8);
     }
   });
 
@@ -265,5 +287,56 @@ describe('Silent E Skill Family', () => {
     expect(GRADE_1_CORE_IDS).toContain('grade-1-cvc-short-vowels-c-k-rule');
     expect(GRADE_1_GATEWAY_IDS).toContain('grade-1-short-vowel-practice');
     expect(GRADE_1_TARGETED_SKILL_IDS).not.toContain('grade-1-cvc-short-vowels-c-k-rule');
+  });
+
+  it('does not give reusable Silent E Skills readinessSignals (a Grade Unit-only field)', () => {
+    for (const id of SILENT_E_SKILL_IDS) {
+      const frontmatter = readFrontmatter(byId.get(id)!.filePath);
+      expect(frontmatter, id).not.toMatch(/^readinessSignals:/m);
+    }
+  });
+
+  it('resolves the Grade 1 Silent E unit skillIds entry to real, live Silent E Skills', () => {
+    const entry = byId.get('grade-1-long-vowels-silent-e')!;
+    expect(entry.skillIds.length).toBeGreaterThan(0);
+    for (const skillId of entry.skillIds) {
+      expect(allIds.has(skillId), `grade-1-long-vowels-silent-e skillIds references ${skillId}`).toBe(
+        true,
+      );
+      expect(byId.get(skillId)?.contentRole, skillId).toBe('skill');
+    }
+  });
+
+  it('gives every Silent E Skill at least one resolvable curriculum placement via skillIds', () => {
+    // Curriculum placement is computed entirely from the Grade Unit side (a
+    // reverse skillIds lookup, see [category]/[slug].astro) — a Skill with
+    // zero incoming references would silently render with no "Where this
+    // fits in the curriculum" section despite the Standard requiring one.
+    const gradeUnitIds = ['grade-1-long-vowels-silent-e'];
+
+    for (const skillId of SILENT_E_SKILL_IDS) {
+      const hasPlacement = gradeUnitIds.some((gradeUnitId) =>
+        byId.get(gradeUnitId)!.skillIds.includes(skillId),
+      );
+      expect(hasPlacement, skillId).toBe(true);
+    }
+  });
+
+  it('computes a Skill curriculum placement from the Grade Unit side, not stored on the Skill', () => {
+    for (const id of SILENT_E_SKILL_IDS) {
+      const frontmatter = readFrontmatter(byId.get(id)!.filePath);
+      expect(frontmatter, id).not.toMatch(/^skillIds:/m);
+    }
+  });
+
+  it('does not link a live Silent E Skill to the archived silent-e-long-e page', () => {
+    // The Standard (CANONICAL_SKILL_PAGE_STANDARD.md §12) prohibits linking
+    // to deprecated/archived content from a canonical Skill page.
+    for (const id of SILENT_E_SKILL_IDS) {
+      const entry = byId.get(id)!;
+      for (const ref of [...entry.relatedLists, ...entry.prerequisiteLists, ...entry.nextLists]) {
+        expect(ref, `${id} references ${ref}`).not.toBe('silent-e-long-e');
+      }
+    }
   });
 });

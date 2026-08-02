@@ -305,37 +305,38 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
 - [x] Family-wide consistency review completed — all three Common Spelling Patterns Skill pages read together; each keeps its own distinctive instructional emphasis (CK/TCH/DGE: three merged final-position conventions; Silent Letters: near-homophone risk as the central point; Soft C and Soft G: a reliability asymmetry between two letters sharing one condition) rather than mirroring a shared structure; internal links resolve and are individually justified per page; curriculum placement now resolves for all three via their respective Grade Unit `skillIds` back-references
 ### Silent E
 
-- [ ] Family audit completed
-- [ ] Shared terminology and page pattern agreed
+**Fourth batch note:** the audit step found all four existing pages pre-dated the Standard: each was a single unstructured paragraph or two, with no bounded-scope statement, no explicit sound-vs-letter-name framing, no word-family groupings, no neighboring-pattern contrast, no mistakes/exceptions treatment, no teaching routine, no diagnostic response, and no "signs of security" section. All four carried `readinessSignals`, a field the Standard (§11) reserves for Grade Units — removed from all four. None of the four Skills had a resolvable "Where this fits in the curriculum" section, since `grade-1-long-vowels-silent-e.md` (the one Grade Unit that teaches this content) had no `skillIds` field at all — a one-line `skillIds` back-reference was added to that file, with no other change to it. `silent-e-long-u.md`'s `prerequisiteLists`/`relatedLists` pointed at the archived `silent-e-long-e` page, which the Standard (§12) prohibits linking to from a canonical Skill — repointed to `silent-e-long-o`, the actual preceding live Skill in the sequence. `silent-e-long-o.md`'s `relatedLists` pointed at `vowel-teams-ai-ay` (the long-**a** vowel team) instead of the long-**o** one — corrected to `vowel-teams-oa-ow`. No target word count was used for any page's demonstration set; each uses only as many words as its own pattern needs (5–6 words, down from the prior stub's 9–10, which had been padded toward Practice-Set size rather than kept as a true demonstration set per §5). Every demonstration and word-family-table word was independently re-screened per §8, including one word dropped outright: `fire`, in the prior Long I stub, is governed by r-controlled-vowel dynamics rather than the plain long-i pattern this page teaches, and was replaced. Each page's own instructional shape came from that vowel's actual teaching realities rather than a shared template: Long A serves as the family's reference implementation (word families plus the `have` exception, mirroring `short-a-words.md`'s structure most closely); Long I centers the realistic overgeneralization risk right after a child first learns the rule, plus the `give`/`live` exception; Long O centers a distinct exception cluster unique to it (`gone`, `done`, `some`, `come`, `one`) rather than a single word; Long U is organized around its two genuine pronunciations (`/yoo/` vs. `/oo/`) rather than rime families, plus a dialect note on `tune`/`tube`. Multiple full adversarial-review passes were run (see this batch's PR report for the complete list of issues found and corrected, including a since-fixed error in an early Long U draft that named an unsupported consonant context).
+- [x] Family audit completed
+- [ ] Shared terminology and page pattern agreed — leaving unchecked deliberately, consistent with the Common Spelling Patterns precedent: each page's structure grew from that vowel's own instructional realities (see batch note above) rather than a shared template, so there is no single agreed page pattern to check off — see the family-wide consistency review item below
 - [ ] Long A Silent E Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — reference implementation for the family; word families, the short-a/long-a contrast, and the `have` exception
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed through multiple adversarial review passes; pending independent human editorial sign-off before "Complete"
 - [ ] Long I Silent E Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — centers the overgeneralization risk and the `give`/`live` exception; `fire` dropped from the demonstration set (r-controlled-vowel confound)
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed through multiple adversarial review passes; pending independent human editorial sign-off before "Complete"
 - [ ] Long O Silent E Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — centers the `gone`/`done`/`some`/`come`/`one` exception cluster; `relatedLists` corrected to `vowel-teams-oa-ow`
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed through multiple adversarial review passes; pending independent human editorial sign-off before "Complete"
 - [ ] Long U Silent E Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Family-wide consistency review completed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — organized around the `/yoo/` vs. `/oo/` pronunciation split rather than rime families, with a dialect note on `tune`/`tube`; `prerequisiteLists`/`relatedLists` repointed away from the archived `silent-e-long-e`
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed through multiple adversarial review passes; pending independent human editorial sign-off before "Complete"
+- [ ] Family-wide consistency review completed — self-review passed (all four siblings read as distinct in structure and emphasis, not mirrored clones; internal links resolve and are individually justified, not added for family symmetry; curriculum placement now resolves for all four via the new `grade-1-long-vowels-silent-e` `skillIds` back-reference; no Grade Unit duplication found; the archived `silent-e-long-e` page is not linked from any live Skill); leaving unchecked pending the same independent human sign-off as the per-page items above
 ### Vowel Teams
 
 - [ ] Family audit completed
@@ -947,7 +948,7 @@ No editorial work has started under this roadmap yet — all totals below reflec
 | Phase | Total items (canonical active) | Complete | In progress | Remaining | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + 35 unresolved rows + 2 taxonomy-mismatch decisions | 7 (roadmap + inventory files created + `silent-e-long-e` taxonomy-mismatch decision resolved: merged into the Silent E family overview, archived, redirected) | 0 | 35 unresolved rows + 2 mismatch decisions | 0 |
-| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 13 (5 Short Vowels + 4 Consonant Digraphs + 2 Consonant Blends — all three Variant 1 batches drafted and self-reviewed; + CK, Double Letters, and TCH/DGE Word Endings and Silent Letters — two Variant 2 pages, drafted and self-reviewed; all 13 pending independent human sign-off before moving to Complete) | 27 | 1 (IE and IGH Words — content-pending) |
+| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 17 (5 Short Vowels + 4 Consonant Digraphs + 2 Consonant Blends + 4 Silent E — four Variant 1 batches drafted and self-reviewed; + CK, Double Letters, and TCH/DGE Word Endings and Silent Letters — two Variant 2 pages, drafted and self-reviewed; all 17 pending independent human sign-off before moving to Complete) | 23 | 1 (IE and IGH Words — content-pending) |
 | Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages | 0 | 0 | 75 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |

@@ -8,6 +8,7 @@ category: phonics
 grade: "2"
 difficulty: developing
 contentRole: grade-unit
+skillIds: ["oo-words"]
 skillTags: ["vowel-teams", "oo", "variable-vowel-teams"]
 tags: ["phonics", "vowel-teams", "grade-2", "core-spelling"]
 order: 48

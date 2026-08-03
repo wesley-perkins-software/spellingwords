@@ -230,6 +230,10 @@ describe('Grade 2 Core Spelling', () => {
       'grade-2-two-syllable-words': ['r-controlled-ar', 'r-controlled-or', 'r-controlled-er-ir-ur'],
       'grade-2-silent-letter-words': ['silent-letters'],
       'grade-2-soft-c-soft-g': ['soft-c-soft-g'],
+      'vowel-teams-oi-oy': ['oi-and-oy-words'],
+      'vowel-teams-ou-ow': ['ou-and-ow-words'],
+      'grade-2-oo-two-sounds': ['oo-words'],
+      'grade-2-au-aw-words': ['au-and-aw-words'],
     };
     for (const id of GRADE_2_CORE_IDS) {
       const frontmatter = readFrontmatter(byId.get(id)!.filePath);

@@ -8,6 +8,7 @@ category: phonics
 grade: "2"
 difficulty: developing
 contentRole: grade-unit
+skillIds: ["ou-and-ow-words"]
 skillTags: ["vowel-teams", "diphthongs", "ou", "ow"]
 tags: ["phonics", "vowel-teams", "diphthongs", "grade-2", "core-spelling"]
 order: 9

@@ -546,16 +546,18 @@ The six pages' prose, word equations, comparison tables, and FAQs were re-read i
 - [ ] Family-wide consistency review completed — self-review passed (the two pages read as complements, not clones; internal links resolve; curriculum placement now resolves for both via four Grade Unit `skillIds` back-references; no Grade Unit duplication found); leaving unchecked pending the same independent human sign-off as the per-page items above
 ### Greek and Latin Roots
 
-- [ ] Family audit completed
-- [ ] Shared terminology and page pattern agreed
-- [ ] Greek and Latin Roots
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Family-wide consistency review completed
+- [x] Family audit completed — single-skill family (`SKILLS_ARCHITECTURE.md` §2: displays as one direct destination, no separate family hub page)
+- [x] Shared terminology and page pattern agreed — Variant 3 pattern from the completed Prefixes family (word equations, root/meaning tables, teaching routine, diagnostic response)
+- [x] Greek and Latin Roots
+  - [x] Existing page audited — prior page was a 2-paragraph stub with a false FAQ claim (cited roots *spect*/*rupt*/*struct* as covered with no word anywhere demonstrating them) and zero curriculum-placement back-references from any Grade Unit
+  - [x] Search intent documented (`shortAnswer`/`description`)
+  - [x] Written content completed — drafted to the Standard (Variant 3); demonstration set expanded from 6 to 9 words to genuinely cover the roots the FAQ claims
+  - [x] Internal links completed — `relatedLists` added to Common Prefixes (earned — the roots-vs-prefixes section directly answers that page's existing preview of this Skill); missing `skillIds` back-references added to all four Grade Units that genuinely teach this content (Grade 3 bridge-in, both Grade 4 anchor units, Grade 5 extension), with the Grade 3 unit also missing `contentRole` entirely (backfilled)
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed through two adversarial review passes, then revised again in a targeted factual-review follow-up (see batch note); pending independent human editorial sign-off before "Complete"
+- [ ] Family-wide consistency review completed — single-skill family, no sibling page to cross-check against; leaving unchecked pending the same independent human sign-off as the per-page item above
+
+**Batch note:** two review passes. The first drafting pass fixed the false FAQ claim and added curriculum placement, but its "root versus base word" section overcorrected into an equally inaccurate absolute — first claiming roots never stand alone (false for *port*, *scope*, *graph*, and *bio*, which are all also ordinary standalone modern English words), then, in an intermediate revision, risking the opposite absolute (bases always standalone) and treating "root" and "base" as mutually exclusive labels. A second, targeted factual-review pass corrected the terminology to the accurate bounded distinction (a root carries a word family's central meaning; a base is the form an affix attaches to; a base can be free or bound; a root can also serve as a base) and reassessed each example individually against authoritative sources rather than grouping them: *dict* and *spect* are genuinely bound roots; *port*'s modern standalone sense (harbor, from Latin *portus*) traces to a different, only distantly related Latin word than the "carry" root (*portare*) in *transport* — genuinely two histories sharing one spelling; *scope* and *graph*, by contrast, are **not** unrelated homographs — their modern standalone senses (a range; a chart) actually descend from the very same Greek roots used in *telescope*/*microscope* and *biography* through ordinary sense-broadening; *bio* is a modern informal clipping of *biography* itself (attested from the 1940s), not an independent word at all, so it was not grouped with *port*/*scope*/*graph*; *tele* remains classified as bound (no standard standalone form in mainstream American English — the British "telly" is a clipping of *television*, not of *tele*). The derived-word-family table's "Origin" column was simplified from the specific ancestor spellings (*natio*, *kritikos*) to just the language of origin, so the page never implies a learner should locate the historical Latin/Greek form as a visible segment inside the modern English spelling. `phone` and `micro-`, which appeared unglossed inside word equations, were each given a one-clause gloss (Greek *phōnē*, "sound"; Greek *mikros*, "small") so every visible letter sequence in an equation is justified. All demonstration words, `relatedLists`, the four Grade Unit `skillIds` back-references, and the focused test were reconfirmed correct and left unchanged in the follow-up pass.
 ### Homophones and Commonly Confused Words
 
 - [ ] Family audit completed

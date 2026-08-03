@@ -33,7 +33,7 @@ const edgeClass =
         {items.map((linked) => (
           <a
             href={listLink(linked)}
-            class={`relative flex-1 overflow-hidden rounded-3xl border border-line bg-white py-3 pl-5 pr-4 shadow-card text-sm transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:content-[''] ${edgeClass} hover:-translate-y-0.5 hover:shadow-card-md sm:flex-none sm:min-w-[14rem]`}
+            class={`relative flex-1 overflow-hidden rounded-3xl border border-line bg-white py-3 pl-5 pr-4 shadow-card text-sm transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:content-[''] ${edgeClass} hover:-translate-y-0.5 hover:shadow-card-md sm:flex-none sm:min-w-[14rem] sm:max-w-sm`}
           >
             <span class="block font-display text-base font-semibold text-ink">
               {linked.data.title}

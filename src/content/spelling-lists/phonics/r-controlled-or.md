@@ -28,7 +28,7 @@ faq:
   - question: "Should OR words be sounded out or memorized?"
     answer: "Sounded out, for the regular pattern. Once a learner recognizes or as one spelling unit with one dependable sound, words like corn, north, and short can be spelled sound by sound. The wor- exception words are the ones that benefit from extra repetition, since they don't follow the regular sound."
   - question: "Do horse and hoarse really rhyme?"
-    answer: "For most speakers of American English today, yes — they sound identical. In some older or regional accents, words like horse (spelled with or) and hoarse or four (historically a different vowel before r) were pronounced differently, a distinction linguists call the horse–hoarse merger. It's a real dialect fact, not a spelling concern: the spelling of each word stays the same either way."
+    answer: "For most General American speakers, yes — they sound identical. But this isn't just a historical curiosity: present-day speakers of Southern American English, the Boston accent, and some Scottish and Irish varieties, among others, still pronounce horse and hoarse (or four, or war and wore) differently today, a real, current regional distinction linguists call the horse–hoarse merger. Neither pronunciation is more correct — the spelling of each word stays the same either way."
 words:
   - corn
   - for

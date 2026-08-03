@@ -17,9 +17,9 @@ masteryThreshold: 90
 sourceType: curated
 featured: false
 relatedLists:
-  - r-controlled-or
-prerequisiteLists:
   - r-controlled-ar
+  - r-controlled-or
+prerequisiteLists: []
 nextLists: []
 faq:
   - question: "Is there a rule for choosing ER, IR, or UR?"

@@ -272,6 +272,21 @@ describe('Vowel Teams Skill Family', () => {
     }
   });
 
+  it('links OA and OW Words only to other canonical Skills, never to a Grade Unit id', () => {
+    // vowel-teams-oa-ow previously related to vowel-teams-oi-oy, the Grade 2
+    // Grade Unit source file OI and OY Words was promoted from — a Skill must
+    // never store a forward link to a Grade Unit (CONTENT_MODEL.md: "A Skill
+    // never stores its own list of Grade Units"; curriculum placement is
+    // computed the other way, via a Grade Unit's own skillIds). OI and OY
+    // Words is not a substantively earned "related Skill" for OA and OW Words
+    // beyond sharing the Vowel Teams family (a different target sound, a
+    // diphthong, not the steady long-o this page teaches), so the link was
+    // removed rather than repointed to the canonical Skill id oi-and-oy-words.
+    expect(byId.get('vowel-teams-oa-ow')!.relatedLists).toEqual(['vowel-teams-ee-ea']);
+    expect(byId.get('vowel-teams-oa-ow')!.relatedLists).not.toContain('vowel-teams-oi-oy');
+    expect(byId.get('vowel-teams-oa-ow')!.relatedLists).not.toContain('vowel-teams-ou-ow');
+  });
+
   it('keeps existing Vowel Team practice-list sizes and educational pattern boundaries', () => {
     expect(byId.get('vowel-teams-ai-ay')!.words).toHaveLength(12);
     expect(byId.get('vowel-teams-ee-ea')!.words).toHaveLength(12);

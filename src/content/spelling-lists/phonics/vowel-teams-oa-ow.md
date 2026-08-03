@@ -15,7 +15,7 @@ status: published
 contentRole: skill
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["vowel-teams-ee-ea", "vowel-teams-oi-oy"]
+relatedLists: ["vowel-teams-ee-ea"]
 prerequisiteLists: ["vowel-teams-ee-ea"]
 nextLists: []
 featured: false

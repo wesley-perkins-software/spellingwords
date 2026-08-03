@@ -18,6 +18,7 @@ sourceType: curated
 relatedLists:
   - short-u-words
   - silent-e-long-o
+  - r-controlled-or
 prerequisiteLists: []
 nextLists: []
 featured: false

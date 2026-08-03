@@ -14,6 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
+skillIds: ["r-controlled-er-ir-ur"]
 relatedLists: ["r-controlled-er-ir-ur"]
 prerequisiteLists: ["grade-1-r-controlled-ar-or"]
 nextLists: ["grade-1-long-a-long-o-vowel-teams"]

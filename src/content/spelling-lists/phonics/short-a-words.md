@@ -18,6 +18,7 @@ sourceType: curated
 relatedLists:
   - short-e-words
   - silent-e-long-a
+  - r-controlled-ar
 prerequisiteLists: []
 nextLists: []
 featured: false

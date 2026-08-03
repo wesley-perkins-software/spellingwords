@@ -525,23 +525,25 @@ The six pages' prose, word equations, comparison tables, and FAQs were re-read i
 - [ ] Family-wide consistency review completed — self-review passed for boundaries, relationships, placements, demonstrations, FAQs, and source-level destinations; rendered review remains environment-blocked and independent human sign-off is pending
 ### Prefixes
 
-- [ ] Family audit completed
-- [ ] Shared terminology and page pattern agreed
+**Batch note:** this was the first family with zero drafting work started (both pages were single-paragraph stubs with no curriculum placement, no word equations, and no teaching routine). The audit step found: neither Skill had a `skillIds` back-reference from any of its four real contributing Grade Units, so both rendered with an empty "Where this fits in the curriculum" section; `grade-2-prefixes-un-re.md` was additionally missing `contentRole` entirely (backfilled to `grade-unit`, no other change); and `common-prefixes.md`'s description/FAQ claimed to cover *anti-* and contrasted *sub-*/*super-* without ever demonstrating either *anti-* or *super-* in its word set — both gaps resolved by adding one screened example word for each (*antifreeze*, *superstar*) rather than narrowing the claim, since both prefixes passed §8 screening once a transparent, familiar example was selected. Division of labor: `un-and-re-prefixes` was written as the family's foundational page (what a prefix is, and how it differs from a suffix, a syllable, and a root), since the frozen architecture (`SKILLS_ARCHITECTURE.md` §6) already designates it the focused introductory destination; `common-prefixes` reviews un-/re- briefly with a link back rather than re-deriving the fundamentals, and instead earns its own distinct content by splitting its prefix set into base-word attachments versus root attachments (*pre-*/*trans-* attach to a Latin root, not a whole word) — a genuine, independently-taught preview of Greek and Latin Roots. `un-and-re-prefixes.nextLists` was deliberately left empty: the Grade Units teach un-/re- before the wider set, but that Grade-level sequencing alone does not earn a Skill-to-Skill `nextLists` entry per the Standard (§12) — only `common-prefixes.prerequisiteLists` was added, since that page's own body genuinely reviews and builds on the earlier page.
+
+- [x] Family audit completed
+- [x] Shared terminology and page pattern agreed — both pages independently satisfy the Standard's required Variant 3 elements; Un- and Re- Prefixes carries the foundational contrasts (suffix, syllable, root) that Common Prefixes deliberately does not repeat, linking back instead
 - [ ] Un- and Re- Prefixes
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for every prior batch
+  - [x] Written content completed
+  - [x] Internal links completed — missing `skillIds` back-reference added to the Grade 2 Grade Unit (which also lacked `contentRole`, backfilled); `relatedLists` added to Common Suffixes and Greek and Latin Roots, each justified in body prose
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed through two adversarial review passes; pending independent human editorial sign-off before "Complete"
 - [ ] Common Prefixes
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Family-wide consistency review completed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for every prior batch
+  - [x] Written content completed — base-word-vs-root split added as this page's own distinguishing content; demonstration set corrected (superstar, antifreeze added) so every prefix named in the description/FAQ is actually demonstrated
+  - [x] Internal links completed — `prerequisiteLists` added to Un- and Re- Prefixes, `relatedLists` added to Greek and Latin Roots, each justified in body prose; missing `skillIds` back-references added to all three contributing Grade Units (Grade 3, Grade 4, Grade 5 combined unit)
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed through two adversarial review passes; pending independent human editorial sign-off before "Complete"
+- [ ] Family-wide consistency review completed — self-review passed (the two pages read as complements, not clones; internal links resolve; curriculum placement now resolves for both via four Grade Unit `skillIds` back-references; no Grade Unit duplication found); leaving unchecked pending the same independent human sign-off as the per-page items above
 ### Greek and Latin Roots
 
 - [ ] Family audit completed
@@ -994,7 +996,7 @@ No editorial work has started under this roadmap yet — all totals below reflec
 | Phase | Total items (canonical active) | Complete | In progress | Remaining | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + 35 unresolved rows + 2 taxonomy-mismatch decisions | 7 (roadmap + inventory files created + `silent-e-long-e` taxonomy-mismatch decision resolved: merged into the Silent E family overview, archived, redirected) | 0 | 35 unresolved rows + 2 mismatch decisions | 0 |
-| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 35 (5 Short Vowels + 4 Consonant Digraphs + 2 Consonant Blends + 4 Silent E + 3 Common Spelling Patterns + 7 Vowel Teams (all live slots; IE and IGH Words remains content-pending) + 3 R-Controlled Vowels + 1 Multisyllabic Words + 6 Word Building and Endings — nine family batches drafted and self-reviewed; all 35 pending independent human sign-off before moving to Complete) | 5 (Prefixes 2 + Greek and Latin Roots 1 + Homophones and Commonly Confused Words 2) | 1 (IE and IGH Words — content-pending) |
+| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 37 (5 Short Vowels + 4 Consonant Digraphs + 2 Consonant Blends + 4 Silent E + 3 Common Spelling Patterns + 7 Vowel Teams (all live slots; IE and IGH Words remains content-pending) + 3 R-Controlled Vowels + 1 Multisyllabic Words + 6 Word Building and Endings + 2 Prefixes — ten family batches drafted and self-reviewed; all 37 pending independent human sign-off before moving to Complete) | 3 (Greek and Latin Roots 1 + Homophones and Commonly Confused Words 2) | 1 (IE and IGH Words — content-pending) |
 | Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages | 0 | 0 | 75 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |

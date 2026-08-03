@@ -1,6 +1,7 @@
 ---
 id: grade-4-advanced-prefixes
 urlSlug: 4th-grade-advanced-prefixes
+skillIds: ["common-prefixes"]
 title: "4th Grade Advanced Prefix Words"
 description: "A fourth-grade advanced prefixes list for words with anti-, inter-, sub-, super-, and trans- — word parts that help students spell and understand longer academic words."
 shortAnswer: "Fourth graders practice advanced prefixes such as anti-, inter-, sub-, super-, and trans- in words like interact, transport, submarine, and supervise."

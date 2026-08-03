@@ -1,7 +1,9 @@
 ---
 id: grade-2-prefixes-un-re
 urlSlug: 2nd-grade-prefixes-un-re
+skillIds: ["un-and-re-prefixes"]
 title: "Prefix Words: UN and RE"
+contentRole: grade-unit
 description: "Common prefix words with un- and re- — word parts that come before a base word and change its meaning."
 shortAnswer: "Twelve prefix words including unfair, unhappy, unlock, redo, reread, and retell — the basic un-/re- prefixes that lead into Grade 3's broader prefix work."
 category: grade-level

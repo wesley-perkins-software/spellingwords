@@ -4,6 +4,8 @@ urlSlug: 2nd-grade-homophones
 title: "Homophones: To, Too, and Two"
 description: "An early set of homophones — words that sound alike but have different spellings and meanings."
 shortAnswer: "Eleven early homophones, including to, too, two, see, sea, one, won, here, hear, sun, and son — a starting set before Grade 3's broader homophones and commonly confused words lesson."
+contentRole: grade-unit
+skillIds: ["homophones"]
 category: grade-level
 grade: "3"
 difficulty: developing

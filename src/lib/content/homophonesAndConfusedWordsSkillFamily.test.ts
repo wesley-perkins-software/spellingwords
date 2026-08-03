@@ -17,9 +17,11 @@ type FrontmatterSummary = {
   status: string;
   contentRole?: string;
   words: string[];
+  skillIds: string[];
   relatedLists: string[];
   prerequisiteLists: string[];
   nextLists: string[];
+  filePath: string;
 };
 
 function readFrontmatter(filePath: string): string {
@@ -38,6 +40,11 @@ function readArray(frontmatter: string, key: string): string[] {
   const lines = frontmatter.split('\n');
   const keyIndex = lines.findIndex((line) => line.startsWith(`${key}:`));
   if (keyIndex === -1) return [];
+
+  const inline = lines[keyIndex].match(/^\w+:\s*\[(.*)\]\s*$/)?.[1];
+  if (inline !== undefined) {
+    return [...inline.matchAll(/["']([^"']+)["']/g)].map((match) => match[1]);
+  }
 
   const values: string[] = [];
   for (const line of lines.slice(keyIndex + 1)) {
@@ -60,9 +67,11 @@ function readSummary(filePath: string): FrontmatterSummary {
     status: readScalar(frontmatter, 'status') ?? '',
     contentRole: readScalar(frontmatter, 'contentRole'),
     words: readArray(frontmatter, 'words'),
+    skillIds: readArray(frontmatter, 'skillIds'),
     relatedLists: readArray(frontmatter, 'relatedLists'),
     prerequisiteLists: readArray(frontmatter, 'prerequisiteLists'),
     nextLists: readArray(frontmatter, 'nextLists'),
+    filePath,
   };
 }
 
@@ -93,6 +102,17 @@ describe('Homophones and Commonly Confused Words Skill Family', () => {
     }
   });
 
+  it('keeps every contributing source page a Grade Unit', () => {
+    for (const id of [
+      'grade-2-homophones',
+      'grade-3-homophones',
+      'grade-4-commonly-confused-words',
+      'grade-5-commonly-confused-words',
+    ]) {
+      expect(byId.get(id), id).toMatchObject({ id, contentRole: 'grade-unit' });
+    }
+  });
+
   it('keeps each Skill demonstration word set within a reasonable range', () => {
     for (const id of HOMOPHONES_FAMILY_SKILL_IDS) {
       const entry = byId.get(id)!;
@@ -101,12 +121,37 @@ describe('Homophones and Commonly Confused Words Skill Family', () => {
     }
   });
 
-  it('keeps relationship ids resolvable', () => {
+  it('keeps relationship ids resolvable and pointing at other Skills', () => {
     for (const id of HOMOPHONES_FAMILY_SKILL_IDS) {
       const entry = byId.get(id)!;
-      for (const ref of [...entry.relatedLists, ...entry.prerequisiteLists, ...entry.nextLists]) {
+      const refs = [...entry.relatedLists, ...entry.prerequisiteLists, ...entry.nextLists];
+      expect(new Set(refs).size, `${id} has a duplicate relationship`).toBe(refs.length);
+      for (const ref of refs) {
         expect(allIds.has(ref), `${id} references ${ref}`).toBe(true);
+        expect(byId.get(ref)?.contentRole, `${id} references non-Skill ${ref}`).toBe('skill');
       }
+    }
+  });
+
+  it('gives each Skill the architecture-defined curriculum placements from Grade Unit skillIds', () => {
+    const expectedPlacements: Record<(typeof HOMOPHONES_FAMILY_SKILL_IDS)[number], string[]> = {
+      homophones: ['grade-2-homophones', 'grade-3-homophones'],
+      'commonly-confused-words': [
+        'grade-4-commonly-confused-words',
+        'grade-5-commonly-confused-words',
+      ],
+    };
+
+    for (const skillId of HOMOPHONES_FAMILY_SKILL_IDS) {
+      for (const gradeUnitId of expectedPlacements[skillId]) {
+        expect(byId.get(gradeUnitId)?.skillIds, gradeUnitId).toContain(skillId);
+      }
+    }
+  });
+
+  it('computes curriculum placement from Grade Units rather than storing skillIds on Skills', () => {
+    for (const id of HOMOPHONES_FAMILY_SKILL_IDS) {
+      expect(readFrontmatter(byId.get(id)!.filePath), id).not.toMatch(/^skillIds:/m);
     }
   });
 

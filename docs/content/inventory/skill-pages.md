@@ -103,8 +103,8 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Every page below is e
 
 | Skill id | Title | urlSlug | Grade (frontmatter) | Source file | Editorial status | Instructional variant | Content brief status |
 |---|---|---|---|---|---|---|---|
-| homophones | Homophones | homophones | 2 | `src/content/spelling-lists/grade-level/homophones.md` | Not audited | 4 | Not started |
-| commonly-confused-words | Commonly Confused Words | commonly-confused-words | 4 | `src/content/spelling-lists/grade-level/commonly-confused-words.md` | Not audited | 4 | Not started |
+| homophones | Homophones | homophones | 2 | `src/content/spelling-lists/grade-level/homophones.md` | Needs review — content drafted to the Standard (Variant 4), the homophones-vs-commonly-confused-words scope boundary made explicit, `to/too/two` and `there/their/they're` kept as the frozen-architecture-required demonstration set, `relatedLists` added to Commonly Confused Words, missing `skillIds` back-references added to both contributing Grade Units (one also missing `contentRole`); pending independent human editorial sign-off before "Complete" | 4 | Needs review |
+| commonly-confused-words | Commonly Confused Words | commonly-confused-words | 4 | `src/content/spelling-lists/grade-level/commonly-confused-words.md` | Needs review — content drafted to the Standard (Variant 4), demonstration set re-screened and `than/then` added as a genuinely non-homophonic case, `relatedLists` added to Homophones, missing `skillIds` back-references added to both contributing Grade Units; pending independent human editorial sign-off before "Complete" | 4 | Needs review |
 
 ## Unresolved: pages tagged `contentRole: skill` outside the frozen taxonomy
 

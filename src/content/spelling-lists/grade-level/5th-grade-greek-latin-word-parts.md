@@ -5,6 +5,7 @@ title: "5th Grade Greek & Latin Word Parts"
 description: "Twelve fifth-grade words that use Greek and Latin word parts inside longer academic vocabulary."
 shortAnswer: "Twelve fifth-grade Greek and Latin word-part words — photography, biology, geography, transportation, construction, and more."
 contentRole: grade-unit
+skillIds: ["greek-and-latin-roots"]
 category: grade-level
 grade: "5"
 difficulty: intermediate

@@ -8,6 +8,7 @@ category: phonics
 grade: "2"
 difficulty: developing
 contentRole: grade-unit
+skillIds: ["multisyllabic-words"]
 skillTags: ["final-stable-syllable", "consonant-le", "syllables"]
 tags: ["phonics", "syllables", "grade-2", "core-spelling"]
 order: 52

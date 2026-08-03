@@ -5,6 +5,7 @@ title: "5th Grade Multisyllabic Academic Words"
 description: "Twelve longer academic words that help fifth graders practice syllables, word parts, and spelling across school subjects."
 shortAnswer: "Twelve fifth-grade multisyllabic academic words — investigation, organization, explanation, responsibility, technology, and more."
 contentRole: grade-unit
+skillIds: ["multisyllabic-words"]
 category: grade-level
 grade: "5"
 difficulty: intermediate

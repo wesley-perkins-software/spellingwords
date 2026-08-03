@@ -5,6 +5,15 @@ import { CURATED_SPELLING_SKILL_IDS, MULTISYLLABIC_WORDS_SKILL_FAMILY } from './
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 
+const curriculumSources = [
+  ['phonics', 'grade-1-open-syllables-final-y'],
+  ['phonics', 'grade-2-two-syllable-words'],
+  ['phonics', 'grade-2-final-stable-le'],
+  ['grade-level', '3rd-grade-multisyllabic-words'],
+  ['grade-level', '4th-grade-multisyllabic-academic-words'],
+  ['grade-level', '5th-grade-multisyllabic-academic-words'],
+] as const;
+
 function readFile(id: string): string {
   const filePath = join(contentRoot, 'phonics', `${id}.md`);
   return readFileSync(filePath, 'utf8');
@@ -30,14 +39,27 @@ describe('Multisyllabic Words Skill Family', () => {
 
   it('includes required named sections for Open Syllables and Consonant-LE', () => {
     const source = readFile('multisyllabic-words');
-    expect(source).toMatch(/open syllable/i);
-    expect(source).toMatch(/final stable -le|consonant-le/i);
+    // These are the only exact section names required by the frozen taxonomy.
+    expect(source).toMatch(/^## Open Syllables$/m);
+    expect(source).toMatch(/^## Words Ending in Consonant-LE$/m);
   });
 
-  it('leaves the source grade-unit chain untouched', () => {
-    for (const id of ['grade-2-two-syllable-words', 'grade-2-final-stable-le']) {
-      const source = readFile(id);
+  it('keeps every source page a Grade Unit and gives the Skill curriculum placement', () => {
+    for (const [directory, id] of curriculumSources) {
+      const source = readFileSync(join(contentRoot, directory, `${id}.md`), 'utf8');
       expect(source, id).toMatch(/^contentRole: grade-unit$/m);
+      expect(source, id).toMatch(/^skillIds: .*['"]multisyllabic-words['"]/m);
+    }
+  });
+
+  it('uses only resolvable canonical Skill relationships without duplicates', () => {
+    const source = readFile('multisyllabic-words');
+    const relationshipLine = source.match(/^relatedLists: \[(.*)\]$/m)?.[1] ?? '';
+    const relationships = [...relationshipLine.matchAll(/"([^"]+)"/g)].map((match) => match[1]);
+
+    expect(new Set(relationships).size).toBe(relationships.length);
+    for (const id of relationships) {
+      expect(CURATED_SPELLING_SKILL_IDS, id).toContain(id);
     }
   });
 });

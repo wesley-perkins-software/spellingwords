@@ -342,26 +342,26 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
 - [ ] Family audit completed
 - [ ] Shared terminology and page pattern agreed
 - [ ] AI and AY Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — reframes the AI/AY position tendency as a base-word pattern (distinguishing it from surface forms like `playing`/`stayed`), contrasted with Long A Silent E Words
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed — `readinessSignals` removed (not appropriate for Skill pages per the Standard); `skillIds` back-reference added to `grade-1-long-a-long-o-vowel-teams`
+  - [ ] Final editorial review passed — drafted and self-reviewed through multiple adversarial review passes; pending independent human editorial sign-off before "Complete"
 - [ ] EE and EA Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — states plainly that no position rule distinguishes EE from EA and teaches recognition/word-family strategy instead of inventing one
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed — `readinessSignals` removed; `skillIds` back-reference added to `grade-1-long-e-vowel-teams`
+  - [ ] Final editorial review passed — drafted and self-reviewed through multiple adversarial review passes; pending independent human editorial sign-off before "Complete"
 - [ ] OA and OW Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — states the scope boundary against the unrelated `/aʊ/` `ow` in `cow` (belongs to OU and OW Words) in both directions; keeps `know` with an explicit silent-`k` justification
+  - [x] Internal links completed
+  - [x] Structured data and metadata reviewed — `readinessSignals` removed
+  - [ ] Final editorial review passed — drafted and self-reviewed through multiple adversarial review passes; pending independent human editorial sign-off before "Complete"
 - [ ] OI and OY Words
   - [ ] Existing page audited
   - [ ] Search intent documented
@@ -948,7 +948,7 @@ No editorial work has started under this roadmap yet — all totals below reflec
 | Phase | Total items (canonical active) | Complete | In progress | Remaining | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + 35 unresolved rows + 2 taxonomy-mismatch decisions | 7 (roadmap + inventory files created + `silent-e-long-e` taxonomy-mismatch decision resolved: merged into the Silent E family overview, archived, redirected) | 0 | 35 unresolved rows + 2 mismatch decisions | 0 |
-| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 17 (5 Short Vowels + 4 Consonant Digraphs + 2 Consonant Blends + 4 Silent E — four Variant 1 batches drafted and self-reviewed; + CK, Double Letters, and TCH/DGE Word Endings and Silent Letters — two Variant 2 pages, drafted and self-reviewed; all 17 pending independent human sign-off before moving to Complete) | 23 | 1 (IE and IGH Words — content-pending) |
+| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 20 (5 Short Vowels + 4 Consonant Digraphs + 2 Consonant Blends + 4 Silent E — four Variant 1 batches drafted and self-reviewed; + CK, Double Letters, and TCH/DGE Word Endings and Silent Letters — two Variant 2 pages, drafted and self-reviewed; + AI and AY Words, EE and EA Words, and OA and OW Words — first 3 of 8 Vowel Teams pages, drafted and self-reviewed; all 20 pending independent human sign-off before moving to Complete) | 20 | 1 (IE and IGH Words — content-pending) |
 | Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages | 0 | 0 | 75 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |

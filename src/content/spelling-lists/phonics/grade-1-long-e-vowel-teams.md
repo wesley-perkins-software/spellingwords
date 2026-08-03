@@ -13,6 +13,7 @@ order: 114
 estimatedDurationMinutes: 10
 status: published
 contentRole: grade-unit
+skillIds: ["vowel-teams-ee-ea"]
 masteryThreshold: 90
 sourceType: curated
 relatedLists: ["vowel-teams-ee-ea"]

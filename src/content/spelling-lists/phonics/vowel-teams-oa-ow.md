@@ -54,11 +54,9 @@ A learner meeting a new *ow* word for the first time can't tell which sound is m
 
 Within the long-o words taught on this page, *oa* is typically found inside the word, followed by at least one more consonant sound, as in *boat*, *coat*, and *soap*. *Ow* is typically found at the very end of the word, as in *snow*, *crow*, and *blow*. This mirrors the tendency taught with AI and AY: when long o is followed by another sound in the same word, *oa* is the better first guess; when long o is the very last sound, *ow* is the better first guess. As with that earlier pattern, this describes the common words taught here — it's a useful tendency for building early accuracy, not a claim that covers every long-o word in English.
 
-### Two Exceptions Worth Knowing
+### A Genuine Exception Worth Knowing
 
 *Oa* doesn't always spell long o. In *broad*, the same two letters spell a different vowel sound entirely — the one heard in *saw*, not the one heard in *boat*. This is uncommon enough among early-reading words that it doesn't need to be taught alongside the regular pattern, but it's worth knowing about so a learner isn't thrown by it later.
-
-*Oa* also isn't limited to the middle of a word in every English word — a small number of words, such as *boa*, end in *oa*. These are uncommon in early reading and writing, so the position tendency taught here remains the useful first guess for the common words a learner meets.
 
 ### What Should the Learner Notice?
 

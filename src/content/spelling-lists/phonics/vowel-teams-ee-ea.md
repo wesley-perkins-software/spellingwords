@@ -54,7 +54,7 @@ This is a real source of confusion for early readers and spellers, and it's wort
 Since there's no shortcut rule, the most effective approach is recognition built through repeated, focused practice:
 
 - **Read and compare familiar words often**, noticing the spelling each time rather than only the sound.
-- **Group words that share a spelling**, such as *need*, *seed*, and *feed* — all spelled with EE — to make the individual words easier to hold onto. This groups words by shared spelling, not by a rule that predicts new words: *bead*, *plead*, and *knead* end in the identical sound but are spelled with EA instead.
+- **Group words that share a spelling**, such as *need*, *seed*, and *feed* — all spelled with EE — to make the individual words easier to hold onto. This groups words by shared spelling, not by a rule that predicts new words: *bead* and *plead* end in the identical sound but are spelled with EA instead.
 - **Practice spelling from memory**, writing a word, then checking it against the correct spelling, rather than sounding it out and guessing.
 - **Notice shared roots across related words** when they exist, such as *eat* and *eating* keeping the same EA spelling.
 

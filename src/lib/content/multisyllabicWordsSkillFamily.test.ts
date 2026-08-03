@@ -55,8 +55,11 @@ describe('Multisyllabic Words Skill Family', () => {
   it('uses only resolvable canonical Skill relationships without duplicates', () => {
     const source = readFile('multisyllabic-words');
     const relationshipLine = source.match(/^relatedLists: \[(.*)\]$/m)?.[1] ?? '';
-    const relationships = [...relationshipLine.matchAll(/"([^"]+)"/g)].map((match) => match[1]);
+    const relationships = [...relationshipLine.matchAll(/['"]([^'"]+)['"]/g)].map(
+      (match) => match[1]
+    );
 
+    expect(relationships).toEqual(['r-controlled-er-ir-ur', 'common-suffixes', 'compound-words']);
     expect(new Set(relationships).size).toBe(relationships.length);
     for (const id of relationships) {
       expect(CURATED_SPELLING_SKILL_IDS, id).toContain(id);

@@ -15,17 +15,17 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['r-controlled-er-ir-ur', 'common-suffixes']
+relatedLists: ['r-controlled-er-ir-ur', 'common-suffixes', 'compound-words']
 prerequisiteLists: []
 nextLists: []
 featured: false
 faq:
-  - question: 'What is a syllable?'
-    answer: 'A syllable is a spoken part of a word, usually organized around a vowel sound. Rabbit has two syllables: rab-bit. Clapping can help a child notice the parts, but listening to the whole pronunciation is more dependable than counting jaw movements or written vowel letters. Some syllables, including the final syllable of table in many pronunciations, center on a consonant instead.'
+  - question: 'Is clapping or counting vowel letters a reliable way to count syllables?'
+    answer: 'Not on its own. Clapping can help a child notice the parts of rabbit (rab-bit), but listening to the whole pronunciation is more dependable than counting jaw movements or written vowel letters, which do not always match the spoken syllable count. Some syllables, including the final syllable of table in many pronunciations, center on a consonant instead of a vowel, so a count based on vowel letters alone can be misleading.'
   - question: 'Does every multisyllabic word have one simple division rule?'
     answer: 'No. Useful patterns can suggest a division, but pronunciation, spelling, and meaningful word parts all matter. Teach a child to try a sensible division, read the whole word, and adjust rather than treating one visual rule as a guarantee.'
-  - question: 'Why can a vowel be hard to spell in an unstressed syllable?'
-    answer: 'An unstressed vowel may be reduced to a quick, unclear sound called schwa. The final syllable of paper is a familiar example for many speakers. When the sound does not identify the vowel, a known word part, a related word, a dictionary, or remembered word knowledge must help.'
+  - question: 'What should a child do when an unstressed vowel does not reveal its spelling?'
+    answer: 'Do not ask a child to sound it out more carefully—an unstressed, reduced vowel will not get clearer no matter how slowly it is said. Instead, connect the ending to a spelling already known from other words, check a related word where the vowel is stressed and therefore clearer (for example, a family word that shifts the stress), or simply supply the spelling and revisit it later through spaced practice.'
 words:
   - rabbit
   - basket
@@ -37,7 +37,7 @@ words:
   - sunset
 ---
 
-A syllable is a spoken unit, usually organized around a vowel sound. A written word may contain vowel letters that do not each form a separate syllable, and a consonant can sometimes form the center of a syllable. Count what you hear in the whole word rather than counting letters. _Table_ has two syllables even though its final _e_ is silent.
+A syllable is a spoken unit, usually organized around a vowel sound. A written word may contain vowel letters that do not each form a separate syllable, and a consonant can sometimes form the center of a syllable. Count what you hear in the whole word rather than counting letters. _Table_ has two syllables even though its final _e_ is silent (more on this ending below).
 
 This page is about using syllables as one part of spelling a longer word. It does not promise that speech alone will reveal every letter or that one division rule will work for every word. English spelling also preserves familiar patterns and meaningful parts.
 
@@ -55,9 +55,11 @@ Open and closed syllable labels are useful clues, not guarantees for every Engli
 
 ## Open Syllables
 
-In _robot_, the first syllable is open: _ro-bot_. The _o_ ends _ro_ and has its long sound. In _paper_, _pa-_ is open and its _a_ is long. In _music_, _mu-_ is open; speakers may begin it with the long-u sound in _use_ or with the /oo/ sound in _moon_. That difference does not change the spelling.
+In _robot_, the first syllable is open: _ro-bot_. The _o_ ends _ro_ and has its long sound. In _paper_, _pa-_ is open and its _a_ is long. In _music_, _mu-_ is open and uses the normal long-u sound heard in _use_.
 
 When one consonant stands between two written vowels, trying the consonant with the following syllable can reveal an open first syllable: _ro-bot_, _pa-per_, _mu-sic_. This is a useful first attempt, not an absolute division rule. Say the whole word after dividing it and adjust if the result does not match a familiar pronunciation.
+
+An open first syllable does not guarantee that every later syllable is just as easy to spell. In _paper_, the first syllable is straightforward once you hear it as open — but the second syllable, _-per_, is unstressed: its vowel is reduced to a quick, unclear sound called schwa. Hearing "puhr" does not tell you the ending is spelled _-er_ rather than _-or_ or _-ar_. When a syllable is unstressed like this, spell it from a known pattern or word knowledge rather than trying to sound it out more carefully.
 
 ## Words Ending in Consonant-LE
 
@@ -67,7 +69,7 @@ Work backward from the ending: circle consonant-_le_, say the first part, and jo
 
 ## Syllables and Meaning Parts Can Overlap
 
-Some longer words become easier when meaning supplies the clearest chunks. _Sunset_ is both _sun-set_ and the compound _sun + set = sunset_. A word with a suffix may also preserve a known base spelling even when its spoken syllables are less obvious.
+Some longer words become easier when meaning supplies the clearest chunks. _Sunset_ is both _sun-set_ and the compound _sun + set = sunset_—spelling each small word correctly settles the whole word, the same strategy developed further on the [Compound Words Skill](/spelling-lists/grade-level/compound-words/). A word with a suffix may also preserve a known base spelling even when its spoken syllables are less obvious.
 
 Do not force every word into a base-and-affix equation: _rabbit_ is not built from two smaller words _rab_ and _bit_. Use meaningful parts only when they are real. The [Common Suffixes Skill](/spelling-lists/grade-level/common-suffixes/) develops that strategy further. The [R-Controlled ER, IR, and UR Words Skill](/spelling-lists/phonics/r-controlled-er-ir-ur/) explains why the clear vowel-plus-_r_ sound in a word such as _her_ can sound weaker in an unstressed ending such as _winter_.
 

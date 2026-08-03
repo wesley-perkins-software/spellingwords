@@ -14,6 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
+skillIds: ["r-controlled-ar", "r-controlled-or"]
 relatedLists: ["r-controlled-ar", "r-controlled-or"]
 prerequisiteLists: ["grade-1-inflectional-endings-ed-ing"]
 nextLists: ["grade-1-r-controlled-er-ir-ur"]

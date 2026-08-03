@@ -1,7 +1,12 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { GRADE_2_COMMON_WORD_IDS, GRADE_2_CORE_IDS, GRADE_2_VOCABULARY_IDS, grade2Badges } from './grade2Progression';
+import {
+  GRADE_2_COMMON_WORD_IDS,
+  GRADE_2_CORE_IDS,
+  GRADE_2_VOCABULARY_IDS,
+  grade2Badges,
+} from './grade2Progression';
 import { getSentenceBankEntry } from '@/lib/sentenceBank/lookup';
 
 type FrontmatterSummary = {
@@ -64,7 +69,12 @@ function readListIds(frontmatter: string): string[] {
     .split('\n')
     .map((line) => line.trim())
     .filter((line) => line.startsWith('- '))
-    .map((line) => line.slice(2).trim().replace(/^['"]|['"]$/g, ''));
+    .map((line) =>
+      line
+        .slice(2)
+        .trim()
+        .replace(/^['"]|['"]$/g, ''),
+    );
 }
 
 function readSpellingListFrontmatter(): FrontmatterSummary[] {
@@ -227,7 +237,13 @@ describe('Grade 2 Core Spelling', () => {
 
   it('declares the expected Skill back-references on each core card', () => {
     const expectedSkillIds: Record<string, string[]> = {
-      'grade-2-two-syllable-words': ['r-controlled-ar', 'r-controlled-or', 'r-controlled-er-ir-ur'],
+      'grade-2-two-syllable-words': [
+        'r-controlled-ar',
+        'r-controlled-or',
+        'r-controlled-er-ir-ur',
+        'multisyllabic-words',
+      ],
+      'grade-2-final-stable-le': ['multisyllabic-words'],
       'grade-2-silent-letter-words': ['silent-letters'],
       'grade-2-soft-c-soft-g': ['soft-c-soft-g'],
       'vowel-teams-oi-oy': ['oi-and-oy-words'],

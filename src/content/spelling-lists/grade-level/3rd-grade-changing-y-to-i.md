@@ -15,6 +15,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
+skillIds: ["suffix-spelling-changes"]
 relatedLists: ["grade-3-doubling-final-consonants", "grade-3-possessives"]
 prerequisiteLists: ["grade-3-doubling-final-consonants"]
 nextLists: ["grade-3-possessives"]

@@ -15,6 +15,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
+skillIds: ["suffix-spelling-changes"]
 relatedLists: ["grade-3-dropping-silent-e", "grade-3-changing-y-to-i"]
 prerequisiteLists: ["grade-3-dropping-silent-e"]
 nextLists: ["grade-3-changing-y-to-i"]

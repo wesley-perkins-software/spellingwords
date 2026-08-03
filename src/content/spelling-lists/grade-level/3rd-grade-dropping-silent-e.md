@@ -15,6 +15,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
+skillIds: ["suffix-spelling-changes"]
 relatedLists: ["grade-3-suffix-words", "grade-3-doubling-final-consonants", "grade-3-changing-y-to-i"]
 prerequisiteLists: ["grade-3-suffix-words", "grade-2-comparatives-er-est"]
 nextLists: ["grade-3-doubling-final-consonants"]

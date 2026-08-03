@@ -452,51 +452,65 @@ The curriculum-placement audit found that none of the six architecture-identifie
 - [ ] Family-wide consistency review completed — self-review passed for the single page and its rendered relationships/curriculum placement; left unchecked pending independent human sign-off
 ### Word Building and Endings
 
-- [ ] Family audit completed
-- [ ] Shared terminology and page pattern agreed
+**Eighth batch note:** the independent audit found six published but noncanonical stubs: each had only a direct answer, a small demonstration list, and one body paragraph. None supplied the Standard's required organized example system, attention statement, mistake/boundary treatment, teaching routine, diagnostic response, or signs of security. All relationship fields were empty; that was not itself drift, and links were added only where the completed prose established a continuing instructional handoff. The family test also imposed an unsupported 4–16 word range while failing to parse inline relationship arrays, and none of the eleven architecture-designated contributing Grade Units carried the `skillIds` metadata required for reverse curriculum placement.
+
+The educational boundaries were redrawn rather than forcing a shared template. Plurals now covers regular noun *-s/-es*, using pronunciation only for the spelling-relevant extra-syllable decision and bounding consonant-plus-*y* and irregular forms. Words Ending in *-ed* and *-ing* uses unchanged-base examples, explains the stable written *-ed* ending without reteaching base changes, and hands those mechanics to the rules Skill. Common Suffixes distinguishes derivational *-ful/-less/-ness/-ment* from inflectional comparative *-er/-est* instead of claiming every suffix changes meaning alike. Spelling Rules for Adding Suffixes teaches only the double/drop/change/attach decision and explicit negative cases. Compound Words centers two meaningful component words, contrasts syllable chunks, and mentions open/hyphenated compounds only as a formatting boundary. Contractions centers expansion, omitted letters, and apostrophe placement, with *won't* and *it's/its* kept as bounded high-utility cautions rather than a broader grammar lesson.
+
+Demonstration sets were independently re-audited rather than normalized by count. Plurals added *books, buses,* and *lunches* to strengthen the *-s/-es* contrast while removing redundant *cups* and the less useful isolated *buzzes*. The *-ed/-ing* set became four complete unchanged-base pairs, adding *playing, rested,* and *resting* so pronunciation and syllable contrasts are honest without importing spelling-change rules. Common Suffixes replaced redundant same-family examples with one transparent example for each distinct suffix job. The spelling-rules set adds negative controls (*hopeful, carrying*) so the immediate resource does not demonstrate transformations without their boundaries. Compound Words replaced *football* and *rainbow* with the especially transparent *sunset* and *toothbrush*. Contractions added *she's* and *won't* because they earn distinct pattern/exception roles; YAML quoting was normalized for every apostrophe-bearing word.
+
+Relationship review retained empty fields for Plurals, Compound Words, and Contractions: family membership and the superficial fact that two words are involved do not establish an instructional relationship. `ed-and-ing` links to `suffix-spelling-changes` because its unchanged-base boundary explicitly sends changing bases there; Common Suffixes and Spelling Rules for Adding Suffixes link reciprocally because the completed pages repeatedly distinguish suffix function from attachment mechanics. The rules page also links to `ed-and-ing` because its transformations operate on the very endings that page deliberately excludes. These are related Skills, not prerequisites or universal next steps; all `prerequisiteLists` and `nextLists` remain empty.
+
+The curriculum audit confirmed every mapping against both `SKILLS_ARCHITECTURE.md`'s named source chain and the Grade Unit's actual teaching content before adding metadata: two plural units, one *-ed/-ing* unit, three suffix-form/function units, three base-change units, one compound unit, and one contraction unit now point to their respective canonical Skills. No Grade Unit prose, word list, sequencing, readiness signal, or relationship was changed. Focused coverage now protects those placements, all contributing Grade Unit roles that are explicit in current content, nonempty demonstration sets without an invented count contract, canonical Skill-only relationship targets, duplicate relationships, and Grade-Unit-side placement ownership.
+
+**Adversarial review corrections:** the first claim-level pass removed a three-way plural-pronunciation lesson from the main instruction and retained only the extra-syllable test that can change the *-s/-es* spelling choice. It qualified *-er/-est* as comparative inflection, limited doubling to clear one-syllable starting examples rather than implying a complete stress rule, added negative cases for doubled consonants and final *y*, and replaced an overbroad final-*e* rule with a useful starting condition plus familiar bounded exceptions. It also prevented Compound Words from becoming a taxonomy of open/hyphenated formatting and treated *won't* as a whole-word irregularity without an unsupported public etymology. A second family-boundary pass removed tense/aspect instruction from the rules page, kept all three base transformations off the *-ed/-ing* page, eliminated duplicate FAQ material, verified every word equation and contraction expansion, and found no further substantive correction. External authoritative-source verification was attempted for the uncertain linguistic claims, but the web service returned HTTP 401 in this environment; wording was therefore kept bounded and independent human source review remains required.
+
+**Rendered-output follow-up:** dependency installation was attempted twice from the lockfile, but the network proxy returned HTTP 403 for required npm tarballs and left no local Astro, Vitest, or project ESLint binaries. Consequently the requested build, full/focused tests, and desktop/mobile browser inspection could not run in this environment; direct authoritative-site requests were likewise rejected by the proxy. Source-level checks confirmed all eleven back-references, canonical Skill relationship targets, nonempty demonstration sets, prose-link destinations, and a clean Git diff. True rendered inspection, screenshots, and the normal project command suite remain explicitly pending rather than being reported as complete.
+
+- [x] Family audit completed
+- [ ] Shared terminology and page pattern agreed — the six pages share precise base-word/suffix terminology but deliberately use different instructional organizations; pending independent human review
 - [ ] Plural Words with -s and -es
-  - [ ] Existing page audited
+  - [x] Existing page audited
   - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Written content completed
+  - [x] Internal links completed — no Skill relationship card earned; two curriculum placements restored through Grade Unit metadata
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed; pending independent human source review and editorial sign-off
 - [ ] Words Ending in -ed and -ing
-  - [ ] Existing page audited
+  - [x] Existing page audited
   - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Written content completed
+  - [x] Internal links completed — one related rules Skill and one curriculum placement, each justified by the unchanged-base boundary
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed; pending independent human source review and editorial sign-off
 - [ ] Common Suffixes
-  - [ ] Existing page audited
+  - [x] Existing page audited
   - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Written content completed
+  - [x] Internal links completed — one related rules Skill and three verified curriculum placements
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed; pending independent human source review and editorial sign-off
 - [ ] Spelling Rules for Adding Suffixes
-  - [ ] Existing page audited
+  - [x] Existing page audited
   - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Written content completed
+  - [x] Internal links completed — two related Skills distinguish mechanics from ending choice/meaning; three verified curriculum placements
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed; pending independent human source review and editorial sign-off
 - [ ] Compound Words
-  - [ ] Existing page audited
+  - [x] Existing page audited
   - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Written content completed
+  - [x] Internal links completed — no topical Skill card added; one verified curriculum placement
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed; pending independent human editorial sign-off
 - [ ] Contractions
-  - [ ] Existing page audited
+  - [x] Existing page audited
   - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
-- [ ] Family-wide consistency review completed
+  - [x] Written content completed
+  - [x] Internal links completed — no topical Skill card added; one verified curriculum placement
+  - [x] Structured data and metadata reviewed
+  - [ ] Final editorial review passed — drafted and self-reviewed; pending independent human source review and editorial sign-off
+- [ ] Family-wide consistency review completed — self-review passed for boundaries, relationships, placements, demonstrations, FAQs, and source-level destinations; rendered review remains environment-blocked and independent human sign-off is pending
 ### Prefixes
 
 - [ ] Family audit completed
@@ -968,7 +982,7 @@ No editorial work has started under this roadmap yet — all totals below reflec
 | Phase | Total items (canonical active) | Complete | In progress | Remaining | Blocked |
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + 35 unresolved rows + 2 taxonomy-mismatch decisions | 7 (roadmap + inventory files created + `silent-e-long-e` taxonomy-mismatch decision resolved: merged into the Silent E family overview, archived, redirected) | 0 | 35 unresolved rows + 2 mismatch decisions | 0 |
-| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 28 (5 Short Vowels + 4 Consonant Digraphs + 2 Consonant Blends + 4 Silent E + 3 Common Spelling Patterns + 7 Vowel Teams (all live slots; IE and IGH Words remains content-pending) + 3 R-Controlled Vowels — seven family batches drafted and self-reviewed; all 28 pending independent human sign-off before moving to Complete) | 12 (Multisyllabic Words 1 + Word Building and Endings 6 + Prefixes 2 + Greek and Latin Roots 1 + Homophones and Commonly Confused Words 2) | 1 (IE and IGH Words — content-pending) |
+| Phase 1 — Skill-page content | 41 skill slots (40 live + 1 content-pending) | 0 | 35 (5 Short Vowels + 4 Consonant Digraphs + 2 Consonant Blends + 4 Silent E + 3 Common Spelling Patterns + 7 Vowel Teams (all live slots; IE and IGH Words remains content-pending) + 3 R-Controlled Vowels + 1 Multisyllabic Words + 6 Word Building and Endings — nine family batches drafted and self-reviewed; all 35 pending independent human sign-off before moving to Complete) | 5 (Prefixes 2 + Greek and Latin Roots 1 + Homophones and Commonly Confused Words 2) | 1 (IE and IGH Words — content-pending) |
 | Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages | 0 | 0 | 75 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |

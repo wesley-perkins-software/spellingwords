@@ -15,6 +15,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
+skillIds: ["contractions"]
 relatedLists: []
 prerequisiteLists: ["grade-2-list-02"]
 nextLists: []

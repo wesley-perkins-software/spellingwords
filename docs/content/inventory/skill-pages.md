@@ -73,7 +73,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Every page below is e
 
 | Skill id | Title | urlSlug | Grade (frontmatter) | Source file | Editorial status | Instructional variant | Content brief status |
 |---|---|---|---|---|---|---|---|
-| multisyllabic-words | Multisyllabic Words | multisyllabic-words | 2 | `src/content/spelling-lists/phonics/multisyllabic-words.md` | Not audited | Hybrid | Not started |
+| multisyllabic-words | Multisyllabic Words | multisyllabic-words | 2 | `src/content/spelling-lists/phonics/multisyllabic-words.md` | Needs review — content drafted to the Standard's documented hybrid, the inaccurate “longer words are spelled the same way they're read” premise replaced with a flexible speech-pattern-morphology-check routine, open/closed syllables bounded as useful tendencies rather than guarantees, the required Open Syllables and Words Ending in Consonant-LE sections expanded, syllabic consonants and unstressed-vowel ambiguity treated explicitly in parent-friendly language, demonstration set re-audited and expanded only to cover genuinely distinct analyses, both proposed related Skills removed after a final utility review found neither materially advanced the page's central strategy, and missing `skillIds` back-references added to all six contributing Grade Units; pending independent human editorial sign-off before "Complete" | Hybrid | Needs review |
 
 ## Word Building and Endings
 
@@ -118,4 +118,3 @@ These are **not** part of the canonical Skill-page checklist and are not counted
 **Resolved:** `silent-e-long-e` (Long E Silent E Words) was the third row in this table; it is now resolved per `docs/architecture/SKILLS_ARCHITECTURE.md` §5 — folded into the Silent E family's normal introductory guidance sentence on the Skills Hub (one clause, e.g. "eve, these, theme"), not rendered as a separate block or peer Skill page, so the hub stays visually and editorially consistent with every other family. Content entry set to `status: archived` so no standalone page is emitted, and its former URL (`/spelling-lists/phonics/silent-e-long-e`) permanently redirects (301) to `/spelling-lists/skills/#silent-e-family`. Moved to the "Archived-status pages" table in `deprecated-and-legacy-pages.md`.
 
 **Totals:** 12 families · 41 taxonomy slots (40 live + 1 provisional) · 40 canonical-active Skill pages · 2 unresolved skill-tagged pages outside the taxonomy.
-

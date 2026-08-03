@@ -8,7 +8,7 @@ category: phonics
 grade: "2"
 difficulty: developing
 contentRole: grade-unit
-skillIds: ["r-controlled-ar", "r-controlled-or", "r-controlled-er-ir-ur"]
+skillIds: ["r-controlled-ar", "r-controlled-or", "r-controlled-er-ir-ur", "multisyllabic-words"]
 skillTags: ["syllables", "multisyllabic-words", "two-syllable-words"]
 tags: ["phonics", "syllables", "grade-2", "core-spelling"]
 order: 51

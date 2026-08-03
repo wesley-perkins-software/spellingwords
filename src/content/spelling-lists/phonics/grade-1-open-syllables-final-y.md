@@ -7,6 +7,8 @@ shortAnswer: "This Grade 1 core unit teaches open syllables and final y with a f
 category: phonics
 grade: "1"
 difficulty: beginner
+contentRole: grade-unit
+skillIds: ["multisyllabic-words"]
 skillTags: ["grade-1-core", "open-syllables-and-final-y"]
 tags: ["first-grade", "core-spelling"]
 order: 107

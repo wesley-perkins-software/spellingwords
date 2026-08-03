@@ -250,6 +250,8 @@ describe('Grade 2 Core Spelling', () => {
       'vowel-teams-ou-ow': ['ou-and-ow-words'],
       'grade-2-oo-two-sounds': ['oo-words'],
       'grade-2-au-aw-words': ['au-and-aw-words'],
+      'grade-2-list-02': ['compound-words'],
+      'grade-2-contractions': ['contractions'],
     };
     for (const id of GRADE_2_CORE_IDS) {
       const frontmatter = readFrontmatter(byId.get(id)!.filePath);

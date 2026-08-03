@@ -3,7 +3,7 @@ id: oo-words
 urlSlug: oo-words
 title: "OO Words"
 description: "How the same two letters, oo, spell two different vowel sounds — the sound heard in moon and food, and the different sound heard in book and foot — with no visual clue that tells them apart, for parents and teachers."
-shortAnswer: "The letters oo spell two different vowel sounds in English, and neither one is the 'main' or default sound: a longer sound, as in moon and food, and a shorter sound, as in book and foot. There's no spelling clue on the page that tells a child which sound a new oo word uses — the word has to be recognized or tried both ways and checked against a word the learner already knows."
+shortAnswer: "The letters oo most commonly spell two different vowel sounds, and neither one is the 'main' or default sound: a longer sound, as in moon and food, and a shorter sound, as in book and foot. There's no spelling clue on the page that tells a child which sound a new oo word uses — the word has to be recognized or tried both ways and checked against a word the learner already knows. A small number of oo words use neither sound and aren't covered here."
 contentRole: skill
 category: phonics
 grade: "2"
@@ -26,6 +26,8 @@ faq:
     answer: "Not reliably. It's true that oo followed by k is short more often than not in common words (book, look, took, cook), but that's a loose tendency with real exceptions, not a rule a child can apply with confidence — and it doesn't help at all with oo words that aren't followed by k. Trying the word both ways and checking it against context, or against a word already known, is the more dependable strategy."
   - question: "Why do some people say 'roof' or 'root' with the long sound and others with the short sound?"
     answer: "A handful of oo words genuinely vary by speaker or regional accent — roof and root are two of the clearest examples, said with the long moon sound by some speakers and the short book sound by others. Neither pronunciation is wrong; it's a real reason oo can seem inconsistent even to adults, not just to children learning it."
+  - question: "Are there oo words that don't use either sound taught here?"
+    answer: "Yes, a small number. In blood and flood, oo spells plain short u instead — the sound in cup, not either sound taught on this page. And before the letter r, as in door, floor, and poor, oo combines with r to make a different sound entirely, the same way other vowels change before r (a separate pattern, R-Controlled Vowels). These are uncommon enough that they're left off this page's list, but worth knowing about so a learner isn't thrown by one later."
 words:
   - moon
   - food

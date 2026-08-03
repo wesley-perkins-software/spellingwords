@@ -23,7 +23,9 @@ faq:
   - question: "How reliable is the aw-before-n-or-l tendency, really?"
     answer: "Reliable enough to be worth teaching as a first guess, but not exceptionless — haul, fault, and vault all use au directly before l, which runs against the tendency. Treat it as a useful starting point for an unfamiliar word, not a rule that always holds."
   - question: "Are augh words like caught and taught included here?"
-    answer: "No. Augh is a related but separate three-letter spelling for a similar sound, and it's left out so this page stays focused on the two most common two-letter spellings, au and aw."
+    answer: "No. Augh is a related but separate spelling, and it isn't even consistent with itself — caught and taught use the same sound taught on this page, but laugh, which is also spelled with augh, doesn't. That inconsistency is exactly why augh is left for its own lesson rather than folded into this page."
+  - question: "Doesn't 'laugh' break the rule that au spells the saw/cause sound?"
+    answer: "Yes, and it's common enough to name directly: laugh doesn't use the saw sound at all — it rhymes with half, not with haul. It's a genuine sound exception, not just a position exception like haul, so it's worth teaching by sight rather than sounding out with this page's pattern."
   - question: "Why is 'author' included if au isn't at the very start or end of the word?"
     answer: "Author shows au doing its ordinary job in the middle of a word, which is exactly where the tendency predicts it — it's included specifically so the word list isn't limited to au appearing only in short, simple words like cause."
 words:
@@ -60,12 +62,15 @@ In the common words taught here, *aw* is typically found at the very end of a wo
 
 *Haul* uses *au* directly before *l* — exactly the position where the tendency predicts *aw*. *Fault* and *vault* do the same thing. These aren't rare or obscure words; they're common enough that a learner will meet them, so the honest version of the tendency is "aw is common before n or l, but not guaranteed," not "aw always comes before n or l."
 
+That's an exception of *position* — *au* shows up where *aw* was expected, but the sound is still the target sound. A different, more fundamental exception exists in *laugh*: there, *au* doesn't spell the target sound at all. *Laugh* rhymes with *half*, not with *haul*, so it's not a case of predicting the wrong spelling for the right sound — it's a completely different sound wearing this page's letters. Because *laugh* is such a common, early word, it's worth naming directly rather than letting a learner discover the mismatch on their own.
+
 ### What Should the Learner Notice?
 
 - AU and AW spell the exact same vowel sound — the difference is spelling only, not sound.
 - *Aw* is the better first guess at the end of a word or right before *n* or *l*; *au* is the better first guess elsewhere in the middle of a word.
 - *Haul* is a genuine exception to the *n*/*l* tendency and needs to be learned as its own word rather than worked out from the pattern.
-- *Augh*, as in *caught* and *taught*, is a related but separate spelling for a similar sound and isn't part of this page.
+- *Laugh* is a different kind of exception: the letters *au* are there, but the target sound isn't — it needs to be learned by sight, not sounded out.
+- *Augh*, as in *caught* and *taught*, is a related but separate spelling, and isn't even consistent with itself (compare *caught* with *laugh*) — a further reason it's left for its own lesson rather than folded into this page.
 
 ### How to Practice AU and AW Words
 

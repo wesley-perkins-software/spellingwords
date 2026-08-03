@@ -56,6 +56,10 @@ OU and OW are two-letter vowel teams that spell a diphthong: a vowel sound that 
 
 The two letters *ow* spell two completely unrelated sounds in English. In *snow*, *know*, and *grow*, *ow* spells long o — a steady vowel sound that doesn't move while it's being said, taught on OA and OW Words. In *cow*, *brown*, and *down*, *ow* spells the gliding sound taught here. These aren't two versions of one sound; they're two different sounds that happen to share a spelling, and a learner can't tell which one is meant just by looking at the letters *ow* in isolation. Recognizing the specific word is what settles it — the same way telling *snow* and *cow* apart depends on knowing the word, not on a spelling clue.
 
+### This Page Is Also Not About OU as Short U
+
+There's a second scope boundary worth naming, separate from the OW/snow one above: *ou* very commonly spells a completely different sound — plain short u, the sound heard in *cup* — in everyday words like *young*, *touch*, *double*, *trouble*, *country*, and *cousin*. That's a real, common pattern in its own right, not a rare exception, but it's a different vowel sound entirely from the gliding sound taught on this page, so it isn't covered here. A learner shouldn't assume every *ou* word uses the gliding sound just because this page teaches *ou* — *young* and *out* use the same two letters for two unrelated sounds, the same way *ow* does in *snow* versus *cow*.
+
 ### There Is No Reliable Rule — and That's Worth Saying Directly
 
 Some vowel teams have a genuine position tendency worth teaching as a first guess — OI and OY do, and OA and OW do. OU and OW don't. *Ow* shows up at the end of a word in the common words taught here (*cow*, *now*), but it shows up in the middle just as easily (*brown*, *down*). *Ou* shows up at the very start of a word (*out*) and in the middle (*loud*, *found*, *round*, *sound*, *ground*). Neither spelling favors one position strongly enough to be worth teaching as a rule. Teaching a false rule here would do more harm than good — a learner who trusts a "rule" that doesn't actually hold will be wrong often enough to lose confidence in the pattern itself.
@@ -65,6 +69,7 @@ Some vowel teams have a genuine position tendency worth teaching as a first gues
 - OU and OW spell the exact same gliding sound — the difference is spelling only, not sound.
 - Neither spelling is reserved for one position in a word: *ou* appears at the very start of a word (*out*) and in the middle (*found*, *round*); *ow* appears in the middle (*brown*, *down*) and at the very end (*cow*, *now*).
 - The OW in this list always spells the gliding sound, as in *cow*; it never spells the steady long-o sound heard in *snow* here.
+- *Ou* in this list always spells the gliding sound too; it doesn't cover the short u sound *ou* spells in words like *young* or *touch*.
 - Words like *found*, *round*, *sound*, and *ground* share the same *-ound* ending, which makes them useful to read and spell as a family.
 
 ### How to Practice OU and OW Words

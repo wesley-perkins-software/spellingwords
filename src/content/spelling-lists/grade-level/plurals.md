@@ -3,7 +3,7 @@ id: plurals
 urlSlug: plurals
 title: "Plural Words with -s and -es"
 description: "Learn how regular nouns form plurals with -s or -es, why some endings need an extra syllable, and which familiar plurals fall outside this pattern."
-shortAnswer: "Regular plural nouns name more than one. Most add -s to the singular word, as in cat → cats. Nouns ending in s, x, z, sh, or ch usually add -es, as in box → boxes and dish → dishes."
+shortAnswer: "Regular plural nouns name more than one. Most add -s to the singular word, as in cat → cats. Nouns ending in hissing or buzzing sounds commonly spelled s, x, z, sh, or ch usually add -es, as in box → boxes and dish → dishes."
 contentRole: skill
 category: grade-level
 grade: "1"

@@ -52,7 +52,7 @@ The apostrophe does not simply go between the original words. It stands where th
 
 ### Contractions with *not*
 
-In *can't, don't, didn't, isn't,* and *wasn't*, the contraction includes *not* and the apostrophe marks omitted letters. Most keep a recognizable first word. *Can't* is conventionally expanded as *cannot* (or understood as *can not* in the two-word comparison), while *won't* is an irregular form of *will not* and must be remembered separately.
+In *can't, don't, didn't, isn't,* and *wasn't*, the contraction includes *not* and the apostrophe marks omitted letters. Most keep a recognizable first word. *Can't* expands to *cannot*, while *won't* is an irregular form of *will not* and must be remembered separately.
 
 ### Short forms of *am, is,* and *are*
 

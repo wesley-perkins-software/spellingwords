@@ -14,6 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
+skillIds: ["common-suffixes"]
 relatedLists: []
 prerequisiteLists: ["grade-3-suffix-words"]
 nextLists: ["grade-3-dropping-silent-e"]

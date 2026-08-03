@@ -14,6 +14,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
+skillIds: ["ed-and-ing"]
 relatedLists: []
 prerequisiteLists: ["grade-1-inflectional-endings-s-es"]
 nextLists: ["grade-1-r-controlled-ar-or"]

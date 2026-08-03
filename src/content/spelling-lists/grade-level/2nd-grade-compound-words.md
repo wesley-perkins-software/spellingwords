@@ -15,6 +15,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
+skillIds: ["compound-words"]
 relatedLists: []
 prerequisiteLists: ["grade-2-silent-letter-words"]
 nextLists: ["grade-2-contractions"]

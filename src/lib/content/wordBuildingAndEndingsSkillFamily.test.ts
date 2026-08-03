@@ -21,9 +21,11 @@ type FrontmatterSummary = {
   status: string;
   contentRole?: string;
   words: string[];
+  skillIds: string[];
   relatedLists: string[];
   prerequisiteLists: string[];
   nextLists: string[];
+  filePath: string;
 };
 
 function readFrontmatter(filePath: string): string {
@@ -42,6 +44,11 @@ function readArray(frontmatter: string, key: string): string[] {
   const lines = frontmatter.split('\n');
   const keyIndex = lines.findIndex((line) => line.startsWith(`${key}:`));
   if (keyIndex === -1) return [];
+
+  const inline = lines[keyIndex].match(/^\w+:\s*\[(.*)\]\s*$/)?.[1];
+  if (inline !== undefined) {
+    return [...inline.matchAll(/["']([^"']+)["']/g)].map((match) => match[1]);
+  }
 
   const values: string[] = [];
   for (const line of lines.slice(keyIndex + 1)) {
@@ -64,9 +71,11 @@ function readSummary(filePath: string): FrontmatterSummary {
     status: readScalar(frontmatter, 'status') ?? '',
     contentRole: readScalar(frontmatter, 'contentRole'),
     words: readArray(frontmatter, 'words'),
+    skillIds: readArray(frontmatter, 'skillIds'),
     relatedLists: readArray(frontmatter, 'relatedLists'),
     prerequisiteLists: readArray(frontmatter, 'prerequisiteLists'),
     nextLists: readArray(frontmatter, 'nextLists'),
+    filePath,
   };
 }
 
@@ -95,26 +104,65 @@ describe('Word Building and Endings Skill Family', () => {
     }
   });
 
-  it('reverted the doubling-final-consonants and changing-y-to-i sources to grade-unit (merged into Spelling Rules for Adding Suffixes instead)', () => {
-    for (const id of ['grade-3-doubling-final-consonants', 'grade-3-changing-y-to-i']) {
+  it('keeps every contributing source page a Grade Unit', () => {
+    for (const id of [
+      'grade-3-suffix-words',
+      'grade-3-doubling-final-consonants',
+      'grade-3-dropping-silent-e',
+      'grade-3-changing-y-to-i',
+      'grade-2-list-02',
+      'grade-2-contractions',
+    ]) {
       expect(byId.get(id), id).toMatchObject({ id, contentRole: 'grade-unit' });
     }
   });
 
-  it('keeps each Skill demonstration word set within a reasonable range', () => {
+  it('keeps a nonempty demonstration set on each Skill without imposing a target count', () => {
     for (const id of WORD_BUILDING_SKILL_IDS) {
-      const entry = byId.get(id)!;
-      expect(entry.words.length, id).toBeGreaterThanOrEqual(4);
-      expect(entry.words.length, id).toBeLessThanOrEqual(16);
+      expect(byId.get(id)!.words.length, id).toBeGreaterThan(0);
     }
   });
 
   it('keeps relationship ids resolvable', () => {
     for (const id of WORD_BUILDING_SKILL_IDS) {
       const entry = byId.get(id)!;
-      for (const ref of [...entry.relatedLists, ...entry.prerequisiteLists, ...entry.nextLists]) {
+      const refs = [...entry.relatedLists, ...entry.prerequisiteLists, ...entry.nextLists];
+      expect(new Set(refs).size, `${id} has a duplicate relationship`).toBe(refs.length);
+      for (const ref of refs) {
         expect(allIds.has(ref), `${id} references ${ref}`).toBe(true);
+        expect(byId.get(ref)?.contentRole, `${id} references non-Skill ${ref}`).toBe('skill');
       }
+    }
+  });
+
+  it('gives each Skill the architecture-defined curriculum placements from Grade Unit skillIds', () => {
+    const expectedPlacements: Record<(typeof WORD_BUILDING_SKILL_IDS)[number], string[]> = {
+      plurals: ['grade-1-inflectional-endings-s-es', 'grade-2-regular-plurals'],
+      'ed-and-ing': ['grade-1-inflectional-endings-ed-ing'],
+      'common-suffixes': [
+        'grade-2-suffixes-ful-less',
+        'grade-3-suffix-words',
+        'grade-2-comparatives-er-est',
+      ],
+      'suffix-spelling-changes': [
+        'grade-3-doubling-final-consonants',
+        'grade-3-dropping-silent-e',
+        'grade-3-changing-y-to-i',
+      ],
+      'compound-words': ['grade-2-list-02'],
+      contractions: ['grade-2-contractions'],
+    };
+
+    for (const skillId of WORD_BUILDING_SKILL_IDS) {
+      for (const gradeUnitId of expectedPlacements[skillId]) {
+        expect(byId.get(gradeUnitId)?.skillIds, gradeUnitId).toContain(skillId);
+      }
+    }
+  });
+
+  it('computes curriculum placement from Grade Units rather than storing skillIds on Skills', () => {
+    for (const id of WORD_BUILDING_SKILL_IDS) {
+      expect(readFrontmatter(byId.get(id)!.filePath), id).not.toMatch(/^skillIds:/m);
     }
   });
 

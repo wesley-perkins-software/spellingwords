@@ -5,6 +5,7 @@ title: "4th Grade Commonly Confused Words"
 description: "A fourth-grade commonly confused words list that helps students choose the right spelling for words that sound alike or look similar in writing."
 shortAnswer: "Fourth graders practice commonly confused words such as there, their, they're, its, it's, than, then, except, affect, effect, principal, and principle."
 contentRole: grade-unit
+skillIds: ["commonly-confused-words"]
 category: grade-level
 grade: "4"
 difficulty: intermediate

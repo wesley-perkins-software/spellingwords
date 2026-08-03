@@ -8,6 +8,7 @@ category: phonics
 grade: "2"
 difficulty: developing
 contentRole: grade-unit
+skillIds: ["oi-and-oy-words"]
 skillTags: ["vowel-teams", "diphthongs", "oi", "oy"]
 tags: ["phonics", "vowel-teams", "diphthongs", "grade-2", "core-spelling"]
 order: 8

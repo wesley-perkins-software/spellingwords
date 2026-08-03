@@ -73,12 +73,13 @@ export const grade2Badges: Record<string, string> = {
 // "Grade N Spelling · Step X of Y" banner for any grade-unit that declares
 // `skillIds`, but the position lookup (`getKindergartenRoadmapPosition` in
 // `kindergartenProgression.ts`) is hardcoded to Kindergarten's progression
-// only — it is not yet grade-aware. Grade 2's Two-Syllable Words card
-// (`grade-2-two-syllable-words`) declares `skillIds` per this plan's D1
-// resolution, so it correctly gets the "Go deeper" Skill callout and shows
-// example sentences in its word list, but it will not show a step badge, and
-// its Skills' reverse "Where this fits" lookup will show "Grade 2" with no
-// step count for that placement. This is a pre-existing single-grade
-// limitation, not something introduced by Grade 2 — generalizing it would
-// mean editing shared K-rendering template code, which is out of this
-// implementation's scope.
+// only — it is not yet grade-aware. Several Grade 2 core cards declare
+// `skillIds` (`grade-2-two-syllable-words`, `grade-2-silent-letter-words`,
+// `grade-2-soft-c-soft-g`, `vowel-teams-oi-oy`, `vowel-teams-ou-ow`,
+// `grade-2-oo-two-sounds`, `grade-2-au-aw-words`), so each correctly gets the
+// "Go deeper" Skill callout and shows example sentences in its word list, but
+// none will show a step badge, and their Skills' reverse "Where this fits"
+// lookup will show "Grade 2" with no step count for that placement. This is a
+// pre-existing single-grade limitation, not something introduced by Grade 2 —
+// generalizing it would mean editing shared K-rendering template code, which
+// is out of this implementation's scope.

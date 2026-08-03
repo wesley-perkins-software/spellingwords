@@ -8,6 +8,7 @@ category: phonics
 grade: "2"
 difficulty: developing
 contentRole: grade-unit
+skillIds: ["au-and-aw-words"]
 skillTags: ["vowel-teams", "au", "aw", "variable-vowel-teams"]
 tags: ["phonics", "vowel-teams", "grade-2", "core-spelling"]
 order: 49

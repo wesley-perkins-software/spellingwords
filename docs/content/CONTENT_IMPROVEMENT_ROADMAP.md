@@ -339,8 +339,12 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
 - [ ] Family-wide consistency review completed — self-review passed (all four siblings read as distinct in structure and emphasis, not mirrored clones; internal links resolve and are individually justified, not added for family symmetry; curriculum placement now resolves for all four via the new `grade-1-long-vowels-silent-e` `skillIds` back-reference; no Grade Unit duplication found; the archived `silent-e-long-e` page is not linked from any live Skill); leaving unchecked pending the same independent human sign-off as the per-page items above
 ### Vowel Teams
 
-- [ ] Family audit completed
-- [ ] Shared terminology and page pattern agreed
+**Fifth batch note:** this batch completes the Vowel Teams family's four remaining Grade 2 Skills — OI and OY, OU and OW, OO, and AU and AW — which had existed only as thin, pre-Standard stubs (populated frontmatter and FAQs, but a single one-paragraph body each, `relatedLists`/`prerequisiteLists` both empty). As part of the audit step, the four Grade 2 Grade Unit siblings these Skills were promoted from (`vowel-teams-oi-oy.md`, `vowel-teams-ou-ow.md`, `grade-2-oo-two-sounds.md`, `grade-2-au-aw-words.md`) were confirmed to have no `skillIds` back-reference to their Skill — the same gap already fixed for every earlier family — so a one-line `skillIds` addition was made to each, with a corresponding update to `grade2Progression.test.ts`'s back-reference expectation map (which had encoded the missing back-references as the expected state) and to the explanatory comment in `grade2Progression.ts`. Each Skill's own instructional model was independently derived rather than reused from AI/AY: OI/OY teaches the genuine syllable-final tendency for OY (not a naive "middle vs. end" rule, since it must also explain mid-word cases like `royal`); OU/OW states plainly that no position rule exists and teaches word recognition instead, while keeping its scope boundary against the unrelated long-o OW (`vowel-teams-oa-ow`) reciprocal with that page's existing boundary statement; OO teaches both pronunciations with neither presented as default, naming the loose (not reliable) oo-before-k tendency and a genuine dialect note (`roof`/`root`); AU/AW keeps its existing position tendency but names a real, common counterexample (`haul`, `fault`, `vault`) rather than presenting the tendency as absolute. Every demonstration word was re-audited rather than assumed to deserve its place; `royal`/`loyal` were added to OI/OY specifically to demonstrate the syllable-final tendency, and `author`/`haul` were added to AU/AW to demonstrate genuine mid-word AU and the tendency's real exception.
+
+**Follow-up adversarial pass (same batch):** a second, dedicated adversarial review after the initial draft found three genuine completeness gaps, all now corrected. (1) OO's `shortAnswer` and body claimed *oo* spells "two different vowel sounds" without qualification — `blood`/`flood` (short u) and `door`/`floor`/`poor` (r-controlled, before `r`) are real, if uncommon, third/fourth pronunciations; added an explicit scope boundary (FAQ) naming them rather than leaving the "two sounds" claim to read as exhaustive. (2) AU/AW's existing `augh`-exclusion FAQ claimed `augh` spells "a similar sound" to `au`/`aw` — false: `caught`/`taught` use the target sound but `laugh` (also spelled with `augh`) does not; corrected the FAQ wording and added `laugh` as a named, common, genuine *sound* exception (distinct in kind from `haul`'s *position* exception, since `laugh` doesn't use the target sound at all). (3) OU/OW's scope statement bounded out only the unrelated long-o `ow` (`snow`) — it didn't bound out the equally common short-u `ou` (`young`, `touch`, `double`, `trouble`, `country`, `cousin`), a real and frequent alternate pronunciation of the same two letters; added an explicit second scope boundary alongside the existing OA/OW one.
+
+- [x] Family audit completed
+- [ ] Shared terminology and page pattern agreed — deliberately left unchecked: each of the seven live Vowel Teams Skills earns its own section order and emphasis from its own instructional reality (a genuine position tendency, no tendency at all, two coexisting sounds, or a tendency with real exceptions), so there is no single agreed page pattern to check off — see the family-wide consistency review item below
 - [ ] AI and AY Words
   - [x] Existing page audited
   - [ ] Search intent documented — same open tracking-location gap noted for the other batches
@@ -363,33 +367,33 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
   - [x] Structured data and metadata reviewed — `readinessSignals` removed
   - [ ] Final editorial review passed — drafted and self-reviewed through multiple adversarial review passes; pending independent human editorial sign-off before "Complete"
 - [ ] OI and OY Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — teaches OY as ending a syllable (not merely a word), so mid-word cases like `royal`/`loyal` follow the same reasoning rather than reading as exceptions; a genuine `koi`-type exception named
+  - [x] Internal links completed — `relatedLists`/`prerequisiteLists` added pointing at `vowel-teams-oa-ow`
+  - [x] Structured data and metadata reviewed — `skillIds` back-reference added to `vowel-teams-oi-oy`
+  - [ ] Final editorial review passed — drafted and self-reviewed through multiple adversarial review passes; pending independent human editorial sign-off before "Complete"
 - [ ] OU and OW Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — states plainly that no position rule distinguishes OU from OW and teaches recognition/word-family strategy instead of inventing one; scope boundary against the unrelated long-o OW (`vowel-teams-oa-ow`) kept reciprocal with that page's existing boundary
+  - [x] Internal links completed — `relatedLists`/`prerequisiteLists` added pointing at `vowel-teams-oa-ow` and `oi-and-oy-words`
+  - [x] Structured data and metadata reviewed — `skillIds` back-reference added to `vowel-teams-ou-ow`
+  - [ ] Final editorial review passed — drafted and self-reviewed through multiple adversarial review passes; pending independent human editorial sign-off before "Complete"
 - [ ] OO Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — teaches both oo pronunciations with neither presented as default; the oo-before-k tendency named explicitly as loose, not a rule; a genuine dialect note added (`roof`/`root`)
+  - [x] Internal links completed — `prerequisiteLists`/`relatedLists` added pointing at `ou-and-ow-words`
+  - [x] Structured data and metadata reviewed — `skillIds` back-reference added to `grade-2-oo-two-sounds`
+  - [ ] Final editorial review passed — drafted and self-reviewed through multiple adversarial review passes; pending independent human editorial sign-off before "Complete"
 - [ ] AU and AW Words
-  - [ ] Existing page audited
-  - [ ] Search intent documented
-  - [ ] Written content completed
-  - [ ] Internal links completed
-  - [ ] Structured data and metadata reviewed
-  - [ ] Final editorial review passed
+  - [x] Existing page audited
+  - [ ] Search intent documented — same open tracking-location gap noted for the other batches
+  - [x] Written content completed — keeps the existing position tendency but names a genuine, common counterexample (`haul`, `fault`, `vault`) rather than presenting the tendency as absolute; `augh` exclusion kept
+  - [x] Internal links completed — `prerequisiteLists`/`relatedLists` added pointing at `oo-words`
+  - [x] Structured data and metadata reviewed — `skillIds` back-reference added to `grade-2-au-aw-words`
+  - [ ] Final editorial review passed — drafted and self-reviewed through multiple adversarial review passes; pending independent human editorial sign-off before "Complete"
 - [ ] IE and IGH Words — **blocked, content-pending** (no source file exists; taxonomy slot is final, word bank authorship is separate future work, not a normal editorial pass)
 - [ ] Family-wide consistency review completed
 ### R-Controlled Vowels

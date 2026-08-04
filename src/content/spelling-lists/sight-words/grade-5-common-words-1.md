@@ -18,9 +18,9 @@ sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 5 common words"
-relatedLists: []
-prerequisiteLists: ["grade-4-common-words-4"]
-nextLists: ["grade-5-common-words-2"]
+relatedLists: ["grade-2-silent-letter-words"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - word: "often"

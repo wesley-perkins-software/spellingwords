@@ -15,7 +15,7 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-4-career-occupation-words", "kindergarten-shape-words"]
+relatedLists: ["grade-4-measurement-words"]
 prerequisiteLists: ["grade-4-career-occupation-words"]
 nextLists: []
 featured: false

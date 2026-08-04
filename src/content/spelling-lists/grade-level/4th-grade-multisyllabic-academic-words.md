@@ -16,9 +16,9 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-multisyllabic-words", "grade-4-reading-writing-words", "grade-4-advanced-prefixes"]
-prerequisiteLists: ["grade-3-multisyllabic-words", "grade-4-reading-writing-words"]
-nextLists: ["grade-4-advanced-prefixes"]
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can read grade-level classroom vocabulary but may need support spelling every syllable"
   - "Can divide longer words into pronounceable syllables before writing them"

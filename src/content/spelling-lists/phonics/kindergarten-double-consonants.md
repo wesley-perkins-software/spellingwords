@@ -14,7 +14,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['kindergarten-heart-words']
+relatedLists: []
 prerequisiteLists: ['kindergarten-ck-ending-words']
 nextLists: []
 featured: false

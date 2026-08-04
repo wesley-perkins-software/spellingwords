@@ -15,7 +15,7 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-4-solar-system-words", "grade-4-geometry-words", "grade-2-community-helpers"]
+relatedLists: []
 prerequisiteLists: ["grade-4-solar-system-words"]
 nextLists: ["grade-4-geometry-words"]
 featured: false

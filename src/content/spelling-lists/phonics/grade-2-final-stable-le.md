@@ -17,8 +17,8 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: []
-prerequisiteLists: ["grade-2-two-syllable-words"]
-nextLists: ["grade-2-silent-letter-words"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Can already break a two-syllable word into parts and spell each part"

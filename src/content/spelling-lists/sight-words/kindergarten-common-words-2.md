@@ -18,9 +18,9 @@ sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
   tier: "K common words"
-relatedLists: ["kindergarten-heart-words"]
-prerequisiteLists: ["kindergarten-common-words-1"]
-nextLists: ["kindergarten-common-words-3"]
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - "he"

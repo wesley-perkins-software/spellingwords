@@ -18,9 +18,9 @@ sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 4 common words"
-relatedLists: []
-prerequisiteLists: ["grade-4-common-words-1"]
-nextLists: ["grade-4-common-words-3"]
+relatedLists: ["grade-3-doubling-final-consonants"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - word: "necessary"

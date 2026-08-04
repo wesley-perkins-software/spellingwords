@@ -8,6 +8,7 @@ import {
   GRADE_5_HUB_SECTIONS,
   KINDERGARTEN_HUB_SECTIONS,
 } from "./gradeHubCards";
+import { getSequenceNeighbors } from "./navigationSequence";
 
 const contentRoot = join(process.cwd(), "src/content");
 
@@ -260,10 +261,11 @@ describe("Grade 3 Common Words", () => {
   });
 
   it("wires grade-2-common-words-6 forward into the Grade 3 gateway's first set", () => {
-    const lastGrade2Set = source("spelling-lists/sight-words/grade-2-common-words-6.md");
-    expect(lastGrade2Set).toContain('nextLists: ["grade-3-common-words-1"]');
-    const firstGrade3Set = source("spelling-lists/sight-words/grade-3-common-words-1.md");
-    expect(firstGrade3Set).toContain('prerequisiteLists: ["grade-2-common-words-6"]');
+    // Adjacency is derived from HF_WORDS_SEQUENCE, not frontmatter — see
+    // navigationSequence.test.ts for the full chain assertion. This test keeps
+    // a direct check on this specific, previously-hand-wired boundary.
+    expect(getSequenceNeighbors("grade-2-common-words-6").nextId).toBe("grade-3-common-words-1");
+    expect(getSequenceNeighbors("grade-3-common-words-1").prerequisiteId).toBe("grade-2-common-words-6");
   });
 
   it("publishes five sets of 12 words each with zero overlap against the 184 words already owned by K–2", () => {
@@ -328,54 +330,27 @@ describe("Common Words validation slice content", () => {
     expect(collection).toContain("72 words");
   });
 
-  it("keeps exact set ids, roles, words, and live adjacent relationships", () => {
+  it("keeps exact set ids, roles, and words", () => {
+    // Adjacency (Review First / Next Step) is no longer authored in frontmatter —
+    // it's derived from HF_WORDS_SEQUENCE, verified in navigationSequence.test.ts.
     const expectations = [
-      [
-        "kindergarten-common-words-1",
-        "a, I, am, at, can, in, it, is, and, the",
-        'nextLists: ["kindergarten-common-words-2"]',
-      ],
-      [
-        "kindergarten-common-words-2",
-        "he, she, we, me, my, go, to, do, you, like",
-        'nextLists: ["kindergarten-common-words-3"]',
-      ],
-      [
-        "kindergarten-common-words-3",
-        "for, of, was, said, have, are, here, come, look, see",
-        'nextLists: ["kindergarten-common-words-4"]',
-      ],
-      [
-        "kindergarten-common-words-4",
-        "this, that, with, they, one, two, three, where, little, play",
-        "nextLists: []",
-      ],
-      [
-        "grade-1-common-words-1",
-        "all, but, did, no, get, good, new, now, our, out, please, want",
-        'nextLists: ["grade-1-common-words-2"]',
-      ],
-      [
-        "grade-1-common-words-2",
-        "after, again, any, ask, by, could, every, fly, from, give, going, had",
-        'nextLists: ["grade-1-common-words-3"]',
-      ],
-      ["grade-1-common-words-3", "on, not, an, as, if, has, his, her, him, them, be, will", 'nextLists: ["grade-1-common-words-4"]'],
-      ["grade-1-common-words-4", "what, when, who, why, how, there, your, their, were, some, more, because", 'nextLists: ["grade-1-common-words-5"]'],
-      ["grade-1-common-words-5", "up, down, back, over, into, about, home, way, time, first, next, then", 'nextLists: ["grade-1-common-words-6"]'],
-      [
-        "grade-1-common-words-6",
-        "or, so, just, us, may, make, many, very, people, know, would, should",
-        'nextLists: ["grade-2-common-words-1"]',
-      ],
+      ["kindergarten-common-words-1", "a, I, am, at, can, in, it, is, and, the"],
+      ["kindergarten-common-words-2", "he, she, we, me, my, go, to, do, you, like"],
+      ["kindergarten-common-words-3", "for, of, was, said, have, are, here, come, look, see"],
+      ["kindergarten-common-words-4", "this, that, with, they, one, two, three, where, little, play"],
+      ["grade-1-common-words-1", "all, but, did, no, get, good, new, now, our, out, please, want"],
+      ["grade-1-common-words-2", "after, again, any, ask, by, could, every, fly, from, give, going, had"],
+      ["grade-1-common-words-3", "on, not, an, as, if, has, his, her, him, them, be, will"],
+      ["grade-1-common-words-4", "what, when, who, why, how, there, your, their, were, some, more, because"],
+      ["grade-1-common-words-5", "up, down, back, over, into, about, home, way, time, first, next, then"],
+      ["grade-1-common-words-6", "or, so, just, us, may, make, many, very, people, know, would, should"],
     ] as const;
 
-    for (const [id, words, next] of expectations) {
+    for (const [id, words] of expectations) {
       const set = source(`spelling-lists/sight-words/${id}.md`);
       expect(set).toContain(`id: ${id}`);
       expect(set).toContain(`urlSlug: ${id}`);
       expect(set).toContain("contentRole: sight-word-set");
-      expect(set.replaceAll("'", '"')).toContain(next);
       const actualWords = [
         ...set.matchAll(/^\s*-\s+(?:word:\s+)?["']([^"']+)["']/gm),
       ].map((match) => match[1]);

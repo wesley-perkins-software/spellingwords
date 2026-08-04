@@ -19,8 +19,8 @@ canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 3 common words"
 relatedLists: []
-prerequisiteLists: ["grade-3-common-words-1"]
-nextLists: ["grade-3-common-words-3"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - word: "brought"

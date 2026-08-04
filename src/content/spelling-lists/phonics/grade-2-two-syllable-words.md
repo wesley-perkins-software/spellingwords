@@ -16,9 +16,9 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["r-controlled-ar", "r-controlled-or", "r-controlled-er-ir-ur", "grade-1-open-syllables-final-y"]
-prerequisiteLists: ["grade-2-soft-c-soft-g"]
-nextLists: ["grade-2-final-stable-le"]
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Can spell one-syllable words confidently and is ready to apply that skill to longer words"

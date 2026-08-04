@@ -16,9 +16,9 @@ contentRole: grade-unit
 skillIds: ["vowel-teams-ai-ay", "vowel-teams-oa-ow"]
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["vowel-teams-ai-ay", "vowel-teams-oa-ow"]
-prerequisiteLists: ["grade-1-r-controlled-er-ir-ur"]
-nextLists: ["grade-1-long-e-vowel-teams"]
+relatedLists: ["grade-1-long-e-vowel-teams"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Are ready for a focused first-grade spelling lesson on long a and long o vowel teams"

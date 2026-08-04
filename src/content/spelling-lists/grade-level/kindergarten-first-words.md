@@ -14,9 +14,9 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['kindergarten-animal-words', 'kindergarten-number-words', 'kindergarten-color-words']
+relatedLists: ["kindergarten-animal-words"]
 prerequisiteLists: []
-nextLists: ['kindergarten-short-a-words']
+nextLists: []
 featured: true
 readinessSignals:
   - 'Can identify most letters and the sounds they make'

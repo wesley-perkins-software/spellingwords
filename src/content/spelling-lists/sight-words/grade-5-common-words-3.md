@@ -19,8 +19,8 @@ canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 5 common words"
 relatedLists: []
-prerequisiteLists: ["grade-5-common-words-2"]
-nextLists: ["grade-5-common-words-4"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - word: "temperature"

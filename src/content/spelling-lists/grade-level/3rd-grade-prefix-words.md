@@ -16,9 +16,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-reading-writing-words", "grade-3-suffix-words", "grade-2-prefixes-un-re", "grade-4-advanced-prefixes"]
-prerequisiteLists: ["grade-3-reading-writing-words", "grade-2-prefixes-un-re"]
-nextLists: ["grade-3-suffix-words", "grade-4-advanced-prefixes"]
+relatedLists: ["grade-4-advanced-prefixes"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can spell common base words such as agree, play, read, kind, and safe with reasonable accuracy"
   - "Understand that a beginning word part can reverse, repeat, or preview a word’s meaning"

@@ -16,8 +16,8 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 skillIds: ["contractions"]
-relatedLists: []
-prerequisiteLists: ["grade-2-list-02"]
+relatedLists: ["grade-3-homophones"]
+prerequisiteLists: []
 nextLists: []
 readinessSignals:
   - "Can read the two-word forms behind common contractions, such as can not, do not, and I am"

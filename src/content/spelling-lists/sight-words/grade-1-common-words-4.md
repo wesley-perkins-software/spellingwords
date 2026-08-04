@@ -18,9 +18,9 @@ sourceType: curated
 canonicalSource:
   name: 'Hybrid editorial'
   tier: 'Grade 1 common words'
-relatedLists: ['grade-1-heart-words']
-prerequisiteLists: ['grade-1-common-words-3']
-nextLists: ['grade-1-common-words-5']
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - word: 'what'

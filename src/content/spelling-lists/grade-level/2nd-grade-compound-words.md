@@ -17,8 +17,8 @@ masteryThreshold: 90
 sourceType: curated
 skillIds: ["compound-words"]
 relatedLists: []
-prerequisiteLists: ["grade-2-silent-letter-words"]
-nextLists: ["grade-2-contractions"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can read and spell many short everyday words before combining them into longer words"
   - "Understand that two familiar words can join to name one thing or idea"

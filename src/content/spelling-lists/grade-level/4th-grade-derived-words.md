@@ -15,9 +15,9 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-4-commonly-confused-words", "tier-2-greek-latin-roots", "grade-3-root-word-families"]
-prerequisiteLists: ["grade-4-commonly-confused-words"]
-nextLists: ["grade-5-reading-writing-words"]
+relatedLists: ["grade-3-root-word-families"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can spell base words such as nation, muscle, human, popular, and origin"
   - "Notice that related words such as national and nationality share a spelling even when the stressed syllable moves"

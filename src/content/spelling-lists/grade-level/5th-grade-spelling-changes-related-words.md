@@ -15,8 +15,8 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-4-derived-words", "grade-5-greek-latin-word-parts", "grade-5-commonly-confused-words"]
-prerequisiteLists: ["grade-5-commonly-confused-words"]
+relatedLists: []
+prerequisiteLists: []
 nextLists: []
 readinessSignals:
   - "Can spell base words such as critic, athlete, magic, music, and electric"

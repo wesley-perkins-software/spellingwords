@@ -17,8 +17,8 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: []
-prerequisiteLists: ["grade-1-long-vowels-silent-e"]
-nextLists: ["grade-1-heart-words"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Are ready for a focused first-grade spelling lesson on open syllables and final y"

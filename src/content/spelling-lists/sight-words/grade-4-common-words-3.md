@@ -19,8 +19,8 @@ canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 4 common words"
 relatedLists: []
-prerequisiteLists: ["grade-4-common-words-2"]
-nextLists: ["grade-4-common-words-4"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - word: "separate"

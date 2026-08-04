@@ -16,9 +16,9 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-prefix-words", "grade-4-advanced-suffixes", "tier-1-roots-and-patterns"]
-prerequisiteLists: ["grade-3-prefix-words", "grade-4-multisyllabic-academic-words"]
-nextLists: ["grade-4-advanced-suffixes"]
+relatedLists: ["grade-3-prefix-words"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can read and spell shorter prefix words without treating the prefix as a separate word"
   - "Recognize longer academic words as made of meaningful parts, not just syllables to memorize"

@@ -16,9 +16,9 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-homophones", "grade-4-reading-writing-words", "tier-2-greek-latin-roots"]
-prerequisiteLists: ["grade-3-homophones", "tier-2-greek-latin-roots"]
-nextLists: ["grade-4-derived-words"]
+relatedLists: ["grade-3-homophones", "grade-4-common-words-4"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can revise sentences for meaning and notice when a familiar word choice looks wrong"
   - "Understand that some confusing words sound alike while others are confused because they look similar or are used in similar contexts"

@@ -8,6 +8,7 @@ import {
   grade2Badges,
 } from './grade2Progression';
 import { getSentenceBankEntry } from '@/lib/sentenceBank/lookup';
+import { getSequenceNeighbors } from './navigationSequence';
 
 type FrontmatterSummary = {
   id: string;
@@ -179,20 +180,22 @@ describe('Grade 2 Common Words', () => {
     expect(unresolved).toEqual([]);
   });
 
-  it('chains prerequisiteLists/nextLists into an unbroken 1-6 sequence', () => {
+  it('chains into an unbroken 1-6 sequence via the derived HF Words sequence', () => {
+    // Adjacency is derived from HF_WORDS_SEQUENCE, not frontmatter.
     GRADE_2_COMMON_WORD_IDS.forEach((id, index) => {
       const entry = byId.get(id);
       expect(entry, id).toBeDefined();
 
       const previousId = GRADE_2_COMMON_WORD_IDS[index - 1];
       const nextId = GRADE_2_COMMON_WORD_IDS[index + 1];
+      const neighbors = getSequenceNeighbors(id);
 
-      if (previousId) expect(entry!.prerequisiteLists).toContain(previousId);
-      else expect(entry!.prerequisiteLists).toContain('grade-1-common-words-6');
+      if (previousId) expect(neighbors.prerequisiteId).toBe(previousId);
+      else expect(neighbors.prerequisiteId).toBe('grade-1-common-words-6');
 
-      if (nextId) expect(entry!.nextLists).toContain(nextId);
-      // Set 6 now feeds forward into the Grade 3 Common Words gateway's first set.
-      else expect(entry!.nextLists).toEqual(['grade-3-common-words-1']);
+      if (nextId) expect(neighbors.nextId).toBe(nextId);
+      // Set 6 feeds forward into the Grade 3 Common Words gateway's first set.
+      else expect(neighbors.nextId).toBe('grade-3-common-words-1');
     });
   });
 
@@ -219,19 +222,25 @@ describe('Grade 2 Core Spelling', () => {
     }
   });
 
-  it('keeps the previous and next links coherent through the core progression', () => {
+  it('keeps the previous and next links coherent through the core progression, via the derived Core Spelling sequence', () => {
+    // Adjacency is derived from CORE_SPELLING_SEQUENCE, not frontmatter. Grade 1's
+    // actual last Core Spelling hub card is grade-1-tch-dge-ending-rules (verified
+    // against gradeHubCards.ts), and Grade 2's chain continues into Grade 3 rather
+    // than dead-ending — both corrections from the Canonical Navigation
+    // Relationships review.
     GRADE_2_CORE_IDS.forEach((id, index) => {
       const entry = byId.get(id);
       expect(entry, id).toBeDefined();
 
       const previousId = GRADE_2_CORE_IDS[index - 1];
       const nextId = GRADE_2_CORE_IDS[index + 1];
+      const neighbors = getSequenceNeighbors(id);
 
-      if (previousId) expect(entry!.prerequisiteLists, id).toContain(previousId);
-      else expect(entry!.prerequisiteLists, id).toContain('grade-1-long-a-long-o-vowel-teams');
+      if (previousId) expect(neighbors.prerequisiteId, id).toBe(previousId);
+      else expect(neighbors.prerequisiteId, id).toBe('grade-1-tch-dge-ending-rules');
 
-      if (nextId) expect(entry!.nextLists, id).toContain(nextId);
-      else expect(entry!.nextLists, id).toEqual([]);
+      if (nextId) expect(neighbors.nextId, id).toBe(nextId);
+      else expect(neighbors.nextId, id).toBe('grade-3-prefix-words');
     });
   });
 

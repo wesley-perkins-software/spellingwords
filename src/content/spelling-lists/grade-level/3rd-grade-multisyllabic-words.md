@@ -16,9 +16,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-possessives", "grade-3-homophones", "grade-4-multisyllabic-academic-words"]
-prerequisiteLists: ["grade-3-possessives"]
-nextLists: ["grade-3-homophones", "grade-4-multisyllabic-academic-words"]
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can spell many one-syllable words accurately and are ready to manage longer word length"
   - "Can clap, tap, or mark syllables in two- and three-syllable words"

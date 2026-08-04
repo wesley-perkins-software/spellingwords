@@ -14,7 +14,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-animal-words", "kindergarten-number-words", "kindergarten-family-words"]
+relatedLists: []
 prerequisiteLists: ["kindergarten-animal-words"]
 nextLists: ["kindergarten-number-words"]
 featured: false

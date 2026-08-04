@@ -15,7 +15,7 @@ estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-ecosystem-environment-words", "grade-3-multiplication-division-words", "grade-5-community-civics-words"]
+relatedLists: []
 prerequisiteLists: ["grade-5-ecosystem-environment-words"]
 nextLists: ["grade-5-community-civics-words"]
 featured: false

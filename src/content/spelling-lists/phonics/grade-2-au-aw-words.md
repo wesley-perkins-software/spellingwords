@@ -16,9 +16,9 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: []
-prerequisiteLists: ["grade-2-oo-two-sounds"]
-nextLists: ["grade-2-soft-c-soft-g"]
+relatedLists: ["grade-2-common-words-1", "grade-2-common-words-5", "grade-2-common-words-6"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Can spell the oo vowel team and is ready for another vowel pattern that is not a simple long or short vowel"

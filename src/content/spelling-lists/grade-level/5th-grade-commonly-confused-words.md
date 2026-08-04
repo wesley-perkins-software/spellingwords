@@ -16,9 +16,9 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-reading-writing-words", "grade-5-opinion-argument-words", "grade-5-spelling-rules", "grade-5-spelling-changes-related-words"]
-prerequisiteLists: ["grade-4-commonly-confused-words", "grade-5-greek-latin-word-parts"]
-nextLists: ["grade-5-spelling-changes-related-words"]
+relatedLists: ["grade-4-commonly-confused-words"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can compare word meanings closely enough to explain why one choice fits a sentence better than another"
   - "Write reports, arguments, stories, or explanations where precise vocabulary affects credibility and clarity"

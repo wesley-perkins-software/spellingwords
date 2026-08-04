@@ -16,9 +16,9 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-multisyllabic-academic-words", "grade-5-greek-latin-word-parts", "grade-5-spelling-rules"]
-prerequisiteLists: ["grade-4-advanced-prefixes", "grade-4-advanced-suffixes"]
-nextLists: ["grade-5-spelling-rules"]
+relatedLists: ["grade-5-spelling-rules"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can identify both a beginning word part and an ending word part in longer vocabulary"
   - "Spell common prefix and suffix chunks accurately inside multisyllabic words"

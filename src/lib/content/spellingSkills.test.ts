@@ -357,9 +357,9 @@ describe('curated spelling Skills browse index', () => {
     expect(byId.get('grade-5-prefix-suffix-words')!.data.relatedLists).toContain(
       'grade-5-spelling-rules',
     );
-    expect(byId.get('grade-5-prefix-suffix-words')!.data.nextLists).toContain(
-      'grade-5-spelling-rules',
-    );
+    // nextLists is no longer authored for Core Spelling pages — Review First /
+    // Next Step are derived from CORE_SPELLING_SEQUENCE (navigationSequence.test.ts).
+    // The sibling relationship lives only in relatedLists (Explore More), asserted above.
   });
 
   it('keeps grade-unit skillIds limited to canonical Skill ids (grade-5-spelling-rules is not one)', () => {

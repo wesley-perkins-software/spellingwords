@@ -15,7 +15,7 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-transportation-words", "grade-2-months-of-the-year"]
+relatedLists: []
 prerequisiteLists: ["grade-2-number-words-20-100"]
 nextLists: ["grade-2-months-of-the-year"]
 featured: false

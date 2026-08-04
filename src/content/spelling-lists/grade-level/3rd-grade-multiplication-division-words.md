@@ -15,7 +15,7 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-time-words"]
+relatedLists: []
 prerequisiteLists: ["grade-3-time-words"]
 nextLists: []
 featured: false

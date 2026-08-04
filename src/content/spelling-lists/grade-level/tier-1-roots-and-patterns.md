@@ -16,9 +16,9 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-root-word-families", "grade-4-advanced-prefixes", "grade-4-final-stable-syllables", "tier-2-greek-latin-roots"]
-prerequisiteLists: ["grade-3-root-word-families", "grade-4-final-stable-syllables"]
-nextLists: ["tier-2-greek-latin-roots"]
+relatedLists: ["tier-2-greek-latin-roots", "grade-3-root-word-families"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can read longer words such as transport, predict, and erupt by looking for meaningful chunks"
   - "Understand that one Latin root can appear in several related academic words"

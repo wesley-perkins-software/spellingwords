@@ -15,7 +15,7 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-life-cycle-words", "grade-3-multiplication-division-words"]
+relatedLists: []
 prerequisiteLists: ["grade-3-life-cycle-words"]
 nextLists: ["grade-3-multiplication-division-words"]
 featured: false

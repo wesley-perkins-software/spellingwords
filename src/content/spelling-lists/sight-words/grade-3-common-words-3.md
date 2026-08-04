@@ -19,8 +19,8 @@ canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 3 common words"
 relatedLists: []
-prerequisiteLists: ["grade-3-common-words-2"]
-nextLists: ["grade-3-common-words-4"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - word: "library"

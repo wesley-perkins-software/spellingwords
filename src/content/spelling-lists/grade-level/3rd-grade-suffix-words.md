@@ -16,9 +16,9 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 skillIds: ["common-suffixes"]
-relatedLists: ["grade-3-prefix-words", "grade-3-dropping-silent-e", "grade-2-suffixes-ful-less", "grade-4-advanced-suffixes"]
-prerequisiteLists: ["grade-3-prefix-words", "grade-2-suffixes-ful-less"]
-nextLists: ["grade-3-dropping-silent-e", "grade-4-advanced-suffixes"]
+relatedLists: ["grade-4-advanced-suffixes"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can spell common base words before adding endings such as -ly, -ful, -less, -ness, and -ment"
   - "Understand that suffixes can change meaning, comparison, or part of speech"

@@ -15,7 +15,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-body-words", "kindergarten-color-words", "kindergarten-number-color-words"]
+relatedLists: ["grade-1-number-words-11-20"]
 prerequisiteLists: ["kindergarten-body-words"]
 nextLists: ["kindergarten-color-words"]
 featured: false

@@ -15,9 +15,9 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-suffix-words", "grade-4-advanced-prefixes", "grade-4-final-stable-syllables"]
-prerequisiteLists: ["grade-3-suffix-words", "grade-4-advanced-prefixes"]
-nextLists: ["grade-4-final-stable-syllables"]
+relatedLists: ["grade-4-final-stable-syllables", "grade-3-suffix-words"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can spell common suffix words and are ready for longer endings such as -tion, -sion, -able, and -ible"
   - "Recognize that suffixes can signal nouns, adjectives, or abstract academic vocabulary"

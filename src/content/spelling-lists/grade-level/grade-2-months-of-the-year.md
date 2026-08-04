@@ -15,7 +15,7 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-community-helpers"]
+relatedLists: ["grade-1-days-of-the-week"]
 prerequisiteLists: ["grade-2-community-helpers"]
 nextLists: []
 featured: false

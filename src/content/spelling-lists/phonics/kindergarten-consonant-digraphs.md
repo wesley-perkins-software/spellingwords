@@ -16,9 +16,9 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: []
-prerequisiteLists: ['kindergarten-mixed-vowel-review']
-nextLists: ['kindergarten-ck-ending-words']
+relatedLists: ["kindergarten-ck-ending-words", "kindergarten-double-consonants"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - 'Are comfortable spelling short-vowel CVC words with single consonant sounds'

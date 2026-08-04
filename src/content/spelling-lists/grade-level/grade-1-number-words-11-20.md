@@ -15,7 +15,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['kindergarten-number-words', 'grade-1-shape-words', 'grade-2-number-words-20-100']
+relatedLists: ["kindergarten-number-words", "grade-2-number-words-20-100"]
 prerequisiteLists: ['grade-1-shape-words']
 nextLists: ['grade-1-days-of-the-week']
 featured: false

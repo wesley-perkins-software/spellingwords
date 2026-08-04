@@ -16,9 +16,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["vowel-teams-oi-oy"]
-prerequisiteLists: ["vowel-teams-oi-oy"]
-nextLists: ["grade-2-oo-two-sounds"]
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Can recognize earlier vowel teams and are ready for OW to represent a different sound than it did in long-o words"

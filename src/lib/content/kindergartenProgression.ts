@@ -6,6 +6,16 @@ import type { SpellingListEntry } from './spellingLists';
  * frontmatter. The Kindergarten hub renders exactly two sections — a core
  * spelling progression and optional additional practice — instead of the
  * category-grouped sections every other grade page uses.
+ *
+ * This is also the Kindergarten portion of `CORE_SPELLING_SEQUENCE`
+ * (`coreSpellingSequence.ts`), which is now the source of truth for Review
+ * First / Next Step across all of K-5. `kindergarten-ck-ending-words` and
+ * `kindergarten-double-consonants` were removed from this array (they were
+ * items 9-10) per the Canonical Navigation Relationships review — both docs
+ * that govern the Kindergarten curriculum agree they are support/practice
+ * content, not canonical Kindergarten Grade Units, and neither is a live
+ * Kindergarten hub card. This fixes the "Step N of 10" roadmap badge below,
+ * which was counting two non-canonical pages as part of the 8-unit sequence.
  */
 export const KINDERGARTEN_CORE_IDS: readonly string[] = [
   'kindergarten-first-words',
@@ -16,8 +26,6 @@ export const KINDERGARTEN_CORE_IDS: readonly string[] = [
   'kindergarten-short-e-words',
   'kindergarten-mixed-vowel-review',
   'kindergarten-consonant-digraphs',
-  'kindergarten-ck-ending-words',
-  'kindergarten-double-consonants',
 ];
 
 export const KINDERGARTEN_ADDITIONAL_IDS: readonly string[] = [

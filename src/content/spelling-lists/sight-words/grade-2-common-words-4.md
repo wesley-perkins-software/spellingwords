@@ -19,8 +19,8 @@ canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 2 common words"
 relatedLists: []
-prerequisiteLists: ["grade-2-common-words-3"]
-nextLists: ["grade-2-common-words-5"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - word: "friend"

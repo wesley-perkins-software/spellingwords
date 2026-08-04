@@ -15,9 +15,9 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 skillIds: ["r-controlled-ar", "r-controlled-or"]
-relatedLists: ["r-controlled-ar", "r-controlled-or"]
-prerequisiteLists: ["grade-1-inflectional-endings-ed-ing"]
-nextLists: ["grade-1-r-controlled-er-ir-ur"]
+relatedLists: ["grade-1-r-controlled-er-ir-ur", "grade-1-common-words-3"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Are ready for a focused first-grade spelling lesson on r-controlled ar and or"

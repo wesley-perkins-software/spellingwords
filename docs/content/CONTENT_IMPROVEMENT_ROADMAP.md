@@ -639,7 +639,9 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
   - [ ] Kindergarten Short E Words (`kindergarten-short-e-words`)
     - Status: editorial implementation drafted and self-reviewed as part of the second Phase 2 pilot batch (with `kindergarten-short-o-words` and `kindergarten-short-u-words`); inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
   - [ ] Mixed Vowel CVC Review (`kindergarten-mixed-vowel-review`)
+    - Status: editorial implementation drafted and self-reviewed as part of the third Phase 2 Kindergarten batch (with `kindergarten-consonant-digraphs`); inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
   - [ ] Consonant Digraphs (`kindergarten-consonant-digraphs`)
+    - Status: editorial implementation drafted and self-reviewed as part of the third Phase 2 Kindergarten batch (with `kindergarten-mixed-vowel-review`); inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
 - [ ] Additional Practice pages (2 canonical-active)
   - [ ] Kindergarten Number Words (`kindergarten-number-words`)
   - [ ] Kindergarten Color Words (`kindergarten-color-words`)
@@ -1034,6 +1036,12 @@ Initial assignment by grouping (refine per-family/per-grade as Phase 0 audits la
 - **Per-list regularity claims must be verified word-by-word, not assumed from the pattern.** Unlike Short A/I/U/E, Short O's Practice Set includes `fox` and `box`, where the letter "x" represents two phonemes (/k/ + /s/) — a genuine break from the one-letter-one-sound pattern the rest of the family relies on. The rationale and practice guidance call this out explicitly rather than describing the list as uniformly regular. Future batches should check every word in a list, not just its majority pattern, before making a regularity claim.
 - **The FAQ-outcome policy held again.** All 12 pre-existing FAQs (4 per page) were independently re-evaluated against each page's rewritten body during drafting and again in adversarial review; every one turned out to be answered by the revised rationale, practice guidance, or navigation cards (including Short E's "why taught last" question, which was folded into its rationale paragraph), so the `faq` field was removed from all three files. This is a drafting outcome of the evaluation, not a preset target — a future batch where a question survives that scrutiny should keep it.
 
+**Third Phase 2 batch: Kindergarten core completion (2 pages).** `kindergarten-mixed-vowel-review` and `kindergarten-consonant-digraphs` completed the remaining Kindergarten Core Spelling Grade Unit pages under the same Standard. Two page-specific decisions carry forward:
+
+- **Mixed Vowel CVC Review is a consolidation checkpoint, not a sixth vowel lesson.** Its rationale and practice guidance now emphasize transfer across fresh CVC words after the five single-vowel lists, including listening for the middle sound without relying on a page title or memorized one-vowel list.
+- **Kindergarten Consonant Digraphs is the first two-letter sound-unit step after CVC.** Its content stays grade-specific and bounded: SH, CH, and TH are practiced through the frozen word list, while deeper concept instruction remains on the linked Skill pages. The existing SH/CH/TH `skillIds` were preserved, and WH was not added because the Grade Unit does not teach it.
+- **FAQ re-evaluation again removed only redundant entries.** All eight pre-existing FAQs across the two pages were answered by the revised rationale, practice guidance, automatic Skill links, or navigation cards, so both `faq` fields were removed.
+
 ---
 
 ## 14. Progress summary
@@ -1044,7 +1052,7 @@ Written implementation and adversarial self-review have been completed for all 4
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + classification decisions | 7 artifacts plus the `silent-e-long-e` decision and the `grade-4-final-stable-syllables`/`grade-5-spelling-rules` legacy-role-exception decision | 0 | 33 unresolved rows | 0 |
 | Phase 1 — Skill-page content | 41 live Skill pages | 0 fully Complete | 41 implementation-complete / `Needs review` across all 12 family batches | 0 to draft | 0 |
-| Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages with their own Grade Hub card (+2 focused component pages folded into an existing combined unit, not separately prioritized) | 0 | 6 implementation-complete / `Needs review` (`kindergarten-first-words`, `kindergarten-short-a-words`, `kindergarten-short-i-words`, `kindergarten-short-o-words`, `kindergarten-short-u-words`, `kindergarten-short-e-words`) | 69 | 0 |
+| Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages with their own Grade Hub card (+2 focused component pages folded into an existing combined unit, not separately prioritized) | 0 | 8 implementation-complete / `Needs review` (`kindergarten-first-words`, `kindergarten-short-a-words`, `kindergarten-short-i-words`, `kindergarten-short-o-words`, `kindergarten-short-u-words`, `kindergarten-short-e-words`, `kindergarten-mixed-vowel-review`, `kindergarten-consonant-digraphs`) | 67 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |
 | Phase 5 — Main browse-page content | 1 page | 0 | 0 | 1 | 0 |

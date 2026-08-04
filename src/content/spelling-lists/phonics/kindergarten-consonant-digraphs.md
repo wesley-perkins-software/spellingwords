@@ -24,15 +24,6 @@ readinessSignals:
   - 'Are comfortable spelling short-vowel CVC words with single consonant sounds'
   - 'Notice that "sh," "ch," and "th" do not sound like their two letters said separately'
   - 'Are beginning to spot these letter pairs in books, even without a name for them yet'
-faq:
-  - question: 'What is a digraph, in parent-friendly terms?'
-    answer: 'It is two letters that team up and make one brand-new sound — neither letter keeps its own separate sound. S and H together make the soft sound at the start of "ship," and it is not an S sound or an H sound, it is its own sound.'
-  - question: 'How is this different from the short-vowel words practiced so far?'
-    answer: 'The short-vowel lists practiced one letter making one sound. This list introduces the idea that sometimes two letters team up and make one sound together — the next building block after single letters feel automatic.'
-  - question: 'Should these words be sounded out or memorized?'
-    answer: 'Sounded out, once a child treats each digraph as a single unit. A word like "wish" becomes three sounds instead of four: w-i-sh.'
-  - question: 'What comes after Consonant Digraphs?'
-    answer: 'The -ck Ending Rule is next in the core spelling progression, a simple spelling-choice pattern at the end of short words.'
 words:
   - ship
   - shop
@@ -45,6 +36,12 @@ words:
   - path
 ---
 
-Sometimes two letters team up and make one brand-new sound instead of two. This list practices three of those letter teams: SH, as in *ship*, *shop*, *fish*, and *wish*; CH, as in *chat*, *chin*, and *chip*; and TH, as in *bath* and *path*.
+Sometimes two consonant letters team up and make one brand-new sound instead of two. This list practices three of those letter teams: SH, as in *ship*, *shop*, *fish*, and *wish*; CH, as in *chat*, *chin*, and *chip*; and TH, as in *bath* and *path*.
 
-The letters keep their own sounds everywhere else — it is only when they sit together like this that they combine into something new. Noticing that pattern, and treating each pair as one unit while sounding out a word, is the whole skill this list builds.
+This step comes after the mixed CVC review because the child has already practiced mapping individual consonant and short-vowel sounds in order. These words keep that short-vowel spelling work, but add a new job: noticing when two consonant letters should be treated as one sound unit while the rest of the word is sounded out.
+
+### How to practice this list
+
+Before writing, point to the digraph in the word and say it as one sound: SH in *ship* and *wish*, CH in *chat* and *chip*, or TH in *bath* and *path*. Then have your child stretch the whole word by sounds, treating the digraph as one unit — sh-i-p for *ship*, w-i-sh for *wish*, ch-i-p for *chip*, or b-a-th for *bath* — before writing the letters.
+
+If your child separates the two letters, gently bring the pair back together and say the word again. When they can spot SH, CH, and TH in these words and use each pair as one sound unit with only occasional help, they're ready for Kindergarten -ck Ending Words, where the next step is choosing the right spelling at the end of a short-vowel word.

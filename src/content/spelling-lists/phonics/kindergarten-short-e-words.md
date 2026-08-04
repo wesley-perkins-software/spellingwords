@@ -24,15 +24,6 @@ readinessSignals:
   - 'Can segment a word like "bed" into its three sounds and blend them back together'
   - 'Recognize the short "e" sound when it is spoken aloud, even before seeing it written down'
   - 'Feel comfortable with short "a," "i," "o," and "u" words'
-faq:
-  - question: 'What is the short "e" sound?'
-    answer: 'It is the short, flat sound in the middle of "bed" and "hen" — often confused with short "i," so it helps to have already practiced short "i" on its own first.'
-  - question: 'Why is short "e" practiced last among the five short vowels?'
-    answer: 'It is easily mixed up with short "i," so children benefit from already knowing short "i" well before meeting the two side by side in the Mixed Vowel CVC Review that follows.'
-  - question: 'Should these words be sounded out or memorized?'
-    answer: 'Sounded out. As with the rest of the progression, segmenting each sound and blending it back together is the goal.'
-  - question: 'What comes after short E words?'
-    answer: 'Mixed Vowel CVC Review is next — a chance to check whether all five short vowel sounds have stuck, using fresh words not seen in these lists.'
 words:
   - bed
   - red
@@ -44,8 +35,12 @@ words:
   - wet
 ---
 
-The short "e" sound is short and flat — you can hear it in the middle of *bed*, *hen*, and *wet*. This is the fifth and final single vowel sound practiced on its own, rounding out all five short vowels a kindergartener needs.
+Short E is the fifth and final single vowel sound in this Kindergarten progression, taught last after Short U — you can hear it in the middle of *bed*, *hen*, and *wet*, made with the mouth partway open and the sound short and flat.
 
-Once this list feels comfortable, the Mixed Vowel CVC Review checks whether all five sounds transfer to brand-new words.
+All eight words here — *bed*, *red*, *hen*, *pen*, *leg*, *pet*, *net*, and *wet* — follow the same one-sound-per-letter pattern as the rest of the progression. Short E sits at the end of this sequence because it's the vowel sound most easily confused with short I, already practiced earlier: a child who has spent time hearing *pig* and *sit* has a foothold for noticing when a word shifts to the flatter short E sound instead, in words like *pen* and *net*.
 
-If a child needs more practice with this same vowel sound, [Short E Words](/spelling-lists/phonics/short-e-words) offers a focused extra practice set.
+### How to practice this list
+
+Say each word aloud and have your child echo it back, then sound out each letter before writing it down. If a word sounds uncertain, check for short I creeping in — say the word with each vowel sound in turn, such as "pet" and "pit," so your child can hear which one matches.
+
+Once a child can blend and spell most of these eight words — telling short E and short I apart with only occasional help — they're ready to move on to the Mixed Vowel CVC Review, which checks whether all five short vowel sounds transfer to fresh words your child hasn't seen in these lists.

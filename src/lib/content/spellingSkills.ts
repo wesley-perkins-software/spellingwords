@@ -78,7 +78,7 @@ export const SILENT_E_SKILL_FAMILY = {
   title: 'Silent E',
   description: 'Practice long-vowel words with final silent e.',
   guidance:
-    'Choose the vowel sound your child needs to practice. Long E Silent E words (eve, these, theme) are covered here rather than as a Skill page of their own.',
+    'Choose the vowel sound your child needs to practice. Long E Silent E is real but much less productive than A, I, O, or U: examples such as eve, these, and theme are covered here rather than as a separate Skill, while long E is more commonly spelled with patterns such as EE and EA.',
   anchorId: SILENT_E_FAMILY_ANCHOR_ID,
   skillIds: [
     'silent-e-long-a',
@@ -90,7 +90,7 @@ export const SILENT_E_SKILL_FAMILY = {
 
 export const VOWEL_TEAMS_SKILL_FAMILY = {
   title: 'Vowel Teams',
-  description: 'Practice common two-letter vowel teams for long vowel sounds.',
+  description: 'Practice common vowel spellings for long vowels and other vowel sounds.',
   guidance: 'Choose the vowel sound or spelling pair your child needs to practice.',
   skillIds: [
     'vowel-teams-ai-ay',
@@ -98,6 +98,7 @@ export const VOWEL_TEAMS_SKILL_FAMILY = {
     'vowel-teams-oa-ow',
     'oi-and-oy-words',
     'ou-and-ow-words',
+    'ie-and-igh-words',
     'oo-words',
     'au-and-aw-words',
   ],
@@ -209,18 +210,3 @@ export function resolveCuratedSkillFamilyEntries<T extends { data: { id: string 
     return entry;
   });
 }
-
-/**
- * Skills whose taxonomy placement is final per docs/architecture/SKILLS_ARCHITECTURE.md
- * but which have no backing content file yet. Deliberately excluded from every
- * family's `skillIds` (and therefore from CURATED_SPELLING_SKILL_IDS and the
- * live hub) until a word bank is authored. Tracked here so the documented
- * taxonomy is testable even while unpublished.
- */
-export const PROVISIONAL_SPELLING_SKILLS = [
-  {
-    id: 'ie-and-igh-words',
-    title: 'IE and IGH Words',
-    family: 'Vowel Teams',
-  },
-] as const;

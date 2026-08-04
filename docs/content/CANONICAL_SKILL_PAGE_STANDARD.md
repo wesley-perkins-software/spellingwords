@@ -92,13 +92,13 @@ These are content elements, not a mandated visible heading sequence — recommen
 
 ## 4. The four instructional variants
 
-Every live and provisional Skill belongs to exactly one of four variants, or to the documented Multisyllabic Words hybrid (§4.5). Variant assignment for all 41 slots is in §21.
+Every live Skill belongs to exactly one of four variants, or to the documented Multisyllabic Words hybrid (§4.5). Variant assignment for all 41 slots is in §21.
 
 A variant is a **content shape**, not a rigid template — a variant's "required middle-page elements" are what §3's universal elements look like *for that kind of concept*; they replace, not duplicate, the generic list in §3.
 
 ### 4.1 Variant 1 — Sound–spelling patterns
 
-**Canonical Skills:** Short Vowels and CVC Words (5), Consonant Digraphs (4), Consonant Blends (2), Silent E (4), Vowel Teams (8, including provisional IE and IGH Words), R-Controlled Vowels (3). 26 of 41 slots.
+**Canonical Skills:** Short Vowels and CVC Words (5), Consonant Digraphs (4), Consonant Blends (2), Silent E (4), Vowel Teams (8), R-Controlled Vowels (3). 26 of 41 slots.
 
 **Linguistic focus:** one or more closely related speech sounds and the spelling pattern or letter sequence being taught, including cases where a spelling has multiple common pronunciations (e.g. OO Words) or where the component consonant sounds remain audible (e.g. consonant blends, where each letter still represents its own sound, unlike a digraph's single fused sound).
 
@@ -475,7 +475,7 @@ The copyable brief lives at `docs/content/templates/SKILL_PAGE_CONTENT_BRIEF.md`
 
 ## 21. Variant mapping for all 41 canonical Skills
 
-Source of truth for id/title/urlSlug/source-file cross-checked directly against `docs/content/inventory/skill-pages.md` and `docs/architecture/SKILLS_ARCHITECTURE.md` §3–4. All 41 taxonomy slots appear exactly once. 40 rows are `Live`; 1 (`ie-and-igh-words`) is `Provisional`. The two remaining non-taxonomy pages flagged in `skill-pages.md` (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) are intentionally **excluded** — they are not canonical Skills. A third, `silent-e-long-e`, was previously flagged here too; it is now resolved per `SKILLS_ARCHITECTURE.md` §5 (merged into the Silent E family overview, archived, redirected — see `deprecated-and-legacy-pages.md`) and is no longer a non-taxonomy Skill page at all.
+Source of truth for id/title/urlSlug/source-file cross-checked directly against `docs/content/inventory/skill-pages.md` and `docs/architecture/SKILLS_ARCHITECTURE.md` §3–4. All 41 taxonomy slots appear exactly once and are live. The two published non-taxonomy pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) remain unresolved legacy-role mismatches and are intentionally **excluded** from this mapping; their stored `contentRole: skill` does not make them canonical Skills. `silent-e-long-e` is merged into the Silent E family overview, archived, and redirected.
 
 | Canonical id | Title | Family | Variant | Status | Source file | Note |
 |---|---|---|---|---|---|---|
@@ -496,13 +496,13 @@ Source of truth for id/title/urlSlug/source-file cross-checked directly against 
 | `silent-e-long-a` | Long A Silent E Words | Silent E | 1 | Live | `src/content/spelling-lists/phonics/silent-e-long-a.md` | |
 | `silent-e-long-i` | Long I Silent E Words | Silent E | 1 | Live | `src/content/spelling-lists/phonics/silent-e-long-i.md` | |
 | `silent-e-long-o` | Long O Silent E Words | Silent E | 1 | Live | `src/content/spelling-lists/phonics/silent-e-long-o.md` | |
-| `silent-e-long-u` | Long U Silent E Words | Silent E | 1 | Live | `src/content/spelling-lists/phonics/silent-e-long-u.md` | Long E Silent E is a labeled section within this family's overview per `SKILLS_ARCHITECTURE.md` §5, not a peer taxonomy slot — do not treat `silent-e-long-e.md` as canonical (it is listed as unresolved in `skill-pages.md`) |
+| `silent-e-long-u` | Long U Silent E Words | Silent E | 1 | Live | `src/content/spelling-lists/phonics/silent-e-long-u.md` | Long E Silent E is concise family-overview guidance per `SKILLS_ARCHITECTURE.md` §5, not a peer taxonomy slot; its source entry remains archived and redirected |
 | `vowel-teams-ai-ay` | AI and AY Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/vowel-teams-ai-ay.md` | |
 | `vowel-teams-ee-ea` | EE and EA Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/vowel-teams-ee-ea.md` | |
 | `vowel-teams-oa-ow` | OA and OW Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/vowel-teams-oa-ow.md` | |
 | `oi-and-oy-words` | OI and OY Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/oi-and-oy-words.md` | |
 | `ou-and-ow-words` | OU and OW Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/ou-and-ow-words.md` | |
-| `ie-and-igh-words` | IE and IGH Words | Vowel Teams | 1 | **Provisional** | — (no content file) | Blocked — content-pending; taxonomy slot is final, word bank authorship is separate future work, not in scope here (`SKILLS_ARCHITECTURE.md` §1, §7) |
+| `ie-and-igh-words` | IE and IGH Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/ie-and-igh-words.md` | Approved persisted brief completed before drafting; no Grade Unit placement fabricated because no current unit teaches IE/IGH |
 | `oo-words` | OO Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/oo-words.md` | |
 | `au-and-aw-words` | AU and AW Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/au-and-aw-words.md` | |
 | `r-controlled-ar` | R-Controlled AR Words | R-Controlled Vowels | 1 | Live | `src/content/spelling-lists/phonics/r-controlled-ar.md` | |
@@ -521,7 +521,7 @@ Source of truth for id/title/urlSlug/source-file cross-checked directly against 
 | `homophones` | Homophones | Homophones and Commonly Confused Words | 4 | Live | `src/content/spelling-lists/grade-level/homophones.md` | Scope: true sound-alikes only (`SKILLS_ARCHITECTURE.md` §3) |
 | `commonly-confused-words` | Commonly Confused Words | Homophones and Commonly Confused Words | 4 | Live | `src/content/spelling-lists/grade-level/commonly-confused-words.md` | Scope: meaning/usage confusions that are not true homophones |
 
-**Count check:** 26 (Variant 1) + 6 (Variant 2) + 6 (Variant 3) + 2 (Variant 4) + 1 (Hybrid) = 41. 40 Live + 1 Provisional.
+**Count check:** 26 (Variant 1) + 6 (Variant 2) + 6 (Variant 3) + 2 (Variant 4) + 1 (Hybrid) = 41 Live.
 
 ---
 

@@ -85,4 +85,3 @@ Many Skill pages carry a single `grade` value even though the concept is taught 
 ### `id` vs `urlSlug` divergence is expected, not a defect
 
 Many files have `id !== urlSlug` by design (`id` is a stable internal identifier; `urlSlug` is the human/SEO-facing path segment). Not re-flagged as an issue anywhere else in the inventory.
-

@@ -14,7 +14,7 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["silent-e-long-a", "silent-e-long-e", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u"]
+relatedLists: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u"]
 prerequisiteLists: ["grade-1-long-vowels-silent-e"]
 nextLists: []
 featured: false
@@ -60,7 +60,7 @@ Use this page after students have encountered the related core lesson: [Long Vow
 ## Choose a targeted practice page
 
 - [Long A Silent E Words](/spelling-lists/phonics/silent-e-long-a)
-- [Long E Silent E Words](/spelling-lists/phonics/silent-e-long-e)
+- Long E Silent E is real but much less common; see the concise guidance in the [Silent E family overview](/spelling-lists/skills/#silent-e-family).
 - [Long I Silent E Words](/spelling-lists/phonics/silent-e-long-i)
 - [Long O Silent E Words](/spelling-lists/phonics/silent-e-long-o)
 - [Long U Silent E Words](/spelling-lists/phonics/silent-e-long-u)

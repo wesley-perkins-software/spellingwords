@@ -59,7 +59,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Every page below is e
 | ou-and-ow-words | OU and OW Words | ou-and-ow-words | 2 | `src/content/spelling-lists/phonics/ou-and-ow-words.md` | Needs review — content drafted to the Standard (Variant 1), states plainly that no position rule distinguishes OU from OW and teaches recognition/word-family strategy instead of inventing one, scope boundary against the unrelated long-o OW (`vowel-teams-oa-ow`) kept reciprocal with that page's existing boundary, `relatedLists`/`prerequisiteLists` added pointing at `vowel-teams-oa-ow` and `oi-and-oy-words`, missing `skillIds` back-reference from the Grade 2 Grade Unit added; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
 | oo-words | OO Words | oo-words | 2 | `src/content/spelling-lists/phonics/oo-words.md` | Needs review — content drafted to the Standard (Variant 1), both oo pronunciations taught with neither presented as default, the oo-before-k tendency named explicitly as loose rather than a rule, a genuine dialect note added (`roof`/`root`), `relatedLists`/`prerequisiteLists` added pointing at `ou-and-ow-words`, missing `skillIds` back-reference from the Grade 2 Grade Unit added; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
 | au-and-aw-words | AU and AW Words | au-and-aw-words | 2 | `src/content/spelling-lists/phonics/au-and-aw-words.md` | Needs review — content drafted to the Standard (Variant 1), keeps the existing position tendency but names a genuine, common counterexample (`haul`, `fault`, `vault`) rather than presenting the tendency as absolute, `augh` exclusion kept, `relatedLists`/`prerequisiteLists` added pointing at `oo-words`, missing `skillIds` back-reference from the Grade 2 Grade Unit added; pending independent human editorial sign-off before "Complete" | 1 | Needs review |
-| ie-and-igh-words | IE and IGH Words | — | — | **No content file exists** | **Blocked — content-pending.** Taxonomy slot is frozen; a word bank must be authored before any editorial checklist applies. | 1 | Not started |
+| ie-and-igh-words | IE and IGH Words | ie-and-igh-words | 1 | `src/content/spelling-lists/phonics/ie-and-igh-words.md` | Needs review — approved persisted brief completed before drafting; content implemented to the Standard (Variant 1), with the real IE/IGH asymmetry, long-I spelling contrasts, long-E IE boundary, and derived `-ied` caution; no Grade Unit placement fabricated because no current unit teaches the pattern; pending independent human editorial sign-off before "Complete" | 1 | Approved |
 
 ## R-Controlled Vowels
 
@@ -108,7 +108,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Every page below is e
 
 ## Unresolved: pages tagged `contentRole: skill` outside the frozen taxonomy
 
-These are **not** part of the canonical Skill-page checklist and are not counted in the 41 slots above. Full detail and classification reasoning in `untagged-and-data-quality.md`. Do not add editorial checklists to these until a product-owner decision resolves their status.
+These published grade-specific pages retain their exact pre-PR legacy metadata and routes but are **not** canonical Browse-by-Skill destinations. A proposed third role was rejected and rolled back. Their final classification is deferred to an explicit product-owner decision during the Grade curriculum editorial phase; full tracking remains in `untagged-and-data-quality.md`.
 
 | id | Title | Category | Grade | Source file |
 |---|---|---|---|---|
@@ -117,4 +117,4 @@ These are **not** part of the canonical Skill-page checklist and are not counted
 
 **Resolved:** `silent-e-long-e` (Long E Silent E Words) was the third row in this table; it is now resolved per `docs/architecture/SKILLS_ARCHITECTURE.md` §5 — folded into the Silent E family's normal introductory guidance sentence on the Skills Hub (one clause, e.g. "eve, these, theme"), not rendered as a separate block or peer Skill page, so the hub stays visually and editorially consistent with every other family. Content entry set to `status: archived` so no standalone page is emitted, and its former URL (`/spelling-lists/phonics/silent-e-long-e`) permanently redirects (301) to `/spelling-lists/skills/#silent-e-family`. Moved to the "Archived-status pages" table in `deprecated-and-legacy-pages.md`.
 
-**Totals:** 12 families · 41 taxonomy slots (40 live + 1 provisional) · 40 canonical-active Skill pages · 2 unresolved skill-tagged pages outside the taxonomy.
+**Totals:** 12 families · 41 live taxonomy slots · 41 canonical-active Skill pages · 2 unresolved skill-tagged pages outside the taxonomy.

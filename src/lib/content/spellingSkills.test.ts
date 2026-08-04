@@ -10,7 +10,6 @@ import {
   HOMOPHONES_AND_COMMONLY_CONFUSED_WORDS_SKILL_FAMILY,
   MULTISYLLABIC_WORDS_SKILL_FAMILY,
   PREFIXES_SKILL_FAMILY,
-  PROVISIONAL_SPELLING_SKILLS,
   R_CONTROLLED_VOWELS_SKILL_FAMILY,
   SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
   SILENT_E_FAMILY_ANCHOR_ID,
@@ -316,18 +315,20 @@ describe('curated spelling Skills browse index', () => {
     }
   });
 
-  it('never publishes the provisional IE and IGH Words Skill (no backing content exists yet)', () => {
-    expect(CURATED_SPELLING_SKILL_IDS).not.toContain('ie-and-igh-words');
-    expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).not.toContain('ie-and-igh-words');
-    expect(isCuratedSpellingSkillId('ie-and-igh-words')).toBe(false);
-    expect(byId.has('ie-and-igh-words')).toBe(false);
-
-    expect(PROVISIONAL_SPELLING_SKILLS).toEqual([
-      { id: 'ie-and-igh-words', title: 'IE and IGH Words', family: 'Vowel Teams' },
-    ]);
+  it('publishes IE and IGH Words as the 41st canonical Skill', () => {
+    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(41);
+    expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).toContain('ie-and-igh-words');
+    expect(isCuratedSpellingSkillId('ie-and-igh-words')).toBe(true);
+    expect(byId.get('ie-and-igh-words')).toMatchObject({
+      data: {
+        urlSlug: 'ie-and-igh-words',
+        status: 'published',
+        contentRole: 'skill',
+      },
+    });
   });
 
-  it('reverted the Skills that the frozen architecture folds into merged pages back to grade-unit', () => {
+  it('keeps non-taxonomy pages out of the canonical registry with their accurate content roles', () => {
     for (const id of [
       'grade-3-doubling-final-consonants',
       'grade-3-changing-y-to-i',
@@ -336,12 +337,17 @@ describe('curated spelling Skills browse index', () => {
       expect(CURATED_SPELLING_SKILL_IDS).not.toContain(id);
       expect(byId.get(id), id).toMatchObject({ data: { contentRole: 'grade-unit' } });
     }
+
+    for (const id of ['grade-4-final-stable-syllables', 'grade-5-spelling-rules']) {
+      expect(CURATED_SPELLING_SKILL_IDS).not.toContain(id);
+      expect(byId.get(id), id).toMatchObject({ data: { contentRole: 'supporting-practice' } });
+    }
   });
 
   describe('retired Long E Silent E page (docs/architecture/SKILLS_ARCHITECTURE.md §5)', () => {
-    it('is not one of the 40 canonical Skill slots', () => {
+    it('is not one of the 41 canonical Skill slots', () => {
       expect(CURATED_SPELLING_SKILL_IDS).not.toContain('silent-e-long-e');
-      expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(40);
+      expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(41);
     });
 
     it('is not a Silent E family peer', () => {

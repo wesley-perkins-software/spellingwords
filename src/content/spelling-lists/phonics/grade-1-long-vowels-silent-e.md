@@ -15,7 +15,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["silent-e-long-a", "silent-e-long-e", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u"]
+relatedLists: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u"]
 prerequisiteLists: ["grade-1-ending-consonant-blends"]
 nextLists: ["grade-1-open-syllables-final-y"]
 skillIds: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u"]

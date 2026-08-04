@@ -6,7 +6,7 @@ description: "A fourth-grade final stable syllables list for -ture and -sure wor
 shortAnswer: "Fourth graders practice the final stable syllables -ture and -sure in words like furniture, adventure, treasure, and measure."
 category: grade-level
 grade: "4"
-contentRole: skill
+contentRole: supporting-practice
 difficulty: intermediate
 skillTags: ["grade-4", "final-stable-syllables", "suffixes", "word-study"]
 tags: ["grade-4", "final-stable-syllables", "word-endings", "morphology", "word-study"]

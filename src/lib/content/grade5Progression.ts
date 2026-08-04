@@ -9,7 +9,7 @@
  * One canonical Grade 5 unit ("Advanced Roots, Affixes, and Academic Words")
  * is a combined roadmap entry: only the anchor page
  * (`grade-5-prefix-suffix-words`, contentRole: grade-unit) appears here. Its
- * focused sibling page (`grade-5-spelling-rules`, contentRole: skill) is
+ * supporting page (`grade-5-spelling-rules`, contentRole: supporting-practice) is
  * reached from the anchor's related-practice links rather than entering the
  * Grade Unit sequence directly — the same pattern Grade 4 uses for its
  * Advanced Suffixes and Final Stable Syllables unit.
@@ -85,7 +85,7 @@ export const GRADE_5_ADDITIONAL_PRACTICE_IDS: readonly string[] = [
 export const grade5Badges: Record<string, string> = {
   'grade-5-multisyllabic-academic-words': 'Core Unit',
   'grade-5-prefix-suffix-words': 'Core Unit',
-  'grade-5-spelling-rules': 'Focused Skill',
+  'grade-5-spelling-rules': 'Supporting Practice',
   'grade-5-greek-latin-word-parts': 'Core Unit',
   'grade-5-commonly-confused-words': 'Core Unit',
   'grade-5-spelling-changes-related-words': 'Core Unit',

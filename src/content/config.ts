@@ -39,6 +39,9 @@ const spellingLists = defineCollection({
         'sight-word-set',
         'vocabulary-theme',
         'teaching-guide',
+        // Published grade-owned practice reached through a combined Grade
+        // Unit's relationship links; not a Grade Hub card or canonical Skill.
+        'supporting-practice',
       ])
       .optional(),
     // For grade-units only: stable ids of the reusable Skills this unit

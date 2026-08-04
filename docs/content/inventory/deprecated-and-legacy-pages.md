@@ -137,9 +137,8 @@ Standalone "practice" or "review" pages not referenced by any Grade Hub card —
 | Kindergarten Food Words | kindergarten-food-words | `src/content/spelling-lists/grade-level/kindergarten-food-words.md` | Redirects (301) to `/spelling-lists/kindergarten` |
 | Kindergarten School Words | kindergarten-school-words | `src/content/spelling-lists/grade-level/kindergarten-school-words.md` | Redirects (301) to `/spelling-lists/kindergarten` |
 | Kindergarten Shape Words | kindergarten-shape-words | `src/content/spelling-lists/grade-level/kindergarten-shape-words.md` | Redirects (301) to `/spelling-lists/kindergarten` |
-| Short Vowels: CVC Words | short-vowels-cvc-words | `src/content/spelling-lists/phonics/short-vowels-cvc-words.md` | No redirect configured |
+| Short Vowels: CVC Words | short-vowels-cvc-words | `src/content/spelling-lists/phonics/short-vowels-cvc-words.md` | Retired umbrella/family artifact, superseded by the five focused Short Vowel Skills; no redirect configured |
 | Long E Silent E Words | silent-e-long-e | `src/content/spelling-lists/phonics/silent-e-long-e.md` | Redirects (301) to `/spelling-lists/skills/#silent-e-family` (the canonical Silent E family overview on the Skills Hub, per `docs/architecture/SKILLS_ARCHITECTURE.md` §5) |
 
 ---
 **Total: 82 pages classified deprecated/legacy**, none of them in the active editorial scope defined by `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. If a future product decision brings any of these back into the canonical architecture (for example, formally deciding the Dolch tier's long-term relationship to the Common Words system), move its row into the appropriate active inventory file at that time and record the decision per the roadmap's §15 maintenance rule — do not silently start editing it first.
-

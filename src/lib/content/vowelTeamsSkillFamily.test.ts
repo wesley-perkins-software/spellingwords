@@ -34,6 +34,7 @@ const VOWEL_TEAM_SKILL_IDS = [
   'vowel-teams-oa-ow',
   'oi-and-oy-words',
   'ou-and-ow-words',
+  'ie-and-igh-words',
   'oo-words',
   'au-and-aw-words',
 ] as const;
@@ -56,6 +57,7 @@ const EXPECTED_URL_INPUTS: Record<string, { category: string; urlSlug: string }>
   'vowel-teams-oa-ow': { category: 'phonics', urlSlug: 'vowel-teams-oa-ow' },
   'oi-and-oy-words': { category: 'phonics', urlSlug: 'oi-and-oy-words' },
   'ou-and-ow-words': { category: 'phonics', urlSlug: 'ou-and-ow-words' },
+  'ie-and-igh-words': { category: 'phonics', urlSlug: 'ie-and-igh-words' },
   'oo-words': { category: 'phonics', urlSlug: 'oo-words' },
   'au-and-aw-words': { category: 'phonics', urlSlug: 'au-and-aw-words' },
   'grade-1-long-a-long-o-vowel-teams': {
@@ -183,13 +185,12 @@ describe('Vowel Teams Skill Family', () => {
     expect(SPELLING_SKILL_FAMILIES[11]).toBe(HOMOPHONES_AND_COMMONLY_CONFUSED_WORDS_SKILL_FAMILY);
   });
 
-  it('uses exactly the approved curated Vowel Teams Skill IDs in public order (8 skills, 1 provisional)', () => {
+  it('uses exactly the eight approved live Vowel Teams Skill IDs in public order', () => {
     expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).toEqual(VOWEL_TEAM_SKILL_IDS);
     expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).not.toEqual(
       expect.arrayContaining(EXCLUDED_DIPHTHONG_IDS),
     );
-    expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).not.toContain('ie-and-igh-words');
-    expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).toHaveLength(7);
+    expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).toHaveLength(8);
   });
 
   it('keeps family-specific browse copy and JSON-LD derived from curated family order', () => {
@@ -208,7 +209,7 @@ describe('Vowel Teams Skill Family', () => {
     expect(route).toContain('itemListElement: skillFamilies.flatMap((family) =>');
     expect(route).toContain('position: ++itemListPosition');
 
-    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(40);
+    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(41);
 
     const vowelTeamsStart = SHORT_VOWELS_AND_CVC_SKILL_FAMILY.skillIds.length +
       CONSONANT_DIGRAPHS_SKILL_FAMILY.skillIds.length +
@@ -269,6 +270,40 @@ describe('Vowel Teams Skill Family', () => {
       for (const ref of [...entry.relatedLists, ...entry.prerequisiteLists, ...entry.nextLists]) {
         expect(allIds.has(ref), `${entry.id} references ${ref}`).toBe(true);
       }
+    }
+  });
+
+  it('keeps IE and IGH Words focused, relationship-safe, and deliberately without fabricated placement', () => {
+    const entry = byId.get('ie-and-igh-words')!;
+    const source = readFileSync(entry.filePath, 'utf8');
+    const frontmatter = readFrontmatter(entry.filePath);
+
+    expect(entry).toMatchObject({
+      id: 'ie-and-igh-words',
+      urlSlug: 'ie-and-igh-words',
+      category: 'phonics',
+      status: 'published',
+      contentRole: 'skill',
+      relatedLists: ['silent-e-long-i'],
+      prerequisiteLists: [],
+      nextLists: [],
+    });
+    expect(readScalar(frontmatter, 'title')).toBe('IE and IGH Words');
+    expect(new Set(entry.relatedLists).size).toBe(entry.relatedLists.length);
+    expect(source).not.toMatch(/^readinessSignals:/m);
+    expect(source).not.toMatch(/^skillIds:/m);
+
+    const ieWords = entry.words.filter((word) => word.includes('ie'));
+    const ighWords = entry.words.filter((word) => word.includes('igh'));
+    expect(ieWords.length).toBeGreaterThan(0);
+    expect(ighWords.length).toBeGreaterThan(0);
+    expect(entry.words).not.toEqual(expect.arrayContaining(['field', 'chief', 'piece']));
+
+    // No current Grade Unit teaches IE/IGH; reverse curriculum placement is
+    // intentionally empty until Phase 2 can make a truthful content decision.
+    for (const summary of summaries) {
+      const unitFrontmatter = readFrontmatter(summary.filePath);
+      expect(readArray(unitFrontmatter, 'skillIds'), summary.id).not.toContain('ie-and-igh-words');
     }
   });
 

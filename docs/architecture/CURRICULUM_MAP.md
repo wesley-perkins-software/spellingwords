@@ -124,7 +124,7 @@ Grade 1's 15 core units are supported by 9 gateway pages, 52 targeted-skill page
 | 1 | Grade 5 Multisyllabic Academic Words | `grade-5-multisyllabic-academic-words` | Upper-elementary multisyllabic spelling | Longer academic words | Grade 4 Order 5 | Order 2 | Multisyllabic Words (not built) | Not wired | Proposed |
 | 2 | Grade 5 Prefix & Suffix Words | `grade-5-prefix-suffix-words` | Prefix/suffix extension | Affixed words | Order 1 | Order 3 | Common Prefixes, Common Suffixes (not built) | Not wired | Proposed |
 | 3 | Grade 5 Greek & Latin Word Parts | `grade-5-greek-latin-word-parts` | Roots inside longer academic words | Root-based academic words | Order 2 | Order 4 | Greek and Latin Roots (not built) | Not wired | Proposed |
-| 4 | Grade 5 Spelling Rules | `grade-5-spelling-rules` | Combined suffix-spelling rules: -tion/-sion, -able/-ible, -ance/-ence | Rule-based word sets | Order 3 | Order 5 | Suffix Spelling Changes (not built) | Not wired | Proposed |
+| 4 | Grade 5 Spelling Rules | `grade-5-spelling-rules` | Grade-owned supporting practice for the combined Advanced Prefixes and Suffixes entry: -tion/-sion, -able/-ible, -ance/-ence | Rule-based word sets | Order 3 | Order 5 | Common Suffixes / Spelling Rules for Adding Suffixes | Reached through `grade-5-prefix-suffix-words` progression links; intentionally not a separate hub card or canonical Skill | Published supporting Grade Unit |
 | 5 | Grade 5 Commonly Confused Words | `grade-5-commonly-confused-words` | Meaning-based word-choice accuracy (capstone level) | Confused-word sets | Order 4 | none (K–5 sequence terminus) | Commonly Confused Words (not built) | Not wired | Proposed |
 
 ---
@@ -150,7 +150,7 @@ Three independent status columns so **a page existing never implies its role is 
 | Long I Silent E | `silent-e-long-i` | Focused VCe long-i practice | `grade-1-long-vowels-silent-e` | Built | Canonical | Not wired |
 | Long O Silent E | `silent-e-long-o` | Focused VCe long-o practice | `grade-1-long-vowels-silent-e` | Built | Canonical | Not wired |
 | Long U Silent E | `silent-e-long-u` | Focused VCe long-u practice | `grade-1-long-vowels-silent-e` | Built | Canonical | Not wired |
-| Long E Silent E | `silent-e-long-e` | Focused VCe long-e practice | `grade-1-long-vowels-silent-e` | Built | **Needs reclassification** — `SKILLS_MODEL.md` §7 explicitly says Long E Silent E "should require autonomy review," but it already ships as a full member of the public Silent E family. The map should not treat it as settled-canonical until that review happens. | Not wired |
+| Long E Silent E | `silent-e-long-e` | Concise family-overview guidance only | `grade-1-long-vowels-silent-e` | Archived with permanent redirect | Resolved: real but too thin for a peer canonical Skill; representative examples remain in the Silent E family guidance | Redirected to the Silent E family anchor |
 | AI and AY | `vowel-teams-ai-ay` | Focused long-a vowel-team practice | `grade-1-long-a-long-o-vowel-teams` | Built | Canonical | Not wired |
 | EE and EA | `vowel-teams-ee-ea` | Focused long-e vowel-team practice | `grade-1-long-e-vowel-teams` | Built | Canonical | Not wired |
 | OA and OW | `vowel-teams-oa-ow` | Focused long-o vowel-team practice | `grade-1-long-a-long-o-vowel-teams` | Built | Canonical | Not wired |

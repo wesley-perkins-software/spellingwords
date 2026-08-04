@@ -623,7 +623,8 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [ ] Core Spelling / Grade Unit pages (11 canonical-active)
-  - [x] Kindergarten First Words (`kindergarten-first-words`)
+  - [ ] Kindergarten First Words (`kindergarten-first-words`)
+    - Status: editorial implementation drafted and self-reviewed; inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
   - [ ] Kindergarten Animal Words (`kindergarten-animal-words`)
   - [ ] Kindergarten Body Words (`kindergarten-body-words`)
   - [ ] Kindergarten Family Words (`kindergarten-family-words`)

@@ -257,14 +257,14 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
       )
     }
 
-    <!-- What's next -->
+    <!-- Where to go from here -->
     {
       (prerequisites.length > 0 || related.length > 0 || next.length > 0) && (
         <section class="section-block whats-next" style={worldStyleVars}>
-          <h2 class="section-heading">What's next</h2>
-          <WorldRelatedCards heading="Review first" items={prerequisites} listLink={listLink} />
-          <WorldRelatedCards heading="Ready for next" items={next} listLink={listLink} />
-          <WorldRelatedCards heading="Also worth practicing" items={related} listLink={listLink} />
+          <h2 class="section-heading">Where to Go From Here</h2>
+          <WorldRelatedCards heading="Review First" items={prerequisites} listLink={listLink} />
+          <WorldRelatedCards heading="Next Step" items={next} listLink={listLink} />
+          <WorldRelatedCards heading="More Practice" items={related} listLink={listLink} />
         </section>
       )
     }

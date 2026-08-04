@@ -463,7 +463,7 @@ const harderList = next[0];
         >
           <div class="mx-auto max-w-2xl md:max-w-3xl">
             <h2 id="progression-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-              What's next
+              Where to Go From Here
             </h2>
             {(listCollection || listPath) && (
               <p class="mb-5 text-base text-ink-soft">
@@ -495,18 +495,18 @@ const harderList = next[0];
               </p>
             )}
             <RelatedListCards
-              heading="Review first"
+              heading="Review First"
               items={prerequisites}
               listLink={listLink}
               accent="previous"
             />
             <RelatedListCards
-              heading="Ready for next"
+              heading="Next Step"
               items={next}
               listLink={listLink}
               accent="forward"
             />
-            <RelatedListCards heading="Also worth practicing" items={related} listLink={listLink} />
+            <RelatedListCards heading="More Practice" items={related} listLink={listLink} />
           </div>
         </section>
       )

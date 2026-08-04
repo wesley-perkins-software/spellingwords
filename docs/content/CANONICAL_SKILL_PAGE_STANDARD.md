@@ -475,7 +475,7 @@ The copyable brief lives at `docs/content/templates/SKILL_PAGE_CONTENT_BRIEF.md`
 
 ## 21. Variant mapping for all 41 canonical Skills
 
-Source of truth for id/title/urlSlug/source-file cross-checked directly against `docs/content/inventory/skill-pages.md` and `docs/architecture/SKILLS_ARCHITECTURE.md` §3–4. All 41 taxonomy slots appear exactly once and are live. The two published non-taxonomy pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) remain unresolved legacy-role mismatches and are intentionally **excluded** from this mapping; their stored `contentRole: skill` does not make them canonical Skills. `silent-e-long-e` is merged into the Silent E family overview, archived, and redirected.
+Source of truth for id/title/urlSlug/source-file cross-checked directly against `docs/content/inventory/skill-pages.md` and `docs/architecture/SKILLS_ARCHITECTURE.md` §3–4. All 41 taxonomy slots appear exactly once and are live. The two published non-taxonomy pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) are intentionally **excluded** from this mapping and settled as not canonical Skills; their stored `contentRole: skill` is a documented legacy-role exception, not a Skill-taxonomy claim — see `docs/content/inventory/skill-pages.md` for the resolution and why the frontmatter value is deliberately retained rather than corrected. `silent-e-long-e` is merged into the Silent E family overview, archived, and redirected.
 
 | Canonical id | Title | Family | Variant | Status | Source file | Note |
 |---|---|---|---|---|---|---|
@@ -502,7 +502,7 @@ Source of truth for id/title/urlSlug/source-file cross-checked directly against 
 | `vowel-teams-oa-ow` | OA and OW Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/vowel-teams-oa-ow.md` | |
 | `oi-and-oy-words` | OI and OY Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/oi-and-oy-words.md` | |
 | `ou-and-ow-words` | OU and OW Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/ou-and-ow-words.md` | |
-| `ie-and-igh-words` | IE and IGH Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/ie-and-igh-words.md` | Approved persisted brief completed before drafting; no Grade Unit placement fabricated because no current unit teaches IE/IGH |
+| `ie-and-igh-words` | IE and IGH Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/ie-and-igh-words.md` | Approved persisted brief completed before drafting. Grade Unit placement resolved as intentionally absent — no current Grade 1 or Grade 2 unit teaches the IE/IGH pattern, and no `skillIds` back-reference was fabricated to manufacture one. This is a settled, permanent state, not an open item pending a future decision. |
 | `oo-words` | OO Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/oo-words.md` | |
 | `au-and-aw-words` | AU and AW Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/au-and-aw-words.md` | |
 | `r-controlled-ar` | R-Controlled AR Words | R-Controlled Vowels | 1 | Live | `src/content/spelling-lists/phonics/r-controlled-ar.md` | |

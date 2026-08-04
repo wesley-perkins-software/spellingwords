@@ -64,6 +64,7 @@ type FrontmatterSummary = {
     relatedLists: string[];
     prerequisiteLists: string[];
     nextLists: string[];
+    skillIds: string[];
   };
 };
 
@@ -118,6 +119,7 @@ function readSummary(filePath: string): FrontmatterSummary {
       relatedLists: readArray(frontmatter, 'relatedLists'),
       prerequisiteLists: readArray(frontmatter, 'prerequisiteLists'),
       nextLists: readArray(frontmatter, 'nextLists'),
+      skillIds: readArray(frontmatter, 'skillIds'),
     },
   };
 }
@@ -355,6 +357,18 @@ describe('curated spelling Skills browse index', () => {
     expect(byId.get('grade-5-prefix-suffix-words')!.data.relatedLists).toContain(
       'grade-5-spelling-rules',
     );
+    expect(byId.get('grade-5-prefix-suffix-words')!.data.nextLists).toContain(
+      'grade-5-spelling-rules',
+    );
+  });
+
+  it('keeps grade-unit skillIds limited to canonical Skill ids (grade-5-spelling-rules is not one)', () => {
+    const anchor = byId.get('grade-5-prefix-suffix-words')!;
+    expect(anchor.data.skillIds).not.toContain('grade-5-spelling-rules');
+    expect(anchor.data.skillIds).toEqual(['common-prefixes']);
+    for (const skillId of anchor.data.skillIds) {
+      expect(CURATED_SPELLING_SKILL_IDS).toContain(skillId);
+    }
   });
 
   describe('retired Long E Silent E page (docs/architecture/SKILLS_ARCHITECTURE.md §5)', () => {

@@ -24,15 +24,6 @@ readinessSignals:
   - 'Can segment a word like "sit" into its three sounds without help, and blend them back together'
   - 'Recognize the short "i" sound when it is spoken aloud, even before seeing it written down'
   - 'Feel comfortable with short "a" words and are ready for a new vowel sound'
-faq:
-  - question: 'What is the short "i" sound?'
-    answer: 'It is the quick, high sound in the middle of "pig" and "sit" — often confused with short "e," so it helps to practice it clearly on its own here.'
-  - question: 'How is short "i" different from short "e"?'
-    answer: 'Short "i" (as in "sit") sits a little higher and quicker in the mouth than short "e" (as in "set"). Saying both out loud, side by side, helps a child notice the difference.'
-  - question: 'Should these words be sounded out or memorized?'
-    answer: 'Sounded out. Every word in this list follows the same regular pattern, so segmenting and blending the sounds is all a child needs.'
-  - question: 'What comes after short I words?'
-    answer: 'Kindergarten Short O Words is next in the core spelling progression.'
 words:
   - pig
   - big
@@ -44,8 +35,12 @@ words:
   - win
 ---
 
-The short "i" sound is quick and bright — you can hear it in the middle of *pig*, *sit*, and *win*. After practicing short "a" on its own, this list gives a child a second single vowel sound to hear and spell with the same calm, steady approach.
+The short "i" sound is the vowel sound heard in the middle of *pig*, *sit*, and *win* — distinct from the short "a" sound just practiced. After Short A, this list gives a child a second single vowel sound to hear and spell with the same calm, steady approach.
 
-Simple, familiar words like these make the pattern easy to notice and repeat, one word at a time.
+Every word here follows the same regular, one-sound-per-letter pattern as Short A Words, using common words a kindergartener already knows how to say.
 
-If a child needs more practice with this same vowel sound, [Short I Words](/spelling-lists/phonics/short-i-words) offers a focused extra practice set.
+### How to practice this list
+
+Have your child listen to each word, then say each sound separately before writing the matching letter — p, i, g for *pig*. Keep an ear out for short "e" creeping in (as in "peg" instead of "pig"); saying the two sounds side by side, slowly, can help a child hear the difference.
+
+When a child can blend and spell most of these eight words with growing independence, they're ready for Kindergarten Short O Words.

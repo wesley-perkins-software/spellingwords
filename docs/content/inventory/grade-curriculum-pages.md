@@ -15,14 +15,14 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling 
 
 | Title | id | urlSlug | Role | Status | Source file | Editorial status |
 |---|---|---|---|---|---|---|
-| Kindergarten First Words | kindergarten-first-words | kindergarten-first-words | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/grade-level/kindergarten-first-words.md` | Needs review |
+| Kindergarten First Words | kindergarten-first-words | kindergarten-first-words | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/grade-level/kindergarten-first-words.md` | Needs review (re-audited against `CANONICAL_GRADE_UNIT_PAGE_STANDARD.md` in the Kindergarten pilot batch) |
 | Kindergarten Number Words | kindergarten-number-words | kindergarten-number-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/kindergarten-number-words.md` | Not audited |
 | Kindergarten Color Words | kindergarten-color-words | kindergarten-color-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/kindergarten-color-words.md` | Not audited |
 | Kindergarten Animal Words | kindergarten-animal-words | kindergarten-animal-words | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/grade-level/kindergarten-animal-words.md` | Not audited |
 | Kindergarten Body Words | kindergarten-body-words | kindergarten-body-words | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/grade-level/kindergarten-body-words.md` | Not audited |
 | Kindergarten Family Words | kindergarten-family-words | kindergarten-family-words | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/grade-level/kindergarten-family-words.md` | Not audited |
-| Kindergarten Short A Words | kindergarten-short-a-words | kindergarten-short-a-words | grade-unit | published | `src/content/spelling-lists/phonics/kindergarten-short-a-words.md` | Not audited |
-| Kindergarten Short I Words | kindergarten-short-i-words | kindergarten-short-i-words | grade-unit | published | `src/content/spelling-lists/phonics/kindergarten-short-i-words.md` | Not audited |
+| Kindergarten Short A Words | kindergarten-short-a-words | kindergarten-short-a-words | grade-unit | published | `src/content/spelling-lists/phonics/kindergarten-short-a-words.md` | Needs review |
+| Kindergarten Short I Words | kindergarten-short-i-words | kindergarten-short-i-words | grade-unit | published | `src/content/spelling-lists/phonics/kindergarten-short-i-words.md` | Needs review |
 | Kindergarten Short O Words | kindergarten-short-o-words | kindergarten-short-o-words | grade-unit | published | `src/content/spelling-lists/phonics/kindergarten-short-o-words.md` | Not audited |
 | Kindergarten Short U Words | kindergarten-short-u-words | kindergarten-short-u-words | grade-unit | published | `src/content/spelling-lists/phonics/kindergarten-short-u-words.md` | Not audited |
 | Kindergarten Short E Words | kindergarten-short-e-words | kindergarten-short-e-words | grade-unit | published | `src/content/spelling-lists/phonics/kindergarten-short-e-words.md` | Not audited |

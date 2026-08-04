@@ -25,12 +25,6 @@ readinessSignals:
 faq:
   - question: 'Are these really the first words kindergarteners learn to spell?'
     answer: "They're a strong starting point, not the only one. These eight words were chosen because they're short, phonetically regular, and already part of a kindergartener's spoken vocabulary — which makes them easier to map to letters than less familiar words would be."
-  - question: "Why do these words mix several different vowel sounds instead of focusing on one?"
-    answer: "This list is an on-ramp, not a disguised single-vowel list. Mixing cat, pig, dog, bug, bed, sun, cup, and hen together shows a child that the same simple sound-out-and-spell move works across every short vowel — a first win with the skill itself, before the list narrows to one vowel at a time."
-  - question: 'Should these words be memorized, or just practiced?'
-    answer: 'Practiced, not memorized. The goal is to hear the sounds in each word and connect them to letters — a skill that transfers to new words, not just these eight.'
-  - question: 'What comes after this list?'
-    answer: 'Kindergarten Short A Words is the next step in the core spelling progression, narrowing the focus to one vowel sound at a time. Animal Words and Number and Color Words are also good optional practice whenever your child wants a change of pace.'
 words:
   - bed
   - bug
@@ -48,6 +42,12 @@ Each word is short and phonetically regular — three letters, one syllable, and
 
 At this stage, the skill being built isn't reading, and it isn't memorizing. It's **encoding**: hearing a spoken word, breaking it into its separate sounds, and writing down a letter for each one. *Cat* becomes three sounds — c, a, t — and three letters, said and written in the same order. That's a different task from recognizing the word *cat* in a book, and different again from a sight word a child just has to know on sight. Kindergarten's job here is narrower than either: can a child hear a short, familiar word and turn each sound into a letter, one at a time?
 
+### How to practice this list
+
+Say each word aloud, then ask your child to say each sound separately before writing the matching letter — *cat* becomes three separate sounds, c, then a, then t, one letter at a time. A few words in one sitting is plenty; there's no need to get through all eight at once.
+
 Success at this stage looks slow, not fast. A child who stops after each sound, says it out loud, and writes the matching letter before moving to the next sound is doing exactly what this list is for — even if it takes a while to get through one word. Speed and confidence come later, built on this kind of careful, sound-by-sound accuracy; rushing a child toward faster spelling now, before the sound-to-letter connection is secure, tends to produce guessing instead of the habit this list is meant to build.
+
+When a child can sound out and write most of these eight words with growing independence — needing only occasional help — they're ready to move on to Kindergarten Short A Words.
 
 There is no rush here — just the quiet satisfaction of hearing a word, sounding it out, and getting it right, one word at a time.

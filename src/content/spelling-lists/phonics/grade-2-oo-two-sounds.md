@@ -16,9 +16,9 @@ estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: []
-prerequisiteLists: ["vowel-teams-ou-ow"]
-nextLists: ["grade-2-au-aw-words"]
+relatedLists: ["grade-2-common-words-1", "grade-2-common-words-3"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Can spell short and long vowels, then notice that oo does not follow either familiar pattern"

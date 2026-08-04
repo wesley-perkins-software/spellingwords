@@ -16,9 +16,9 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['kindergarten-short-i-words', 'kindergarten-short-o-words', 'kindergarten-short-u-words', 'kindergarten-short-e-words']
-prerequisiteLists: ['kindergarten-first-words']
-nextLists: ['kindergarten-short-i-words']
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - 'Can segment a simple word like "cat" into its three sounds and blend them back together'

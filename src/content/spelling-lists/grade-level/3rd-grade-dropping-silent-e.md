@@ -16,9 +16,9 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 skillIds: ["suffix-spelling-changes"]
-relatedLists: ["grade-3-suffix-words", "grade-3-doubling-final-consonants", "grade-3-changing-y-to-i"]
-prerequisiteLists: ["grade-3-suffix-words", "grade-2-comparatives-er-est"]
-nextLists: ["grade-3-doubling-final-consonants"]
+relatedLists: ["grade-3-doubling-final-consonants", "grade-3-changing-y-to-i"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can spell silent-e base words such as make, take, come, write, and hope"
   - "Recognize suffixes like -ing and -ed when they attach to a base word"

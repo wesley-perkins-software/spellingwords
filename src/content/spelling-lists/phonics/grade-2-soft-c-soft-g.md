@@ -15,9 +15,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["c-k-ck-words", "grade-1-tch-dge-ending-rules"]
-prerequisiteLists: ["grade-2-au-aw-words"]
-nextLists: ["grade-2-two-syllable-words"]
+relatedLists: ["grade-2-common-words-3"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 skillIds: ["soft-c-soft-g"]
 readinessSignals:

@@ -22,6 +22,7 @@ import {
   dedupeRelatedLists,
   toPlayableWords,
 } from '@/lib/content/spellingLists';
+import { getSequenceNeighbors } from '@/lib/content/navigationSequence';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { buildGradeUnitSequence } from '@/lib/content/gradeUnitSequence';
@@ -49,8 +50,12 @@ if (entry.data.contentRole !== 'grade-unit') {
 const { data } = entry;
 const { Content } = await entry.render();
 
-const prerequisites = resolveListRefs(data.prerequisiteLists, entries);
-const next = resolveListRefs(data.nextLists, entries);
+// Review First / Next Step are derived from the canonical CORE_SPELLING_SEQUENCE
+// array, not authored frontmatter — see docs/planning/CANONICAL_NAVIGATION_RELATIONSHIPS.md.
+// Explore More (`relatedLists`) remains manually curated frontmatter.
+const { prerequisiteId, nextId } = getSequenceNeighbors(data.id);
+const prerequisites = resolveListRefs(prerequisiteId ? [prerequisiteId] : [], entries);
+const next = resolveListRefs(nextId ? [nextId] : [], entries);
 const related = dedupeRelatedLists(prerequisites, resolveListRefs(data.relatedLists, entries), next);
 const conceptSkills = data.skillIds
   .map((id) => entries.find((e) => e.data.id === id))
@@ -264,7 +269,7 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
           <h2 class="section-heading">Where to Go From Here</h2>
           <WorldRelatedCards heading="Review First" items={prerequisites} listLink={listLink} />
           <WorldRelatedCards heading="Next Step" items={next} listLink={listLink} />
-          <WorldRelatedCards heading="More Practice" items={related} listLink={listLink} />
+          <WorldRelatedCards heading="Explore More" items={related} listLink={listLink} />
         </section>
       )
     }

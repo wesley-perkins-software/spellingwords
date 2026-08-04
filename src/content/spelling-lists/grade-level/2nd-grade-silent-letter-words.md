@@ -16,9 +16,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: []
-prerequisiteLists: ["grade-2-final-stable-le"]
-nextLists: ["grade-2-list-02"]
+relatedLists: ["grade-4-common-words-1", "grade-5-common-words-1"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can spell basic consonant patterns and are ready for words where not every letter is pronounced"
   - "Recognize common words such as write, know, knee, lamb, and comb when reading"

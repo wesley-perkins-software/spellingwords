@@ -15,7 +15,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['grade-1-weather-words']
+relatedLists: ["grade-1-weather-words"]
 prerequisiteLists: ['grade-1-weather-words']
 nextLists: []
 featured: false

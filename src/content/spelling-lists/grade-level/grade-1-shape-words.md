@@ -15,7 +15,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['grade-1-number-words-11-20', 'grade-1-days-of-the-week']
+relatedLists: []
 prerequisiteLists: ['grade-1-clothing-words']
 nextLists: ['grade-1-number-words-11-20']
 featured: false

@@ -19,7 +19,7 @@ canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 5 common words"
 relatedLists: []
-prerequisiteLists: ["grade-5-common-words-3"]
+prerequisiteLists: []
 nextLists: []
 featured: false
 words:

@@ -18,9 +18,9 @@ sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 3 core spelling"
-relatedLists: ["grade-3-changing-y-to-i", "grade-1-inflectional-endings-s-es", "grade-2-contractions", "grade-3-homophones", "grade-3-multisyllabic-words"]
-prerequisiteLists: ["grade-3-changing-y-to-i", "grade-1-inflectional-endings-s-es", "grade-2-contractions"]
-nextLists: ["grade-3-multisyllabic-words"]
+relatedLists: ["grade-2-contractions", "grade-3-homophones"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can spell regular plurals with -s and -es, and know that a plural does not use an apostrophe"
   - "Can already join two words into a contraction with an apostrophe, such as don't or it's"

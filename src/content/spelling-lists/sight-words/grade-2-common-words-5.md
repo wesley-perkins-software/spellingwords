@@ -18,9 +18,9 @@ sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 2 common words"
-relatedLists: []
-prerequisiteLists: ["grade-2-common-words-4"]
-nextLists: ["grade-2-common-words-6"]
+relatedLists: ["grade-2-au-aw-words"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - "best"

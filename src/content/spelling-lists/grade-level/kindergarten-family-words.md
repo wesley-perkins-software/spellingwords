@@ -14,7 +14,7 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-animal-words", "kindergarten-body-words", "kindergarten-color-words"]
+relatedLists: []
 prerequisiteLists: ["kindergarten-color-words"]
 nextLists: []
 featured: false

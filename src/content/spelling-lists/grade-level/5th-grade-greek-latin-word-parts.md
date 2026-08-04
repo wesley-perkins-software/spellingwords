@@ -16,9 +16,9 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-prefix-suffix-words", "grade-5-spelling-rules", "grade-5-commonly-confused-words"]
-prerequisiteLists: ["grade-5-spelling-rules", "tier-1-roots-and-patterns", "tier-2-greek-latin-roots"]
-nextLists: ["grade-5-commonly-confused-words"]
+relatedLists: ["tier-1-roots-and-patterns"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can identify familiar Greek and Latin parts inside longer academic words"
   - "Are comfortable spelling words with three or more syllables when they can be broken into chunks"

@@ -16,9 +16,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["digraph-sh-words", "digraph-ch-words", "digraph-th-words", "digraph-wh-words", "kindergarten-consonant-digraphs", "kindergarten-ck-ending-words", "c-k-ck-words"]
-prerequisiteLists: ["grade-1-floss-rule", "kindergarten-consonant-digraphs", "kindergarten-ck-ending-words"]
-nextLists: ["grade-1-beginning-consonant-blends"]
+relatedLists: ["kindergarten-ck-ending-words", "grade-1-cvc-short-vowels-c-k-rule"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Can spell short-vowel words and simple doubled endings with support"

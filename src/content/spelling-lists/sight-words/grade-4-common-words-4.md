@@ -18,9 +18,9 @@ sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 4 common words"
-relatedLists: []
-prerequisiteLists: ["grade-4-common-words-3"]
-nextLists: ["grade-5-common-words-1"]
+relatedLists: ["grade-4-commonly-confused-words"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - "however"

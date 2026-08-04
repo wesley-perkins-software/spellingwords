@@ -118,7 +118,7 @@ const ARCHIVED_KINDERGARTEN_THEME_IDS = new Set([
 ]);
 
 describe('buildKindergartenSections', () => {
-  it('resolves all 10 core unit ids and 3 additional ids in curated order', () => {
+  it('resolves all 8 core unit ids and 3 additional ids in curated order', () => {
     const gradeLists = [...KINDERGARTEN_CORE_IDS, ...KINDERGARTEN_ADDITIONAL_IDS]
       .slice()
       .reverse()
@@ -154,7 +154,7 @@ describe('getKindergartenRoadmapPosition', () => {
       step: 2,
       total: KINDERGARTEN_CORE_IDS.length,
     });
-    expect(getKindergartenRoadmapPosition('kindergarten-double-consonants')).toEqual({
+    expect(getKindergartenRoadmapPosition('kindergarten-consonant-digraphs')).toEqual({
       step: KINDERGARTEN_CORE_IDS.length,
       total: KINDERGARTEN_CORE_IDS.length,
     });
@@ -163,6 +163,12 @@ describe('getKindergartenRoadmapPosition', () => {
   it('returns undefined for anything outside the core progression', () => {
     expect(getKindergartenRoadmapPosition('kindergarten-heart-words')).toBeUndefined();
     expect(getKindergartenRoadmapPosition('short-a-words')).toBeUndefined();
+    // kindergarten-ck-ending-words and kindergarten-double-consonants are
+    // support/practice content, not canonical Kindergarten Grade Units —
+    // removed from KINDERGARTEN_CORE_IDS per the Canonical Navigation
+    // Relationships review.
+    expect(getKindergartenRoadmapPosition('kindergarten-ck-ending-words')).toBeUndefined();
+    expect(getKindergartenRoadmapPosition('kindergarten-double-consonants')).toBeUndefined();
     expect(getKindergartenRoadmapPosition('')).toBeUndefined();
   });
 });
@@ -219,6 +225,12 @@ describe('Kindergarten roadmap architecture', () => {
     }
   });
 
+  it('keeps exactly the 8 canonical Kindergarten Core Spelling hub cards, per the Canonical Navigation Relationships review', () => {
+    expect(KINDERGARTEN_CORE_IDS).toHaveLength(8);
+    expect(KINDERGARTEN_CORE_IDS).not.toContain('kindergarten-ck-ending-words');
+    expect(KINDERGARTEN_CORE_IDS).not.toContain('kindergarten-double-consonants');
+  });
+
   it('keeps every Kindergarten Grade Unit practice set in the expected 8-16 word range', () => {
     const byId = new Map(kindergartenContent().map((entry) => [entry.id, entry]));
 
@@ -230,18 +242,9 @@ describe('Kindergarten roadmap architecture', () => {
     }
   });
 
-  it('keeps the previous and next links coherent through the core progression', () => {
-    const byId = new Map(kindergartenContent().map((entry) => [entry.id, entry]));
-
-    KINDERGARTEN_CORE_IDS.forEach((id, index) => {
-      const entry = byId.get(id);
-      expect(entry, id).toBeDefined();
-
-      const previousId = KINDERGARTEN_CORE_IDS[index - 1];
-      const nextId = KINDERGARTEN_CORE_IDS[index + 1];
-
-      if (previousId) expect(entry!.prerequisiteLists).toContain(previousId);
-      if (nextId) expect(entry!.nextLists).toContain(nextId);
-    });
-  });
+  // Review First / Next Step are no longer authored in prerequisiteLists/nextLists
+  // frontmatter — they're derived from CORE_SPELLING_SEQUENCE (coreSpellingSequence.ts),
+  // whose Kindergarten portion is this same 8-id order. Coherence of that
+  // derived chain, including the K -> Grade 1 boundary, is verified in
+  // navigationSequence.test.ts.
 });

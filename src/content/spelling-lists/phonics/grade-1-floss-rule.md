@@ -15,9 +15,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-double-consonants", "short-i-words", "short-u-words"]
-prerequisiteLists: ["grade-1-cvc-short-vowels-c-k-rule", "kindergarten-double-consonants"]
-nextLists: ["grade-1-consonant-digraphs-final-ck"]
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Can spell simple short-vowel words such as hill, miss, and puff when guided"

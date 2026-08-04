@@ -16,9 +16,9 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 skillIds: ["beginning-blends"]
-relatedLists: ["bl-blend-words", "br-blend-words", "cl-blend-words", "cr-blend-words", "dr-blend-words", "fl-blend-words", "fr-blend-words", "gl-blend-words", "gr-blend-words", "pl-blend-words", "pr-blend-words", "sl-blend-words", "sm-blend-words", "sn-blend-words", "sp-blend-words", "st-blend-words", "sw-blend-words", "tr-blend-words"]
-prerequisiteLists: ["grade-1-consonant-digraphs-final-ck"]
-nextLists: ["grade-1-ending-consonant-blends"]
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Are ready for a focused first-grade spelling lesson on beginning consonant blends"

@@ -16,8 +16,8 @@ masteryThreshold: 90
 sourceType: curated
 skillIds: ["ed-and-ing"]
 relatedLists: []
-prerequisiteLists: ["grade-1-inflectional-endings-s-es"]
-nextLists: ["grade-1-r-controlled-ar-or"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Are ready for a focused first-grade spelling lesson on inflectional endings ed and ing"

@@ -16,9 +16,9 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 skillIds: ['short-e-words']
-relatedLists: ['kindergarten-short-a-words', 'kindergarten-short-i-words', 'kindergarten-short-o-words', 'kindergarten-short-u-words']
-prerequisiteLists: ['kindergarten-short-u-words']
-nextLists: ['kindergarten-mixed-vowel-review']
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - 'Can segment a word like "bed" into its three sounds and blend them back together'

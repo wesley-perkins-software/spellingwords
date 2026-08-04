@@ -18,9 +18,9 @@ sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 4 common words"
-relatedLists: []
-prerequisiteLists: ["grade-3-common-words-5"]
-nextLists: ["grade-4-common-words-2"]
+relatedLists: ["grade-2-silent-letter-words"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - word: "government"

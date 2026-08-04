@@ -16,8 +16,8 @@ masteryThreshold: 90
 sourceType: curated
 skillIds: ["plurals"]
 relatedLists: []
-prerequisiteLists: ["grade-1-heart-words"]
-nextLists: ["grade-1-inflectional-endings-ed-ing"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Are ready for a focused first-grade spelling lesson on inflectional endings s and es"

@@ -16,9 +16,9 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-academic-words", "grade-5-prefix-suffix-words"]
-prerequisiteLists: ["grade-4-multisyllabic-academic-words"]
-nextLists: ["grade-5-prefix-suffix-words"]
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can spell shorter academic words and are ready for longer words with several meaningful chunks"
   - "Can use syllables to hold a long word in order while writing"

@@ -15,9 +15,9 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['kindergarten-first-words']
-prerequisiteLists: ['kindergarten-short-e-words']
-nextLists: ['kindergarten-consonant-digraphs']
+relatedLists: ["kindergarten-animal-words"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - 'Have practiced Short A, I, O, U, and E Words and can spell most of them confidently'

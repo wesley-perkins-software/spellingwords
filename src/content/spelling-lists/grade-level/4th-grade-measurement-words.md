@@ -15,7 +15,7 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-4-multisyllabic-academic-words", "grade-4-solar-system-words"]
+relatedLists: ["grade-4-geometry-words"]
 prerequisiteLists: []
 nextLists: ["grade-4-solar-system-words"]
 featured: false

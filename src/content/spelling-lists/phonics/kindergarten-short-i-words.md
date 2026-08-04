@@ -16,9 +16,9 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['kindergarten-short-a-words', 'kindergarten-short-o-words', 'kindergarten-short-u-words', 'kindergarten-short-e-words']
-prerequisiteLists: ['kindergarten-short-a-words']
-nextLists: ['kindergarten-short-o-words']
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - 'Can segment a word like "sit" into its three sounds without help, and blend them back together'

@@ -15,9 +15,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["short-a-words", "short-e-words", "short-i-words", "short-o-words", "short-u-words", "c-k-ck-words"]
-prerequisiteLists: ["kindergarten-mixed-vowel-review", "kindergarten-ck-ending-words"]
-nextLists: ["grade-1-floss-rule"]
+relatedLists: ["grade-1-consonant-digraphs-final-ck"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Can say each sound in a simple CVC word such as cat, bed, or hop"

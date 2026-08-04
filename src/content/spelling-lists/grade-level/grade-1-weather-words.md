@@ -15,7 +15,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['grade-1-clothing-words']
+relatedLists: ["grade-1-clothing-words"]
 prerequisiteLists: []
 nextLists: ['grade-1-clothing-words']
 featured: false

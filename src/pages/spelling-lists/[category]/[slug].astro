@@ -15,6 +15,7 @@ import {
   toPlayableWords,
   getListCollection,
 } from '@/lib/content/spellingLists';
+import { getSequenceNeighbors } from '@/lib/content/navigationSequence';
 import { categoryLabels, cardAccent } from '@/lib/content/categoryMeta';
 import { getListPath } from '@/lib/content/learningPaths';
 import { SPELLING_SKILLS_INDEX_PATH, isCuratedSpellingSkillId } from '@/lib/content/spellingSkills';
@@ -36,8 +37,13 @@ const { data } = entry;
 
 const { Content } = await entry.render();
 
-const prerequisites = resolveListRefs(data.prerequisiteLists, allEntries);
-const next = resolveListRefs(data.nextLists, allEntries);
+// Review First / Next Step are derived from the canonical CORE_SPELLING_SEQUENCE /
+// HF_WORDS_SEQUENCE arrays, not authored frontmatter — see
+// docs/planning/CANONICAL_NAVIGATION_RELATIONSHIPS.md. Explore More
+// (`relatedLists`) remains manually curated frontmatter.
+const { prerequisiteId, nextId } = getSequenceNeighbors(data.id);
+const prerequisites = resolveListRefs(prerequisiteId ? [prerequisiteId] : [], allEntries);
+const next = resolveListRefs(nextId ? [nextId] : [], allEntries);
 const related = dedupeRelatedLists(prerequisites, resolveListRefs(data.relatedLists, allEntries), next);
 
 const playWords = toPlayableWords(entry);
@@ -506,7 +512,7 @@ const harderList = next[0];
               listLink={listLink}
               accent="forward"
             />
-            <RelatedListCards heading="More Practice" items={related} listLink={listLink} />
+            <RelatedListCards heading="Explore More" items={related} listLink={listLink} />
           </div>
         </section>
       )

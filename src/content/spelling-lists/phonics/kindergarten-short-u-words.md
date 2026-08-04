@@ -16,9 +16,9 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['kindergarten-short-a-words', 'kindergarten-short-i-words', 'kindergarten-short-o-words', 'kindergarten-short-e-words']
-prerequisiteLists: ['kindergarten-short-o-words']
-nextLists: ['kindergarten-short-e-words']
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - 'Can segment a word like "run" into its three sounds and blend them back together'

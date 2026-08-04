@@ -18,9 +18,9 @@ sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 2 common words"
-relatedLists: []
-prerequisiteLists: ["grade-2-common-words-1"]
-nextLists: ["grade-2-common-words-3"]
+relatedLists: ["grade-1-ending-consonant-blends"]
+prerequisiteLists: []
+nextLists: []
 featured: false
 words:
   - word: "been"

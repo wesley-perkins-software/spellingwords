@@ -16,9 +16,9 @@ estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-1-long-a-long-o-vowel-teams", "vowel-teams-ou-ow"]
-prerequisiteLists: ["grade-1-long-a-long-o-vowel-teams"]
-nextLists: ["vowel-teams-ou-ow"]
+relatedLists: []
+prerequisiteLists: []
+nextLists: []
 featured: false
 readinessSignals:
   - "Can read simpler vowel-team words and are ready for a vowel sound that glides instead of staying still"

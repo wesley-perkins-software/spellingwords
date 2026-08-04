@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 // The canonical Grade Unit Page Standard freezes the relationship
-// navigation order as Review First -> Next Step -> More Practice.
+// navigation order as Review First -> Next Step -> Explore More.
 // Both rendering paths call their card component three times
 // with these exact heading labels; this test locks in the call order in
 // source rather than rendered output, since the project has no
@@ -24,15 +24,15 @@ function indexOfHeading(source: string, heading: string): number {
   return match.index;
 }
 
-describe('Relationship navigation order (Review First -> Next Step -> More Practice)', () => {
+describe('Relationship navigation order (Review First -> Next Step -> Explore More)', () => {
   it.each(rendererPaths)('orders the three relationship buckets correctly in %s', (path) => {
     const source = readFileSync(path, 'utf8');
 
     const reviewFirst = indexOfHeading(source, 'Review First');
     const nextStep = indexOfHeading(source, 'Next Step');
-    const morePractice = indexOfHeading(source, 'More Practice');
+    const exploreMore = indexOfHeading(source, 'Explore More');
 
     expect(reviewFirst).toBeLessThan(nextStep);
-    expect(nextStep).toBeLessThan(morePractice);
+    expect(nextStep).toBeLessThan(exploreMore);
   });
 });

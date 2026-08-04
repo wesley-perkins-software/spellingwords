@@ -15,7 +15,7 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-map-globe-words", "grade-3-time-words"]
+relatedLists: []
 prerequisiteLists: ["grade-3-map-globe-words"]
 nextLists: ["grade-3-time-words"]
 featured: false

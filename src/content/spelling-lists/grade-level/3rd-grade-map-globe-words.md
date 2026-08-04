@@ -15,7 +15,7 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-life-cycle-words"]
+relatedLists: []
 prerequisiteLists: []
 nextLists: ["grade-3-life-cycle-words"]
 featured: false

@@ -14,7 +14,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ['c-k-ck-words']
+relatedLists: []
 prerequisiteLists: ['kindergarten-consonant-digraphs']
 nextLists: ['kindergarten-double-consonants']
 featured: false

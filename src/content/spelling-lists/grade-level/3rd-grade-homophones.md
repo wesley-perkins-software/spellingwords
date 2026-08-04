@@ -16,9 +16,9 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-multisyllabic-words", "grade-3-root-word-families", "grade-2-homophones", "grade-4-commonly-confused-words"]
-prerequisiteLists: ["grade-3-multisyllabic-words", "grade-2-homophones"]
-nextLists: ["grade-3-root-word-families", "grade-4-commonly-confused-words"]
+relatedLists: ["grade-3-possessives"]
+prerequisiteLists: []
+nextLists: []
 readinessSignals:
   - "Can use sentence context to choose among familiar homophones rather than relying only on pronunciation"
   - "Understand that contractions such as they're and you're have different meanings from their homophone partners"

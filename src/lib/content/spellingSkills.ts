@@ -90,7 +90,7 @@ export const SILENT_E_SKILL_FAMILY = {
 
 export const VOWEL_TEAMS_SKILL_FAMILY = {
   title: 'Vowel Teams',
-  description: 'Practice common two-letter vowel teams for long vowel sounds.',
+  description: 'Practice common vowel spellings for long vowels and other vowel sounds.',
   guidance: 'Choose the vowel sound or spelling pair your child needs to practice.',
   skillIds: [
     'vowel-teams-ai-ay',

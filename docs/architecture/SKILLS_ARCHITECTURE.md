@@ -142,7 +142,7 @@ The independent review was explicit that it had no keyword-volume or Search Cons
 - **Content is preserved, not deleted** — it moves to a section of the family overview rather than disappearing.
 - **Single, bounded exception** — does not reopen any other excluded candidate.
 
-**Out of scope for this document:** whether the existing standalone `silent-e-long-e.md` page is technically merged/redirected into the Silent E family overview, or simply unlinked from top-level navigation while remaining reachable at its own URL, is an implementation decision for a later phase. This document settles the taxonomy status (section, not peer page); the migration mechanics are a separate, future call.
+**Implemented disposition:** `silent-e-long-e.md` is archived, its former URL permanently redirects to the Silent E family anchor, and canonical-active content no longer links to it as a peer page. The family overview preserves concise Long E guidance.
 
 ---
 

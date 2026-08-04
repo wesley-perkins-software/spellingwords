@@ -116,7 +116,7 @@ Say one word, have your child repeat it, tap the sounds or spelling parts, write
 ## Navigation and related practice
 
 - **Kindergarten review:** Kindergarten short-vowel and digraph review can help if this lesson feels too hard.
-- **Related targeted practice:** Long A Silent E Words, Long E Silent E Words, Long I Silent E Words, Long O Silent E Words, Long U Silent E Words.
+- **Related targeted practice:** Long A, Long I, Long O, and Long U Silent E Words. The uncommon Long E case is summarized in the Silent E family overview rather than published as a fifth peer page.
 - **Previous lesson:** Ending Consonant Blends.
 - **Next lesson:** Short Words with Long Vowels: Open Syllables & Final Y.
 - **Grade 2 extension:** Students will use this pattern again in longer words, suffix work, and more advanced vowel spelling choices.

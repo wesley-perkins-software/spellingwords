@@ -9,6 +9,7 @@ const CONTENT_ROLE_VALUES = [
   'sight-word-set',
   'vocabulary-theme',
   'teaching-guide',
+  'supporting-practice',
 ] as const;
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
@@ -156,7 +157,8 @@ describe('Short A reference Skill content roles', () => {
   it('uses role-aware rendering without requiring every legacy entry to have a role', () => {
     const route = readFileSync(listDetailRoutePath, 'utf8');
 
-    expect(route).toContain("data.contentRole === 'skill' ? 'Skill' : null");
+    expect(route).toContain("data.contentRole === 'supporting-practice'");
+    expect(route).toContain("'Supporting Practice'");
     expect(route).toContain("data.contentRole === 'skill'");
     expect(route).toContain('data.grade');
   });

@@ -195,7 +195,7 @@ describe('Vowel Teams Skill Family', () => {
 
   it('keeps family-specific browse copy and JSON-LD derived from curated family order', () => {
     expect(VOWEL_TEAMS_SKILL_FAMILY.description).toBe(
-      'Practice common two-letter vowel teams for long vowel sounds.',
+      'Practice common vowel spellings for long vowels and other vowel sounds.',
     );
     expect(VOWEL_TEAMS_SKILL_FAMILY.guidance).toBe(
       'Choose the vowel sound or spelling pair your child needs to practice.',

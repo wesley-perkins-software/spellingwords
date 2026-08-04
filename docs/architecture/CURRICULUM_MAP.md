@@ -222,7 +222,7 @@ Grade 1's core sequence fans out into 9 gateway pages, 52 targeted-skill pages, 
 | Ending blend pages (11) | `nd`, `ng`, `ld`, `st`, `nt`, `nk`, `ft`, `lk`, `lt`, `mp`, `sk` — all `-final-blend-words` | **Practice Set / filtered destination** | Same rationale. Note the 6-at-grade-1/5-at-grade-2 split (`ft/lk/lt/mp/sk`) is documented as intentional sequencing, not a tagging bug (Bible §7 Notes) — preserve that split if these become filters. |
 | Short-vowel targeted pages (5) | `short-a/e/i/o/u-words` | **Skill page** | Already `Existing`/`Canonical` in §2 — correctly built as reusable Skills, not narrow Practice Sets. |
 | Digraph targeted pages (4) | `digraph-sh/ch/th/wh-words` | **Skill page** | Already `Existing`/`Canonical` in §2. |
-| Silent-E targeted pages (5) | `silent-e-long-a/e/i/o/u` | **Skill page** | Already `Existing`/`Canonical` in §2, except `silent-e-long-e` — see its Needs-reclassification note. |
+| Silent-E targeted pages (4 live + 1 archived) | `silent-e-long-a/i/o/u`; archived `silent-e-long-e` | **Skill pages plus retired compatibility URL** | Four canonical peers remain live. Long E is summarized in family guidance and its former route redirects to that overview. |
 | Vowel-team targeted pages (3) | `vowel-teams-ai-ay/ee-ea/oa-ow` | **Skill page** | Already `Existing`/`Canonical` in §2. |
 | R-controlled targeted pages (3) | `r-controlled-ar/or/er-ir-ur` | **Skill page** | Built but `Proposed` curriculum status in §2 — recommended promotion to `Canonical` pending Decision Register item 4. |
 | Heart-word targeted pages (3) | `grade-1-heart-words-part-1/2/3` | **Supporting Grade Unit** (Sight Word Set sub-parts, not Skills) | These split the Grade 1 Heart Words Grade Unit's word set; they are not reusable spelling-pattern Skills, so they don't belong in §2. |
@@ -284,7 +284,7 @@ Every item below requires product-owner approval before this document can move f
    *Recommendation: (a) for the frozen map, since it's already shipped and tested — but log (b) as a distinct future-format question, not a curriculum-sequencing one.*
 
 4. **Which `Proposed` Skills should become `Canonical`.**
-   Specifically: `vowel-teams-oi-oy`/`vowel-teams-ou-ow` (fold into Vowel Teams vs. new Diphthongs family), `r-controlled-ar/or/er-ir-ur` (promote to a registered public family), `c-k-ck-words` and `tch-dge-ending-words` (Skill vs. Grade Unit vs. One-Syllable-Patterns membership), and `silent-e-long-e` (confirm or revisit its already-shipped inclusion in the Silent E family).
+   The historical questions included `vowel-teams-oi-oy`/`vowel-teams-ou-ow`, `r-controlled-ar/or/er-ir-ur`, `c-k-ck-words`, `tch-dge-ending-words`, and `silent-e-long-e`; all are resolved by `SKILLS_ARCHITECTURE.md` and should not be reopened from this older map.
    *Recommendation: promote R-Controlled Vowels to a registered family (strong, compact, already flagged pre-launch-ready by `K5_CURRICULUM_COVERAGE.md`); defer the CK/TCH-DGE and diphthong calls pending the One-Syllable-Patterns family decision.*
 
 5. **Legacy/duplicate content disposition (Appendix B).**

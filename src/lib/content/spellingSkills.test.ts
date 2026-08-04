@@ -342,6 +342,29 @@ describe('curated spelling Skills browse index', () => {
       expect(CURATED_SPELLING_SKILL_IDS).not.toContain(id);
       expect(byId.get(id), id).toMatchObject({ data: { contentRole: 'supporting-practice' } });
     }
+
+    const gradeHubCards = readFileSync(
+      join(process.cwd(), 'src/lib/content/gradeHubCards.ts'),
+      'utf8',
+    );
+    const listRoute = readFileSync(
+      join(process.cwd(), 'src/pages/spelling-lists/[category]/[slug].astro'),
+      'utf8',
+    );
+
+    // Published supporting practice stays on the generic static-content route,
+    // is labeled honestly, and is not promoted to either Grade Hub.
+    expect(listRoute).toContain("data.contentRole === 'supporting-practice'");
+    expect(listRoute).toContain("'Supporting Practice'");
+    expect(gradeHubCards).not.toContain('grade-4-final-stable-syllables');
+    expect(gradeHubCards).not.toContain('grade-5-spelling-rules');
+
+    expect(byId.get('grade-4-advanced-suffixes')!.data.relatedLists).toContain(
+      'grade-4-final-stable-syllables',
+    );
+    expect(byId.get('grade-5-prefix-suffix-words')!.data.relatedLists).toContain(
+      'grade-5-spelling-rules',
+    );
   });
 
   describe('retired Long E Silent E page (docs/architecture/SKILLS_ARCHITECTURE.md §5)', () => {

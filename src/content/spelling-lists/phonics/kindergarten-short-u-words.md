@@ -24,15 +24,6 @@ readinessSignals:
   - 'Can segment a word like "run" into its three sounds and blend them back together'
   - 'Recognize the short "u" sound when it is spoken aloud, even before seeing it written down'
   - 'Feel comfortable with short "a," "i," and "o" words'
-faq:
-  - question: 'What is the short "u" sound?'
-    answer: 'It is the quick, low sound in the middle of "bug" and "sun" — one more common vowel sound in everyday speech.'
-  - question: 'Why practice one vowel sound per list instead of mixing them?'
-    answer: 'Focusing on a single vowel sound at a time lets a child build real confidence with each one before the Mixed Vowel CVC Review checks whether all of them have stuck together.'
-  - question: 'Should these words be sounded out or memorized?'
-    answer: 'Sounded out. As with every list in this progression, segmenting each sound and blending it back together is the goal, not memorizing whole words.'
-  - question: 'What comes after short U words?'
-    answer: 'Kindergarten Short E Words is next in the core spelling progression.'
 words:
   - bug
   - rug
@@ -44,8 +35,12 @@ words:
   - fun
 ---
 
-The short "u" sound is quick and low — you can hear it in the middle of *bug*, *sun*, and *cup*. This is the fourth single vowel sound in the core progression, following the same calm, one-sound-at-a-time approach as the lists before it.
+Short U is the fourth single vowel sound in this progression, following Short O — you can hear it in the middle of *bug*, *sun*, and *cup*, made with the mouth more closed and the sound pulled toward the back of the throat.
 
-One more short vowel practiced clearly on its own means one more step toward confident, sound-based spelling.
+All eight words here — *bug*, *rug*, *sun*, *run*, *nut*, *cut*, *cup*, and *fun* — follow the same one-sound-per-letter pattern already practiced in Short A and Short I. The vowel to listen for carefully here is short O: it's the closest-sounding neighbor in this sequence, and a child who just spent time on *dog* and *hot* can sometimes slip and read or write a short "u" word as though it rhymed with a short "o" one.
 
-If a child needs more practice with this same vowel sound, [Short U Words](/spelling-lists/phonics/short-u-words) offers a focused extra practice set.
+### How to practice this list
+
+Say each word aloud and have your child echo it back, then sound out each letter before writing it down. If your child hesitates on the vowel, say a Short U word next to its Short O counterpart — "bug," then "bog" — so they can hear the difference before choosing which letter to write.
+
+When a child can blend and spell most of these eight words, correctly picking short "u" over short "o" when it matters, with only occasional help, they're ready for Kindergarten Short E Words.

@@ -24,15 +24,6 @@ readinessSignals:
   - 'Can segment a word like "hot" into its three sounds and blend them back together'
   - 'Recognize the short "o" sound when it is spoken aloud, even before seeing it written down'
   - 'Feel comfortable with short "a" and short "i" words'
-faq:
-  - question: 'What is the short "o" sound?'
-    answer: 'It is the round, open sound in the middle of "dog" and "hot" — a vowel sound most children already use constantly in speech.'
-  - question: 'Is short "o" harder than the vowels practiced so far?'
-    answer: 'No — it follows the exact same pattern as short "a" and short "i." Only the vowel sound changes; the sound-it-out-and-spell approach stays the same.'
-  - question: 'Should these words be sounded out or memorized?'
-    answer: 'Sounded out. Every word here is fully regular, so segmenting each sound and blending it back together is enough to spell it correctly.'
-  - question: 'What comes after short O words?'
-    answer: 'Kindergarten Short U Words is next in the core spelling progression.'
 words:
   - dog
   - fox
@@ -44,8 +35,12 @@ words:
   - box
 ---
 
-The short "o" sound is round and open — you can hear it in the middle of *dog*, *hot*, and *top*. This list continues the same steady pattern as Short A and Short I Words, practicing one more vowel sound a kindergartener already hears every day.
+Short O is the third single vowel sound in this progression, following Short A and Short I — you can hear it in the middle of *dog*, *hot*, and *top*, made with the mouth open and rounded.
 
-Calm, repeated practice with words like these builds the kind of automatic recognition that makes longer words easier to tackle later.
+Six of these eight words — *dog*, *dot*, *pot*, *hot*, *hop*, and *top* — follow the same one-sound-per-letter pattern as Short A and Short I Words. The other two, *fox* and *box*, add one small wrinkle: the letter "x" stands for two sounds together, /k/ and /s/, so sounding out *fox* means stretching it into four sounds for three letters — f, o, k, s — instead of the neat one-letter-one-sound match the rest of the list uses.
 
-If a child needs more practice with this same vowel sound, [Short O Words](/spelling-lists/phonics/short-o-words) offers a focused extra practice set.
+### How to practice this list
+
+Say each word aloud and have your child echo it back, then sound out each letter before writing it down, the same approach used for Short A and Short I. For *fox* and *box*, slow down on the ending: say the /k/ and /s/ separately — "fo-k-s" — so your child hears both sounds the "x" stands for before writing that one letter.
+
+When a child can blend and spell most of these eight words — including working out that extra step on *fox* and *box* — with only occasional help, they're ready for Kindergarten Short U Words.

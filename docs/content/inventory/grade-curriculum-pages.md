@@ -15,7 +15,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling 
 
 | Title | id | urlSlug | Role | Status | Source file | Editorial status |
 |---|---|---|---|---|---|---|
-| Kindergarten First Words | kindergarten-first-words | kindergarten-first-words | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/grade-level/kindergarten-first-words.md` | Not audited |
+| Kindergarten First Words | kindergarten-first-words | kindergarten-first-words | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/grade-level/kindergarten-first-words.md` | Needs review |
 | Kindergarten Number Words | kindergarten-number-words | kindergarten-number-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/kindergarten-number-words.md` | Not audited |
 | Kindergarten Color Words | kindergarten-color-words | kindergarten-color-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/kindergarten-color-words.md` | Not audited |
 | Kindergarten Animal Words | kindergarten-animal-words | kindergarten-animal-words | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/grade-level/kindergarten-animal-words.md` | Not audited |

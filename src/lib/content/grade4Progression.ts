@@ -9,8 +9,8 @@
  * Two canonical Grade 4 units are combined roadmap entries: only each
  * anchor page (`grade-4-advanced-suffixes`, `tier-1-roots-and-patterns`,
  * both contentRole: grade-unit) appears here. Their focused sibling pages
- * (`grade-4-final-stable-syllables`, contentRole: supporting-practice, and
- * `tier-2-greek-latin-roots`, contentRole: grade-unit) are reached from the anchor's related-practice links
+ * (`grade-4-final-stable-syllables`, `tier-2-greek-latin-roots`, both
+ * contentRole: skill) are reached from the anchor's related-practice links
  * rather than entering the Grade Unit sequence directly — the same pattern
  * Grade 3 uses for its Suffix Spelling Changes unit.
  */
@@ -63,7 +63,7 @@ export const grade4Badges: Record<string, string> = {
   'grade-4-multisyllabic-academic-words': 'Core Unit',
   'grade-4-advanced-prefixes': 'Core Unit',
   'grade-4-advanced-suffixes': 'Core Unit',
-  'grade-4-final-stable-syllables': 'Supporting Practice',
+  'grade-4-final-stable-syllables': 'Focused Skill',
   'tier-1-roots-and-patterns': 'Core Unit',
   'tier-2-greek-latin-roots': 'Focused Skill',
   'grade-4-commonly-confused-words': 'Core Unit',

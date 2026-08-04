@@ -7,7 +7,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. This file has two job
 A page is canonical active if `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` or `docs/architecture/SKILLS_ARCHITECTURE.md` explicitly defines it, verified against `src/lib/content/gradeHubCards.ts` / `src/lib/content/spellingSkills.ts`. A page is deprecated/legacy if `docs/architecture/PUBLIC_URL_ARCHITECTURE.md` names its class explicitly (Dolch, other legacy Sight Words, legacy phonics and focused children) and it is confirmed unreferenced in the same two code files. Everything else — a page that is neither named by the architecture docs nor matched by a documented legacy pattern — is **unresolved** and listed below.
 
 
-## Unresolved pages (33)
+## Unresolved pages (35)
 
 | Title | id | Category | Grade | contentRole | Source file | Why unresolved |
 |---|---|---|---|---|---|---|
@@ -29,6 +29,7 @@ A page is canonical active if `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` o
 | 3rd Grade Everyday Words | grade-3-list-01 | grade-level | 3 | — | `src/content/spelling-lists/grade-level/3rd-grade-everyday-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | 3rd Grade Describing Words | grade-3-list-02 | grade-level | 3 | — | `src/content/spelling-lists/grade-level/3rd-grade-describing-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | 3rd Grade Reading & Writing Words | grade-3-reading-writing-words | grade-level | 3 | — | `src/content/spelling-lists/grade-level/3rd-grade-reading-writing-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
+| 4th Grade Final Stable Syllables: -ture and -sure | grade-4-final-stable-syllables | grade-level | 4 | skill | `src/content/spelling-lists/grade-level/4th-grade-final-stable-syllables.md` | tagged contentRole:skill but not in the frozen 41-slot taxonomy; orphaned from Skills Hub and every Grade Hub card list — needs product-owner decision |
 | 4th Grade Everyday Words | grade-4-list-01 | grade-level | 4 | — | `src/content/spelling-lists/grade-level/4th-grade-everyday-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | 4th Grade Academic & Content Words | grade-4-list-02 | grade-level | 4 | — | `src/content/spelling-lists/grade-level/4th-grade-community-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | 4th Grade Reading & Writing Words | grade-4-reading-writing-words | grade-level | 4 | — | `src/content/spelling-lists/grade-level/4th-grade-reading-writing-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
@@ -39,15 +40,16 @@ A page is canonical active if `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` o
 | 5th Grade Opinion & Argument Words | grade-5-opinion-argument-words | grade-level | 5 | — | `src/content/spelling-lists/grade-level/5th-grade-opinion-argument-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | 5th Grade Reading & Writing Words | grade-5-reading-writing-words | grade-level | 5 | — | `src/content/spelling-lists/grade-level/5th-grade-reading-writing-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | 5th Grade Science Words | grade-5-science-nature-words | grade-level | 5 | — | `src/content/spelling-lists/grade-level/5th-grade-science-nature-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
+| 5th Grade Spelling Rules | grade-5-spelling-rules | grade-level | 5 | skill | `src/content/spelling-lists/grade-level/5th-grade-spelling-rules.md` | tagged contentRole:skill but not in the frozen 41-slot taxonomy; orphaned from Skills Hub and every Grade Hub card list — needs product-owner decision |
 | Kindergarten Number and Color Words | kindergarten-number-color-words | grade-level | K | — | `src/content/spelling-lists/grade-level/kindergarten-number-color-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | Long E Vowel Teams | grade-1-long-e-vowel-teams | phonics | 1 | grade-unit | `src/content/spelling-lists/phonics/grade-1-long-e-vowel-teams.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | R-Controlled Vowels: er / ir / ur | grade-1-r-controlled-er-ir-ur | phonics | 1 | — | `src/content/spelling-lists/phonics/grade-1-r-controlled-er-ir-ur.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | The -ck Ending Rule | kindergarten-ck-ending-words | phonics | K | — | `src/content/spelling-lists/phonics/kindergarten-ck-ending-words.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 | Double Consonants | kindergarten-double-consonants | phonics | K | — | `src/content/spelling-lists/phonics/kindergarten-double-consonants.md` | not named in K5_FINAL_CONTENT_ARCHITECTURE.md or SKILLS_ARCHITECTURE.md, and not resolved by the legacy-pattern checks above — needs manual confirmation |
 
-**Resolved and moved:** `silent-e-long-e` is archived and redirected to the Silent E family overview. `grade-4-final-stable-syllables` and `grade-5-spelling-rules` are published grade-owned supporting curriculum pages for the combined roadmap entries defined in `K5_FINAL_CONTENT_ARCHITECTURE.md` §§8 and 14. The latter two now use the explicit `contentRole: supporting-practice` role and are tracked in `grade-curriculum-pages.md`. None of the three is counted in the 33 unresolved pages above.
+**Resolved and moved:** `silent-e-long-e` (Long E Silent E Words) was previously listed here as one of the three non-taxonomy `skill`-tagged pages. It is now resolved per `docs/architecture/SKILLS_ARCHITECTURE.md` §5 — folded into the Silent E family's normal guidance sentence on the Skills Hub (no separate block, matching every other family's presentation), set to `status: archived` so no standalone page is emitted, and its former URL permanently redirects (301) to `/spelling-lists/skills/#silent-e-family`. Moved to `deprecated-and-legacy-pages.md`'s "Archived-status pages" table; no longer counted in the 35 unresolved pages above.
 
-**What to do with this list:** confirm each row against the product owner's intent before touching it. Likely outcomes per row: (a) an older, finer-grained page is superseded by a combined canonical page and should move to deprecated/legacy once confirmed; or (b) real supporting content was omitted from architecture-level enumeration and should move into the appropriate active inventory once confirmed. No unresolved non-taxonomy `skill`-tagged page remains.
+**What to do with this list:** confirm each row against the product owner's intent before touching it. Likely outcomes per row: (a) it's an older, finer-grained page superseded by a combined page that *is* in the active architecture (e.g. `3rd-grade-changing-y-to-i` and `3rd-grade-doubling-final-consonants` look like predecessors to the live `grade-3-dropping-silent-e` "Suffix Spelling Changes" card) — likely deprecated-legacy once confirmed, not currently asserted here without that confirmation; (b) it's real content the architecture doc simply doesn't enumerate at this level of detail — likely canonical-active as supporting content once confirmed; (c) it's one of the two remaining non-taxonomy "skill"-tagged pages already flagged in `skill-pages.md`, which need a product-owner taxonomy decision, not a content read.
 
 
 ## Data-quality notes
@@ -63,9 +65,11 @@ A page is canonical active if `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` o
 This is a schema difference, not missing data — the `spellingCollections` schema in `src/content/config.ts` never defines a `contentRole` field. Don't read an empty `contentRole` on a collection as a data-quality issue.
 
 
-### Pages formerly tagged `contentRole: skill` outside the frozen taxonomy
+### Pages tagged `contentRole: skill` outside the frozen 41-slot taxonomy
 
-Resolved. The two published grade-owned supporting pages now use `contentRole: supporting-practice`; archived `silent-e-long-e` remains excluded from the live taxonomy. No published non-taxonomy page is classified as a canonical Skill.
+`grade-4-final-stable-syllables`, `grade-5-spelling-rules` — two published pages tagged as Skill pages that are not part of `SKILLS_ARCHITECTURE.md`'s taxonomy and are not linked from the Skills Hub or any Grade Hub. Listed in the unresolved table above; full detail in `skill-pages.md`.
+
+A third page in this category, `silent-e-long-e`, is now resolved (see the "Resolved and moved" note above) — it carries `status: archived`, not `published`, and has moved to `deprecated-and-legacy-pages.md`.
 
 
 ### `skillIds` linking from Grade Unit pages to canonical Skill pages is almost entirely unpopulated

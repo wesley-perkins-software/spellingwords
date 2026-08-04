@@ -475,7 +475,7 @@ The copyable brief lives at `docs/content/templates/SKILL_PAGE_CONTENT_BRIEF.md`
 
 ## 21. Variant mapping for all 41 canonical Skills
 
-Source of truth for id/title/urlSlug/source-file cross-checked directly against `docs/content/inventory/skill-pages.md` and `docs/architecture/SKILLS_ARCHITECTURE.md` §3–4. All 41 taxonomy slots appear exactly once and are live. The two grade-owned `supporting-practice` pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) are intentionally **excluded** — they are not canonical Skills or separate Grade Hub cards. `silent-e-long-e` is merged into the Silent E family overview, archived, and redirected.
+Source of truth for id/title/urlSlug/source-file cross-checked directly against `docs/content/inventory/skill-pages.md` and `docs/architecture/SKILLS_ARCHITECTURE.md` §3–4. All 41 taxonomy slots appear exactly once and are live. The two published non-taxonomy pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) remain unresolved legacy-role mismatches and are intentionally **excluded** from this mapping; their stored `contentRole: skill` does not make them canonical Skills. `silent-e-long-e` is merged into the Silent E family overview, archived, and redirected.
 
 | Canonical id | Title | Family | Variant | Status | Source file | Note |
 |---|---|---|---|---|---|---|
@@ -496,7 +496,7 @@ Source of truth for id/title/urlSlug/source-file cross-checked directly against 
 | `silent-e-long-a` | Long A Silent E Words | Silent E | 1 | Live | `src/content/spelling-lists/phonics/silent-e-long-a.md` | |
 | `silent-e-long-i` | Long I Silent E Words | Silent E | 1 | Live | `src/content/spelling-lists/phonics/silent-e-long-i.md` | |
 | `silent-e-long-o` | Long O Silent E Words | Silent E | 1 | Live | `src/content/spelling-lists/phonics/silent-e-long-o.md` | |
-| `silent-e-long-u` | Long U Silent E Words | Silent E | 1 | Live | `src/content/spelling-lists/phonics/silent-e-long-u.md` | Long E Silent E is a labeled section within this family's overview per `SKILLS_ARCHITECTURE.md` §5, not a peer taxonomy slot — do not treat `silent-e-long-e.md` as canonical (it is listed as unresolved in `skill-pages.md`) |
+| `silent-e-long-u` | Long U Silent E Words | Silent E | 1 | Live | `src/content/spelling-lists/phonics/silent-e-long-u.md` | Long E Silent E is concise family-overview guidance per `SKILLS_ARCHITECTURE.md` §5, not a peer taxonomy slot; its source entry remains archived and redirected |
 | `vowel-teams-ai-ay` | AI and AY Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/vowel-teams-ai-ay.md` | |
 | `vowel-teams-ee-ea` | EE and EA Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/vowel-teams-ee-ea.md` | |
 | `vowel-teams-oa-ow` | OA and OW Words | Vowel Teams | 1 | Live | `src/content/spelling-lists/phonics/vowel-teams-oa-ow.md` | |

@@ -1,6 +1,6 @@
 # Inventory: Grade Curriculum Pages (Canonical Active)
 
-Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling (Grade Unit), grade-owned supporting-practice pages in a frozen combined roadmap entry, and Additional Practice (vocabulary-theme) pages that `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` defines for each grade. Direct hub cards are verified in `src/lib/content/gradeHubCards.ts`; a supporting-practice page is intentionally reached from its anchor's progression links rather than duplicated as a hub card. Common Words (High-Frequency Words) pages are inventoried separately in `sight-words-and-common-words.md`. Canonical Grade Unit names below are copied verbatim from `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`.
+Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling (Grade Unit) and Additional Practice (vocabulary-theme) pages that `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` defines for each grade and that `src/lib/content/gradeHubCards.ts` confirms are wired into that grade's live hub. Common Words (High-Frequency Words) pages are inventoried separately in `sight-words-and-common-words.md`. Canonical Grade Unit names below are copied verbatim from `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`.
 
 
 ## Kindergarten
@@ -119,14 +119,13 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling 
 **Frozen hub structure:** 6 Core Spelling cards · 4 Common Words sets (48 words) · 1 Additional Practice card(s)
 
 
-### Canonical active pages (11)
+### Canonical active pages (10)
 
 | Title | id | urlSlug | Role | Status | Source file | Editorial status |
 |---|---|---|---|---|---|---|
 | 4th Grade Multisyllabic Academic Words | grade-4-multisyllabic-academic-words | 4th-grade-multisyllabic-academic-words | grade-unit | published | `src/content/spelling-lists/grade-level/4th-grade-multisyllabic-academic-words.md` | Not audited |
 | 4th Grade Advanced Prefix Words | grade-4-advanced-prefixes | 4th-grade-advanced-prefixes | grade-unit | published | `src/content/spelling-lists/grade-level/4th-grade-advanced-prefixes.md` | Not audited |
 | 4th Grade Advanced Suffix Words | grade-4-advanced-suffixes | 4th-grade-advanced-suffixes | grade-unit | published | `src/content/spelling-lists/grade-level/4th-grade-advanced-suffixes.md` | Not audited |
-| 4th Grade Final Stable Syllables: -ture and -sure | grade-4-final-stable-syllables | 4th-grade-final-stable-syllables | supporting-practice (grade-owned page in the combined Final Stable Syllables entry; intentionally not a separate hub card) | published | `src/content/spelling-lists/grade-level/4th-grade-final-stable-syllables.md` | Not audited |
 | 4th Grade Latin Root Words | tier-1-roots-and-patterns | tier-1-roots-and-patterns | grade-unit | published | `src/content/spelling-lists/grade-level/tier-1-roots-and-patterns.md` | Not audited |
 | 4th Grade Commonly Confused Words | grade-4-commonly-confused-words | 4th-grade-commonly-confused-words | grade-unit | published | `src/content/spelling-lists/grade-level/4th-grade-commonly-confused-words.md` | Not audited |
 | 4th Grade Derived Words and Word Meaning | grade-4-derived-words | 4th-grade-derived-words-and-word-meaning | grade-unit | published | `src/content/spelling-lists/grade-level/4th-grade-derived-words.md` | Not audited |
@@ -143,13 +142,12 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling 
 **Frozen hub structure:** 5 Core Spelling cards · 4 Common Words sets (48 words) · 2 Additional Practice card(s)
 
 
-### Canonical active pages (10)
+### Canonical active pages (9)
 
 | Title | id | urlSlug | Role | Status | Source file | Editorial status |
 |---|---|---|---|---|---|---|
 | 5th Grade Multisyllabic Academic Words | grade-5-multisyllabic-academic-words | 5th-grade-multisyllabic-academic-words | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-multisyllabic-academic-words.md` | Not audited |
 | 5th Grade Prefix & Suffix Words | grade-5-prefix-suffix-words | 5th-grade-prefix-suffix-words | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-prefix-suffix-words.md` | Not audited |
-| 5th Grade Spelling Rules | grade-5-spelling-rules | 5th-grade-spelling-rules | supporting-practice (grade-owned page in the combined Advanced Prefixes and Suffixes entry; intentionally not a separate hub card) | published | `src/content/spelling-lists/grade-level/5th-grade-spelling-rules.md` | Not audited — title alignment to “Spelling Rules for Word Endings” is deferred to its Grade Unit editorial pass; id and slug remain stable |
 | 5th Grade Greek & Latin Word Parts | grade-5-greek-latin-word-parts | 5th-grade-greek-latin-word-parts | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-greek-latin-word-parts.md` | Not audited |
 | 5th Grade Commonly Confused Words | grade-5-commonly-confused-words | 5th-grade-commonly-confused-words | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-commonly-confused-words.md` | Not audited |
 | 5th Grade Spelling Changes in Related Words | grade-5-spelling-changes-related-words | 5th-grade-spelling-changes-in-related-words | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-spelling-changes-related-words.md` | Not audited |
@@ -159,7 +157,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling 
 | 5th Grade Fraction & Decimal Words | grade-5-fraction-decimal-words | 5th-grade-fraction-decimal-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/5th-grade-fraction-decimal-words.md` | Not audited |
 
 ---
-**Total: 77 canonical-active Core Spelling / Additional Practice pages across K–5.**
+**Total: 75 canonical-active Core Spelling / Additional Practice pages across K–5.**
 
 
-Pages that are grade-scoped in naming but are neither hub cards nor explicitly defined supporting pages in the frozen architecture are listed in `untagged-and-data-quality.md` as **unresolved**, not here. Pages matching `PUBLIC_URL_ARCHITECTURE.md`'s explicit legacy language are listed in `deprecated-and-legacy-pages.md`, not here.
+Pages that are grade-scoped in naming but not confirmed as part of the current architecture (not referenced by any Grade Hub card) are listed in `untagged-and-data-quality.md` as **unresolved**, not here. Pages matching `PUBLIC_URL_ARCHITECTURE.md`'s explicit legacy language (orphaned phonics focused-children, practice/review pages) are listed in `deprecated-and-legacy-pages.md`, not here.

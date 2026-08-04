@@ -93,12 +93,7 @@ const faqJsonLd =
 
 const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
 
-const roleDisplay =
-  data.contentRole === 'skill'
-    ? 'Skill'
-    : data.contentRole === 'supporting-practice'
-      ? 'Supporting Practice'
-      : null;
+const roleDisplay = data.contentRole === 'skill' ? 'Skill' : null;
 const gradeDisplay =
   data.contentRole === 'skill'
     ? null

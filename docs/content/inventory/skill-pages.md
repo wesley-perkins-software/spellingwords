@@ -106,10 +106,15 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Every page below is e
 | homophones | Homophones | homophones | 2 | `src/content/spelling-lists/grade-level/homophones.md` | Needs review — content drafted to the Standard (Variant 4), the homophones-vs-commonly-confused-words scope boundary made explicit, `to/too/two` and `there/their/they're` kept as the frozen-architecture-required demonstration set, `relatedLists` added to Commonly Confused Words, missing `skillIds` back-references added to both contributing Grade Units (one also missing `contentRole`); pending independent human editorial sign-off before "Complete" | 4 | Needs review |
 | commonly-confused-words | Commonly Confused Words | commonly-confused-words | 4 | `src/content/spelling-lists/grade-level/commonly-confused-words.md` | Needs review — content drafted to the Standard (Variant 4), demonstration set re-screened and `than/then` added as a genuinely non-homophonic case, `relatedLists` added to Homophones, missing `skillIds` back-references added to both contributing Grade Units; pending independent human editorial sign-off before "Complete" | 4 | Needs review |
 
-## Resolved non-taxonomy supporting pages
+## Unresolved: pages tagged `contentRole: skill` outside the frozen taxonomy
 
-`grade-4-final-stable-syllables` and `grade-5-spelling-rules` remain published as grade-owned supporting curriculum pages for combined roadmap entries. They are not canonical Browse-by-Skill destinations, now use `contentRole: supporting-practice`, and are tracked in `grade-curriculum-pages.md` rather than this inventory.
+These published grade-specific pages retain their exact pre-PR legacy metadata and routes but are **not** canonical Browse-by-Skill destinations. A proposed third role was rejected and rolled back. Their final classification is deferred to an explicit product-owner decision during the Grade curriculum editorial phase; full tracking remains in `untagged-and-data-quality.md`.
+
+| id | Title | Category | Grade | Source file |
+|---|---|---|---|---|
+| grade-4-final-stable-syllables | 4th Grade Final Stable Syllables: -ture and -sure | grade-level | 4 | `src/content/spelling-lists/grade-level/4th-grade-final-stable-syllables.md` |
+| grade-5-spelling-rules | 5th Grade Spelling Rules | grade-level | 5 | `src/content/spelling-lists/grade-level/5th-grade-spelling-rules.md` |
 
 **Resolved:** `silent-e-long-e` (Long E Silent E Words) was the third row in this table; it is now resolved per `docs/architecture/SKILLS_ARCHITECTURE.md` §5 — folded into the Silent E family's normal introductory guidance sentence on the Skills Hub (one clause, e.g. "eve, these, theme"), not rendered as a separate block or peer Skill page, so the hub stays visually and editorially consistent with every other family. Content entry set to `status: archived` so no standalone page is emitted, and its former URL (`/spelling-lists/phonics/silent-e-long-e`) permanently redirects (301) to `/spelling-lists/skills/#silent-e-family`. Moved to the "Archived-status pages" table in `deprecated-and-legacy-pages.md`.
 
-**Totals:** 12 families · 41 live taxonomy slots · 41 canonical-active Skill pages · 0 unresolved skill-tagged pages outside the taxonomy.
+**Totals:** 12 families · 41 live taxonomy slots · 41 canonical-active Skill pages · 2 unresolved skill-tagged pages outside the taxonomy.

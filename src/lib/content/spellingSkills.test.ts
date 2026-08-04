@@ -328,7 +328,7 @@ describe('curated spelling Skills browse index', () => {
     });
   });
 
-  it('keeps non-taxonomy pages out of the canonical registry with their accurate content roles', () => {
+  it('keeps non-taxonomy pages out of the canonical registry without freezing their unresolved role', () => {
     for (const id of [
       'grade-3-doubling-final-consonants',
       'grade-3-changing-y-to-i',
@@ -338,26 +338,16 @@ describe('curated spelling Skills browse index', () => {
       expect(byId.get(id), id).toMatchObject({ data: { contentRole: 'grade-unit' } });
     }
 
-    for (const id of ['grade-4-final-stable-syllables', 'grade-5-spelling-rules']) {
-      expect(CURATED_SPELLING_SKILL_IDS).not.toContain(id);
-      expect(byId.get(id), id).toMatchObject({ data: { contentRole: 'supporting-practice' } });
-    }
-
     const gradeHubCards = readFileSync(
       join(process.cwd(), 'src/lib/content/gradeHubCards.ts'),
       'utf8',
     );
-    const listRoute = readFileSync(
-      join(process.cwd(), 'src/pages/spelling-lists/[category]/[slug].astro'),
-      'utf8',
-    );
-
-    // Published supporting practice stays on the generic static-content route,
-    // is labeled honestly, and is not promoted to either Grade Hub.
-    expect(listRoute).toContain("data.contentRole === 'supporting-practice'");
-    expect(listRoute).toContain("'Supporting Practice'");
-    expect(gradeHubCards).not.toContain('grade-4-final-stable-syllables');
-    expect(gradeHubCards).not.toContain('grade-5-spelling-rules');
+    for (const id of ['grade-4-final-stable-syllables', 'grade-5-spelling-rules']) {
+      expect(CURATED_SPELLING_SKILL_IDS).not.toContain(id);
+      expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).not.toContain(id);
+      expect(gradeHubCards).not.toContain(id);
+      expect(byId.get(id), id).toMatchObject({ data: { status: 'published' } });
+    }
 
     expect(byId.get('grade-4-advanced-suffixes')!.data.relatedLists).toContain(
       'grade-4-final-stable-syllables',

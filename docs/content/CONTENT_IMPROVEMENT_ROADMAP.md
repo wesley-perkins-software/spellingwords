@@ -46,7 +46,7 @@ Every content-collection page in the repository falls into exactly one of three 
 | **Deprecated / legacy** | Exists in the repository, sometimes still live and linked, but not part of the frozen architecture; documented for awareness only | `deprecated-and-legacy-pages.md` — no checklists, no DoD, no priority, no phase membership |
 | **Unresolved** | Not named by the architecture docs and not matched by a documented legacy pattern; needs a classification decision before any work | `untagged-and-data-quality.md` |
 
-Current counts: **153 canonical-active pages** · **82 deprecated/legacy pages** · **33 unresolved pages**. See §4 and §14 for the breakdown, and §15 for how a page moves between buckets as facts change.
+Current counts: **151 canonical-active pages** · **82 deprecated/legacy pages** · **35 unresolved pages**. See §4 and §14 for the breakdown, and §15 for how a page moves between buckets as facts change.
 
 A deprecated/legacy classification is not a judgment that the content is bad — it means the frozen architecture doesn't currently define a role for it. The legacy Dolch tier is, in fact, still linked from the main browse page today (`/spelling-lists` → `/spelling-lists/sight-words` → the Dolch collections) — real, reachable, and still explicitly out of this roadmap's scope, because reachability and canonical status are different questions. If a future product decision brings a deprecated page back into the architecture, move it into the active inventory at that time (§15) — don't start improving it first.
 
@@ -115,12 +115,12 @@ Editorial order: **Skill pages → Grade curriculum pages → Grade Hub pages �
 ### Phase 0 — Inventory and baseline
 **Position rationale:** sequencing "complete families together" (the central planning principle) requires first knowing which pages are actually in scope. This roadmap's classification pass is Phase 0's main deliverable.
 **Dependencies:** none — this is the starting point.
-**Outputs:** this document; the five inventory files; resolved decisions on all three former non-taxonomy `skill`-tagged pages; classification tracking for the 33 remaining non-Skill unresolved pages; `contentRole` backfilled only on pages already confirmed canonical-active.
+**Outputs:** this document; the five inventory files; the resolved `silent-e-long-e` decision; explicit unresolved tracking for the two remaining non-taxonomy `skill`-tagged pages and 33 other unresolved pages; `contentRole` backfilled only on pages already confirmed canonical-active.
 **Must not do prematurely:** rewrite any page's prose content, or begin editorial work on an unresolved or deprecated/legacy page before it's confirmed canonical-active.
 
 ### Phase 1 — Skill-page content
 **Position rationale:** Skill pages are Layer 1 — the grade-independent anchor every Grade Unit page should eventually link to, and the page most likely to earn direct search/AI-answer citations.
-**Dependencies:** Phase 0 complete for the family being worked; non-taxonomy role decisions resolved so family membership is unambiguous before drafting begins.
+**Dependencies:** Phase 0 complete for the family being worked; the two non-taxonomy role mismatches explicitly deferred so canonical family membership remains unambiguous.
 **Outputs:** 41 strong, differentiated, internally consistent canonical explanations — the terminology and structural pattern later work will reuse.
 **Editorial standard:** every Phase 1 page must follow `docs/content/CANONICAL_SKILL_PAGE_STANDARD.md`, which governs page structure, the four instructional variants, example selection, teaching guidance, and editorial review for the Skill layer. A Skill page should have an approved content brief (`docs/content/templates/SKILL_PAGE_CONTENT_BRIEF.md`, acceptance checklist in the standard §20) before drafting begins. This roadmap still owns scope, sequencing, priority, and the page-level definition of done (§8); the standard does not change any of that.
 
@@ -167,15 +167,15 @@ Full per-page tables live in the companion inventory files (linked at the top of
 | Layer / grouping | Count | Classification | Inventory file |
 |---|---:|---|---|
 | Skill pages (41-slot taxonomy) | 41 live | Canonical active | `inventory/skill-pages.md` |
-| Grade Unit + Additional Practice pages | 77 | Canonical active | `inventory/grade-curriculum-pages.md` |
+| Grade Unit + Additional Practice pages | 75 | Canonical active | `inventory/grade-curriculum-pages.md` |
 | Common Words gateway pages | 6 | Canonical active | `inventory/sight-words-and-common-words.md` |
 | Common Words member sets | 29 | Canonical active | `inventory/sight-words-and-common-words.md` |
 | Grade Hubs, Skills Hub, main browse page | 8 (6 + 1 + 1, code-driven) | Canonical active | this file, §7 |
 | Dolch tier gateways + member sets, orphaned phonics pages, archived pages | 82 | Deprecated / legacy | `inventory/deprecated-and-legacy-pages.md` |
-| Pages not resolved by the classification test | 33 | Unresolved | `inventory/untagged-and-data-quality.md` |
+| Pages not resolved by the classification test | 35 | Unresolved | `inventory/untagged-and-data-quality.md` |
 | **Total content-collection files** | **268** (256 `spelling-lists` + 12 `spelling-collections`) | — | all inventory files combined |
 
-**Active editorial scope = 153 canonical-active content pages**: 41 canonical Skills + 77 Grade curriculum pages (including 2 grade-owned `supporting-practice` pages) + 6 Common Words gateways + 29 Common Words member sets. The 8 code-driven browse/hub pages are tracked separately and are not included in 153. Every classification was made against the frozen architecture documents, verified against live code, and cross-checked directly with each file's frontmatter — none of it was inferred from filenames or folder names.
+**Active editorial scope = 151 canonical-active content pages**: 41 canonical Skills + 75 Grade curriculum pages + 6 Common Words gateways + 29 Common Words member sets. The 8 code-driven browse/hub pages and 35 unresolved pages are tracked separately and are not included in 151. Every classification was made against the frozen architecture documents, verified against live code, and cross-checked directly with each file's frontmatter — none of it was inferred from filenames or folder names.
 
 ---
 
@@ -605,7 +605,7 @@ The six pages' prose, word equations, comparison tables, and FAQs were re-read i
 
 **IE and IGH Words note:** the page was authored only after its persisted brief passed the Standard §20 acceptance checklist. No existing Grade Unit teaches enough IE/IGH content for a truthful metadata-only back-reference, so curriculum placement is deliberately empty and recorded as a Phase 2 decision rather than manufactured here.
 
-**Resolved outside this checklist:** `silent-e-long-e` remains archived and redirected. `grade-4-final-stable-syllables` and `grade-5-spelling-rules` are published grade-owned `supporting-practice` pages, tracked in `grade-curriculum-pages.md`; none is a canonical Skill or a separate Grade Hub card.
+**Deferred outside this checklist:** `silent-e-long-e` remains archived and redirected. The proposed third content role for `grade-4-final-stable-syllables` and `grade-5-spelling-rules` was rejected and rolled back; both remain published with their pre-PR legacy metadata, outside the canonical Skill registry and Grade Hubs, and unresolved pending an explicit product-owner decision during the Grade curriculum editorial phase.
 
 ---
 
@@ -991,6 +991,7 @@ Initial assignment by grouping (refine per-family/per-grade as Phase 0 audits la
 | Grade Hubs (K–5) | P2 | Depend on Phase 1–2 completion before final copy is accurate |
 | Skills Hub, main browse page | P2 | Depend on Phase 1/3–4 completion |
 | Additional Practice pages | P3 | Small, optional, bounded; lowest dependency weight |
+| `grade-4-final-stable-syllables`, `grade-5-spelling-rules` | Unresolved | Published grade-specific pages with legacy `contentRole: skill` outside the 41-slot taxonomy; defer final role decisions to the Grade curriculum editorial phase |
 
 ---
 
@@ -1020,16 +1021,16 @@ Written implementation and adversarial self-review have been completed for all 4
 
 | Phase | Total items (canonical active) | Complete | In progress | Remaining | Blocked |
 |---|---:|---:|---:|---:|---:|
-| Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + classification decisions | 6 artifacts plus all 3 former non-taxonomy Skill-role decisions (`silent-e-long-e` archived; 2 supporting pages moved to Grade Units) | 0 | 33 non-Skill unresolved rows, outside the Skill-layer closeout | 0 |
+| Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + classification decisions | 6 artifacts plus the `silent-e-long-e` decision | 0 | 35 unresolved rows, including 2 published non-taxonomy Skill-role mismatches deferred to the Grade curriculum phase | 0 |
 | Phase 1 — Skill-page content | 41 live Skill pages | 0 fully Complete | 41 implementation-complete / `Needs review` across all 12 family batches | 0 to draft | 0 |
-| Phase 2 — Grade curriculum content | 77 canonical-active Grade Unit + Additional Practice pages | 0 | 0 | 77 | 0 |
+| Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages | 0 | 0 | 75 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |
 | Phase 5 — Main browse-page content | 1 page | 0 | 0 | 1 | 0 |
 | Phase 6 — Cross-site consistency and final audit | 1 site-wide pass | 0 | 0 | 1 | 0 |
 | *(Reference, not a phase)* Common Words gateway + member sets | 6 + 29 = 35 | 0 | 0 | 35 | 0 |
 
-**Excluded from every phase and total above — transparency only, not part of active scope:** 82 deprecated/legacy pages and 33 unresolved pages. Canonical-active content total: **153 pages**; repository-wide content total: **268 files** (256 `spelling-lists` + 12 `spelling-collections`).
+**Excluded from every phase and total above — transparency only, not part of active scope:** 82 deprecated/legacy pages and 35 unresolved pages. Canonical-active content total: **151 pages**; repository-wide content total: **268 files** (256 `spelling-lists` + 12 `spelling-collections`).
 
 ---
 

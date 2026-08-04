@@ -23,15 +23,6 @@ readinessSignals:
   - 'Have practiced Short A, I, O, U, and E Words and can spell most of them confidently'
   - 'Can hear a short vowel sound in a word they have never seen before, not just a memorized one'
   - 'Are ready to apply the sound-it-out approach to brand-new words'
-faq:
-  - question: 'Why does this list use different words than the five short-vowel lists?'
-    answer: 'On purpose. If a child can only spell words they have already memorized, the skill has not really transferred yet. Using fresh words like "jam," "dog," and "web" checks whether the child can hear and spell any short-vowel word, not just recite this particular list.'
-  - question: 'What exactly is being checked here?'
-    answer: 'Whether a child can hear the vowel sound in a new word and choose the right letter for it — the actual phonics skill — rather than relying on the page title or a word they already know by heart.'
-  - question: 'What if a child struggles with this review?'
-    answer: "That's useful information, not a setback. Revisit whichever single-vowel list matches the sound that gave trouble, then try this review again."
-  - question: 'What comes after this review?'
-    answer: 'Consonant Digraphs is next in the core spelling progression, introducing pairs of letters that make one new sound.'
 words:
   - jam
   - lid
@@ -45,6 +36,12 @@ words:
   - hop
 ---
 
-This list is a checkpoint, not a new lesson. After practicing short "a," "i," "o," "u," and "e" one at a time, these ten fresh words mix all five vowel sounds together using words a child has not seen on any earlier list.
+This list is a checkpoint, not a new lesson. After practicing short "a," "i," "o," "u," and "e" one at a time, these ten fresh words mix all five vowel sounds together using words a child has not seen on any earlier Kindergarten short-vowel list.
 
-The goal is to notice whether the child can hear the vowel sound and spell it in a brand-new word — the same skill that will let them spell words they have never practiced at all, long after this list is behind them.
+The goal is to notice whether the child can hear the middle vowel sound and choose the matching letter without relying on the page title, a one-vowel-only list, or a word they have already memorized. That transfer check is why this page sits after the five single-vowel lessons and before Consonant Digraphs: it asks the child to use the whole CVC spelling routine with fresh short-vowel words before the progression adds two-letter sound teams.
+
+### How to practice this list
+
+Mix the words instead of grouping them by vowel. Say one word aloud — *jam*, then later *lid*, *mud*, or *web* — and have your child repeat it, stretch the three sounds, listen carefully to the middle sound, and write the letters in order. If the vowel is uncertain, pause before writing and compare two possible sounds aloud, such as *jam* and *jim* or *get* and *git*, so your child chooses the letter by listening rather than guessing from the list.
+
+If one vowel sound causes repeated trouble, step back to that single-vowel page for a short review, then return to this mixed list. When a child can spell these fresh CVC words with growing independence, choosing the middle vowel sound with only occasional help across more than one practice try, they're ready for Kindergarten Consonant Digraphs.

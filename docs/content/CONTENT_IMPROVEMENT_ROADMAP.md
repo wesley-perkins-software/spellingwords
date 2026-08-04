@@ -624,6 +624,7 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [ ] Core Spelling / Grade Unit pages (11 canonical-active)
   - [ ] Kindergarten First Words (`kindergarten-first-words`)
+    - Status: editorial implementation drafted and self-reviewed; inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
   - [ ] Kindergarten Animal Words (`kindergarten-animal-words`)
   - [ ] Kindergarten Body Words (`kindergarten-body-words`)
   - [ ] Kindergarten Family Words (`kindergarten-family-words`)
@@ -1024,7 +1025,7 @@ Written implementation and adversarial self-review have been completed for all 4
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + classification decisions | 7 artifacts plus the `silent-e-long-e` decision and the `grade-4-final-stable-syllables`/`grade-5-spelling-rules` legacy-role-exception decision | 0 | 33 unresolved rows | 0 |
 | Phase 1 — Skill-page content | 41 live Skill pages | 0 fully Complete | 41 implementation-complete / `Needs review` across all 12 family batches | 0 to draft | 0 |
-| Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages with their own Grade Hub card (+2 focused component pages folded into an existing combined unit, not separately prioritized) | 0 | 0 | 75 | 0 |
+| Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages with their own Grade Hub card (+2 focused component pages folded into an existing combined unit, not separately prioritized) | 0 | 1 implementation-complete / `Needs review` (`kindergarten-first-words`) | 74 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |
 | Phase 5 — Main browse-page content | 1 page | 0 | 0 | 1 | 0 |

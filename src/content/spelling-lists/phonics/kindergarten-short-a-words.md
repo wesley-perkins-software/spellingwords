@@ -37,4 +37,10 @@ words:
 
 First Words showed that sounding out works. This step slows down and stays with a single vowel sound — the short "a" heard in the middle of *hat* and *map* — so your child can hear it clearly, over and over, before the progression moves to a new vowel.
 
-Every word here is fully regular: a child who says each sound (h-a-t) and blends it back together will spell it correctly. Practice the eight words above, and when they feel steady, Kindergarten Short I Words is the next step.
+Every word here is fully regular: each sound matches one letter, with no silent letters, blends, or digraphs to complicate it. A child who says each sound (h-a-t) and blends it back together has everything they need to spell the word correctly.
+
+### How to practice this list
+
+Say each word aloud and have your child echo it back, then sound out each letter — h, a, t — before writing it down. A few words at a time is enough; short, unhurried sessions work better than trying to finish the whole list at once.
+
+When a child can blend and spell most of these eight words with growing confidence, needing only occasional help, they're ready for Kindergarten Short I Words.

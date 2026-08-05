@@ -38,7 +38,7 @@ describe('hashListId', () => {
 
 describe('pickWorldKit', () => {
   it('assigns the Short A Grade Unit to Morning Blue', () => {
-    // Locked in: this is the real id used by src/content/spelling-lists/phonics/kindergarten-short-a-words.md.
+    // Locked in: this is the real id used by src/content/kindergarten/short-a-words.md.
     // Reassigned from 'seaside' to 'morning-blue' when the kit set expanded from 6 to 9
     // (seaside was retired; the fixed WORLD_KIT_ORDER array grew, which redistributes every
     // existing list by design). If this ever fails again, confirm the kit order change was

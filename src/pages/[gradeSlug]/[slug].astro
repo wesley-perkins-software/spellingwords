@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { getCanonicalListPath, isCanonicalGradeCurriculumId } from '@/lib/content/canonicalGradeRoutes';
+import { getCanonicalGradeRoutes, getCanonicalGradeRouteByPath, getCanonicalListPath, getGradeHubPath } from '@/lib/content/canonicalGradeRoutes';
 import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
@@ -25,13 +25,17 @@ import { gradeConfig } from '@/lib/content/gradeConfig';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('spelling-lists')).filter(isPublished);
-  const routableEntries = entries.filter((entry) => !isCanonicalGradeCurriculumId(entry.data.id));
   const allCollections = await getCollection('spelling-collections');
+  const entriesById = new Map(entries.map((entry) => [entry.data.id, entry]));
 
-  return routableEntries.map((entry) => ({
-    params: { category: entry.data.category, slug: entry.data.urlSlug },
-    props: { entry, allEntries: entries, allCollections },
-  }));
+  return getCanonicalGradeRoutes().map((route) => {
+    const entry = entriesById.get(route.id);
+    if (!entry) throw new Error(`Canonical grade route ${route.id} does not resolve to a published spelling list.`);
+    return {
+      params: { gradeSlug: route.gradeSlug, slug: route.finalSlug },
+      props: { entry, allEntries: entries, allCollections },
+    };
+  });
 }
 
 const { entry, allEntries, allCollections } = Astro.props;
@@ -56,22 +60,30 @@ function listLink(e: (typeof allEntries)[number]) {
 }
 
 const categoryLabel = categoryLabels[data.category] ?? data.category;
+const route = getCanonicalGradeRouteByPath(Astro.params.gradeSlug!, Astro.params.slug!);
 const listPath = getListPath(data.id);
 const listCollection = getListCollection(data.id, allCollections);
 
-const breadcrumbItems = isCuratedSpellingSkillId(data.id)
+const gradeHubForBreadcrumb = gradeConfig.find((g) => g.grade === route?.grade);
+const breadcrumbItems = route && gradeHubForBreadcrumb
   ? [
       { label: 'Home', href: '/' },
-      { label: 'Spelling Lists Library', href: '/spelling-lists' },
-      { label: 'Spelling Practice by Skill', href: SPELLING_SKILLS_INDEX_PATH },
+      { label: gradeHubForBreadcrumb.label, href: getGradeHubPath(route!.grade) },
       { label: data.title },
     ]
-  : [
-      { label: 'Home', href: '/' },
-      { label: 'Spelling Lists Library', href: '/spelling-lists' },
-      { label: categoryLabel, href: `/spelling-lists/${data.category}` },
-      { label: data.title },
-    ];
+  : isCuratedSpellingSkillId(data.id)
+    ? [
+        { label: 'Home', href: '/' },
+        { label: 'Spelling Lists Library', href: '/spelling-lists' },
+        { label: 'Spelling Practice by Skill', href: SPELLING_SKILLS_INDEX_PATH },
+        { label: data.title },
+      ]
+    : [
+        { label: 'Home', href: '/' },
+        { label: 'Spelling Lists Library', href: '/spelling-lists' },
+        { label: categoryLabel, href: `/spelling-lists/${data.category}` },
+        { label: data.title },
+      ];
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
 
@@ -479,7 +491,7 @@ const harderList = next[0];
                   <>
                     Part of the{' '}
                     <a
-                      href={`/spelling-lists/collections/${listCollection.data.urlSlug}`}
+                      href={getGradeHubPath(route!.grade)}
                       class="font-semibold text-brand-blue hover:underline"
                     >
                       {listCollection.data.title}

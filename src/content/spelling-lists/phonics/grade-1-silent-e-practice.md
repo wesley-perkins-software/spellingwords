@@ -44,7 +44,7 @@ Focused silent-e practice by vowel sound for students learning the VCe spelling 
 
 ## When to use this page
 
-Use this page after students have encountered the related core lesson: [Long Vowels with Silent e (VCe)](/spelling-lists/phonics/1st-grade-long-vowels-silent-e). It is especially helpful for review, intervention groups, homeschool practice, or a teacher assigning one narrow pattern.
+Use this page after students have encountered the related core lesson: [Long Vowels with Silent e (VCe)](/1st-grade/long-vowels-silent-e). It is especially helpful for review, intervention groups, homeschool practice, or a teacher assigning one narrow pattern.
 
 ## Sample words
 
@@ -71,5 +71,5 @@ Pick one targeted page, practice five to eight words, and ask your child to expl
 
 ## Navigation
 
-- **Back to Grade 1:** [1st Grade Spelling Words](/spelling-lists/1st-grade)
-- **Related core lesson:** [Long Vowels with Silent e (VCe)](/spelling-lists/phonics/1st-grade-long-vowels-silent-e)
+- **Back to Grade 1:** [1st Grade Spelling Words](/1st-grade)
+- **Related core lesson:** [Long Vowels with Silent e (VCe)](/1st-grade/long-vowels-silent-e)

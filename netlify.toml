@@ -5,42 +5,587 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# The Kindergarten curriculum is organized around a spelling progression
-# rather than these thematic vocabulary lists; redirect old direct links
-# to the Kindergarten hub instead of 404ing.
+# Canonical K-5 grade-first curriculum URL migration. Generated from
+# src/lib/content/canonicalGradeRoutes.ts; keep in sync with tests.
+
 [[redirects]]
-  from = "/spelling-lists/grade-level/kindergarten-describing-words"
-  to = "/spelling-lists/kindergarten"
+  from = "/spelling-lists/kindergarten"
+  to = "/kindergarten"
   status = 301
 
 [[redirects]]
-  from = "/spelling-lists/grade-level/kindergarten-shape-words"
-  to = "/spelling-lists/kindergarten"
+  from = "/spelling-lists/1st-grade"
+  to = "/1st-grade"
   status = 301
 
 [[redirects]]
-  from = "/spelling-lists/grade-level/kindergarten-family-words"
-  to = "/spelling-lists/kindergarten"
+  from = "/spelling-lists/2nd-grade"
+  to = "/2nd-grade"
   status = 301
 
 [[redirects]]
-  from = "/spelling-lists/grade-level/kindergarten-school-words"
-  to = "/spelling-lists/kindergarten"
+  from = "/spelling-lists/3rd-grade"
+  to = "/3rd-grade"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/4th-grade"
+  to = "/4th-grade"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/5th-grade"
+  to = "/5th-grade"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/kindergarten-first-words"
+  to = "/kindergarten/first-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/kindergarten-short-a-words"
+  to = "/kindergarten/short-a-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/kindergarten-short-i-words"
+  to = "/kindergarten/short-i-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/kindergarten-short-o-words"
+  to = "/kindergarten/short-o-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/kindergarten-short-u-words"
+  to = "/kindergarten/short-u-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/kindergarten-short-e-words"
+  to = "/kindergarten/short-e-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/kindergarten-mixed-vowel-review"
+  to = "/kindergarten/mixed-vowel-review"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/kindergarten-consonant-digraphs"
+  to = "/kindergarten/consonant-digraphs"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/kindergarten-common-words-1"
+  to = "/kindergarten/high-frequency-words-1"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/kindergarten-common-words-2"
+  to = "/kindergarten/high-frequency-words-2"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/kindergarten-common-words-3"
+  to = "/kindergarten/high-frequency-words-3"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/kindergarten-common-words-4"
+  to = "/kindergarten/high-frequency-words-4"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/kindergarten-animal-words"
+  to = "/kindergarten/animal-words"
   status = 301
 
 [[redirects]]
   from = "/spelling-lists/grade-level/kindergarten-body-words"
-  to = "/spelling-lists/kindergarten"
+  to = "/kindergarten/body-words"
   status = 301
 
 [[redirects]]
-  from = "/spelling-lists/grade-level/kindergarten-feelings-words"
-  to = "/spelling-lists/kindergarten"
+  from = "/spelling-lists/grade-level/kindergarten-number-words"
+  to = "/kindergarten/number-words"
   status = 301
 
 [[redirects]]
-  from = "/spelling-lists/grade-level/kindergarten-food-words"
-  to = "/spelling-lists/kindergarten"
+  from = "/spelling-lists/grade-level/kindergarten-color-words"
+  to = "/kindergarten/color-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/kindergarten-family-words"
+  to = "/kindergarten/family-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/1st-grade-cvc-short-vowels-c-k-rule"
+  to = "/1st-grade/cvc-short-vowels-c-k-rule"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/1st-grade-floss-rule"
+  to = "/1st-grade/floss-rule"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/1st-grade-consonant-digraphs-final-ck"
+  to = "/1st-grade/consonant-digraphs-final-ck"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/1st-grade-beginning-consonant-blends"
+  to = "/1st-grade/beginning-consonant-blends"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/1st-grade-ending-consonant-blends"
+  to = "/1st-grade/ending-consonant-blends"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/1st-grade-long-vowels-silent-e"
+  to = "/1st-grade/long-vowels-silent-e"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/1st-grade-open-syllables-final-y"
+  to = "/1st-grade/open-syllables-final-y"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/1st-grade-long-a-long-o-vowel-teams"
+  to = "/1st-grade/long-a-long-o-vowel-teams"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/1st-grade-inflectional-endings-s-es"
+  to = "/1st-grade/inflectional-endings-s-es"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/1st-grade-inflectional-endings-ed-ing"
+  to = "/1st-grade/inflectional-endings-ed-ing"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/1st-grade-r-controlled-ar-or"
+  to = "/1st-grade/r-controlled-ar-or"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/1st-grade-tch-dge-ending-rules"
+  to = "/1st-grade/tch-dge-ending-rules"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-1-common-words-1"
+  to = "/1st-grade/high-frequency-words-1"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-1-common-words-2"
+  to = "/1st-grade/high-frequency-words-2"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-1-common-words-3"
+  to = "/1st-grade/high-frequency-words-3"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-1-common-words-4"
+  to = "/1st-grade/high-frequency-words-4"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-1-common-words-5"
+  to = "/1st-grade/high-frequency-words-5"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-1-common-words-6"
+  to = "/1st-grade/high-frequency-words-6"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/grade-1-weather-words"
+  to = "/1st-grade/weather-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/grade-1-clothing-words"
+  to = "/1st-grade/clothing-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/grade-1-shape-words"
+  to = "/1st-grade/shape-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/grade-1-number-words-11-20"
+  to = "/1st-grade/number-words-11-20"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/grade-1-days-of-the-week"
+  to = "/1st-grade/days-of-the-week"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/vowel-teams-oi-oy"
+  to = "/2nd-grade/vowel-teams-oi-oy"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/vowel-teams-ou-ow"
+  to = "/2nd-grade/vowel-teams-ou-ow"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/grade-2-oo-two-sounds"
+  to = "/2nd-grade/oo-two-sounds"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/grade-2-au-aw-words"
+  to = "/2nd-grade/au-aw-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/grade-2-soft-c-soft-g"
+  to = "/2nd-grade/soft-c-soft-g"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/grade-2-two-syllable-words"
+  to = "/2nd-grade/two-syllable-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/phonics/grade-2-final-stable-le"
+  to = "/2nd-grade/final-stable-le"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/2nd-grade-silent-letter-words"
+  to = "/2nd-grade/silent-letter-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/2nd-grade-compound-words"
+  to = "/2nd-grade/compound-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/2nd-grade-contractions"
+  to = "/2nd-grade/contractions"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-2-common-words-1"
+  to = "/2nd-grade/high-frequency-words-1"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-2-common-words-2"
+  to = "/2nd-grade/high-frequency-words-2"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-2-common-words-3"
+  to = "/2nd-grade/high-frequency-words-3"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-2-common-words-4"
+  to = "/2nd-grade/high-frequency-words-4"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-2-common-words-5"
+  to = "/2nd-grade/high-frequency-words-5"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-2-common-words-6"
+  to = "/2nd-grade/high-frequency-words-6"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/grade-2-transportation-words"
+  to = "/2nd-grade/transportation-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/grade-2-money-words"
+  to = "/2nd-grade/money-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/grade-2-number-words-20-100"
+  to = "/2nd-grade/number-words-20-100"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/grade-2-community-helpers"
+  to = "/2nd-grade/community-helpers"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/grade-2-months-of-the-year"
+  to = "/2nd-grade/months-of-the-year"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/3rd-grade-prefix-words"
+  to = "/3rd-grade/prefix-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/3rd-grade-suffix-words"
+  to = "/3rd-grade/suffix-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/3rd-grade-dropping-silent-e"
+  to = "/3rd-grade/dropping-silent-e"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/3rd-grade-possessives"
+  to = "/3rd-grade/possessives"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/3rd-grade-multisyllabic-words"
+  to = "/3rd-grade/multisyllabic-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/3rd-grade-homophones"
+  to = "/3rd-grade/homophones"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/3rd-grade-root-word-families"
+  to = "/3rd-grade/root-word-families"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-3-common-words-1"
+  to = "/3rd-grade/high-frequency-words-1"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-3-common-words-2"
+  to = "/3rd-grade/high-frequency-words-2"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-3-common-words-3"
+  to = "/3rd-grade/high-frequency-words-3"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-3-common-words-4"
+  to = "/3rd-grade/high-frequency-words-4"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-3-common-words-5"
+  to = "/3rd-grade/high-frequency-words-5"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/3rd-grade-map-globe-words"
+  to = "/3rd-grade/map-globe-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/3rd-grade-life-cycle-words"
+  to = "/3rd-grade/life-cycle-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/3rd-grade-time-words"
+  to = "/3rd-grade/time-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/3rd-grade-multiplication-division-words"
+  to = "/3rd-grade/multiplication-division-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/4th-grade-multisyllabic-academic-words"
+  to = "/4th-grade/multisyllabic-academic-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/4th-grade-advanced-prefixes"
+  to = "/4th-grade/advanced-prefixes"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/4th-grade-advanced-suffixes"
+  to = "/4th-grade/advanced-suffixes"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/tier-1-roots-and-patterns"
+  to = "/4th-grade/roots-and-patterns"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/4th-grade-commonly-confused-words"
+  to = "/4th-grade/commonly-confused-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/4th-grade-derived-words-and-word-meaning"
+  to = "/4th-grade/derived-words-and-word-meaning"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-4-common-words-1"
+  to = "/4th-grade/high-frequency-words-1"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-4-common-words-2"
+  to = "/4th-grade/high-frequency-words-2"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-4-common-words-3"
+  to = "/4th-grade/high-frequency-words-3"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-4-common-words-4"
+  to = "/4th-grade/high-frequency-words-4"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/4th-grade-measurement-words"
+  to = "/4th-grade/measurement-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/4th-grade-solar-system-words"
+  to = "/4th-grade/solar-system-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/4th-grade-career-occupation-words"
+  to = "/4th-grade/career-occupation-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/4th-grade-geometry-words"
+  to = "/4th-grade/geometry-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/5th-grade-multisyllabic-academic-words"
+  to = "/5th-grade/multisyllabic-academic-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/5th-grade-prefix-suffix-words"
+  to = "/5th-grade/prefix-suffix-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/5th-grade-greek-latin-word-parts"
+  to = "/5th-grade/greek-latin-word-parts"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/5th-grade-commonly-confused-words"
+  to = "/5th-grade/commonly-confused-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/5th-grade-spelling-changes-in-related-words"
+  to = "/5th-grade/spelling-changes-in-related-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-5-common-words-1"
+  to = "/5th-grade/high-frequency-words-1"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-5-common-words-2"
+  to = "/5th-grade/high-frequency-words-2"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-5-common-words-3"
+  to = "/5th-grade/high-frequency-words-3"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/sight-words/grade-5-common-words-4"
+  to = "/5th-grade/high-frequency-words-4"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/5th-grade-money-management-words"
+  to = "/5th-grade/money-management-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/5th-grade-ecosystem-environment-words"
+  to = "/5th-grade/ecosystem-environment-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/5th-grade-fraction-decimal-words"
+  to = "/5th-grade/fraction-decimal-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/grade-level/5th-grade-community-civics-words"
+  to = "/5th-grade/community-civics-words"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/collections/kindergarten-common-words"
+  to = "/kindergarten"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/collections/grade-1-common-words"
+  to = "/1st-grade"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/collections/grade-2-common-words"
+  to = "/2nd-grade"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/collections/grade-3-common-words"
+  to = "/3rd-grade"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/collections/grade-4-common-words"
+  to = "/4th-grade"
+  status = 301
+
+[[redirects]]
+  from = "/spelling-lists/collections/grade-5-common-words"
+  to = "/5th-grade"
   status = 301
 
 # Long E Silent E has no standalone Skill page (see

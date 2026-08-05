@@ -49,4 +49,4 @@ words:
 
 A suffix is a word part added to the end of a base word. The suffix *-ful* often means "full of," and *-less* often means "without."
 
-Pairs like *careful* and *careless* show how the ending changes the word's meaning. This list gives a simple, early way to connect spelling, vocabulary, and word meaning before the broader [Suffix Words](/spelling-lists/grade-level/3rd-grade-suffix-words) lesson introduces more suffix families.
+Pairs like *careful* and *careless* show how the ending changes the word's meaning. This list gives a simple, early way to connect spelling, vocabulary, and word meaning before the broader [Suffix Words](/3rd-grade/suffix-words) lesson introduces more suffix families.

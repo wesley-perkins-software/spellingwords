@@ -46,7 +46,7 @@ Focused final blend practice for students who drop or confuse final consonant so
 
 ## When to use this page
 
-Use this page after students have encountered the related core lesson: [Ending Consonant Blends](/spelling-lists/phonics/1st-grade-ending-consonant-blends). It is especially helpful for review, intervention groups, homeschool practice, or a teacher assigning one narrow pattern.
+Use this page after students have encountered the related core lesson: [Ending Consonant Blends](/1st-grade/ending-consonant-blends). It is especially helpful for review, intervention groups, homeschool practice, or a teacher assigning one narrow pattern.
 
 ## Sample words
 
@@ -81,5 +81,5 @@ Pick one targeted page, practice five to eight words, and ask your child to expl
 
 ## Navigation
 
-- **Back to Grade 1:** [1st Grade Spelling Words](/spelling-lists/1st-grade)
-- **Related core lesson:** [Ending Consonant Blends](/spelling-lists/phonics/1st-grade-ending-consonant-blends)
+- **Back to Grade 1:** [1st Grade Spelling Words](/1st-grade)
+- **Related core lesson:** [Ending Consonant Blends](/1st-grade/ending-consonant-blends)

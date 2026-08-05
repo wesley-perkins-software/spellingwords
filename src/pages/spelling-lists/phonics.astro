@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { getCanonicalListPath } from '@/lib/content/canonicalGradeRoutes';
 import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
@@ -106,7 +107,7 @@ const itemListJsonLd = {
           <div class="grid gap-4 sm:grid-cols-2">
             {phonicsLists.map((entry) => (
               <SpellingListCard
-                href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                href={getCanonicalListPath(entry.data)}
                 category={entry.data.category}
                 title={entry.data.title}
                 description={entry.data.description}

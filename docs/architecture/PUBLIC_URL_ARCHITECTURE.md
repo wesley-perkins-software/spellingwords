@@ -31,11 +31,11 @@ The 41 canonical Skill pages (see `docs/architecture/SKILLS_ARCHITECTURE.md`) us
 /skills/{skill-slug}
 ```
 
-`/skills` is the Skills Hub — a first-class top-level public journey ("I know what we need to practice," `CONSTITUTION.md` §3.3), parallel to the grade-first journey, not a child of `/spelling-lists`.
+`/skills` is the Skills Hub — a first-class top-level public journey ("I know what we need to practice," `CONSTITUTION.md` §3.3), parallel to the grade-first journey.
 
 The canonical page resolver is `src/lib/content/canonicalSkillRoutes.ts`. It is the sole runtime source of truth for canonical Skill paths: an explicit stable-id-keyed manifest, not derived from source folder, category, filename, or frontmatter `urlSlug`. Frontmatter `urlSlug` is a separate, unrelated field — it is not read by this manifest and is not changed by it. Where the two differ (14 of the 41 Skills), the manifest's `finalSlug` is the only public routing decision; the frontmatter value is bookkeeping for the content file itself. See `docs/content/inventory/skill-pages.md`'s `Canonical public path` column for the full cross-reference.
 
-The legacy `/spelling-lists/{category}/{urlSlug}` route excludes a page from static generation only by stable-id membership in `canonicalGradeRoutes` or `canonicalSkillRoutes` — never by category, folder, `contentRole`, grade, or slug prefix. Content intentionally retained under `/spelling-lists/...` is inventoried explicitly in `docs/content/inventory/retained-spelling-lists-pages.md`.
+The legacy `/spelling-lists` and `/learning-paths` route trees have been removed entirely. Every published `spelling-lists` entry is now a canonical Grade Unit or Skill id — enforced by `src/lib/content/retainedSpellingListPages.test.ts`. See `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md` for the full record of what was removed.
 
 ## Section policy
 
@@ -63,7 +63,7 @@ There is no standalone Common Words / High-Frequency Words gateway page under th
 /{grade}/high-frequency-words-3
 ```
 
-The Grade Hub itself is the entry point for a grade's High-Frequency Words sets; the corresponding `spelling-collections` gateway entry is intentionally excluded from static generation, so its old repository-shaped path 404s.
+The Grade Hub itself is the entry point for a grade's High-Frequency Words sets. The `spelling-collections` content type (the old Common Words gateway collections and the Dolch collections) has been removed entirely.
 
 ## Trailing slash convention
 
@@ -71,10 +71,10 @@ The project canonical convention is **no trailing slash** for every path except 
 
 ## No redirects, pre-launch
 
-Because the site has never launched, old repository-shaped URLs for migrated grade-curriculum pages, migrated Skill pages, and removed Common Words gateway collection pages are simply not generated — they return 404, not a redirect. There is no historical traffic, backlink, or search-index history to preserve. `netlify.toml` carries no migration-oriented redirects.
+Because the site has never launched, old repository-shaped URLs for migrated grade-curriculum pages, migrated Skill pages, and every removed `/spelling-lists`/`/learning-paths` page are simply not generated — they return 404, not a redirect. There is no historical traffic, backlink, or search-index history to preserve. `netlify.toml` carries no migration-oriented redirects.
 
 ## Reference inventories
 
 - `docs/content/inventory/grade-url-migration-map.md` — canonical path reference for the 104 grade-curriculum pages, generated from `src/lib/content/canonicalGradeRoutes.ts`.
 - `docs/content/inventory/skill-pages.md` — per-Skill id/title/frontmatter-urlSlug/canonical-public-path cross-reference.
-- `docs/content/inventory/retained-spelling-lists-pages.md` — the explicit, reviewable inventory of every published `spelling-lists` entry intentionally remaining under `/spelling-lists/...`.
+- `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md` — the complete record of every non-canonical `spelling-lists`/`spelling-collections` page removed from the site.

@@ -107,9 +107,7 @@ describe('Word Building and Endings Skill Family', () => {
   it('keeps every contributing source page a Grade Unit', () => {
     for (const id of [
       'grade-3-suffix-words',
-      'grade-3-doubling-final-consonants',
       'grade-3-dropping-silent-e',
-      'grade-3-changing-y-to-i',
       'grade-2-list-02',
       'grade-2-contractions',
     ]) {
@@ -137,17 +135,13 @@ describe('Word Building and Endings Skill Family', () => {
 
   it('gives each Skill the architecture-defined curriculum placements from Grade Unit skillIds', () => {
     const expectedPlacements: Record<(typeof WORD_BUILDING_SKILL_IDS)[number], string[]> = {
-      plurals: ['grade-1-inflectional-endings-s-es', 'grade-2-regular-plurals'],
+      plurals: ['grade-1-inflectional-endings-s-es'],
       'ed-and-ing': ['grade-1-inflectional-endings-ed-ing'],
       'common-suffixes': [
-        'grade-2-suffixes-ful-less',
         'grade-3-suffix-words',
-        'grade-2-comparatives-er-est',
       ],
       'suffix-spelling-changes': [
-        'grade-3-doubling-final-consonants',
         'grade-3-dropping-silent-e',
-        'grade-3-changing-y-to-i',
       ],
       'compound-words': ['grade-2-list-02'],
       contractions: ['grade-2-contractions'],

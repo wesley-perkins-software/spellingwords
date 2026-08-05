@@ -96,11 +96,7 @@ describe('Common Spelling Patterns Skill Family', () => {
 
   it('keeps the source grade-unit files for the CK/TCH/DGE merge untouched as grade-units', () => {
     for (const id of [
-      'c-k-ck-words',
-      'kindergarten-ck-ending-words',
-      'kindergarten-double-consonants',
       'grade-1-floss-rule',
-      'tch-dge-ending-words',
       'grade-1-tch-dge-ending-rules',
     ]) {
       expect(byId.get(id), id).toBeDefined();

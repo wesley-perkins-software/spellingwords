@@ -16,7 +16,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-ck-ending-words", "kindergarten-double-consonants"]
+relatedLists: []
 prerequisiteLists: []
 nextLists: []
 featured: false

@@ -64,21 +64,6 @@ function allContent(): FrontmatterSummary[] {
     });
 }
 
-/** Extracts every `id` column value from the markdown tables in deprecated-and-legacy-pages.md. */
-function deprecatedIds(): Set<string> {
-  const path = join(process.cwd(), 'docs/content/inventory/deprecated-and-legacy-pages.md');
-  const text = readFileSync(path, 'utf8');
-  const ids = new Set<string>();
-  // Table rows look like: | Title | some-id | urlSlug | ... |
-  // Skip header/separator rows (id column containing "id" or only dashes).
-  for (const match of text.matchAll(/^\|[^\n|]*\|\s*([a-z0-9][a-z0-9-]*)\s*\|/gm)) {
-    const candidate = match[1];
-    if (candidate === 'id' || /^-+$/.test(candidate)) continue;
-    ids.add(candidate);
-  }
-  return ids;
-}
-
 describe('relatedLists reference resolution', () => {
   const entries = allContent();
   const published = entries.filter((entry) => entry.status === 'published');
@@ -98,27 +83,6 @@ describe('relatedLists reference resolution', () => {
 });
 
 describe('relatedLists never references a deprecated/legacy page', () => {
-  it('keeps canonical (non-deprecated) pages from linking into the deprecated/legacy bucket', () => {
-    // Deprecated pages are documented as cross-linking only among themselves
-    // (docs/content/inventory/deprecated-and-legacy-pages.md) — that's expected
-    // and out of scope here. The rule this enforces is narrower and matches the
-    // architecture constraint: a *canonical* page must never link into the
-    // deprecated bucket (the silent-e-long-e regression this review named).
-    const deprecated = deprecatedIds();
-    expect(deprecated.size).toBeGreaterThan(0);
-
-    const entries = allContent().filter((entry) => entry.status === 'published' && !deprecated.has(entry.id));
-    const offenders: string[] = [];
-    for (const entry of entries) {
-      for (const relatedId of entry.relatedLists) {
-        if (deprecated.has(relatedId)) {
-          offenders.push(`${entry.id} -> ${relatedId}`);
-        }
-      }
-    }
-    expect(offenders).toEqual([]);
-  });
-
   it('never references the named archived example, silent-e-long-e', () => {
     const entries = allContent().filter((entry) => entry.status === 'published');
     for (const entry of entries) {

@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import {
-  buildGradeHubSections,
   dedupeRelatedLists,
   groupByCategory,
   groupBySkillFamily,
@@ -9,7 +8,7 @@ import {
   resolveListRefs,
   toPlayableWords,
 } from './spellingLists';
-import type { SpellingCollectionEntry, SpellingListEntry } from './spellingLists';
+import type { SpellingListEntry } from './spellingLists';
 
 function makeEntry(overrides: Partial<SpellingListEntry['data']> & { id: string }): SpellingListEntry {
   const data = {
@@ -37,30 +36,6 @@ function makeEntry(overrides: Partial<SpellingListEntry['data']> & { id: string 
   return { id: overrides.id, slug: overrides.id, body: '', collection: 'spelling-lists', data } as unknown as SpellingListEntry;
 }
 
-function makeCollectionEntry(
-  overrides: Partial<SpellingCollectionEntry['data']> & { id: string },
-): SpellingCollectionEntry {
-  const data = {
-    id: overrides.id,
-    urlSlug: overrides.id,
-    title: overrides.id,
-    description: '',
-    category: 'sight-words',
-    listIds: [],
-    status: 'published',
-    featured: false,
-    ...overrides,
-  } as SpellingCollectionEntry['data'];
-
-  return {
-    id: overrides.id,
-    slug: overrides.id,
-    body: '',
-    collection: 'spelling-collections',
-    data,
-  } as unknown as SpellingCollectionEntry;
-}
-
 describe('isPublished', () => {
   it('returns true only for published entries', () => {
     expect(isPublished(makeEntry({ id: 'a', status: 'published' }))).toBe(true);
@@ -85,7 +60,7 @@ describe('groupByCategory', () => {
   });
 
   it('omits categories with no entries', () => {
-    const groups = groupByCategory([makeEntry({ id: 'a', category: 'challenge' })]);
+    const groups = groupByCategory([makeEntry({ id: 'a', category: 'theme' })]);
     expect(groups.has('grade-level')).toBe(false);
   });
 });
@@ -96,7 +71,7 @@ describe('groupGradeListsByCategory', () => {
       makeEntry({ id: 'sight-1', category: 'sight-words', order: 1 }),
       makeEntry({ id: 'phonics-1', category: 'phonics', order: 1 }),
       makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 }),
-      makeEntry({ id: 'challenge-1', category: 'challenge', order: 1 }),
+      makeEntry({ id: 'theme-1', category: 'theme', order: 1 }),
     ];
 
     const groups = groupGradeListsByCategory(entries);
@@ -105,7 +80,7 @@ describe('groupGradeListsByCategory', () => {
       'grade-level',
       'sight-words',
       'phonics',
-      'challenge',
+      'theme',
     ]);
   });
 
@@ -214,38 +189,9 @@ describe('groupBySkillFamily', () => {
   });
 });
 
-describe('buildGradeHubSections', () => {
-  it('places a collection inside its own category section, not a separate hoisted block', () => {
-    const lists = [makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 })];
-    const collections = [makeCollectionEntry({ id: 'dolch-1', category: 'sight-words' })];
-
-    const sections = buildGradeHubSections(lists, collections);
-
-    expect(sections.map((s) => s.category)).toEqual(['grade-level', 'sight-words']);
-    expect(sections[1].collections.map((c) => c.data.id)).toEqual(['dolch-1']);
-    expect(sections[1].entries).toEqual([]);
-  });
-
-  it('merges a collection into a category section that already has standalone lists', () => {
-    const lists = [makeEntry({ id: 'sight-1', category: 'sight-words', order: 1 })];
-    const collections = [makeCollectionEntry({ id: 'dolch-1', category: 'sight-words' })];
-
-    const sections = buildGradeHubSections(lists, collections);
-
-    expect(sections).toHaveLength(1);
-    expect(sections[0].category).toBe('sight-words');
-    expect(sections[0].entries.map((e) => e.data.id)).toEqual(['sight-1']);
-    expect(sections[0].collections.map((c) => c.data.id)).toEqual(['dolch-1']);
-  });
-
-  it('returns no sections when there are no lists or collections', () => {
-    expect(buildGradeHubSections([], [])).toEqual([]);
-  });
-});
-
 describe('resolveListRefs', () => {
   const published = [
-    makeEntry({ id: 'tier-1', category: 'challenge' }),
+    makeEntry({ id: 'tier-1', category: 'theme' }),
   ];
 
   it('resolves ids that match a published entry', () => {

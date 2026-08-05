@@ -4,6 +4,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import { CURATED_SPELLING_SKILL_IDS } from '@/lib/content/spellingSkills';
 import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
+import { gradeConfig } from '@/lib/content/gradeConfig';
 
 const sampleWords = [
   'friend',
@@ -17,48 +18,38 @@ const sampleWords = [
 
 const placeholderText = sampleWords.join('\n');
 
+const gradeAccents: Record<string, string> = {
+  K: 'bg-chip-berry',
+  '1': 'bg-brand-sky',
+  '2': 'bg-chip-grass',
+  '3': 'bg-chip-sun',
+  '4': 'bg-brand-sky',
+  '5': 'bg-chip-grass',
+};
+
+const gradeDescriptions: Record<string, string> = {
+  K: 'First sounds, first words, first steps',
+  '1': 'High-frequency sight words for early readers',
+  '2': 'Building blocks for confident spellers',
+  '3': 'Compound words, prefixes, and more',
+  '4': 'Suffixes, roots, and multisyllabic words',
+  '5': 'Academic vocabulary and advanced patterns',
+};
+
 const categories = [
-  {
-    href:        '/1st-grade',
-    count:       '48 words',
-    name:        '1st Grade',
-    desc:        'High-frequency sight words for early readers',
-    accentClass: 'bg-brand-sky',
-  },
-  {
-    href:        '/2nd-grade',
-    count:       '72 words',
-    name:        '2nd Grade',
-    desc:        'Building blocks for confident spellers',
-    accentClass: 'bg-chip-grass',
-  },
-  {
-    href:        '/3rd-grade',
-    count:       '96 words',
-    name:        '3rd Grade',
-    desc:        'Compound words, prefixes, and more',
-    accentClass: 'bg-chip-sun',
-  },
-  {
-    href:        '/spelling-lists/sight-words',
-    count:       '315 words',
-    name:        'Sight Words',
-    desc:        'Complete Dolch service and noun word lists',
-    accentClass: 'bg-chip-berry',
-  },
+  ...gradeConfig.map((g) => ({
+    href:        g.hubHref,
+    count:       g.shortLabel,
+    name:        g.label,
+    desc:        gradeDescriptions[g.grade],
+    accentClass: gradeAccents[g.grade],
+  })),
   {
     href:        SKILLS_INDEX_PATH,
     count:       `${CURATED_SPELLING_SKILL_IDS.length} skills`,
     name:        'Practice by Skill',
     desc:        'Choose focused sounds and spelling patterns',
     accentClass: 'bg-brand-red',
-  },
-  {
-    href:        '/spelling-lists/challenge',
-    count:       '150 words',
-    name:        'Spelling Bee',
-    desc:        'Classic bee words for competitive practice',
-    accentClass: 'bg-brand-sky',
   },
 ];
 ---
@@ -224,7 +215,7 @@ const categories = [
 
     <!-- ═══ CURATED LISTS ════════════════════════════════════════ -->
     <section
-      id="curated-lists"
+      id="grades"
       class="mx-auto max-w-content-xl px-6 py-16 scroll-mt-[72px]"
       aria-labelledby="curated-heading"
     >
@@ -239,7 +230,7 @@ const categories = [
           Hundreds of spelling lists,<br>ready to use.
         </h2>
         <p class="max-w-content-sm text-[15px] font-medium text-ink-soft leading-[1.55]">
-          Choose by grade level, phonics pattern, sight words, and more —
+          Choose by grade level or practice by phonics skill —
           all free, no account needed.
         </p>
       </div>
@@ -271,12 +262,6 @@ const categories = [
         ))}
       </div>
 
-      <a
-        href="/spelling-lists"
-        class="inline-flex items-center gap-1.5 border-b-2 border-brand-sky/30 pb-0.5 text-[15px] font-extrabold text-brand-sky transition hover:border-brand-blue hover:text-brand-blue"
-      >
-        Browse the full spelling library →
-      </a>
     </section>
 
     <!-- ═══ TRUST ════════════════════════════════════════════════ -->

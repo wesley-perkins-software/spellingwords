@@ -3,7 +3,6 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   GRADE_1_CORE_IDS,
-  GRADE_1_GATEWAY_IDS,
   GRADE_1_TARGETED_SKILL_IDS,
 } from './grade1Progression';
 import {
@@ -26,7 +25,6 @@ import { getSentenceBankEntry, getSentenceForWord } from '@/lib/sentenceBank';
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const skillsIndexRoutePath = join(process.cwd(), 'src/pages/skills/index.astro');
-const gatewayPath = join(contentRoot, 'phonics/grade-1-vowel-team-practice.md');
 
 const VOWEL_TEAM_SKILL_IDS = [
   'vowel-teams-ai-ay',
@@ -47,8 +45,6 @@ const EXCLUDED_DIPHTHONG_IDS = ['vowel-teams-oi-oy', 'vowel-teams-ou-ow'] as con
 const VOWEL_TEAM_FAMILY_IDS = [
   ...VOWEL_TEAM_SKILL_IDS,
   'grade-1-long-a-long-o-vowel-teams',
-  'grade-1-long-e-vowel-teams',
-  'grade-1-vowel-team-practice',
 ] as const;
 
 const EXPECTED_URL_INPUTS: Record<string, { category: string; urlSlug: string }> = {
@@ -63,14 +59,6 @@ const EXPECTED_URL_INPUTS: Record<string, { category: string; urlSlug: string }>
   'grade-1-long-a-long-o-vowel-teams': {
     category: 'phonics',
     urlSlug: '1st-grade-long-a-long-o-vowel-teams',
-  },
-  'grade-1-long-e-vowel-teams': {
-    category: 'phonics',
-    urlSlug: '1st-grade-long-e-vowel-teams',
-  },
-  'grade-1-vowel-team-practice': {
-    category: 'phonics',
-    urlSlug: '1st-grade-vowel-team-practice',
   },
 };
 
@@ -232,12 +220,9 @@ describe('Vowel Teams Skill Family', () => {
 
     for (const id of [
       'grade-1-long-a-long-o-vowel-teams',
-      'grade-1-long-e-vowel-teams',
     ]) {
       expect(byId.get(id), id).toMatchObject({ id, contentRole: 'grade-unit' });
     }
-
-    expect(byId.get('grade-1-vowel-team-practice')?.contentRole).toBeUndefined();
   });
 
   it('preserves stable ids, categories, slugs, public URL inputs, and published status', () => {
@@ -346,10 +331,8 @@ describe('Vowel Teams Skill Family', () => {
     expect(byId.get('vowel-teams-oa-ow')!.words).toContain('know');
   });
 
-  it('keeps Grade 1 core, gateway, targeted Skill coverage, and gateway links focused', () => {
+  it('keeps Grade 1 core and targeted Skill coverage focused', () => {
     expect(GRADE_1_CORE_IDS).toContain('grade-1-long-a-long-o-vowel-teams');
-    expect(GRADE_1_CORE_IDS).toContain('grade-1-long-e-vowel-teams');
-    expect(GRADE_1_GATEWAY_IDS).toContain('grade-1-vowel-team-practice');
 
     // Only the three Vowel Team Skills already part of the Grade 1 core
     // progression are targeted there; the four newly-promoted Skills
@@ -358,13 +341,6 @@ describe('Vowel Teams Skill Family', () => {
     for (const id of ['vowel-teams-ai-ay', 'vowel-teams-ee-ea', 'vowel-teams-oa-ow']) {
       expect(GRADE_1_TARGETED_SKILL_IDS).toContain(id);
     }
-
-    const gateway = readFileSync(gatewayPath, 'utf8');
-    expect(gateway).toContain('/skills/ai-ay-vowel-teams');
-    expect(gateway).toContain('/skills/ee-ea-vowel-teams');
-    expect(gateway).toContain('/skills/oa-ow-vowel-teams');
-    expect(gateway).not.toContain('/2nd-grade/vowel-teams-oi-oy');
-    expect(gateway).not.toContain('/2nd-grade/vowel-teams-ou-ow');
   });
 
   it('keeps earlier public Skill families and protected Grade 1 CVC behavior unchanged', () => {
@@ -388,7 +364,6 @@ describe('Vowel Teams Skill Family', () => {
       'silent-e-long-u',
     ]);
     expect(GRADE_1_CORE_IDS).toContain('grade-1-cvc-short-vowels-c-k-rule');
-    expect(GRADE_1_GATEWAY_IDS).toContain('grade-1-short-vowel-practice');
     expect(GRADE_1_TARGETED_SKILL_IDS).not.toContain('grade-1-cvc-short-vowels-c-k-rule');
   });
 

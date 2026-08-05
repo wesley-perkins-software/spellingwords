@@ -1,19 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
-import { getCanonicalListPath } from '@/lib/content/canonicalGradeRoutes';
 import Layout from '@/layouts/Layout.astro';
 import { getCanonicalUrl } from '@/lib/canonicalUrl';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import SpellingListCard from '@/components/SpellingListCard.astro';
-import {
-  buildGradeHubSections,
-  getListsByGrade,
-  getMemberListIds,
-  groupBySkillFamily,
-  isPublished,
-} from '@/lib/content/spellingLists';
+import { isPublished } from '@/lib/content/spellingLists';
 import {
   buildGradeHubCards,
   GRADE_1_HUB_SECTIONS,
@@ -23,7 +16,6 @@ import {
   GRADE_5_HUB_SECTIONS,
   KINDERGARTEN_HUB_SECTIONS,
 } from '@/lib/content/gradeHubCards';
-import { categoryLabels } from '@/lib/content/categoryMeta';
 import { gradeConfig, getAdjacentGrades } from '@/lib/content/gradeConfig';
 import { gradeHubCopy } from '@/lib/content/gradeHubCopy';
 import type { GradeCode, GradeConfigEntry } from '@/lib/content/gradeConfig';
@@ -35,13 +27,8 @@ export async function getStaticPaths() {
   }));
 }
 
-/**
- * Grades with a hand-curated hub progression (Core Spelling / High-Frequency
- * Words / Additional Practice). Every other grade falls back to the generic
- * category-grouped renderer below. A Partial lookup here, rather than a
- * nested ternary, keeps this readable as more grades are curated.
- */
-const CURATED_HUB_SECTIONS: Partial<Record<GradeCode, typeof KINDERGARTEN_HUB_SECTIONS>> = {
+/** Every grade has a hand-curated hub progression (Core Spelling / High-Frequency Words / Additional Practice). */
+const CURATED_HUB_SECTIONS: Record<GradeCode, typeof KINDERGARTEN_HUB_SECTIONS> = {
   K: KINDERGARTEN_HUB_SECTIONS,
   '1': GRADE_1_HUB_SECTIONS,
   '2': GRADE_2_HUB_SECTIONS,
@@ -55,28 +42,13 @@ const { grade, label } = gradeEntry;
 const copy = gradeHubCopy[grade];
 const { prev, next } = getAdjacentGrades(grade);
 
-const allCollections = (await getCollection('spelling-collections')).filter(
-  (c) => c.data.status === 'published',
-);
-const memberIds = getMemberListIds(allCollections);
 const entries = (await getCollection('spelling-lists')).filter(isPublished);
 
-const gradeLists = getListsByGrade(grade, entries).filter((e) => !memberIds.has(e.data.id));
-const gradeCollections = allCollections.filter((c) => c.data.grade === grade);
-const totalItems = gradeCollections.length + gradeLists.length;
-
-const sections = buildGradeHubSections(gradeLists, gradeCollections);
-const curatedDefinitions = CURATED_HUB_SECTIONS[grade];
-const curatedSections = curatedDefinitions
-  ? buildGradeHubCards(curatedDefinitions, entries, allCollections)
-  : null;
-const displayedItemCount = curatedSections
-  ? curatedSections.reduce((count, section) => count + section.cards.length, 0)
-  : totalItems;
+const curatedSections = buildGradeHubCards(CURATED_HUB_SECTIONS[grade], entries);
+const displayedItemCount = curatedSections.reduce((count, section) => count + section.cards.length, 0);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Learn by Grade', href: '/spelling-lists' },
   { label },
 ];
 
@@ -94,35 +66,17 @@ const breadcrumbJsonLd = {
 };
 
 let position = 0;
-function toListItem(e: (typeof gradeLists)[number]) {
-  return {
-    '@type': 'ListItem',
-    position: ++position,
-    url: new URL(getCanonicalListPath(e.data), canonicalURL.origin).toString(),
-    name: e.data.title,
-  };
-}
 const itemListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: `${label} Spelling Word Lists`,
   numberOfItems: displayedItemCount,
-  itemListElement: curatedSections
-    ? curatedSections.flatMap(({ cards }) => cards.map((card) => ({
-      '@type': 'ListItem',
-      position: ++position,
-      url: new URL(card.href, canonicalURL.origin).toString(),
-      name: card.title,
-    })))
-    : sections.flatMap(({ collections, entries: sectionEntries }) => [
-        ...collections.map((c) => ({
-          '@type': 'ListItem',
-          position: ++position,
-          url: new URL(`/spelling-lists/collections/${c.data.urlSlug}`, canonicalURL.origin).toString(),
-          name: c.data.title,
-        })),
-        ...sectionEntries.map(toListItem),
-      ]),
+  itemListElement: curatedSections.flatMap(({ cards }) => cards.map((card) => ({
+    '@type': 'ListItem',
+    position: ++position,
+    url: new URL(card.href, canonicalURL.origin).toString(),
+    name: card.title,
+  }))),
 };
 ---
 
@@ -148,19 +102,18 @@ const itemListJsonLd = {
         <p class="max-w-2xl text-base leading-relaxed text-ink-soft">{copy.heroParagraphs[1]}</p>
       </div>
 
-      <!-- Lists: Kindergarten and Grade 1 render curated curriculum progressions;
-           every other grade groups by category, grade-level first. -->
+      <!-- Lists: every grade renders a curated curriculum progression. -->
       {displayedItemCount === 0 ? (
         <div class="rounded-2xl border border-line bg-app-cloud p-8 text-center">
           <p class="text-base text-ink-soft">
             {copy.emptyStateLabel} lists are being prepared. Check back soon, or{' '}
-            <a href="/spelling-lists" class="font-semibold text-brand-blue hover:underline">
-              browse the full library
+            <a href="/skills" class="font-semibold text-brand-blue hover:underline">
+              browse spelling skills
             </a>{' '}
             in the meantime.
           </p>
         </div>
-      ) : curatedSections ? (
+      ) : (
         <div class="mb-12 flex flex-col gap-10">
           {curatedSections.map((section) => (
             <section class="flex flex-col gap-4" aria-labelledby={`grade-section-${section.title.toLowerCase().replaceAll(' ', '-')}`}>
@@ -206,121 +159,6 @@ const itemListJsonLd = {
             </section>
           ))}
         </div>
-      ) : (
-        <div class="mb-12 flex flex-col gap-10">
-          {sections.map(({ category, collections, entries: sectionEntries }, sectionIndex) => {
-            const phonicsGroups = category === 'phonics' ? groupBySkillFamily(sectionEntries) : null;
-            return (
-            <section
-              aria-labelledby={`category-${category}-heading`}
-              class={sectionIndex === 0
-                ? 'flex flex-col gap-4 rounded-2xl border border-brand-blue/15 bg-brand-blue/[0.04] p-5'
-                : 'flex flex-col gap-4'}
-            >
-              <div class="flex flex-wrap items-baseline justify-between gap-3">
-                <div class="flex items-baseline gap-3">
-                  <h2 id={`category-${category}-heading`} class="font-display text-lg font-semibold text-ink">
-                    {categoryLabels[category] ?? category}
-                  </h2>
-                  <span class="text-sm text-ink-faint">
-                    {collections.length + sectionEntries.length}{' '}
-                    {collections.length + sectionEntries.length === 1 ? 'list' : 'lists'}
-                  </span>
-                </div>
-                <a
-                  href={`/spelling-lists/${category}`}
-                  class="text-sm font-semibold text-brand-blue hover:underline"
-                >
-                  See all {categoryLabels[category] ?? category} lists →
-                </a>
-              </div>
-              {phonicsGroups ? (
-                <div class="flex flex-col gap-6">
-                  {collections.length > 0 && (
-                    <div class="grid gap-4 sm:grid-cols-2">
-                      {collections.map((c) => (
-                        <a
-                          href={`/spelling-lists/collections/${c.data.urlSlug}`}
-                          class="flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
-                        >
-                          <div class="flex flex-col gap-1">
-                            <div class="flex items-center gap-2">
-                              <span class="rounded-md bg-app-cloud px-2 py-0.5 text-xs font-medium text-ink-soft">
-                                {categoryLabels[c.data.category] ?? c.data.category}
-                              </span>
-                              <span class="rounded-md bg-brand-blue/8 px-2 py-0.5 text-xs font-semibold text-brand-blue">
-                                {c.data.listIds.length}-part collection
-                              </span>
-                            </div>
-                            <h3 class="mt-1 font-display text-base font-semibold text-ink">{c.data.title}</h3>
-                            <p class="text-sm leading-relaxed text-ink-soft">{c.data.description}</p>
-                          </div>
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                  {phonicsGroups.map((group) => (
-                    <div class="flex flex-col gap-3">
-                      <h3
-                        id={`category-${category}-${group.key}-heading`}
-                        class="font-display text-sm font-semibold text-ink-soft"
-                      >
-                        {group.label}
-                      </h3>
-                      <div class="grid gap-4 sm:grid-cols-2">
-                        {group.entries.map((entry) => (
-                          <SpellingListCard
-                            href={getCanonicalListPath(entry.data)}
-                            category={entry.data.category}
-                            title={entry.data.title}
-                            description={entry.data.description}
-                            difficulty={entry.data.difficulty}
-                            durationMinutes={entry.data.estimatedDurationMinutes}
-                            wordCount={entry.data.words.length}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div class="grid gap-4 sm:grid-cols-2">
-                  {collections.map((c) => (
-                    <a
-                      href={`/spelling-lists/collections/${c.data.urlSlug}`}
-                      class="flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
-                    >
-                      <div class="flex flex-col gap-1">
-                        <div class="flex items-center gap-2">
-                          <span class="rounded-md bg-app-cloud px-2 py-0.5 text-xs font-medium text-ink-soft">
-                            {categoryLabels[c.data.category] ?? c.data.category}
-                          </span>
-                          <span class="rounded-md bg-brand-blue/8 px-2 py-0.5 text-xs font-semibold text-brand-blue">
-                            {c.data.listIds.length}-part collection
-                          </span>
-                        </div>
-                        <h3 class="mt-1 font-display text-base font-semibold text-ink">{c.data.title}</h3>
-                        <p class="text-sm leading-relaxed text-ink-soft">{c.data.description}</p>
-                      </div>
-                    </a>
-                  ))}
-                  {sectionEntries.map((entry) => (
-                    <SpellingListCard
-                      href={getCanonicalListPath(entry.data)}
-                      category={entry.data.category}
-                      title={entry.data.title}
-                      description={entry.data.description}
-                      difficulty={entry.data.difficulty}
-                      durationMinutes={entry.data.estimatedDurationMinutes}
-                      wordCount={entry.data.words.length}
-                    />
-                  ))}
-                </div>
-              )}
-            </section>
-            );
-          })}
-        </div>
       )}
 
       <!-- Choosing guidance -->
@@ -353,13 +191,13 @@ const itemListJsonLd = {
         ) : <span></span>}
       </nav>
 
-      <!-- Back to library -->
+      <!-- Back to grades -->
       <p>
         <a
-          href="/spelling-lists"
+          href="/#grades"
           class="inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline"
         >
-          ← Back to the Spelling Lists Library
+          ← Back to all grades
         </a>
       </p>
     </div>

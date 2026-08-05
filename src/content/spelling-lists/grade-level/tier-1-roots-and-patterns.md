@@ -16,7 +16,7 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["tier-2-greek-latin-roots", "grade-3-root-word-families"]
+relatedLists: ["grade-3-root-word-families"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:

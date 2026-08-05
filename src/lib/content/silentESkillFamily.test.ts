@@ -37,7 +37,6 @@ const SILENT_E_FAMILY_IDS = [
   ...SILENT_E_SKILL_IDS,
   'silent-e-long-e',
   'grade-1-long-vowels-silent-e',
-  'grade-1-silent-e-practice',
 ] as const;
 
 const EXPECTED_URL_INPUTS: Record<string, { category: string; urlSlug: string }> = {
@@ -49,10 +48,6 @@ const EXPECTED_URL_INPUTS: Record<string, { category: string; urlSlug: string }>
   'grade-1-long-vowels-silent-e': {
     category: 'phonics',
     urlSlug: '1st-grade-long-vowels-silent-e',
-  },
-  'grade-1-silent-e-practice': {
-    category: 'phonics',
-    urlSlug: '1st-grade-silent-e-practice',
   },
 };
 
@@ -274,9 +269,8 @@ describe('Silent E Skill Family', () => {
     }
   });
 
-  it('keeps Grade 1 coverage resolving through core, gateway, and targeted Skill sections', () => {
+  it('keeps Grade 1 coverage resolving through core and targeted Skill sections', () => {
     expect(GRADE_1_CORE_IDS).toContain('grade-1-long-vowels-silent-e');
-    expect(GRADE_1_GATEWAY_IDS).toContain('grade-1-silent-e-practice');
 
     for (const id of SILENT_E_SKILL_IDS) {
       expect(GRADE_1_TARGETED_SKILL_IDS).toContain(id);
@@ -285,7 +279,6 @@ describe('Silent E Skill Family', () => {
 
   it('keeps the protected Grade 1 CVC short-vowel review behavior unchanged', () => {
     expect(GRADE_1_CORE_IDS).toContain('grade-1-cvc-short-vowels-c-k-rule');
-    expect(GRADE_1_GATEWAY_IDS).toContain('grade-1-short-vowel-practice');
     expect(GRADE_1_TARGETED_SKILL_IDS).not.toContain('grade-1-cvc-short-vowels-c-k-rule');
   });
 

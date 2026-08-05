@@ -193,11 +193,12 @@ export function isCuratedSpellingSkillId(id: string): id is CuratedSpellingSkill
   return (CURATED_SPELLING_SKILL_IDS as readonly string[]).includes(id);
 }
 
-export function getSpellingSkillPath(entry: { data: { id: string; category: string; urlSlug: string } }): string {
-  return (
-    getCanonicalSkillPathById(entry.data.id) ??
-    `/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`
-  );
+export function getSpellingSkillPath(entry: { data: { id: string } }): string {
+  const path = getCanonicalSkillPathById(entry.data.id);
+  if (!path) {
+    throw new Error(`No canonical Skill path for "${entry.data.id}" — expected every entry here to be a canonical Skill.`);
+  }
+  return path;
 }
 
 export function resolveCuratedSkillFamilyEntries<T extends { data: { id: string } }>(

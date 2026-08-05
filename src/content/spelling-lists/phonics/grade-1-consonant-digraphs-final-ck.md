@@ -16,7 +16,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["kindergarten-ck-ending-words", "grade-1-cvc-short-vowels-c-k-rule"]
+relatedLists: ["grade-1-cvc-short-vowels-c-k-rule"]
 prerequisiteLists: []
 nextLists: []
 featured: false

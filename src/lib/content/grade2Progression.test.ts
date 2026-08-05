@@ -62,22 +62,6 @@ function readWords(frontmatter: string): string[] {
   return words;
 }
 
-/** Handles the multi-line `listIds:` block used by spelling-collections entries. */
-function readListIds(frontmatter: string): string[] {
-  const match = frontmatter.match(/^listIds:\s*\n((?:[ \t]+-.*\n?)+)/m);
-  if (!match) return [];
-  return match[1]
-    .split('\n')
-    .map((line) => line.trim())
-    .filter((line) => line.startsWith('- '))
-    .map((line) =>
-      line
-        .slice(2)
-        .trim()
-        .replace(/^['"]|['"]$/g, ''),
-    );
-}
-
 function readSpellingListFrontmatter(): FrontmatterSummary[] {
   const root = join(process.cwd(), 'src/content/spelling-lists');
   return readdirSync(root, { withFileTypes: true })
@@ -101,22 +85,6 @@ function readSpellingListFrontmatter(): FrontmatterSummary[] {
         filePath,
       };
     });
-}
-
-function readCollectionFrontmatter(id: string): FrontmatterSummary {
-  const filePath = join(process.cwd(), 'src/content/spelling-collections', `${id}.md`);
-  const frontmatter = readFrontmatter(filePath);
-  return {
-    id: readScalar(frontmatter, 'id') ?? '',
-    status: readScalar(frontmatter, 'status') ?? '',
-    grade: readScalar(frontmatter, 'grade'),
-    category: readScalar(frontmatter, 'category') ?? '',
-    words: [],
-    prerequisiteLists: [],
-    nextLists: [],
-    listIds: readListIds(frontmatter),
-    filePath,
-  };
 }
 
 const allLists = readSpellingListFrontmatter();
@@ -199,11 +167,6 @@ describe('Grade 2 Common Words', () => {
     });
   });
 
-  it("the gateway's listIds matches the six sets in order", () => {
-    const gateway = readCollectionFrontmatter('grade-2-common-words');
-    expect(gateway.status).toBe('published');
-    expect(gateway.listIds).toEqual(GRADE_2_COMMON_WORD_IDS);
-  });
 });
 
 describe('Grade 2 Core Spelling', () => {

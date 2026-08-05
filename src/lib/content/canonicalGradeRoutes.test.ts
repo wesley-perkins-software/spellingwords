@@ -78,9 +78,9 @@ describe('canonical grade routes', () => {
     );
   });
 
-  it('composes with neither manifest: falls back to the legacy /spelling-lists path', () => {
-    expect(
+  it('throws for an id in neither manifest, instead of constructing a legacy /spelling-lists path', () => {
+    expect(() =>
       getCanonicalListPath({ id: 'dolch-nouns-a', category: 'sight-words', urlSlug: 'dolch-nouns-a-sight-words' }),
-    ).toBe('/spelling-lists/sight-words/dolch-nouns-a-sight-words');
+    ).toThrow(/No canonical path/);
   });
 });

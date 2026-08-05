@@ -165,28 +165,19 @@ export function getCanonicalListPathById(id: string): string | undefined {
   return routeById.get(id)?.canonicalPath;
 }
 
-// The composed canonical resolver — the one function every template, the
-// sitemap, and Skill Hub cards should call to link to a spelling-lists entry.
-// Tries the grade-curriculum manifest, then the Skill manifest, and only
-// falls back to the legacy repository-shaped path for content intentionally
-// retained under /spelling-lists/ (see docs/content/inventory/retained-spelling-lists-pages.md).
+// The composed canonical resolver — the one function every template and the
+// sitemap should call to link to a spelling-lists entry. Every published
+// spelling-lists entry is now, by construction, either a canonical Grade
+// Unit or a canonical Skill (see the "spelling-lists ids match canonical
+// manifests exactly" test) — so a lookup miss on both manifests indicates
+// a real bug (a stray non-canonical entry survived), not a legacy page to
+// fall back to. Fail loudly rather than construct a dead legacy URL.
 export function getCanonicalListPath(entry: Pick<CollectionEntry<'spelling-lists'>['data'], 'id' | 'category' | 'urlSlug'>): string {
-  return (
-    getCanonicalListPathById(entry.id) ??
-    getCanonicalSkillPathById(entry.id) ??
-    `/spelling-lists/${entry.category}/${entry.urlSlug}`
-  );
+  const path = getCanonicalListPathById(entry.id) ?? getCanonicalSkillPathById(entry.id);
+  if (!path) {
+    throw new Error(
+      `No canonical path for spelling-lists entry "${entry.id}" — every published entry must be a canonical Grade Unit or Skill.`,
+    );
+  }
+  return path;
 }
-
-export function getHistoricalListPath(entry: Pick<CollectionEntry<'spelling-lists'>['data'], 'category' | 'urlSlug'>): string {
-  return `/spelling-lists/${entry.category}/${entry.urlSlug}`;
-}
-
-// The 6 "Common Words" spelling-collections entries (one per grade) are
-// intentionally excluded from static generation — their numbered child sets
-// now render directly on each Grade Hub, so the collection's own gateway page
-// would be a duplicate destination. Pre-launch, these obsolete paths simply
-// aren't generated (404) rather than redirected.
-export const GATEWAY_COLLECTION_IDS: readonly string[] = gradeConfig.map(
-  (grade) => `${grade.grade === 'K' ? 'kindergarten' : `grade-${grade.grade}`}-common-words`,
-);

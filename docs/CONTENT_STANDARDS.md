@@ -39,7 +39,7 @@ When these groups' interests conflict, **children's comprehension comes first.**
 - Common elementary vocabulary — words a child in the target grade range would plausibly already be using or hearing.
 - Curriculum words — words that map onto what schools at that grade level actually teach.
 - Canonical word sources, such as:
-  - Dolch sight words
+  - high-frequency sight words
   - phonics patterns
   - curriculum vocabulary
 - Words children are likely to encounter in books or school — i.e., words with a real reading-life payoff, not just a spelling-list payoff.

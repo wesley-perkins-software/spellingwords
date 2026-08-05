@@ -99,7 +99,6 @@ describe('Prefixes Skill Family', () => {
 
   it('keeps every contributing source page a Grade Unit', () => {
     for (const id of [
-      'grade-2-prefixes-un-re',
       'grade-3-prefix-words',
       'grade-4-advanced-prefixes',
       'grade-5-prefix-suffix-words',
@@ -130,7 +129,7 @@ describe('Prefixes Skill Family', () => {
 
   it('gives each Skill the architecture-defined curriculum placements from Grade Unit skillIds', () => {
     const expectedPlacements: Record<(typeof PREFIXES_SKILL_IDS)[number], string[]> = {
-      'un-and-re-prefixes': ['grade-2-prefixes-un-re'],
+      'un-and-re-prefixes': [],
       'common-prefixes': [
         'grade-3-prefix-words',
         'grade-4-advanced-prefixes',

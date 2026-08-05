@@ -259,21 +259,12 @@ describe('curated spelling Skills browse index', () => {
       'grade-1-consonant-digraphs-final-ck',
       'grade-1-long-vowels-silent-e',
       'grade-1-long-a-long-o-vowel-teams',
-      'grade-1-long-e-vowel-teams',
     ]) {
       expect(CURATED_SPELLING_SKILL_IDS).not.toContain(id);
       expect(byId.get(id), id).toMatchObject({ data: { contentRole: 'grade-unit' } });
     }
 
-    for (const id of [
-      'short-vowels-cvc-words',
-      'grade-1-short-vowel-practice',
-      'grade-1-consonant-digraph-practice',
-      'grade-1-silent-e-practice',
-      'grade-1-vowel-team-practice',
-    ]) {
-      expect(CURATED_SPELLING_SKILL_IDS).not.toContain(id);
-    }
+    expect(CURATED_SPELLING_SKILL_IDS).not.toContain('short-vowels-cvc-words');
 
     expect(byId.get('short-vowels-cvc-words')).toMatchObject({ data: { status: 'archived' } });
   });
@@ -331,41 +322,8 @@ describe('curated spelling Skills browse index', () => {
     });
   });
 
-  it('keeps non-taxonomy pages out of the canonical registry without freezing their unresolved role', () => {
-    for (const id of [
-      'grade-3-doubling-final-consonants',
-      'grade-3-changing-y-to-i',
-      'tier-2-greek-latin-roots',
-    ]) {
-      expect(CURATED_SPELLING_SKILL_IDS).not.toContain(id);
-      expect(byId.get(id), id).toMatchObject({ data: { contentRole: 'grade-unit' } });
-    }
-
-    const gradeHubCards = readFileSync(
-      join(process.cwd(), 'src/lib/content/gradeHubCards.ts'),
-      'utf8',
-    );
-    for (const id of ['grade-4-final-stable-syllables', 'grade-5-spelling-rules']) {
-      expect(CURATED_SPELLING_SKILL_IDS).not.toContain(id);
-      expect(VOWEL_TEAMS_SKILL_FAMILY.skillIds).not.toContain(id);
-      expect(gradeHubCards).not.toContain(id);
-      expect(byId.get(id), id).toMatchObject({ data: { status: 'published' } });
-    }
-
-    expect(byId.get('grade-4-advanced-suffixes')!.data.relatedLists).toContain(
-      'grade-4-final-stable-syllables',
-    );
-    expect(byId.get('grade-5-prefix-suffix-words')!.data.relatedLists).toContain(
-      'grade-5-spelling-rules',
-    );
-    // nextLists is no longer authored for Core Spelling pages — Review First /
-    // Next Step are derived from CORE_SPELLING_SEQUENCE (navigationSequence.test.ts).
-    // The sibling relationship lives only in relatedLists (Explore More), asserted above.
-  });
-
-  it('keeps grade-unit skillIds limited to canonical Skill ids (grade-5-spelling-rules is not one)', () => {
+  it('keeps grade-unit skillIds limited to canonical Skill ids', () => {
     const anchor = byId.get('grade-5-prefix-suffix-words')!;
-    expect(anchor.data.skillIds).not.toContain('grade-5-spelling-rules');
     expect(anchor.data.skillIds).toEqual(['common-prefixes']);
     for (const skillId of anchor.data.skillIds) {
       expect(CURATED_SPELLING_SKILL_IDS).toContain(skillId);

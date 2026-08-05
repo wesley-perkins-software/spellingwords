@@ -1,9 +1,6 @@
-import { getCollection } from 'astro:content';
-import { getCanonicalGradeRoutes, getCanonicalListPath, getGradeHubPath, isCanonicalGradeCurriculumId, GATEWAY_COLLECTION_IDS } from '@/lib/content/canonicalGradeRoutes';
-import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
+import { getCanonicalGradeRoutes, getGradeHubPath } from '@/lib/content/canonicalGradeRoutes';
+import { getCanonicalSkillRoutes, SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
-import { isPublished } from '@/lib/content/spellingLists';
-import { LEARNING_PATHS } from '@/lib/content/learningPaths';
 
 const SITE = 'https://spellingwords.app';
 
@@ -12,29 +9,23 @@ function url(path: string) {
 }
 
 export async function GET() {
-  const lists = (await getCollection('spelling-lists')).filter(isPublished);
-  const collections = (await getCollection('spelling-collections')).filter((collection) => collection.data.status === 'published');
-  const gatewayIds = new Set(GATEWAY_COLLECTION_IDS);
-
-  const paths = new Set<string>([
+  const paths = [
     '/',
     '/play',
-    '/spelling-lists',
-    '/spelling-lists/grade-level',
-    '/spelling-lists/phonics',
-    '/spelling-lists/sight-words',
-    '/spelling-lists/challenge',
     SKILLS_INDEX_PATH,
     ...gradeConfig.map((grade) => getGradeHubPath(grade.grade)),
     ...getCanonicalGradeRoutes().map((route) => route.canonicalPath),
-    ...LEARNING_PATHS.map((path) => `/learning-paths/${path.id}`),
-    ...lists.filter((entry) => !isCanonicalGradeCurriculumId(entry.data.id)).map((entry) => getCanonicalListPath(entry.data)),
-    ...collections
-      .filter((collection) => !gatewayIds.has(collection.data.id))
-      .map((collection) => `/spelling-lists/collections/${collection.data.urlSlug}`),
-  ]);
+    ...getCanonicalSkillRoutes().map((route) => route.canonicalPath),
+  ];
 
-  const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...paths]
+  const uniquePaths = new Set(paths);
+  if (uniquePaths.size !== 154) {
+    throw new Error(
+      `Sitemap expected exactly 154 canonical URLs (104 grade + 41 skill + 6 grade hubs + 1 skills hub + home + play), got ${uniquePaths.size}.`,
+    );
+  }
+
+  const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...uniquePaths]
     .sort()
     .map((path) => `  <url><loc>${url(path)}</loc></url>`)
     .join('\n')}\n</urlset>\n`;

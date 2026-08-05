@@ -29,9 +29,7 @@ export const KINDERGARTEN_CORE_IDS: readonly string[] = [
 ];
 
 export const KINDERGARTEN_ADDITIONAL_IDS: readonly string[] = [
-  'kindergarten-heart-words',
   'kindergarten-animal-words',
-  'kindergarten-number-color-words',
 ];
 
 /**
@@ -48,11 +46,7 @@ export const kindergartenBadges: Record<string, string> = {
   'kindergarten-short-e-words': 'Phonics',
   'kindergarten-mixed-vowel-review': 'Phonics',
   'kindergarten-consonant-digraphs': 'Phonics',
-  'kindergarten-ck-ending-words': 'Spelling Rules',
-  'kindergarten-double-consonants': 'Spelling Rules',
-  'kindergarten-heart-words': 'Sight Words',
   'kindergarten-animal-words': 'Vocabulary',
-  'kindergarten-number-color-words': 'Vocabulary',
 };
 
 /**

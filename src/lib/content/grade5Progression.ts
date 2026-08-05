@@ -7,12 +7,7 @@
  * by `GRADE_5_HUB_SECTIONS` in `gradeHubCards.ts`, independent of this file.
  *
  * One canonical Grade 5 unit ("Advanced Roots, Affixes, and Academic Words")
- * is a combined roadmap entry: only the anchor page
- * (`grade-5-prefix-suffix-words`, contentRole: grade-unit) appears here. Its
- * focused sibling page (`grade-5-spelling-rules`, contentRole: skill) is
- * reached from the anchor's related-practice links rather than entering the
- * Grade Unit sequence directly — the same pattern Grade 4 uses for its
- * Advanced Suffixes and Final Stable Syllables unit.
+ * is `grade-5-prefix-suffix-words` (contentRole: grade-unit).
  *
  * Grade 5 is the K-5 capstone: the sequence ends on
  * `grade-5-spelling-changes-related-words`, not the Commonly Confused Words
@@ -44,14 +39,7 @@ export const GRADE_5_CORE_IDS: readonly string[] = [
  * undeclared `contentRole` is not a `grade-unit`, so these ids never enter
  * `buildGradeUnitSequence()`.
  */
-export const GRADE_5_VOCABULARY_IDS: readonly string[] = [
-  'grade-5-list-01',
-  'grade-5-academic-words',
-  'grade-5-reading-writing-words',
-  'grade-5-opinion-argument-words',
-  'grade-5-science-nature-words',
-  'grade-5-math-vocabulary',
-];
+export const GRADE_5_VOCABULARY_IDS: readonly string[] = [];
 
 /**
  * Grade 5 Common Words sets, published. Documentation only —
@@ -85,7 +73,6 @@ export const GRADE_5_ADDITIONAL_PRACTICE_IDS: readonly string[] = [
 export const grade5Badges: Record<string, string> = {
   'grade-5-multisyllabic-academic-words': 'Core Unit',
   'grade-5-prefix-suffix-words': 'Core Unit',
-  'grade-5-spelling-rules': 'Focused Skill',
   'grade-5-greek-latin-word-parts': 'Core Unit',
   'grade-5-commonly-confused-words': 'Core Unit',
   'grade-5-spelling-changes-related-words': 'Core Unit',

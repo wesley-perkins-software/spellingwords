@@ -1,7 +1,4 @@
-import type {
-  SpellingCollectionEntry,
-  SpellingListEntry,
-} from "./spellingLists";
+import type { SpellingListEntry } from "./spellingLists";
 import { getCanonicalListPath } from './canonicalGradeRoutes';
 
 export type GradeHubCard = {
@@ -21,7 +18,7 @@ type CardDefinition = {
   title: string;
   description: string;
   badge?: string;
-  kind: "list" | "collection";
+  kind: "list";
 };
 
 export type GradeHubSection = {
@@ -999,44 +996,26 @@ export const GRADE_5_HUB_SECTIONS: readonly {
 export function buildGradeHubCards(
   definitions: readonly { title: string; cards: readonly CardDefinition[] }[],
   entries: SpellingListEntry[],
-  collections: SpellingCollectionEntry[],
 ): GradeHubSection[] {
   const listsById = new Map(entries.map((entry) => [entry.data.id, entry]));
-  const collectionsById = new Map(
-    collections.map((entry) => [entry.data.id, entry]),
-  );
 
   return definitions.map((section) => ({
     title: section.title,
     summary: section.summary,
     cards: section.cards.flatMap((definition): GradeHubCard[] => {
-      if (definition.kind === "list") {
-        const entry = listsById.get(definition.id);
-        if (!entry) return [];
-        return [
-          {
-            id: definition.id,
-            href: getCanonicalListPath(entry.data),
-            title: definition.title,
-            description: definition.description,
-            category: entry.data.category,
-            badge: definition.badge,
-            difficulty: entry.data.difficulty,
-            durationMinutes: entry.data.estimatedDurationMinutes,
-            wordCount: entry.data.words.length,
-          },
-        ];
-      }
-      const collection = collectionsById.get(definition.id);
-      if (!collection) return [];
+      const entry = listsById.get(definition.id);
+      if (!entry) return [];
       return [
         {
           id: definition.id,
-          href: `/spelling-lists/collections/${collection.data.urlSlug}`,
+          href: getCanonicalListPath(entry.data),
           title: definition.title,
           description: definition.description,
-          category: collection.data.category,
+          category: entry.data.category,
           badge: definition.badge,
+          difficulty: entry.data.difficulty,
+          durationMinutes: entry.data.estimatedDurationMinutes,
+          wordCount: entry.data.words.length,
         },
       ];
     }),

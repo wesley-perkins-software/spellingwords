@@ -3,7 +3,6 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   GRADE_1_CORE_IDS,
-  GRADE_1_GATEWAY_IDS,
   GRADE_1_TARGETED_SKILL_IDS,
 } from './grade1Progression';
 import { KINDERGARTEN_CORE_IDS } from './kindergartenProgression';
@@ -17,7 +16,7 @@ import {
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const skillsIndexRoutePath = join(process.cwd(), 'src/pages/skills/index.astro');
-const listDetailRoutePath = join(process.cwd(), 'src/pages/spelling-lists/[category]/[slug].astro');
+const listDetailRoutePath = join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro');
 
 const CONSONANT_DIGRAPH_SKILL_IDS = [
   'digraph-ch-words',
@@ -30,7 +29,6 @@ const CONSONANT_DIGRAPH_FAMILY_IDS = [
   ...CONSONANT_DIGRAPH_SKILL_IDS,
   'kindergarten-consonant-digraphs',
   'grade-1-consonant-digraphs-final-ck',
-  'grade-1-consonant-digraph-practice',
 ] as const;
 
 const EXPECTED_URL_INPUTS: Record<string, { category: string; urlSlug: string }> = {
@@ -45,10 +43,6 @@ const EXPECTED_URL_INPUTS: Record<string, { category: string; urlSlug: string }>
   'grade-1-consonant-digraphs-final-ck': {
     category: 'phonics',
     urlSlug: '1st-grade-consonant-digraphs-final-ck',
-  },
-  'grade-1-consonant-digraph-practice': {
-    category: 'phonics',
-    urlSlug: '1st-grade-consonant-digraph-practice',
   },
 };
 
@@ -250,9 +244,8 @@ describe('Consonant Digraphs Skill Family', () => {
     }
   });
 
-  it('keeps Grade 1 coverage resolving through core, gateway, and targeted Skill sections', () => {
+  it('keeps Grade 1 coverage resolving through core and targeted Skill sections', () => {
     expect(GRADE_1_CORE_IDS).toContain('grade-1-consonant-digraphs-final-ck');
-    expect(GRADE_1_GATEWAY_IDS).toContain('grade-1-consonant-digraph-practice');
 
     for (const id of CONSONANT_DIGRAPH_SKILL_IDS) {
       expect(GRADE_1_TARGETED_SKILL_IDS).toContain(id);
@@ -261,7 +254,6 @@ describe('Consonant Digraphs Skill Family', () => {
 
   it('keeps the protected Grade 1 CVC short-vowel review behavior unchanged', () => {
     expect(GRADE_1_CORE_IDS).toContain('grade-1-cvc-short-vowels-c-k-rule');
-    expect(GRADE_1_GATEWAY_IDS).toContain('grade-1-short-vowel-practice');
     expect(GRADE_1_TARGETED_SKILL_IDS).not.toContain('grade-1-cvc-short-vowels-c-k-rule');
   });
 

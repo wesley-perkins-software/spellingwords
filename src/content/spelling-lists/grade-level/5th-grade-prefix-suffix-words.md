@@ -16,7 +16,7 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-spelling-rules"]
+relatedLists: []
 prerequisiteLists: []
 nextLists: []
 readinessSignals:

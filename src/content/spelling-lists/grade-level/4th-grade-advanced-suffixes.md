@@ -15,7 +15,7 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-4-final-stable-syllables", "grade-3-suffix-words"]
+relatedLists: ["grade-3-suffix-words"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:

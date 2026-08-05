@@ -1,14 +1,14 @@
 # Inventory: Common Words (High-Frequency Words) — Canonical Active
 
-> URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs now use the flat no-trailing-slash `/{grade}/{page-slug}` structure. The runtime source of truth is `src/lib/content/canonicalGradeRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the generated migration map. Historical `/spelling-lists/...` canonical curriculum URLs redirect directly to the new paths.
+> URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs now use the flat no-trailing-slash `/{grade}/{page-slug}` structure. The runtime source of truth is `src/lib/content/canonicalGradeRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the generated migration map. The legacy `/spelling-lists/...` route has been removed entirely; historical repository-shaped URLs are not generated and are not redirected (pre-launch, no traffic to preserve).
 
 
 Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. This is the Common Words / High-Frequency Words layer defined by `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` and confirmed wired into each Grade Hub's High-Frequency Words section via `src/lib/content/gradeHubCards.ts`.
 
-**The legacy Dolch tier is a separate, out-of-scope system and is not inventoried here.** `docs/architecture/PUBLIC_URL_ARCHITECTURE.md` explicitly names Dolch as legacy Sight Words, distinct from this architecture-defined Common Words system; see `docs/content/inventory/deprecated-and-legacy-pages.md`.
+**The legacy Dolch tier and the `spelling-collections` content type (including the gateway table below) have been removed entirely** by the legacy-architecture-removal PR — see `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md`. The table below is retained as a historical record of what the gateway collections contained; the `spelling-collections` collection itself no longer exists in `src/content/`.
 
 
-## Common Words gateway pages (`spelling-collections`)
+## Common Words gateway pages (`spelling-collections`, removed)
 
 | Title | id | urlSlug | Grade | Status | Member listIds | Source file |
 |---|---|---|---|---|---|---|
@@ -82,5 +82,5 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. This is the Common Wo
 | Grade 5 Common Words 4 | grade-5-common-words-4 | grade-5-common-words-4 | published | `src/content/5th-grade/high-frequency-words-4.md` | Not audited |
 
 ---
-**Totals:** 6 Common Words gateway pages · 29 canonical-active Common Words member sets. See `deprecated-and-legacy-pages.md` for the 6 Dolch gateways and their 24 member sets, which are out of scope.
+**Totals:** 6 Common Words gateway pages (removed) · 29 canonical-active Common Words member sets. The 6 Dolch gateways and their 24 member sets were deleted in the legacy-architecture-removal PR — see `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md`.
 

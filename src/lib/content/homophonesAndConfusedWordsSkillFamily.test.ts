@@ -104,7 +104,6 @@ describe('Homophones and Commonly Confused Words Skill Family', () => {
 
   it('keeps every contributing source page a Grade Unit', () => {
     for (const id of [
-      'grade-2-homophones',
       'grade-3-homophones',
       'grade-4-commonly-confused-words',
       'grade-5-commonly-confused-words',
@@ -135,7 +134,7 @@ describe('Homophones and Commonly Confused Words Skill Family', () => {
 
   it('gives each Skill the architecture-defined curriculum placements from Grade Unit skillIds', () => {
     const expectedPlacements: Record<(typeof HOMOPHONES_FAMILY_SKILL_IDS)[number], string[]> = {
-      homophones: ['grade-2-homophones', 'grade-3-homophones'],
+      homophones: ['grade-3-homophones'],
       'commonly-confused-words': [
         'grade-4-commonly-confused-words',
         'grade-5-commonly-confused-words',

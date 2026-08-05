@@ -252,14 +252,6 @@ describe("Grade 5 grade hub cards", () => {
 });
 
 describe("Grade 3 Common Words", () => {
-  it("publishes the gateway collection with its five ordered child sets", () => {
-    const collection = source("spelling-collections/grade-3-common-words.md");
-    expect(collection).toContain("status: published");
-    expect(collection).toMatch(
-      /listIds:\n {2}- grade-3-common-words-1\n {2}- grade-3-common-words-2\n {2}- grade-3-common-words-3\n {2}- grade-3-common-words-4\n {2}- grade-3-common-words-5/,
-    );
-  });
-
   it("wires grade-2-common-words-6 forward into the Grade 3 gateway's first set", () => {
     // Adjacency is derived from HF_WORDS_SEQUENCE, not frontmatter — see
     // navigationSequence.test.ts for the full chain assertion. This test keeps
@@ -311,25 +303,6 @@ describe("Grade 3 Common Words", () => {
 });
 
 describe("Common Words validation slice content", () => {
-  it("publishes the Kindergarten collection with its four ordered child sets", () => {
-    const collection = source(
-      "spelling-collections/kindergarten-common-words.md",
-    );
-    expect(collection).toContain("urlSlug: kindergarten-common-words");
-    expect(collection).toContain('title: "Kindergarten High-Frequency Words"');
-    expect(collection).toMatch(
-      /listIds:\n {2}- kindergarten-common-words-1\n {2}- kindergarten-common-words-2\n {2}- kindergarten-common-words-3\n {2}- kindergarten-common-words-4/,
-    );
-  });
-
-  it("publishes all six Grade 1 child sets in sequence", () => {
-    const collection = source("spelling-collections/grade-1-common-words.md");
-    expect(collection).toMatch(
-      /listIds:\n {2}- grade-1-common-words-1\n {2}- grade-1-common-words-2\n {2}- grade-1-common-words-3\n {2}- grade-1-common-words-4\n {2}- grade-1-common-words-5\n {2}- grade-1-common-words-6/,
-    );
-    expect(collection).toContain("72 words");
-  });
-
   it("keeps exact set ids, roles, and words", () => {
     // Adjacency (Review First / Next Step) is no longer authored in frontmatter —
     // it's derived from HF_WORDS_SEQUENCE, verified in navigationSequence.test.ts.
@@ -369,18 +342,14 @@ describe("Common Words validation slice content", () => {
     expect(highFrequencyCards.every((card) => card.kind === "list")).toBe(true);
   });
 
-  it("publishes focused Number Words and Color Words while retaining the combined route", () => {
+  it("publishes focused Number Words and Color Words", () => {
     const numberWords = source("spelling-lists/grade-level/kindergarten-number-words.md");
     const colorWords = source("spelling-lists/grade-level/kindergarten-color-words.md");
-    const combined = source("spelling-lists/grade-level/kindergarten-number-color-words.md");
 
     expect(numberWords).toContain("urlSlug: kindergarten-number-words");
     expect(numberWords).toMatch(/words:\n {2}- one\n {2}- two\n {2}- three\n {2}- four\n {2}- five\n {2}- six\n {2}- seven\n {2}- eight\n {2}- nine\n {2}- ten/);
     expect(colorWords).toContain("urlSlug: kindergarten-color-words");
     expect(colorWords).toMatch(/words:\n {2}- red\n {2}- blue\n {2}- green\n {2}- yellow\n {2}- black\n {2}- white\n {2}- brown\n {2}- pink/);
-    expect(combined).toContain("status: published");
-    expect(combined).toContain("kindergarten-number-words");
-    expect(combined).toContain("kindergarten-color-words");
   });
 
   it("builds grade-hub ItemList JSON-LD from the visible curated cards", () => {

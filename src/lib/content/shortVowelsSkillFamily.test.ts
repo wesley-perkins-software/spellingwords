@@ -9,7 +9,7 @@ import {
 import { KINDERGARTEN_CORE_IDS } from './kindergartenProgression';
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
-const listDetailRoutePath = join(process.cwd(), 'src/pages/spelling-lists/[category]/[slug].astro');
+const listDetailRoutePath = join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro');
 
 const SHORT_VOWEL_SKILL_IDS = [
   'short-a-words',
@@ -32,7 +32,6 @@ const SHORT_VOWEL_FAMILY_IDS = [
   ...KINDERGARTEN_SHORT_VOWEL_GRADE_UNIT_IDS,
   'kindergarten-mixed-vowel-review',
   'grade-1-cvc-short-vowels-c-k-rule',
-  'grade-1-short-vowel-practice',
 ] as const;
 
 const EXPECTED_URL_INPUTS: Record<string, { category: string; urlSlug: string }> = {
@@ -53,10 +52,6 @@ const EXPECTED_URL_INPUTS: Record<string, { category: string; urlSlug: string }>
   'grade-1-cvc-short-vowels-c-k-rule': {
     category: 'phonics',
     urlSlug: '1st-grade-cvc-short-vowels-c-k-rule',
-  },
-  'grade-1-short-vowel-practice': {
-    category: 'phonics',
-    urlSlug: '1st-grade-short-vowel-practice',
   },
 };
 
@@ -185,9 +180,8 @@ describe('Short Vowels and CVC Words Skill Family', () => {
     }
   });
 
-  it('keeps Grade 1 coverage resolving through core, gateway, and targeted Skill sections', () => {
+  it('keeps Grade 1 coverage resolving through core and targeted Skill sections', () => {
     expect(GRADE_1_CORE_IDS).toContain('grade-1-cvc-short-vowels-c-k-rule');
-    expect(GRADE_1_GATEWAY_IDS).toContain('grade-1-short-vowel-practice');
 
     for (const id of SHORT_VOWEL_SKILL_IDS) {
       expect(GRADE_1_TARGETED_SKILL_IDS).toContain(id);
@@ -229,7 +223,6 @@ describe('Short Vowels and CVC Words Skill Family', () => {
 
   it('keeps legacy content without contentRole valid', () => {
     expect(byId.get('kindergarten-first-words')?.contentRole).toBeUndefined();
-    expect(byId.get('grade-1-short-vowel-practice')?.contentRole).toBeUndefined();
   });
 
   it('keeps archived aggregate Short Vowels content out of live short-vowel roadmaps', () => {

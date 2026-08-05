@@ -19,9 +19,7 @@ const skillFamilies = SPELLING_SKILL_FAMILIES.map((family) => ({
   entries: resolveCuratedSkillFamilyEntries(entries, family.skillIds),
 }));
 
-// Skills is a first-class top-level journey (parallel to the grade-first
-// journey), not a child of /spelling-lists — see
-// docs/architecture/PUBLIC_URL_ARCHITECTURE.md.
+// Skills is a first-class top-level journey, parallel to the grade-first journey.
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Skills' }];
 
 const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
@@ -110,7 +108,7 @@ const itemListJsonLd = {
 
       <p class="text-sm leading-relaxed text-ink-soft">
         Not sure what to choose?{' '}
-        <a href="/spelling-lists" class="font-semibold text-brand-blue hover:underline">
+        <a href="/#grades" class="font-semibold text-brand-blue hover:underline">
           Browse by grade
         </a>.
       </p>

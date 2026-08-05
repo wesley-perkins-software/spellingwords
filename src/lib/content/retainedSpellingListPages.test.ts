@@ -4,13 +4,11 @@ import path from 'node:path';
 import { CANONICAL_GRADE_ROUTE_DEFS } from './canonicalGradeRoutes';
 import { CURATED_SPELLING_SKILL_IDS } from './spellingSkills';
 
-// Proves that "everything not a grade-curriculum or Skill id" is a reviewed,
-// named set (docs/content/inventory/retained-spelling-lists-pages.md), not an
-// unexamined leftover. Computed entirely from live sources — no hardcoded
-// literal id array duplicated here — so it can't silently drift: any new
-// grade/Skill entry is picked up automatically via the real manifests, and
-// any newly-added or removed spelling-lists entry changes the computed set,
-// which must then be reflected in the inventory doc or this test fails.
+// Guardrail for the legacy-architecture removal: every published spelling-lists
+// entry must now be a canonical Grade Unit or Skill id. No non-canonical
+// ("retained") entries are allowed to exist in the collection at all — if one
+// does, this test fails loudly instead of letting it quietly resurface a
+// route through the (now-removed) legacy fallback.
 
 const repoRoot = process.cwd();
 
@@ -39,25 +37,10 @@ function allPublishedSpellingListIds(): Set<string> {
   return ids;
 }
 
-function idsFromRetainedInventoryDoc(): Set<string> {
-  const docPath = path.join(repoRoot, 'docs/content/inventory/retained-spelling-lists-pages.md');
-  const text = fs.readFileSync(docPath, 'utf8');
-  const ids = new Set<string>();
-  for (const line of text.split('\n')) {
-    if (line.startsWith('| id |') || /^\|---/.test(line)) continue;
-    const match = /^\| ([a-z0-9-]+) \|/.exec(line);
-    if (match) ids.add(match[1]);
-  }
-  return ids;
-}
-
-describe('retained /spelling-lists/{category}/{urlSlug} pages', () => {
+describe('spelling-lists collection matches the canonical manifests exactly', () => {
   const publishedIds = allPublishedSpellingListIds();
   const gradeIds: Set<string> = new Set(CANONICAL_GRADE_ROUTE_DEFS.map(([id]) => id));
   const skillIds: Set<string> = new Set(CURATED_SPELLING_SKILL_IDS);
-  const retainedIds = new Set(
-    [...publishedIds].filter((id) => !gradeIds.has(id) && !skillIds.has(id)),
-  );
 
   it('has no overlap between the grade-curriculum and Skill manifests', () => {
     for (const id of gradeIds) {
@@ -65,9 +48,7 @@ describe('retained /spelling-lists/{category}/{urlSlug} pages', () => {
     }
   });
 
-  it('accounts for exactly 104 grade-curriculum ids and 41 Skill ids against real content', () => {
-    expect(gradeIds.size).toBe(104);
-    expect(skillIds.size).toBe(41);
+  it('publishes every canonical grade-curriculum and Skill id', () => {
     for (const id of gradeIds) {
       expect(publishedIds.has(id), id).toBe(true);
     }
@@ -76,22 +57,12 @@ describe('retained /spelling-lists/{category}/{urlSlug} pages', () => {
     }
   });
 
-  it('computes the retained set (published − grade − Skill) as exactly the explicit reviewable inventory', () => {
-    const inventoryIds = idsFromRetainedInventoryDoc();
-    expect([...retainedIds].sort()).toEqual([...inventoryIds].sort());
+  it('publishes no id outside the canonical grade-curriculum and Skill manifests', () => {
+    const nonCanonical = [...publishedIds].filter((id) => !gradeIds.has(id) && !skillIds.has(id));
+    expect(nonCanonical.sort()).toEqual([]);
   });
 
-  it('keeps the retained set disjoint from both manifests', () => {
-    for (const id of retainedIds) {
-      expect(gradeIds.has(id), id).toBe(false);
-      expect(skillIds.has(id), id).toBe(false);
-    }
-  });
-
-  it('keeps the two documented contentRole:skill legacy-role exceptions retained, not promoted into the Skill manifest', () => {
-    for (const id of ['grade-4-final-stable-syllables', 'grade-5-spelling-rules']) {
-      expect(retainedIds.has(id), id).toBe(true);
-      expect(skillIds.has(id), id).toBe(false);
-    }
+  it('publishes exactly 145 spelling-lists entries (104 grade-curriculum + 41 Skill)', () => {
+    expect(publishedIds.size).toBe(145);
   });
 });

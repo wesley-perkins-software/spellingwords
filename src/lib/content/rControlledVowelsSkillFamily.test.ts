@@ -108,7 +108,7 @@ describe('R-Controlled Vowels Skill Family', () => {
   });
 
   it('keeps the distinct Grade 1 core progression files untouched as grade-units', () => {
-    for (const id of ['grade-1-r-controlled-ar-or', 'grade-1-r-controlled-er-ir-ur']) {
+    for (const id of ['grade-1-r-controlled-ar-or']) {
       expect(byId.get(id), id).toBeDefined();
       expect(byId.get(id)!.contentRole, id).not.toBe('skill');
     }

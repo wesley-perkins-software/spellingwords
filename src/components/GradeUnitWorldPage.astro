@@ -94,18 +94,14 @@ const worldStyleVars = [
 ].join('; ');
 
 const canonicalGradeRoute = getCanonicalGradeRouteById(data.id);
-const breadcrumbItems = canonicalGradeRoute && gradeHub
-  ? [
-      { label: 'Home', href: '/' },
-      { label: gradeHub.label, href: getGradeHubPath(canonicalGradeRoute.grade) },
-      { label: data.title },
-    ]
-  : [
-      { label: 'Home', href: '/' },
-      { label: 'Spelling Lists Library', href: '/spelling-lists' },
-      { label: categoryLabel, href: `/spelling-lists/${data.category}` },
-      { label: data.title },
-    ];
+if (!canonicalGradeRoute || !gradeHub) {
+  throw new Error(`GradeUnitWorldPage: "${data.id}" has no canonical grade route or grade hub.`);
+}
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: gradeHub.label, href: getGradeHubPath(canonicalGradeRoute.grade) },
+  { label: data.title },
+];
 
 const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
 
@@ -142,7 +138,7 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
   ogType="article"
   jsonLd={jsonLdBlocks}
 >
-  <SiteHeader variant="discovery" currentPath="/spelling-lists" />
+  <SiteHeader variant="discovery" currentPath={getGradeHubPath(canonicalGradeRoute.grade)} />
 
   <main id="main-content">
     <!-- World Hero — the memorable, child-facing arrival moment -->

@@ -105,8 +105,8 @@ function kindergartenContent(): FrontmatterSummary[] {
 }
 
 const KINDERGARTEN_GRADE_UNIT_IDS = new Set(KINDERGARTEN_CORE_IDS);
-const KINDERGARTEN_SIGHT_WORD_SET_IDS = new Set(['kindergarten-heart-words']);
-const KINDERGARTEN_VOCABULARY_THEME_IDS = new Set(['kindergarten-animal-words', 'kindergarten-number-color-words']);
+const KINDERGARTEN_SIGHT_WORD_SET_IDS = new Set<string>([]);
+const KINDERGARTEN_VOCABULARY_THEME_IDS = new Set(['kindergarten-animal-words']);
 const ARCHIVED_KINDERGARTEN_THEME_IDS = new Set([
   'kindergarten-body-words',
   'kindergarten-describing-words',
@@ -203,7 +203,6 @@ describe('Kindergarten roadmap architecture', () => {
   });
 
   it('keeps Sight Word Sets and Vocabulary or Theme Lists in Additional Practice', () => {
-    expect(KINDERGARTEN_ADDITIONAL_IDS).toContain('kindergarten-heart-words');
     for (const id of [...KINDERGARTEN_SIGHT_WORD_SET_IDS, ...KINDERGARTEN_VOCABULARY_THEME_IDS]) {
       expect(KINDERGARTEN_ADDITIONAL_IDS).toContain(id);
       expect(KINDERGARTEN_CORE_IDS).not.toContain(id);

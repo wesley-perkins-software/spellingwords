@@ -14,7 +14,7 @@ const CONTENT_ROLE_VALUES = [
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const shortASkillPath = join(contentRoot, 'phonics/short-a-words.md');
 const kindergartenShortAPath = join(contentRoot, 'phonics/kindergarten-short-a-words.md');
-const listDetailRoutePath = join(process.cwd(), 'src/pages/spelling-lists/[category]/[slug].astro');
+const listDetailRoutePath = join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro');
 const contentConfigPath = join(process.cwd(), 'src/content/config.ts');
 
 type FrontmatterSummary = {

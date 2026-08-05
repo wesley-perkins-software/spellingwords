@@ -35,12 +35,6 @@ describe('Greek and Latin Roots Skill Family', () => {
     expect(source).toMatch(/^status: published$/m);
   });
 
-  it('reverted tier-2-greek-latin-roots.md to grade-unit (folded into the merged Skill instead of standing alone)', () => {
-    const source = readFile('grade-level', 'tier-2-greek-latin-roots');
-    expect(source).toMatch(/^contentRole: grade-unit$/m);
-    expect(CURATED_SPELLING_SKILL_IDS).not.toContain('tier-2-greek-latin-roots');
-  });
-
   it('declares relationship fields that resolve to real, live canonical Skills, not Grade Unit ids, with no duplicates', () => {
     const source = readFile('grade-level', 'greek-and-latin-roots');
     const related = extractQuotedArray(source, 'relatedLists');
@@ -55,10 +49,8 @@ describe('Greek and Latin Roots Skill Family', () => {
     }
   });
 
-  it('has its curriculum placement backed by the Grade 4 Latin and Greek root units', () => {
+  it('has its curriculum placement backed by the Grade 4 Latin root unit', () => {
     const latinUnit = readFile('grade-level', 'tier-1-roots-and-patterns');
-    const greekUnit = readFile('grade-level', 'tier-2-greek-latin-roots');
     expect(extractQuotedArray(latinUnit, 'skillIds')).toContain('greek-and-latin-roots');
-    expect(extractQuotedArray(greekUnit, 'skillIds')).toContain('greek-and-latin-roots');
   });
 });

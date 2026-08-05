@@ -7,7 +7,6 @@ export const categoryLabels: Record<Category, string> = {
   'sight-words': 'Sight Words',
   phonics: 'Phonics',
   'grade-level': 'Grade-Level',
-  challenge: 'Challenge',
   theme: 'Theme',
   seasonal: 'Seasonal',
 };
@@ -22,13 +21,11 @@ export const difficultyLabels: Record<Difficulty, string> = {
 
 export const categoryDescriptions: Record<Category, string> = {
   'sight-words':
-    'High-frequency words students should recognize and spell automatically, drawn from graded tiers like the Dolch sight word lists.',
+    'High-frequency words students should recognize and spell automatically.',
   phonics:
     'Lists organized around a single sound-spelling pattern, building from short vowels through silent-e and beyond.',
   'grade-level':
     'Words matched to what students are expected to read, write, and spell at a given grade.',
-  challenge:
-    'Advanced lists for spelling-bee prep and strong spellers, built around Greek and Latin roots and tricky patterns.',
   theme: 'Lists grouped around a shared topic or subject area.',
   seasonal: 'Lists tied to a particular time of year or holiday.',
 };
@@ -37,7 +34,7 @@ export const categoryDescriptions: Record<Category, string> = {
  * Display priority for grade-hub sections: grade-level is the primary,
  * most-searched family (see docs/GRADE_LEVEL_STRATEGY.md); others support it.
  */
-export const categoryOrder = ['grade-level', 'sight-words', 'phonics', 'challenge'] as const;
+export const categoryOrder = ['grade-level', 'sight-words', 'phonics'] as const;
 
 /**
  * The list-detail template's card-family accent. Earlier revisions varied

@@ -12,7 +12,8 @@ import { describe, expect, it } from 'vitest';
 // @astrojs/container, no Playwright config).
 
 const rendererPaths = [
-  join(process.cwd(), 'src/pages/spelling-lists/[category]/[slug].astro'),
+  join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro'),
+  join(process.cwd(), 'src/pages/skills/[slug].astro'),
   join(process.cwd(), 'src/components/GradeUnitWorldPage.astro'),
 ];
 

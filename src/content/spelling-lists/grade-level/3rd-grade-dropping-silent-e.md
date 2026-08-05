@@ -16,7 +16,7 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 skillIds: ["suffix-spelling-changes"]
-relatedLists: ["grade-3-doubling-final-consonants", "grade-3-changing-y-to-i"]
+relatedLists: []
 prerequisiteLists: []
 nextLists: []
 readinessSignals:

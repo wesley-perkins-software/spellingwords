@@ -15,17 +15,14 @@ import {
   resolveListRefs,
   dedupeRelatedLists,
   toPlayableWords,
-  getListCollection,
 } from '@/lib/content/spellingLists';
 import { getSequenceNeighbors } from '@/lib/content/navigationSequence';
 import { categoryLabels, cardAccent } from '@/lib/content/categoryMeta';
-import { getListPath } from '@/lib/content/learningPaths';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('spelling-lists')).filter(isPublished);
-  const allCollections = await getCollection('spelling-collections');
   const entriesById = new Map(entries.map((entry) => [entry.data.id, entry]));
 
   return getCanonicalGradeRoutes().map((route) => {
@@ -33,12 +30,12 @@ export async function getStaticPaths() {
     if (!entry) throw new Error(`Canonical grade route ${route.id} does not resolve to a published spelling list.`);
     return {
       params: { gradeSlug: route.gradeSlug, slug: route.finalSlug },
-      props: { entry, allEntries: entries, allCollections },
+      props: { entry, allEntries: entries },
     };
   });
 }
 
-const { entry, allEntries, allCollections } = Astro.props;
+const { entry, allEntries } = Astro.props;
 const { data } = entry;
 
 const { Content } = await entry.render();
@@ -61,22 +58,15 @@ function listLink(e: (typeof allEntries)[number]) {
 
 const categoryLabel = categoryLabels[data.category] ?? data.category;
 const route = getCanonicalGradeRouteByPath(Astro.params.gradeSlug!, Astro.params.slug!);
-const listPath = getListPath(data.id);
-const listCollection = getListCollection(data.id, allCollections);
+if (!route) throw new Error(`No canonical grade route for ${Astro.params.gradeSlug}/${Astro.params.slug}`);
 
-const gradeHubForBreadcrumb = gradeConfig.find((g) => g.grade === route?.grade);
-const breadcrumbItems = route && gradeHubForBreadcrumb
-  ? [
-      { label: 'Home', href: '/' },
-      { label: gradeHubForBreadcrumb.label, href: getGradeHubPath(route!.grade) },
-      { label: data.title },
-    ]
-  : [
-      { label: 'Home', href: '/' },
-      { label: 'Spelling Lists Library', href: '/spelling-lists' },
-      { label: categoryLabel, href: `/spelling-lists/${data.category}` },
-      { label: data.title },
-    ];
+const gradeHubForBreadcrumb = gradeConfig.find((g) => g.grade === route.grade);
+if (!gradeHubForBreadcrumb) throw new Error(`No grade hub for grade ${route.grade}`);
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: gradeHubForBreadcrumb.label, href: getGradeHubPath(route.grade) },
+  { label: data.title },
+];
 
 const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
 
@@ -181,7 +171,7 @@ const harderList = next[0];
   ogType="article"
   jsonLd={jsonLdBlocks}
 >
-  <SiteHeader variant="discovery" currentPath="/spelling-lists" />
+  <SiteHeader variant="discovery" currentPath={getGradeHubPath(route.grade)} />
 
   <main id="main-content">
     <!-- Breadcrumbs -->
@@ -478,35 +468,6 @@ const harderList = next[0];
             <h2 id="progression-heading" class="mb-4 font-display text-lg font-semibold text-ink">
               Where to Go From Here
             </h2>
-            {(listCollection || listPath) && (
-              <p class="mb-5 text-base text-ink-soft">
-                {listCollection && (
-                  <>
-                    Part of the{' '}
-                    <a
-                      href={getGradeHubPath(route!.grade)}
-                      class="font-semibold text-brand-blue hover:underline"
-                    >
-                      {listCollection.data.title}
-                    </a>{' '}
-                    collection.
-                  </>
-                )}
-                {listPath && (
-                  <>
-                    {' '}
-                    Part of the{' '}
-                    <a
-                      href={`/learning-paths/${listPath.id}`}
-                      class="font-semibold text-brand-blue hover:underline"
-                    >
-                      {listPath.title}
-                    </a>
-                    .
-                  </>
-                )}
-              </p>
-            )}
             <RelatedListCards
               heading="Review First"
               items={prerequisites}

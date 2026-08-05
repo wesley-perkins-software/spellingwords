@@ -7,8 +7,8 @@ on a consistent educational model rather than ad hoc choices made list by list.
 
 ## Core distinction
 
-- **Collection** — a canonical, ordered reference list of words (e.g., "Dolch
-  First Grade Sight Words," 41 words). A collection is authored once and
+- **Collection** — a canonical, ordered reference list of words (e.g., "1st
+  Grade High-Frequency Words 1," 12 words). A collection is authored once and
   describes *what vocabulary this topic covers*. Its size is a fact about the
   content, not an instruction about how much to practice at once.
 - **Session** — a bounded set of words a learner actually practices in one

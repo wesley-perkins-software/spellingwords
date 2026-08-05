@@ -4,7 +4,6 @@ import { getSentenceBankEntry } from '@/lib/sentenceBank/lookup';
 import { categoryOrder } from '@/lib/content/categoryMeta';
 
 export type SpellingListEntry = CollectionEntry<'spelling-lists'>;
-export type SpellingCollectionEntry = CollectionEntry<'spelling-collections'>;
 
 /** Whether a content entry is visible on browse/index/detail surfaces. */
 export function isPublished(entry: SpellingListEntry): boolean {
@@ -115,44 +114,6 @@ export function groupGradeListsByCategory(
 }
 
 /**
- * Builds the section list for a grade hub page: lists and collections for
- * the grade, merged into one section per category (grade-level first, per
- * `categoryOrder`), so a collection appears alongside the standalone lists
- * in its own category rather than always being hoisted above everything.
- */
-export function buildGradeHubSections(
-  gradeLists: SpellingListEntry[],
-  gradeCollections: SpellingCollectionEntry[],
-): Array<{
-  category: SpellingListEntry['data']['category'];
-  entries: SpellingListEntry[];
-  collections: SpellingCollectionEntry[];
-}> {
-  const grouped = groupByCategory(gradeLists);
-
-  const collectionsByCategory = new Map<SpellingListEntry['data']['category'], SpellingCollectionEntry[]>();
-  for (const collection of gradeCollections) {
-    const existing = collectionsByCategory.get(collection.data.category);
-    if (existing) {
-      existing.push(collection);
-    } else {
-      collectionsByCategory.set(collection.data.category, [collection]);
-    }
-  }
-
-  const categories = new Set<SpellingListEntry['data']['category']>([
-    ...grouped.keys(),
-    ...collectionsByCategory.keys(),
-  ]);
-
-  return prioritizeCategories(categories).map((category) => ({
-    category,
-    entries: grouped.get(category) ?? [],
-    collections: collectionsByCategory.get(category) ?? [],
-  }));
-}
-
-/**
  * Groups entries by skill family, derived entirely from each entry's
  * existing `skillTags` — no family list is hardcoded here, so new phonics
  * (or other skill-tagged) families surface automatically as content is
@@ -197,25 +158,6 @@ function humanizeSkillFamilyKey(key: string): string {
     .split('-')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
-}
-
-/** Returns a Set of list IDs that belong to any published collection. */
-export function getMemberListIds(collections: SpellingCollectionEntry[]): Set<string> {
-  const ids = new Set<string>();
-  for (const c of collections) {
-    if (c.data.status === 'published') {
-      for (const id of c.data.listIds) ids.add(id);
-    }
-  }
-  return ids;
-}
-
-/** Returns the published collection a list belongs to, if any. */
-export function getListCollection(
-  listId: string,
-  collections: SpellingCollectionEntry[],
-): SpellingCollectionEntry | undefined {
-  return collections.find((c) => c.data.status === 'published' && c.data.listIds.includes(listId));
 }
 
 /**

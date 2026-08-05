@@ -16,7 +16,7 @@ contentRole: grade-unit
 skillIds: ["vowel-teams-ai-ay", "vowel-teams-oa-ow"]
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-1-long-e-vowel-teams"]
+relatedLists: []
 prerequisiteLists: []
 nextLists: []
 featured: false

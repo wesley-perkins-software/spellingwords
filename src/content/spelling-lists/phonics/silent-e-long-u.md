@@ -85,4 +85,4 @@ Signs the pattern is becoming secure include:
 - Reading a long-u silent-e word not seen before.
 - Spelling a representative word from dictation.
 
-This completes the core silent-e long-vowel sequence begun with Long A Silent E Words. Long E Silent E words — *these*, *theme*, *eve* — are real but few in number, so they're covered as part of the Silent E family overview rather than as a page of their own. From here, [AI and AY Words](/spelling-lists/phonics/vowel-teams-ai-ay) begins a different way of spelling long vowel sounds, using two vowels together instead of a silent e.
+This completes the core silent-e long-vowel sequence begun with Long A Silent E Words. Long E Silent E words — *these*, *theme*, *eve* — are real but few in number, so they're covered as part of the Silent E family overview rather than as a page of their own. From here, [AI and AY Words](/skills/ai-ay-vowel-teams) begins a different way of spelling long vowel sounds, using two vowels together instead of a silent e.

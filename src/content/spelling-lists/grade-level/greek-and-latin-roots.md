@@ -90,7 +90,7 @@ Thinking of *national* as *nation* plus the ending *-al*, rather than as a brand
 
 A prefix or suffix attaches before or after a base word or root, but the root is what carries the word's central meaning. In *transport*, *trans-* (across) is the prefix and *port* (carry) is the root — the word means "carry across." In *predict*, *pre-* (before) is the prefix and *dict* (say) is the root.
 
-[Common Prefixes](/spelling-lists/grade-level/common-prefixes/) already introduces this exact pattern: *pre-* in *predict* and *trans-* in *transport* both attach to a root rather than a whole base word, unlike prefixes such as *dis-* or *super-*, which attach to whole words (see also [Un- and Re- Prefixes](/spelling-lists/grade-level/un-and-re-prefixes/) for prefixes that always attach to a complete base word). This page is where that pattern becomes the main focus instead of an exception.
+[Common Prefixes](/skills/common-prefixes) already introduces this exact pattern: *pre-* in *predict* and *trans-* in *transport* both attach to a root rather than a whole base word, unlike prefixes such as *dis-* or *super-*, which attach to whole words (see also [Un- and Re- Prefixes](/skills/un-and-re-prefixes) for prefixes that always attach to a complete base word). This page is where that pattern becomes the main focus instead of an exception.
 
 A root's meaning doesn't guarantee the whole word's meaning is a simple, literal sum of its parts. *Important* is a real example: it comes from Latin *importare*, built from *in-* ("in") and *portare* ("carry") — literally "to carry in." Its modern meaning, "having great significance," has drifted well past that literal sum. A root is a strong clue, not a guaranteed definition.
 

@@ -59,11 +59,11 @@ Use this page after students have encountered the related core lesson: [CVC Shor
 
 ## Choose a targeted practice page
 
-- [Short A Words](/spelling-lists/phonics/short-a-words)
-- [Short E Words](/spelling-lists/phonics/short-e-words)
-- [Short I Words](/spelling-lists/phonics/short-i-words)
-- [Short O Words](/spelling-lists/phonics/short-o-words)
-- [Short U Words](/spelling-lists/phonics/short-u-words)
+- [Short A Words](/skills/short-a-words)
+- [Short E Words](/skills/short-e-words)
+- [Short I Words](/skills/short-i-words)
+- [Short O Words](/skills/short-o-words)
+- [Short U Words](/skills/short-u-words)
 - [C, K, and CK Words](/spelling-lists/phonics/c-k-ck-words)
 
 ## How parents can practice at home

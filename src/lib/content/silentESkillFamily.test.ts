@@ -20,7 +20,7 @@ import {
 } from './spellingSkills';
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
-const skillsIndexRoutePath = join(process.cwd(), 'src/pages/spelling-lists/skills/index.astro');
+const skillsIndexRoutePath = join(process.cwd(), 'src/pages/skills/index.astro');
 
 // Long E Silent E is deliberately excluded per SKILLS_ARCHITECTURE.md §5: its
 // standalone page is archived (no longer statically generated) and its old

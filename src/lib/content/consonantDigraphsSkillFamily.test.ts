@@ -16,7 +16,7 @@ import {
 } from './spellingSkills';
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
-const skillsIndexRoutePath = join(process.cwd(), 'src/pages/spelling-lists/skills/index.astro');
+const skillsIndexRoutePath = join(process.cwd(), 'src/pages/skills/index.astro');
 const listDetailRoutePath = join(process.cwd(), 'src/pages/spelling-lists/[category]/[slug].astro');
 
 const CONSONANT_DIGRAPH_SKILL_IDS = [

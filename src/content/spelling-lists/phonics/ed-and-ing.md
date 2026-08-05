@@ -35,7 +35,7 @@ words:
   - resting
 ---
 
-The endings *-ed* and *-ing* are inflectional endings: they change how an action word works in a sentence without creating an unrelated base meaning. This page uses clear examples in which the base spelling remains unchanged. The separate [Spelling Rules for Adding Suffixes](/spelling-lists/grade-level/suffix-spelling-changes/) page teaches what happens in words such as *running* or *making*.
+The endings *-ed* and *-ing* are inflectional endings: they change how an action word works in a sentence without creating an unrelated base meaning. This page uses clear examples in which the base spelling remains unchanged. The separate [Spelling Rules for Adding Suffixes](/skills/suffix-spelling-changes) page teaches what happens in words such as *running* or *making*.
 
 ## Find the base word first
 

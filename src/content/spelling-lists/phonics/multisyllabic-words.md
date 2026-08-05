@@ -69,9 +69,9 @@ Work backward from the ending: circle consonant-_le_, say the first part, and jo
 
 ## Syllables and Meaning Parts Can Overlap
 
-Some longer words become easier when meaning supplies the clearest chunks. _Sunset_ is both _sun-set_ and the compound _sun + set = sunset_—spelling each small word correctly settles the whole word, the same strategy developed further on the [Compound Words Skill](/spelling-lists/grade-level/compound-words/). A word with a suffix may also preserve a known base spelling even when its spoken syllables are less obvious.
+Some longer words become easier when meaning supplies the clearest chunks. _Sunset_ is both _sun-set_ and the compound _sun + set = sunset_—spelling each small word correctly settles the whole word, the same strategy developed further on the [Compound Words Skill](/skills/compound-words). A word with a suffix may also preserve a known base spelling even when its spoken syllables are less obvious.
 
-Do not force every word into a base-and-affix equation: _rabbit_ is not built from two smaller words _rab_ and _bit_. Use meaningful parts only when they are real. The [Common Suffixes Skill](/spelling-lists/grade-level/common-suffixes/) develops that strategy further. The [R-Controlled ER, IR, and UR Words Skill](/spelling-lists/phonics/r-controlled-er-ir-ur/) explains why the clear vowel-plus-_r_ sound in a word such as _her_ can sound weaker in an unstressed ending such as _winter_.
+Do not force every word into a base-and-affix equation: _rabbit_ is not built from two smaller words _rab_ and _bit_. Use meaningful parts only when they are real. The [Common Suffixes Skill](/skills/common-suffixes) develops that strategy further. The [R-Controlled ER, IR, and UR Words Skill](/skills/r-controlled-er-ir-ur-words) explains why the clear vowel-plus-_r_ sound in a word such as _her_ can sound weaker in an unstressed ending such as _winter_.
 
 ## A Short Teaching Routine
 

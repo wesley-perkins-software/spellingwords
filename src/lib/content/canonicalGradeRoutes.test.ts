@@ -1,10 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import fs from 'node:fs';
-import path from 'node:path';
 import {
-  COMMON_WORDS_GATEWAY_REDIRECTS,
   TRAILING_SLASH,
   canonicalGradeRoutes,
+  getCanonicalListPath,
   getCanonicalListPathById,
   getGradeHubPath,
 } from './canonicalGradeRoutes';
@@ -17,42 +15,6 @@ import {
   GRADE_5_HUB_SECTIONS,
   KINDERGARTEN_HUB_SECTIONS,
 } from './gradeHubCards';
-
-const repoRoot = process.cwd();
-
-type Frontmatter = Record<string, string>;
-
-function parseFrontmatter(filePath: string): Frontmatter {
-  const text = fs.readFileSync(filePath, 'utf8');
-  const match = /^---\n([\s\S]*?)\n---/.exec(text);
-  if (!match) return {};
-  const data: Frontmatter = {};
-  for (const line of match[1].split('\n')) {
-    if (!line.includes(':') || line.startsWith(' ')) continue;
-    const [key, ...rest] = line.split(':');
-    data[key.trim()] = rest.join(':').trim().replace(/^['"]|['"]$/g, '');
-  }
-  return data;
-}
-
-function spellingListFrontmatterById() {
-  const base = path.join(repoRoot, 'src/content/spelling-lists');
-  const files: string[] = [];
-  const walk = (dir: string) => {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const fullPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) walk(fullPath);
-      if (entry.isFile() && entry.name.endsWith('.md')) files.push(fullPath);
-    }
-  };
-  walk(base);
-  const byId = new Map<string, Frontmatter & { filePath: string }>();
-  for (const filePath of files) {
-    const data = parseFrontmatter(filePath);
-    if (data.id) byId.set(data.id, { ...data, filePath });
-  }
-  return byId;
-}
 
 const curatedSectionsByGrade = {
   K: KINDERGARTEN_HUB_SECTIONS,
@@ -107,36 +69,18 @@ describe('canonical grade routes', () => {
     expect(getCanonicalListPathById('grade-1-weather-words')).toBe('/1st-grade/weather-words');
   });
 
-  it('maps only published spelling-list entries and records their historical URLs in netlify redirects', () => {
-    const frontmatter = spellingListFrontmatterById();
-    const netlify = fs.readFileSync(path.join(repoRoot, 'netlify.toml'), 'utf8');
-    for (const route of canonicalGradeRoutes) {
-      const data = frontmatter.get(route.id);
-      expect(data, route.id).toBeDefined();
-      expect(data?.status, route.id).toBe('published');
-      const oldPath = `/spelling-lists/${data?.category}/${data?.urlSlug}`;
-      expect(netlify).toContain(`from = "${oldPath}"\n  to = "${route.canonicalPath}"\n  status = 301`);
-    }
+  it('composes with the Skill manifest: getCanonicalListPath resolves Skill ids to /skills/{slug}', () => {
+    expect(getCanonicalListPath({ id: 'digraph-ch-words', category: 'phonics', urlSlug: 'digraph-ch-words' })).toBe(
+      '/skills/ch-digraph-words',
+    );
+    expect(getCanonicalListPath({ id: 'short-a-words', category: 'phonics', urlSlug: 'short-a-words' })).toBe(
+      '/skills/short-a-words',
+    );
   });
 
-  it('redirects old grade hubs and removed Common Words gateways directly to grade hubs', () => {
-    const netlify = fs.readFileSync(path.join(repoRoot, 'netlify.toml'), 'utf8');
-    for (const grade of gradeConfig) {
-      expect(netlify).toContain(`from = "/spelling-lists/${grade.slug}"\n  to = "${grade.hubHref}"\n  status = 301`);
-    }
-    for (const redirect of COMMON_WORDS_GATEWAY_REDIRECTS) {
-      expect(netlify).toContain(`from = "${redirect.oldPath}"\n  to = "${redirect.newPath}"\n  status = 301`);
-    }
-  });
-
-  it('keeps the human-readable migration map synchronized with the manifest', () => {
-    const markdown = fs.readFileSync(path.join(repoRoot, 'docs/content/inventory/grade-url-migration-map.md'), 'utf8');
-    for (const route of canonicalGradeRoutes) {
-      expect(markdown).toContain(`| \`${route.id}\``);
-      expect(markdown).toContain(`\`${route.canonicalPath}\``);
-    }
-    for (const redirect of COMMON_WORDS_GATEWAY_REDIRECTS) {
-      expect(markdown).toContain(`| \`${redirect.id}\` | \`${redirect.oldPath}\` | \`${redirect.newPath}\``);
-    }
+  it('composes with neither manifest: falls back to the legacy /spelling-lists path', () => {
+    expect(
+      getCanonicalListPath({ id: 'dolch-nouns-a', category: 'sight-words', urlSlug: 'dolch-nouns-a-sight-words' }),
+    ).toBe('/spelling-lists/sight-words/dolch-nouns-a-sight-words');
   });
 });

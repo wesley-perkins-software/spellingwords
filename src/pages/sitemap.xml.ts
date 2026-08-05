@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
-import { getCanonicalGradeRoutes, getCanonicalListPath, getGradeHubPath, isCanonicalGradeCurriculumId, COMMON_WORDS_GATEWAY_REDIRECTS } from '@/lib/content/canonicalGradeRoutes';
+import { getCanonicalGradeRoutes, getCanonicalListPath, getGradeHubPath, isCanonicalGradeCurriculumId, GATEWAY_COLLECTION_IDS } from '@/lib/content/canonicalGradeRoutes';
+import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 import { isPublished } from '@/lib/content/spellingLists';
 import { LEARNING_PATHS } from '@/lib/content/learningPaths';
@@ -13,7 +14,7 @@ function url(path: string) {
 export async function GET() {
   const lists = (await getCollection('spelling-lists')).filter(isPublished);
   const collections = (await getCollection('spelling-collections')).filter((collection) => collection.data.status === 'published');
-  const gatewayIds = new Set(COMMON_WORDS_GATEWAY_REDIRECTS.map((redirect) => redirect.id));
+  const gatewayIds = new Set(GATEWAY_COLLECTION_IDS);
 
   const paths = new Set<string>([
     '/',
@@ -23,7 +24,7 @@ export async function GET() {
     '/spelling-lists/phonics',
     '/spelling-lists/sight-words',
     '/spelling-lists/challenge',
-    '/spelling-lists/skills',
+    SKILLS_INDEX_PATH,
     ...gradeConfig.map((grade) => getGradeHubPath(grade.grade)),
     ...getCanonicalGradeRoutes().map((route) => route.canonicalPath),
     ...LEARNING_PATHS.map((path) => `/learning-paths/${path.id}`),

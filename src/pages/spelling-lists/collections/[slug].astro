@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import { getCanonicalUrl } from '@/lib/canonicalUrl';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
@@ -8,14 +9,14 @@ import ListMetadataBadges from '@/components/ListMetadataBadges.astro';
 import { isPublished, resolveListRefs } from '@/lib/content/spellingLists';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { gradeConfig } from '@/lib/content/gradeConfig';
-import { COMMON_WORDS_GATEWAY_REDIRECTS, getCanonicalListPath } from '@/lib/content/canonicalGradeRoutes';
+import { GATEWAY_COLLECTION_IDS, getCanonicalListPath } from '@/lib/content/canonicalGradeRoutes';
 
 export async function getStaticPaths() {
   const collections = await getCollection('spelling-collections');
   const allLists = (await getCollection('spelling-lists')).filter(isPublished);
 
   return collections
-    .filter((c) => c.data.status === 'published' && !COMMON_WORDS_GATEWAY_REDIRECTS.some((redirect) => redirect.id === c.data.id))
+    .filter((c) => c.data.status === 'published' && !GATEWAY_COLLECTION_IDS.includes(c.data.id))
     .map((collection) => ({
       params: { slug: collection.data.urlSlug },
       props: { collection, allLists },
@@ -56,7 +57,7 @@ const breadcrumbItems = [
   { label: data.title },
 ];
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
+const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
 
 const itemListJsonLd = {
   '@context': 'https://schema.org',

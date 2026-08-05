@@ -17,13 +17,14 @@ import {
   SILENT_E_LONG_E_EXAMPLES,
   SILENT_E_SKILL_FAMILY,
   SPELLING_SKILL_FAMILIES,
-  SPELLING_SKILLS_INDEX_PATH,
+  SKILLS_INDEX_PATH,
   VOWEL_TEAMS_SKILL_FAMILY,
   WORD_BUILDING_AND_ENDINGS_SKILL_FAMILY,
   getSpellingSkillPath,
   isCuratedSpellingSkillId,
   resolveCuratedSkillFamilyEntries,
 } from './spellingSkills';
+import { getCanonicalSkillPathById } from './canonicalSkillRoutes';
 
 const netlifyTomlPath = join(process.cwd(), 'netlify.toml');
 
@@ -138,8 +139,8 @@ const summaries = allSummaries();
 const byId = new Map(summaries.map((entry) => [entry.data.id, entry]));
 
 describe('curated spelling Skills browse index', () => {
-  it('uses the current spelling-lists hierarchy for the public Skills browse route', () => {
-    expect(SPELLING_SKILLS_INDEX_PATH).toBe('/spelling-lists/skills/');
+  it('uses /skills as the top-level public Skills Hub route, not a child of /spelling-lists', () => {
+    expect(SKILLS_INDEX_PATH).toBe('/skills');
   });
 
   it('publishes the frozen canonical 12-family taxonomy in stable public order', () => {
@@ -277,13 +278,13 @@ describe('curated spelling Skills browse index', () => {
     expect(byId.get('short-vowels-cvc-words')).toMatchObject({ data: { status: 'archived' } });
   });
 
-  it('keeps curated Skill links resolved against each entry\'s own category', () => {
+  it('resolves curated Skill links through the canonical Skill route manifest', () => {
     for (const id of CURATED_SPELLING_SKILL_IDS) {
       const entry = byId.get(id);
       expect(entry, id).toBeDefined();
-      expect(getSpellingSkillPath(entry!)).toBe(
-        `/spelling-lists/${entry!.data.category}/${entry!.data.urlSlug}`,
-      );
+      const path = getSpellingSkillPath(entry!);
+      expect(path.startsWith('/skills/'), id).toBe(true);
+      expect(path).toBe(getCanonicalSkillPathById(id));
     }
   });
 
@@ -393,13 +394,12 @@ describe('curated spelling Skills browse index', () => {
       });
     });
 
-    it('permanently redirects its former URL to the canonical Silent E family anchor', () => {
+    it('has no redirect for its former URL (pre-launch: obsolete paths 404, not redirect) and folds into the Silent E family anchor', () => {
       const redirect = findNetlifyRedirect('/spelling-lists/phonics/silent-e-long-e');
 
-      expect(redirect).toBeDefined();
-      expect(redirect?.status).toBe('301');
-      expect(redirect?.to).toBe(SILENT_E_FAMILY_URL);
-      expect(SILENT_E_FAMILY_URL).toBe(`${SPELLING_SKILLS_INDEX_PATH}#${SILENT_E_FAMILY_ANCHOR_ID}`);
+      expect(redirect).toBeUndefined();
+      expect(SILENT_E_FAMILY_URL).toBe(`${SKILLS_INDEX_PATH}#${SILENT_E_FAMILY_ANCHOR_ID}`);
+      expect(SILENT_E_FAMILY_URL).toBe('/skills#silent-e-family');
     });
 
     it('keeps the Long E treatment to one concise sentence in the family guidance, not a separate block', () => {

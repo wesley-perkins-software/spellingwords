@@ -59,10 +59,10 @@ Use this page after students have encountered the related core lesson: [Consonan
 
 ## Choose a targeted practice page
 
-- [SH Digraph Words](/spelling-lists/phonics/digraph-sh-words)
-- [CH Digraph Words](/spelling-lists/phonics/digraph-ch-words)
-- [TH Digraph Words](/spelling-lists/phonics/digraph-th-words)
-- [WH Digraph Words](/spelling-lists/phonics/digraph-wh-words)
+- [SH Digraph Words](/skills/sh-digraph-words)
+- [CH Digraph Words](/skills/ch-digraph-words)
+- [TH Digraph Words](/skills/th-digraph-words)
+- [WH Digraph Words](/skills/wh-digraph-words)
 
 ## How parents can practice at home
 

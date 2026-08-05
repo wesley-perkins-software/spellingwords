@@ -1,6 +1,6 @@
 # Content Improvement Roadmap — spellingwords.app
 
-> URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs now use the flat no-trailing-slash `/{grade}/{page-slug}` structure. The runtime source of truth is `src/lib/content/canonicalGradeRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the generated migration map. Historical `/spelling-lists/...` canonical curriculum URLs redirect directly to the new paths.
+> URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs use the flat no-trailing-slash `/{grade}/{page-slug}` structure, and canonical Skill pages use `/skills` + `/skills/{skill-slug}`. The runtime sources of truth are `src/lib/content/canonicalGradeRoutes.ts` and `src/lib/content/canonicalSkillRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the grade-curriculum reference. The site is pre-launch, so the old repository-shaped `/spelling-lists/...` paths for migrated grade-curriculum and Skill pages are simply not generated (404) rather than redirected — these are the site's original launch URLs, not a migration preserving an established public site.
 
 
 **Status:** Living document. Operating plan for the editorial-improvement phase, now that curriculum, taxonomy, and page architecture are frozen.
@@ -90,7 +90,7 @@ Five page layers exist within the canonical architecture. Each layer's page set 
 **Linking role:** routes down into every Grade Unit/Common Words/Additional Practice page for that grade, and up to the Skills Hub / main browse page.
 
 ### Layer 4 — Skills Hub
-**Purpose:** the main "Browse by Skill" directory across all 12 frozen families. **Defined by:** `docs/architecture/SKILLS_ARCHITECTURE.md`; implemented as `src/pages/spelling-lists/skills/index.astro` + `spellingSkills.ts`.
+**Purpose:** the main "Browse by Skill" directory across all 12 frozen families. **Defined by:** `docs/architecture/SKILLS_ARCHITECTURE.md`; implemented as `src/pages/skills/index.astro` + `spellingSkills.ts`/`canonicalSkillRoutes.ts`, serving at `/skills`.
 **Belongs here:** brief family descriptions and a clear path into each Skill page.
 **Must not duplicate:** any single Skill page's explanation of its pattern.
 **Linking role:** routes down into every Skill page; sits alongside (not beneath) the Grade Hubs as a second, skill-first way to reach the same underlying content.

@@ -1,5 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 import { gradeConfig, type GradeCode } from './gradeConfig';
+import { getCanonicalSkillPathById } from './canonicalSkillRoutes';
 
 export const TRAILING_SLASH = 'never' as const;
 
@@ -164,18 +165,28 @@ export function getCanonicalListPathById(id: string): string | undefined {
   return routeById.get(id)?.canonicalPath;
 }
 
+// The composed canonical resolver — the one function every template, the
+// sitemap, and Skill Hub cards should call to link to a spelling-lists entry.
+// Tries the grade-curriculum manifest, then the Skill manifest, and only
+// falls back to the legacy repository-shaped path for content intentionally
+// retained under /spelling-lists/ (see docs/content/inventory/retained-spelling-lists-pages.md).
 export function getCanonicalListPath(entry: Pick<CollectionEntry<'spelling-lists'>['data'], 'id' | 'category' | 'urlSlug'>): string {
-  return getCanonicalListPathById(entry.id) ?? `/spelling-lists/${entry.category}/${entry.urlSlug}`;
+  return (
+    getCanonicalListPathById(entry.id) ??
+    getCanonicalSkillPathById(entry.id) ??
+    `/spelling-lists/${entry.category}/${entry.urlSlug}`
+  );
 }
 
 export function getHistoricalListPath(entry: Pick<CollectionEntry<'spelling-lists'>['data'], 'category' | 'urlSlug'>): string {
   return `/spelling-lists/${entry.category}/${entry.urlSlug}`;
 }
 
-export const COMMON_WORDS_GATEWAY_REDIRECTS = gradeConfig.map((grade) => ({
-  id: `${grade.grade === 'K' ? 'kindergarten' : `grade-${grade.grade}`}-common-words`,
-  oldPath: `/spelling-lists/collections/${grade.grade === 'K' ? 'kindergarten' : `grade-${grade.grade}`}-common-words`,
-  newPath: getGradeHubPath(grade.grade),
-  status: 301,
-  classification: 'high-frequency-words-gateway',
-}));
+// The 6 "Common Words" spelling-collections entries (one per grade) are
+// intentionally excluded from static generation — their numbered child sets
+// now render directly on each Grade Hub, so the collection's own gateway page
+// would be a duplicate destination. Pre-launch, these obsolete paths simply
+// aren't generated (404) rather than redirected.
+export const GATEWAY_COLLECTION_IDS: readonly string[] = gradeConfig.map(
+  (grade) => `${grade.grade === 'K' ? 'kindergarten' : `grade-${grade.grade}`}-common-words`,
+);

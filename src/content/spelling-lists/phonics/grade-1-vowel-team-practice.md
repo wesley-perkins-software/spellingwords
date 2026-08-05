@@ -59,9 +59,9 @@ Use this page after students have encountered the related core lesson: [Long A &
 
 ## Choose a targeted practice page
 
-- [AI and AY Words](/spelling-lists/phonics/vowel-teams-ai-ay)
-- [OA and OW Words](/spelling-lists/phonics/vowel-teams-oa-ow)
-- [EE and EA Words](/spelling-lists/phonics/vowel-teams-ee-ea)
+- [AI and AY Words](/skills/ai-ay-vowel-teams)
+- [OA and OW Words](/skills/oa-ow-vowel-teams)
+- [EE and EA Words](/skills/ee-ea-vowel-teams)
 
 ## How parents can practice at home
 

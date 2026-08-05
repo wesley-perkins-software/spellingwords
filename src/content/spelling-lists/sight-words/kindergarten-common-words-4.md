@@ -43,4 +43,4 @@ Finish kindergarten common-word practice with words used in early questions, cou
 
 This phonics-aware set uses regular sound-spelling patterns where they help. When a small part is not yet predictable, use the Heart Word hint as a reminder to learn that part by heart.
 
-Continue with the [Grade 1 Common Words](/1st-grade) gateway when your child is ready for the next cumulative sequence.
+Continue with the [Grade 1 Common Words](/1st-grade) section on the Grade 1 hub when your child is ready for the next cumulative sequence.

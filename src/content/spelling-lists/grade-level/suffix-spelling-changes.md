@@ -35,7 +35,7 @@ words:
   - carrying
 ---
 
-Suffix spelling rules answer one mechanical question: **Does the base word change before this suffix is attached?** They do not explain what a suffix means; [Common Suffixes](/spelling-lists/grade-level/common-suffixes/) handles meaning and grammatical function. They also do not decide which verb form a sentence needs; [Words Ending in -ed and -ing](/spelling-lists/phonics/ed-and-ing/) introduces those endings with unchanged-base examples. Three different starting shapes trigger three different checks.
+Suffix spelling rules answer one mechanical question: **Does the base word change before this suffix is attached?** They do not explain what a suffix means; [Common Suffixes](/skills/common-suffixes) handles meaning and grammatical function. They also do not decide which verb form a sentence needs; [Words Ending in -ed and -ing](/skills/ed-and-ing) introduces those endings with unchanged-base examples. Three different starting shapes trigger three different checks.
 
 ## 1. Double one final consonant
 

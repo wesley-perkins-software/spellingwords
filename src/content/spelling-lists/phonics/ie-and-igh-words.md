@@ -54,7 +54,7 @@ The groups are not equal in size. The `igh` spelling supports a larger, highly r
 
 | Word shape | Examples | What carries long I? |
 | --- | --- | --- |
-| Silent e | time, ride | A final silent e signals the earlier vowel; see [Long I Silent E Words](/spelling-lists/phonics/silent-e-long-i). |
+| Silent e | time, ride | A final silent e signals the earlier vowel; see [Long I Silent E Words](/skills/long-i-silent-e). |
 | Final **ie** | pie, tie | The final letter pair spells long i. |
 | **igh** | high, night | The three-letter spelling represents long i. |
 | Final **y** | my, fly | Final y represents long i in these short words. |

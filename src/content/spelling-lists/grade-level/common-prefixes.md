@@ -35,7 +35,7 @@ words:
   - antifreeze
 ---
 
-[Un- and Re- Prefixes](/spelling-lists/grade-level/un-and-re-prefixes/) covers the foundational prefix pattern: a word part added to the front of a base word, without changing that base word's spelling. This page builds on that pattern with a wider set of prefixes that Grade 3 and Grade 4 students meet in longer, more academic words: *pre-*, *dis-*, *mis-*, *inter-*, *sub-*, *super-*, *trans-*, and *anti-*.
+[Un- and Re- Prefixes](/skills/un-and-re-prefixes) covers the foundational prefix pattern: a word part added to the front of a base word, without changing that base word's spelling. This page builds on that pattern with a wider set of prefixes that Grade 3 and Grade 4 students meet in longer, more academic words: *pre-*, *dis-*, *mis-*, *inter-*, *sub-*, *super-*, *trans-*, and *anti-*.
 
 ## Prefixes that attach to a whole base word
 
@@ -51,7 +51,7 @@ Several of these prefixes work exactly like *un-* and *re-*: they attach to a co
 
 ## Prefixes that attach to a root, not a whole word
 
-Two of this page's prefixes work differently. *Pre-* in *predict* attaches to *-dict-*, and *trans-* in *transport* attaches to *-port-*. Neither *dict* nor *port* is a stand-alone modern English word — they are roots, word parts that carry meaning but don't function as whole words on their own. *-Dict-* comes from a Latin root meaning "to say," so *predict* means "to say beforehand." *-Port-* comes from a Latin root meaning "to carry," so *transport* means "to carry across." This is a preview of [Greek and Latin Roots](/spelling-lists/grade-level/greek-and-latin-roots/), where word parts like these are the main focus rather than an exception.
+Two of this page's prefixes work differently. *Pre-* in *predict* attaches to *-dict-*, and *trans-* in *transport* attaches to *-port-*. Neither *dict* nor *port* is a stand-alone modern English word — they are roots, word parts that carry meaning but don't function as whole words on their own. *-Dict-* comes from a Latin root meaning "to say," so *predict* means "to say beforehand." *-Port-* comes from a Latin root meaning "to carry," so *transport* means "to carry across." This is a preview of [Greek and Latin Roots](/skills/greek-and-latin-roots), where word parts like these are the main focus rather than an exception.
 
 ## Telling dis- and mis- apart
 
@@ -66,7 +66,7 @@ Two of this page's prefixes work differently. *Pre-* in *predict* attaches to *-
 - Isolate the prefix first, then check whether what's left is a whole word (*agree*, *read*, *act*, *star*, *freeze*) or a root (*-dict-*, *-port-*).
 - A root's meaning still transfers to the whole word even though the root can't stand alone — knowing *-port-* means "carry" also helps with *transplant* and *import*.
 - These prefixes generally attach to the front without changing the rest of the word's spelling, the same as *un-*/*re-*.
-- Longer academic words sometimes add a suffix as well, such as *transportation* — that ending is a separate topic (see [Common Suffixes](/spelling-lists/grade-level/common-suffixes/)); this page focuses on the prefix at the front.
+- Longer academic words sometimes add a suffix as well, such as *transportation* — that ending is a separate topic (see [Common Suffixes](/skills/common-suffixes)); this page focuses on the prefix at the front.
 
 ## Common mistakes
 

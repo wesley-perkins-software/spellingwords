@@ -2,7 +2,8 @@
 import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
-import { CURATED_SPELLING_SKILL_IDS, SPELLING_SKILLS_INDEX_PATH } from '@/lib/content/spellingSkills';
+import { CURATED_SPELLING_SKILL_IDS } from '@/lib/content/spellingSkills';
+import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 
 const sampleWords = [
   'friend',
@@ -46,7 +47,7 @@ const categories = [
     accentClass: 'bg-chip-berry',
   },
   {
-    href:        SPELLING_SKILLS_INDEX_PATH,
+    href:        SKILLS_INDEX_PATH,
     count:       `${CURATED_SPELLING_SKILL_IDS.length} skills`,
     name:        'Practice by Skill',
     desc:        'Choose focused sounds and spelling patterns',

@@ -59,11 +59,11 @@ Use this page after students have encountered the related core lesson: [Long Vow
 
 ## Choose a targeted practice page
 
-- [Long A Silent E Words](/spelling-lists/phonics/silent-e-long-a)
-- Long E Silent E is real but much less common; see the concise guidance in the [Silent E family overview](/spelling-lists/skills/#silent-e-family).
-- [Long I Silent E Words](/spelling-lists/phonics/silent-e-long-i)
-- [Long O Silent E Words](/spelling-lists/phonics/silent-e-long-o)
-- [Long U Silent E Words](/spelling-lists/phonics/silent-e-long-u)
+- [Long A Silent E Words](/skills/long-a-silent-e)
+- Long E Silent E is real but much less common; see the concise guidance in the [Silent E family overview](/skills#silent-e-family).
+- [Long I Silent E Words](/skills/long-i-silent-e)
+- [Long O Silent E Words](/skills/long-o-silent-e)
+- [Long U Silent E Words](/skills/long-u-silent-e)
 
 ## How parents can practice at home
 

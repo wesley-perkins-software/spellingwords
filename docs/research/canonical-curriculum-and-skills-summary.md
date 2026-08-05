@@ -1,5 +1,21 @@
 # Canonical K–5 Grade Curriculum and Skill Summary
 
+## Important context
+
+This document represents the entire canonical instructional scope of SpellingWords.app.
+
+Grade Unit pages are the curriculum students work through.
+
+Skill pages are grade-independent educational references.
+
+When evaluating completeness:
+
+• recommend additional Grade Unit pages only if they represent a widely taught U.S. spelling concept that students are expected to master.
+
+• recommend additional Skill pages only if a spelling concept deserves a permanent reference page independent of grade level.
+
+Do NOT recommend vocabulary pages, reading skills, phonics concepts taught only for decoding, handwriting, grammar, or language arts topics that are not spelling concepts.
+
 ## 1. Grade Unit curriculum
 
 ## Kindergarten

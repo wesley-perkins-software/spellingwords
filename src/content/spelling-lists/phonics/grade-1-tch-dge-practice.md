@@ -44,7 +44,7 @@ Focused short-vowel ending practice for final -tch and -dge words. This page is 
 
 ## When to use this page
 
-Use this page after students have encountered the related core lesson: [Short Vowel Ending Rules: -tch and -dge](/spelling-lists/phonics/1st-grade-tch-dge-ending-rules). It is especially helpful for review, intervention groups, homeschool practice, or a teacher assigning one narrow pattern.
+Use this page after students have encountered the related core lesson: [Short Vowel Ending Rules: -tch and -dge](/1st-grade/tch-dge-ending-rules). It is especially helpful for review, intervention groups, homeschool practice, or a teacher assigning one narrow pattern.
 
 ## Sample words
 
@@ -67,5 +67,5 @@ Pick one targeted page, practice five to eight words, and ask your child to expl
 
 ## Navigation
 
-- **Back to Grade 1:** [1st Grade Spelling Words](/spelling-lists/1st-grade)
-- **Related core lesson:** [Short Vowel Ending Rules: -tch and -dge](/spelling-lists/phonics/1st-grade-tch-dge-ending-rules)
+- **Back to Grade 1:** [1st Grade Spelling Words](/1st-grade)
+- **Related core lesson:** [Short Vowel Ending Rules: -tch and -dge](/1st-grade/tch-dge-ending-rules)

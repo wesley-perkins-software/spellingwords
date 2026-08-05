@@ -48,6 +48,6 @@ words:
   - green
 ---
 
-Number and color words are among the very first things a kindergartener is asked to read and write. This combined list remains available for families who have used it before, but the focused [Kindergarten Number Words](/spelling-lists/grade-level/kindergarten-number-words) and [Kindergarten Color Words](/spelling-lists/grade-level/kindergarten-color-words) pages are now the recommended additional-practice choices.
+Number and color words are among the very first things a kindergartener is asked to read and write. This combined list remains available for families who have used it before, but the focused [Kindergarten Number Words](/kindergarten/number-words) and [Kindergarten Color Words](/kindergarten/color-words) pages are now the recommended additional-practice choices.
 
 This is additional practice, not the core phonics path. Some words can be sounded out, while others are learned as familiar classroom words with tricky parts. Practicing them builds the kind of automatic recognition that lets a child focus on what they're writing, not how to spell the color of the sky.

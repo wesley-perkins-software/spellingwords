@@ -50,4 +50,4 @@ words:
 
 A prefix is a word part added to the beginning of a base word. The prefix *un-* can mean "not" or "reverse," and *re-* often means "again."
 
-These words help a young speller read the prefix first, then the base word. That makes longer words like *unhappy*, *reread*, and *retell* easier to spell and understand — and it is the same strategy the broader [Prefix Words](/spelling-lists/grade-level/3rd-grade-prefix-words) lesson builds on next.
+These words help a young speller read the prefix first, then the base word. That makes longer words like *unhappy*, *reread*, and *retell* easier to spell and understand — and it is the same strategy the broader [Prefix Words](/3rd-grade/prefix-words) lesson builds on next.

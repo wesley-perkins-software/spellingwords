@@ -2,6 +2,7 @@ import type {
   SpellingCollectionEntry,
   SpellingListEntry,
 } from "./spellingLists";
+import { getCanonicalListPath } from './canonicalGradeRoutes';
 
 export type GradeHubCard = {
   id: string;
@@ -1015,7 +1016,7 @@ export function buildGradeHubCards(
         return [
           {
             id: definition.id,
-            href: `/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`,
+            href: getCanonicalListPath(entry.data),
             title: definition.title,
             description: definition.description,
             category: entry.data.category,

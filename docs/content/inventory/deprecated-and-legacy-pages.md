@@ -132,11 +132,11 @@ Standalone "practice" or "review" pages not referenced by any Grade Hub card —
 
 | Title | id | Source file | Former URL status |
 |---|---|---|---|
-| Kindergarten Describing Words | kindergarten-describing-words | `src/content/spelling-lists/grade-level/kindergarten-describing-words.md` | Redirects (301) to `/spelling-lists/kindergarten` |
-| Kindergarten Feelings Words | kindergarten-feelings-words | `src/content/spelling-lists/grade-level/kindergarten-feelings-words.md` | Redirects (301) to `/spelling-lists/kindergarten` |
-| Kindergarten Food Words | kindergarten-food-words | `src/content/spelling-lists/grade-level/kindergarten-food-words.md` | Redirects (301) to `/spelling-lists/kindergarten` |
-| Kindergarten School Words | kindergarten-school-words | `src/content/spelling-lists/grade-level/kindergarten-school-words.md` | Redirects (301) to `/spelling-lists/kindergarten` |
-| Kindergarten Shape Words | kindergarten-shape-words | `src/content/spelling-lists/grade-level/kindergarten-shape-words.md` | Redirects (301) to `/spelling-lists/kindergarten` |
+| Kindergarten Describing Words | kindergarten-describing-words | `src/content/spelling-lists/grade-level/kindergarten-describing-words.md` | Redirects (301) to `/kindergarten` |
+| Kindergarten Feelings Words | kindergarten-feelings-words | `src/content/spelling-lists/grade-level/kindergarten-feelings-words.md` | Redirects (301) to `/kindergarten` |
+| Kindergarten Food Words | kindergarten-food-words | `src/content/spelling-lists/grade-level/kindergarten-food-words.md` | Redirects (301) to `/kindergarten` |
+| Kindergarten School Words | kindergarten-school-words | `src/content/spelling-lists/grade-level/kindergarten-school-words.md` | Redirects (301) to `/kindergarten` |
+| Kindergarten Shape Words | kindergarten-shape-words | `src/content/spelling-lists/grade-level/kindergarten-shape-words.md` | Redirects (301) to `/kindergarten` |
 | Short Vowels: CVC Words | short-vowels-cvc-words | `src/content/spelling-lists/phonics/short-vowels-cvc-words.md` | Retired umbrella/family artifact, superseded by the five focused Short Vowel Skills; no redirect configured |
 | Long E Silent E Words | silent-e-long-e | `src/content/spelling-lists/phonics/silent-e-long-e.md` | Redirects (301) to `/spelling-lists/skills/#silent-e-family` (the canonical Silent E family overview on the Skills Hub, per `docs/architecture/SKILLS_ARCHITECTURE.md` §5) |
 

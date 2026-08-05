@@ -363,8 +363,8 @@ describe('Vowel Teams Skill Family', () => {
     expect(gateway).toContain('/spelling-lists/phonics/vowel-teams-ai-ay');
     expect(gateway).toContain('/spelling-lists/phonics/vowel-teams-ee-ea');
     expect(gateway).toContain('/spelling-lists/phonics/vowel-teams-oa-ow');
-    expect(gateway).not.toContain('/spelling-lists/phonics/vowel-teams-oi-oy');
-    expect(gateway).not.toContain('/spelling-lists/phonics/vowel-teams-ou-ow');
+    expect(gateway).not.toContain('/2nd-grade/vowel-teams-oi-oy');
+    expect(gateway).not.toContain('/2nd-grade/vowel-teams-ou-ow');
   });
 
   it('keeps earlier public Skill families and protected Grade 1 CVC behavior unchanged', () => {

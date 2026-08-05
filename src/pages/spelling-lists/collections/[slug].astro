@@ -8,13 +8,14 @@ import ListMetadataBadges from '@/components/ListMetadataBadges.astro';
 import { isPublished, resolveListRefs } from '@/lib/content/spellingLists';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { gradeConfig } from '@/lib/content/gradeConfig';
+import { COMMON_WORDS_GATEWAY_REDIRECTS, getCanonicalListPath } from '@/lib/content/canonicalGradeRoutes';
 
 export async function getStaticPaths() {
   const collections = await getCollection('spelling-collections');
   const allLists = (await getCollection('spelling-lists')).filter(isPublished);
 
   return collections
-    .filter((c) => c.data.status === 'published')
+    .filter((c) => c.data.status === 'published' && !COMMON_WORDS_GATEWAY_REDIRECTS.some((redirect) => redirect.id === c.data.id))
     .map((collection) => ({
       params: { slug: collection.data.urlSlug },
       props: { collection, allLists },
@@ -67,7 +68,7 @@ const itemListJsonLd = {
     '@type': 'ListItem',
     position: i + 1,
     name: entry.data.title,
-    url: new URL(`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`, canonicalURL.origin).toString(),
+    url: new URL(getCanonicalListPath(entry.data), canonicalURL.origin).toString(),
   })),
 };
 
@@ -135,7 +136,7 @@ const breadcrumbJsonLd = {
           {memberLists.map((entry, i) => (
             <li>
               <a
-                href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                href={getCanonicalListPath(entry.data)}
                 class="flex items-start gap-4 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
                 aria-label={`Practice set ${i + 1}: ${entry.data.title}`}
               >

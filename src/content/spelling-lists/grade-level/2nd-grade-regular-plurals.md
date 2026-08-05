@@ -49,4 +49,4 @@ words:
 
 Most nouns become plural by adding *-s*, as in *dog* to *dogs*.
 
-Words ending in *s*, *x*, *sh*, or *ch* usually add *-es*. This page reviews the Grade 1 [Plural Endings: -s and -es](/spelling-lists/phonics/1st-grade-inflectional-endings-s-es) lesson with a slightly larger word set, including spellings like *buses*, *boxes*, *dishes*, *brushes*, and *lunches*.
+Words ending in *s*, *x*, *sh*, or *ch* usually add *-es*. This page reviews the Grade 1 [Plural Endings: -s and -es](/1st-grade/inflectional-endings-s-es) lesson with a slightly larger word set, including spellings like *buses*, *boxes*, *dishes*, *brushes*, and *lunches*.

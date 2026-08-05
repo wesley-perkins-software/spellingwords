@@ -27,6 +27,7 @@ import { categoryLabels } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { buildGradeUnitSequence } from '@/lib/content/gradeUnitSequence';
 import { gradeConfig } from '@/lib/content/gradeConfig';
+import { getCanonicalGradeRouteById, getCanonicalListPath, getGradeHubPath } from '@/lib/content/canonicalGradeRoutes';
 import { assignWorldKitsInSequence, pickWorldKit } from '@/lib/theme/worldKits';
 
 interface Props {
@@ -75,7 +76,7 @@ const gradeLabel = data.grade === 'K' ? 'Kindergarten' : data.grade ? `Grade ${d
 const categoryLabel = categoryLabels[data.category] ?? data.category;
 
 function listLink(e: (typeof entries)[number]) {
-  return `/spelling-lists/${e.data.category}/${e.data.urlSlug}`;
+  return getCanonicalListPath(e.data);
 }
 
 // One true black, everywhere on the page — hierarchy comes from spacing,
@@ -91,12 +92,19 @@ const worldStyleVars = [
   `--world-accent-soft:${kit.palette.accentSoft}`,
 ].join('; ');
 
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Spelling Lists Library', href: '/spelling-lists' },
-  { label: categoryLabel, href: `/spelling-lists/${data.category}` },
-  { label: data.title },
-];
+const canonicalGradeRoute = getCanonicalGradeRouteById(data.id);
+const breadcrumbItems = canonicalGradeRoute && gradeHub
+  ? [
+      { label: 'Home', href: '/' },
+      { label: gradeHub.label, href: getGradeHubPath(canonicalGradeRoute.grade) },
+      { label: data.title },
+    ]
+  : [
+      { label: 'Home', href: '/' },
+      { label: 'Spelling Lists Library', href: '/spelling-lists' },
+      { label: categoryLabel, href: `/spelling-lists/${data.category}` },
+      { label: data.title },
+    ];
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
 

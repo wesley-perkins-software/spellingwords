@@ -44,7 +44,7 @@ Focused long-vowel team practice for common Grade 1 spellings such as ai, ay, oa
 
 ## When to use this page
 
-Use this page after students have encountered the related core lesson: [Long A & Long O Vowel Teams](/spelling-lists/phonics/1st-grade-long-a-long-o-vowel-teams). It is especially helpful for review, intervention groups, homeschool practice, or a teacher assigning one narrow pattern.
+Use this page after students have encountered the related core lesson: [Long A & Long O Vowel Teams](/1st-grade/long-a-long-o-vowel-teams). It is especially helpful for review, intervention groups, homeschool practice, or a teacher assigning one narrow pattern.
 
 ## Sample words
 
@@ -69,5 +69,5 @@ Pick one targeted page, practice five to eight words, and ask your child to expl
 
 ## Navigation
 
-- **Back to Grade 1:** [1st Grade Spelling Words](/spelling-lists/1st-grade)
-- **Related core lesson:** [Long A & Long O Vowel Teams](/spelling-lists/phonics/1st-grade-long-a-long-o-vowel-teams)
+- **Back to Grade 1:** [1st Grade Spelling Words](/1st-grade)
+- **Related core lesson:** [Long A & Long O Vowel Teams](/1st-grade/long-a-long-o-vowel-teams)

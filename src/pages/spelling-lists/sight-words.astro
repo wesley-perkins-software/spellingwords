@@ -7,6 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import SpellingListCard from '@/components/SpellingListCard.astro';
 import { isPublished, getMemberListIds } from '@/lib/content/spellingLists';
 import { getGradesWithLists } from '@/lib/content/gradeConfig';
+import { COMMON_WORDS_GATEWAY_REDIRECTS, getCanonicalListPath } from '@/lib/content/canonicalGradeRoutes';
 
 const allCollections = (await getCollection('spelling-collections')).filter(
   (c) => c.data.status === 'published',
@@ -14,7 +15,8 @@ const allCollections = (await getCollection('spelling-collections')).filter(
 const memberIds = getMemberListIds(allCollections);
 const entries = (await getCollection('spelling-lists')).filter(isPublished);
 
-const sightWordCollections = allCollections.filter((c) => c.data.category === 'sight-words');
+const commonWordsGatewayIds = new Set(COMMON_WORDS_GATEWAY_REDIRECTS.map((redirect) => redirect.id));
+const sightWordCollections = allCollections.filter((c) => c.data.category === 'sight-words' && !commonWordsGatewayIds.has(c.data.id));
 const sightWordLists = entries
   .filter((e) => e.data.category === 'sight-words' && !memberIds.has(e.data.id))
   .sort((a, b) => a.data.order - b.data.order);
@@ -60,7 +62,7 @@ const itemListJsonLd = {
     ...sightWordLists.map((e, i) => ({
       '@type': 'ListItem',
       position: sightWordCollections.length + i + 1,
-      url: new URL(`/spelling-lists/sight-words/${e.data.urlSlug}`, canonicalURL.origin).toString(),
+      url: new URL(getCanonicalListPath(e.data), canonicalURL.origin).toString(),
       name: e.data.title,
     })),
   ],
@@ -146,7 +148,7 @@ const itemListJsonLd = {
             ))}
             {sightWordLists.map((entry) => (
               <SpellingListCard
-                href={`/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`}
+                href={getCanonicalListPath(entry.data)}
                 category={entry.data.category}
                 title={entry.data.title}
                 description={entry.data.description}

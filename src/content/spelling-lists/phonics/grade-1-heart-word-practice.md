@@ -69,5 +69,5 @@ Pick one targeted page, practice five to eight words, and ask your child to expl
 
 ## Navigation
 
-- **Back to Grade 1:** [1st Grade Spelling Words](/spelling-lists/1st-grade)
+- **Back to Grade 1:** [1st Grade Spelling Words](/1st-grade)
 - **Related core lesson:** [First Grade Heart Words](/spelling-lists/phonics/1st-grade-heart-words)

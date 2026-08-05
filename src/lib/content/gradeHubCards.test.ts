@@ -385,7 +385,7 @@ describe("Common Words validation slice content", () => {
 
   it("builds grade-hub ItemList JSON-LD from the visible curated cards", () => {
     const gradeHubPage = readFileSync(
-      join(process.cwd(), "src/pages/spelling-lists/[gradeSlug].astro"),
+      join(process.cwd(), "src/pages/[gradeSlug].astro"),
       "utf8",
     );
     expect(gradeHubPage).toContain("numberOfItems: displayedItemCount");

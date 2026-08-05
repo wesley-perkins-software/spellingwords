@@ -1,5 +1,8 @@
 # Content Improvement Roadmap — spellingwords.app
 
+> URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs now use the flat no-trailing-slash `/{grade}/{page-slug}` structure. The runtime source of truth is `src/lib/content/canonicalGradeRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the generated migration map. Historical `/spelling-lists/...` canonical curriculum URLs redirect directly to the new paths.
+
+
 **Status:** Living document. Operating plan for the editorial-improvement phase, now that curriculum, taxonomy, and page architecture are frozen.
 **Scope:** all pages included in the frozen canonical public architecture. See §1.
 

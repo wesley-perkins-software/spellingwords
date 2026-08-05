@@ -2,13 +2,14 @@
 import { getCollection } from 'astro:content';
 import { getCanonicalListPath } from '@/lib/content/canonicalGradeRoutes';
 import Layout from '@/layouts/Layout.astro';
+import { getCanonicalUrl } from '@/lib/canonicalUrl';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import { getListsByGrade, isPublished, groupByCategory } from '@/lib/content/spellingLists';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { gradeConfig } from '@/lib/content/gradeConfig';
-import { SPELLING_SKILLS_INDEX_PATH } from '@/lib/content/spellingSkills';
+import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 
 const entries = (await getCollection('spelling-lists')).filter(isPublished);
 const totalCount = entries.length;
@@ -23,7 +24,7 @@ const byCategory = groupByCategory(entries);
 const focusedPracticeLink = {
   label: 'Spelling Practice by Skill',
   description: 'Choose a focused spelling sound or pattern, starting with short vowels and CVC words.',
-  href: SPELLING_SKILLS_INDEX_PATH,
+  href: SKILLS_INDEX_PATH,
 };
 
 const skillFamilies = [
@@ -57,7 +58,7 @@ const featuredLists = entries.filter((e) => e.data.featured);
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Spelling Lists' }];
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
+const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
 
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',

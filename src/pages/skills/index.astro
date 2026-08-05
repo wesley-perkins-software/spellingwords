@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import { getCanonicalUrl } from '@/lib/canonicalUrl';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
@@ -18,13 +19,12 @@ const skillFamilies = SPELLING_SKILL_FAMILIES.map((family) => ({
   entries: resolveCuratedSkillFamilyEntries(entries, family.skillIds),
 }));
 
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Spelling Lists Library', href: '/spelling-lists' },
-  { label: 'Spelling Practice by Skill' },
-];
+// Skills is a first-class top-level journey (parallel to the grade-first
+// journey), not a child of /spelling-lists — see
+// docs/architecture/PUBLIC_URL_ARCHITECTURE.md.
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Skills' }];
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
+const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
 
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
@@ -59,7 +59,7 @@ const itemListJsonLd = {
   description="Choose a focused spelling sound or pattern for spelling practice, starting with short vowels and simple CVC words."
   jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
 >
-  <SiteHeader variant="discovery" currentPath="/spelling-lists" />
+  <SiteHeader variant="discovery" currentPath="/skills" />
 
   <main id="main-content">
     <div class="mx-auto max-w-3xl px-6 py-12 md:py-16">

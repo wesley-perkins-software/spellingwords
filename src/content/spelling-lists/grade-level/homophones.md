@@ -35,7 +35,7 @@ words:
   - they're
 ---
 
-Homophones are words that sound exactly alike but have different spellings and different meanings. Because the ear gets no clue at all — every spelling sounds identical — the only way to choose correctly is to decide what the word means in the sentence first. This is different from [Commonly Confused Words](/spelling-lists/grade-level/commonly-confused-words/), a related skill for words that get mixed up for reasons *other* than sounding identical, such as similar spelling or similar meaning; those pairs may or may not share a sound at all.
+Homophones are words that sound exactly alike but have different spellings and different meanings. Because the ear gets no clue at all — every spelling sounds identical — the only way to choose correctly is to decide what the word means in the sentence first. This is different from [Commonly Confused Words](/skills/commonly-confused-words), a related skill for words that get mixed up for reasons *other* than sounding identical, such as similar spelling or similar meaning; those pairs may or may not share a sound at all.
 
 ## To, too, and two
 
@@ -67,7 +67,7 @@ Homophones are words that sound exactly alike but have different spellings and d
 
 **Guessing from what "looks right."** Because every spelling in the set sounds identical, there's no shortcut — the sentence's meaning has to be checked directly.
 
-**Treating homophones and commonly confused words as the same problem.** Homophones are confused purely because of shared sound. [Commonly Confused Words](/spelling-lists/grade-level/commonly-confused-words/) covers pairs confused for other reasons, and some of those pairs don't sound alike at all.
+**Treating homophones and commonly confused words as the same problem.** Homophones are confused purely because of shared sound. [Commonly Confused Words](/skills/commonly-confused-words) covers pairs confused for other reasons, and some of those pairs don't sound alike at all.
 
 ## Practice: editing for meaning
 

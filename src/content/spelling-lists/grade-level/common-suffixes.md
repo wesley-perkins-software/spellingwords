@@ -37,7 +37,7 @@ words:
 
 A suffix is a meaningful word part added after a base word. Knowing the suffix helps a learner see how the parts contribute to the whole word. This page distinguishes suffixes that derive new words, such as *-ful, -less, -ness,* and *-ment*, from the inflectional comparison endings *-er* and *-est*.
 
-It focuses on what the suffixes mean or do. If the base spelling changes before an ending, use [Spelling Rules for Adding Suffixes](/spelling-lists/grade-level/suffix-spelling-changes/) rather than trying to learn that mechanical change as a suffix meaning.
+It focuses on what the suffixes mean or do. If the base spelling changes before an ending, use [Spelling Rules for Adding Suffixes](/skills/suffix-spelling-changes) rather than trying to learn that mechanical change as a suffix meaning.
 
 ## Suffixes that build new words
 

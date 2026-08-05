@@ -1,6 +1,6 @@
 # Public URL Architecture
 
-**Status:** approved and implemented for canonical K–5 grade curriculum pages.
+**Status:** approved and implemented for canonical K–5 grade curriculum pages and canonical Skill pages. These are the site's original launch URLs — spellingwords.app is pre-launch, so there is no established public site whose old URLs need to be preserved.
 
 ## Canonical K–5 grade curriculum rule
 
@@ -20,7 +20,22 @@ Approved grade slugs are exactly:
 - `/4th-grade`
 - `/5th-grade`
 
-The canonical page resolver is `src/lib/content/canonicalGradeRoutes.ts`. It is the sole runtime source of truth for canonical K–5 grade curriculum paths. Stable content `id`, not source folder, `category`, filename, or historical `urlSlug`, determines whether a page belongs to the grade-first architecture.
+The canonical page resolver is `src/lib/content/canonicalGradeRoutes.ts`. It is the sole runtime source of truth for canonical K–5 grade curriculum paths. Stable content `id`, not source folder, `category`, filename, or frontmatter `urlSlug`, determines whether a page belongs to the grade-first architecture.
+
+## Canonical Skill rule
+
+The 41 canonical Skill pages (see `docs/architecture/SKILLS_ARCHITECTURE.md`) use a flat, grade-independent, no-trailing-slash URL structure:
+
+```text
+/skills
+/skills/{skill-slug}
+```
+
+`/skills` is the Skills Hub — a first-class top-level public journey ("I know what we need to practice," `CONSTITUTION.md` §3.3), parallel to the grade-first journey, not a child of `/spelling-lists`.
+
+The canonical page resolver is `src/lib/content/canonicalSkillRoutes.ts`. It is the sole runtime source of truth for canonical Skill paths: an explicit stable-id-keyed manifest, not derived from source folder, category, filename, or frontmatter `urlSlug`. Frontmatter `urlSlug` is a separate, unrelated field — it is not read by this manifest and is not changed by it. Where the two differ (14 of the 41 Skills), the manifest's `finalSlug` is the only public routing decision; the frontmatter value is bookkeeping for the content file itself. See `docs/content/inventory/skill-pages.md`'s `Canonical public path` column for the full cross-reference.
+
+The legacy `/spelling-lists/{category}/{urlSlug}` route excludes a page from static generation only by stable-id membership in `canonicalGradeRoutes` or `canonicalSkillRoutes` — never by category, folder, `contentRole`, grade, or slug prefix. Content intentionally retained under `/spelling-lists/...` is inventoried explicitly in `docs/content/inventory/retained-spelling-lists-pages.md`.
 
 ## Section policy
 
@@ -48,16 +63,18 @@ There is no standalone Common Words / High-Frequency Words gateway page under th
 /{grade}/high-frequency-words-3
 ```
 
-Gateway collection content was dispositioned into Grade Hub High-Frequency Words section context and the old gateway URLs permanently redirect to the corresponding Grade Hub.
+The Grade Hub itself is the entry point for a grade's High-Frequency Words sets; the corresponding `spelling-collections` gateway entry is intentionally excluded from static generation, so its old repository-shaped path 404s.
 
 ## Trailing slash convention
 
-The project canonical convention is **no trailing slash** for manifest paths, Grade Hub paths, internal links, redirect destinations, canonical tags, breadcrumb JSON-LD, and sitemap entries.
+The project canonical convention is **no trailing slash** for every path except `/` itself — manifest paths, internal links, canonical tags, og:url, breadcrumb JSON-LD, and sitemap entries. This is enforced centrally in `astro.config.mjs` (`trailingSlash: 'never'`, `build.format: 'file'`), not by per-page string trimming, since `Astro.url.pathname` (which both `Layout.astro`'s canonical/og:url and each detail template's breadcrumb JSON-LD derive from) otherwise inherits Astro's directory-format trailing slash regardless of what a route manifest says.
 
-## Redirects
+## No redirects, pre-launch
 
-Historical canonical K–5 curriculum URLs under `/spelling-lists/{category}/{urlSlug}` and historical Grade Hub URLs under `/spelling-lists/{grade}` permanently redirect directly to their grade-first canonical paths. Redirects are configured in `netlify.toml` and verified against `src/lib/content/canonicalGradeRoutes.ts` by tests.
+Because the site has never launched, old repository-shaped URLs for migrated grade-curriculum pages, migrated Skill pages, and removed Common Words gateway collection pages are simply not generated — they return 404, not a redirect. There is no historical traffic, backlink, or search-index history to preserve. `netlify.toml` carries no migration-oriented redirects.
 
-## Migration inventory
+## Reference inventories
 
-The human-readable migration map is `docs/content/inventory/grade-url-migration-map.md`. It is generated from `src/lib/content/canonicalGradeRoutes.ts` plus current content frontmatter and is tested for manifest synchronization.
+- `docs/content/inventory/grade-url-migration-map.md` — canonical path reference for the 104 grade-curriculum pages, generated from `src/lib/content/canonicalGradeRoutes.ts`.
+- `docs/content/inventory/skill-pages.md` — per-Skill id/title/frontmatter-urlSlug/canonical-public-path cross-reference.
+- `docs/content/inventory/retained-spelling-lists-pages.md` — the explicit, reviewable inventory of every published `spelling-lists` entry intentionally remaining under `/spelling-lists/...`.

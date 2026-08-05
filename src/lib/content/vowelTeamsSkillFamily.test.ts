@@ -25,7 +25,7 @@ import {
 import { getSentenceBankEntry, getSentenceForWord } from '@/lib/sentenceBank';
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
-const skillsIndexRoutePath = join(process.cwd(), 'src/pages/spelling-lists/skills/index.astro');
+const skillsIndexRoutePath = join(process.cwd(), 'src/pages/skills/index.astro');
 const gatewayPath = join(contentRoot, 'phonics/grade-1-vowel-team-practice.md');
 
 const VOWEL_TEAM_SKILL_IDS = [
@@ -360,9 +360,9 @@ describe('Vowel Teams Skill Family', () => {
     }
 
     const gateway = readFileSync(gatewayPath, 'utf8');
-    expect(gateway).toContain('/spelling-lists/phonics/vowel-teams-ai-ay');
-    expect(gateway).toContain('/spelling-lists/phonics/vowel-teams-ee-ea');
-    expect(gateway).toContain('/spelling-lists/phonics/vowel-teams-oa-ow');
+    expect(gateway).toContain('/skills/ai-ay-vowel-teams');
+    expect(gateway).toContain('/skills/ee-ea-vowel-teams');
+    expect(gateway).toContain('/skills/oa-ow-vowel-teams');
     expect(gateway).not.toContain('/2nd-grade/vowel-teams-oi-oy');
     expect(gateway).not.toContain('/2nd-grade/vowel-teams-ou-ow');
   });

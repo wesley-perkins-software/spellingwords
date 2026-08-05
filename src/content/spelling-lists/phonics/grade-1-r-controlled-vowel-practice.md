@@ -59,9 +59,9 @@ Use this page after students have encountered the related core lesson: [R-Contro
 
 ## Choose a targeted practice page
 
-- [R-Controlled AR Words](/spelling-lists/phonics/r-controlled-ar)
-- [R-Controlled OR Words](/spelling-lists/phonics/r-controlled-or)
-- [R-Controlled ER, IR, and UR Words](/spelling-lists/phonics/r-controlled-er-ir-ur)
+- [R-Controlled AR Words](/skills/r-controlled-ar-words)
+- [R-Controlled OR Words](/skills/r-controlled-or-words)
+- [R-Controlled ER, IR, and UR Words](/skills/r-controlled-er-ir-ur-words)
 
 ## How parents can practice at home
 

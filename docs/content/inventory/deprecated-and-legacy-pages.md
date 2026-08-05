@@ -128,17 +128,17 @@ Standalone "practice" or "review" pages not referenced by any Grade Hub card —
 
 ## Archived-status pages (7)
 
-`status: archived` excludes every row below from `getStaticPaths()`, so no standalone content page is emitted for any of them. Some former URLs are wired to a permanent redirect in `netlify.toml` (noted per row); rows without a noted redirect have no redirect configured and 404 at their old URL.
+`status: archived` excludes every row below from `getStaticPaths()`, so no standalone content page is emitted for any of them. The site is pre-launch, so there is no historical traffic to preserve — every row's former URL simply 404s; `netlify.toml` carries no redirects for any of them.
 
 | Title | id | Source file | Former URL status |
 |---|---|---|---|
-| Kindergarten Describing Words | kindergarten-describing-words | `src/content/spelling-lists/grade-level/kindergarten-describing-words.md` | Redirects (301) to `/kindergarten` |
-| Kindergarten Feelings Words | kindergarten-feelings-words | `src/content/spelling-lists/grade-level/kindergarten-feelings-words.md` | Redirects (301) to `/kindergarten` |
-| Kindergarten Food Words | kindergarten-food-words | `src/content/spelling-lists/grade-level/kindergarten-food-words.md` | Redirects (301) to `/kindergarten` |
-| Kindergarten School Words | kindergarten-school-words | `src/content/spelling-lists/grade-level/kindergarten-school-words.md` | Redirects (301) to `/kindergarten` |
-| Kindergarten Shape Words | kindergarten-shape-words | `src/content/spelling-lists/grade-level/kindergarten-shape-words.md` | Redirects (301) to `/kindergarten` |
-| Short Vowels: CVC Words | short-vowels-cvc-words | `src/content/spelling-lists/phonics/short-vowels-cvc-words.md` | Retired umbrella/family artifact, superseded by the five focused Short Vowel Skills; no redirect configured |
-| Long E Silent E Words | silent-e-long-e | `src/content/spelling-lists/phonics/silent-e-long-e.md` | Redirects (301) to `/spelling-lists/skills/#silent-e-family` (the canonical Silent E family overview on the Skills Hub, per `docs/architecture/SKILLS_ARCHITECTURE.md` §5) |
+| Kindergarten Describing Words | kindergarten-describing-words | `src/content/spelling-lists/grade-level/kindergarten-describing-words.md` | Not generated; 404 |
+| Kindergarten Feelings Words | kindergarten-feelings-words | `src/content/spelling-lists/grade-level/kindergarten-feelings-words.md` | Not generated; 404 |
+| Kindergarten Food Words | kindergarten-food-words | `src/content/spelling-lists/grade-level/kindergarten-food-words.md` | Not generated; 404 |
+| Kindergarten School Words | kindergarten-school-words | `src/content/spelling-lists/grade-level/kindergarten-school-words.md` | Not generated; 404 |
+| Kindergarten Shape Words | kindergarten-shape-words | `src/content/spelling-lists/grade-level/kindergarten-shape-words.md` | Not generated; 404 |
+| Short Vowels: CVC Words | short-vowels-cvc-words | `src/content/spelling-lists/phonics/short-vowels-cvc-words.md` | Retired umbrella/family artifact, superseded by the five focused Short Vowel Skills; not generated, 404 |
+| Long E Silent E Words | silent-e-long-e | `src/content/spelling-lists/phonics/silent-e-long-e.md` | Not generated; 404. Content folded into the Silent E family overview at `/skills#silent-e-family` (per `docs/architecture/SKILLS_ARCHITECTURE.md` §5) |
 
 ---
 **Total: 82 pages classified deprecated/legacy**, none of them in the active editorial scope defined by `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. If a future product decision brings any of these back into the canonical architecture (for example, formally deciding the Dolch tier's long-term relationship to the Common Words system), move its row into the appropriate active inventory file at that time and record the decision per the roadmap's §15 maintenance rule — do not silently start editing it first.

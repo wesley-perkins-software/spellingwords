@@ -1,4 +1,6 @@
-export const SPELLING_SKILLS_INDEX_PATH = '/spelling-lists/skills/';
+import { SKILLS_INDEX_PATH, getCanonicalSkillPathById } from './canonicalSkillRoutes';
+
+export { SKILLS_INDEX_PATH };
 
 export const SHORT_VOWELS_AND_CVC_SKILL_FAMILY = {
   title: 'Short Vowels',
@@ -48,20 +50,17 @@ export const COMMON_SPELLING_PATTERNS_SKILL_FAMILY = {
 
 /**
  * Stable anchor id for the Silent E family section on the Skills Hub
- * (`/spelling-lists/skills/`). Declared explicitly, rather than computed from
- * `family.title` at render time, so it can be depended on by a permanent
- * redirect (see `netlify.toml`) without drifting silently if the title copy
- * ever changes.
+ * (`/skills`). Declared explicitly, rather than computed from `family.title`
+ * at render time, so it can't drift silently if the title copy ever changes.
  */
 export const SILENT_E_FAMILY_ANCHOR_ID = 'silent-e-family';
 
 /**
  * Canonical destination for the retired `silent-e-long-e` Skill page's
- * permanent redirect (see `netlify.toml`). Derived from
- * `SILENT_E_FAMILY_ANCHOR_ID` so the two can't drift apart, and asserted
- * against the redirect config in tests.
+ * content — folded into this family anchor. Derived from
+ * `SILENT_E_FAMILY_ANCHOR_ID` so the two can't drift apart.
  */
-export const SILENT_E_FAMILY_URL = `${SPELLING_SKILLS_INDEX_PATH}#${SILENT_E_FAMILY_ANCHOR_ID}`;
+export const SILENT_E_FAMILY_URL = `${SKILLS_INDEX_PATH}#${SILENT_E_FAMILY_ANCHOR_ID}`;
 
 /**
  * A small, independently-curated subset of one-syllable words from the
@@ -194,8 +193,11 @@ export function isCuratedSpellingSkillId(id: string): id is CuratedSpellingSkill
   return (CURATED_SPELLING_SKILL_IDS as readonly string[]).includes(id);
 }
 
-export function getSpellingSkillPath(entry: { data: { category: string; urlSlug: string } }): string {
-  return `/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`;
+export function getSpellingSkillPath(entry: { data: { id: string; category: string; urlSlug: string } }): string {
+  return (
+    getCanonicalSkillPathById(entry.data.id) ??
+    `/spelling-lists/${entry.data.category}/${entry.data.urlSlug}`
+  );
 }
 
 export function resolveCuratedSkillFamilyEntries<T extends { data: { id: string } }>(

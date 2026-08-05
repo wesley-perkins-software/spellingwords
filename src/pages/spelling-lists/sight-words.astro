@@ -1,13 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import { getCanonicalUrl } from '@/lib/canonicalUrl';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import SpellingListCard from '@/components/SpellingListCard.astro';
 import { isPublished, getMemberListIds } from '@/lib/content/spellingLists';
 import { getGradesWithLists } from '@/lib/content/gradeConfig';
-import { COMMON_WORDS_GATEWAY_REDIRECTS, getCanonicalListPath } from '@/lib/content/canonicalGradeRoutes';
+import { GATEWAY_COLLECTION_IDS, getCanonicalListPath } from '@/lib/content/canonicalGradeRoutes';
 
 const allCollections = (await getCollection('spelling-collections')).filter(
   (c) => c.data.status === 'published',
@@ -15,7 +16,7 @@ const allCollections = (await getCollection('spelling-collections')).filter(
 const memberIds = getMemberListIds(allCollections);
 const entries = (await getCollection('spelling-lists')).filter(isPublished);
 
-const commonWordsGatewayIds = new Set(COMMON_WORDS_GATEWAY_REDIRECTS.map((redirect) => redirect.id));
+const commonWordsGatewayIds = new Set(GATEWAY_COLLECTION_IDS);
 const sightWordCollections = allCollections.filter((c) => c.data.category === 'sight-words' && !commonWordsGatewayIds.has(c.data.id));
 const sightWordLists = entries
   .filter((e) => e.data.category === 'sight-words' && !memberIds.has(e.data.id))
@@ -34,7 +35,7 @@ const breadcrumbItems = [
   { label: 'Sight Words' },
 ];
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://spellingwords.app');
+const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
 
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',

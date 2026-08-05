@@ -37,7 +37,7 @@ words:
   - then
 ---
 
-Commonly confused words are pairs that get mixed up in writing for reasons beyond sound — similar spelling, similar meaning, or similar usage — not because they necessarily sound alike. This is different from [Homophones](/spelling-lists/grade-level/homophones/), a related skill for words that sound *exactly* the same and are confused purely because of that shared sound. Some commonly confused pairs, like *principal* and *principle*, happen to be true homophones too; others, like *than* and *then*, don't sound alike at all. Either way, the fix is the same: check the word's meaning and its job in the sentence, not its sound.
+Commonly confused words are pairs that get mixed up in writing for reasons beyond sound — similar spelling, similar meaning, or similar usage — not because they necessarily sound alike. This is different from [Homophones](/skills/homophones), a related skill for words that sound *exactly* the same and are confused purely because of that shared sound. Some commonly confused pairs, like *principal* and *principle*, happen to be true homophones too; others, like *than* and *then*, don't sound alike at all. Either way, the fix is the same: check the word's meaning and its job in the sentence, not its sound.
 
 ## Affect and effect
 
@@ -93,7 +93,7 @@ Commonly confused words are pairs that get mixed up in writing for reasons beyon
 
 **Trusting spell-check.** Every word in these pairs is a real, correctly spelled word, so a spelling checker won't catch a mix-up — only checking meaning will.
 
-**Treating this the same as homophone practice.** Not every commonly confused pair sounds alike, so a sound-based trick won't always work. [Homophones](/spelling-lists/grade-level/homophones/) covers the pairs that are confused purely by sound.
+**Treating this the same as homophone practice.** Not every commonly confused pair sounds alike, so a sound-based trick won't always work. [Homophones](/skills/homophones) covers the pairs that are confused purely by sound.
 
 ## Practice: editing for meaning
 

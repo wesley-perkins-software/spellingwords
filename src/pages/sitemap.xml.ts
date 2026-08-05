@@ -2,6 +2,7 @@ import { getCollection } from 'astro:content';
 import { getCanonicalGradeRoutes, getCanonicalListPath, getGradeHubPath, isCanonicalGradeCurriculumId, COMMON_WORDS_GATEWAY_REDIRECTS } from '@/lib/content/canonicalGradeRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 import { isPublished } from '@/lib/content/spellingLists';
+import { LEARNING_PATHS } from '@/lib/content/learningPaths';
 
 const SITE = 'https://spellingwords.app';
 
@@ -25,6 +26,7 @@ export async function GET() {
     '/spelling-lists/skills',
     ...gradeConfig.map((grade) => getGradeHubPath(grade.grade)),
     ...getCanonicalGradeRoutes().map((route) => route.canonicalPath),
+    ...LEARNING_PATHS.map((path) => `/learning-paths/${path.id}`),
     ...lists.filter((entry) => !isCanonicalGradeCurriculumId(entry.data.id)).map((entry) => getCanonicalListPath(entry.data)),
     ...collections
       .filter((collection) => !gatewayIds.has(collection.data.id))

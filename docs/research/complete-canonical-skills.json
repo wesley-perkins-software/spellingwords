@@ -1,0 +1,842 @@
+[
+  {
+    "family": "Short Vowels",
+    "familyOrder": 1,
+    "skillOrder": 1,
+    "id": "short-a-words",
+    "title": "Short A Words",
+    "canonicalUrl": "/skills/short-a-words",
+    "words": [
+      "cat",
+      "pan",
+      "mad",
+      "sad",
+      "ran"
+    ],
+    "gradeUnitIds": [
+      "kindergarten-short-a-words"
+    ]
+  },
+  {
+    "family": "Short Vowels",
+    "familyOrder": 1,
+    "skillOrder": 2,
+    "id": "short-e-words",
+    "title": "Short E Words",
+    "canonicalUrl": "/skills/short-e-words",
+    "words": [
+      "bed",
+      "hen",
+      "pet",
+      "leg",
+      "wet"
+    ],
+    "gradeUnitIds": [
+      "kindergarten-short-e-words"
+    ]
+  },
+  {
+    "family": "Short Vowels",
+    "familyOrder": 1,
+    "skillOrder": 3,
+    "id": "short-i-words",
+    "title": "Short I Words",
+    "canonicalUrl": "/skills/short-i-words",
+    "words": [
+      "pig",
+      "sit",
+      "win",
+      "fish",
+      "hill"
+    ],
+    "gradeUnitIds": [
+      "kindergarten-short-i-words"
+    ]
+  },
+  {
+    "family": "Short Vowels",
+    "familyOrder": 1,
+    "skillOrder": 4,
+    "id": "short-o-words",
+    "title": "Short O Words",
+    "canonicalUrl": "/skills/short-o-words",
+    "words": [
+      "hot",
+      "dog",
+      "rock",
+      "pond",
+      "moth"
+    ],
+    "gradeUnitIds": [
+      "kindergarten-short-o-words"
+    ]
+  },
+  {
+    "family": "Short Vowels",
+    "familyOrder": 1,
+    "skillOrder": 5,
+    "id": "short-u-words",
+    "title": "Short U Words",
+    "canonicalUrl": "/skills/short-u-words",
+    "words": [
+      "cup",
+      "bug",
+      "drum",
+      "trust",
+      "dust"
+    ],
+    "gradeUnitIds": [
+      "kindergarten-short-u-words"
+    ]
+  },
+  {
+    "family": "Consonant Digraphs",
+    "familyOrder": 2,
+    "skillOrder": 1,
+    "id": "digraph-ch-words",
+    "title": "CH Digraph Words",
+    "canonicalUrl": "/skills/ch-digraph-words",
+    "words": [
+      "chin",
+      "chip",
+      "chop",
+      "lunch",
+      "much",
+      "rich"
+    ],
+    "gradeUnitIds": [
+      "kindergarten-consonant-digraphs",
+      "grade-1-consonant-digraphs-final-ck"
+    ]
+  },
+  {
+    "family": "Consonant Digraphs",
+    "familyOrder": 2,
+    "skillOrder": 2,
+    "id": "digraph-sh-words",
+    "title": "SH Digraph Words",
+    "canonicalUrl": "/skills/sh-digraph-words",
+    "words": [
+      "ship",
+      "shop",
+      "shut",
+      "wish",
+      "brush",
+      "dish"
+    ],
+    "gradeUnitIds": [
+      "kindergarten-consonant-digraphs",
+      "grade-1-consonant-digraphs-final-ck"
+    ]
+  },
+  {
+    "family": "Consonant Digraphs",
+    "familyOrder": 2,
+    "skillOrder": 3,
+    "id": "digraph-th-words",
+    "title": "TH Digraph Words",
+    "canonicalUrl": "/skills/th-digraph-words",
+    "words": [
+      "that",
+      "this",
+      "them",
+      "think",
+      "math",
+      "bath"
+    ],
+    "gradeUnitIds": [
+      "kindergarten-consonant-digraphs",
+      "grade-1-consonant-digraphs-final-ck"
+    ]
+  },
+  {
+    "family": "Consonant Digraphs",
+    "familyOrder": 2,
+    "skillOrder": 4,
+    "id": "digraph-wh-words",
+    "title": "WH Digraph Words",
+    "canonicalUrl": "/skills/wh-digraph-words",
+    "words": [
+      "what",
+      "when",
+      "where",
+      "whip",
+      "while",
+      "who"
+    ],
+    "gradeUnitIds": [
+      "grade-1-consonant-digraphs-final-ck"
+    ]
+  },
+  {
+    "family": "Consonant Blends",
+    "familyOrder": 3,
+    "skillOrder": 1,
+    "id": "beginning-blends",
+    "title": "Beginning Blends",
+    "canonicalUrl": "/skills/beginning-blends",
+    "words": [
+      "clap",
+      "plum",
+      "grab",
+      "crab",
+      "stop",
+      "swim"
+    ],
+    "gradeUnitIds": [
+      "grade-1-beginning-consonant-blends"
+    ]
+  },
+  {
+    "family": "Consonant Blends",
+    "familyOrder": 3,
+    "skillOrder": 2,
+    "id": "ending-blends",
+    "title": "Ending Blends",
+    "canonicalUrl": "/skills/ending-blends",
+    "words": [
+      "hand",
+      "jump",
+      "milk",
+      "belt",
+      "desk",
+      "gift"
+    ],
+    "gradeUnitIds": [
+      "grade-1-ending-consonant-blends"
+    ]
+  },
+  {
+    "family": "Common Spelling Patterns",
+    "familyOrder": 4,
+    "skillOrder": 1,
+    "id": "ck-tch-dge-word-endings",
+    "title": "CK, Double Letters, and TCH/DGE Word Endings",
+    "canonicalUrl": "/skills/ck-tch-dge-word-endings",
+    "words": [
+      "back",
+      "duck",
+      "bell",
+      "moss",
+      "cliff",
+      "buzz",
+      "catch",
+      "pitch",
+      "badge",
+      "bridge"
+    ],
+    "gradeUnitIds": [
+      "grade-1-floss-rule",
+      "grade-1-consonant-digraphs-final-ck",
+      "grade-1-tch-dge-ending-rules"
+    ]
+  },
+  {
+    "family": "Common Spelling Patterns",
+    "familyOrder": 4,
+    "skillOrder": 2,
+    "id": "silent-letters",
+    "title": "Silent Letters",
+    "canonicalUrl": "/skills/silent-letters",
+    "words": [
+      "write",
+      "wrap",
+      "wrist",
+      "know",
+      "knee",
+      "knot",
+      "thumb",
+      "lamb",
+      "crumb"
+    ],
+    "gradeUnitIds": [
+      "grade-2-silent-letter-words"
+    ]
+  },
+  {
+    "family": "Common Spelling Patterns",
+    "familyOrder": 4,
+    "skillOrder": 3,
+    "id": "soft-c-soft-g",
+    "title": "Soft C and Soft G",
+    "canonicalUrl": "/skills/soft-c-soft-g",
+    "words": [
+      "city",
+      "ice",
+      "icy",
+      "giant",
+      "page",
+      "gym"
+    ],
+    "gradeUnitIds": [
+      "grade-2-soft-c-soft-g"
+    ]
+  },
+  {
+    "family": "Silent E",
+    "familyOrder": 5,
+    "skillOrder": 1,
+    "id": "silent-e-long-a",
+    "title": "Long A Silent E Words",
+    "canonicalUrl": "/skills/long-a-silent-e",
+    "words": [
+      "cake",
+      "gate",
+      "name",
+      "plate",
+      "shape"
+    ],
+    "gradeUnitIds": [
+      "grade-1-long-vowels-silent-e"
+    ]
+  },
+  {
+    "family": "Silent E",
+    "familyOrder": 5,
+    "skillOrder": 2,
+    "id": "silent-e-long-i",
+    "title": "Long I Silent E Words",
+    "canonicalUrl": "/skills/long-i-silent-e",
+    "words": [
+      "bike",
+      "time",
+      "hive",
+      "smile",
+      "shine"
+    ],
+    "gradeUnitIds": [
+      "grade-1-long-vowels-silent-e"
+    ]
+  },
+  {
+    "family": "Silent E",
+    "familyOrder": 5,
+    "skillOrder": 3,
+    "id": "silent-e-long-o",
+    "title": "Long O Silent E Words",
+    "canonicalUrl": "/skills/long-o-silent-e",
+    "words": [
+      "home",
+      "hope",
+      "note",
+      "stone",
+      "chose"
+    ],
+    "gradeUnitIds": [
+      "grade-1-long-vowels-silent-e"
+    ]
+  },
+  {
+    "family": "Silent E",
+    "familyOrder": 5,
+    "skillOrder": 4,
+    "id": "silent-e-long-u",
+    "title": "Long U Silent E Words",
+    "canonicalUrl": "/skills/long-u-silent-e",
+    "words": [
+      "cube",
+      "cute",
+      "huge",
+      "mule",
+      "rule",
+      "flute"
+    ],
+    "gradeUnitIds": [
+      "grade-1-long-vowels-silent-e"
+    ]
+  },
+  {
+    "family": "Vowel Teams",
+    "familyOrder": 6,
+    "skillOrder": 1,
+    "id": "vowel-teams-ai-ay",
+    "title": "AI and AY Words",
+    "canonicalUrl": "/skills/ai-ay-vowel-teams",
+    "words": [
+      "chain",
+      "day",
+      "mail",
+      "nail",
+      "paint",
+      "play",
+      "rain",
+      "snail",
+      "stay",
+      "train",
+      "wait",
+      "way"
+    ],
+    "gradeUnitIds": [
+      "grade-1-long-a-long-o-vowel-teams"
+    ]
+  },
+  {
+    "family": "Vowel Teams",
+    "familyOrder": 6,
+    "skillOrder": 2,
+    "id": "vowel-teams-ee-ea",
+    "title": "EE and EA Words",
+    "canonicalUrl": "/skills/ee-ea-vowel-teams",
+    "words": [
+      "beach",
+      "bee",
+      "clean",
+      "eat",
+      "feel",
+      "feet",
+      "free",
+      "heat",
+      "keep",
+      "need",
+      "sleep",
+      "tree"
+    ],
+    "gradeUnitIds": []
+  },
+  {
+    "family": "Vowel Teams",
+    "familyOrder": 6,
+    "skillOrder": 3,
+    "id": "vowel-teams-oa-ow",
+    "title": "OA and OW Words",
+    "canonicalUrl": "/skills/oa-ow-vowel-teams",
+    "words": [
+      "blow",
+      "boat",
+      "coat",
+      "crow",
+      "flow",
+      "goat",
+      "know",
+      "road",
+      "snow",
+      "soap"
+    ],
+    "gradeUnitIds": [
+      "grade-1-long-a-long-o-vowel-teams"
+    ]
+  },
+  {
+    "family": "Vowel Teams",
+    "familyOrder": 6,
+    "skillOrder": 4,
+    "id": "oi-and-oy-words",
+    "title": "OI and OY Words",
+    "canonicalUrl": "/skills/oi-and-oy-words",
+    "words": [
+      "oil",
+      "coin",
+      "point",
+      "voice",
+      "noise",
+      "boy",
+      "joy",
+      "enjoy",
+      "royal",
+      "loyal"
+    ],
+    "gradeUnitIds": [
+      "vowel-teams-oi-oy"
+    ]
+  },
+  {
+    "family": "Vowel Teams",
+    "familyOrder": 6,
+    "skillOrder": 5,
+    "id": "ou-and-ow-words",
+    "title": "OU and OW Words",
+    "canonicalUrl": "/skills/ou-and-ow-words",
+    "words": [
+      "out",
+      "loud",
+      "found",
+      "round",
+      "sound",
+      "ground",
+      "cow",
+      "brown",
+      "down",
+      "now"
+    ],
+    "gradeUnitIds": [
+      "vowel-teams-ou-ow"
+    ]
+  },
+  {
+    "family": "Vowel Teams",
+    "familyOrder": 6,
+    "skillOrder": 6,
+    "id": "ie-and-igh-words",
+    "title": "IE and IGH Words",
+    "canonicalUrl": "/skills/ie-and-igh-words",
+    "words": [
+      "pie",
+      "tie",
+      "high",
+      "night",
+      "light",
+      "right",
+      "sight",
+      "bright"
+    ],
+    "gradeUnitIds": []
+  },
+  {
+    "family": "Vowel Teams",
+    "familyOrder": 6,
+    "skillOrder": 7,
+    "id": "oo-words",
+    "title": "OO Words",
+    "canonicalUrl": "/skills/oo-words",
+    "words": [
+      "moon",
+      "food",
+      "zoo",
+      "spoon",
+      "book",
+      "look",
+      "foot",
+      "good"
+    ],
+    "gradeUnitIds": [
+      "grade-2-oo-two-sounds"
+    ]
+  },
+  {
+    "family": "Vowel Teams",
+    "familyOrder": 6,
+    "skillOrder": 8,
+    "id": "au-and-aw-words",
+    "title": "AU and AW Words",
+    "canonicalUrl": "/skills/au-and-aw-words",
+    "words": [
+      "saw",
+      "draw",
+      "lawn",
+      "crawl",
+      "hawk",
+      "cause",
+      "author",
+      "haul"
+    ],
+    "gradeUnitIds": [
+      "grade-2-au-aw-words"
+    ]
+  },
+  {
+    "family": "R-Controlled Vowels",
+    "familyOrder": 7,
+    "skillOrder": 1,
+    "id": "r-controlled-ar",
+    "title": "R-Controlled AR Words",
+    "canonicalUrl": "/skills/r-controlled-ar-words",
+    "words": [
+      "art",
+      "car",
+      "dark",
+      "farm",
+      "hard",
+      "park",
+      "sharp",
+      "yard"
+    ],
+    "gradeUnitIds": [
+      "grade-1-r-controlled-ar-or",
+      "grade-2-two-syllable-words"
+    ]
+  },
+  {
+    "family": "R-Controlled Vowels",
+    "familyOrder": 7,
+    "skillOrder": 2,
+    "id": "r-controlled-or",
+    "title": "R-Controlled OR Words",
+    "canonicalUrl": "/skills/r-controlled-or-words",
+    "words": [
+      "corn",
+      "for",
+      "form",
+      "horse",
+      "morning",
+      "north",
+      "short",
+      "story"
+    ],
+    "gradeUnitIds": [
+      "grade-1-r-controlled-ar-or",
+      "grade-2-two-syllable-words"
+    ]
+  },
+  {
+    "family": "R-Controlled Vowels",
+    "familyOrder": 7,
+    "skillOrder": 3,
+    "id": "r-controlled-er-ir-ur",
+    "title": "R-Controlled ER, IR, and UR Words",
+    "canonicalUrl": "/skills/r-controlled-er-ir-ur-words",
+    "words": [
+      "bird",
+      "first",
+      "girl",
+      "her",
+      "hurt",
+      "sister",
+      "turn",
+      "turtle",
+      "under",
+      "winter"
+    ],
+    "gradeUnitIds": [
+      "grade-2-two-syllable-words"
+    ]
+  },
+  {
+    "family": "Multisyllabic Words",
+    "familyOrder": 8,
+    "skillOrder": 1,
+    "id": "multisyllabic-words",
+    "title": "Multisyllabic Words",
+    "canonicalUrl": "/skills/multisyllabic-words",
+    "words": [
+      "rabbit",
+      "basket",
+      "robot",
+      "paper",
+      "winter",
+      "little",
+      "table",
+      "sunset"
+    ],
+    "gradeUnitIds": [
+      "grade-1-open-syllables-final-y",
+      "grade-2-two-syllable-words",
+      "grade-2-final-stable-le",
+      "grade-3-multisyllabic-words",
+      "grade-4-multisyllabic-academic-words",
+      "grade-5-multisyllabic-academic-words"
+    ]
+  },
+  {
+    "family": "Word Building and Endings",
+    "familyOrder": 9,
+    "skillOrder": 1,
+    "id": "plurals",
+    "title": "Plural Words with -s and -es",
+    "canonicalUrl": "/skills/plurals",
+    "words": [
+      "cats",
+      "dogs",
+      "books",
+      "buses",
+      "boxes",
+      "dishes",
+      "lunches"
+    ],
+    "gradeUnitIds": [
+      "grade-1-inflectional-endings-s-es"
+    ]
+  },
+  {
+    "family": "Word Building and Endings",
+    "familyOrder": 9,
+    "skillOrder": 2,
+    "id": "ed-and-ing",
+    "title": "Words Ending in -ed and -ing",
+    "canonicalUrl": "/skills/ed-and-ing",
+    "words": [
+      "jumped",
+      "jumping",
+      "helped",
+      "helping",
+      "played",
+      "playing",
+      "rested",
+      "resting"
+    ],
+    "gradeUnitIds": [
+      "grade-1-inflectional-endings-ed-ing"
+    ]
+  },
+  {
+    "family": "Word Building and Endings",
+    "familyOrder": 9,
+    "skillOrder": 3,
+    "id": "common-suffixes",
+    "title": "Common Suffixes",
+    "canonicalUrl": "/skills/common-suffixes",
+    "words": [
+      "helpful",
+      "careless",
+      "kindness",
+      "enjoyment",
+      "faster",
+      "fastest"
+    ],
+    "gradeUnitIds": [
+      "grade-3-suffix-words"
+    ]
+  },
+  {
+    "family": "Word Building and Endings",
+    "familyOrder": 9,
+    "skillOrder": 4,
+    "id": "suffix-spelling-changes",
+    "title": "Spelling Rules for Adding Suffixes",
+    "canonicalUrl": "/skills/suffix-spelling-changes",
+    "words": [
+      "running",
+      "stopped",
+      "making",
+      "hopeful",
+      "carried",
+      "carrying"
+    ],
+    "gradeUnitIds": [
+      "grade-3-dropping-silent-e"
+    ]
+  },
+  {
+    "family": "Word Building and Endings",
+    "familyOrder": 9,
+    "skillOrder": 5,
+    "id": "compound-words",
+    "title": "Compound Words",
+    "canonicalUrl": "/skills/compound-words",
+    "words": [
+      "sunshine",
+      "backpack",
+      "notebook",
+      "snowman",
+      "sunset",
+      "toothbrush"
+    ],
+    "gradeUnitIds": [
+      "grade-2-list-02"
+    ]
+  },
+  {
+    "family": "Word Building and Endings",
+    "familyOrder": 9,
+    "skillOrder": 6,
+    "id": "contractions",
+    "title": "Contractions",
+    "canonicalUrl": "/skills/contractions",
+    "words": [
+      "can't",
+      "don't",
+      "didn't",
+      "I'm",
+      "I'll",
+      "she's",
+      "won't"
+    ],
+    "gradeUnitIds": [
+      "grade-2-contractions"
+    ]
+  },
+  {
+    "family": "Prefixes",
+    "familyOrder": 10,
+    "skillOrder": 1,
+    "id": "un-and-re-prefixes",
+    "title": "Un- and Re- Prefixes",
+    "canonicalUrl": "/skills/un-and-re-prefixes",
+    "words": [
+      "unfair",
+      "unhappy",
+      "unlock",
+      "redo",
+      "reread",
+      "retell"
+    ],
+    "gradeUnitIds": []
+  },
+  {
+    "family": "Prefixes",
+    "familyOrder": 10,
+    "skillOrder": 2,
+    "id": "common-prefixes",
+    "title": "Common Prefixes",
+    "canonicalUrl": "/skills/common-prefixes",
+    "words": [
+      "disagree",
+      "predict",
+      "misread",
+      "interact",
+      "submarine",
+      "superstar",
+      "transport",
+      "antifreeze"
+    ],
+    "gradeUnitIds": [
+      "grade-3-prefix-words",
+      "grade-4-advanced-prefixes",
+      "grade-5-prefix-suffix-words"
+    ]
+  },
+  {
+    "family": "Greek and Latin Roots",
+    "familyOrder": 11,
+    "skillOrder": 1,
+    "id": "greek-and-latin-roots",
+    "title": "Greek and Latin Roots",
+    "canonicalUrl": "/skills/greek-and-latin-roots",
+    "words": [
+      "transport",
+      "predict",
+      "inspect",
+      "telephone",
+      "telescope",
+      "microscope",
+      "biography",
+      "national",
+      "critical"
+    ],
+    "gradeUnitIds": [
+      "grade-3-root-word-families",
+      "tier-1-roots-and-patterns",
+      "grade-5-greek-latin-word-parts"
+    ]
+  },
+  {
+    "family": "Homophones and Commonly Confused Words",
+    "familyOrder": 12,
+    "skillOrder": 1,
+    "id": "homophones",
+    "title": "Homophones",
+    "canonicalUrl": "/skills/homophones",
+    "words": [
+      "to",
+      "too",
+      "two",
+      "there",
+      "their",
+      "they're"
+    ],
+    "gradeUnitIds": [
+      "grade-3-homophones"
+    ]
+  },
+  {
+    "family": "Homophones and Commonly Confused Words",
+    "familyOrder": 12,
+    "skillOrder": 2,
+    "id": "commonly-confused-words",
+    "title": "Commonly Confused Words",
+    "canonicalUrl": "/skills/commonly-confused-words",
+    "words": [
+      "affect",
+      "effect",
+      "principal",
+      "principle",
+      "advice",
+      "advise",
+      "than",
+      "then"
+    ],
+    "gradeUnitIds": [
+      "grade-4-commonly-confused-words",
+      "grade-5-commonly-confused-words"
+    ]
+  }
+]

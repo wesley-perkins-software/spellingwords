@@ -2,8 +2,8 @@
 id: grade-1-open-syllables-final-y
 urlSlug: 1st-grade-open-syllables-final-y
 title: "Short Words with Long Vowels: Open Syllables and Final Y"
-description: "A first-grade core spelling lesson on open syllables and final y."
-shortAnswer: "This Grade 1 core unit teaches open syllables and final y with a focused word list, parent-friendly explanation, misconceptions, and curriculum navigation."
+description: 'Twelve short Grade 1 words that practice long vowels in open syllables and final y as a spelling for long i.'
+shortAnswer: 'An open syllable ends with its vowel sound; this Grade 1 unit practices short open-syllable words such as me, go, and hi, plus final y spelling long i in words such as my and fly.'
 category: phonics
 grade: "1"
 difficulty: beginner
@@ -21,14 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - "Are ready for a focused first-grade spelling lesson on open syllables and final y"
-  - "Can listen for sounds and check spellings from left to right"
-  - "Benefit from a short word list rather than a large vocabulary set"
-faq:
-  - question: "Is this a spelling lesson or a vocabulary lesson?"
-    answer: "This is a spelling lesson. The word list is intentionally short so students can focus on the spelling concept."
-  - question: "How many words should students practice at once?"
-    answer: "Use the full list when students are ready, or choose five to eight words for a shorter intervention or home practice session."
+  - 'Can spell common long-vowel VCe words and explain the job of final silent e'
+  - 'Can hear a long vowel at the end of a short spoken word'
+  - 'Are ready to compare different spellings for a final long vowel sound'
 words:
   - me
   - he
@@ -44,85 +39,14 @@ words:
   - try
 ---
 
-## Introduction: what students learn
+These short words show long vowel sounds without a final silent **e**. *Me*, *he*, *she*, and *we* end with long **e**; *go*, *no*, and *so* end with long **o**; and *hi* ends with long **i**. In *my*, *by*, *fly*, and *try*, final **y** spells long **i**. The groups let children compare final vowel spellings while keeping each word short and familiar.
 
-This lesson teaches **open syllables and final y** as part of the Grade 1 core spelling progression. Students learn that every syllable contains a vowel sound, that some short words end with a long vowel sound, and that final y can spell long i. They begin to hear and spell simple two-syllable words one syllable at a time.
+This lesson follows VCe words to show that final silent **e** is not the only way to spell a long vowel. These words are single open syllables: the syllable ends with its vowel sound. Final **y** deserves separate attention because English words seldom end with **i**, so **y** is the conventional choice in this small group.
 
-## Learning Objectives
+### How to practice this list
 
-Students will learn to:
+Say a word without showing it and ask which long vowel is heard at the end. Have your child write the word, circle its final vowel spelling, and sort it under **e**, **o**, **i**, or **y**. Mix the groups after they are secure, and compare *hi* with *my* or *go* with *so* so the child attends to the spelling rather than relying only on the vowel sound.
 
-- hear or clap the syllables in a simple two-syllable word;
-- identify the vowel sound in each syllable;
-- divide a simple two-syllable word into manageable spoken parts;
-- spell one syllable at a time, using the pattern in each part;
-- reread the completed word to check every sound and spelling part;
-- explain the pattern in simple language;
-- connect this lesson to the previous and next steps in the curriculum.
+Writing *mi* for *my* is a reasonable sound-based attempt: the child heard long **i** but has not yet learned the conventional final **y**. Confirm the vowel sound, compare the attempt with *my* or *by*, and let the child repair it. If a consonant is omitted from *fly* or *try*, stretch the blend separately; that is a blend issue, not confusion about final **y**.
 
-## Why this spelling concept matters
-
-This concept helps first graders move from spelling one sound at a time to using reliable spelling patterns. It gives students a reason for the letters they write and supports more accurate independent writing.
-
-## Parent-friendly explanation
-
-An open syllable ends in a vowel sound. In short first-grade words, the vowel can be long, as in *me*, *go*, and *hi*. Final y can spell long i in *my* and *fly*.
-
-For a simple two-syllable word, first clap or say the parts slowly. Every syllable has a vowel sound. Divide the word into the parts you hear, spell one syllable at a time, and then reread the whole word. For example, in *robot*, say *ro-bot*: spell *ro*, spell *bot*, then read *robot* again.
-
-## The spelling rule or generalization
-
-When a syllable ends with a vowel, that vowel is often long; at the end of short words, y can spell long i. Every syllable contains a vowel sound, so students can use those vowel sounds to hear and divide simple two-syllable words.
-
-This is a first-grade generalization. Students will meet exceptions and more advanced choices in later grades.
-
-## Practice word list
-
-- me
-- he
-- she
-- we
-- go
-- no
-- so
-- hi
-- my
-- by
-- fly
-- try
-
-## Example sentences
-
-- Read the word **me** and spell each sound or spelling part.
-- I can use **he** in a sentence.
-- Find the spelling pattern in **she**.
-- Write **we** and check it from left to right.
-- Say **robot** as *ro-bot*, spell one syllable at a time, and reread the completed word.
-- Clap the two syllables in **music**, then listen for the vowel sound in each part.
-
-## Common mistakes children make
-
-- Leaving out one sound when the word has a consonant team or ending.
-- Spelling by memory only instead of checking the pattern.
-- Reading the word correctly but forgetting the spelling generalization while writing.
-- Rushing through the final sounds or final letters.
-
-## Common Misconceptions
-
-- **Misconception:** If a word is familiar, it does not need to be sounded and mapped.  
-  **Correction:** Familiar words still become stronger when students connect sounds, spellings, and patterns.
-
-- **Misconception:** A spelling pattern must work in every word to be useful.  
-  **Correction:** First-grade generalizations are useful because they work in many common words and prepare students for later refinements.
-
-## How parents can practice at home
-
-Say one word, have your child repeat it, tap the sounds or spelling parts, write it, and then read it back. For a simple two-syllable word, clap or say the syllables, point out the vowel sound in each one, spell the first syllable, spell the second syllable, and reread the completed word. Ask, “What part of the word shows today’s pattern?” Keep practice short and focused: five strong words are better than twenty rushed words.
-
-## Navigation and related practice
-
-- **Kindergarten review:** Review earlier Grade 1 core lessons if students need a simpler entry point.
-- **Related targeted practice:** Use teacher-selected review from the words on this page.
-- **Previous lesson:** Long Vowels with Silent e (VCe).
-- **Next lesson:** First Grade Heart Words.
-- **Grade 2 extension:** Students will use this pattern again in longer words, suffix work, and more advanced vowel spelling choices.
+When your child can spell these words in mixed order, choose the expected final vowel spelling with growing independence, and correct an occasional final **i/y** confusion after comparison, they are ready for Long A and Long O Vowel Teams.

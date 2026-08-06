@@ -2,8 +2,8 @@
 id: grade-1-tch-dge-ending-rules
 urlSlug: 1st-grade-tch-dge-ending-rules
 title: "Short Vowel Ending Rules: -tch and -dge"
-description: "A first-grade core spelling lesson on tch and dge ending rules."
-shortAnswer: "This Grade 1 core unit teaches tch and dge ending rules with a focused word list, parent-friendly explanation, misconceptions, and curriculum navigation."
+description: 'Twelve Grade 1 words that practice final tch for /ch/ and dge for /j/ after a short vowel in many one-syllable words.'
+shortAnswer: 'This Grade 1 unit teaches a useful short-vowel ending generalization: final /ch/ is often spelled tch and final /j/ is often spelled dge in one-syllable words.'
 skillIds: ["ck-tch-dge-word-endings"]
 category: phonics
 grade: "1"
@@ -20,14 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - "Are ready for a focused first-grade spelling lesson on tch and dge ending rules"
-  - "Can listen for sounds and check spellings from left to right"
-  - "Benefit from a short word list rather than a large vocabulary set"
-faq:
-  - question: "Is this a spelling lesson or a vocabulary lesson?"
-    answer: "This is a spelling lesson. The word list is intentionally short so students can focus on the spelling concept."
-  - question: "How many words should students practice at once?"
-    answer: "Use the full list when students are ready, or choose five to eight words for a shorter intervention or home practice session."
+  - 'Can identify a short vowel in a one-syllable word'
+  - 'Understand that one final consonant sound may require a multi-letter spelling'
+  - 'Can apply a familiar ending pattern such as final ck without adding extra sounds'
 words:
   - catch
   - match
@@ -43,79 +38,14 @@ words:
   - wedge
 ---
 
-## Introduction: what students learn
+This list balances six **-tch** words—*catch*, *match*, *hatch*, *patch*, *pitch*, and *ditch*—with six **-dge** words—*badge*, *edge*, *bridge*, *fudge*, *judge*, and *wedge*. In these one-syllable examples, final /ch/ or /j/ comes immediately after a short-vowel spelling and is represented by a multi-letter ending. The generalization is useful but not exceptionless.
 
-This lesson teaches **tch and dge ending rules** as part of the Grade 1 core spelling progression. Students learn two advanced short-vowel ending patterns: -tch for /ch/ and -dge for /j/.
+This final Grade 1 unit returns to a decision first practiced with **ck**: after hearing a short vowel and one final consonant sound, the child may need more than one letter for the conventional ending. The list brings together that earlier positional thinking with the stronger sound-to-spelling habits developed across the Grade 1 sequence.
 
-## Learning Objectives
+### How to practice this list
 
-Students will learn to:
+Say a word without showing it. Have your child identify the short vowel and decide whether the final sound is /ch/ or /j/. Map the word by spelling parts, write **tch** or **dge** as one final unit, and read the word back without adding sounds for every letter. Practice the two endings separately before mixing them.
 
-- identify the spelling pattern in spoken and written words;
-- spell a focused set of words using the pattern;
-- explain the pattern in simple language;
-- read their spelling back to check every sound and letter team;
-- connect this lesson to the previous and next steps in the curriculum.
+Writing *mach* for *match* or *baj* for *badge* is a normal sound-based attempt: the child represented the final sound but has not yet applied the target convention. Compare the word with *catch* or *badge*, identify the short vowel immediately before the ending, and let the child repair it. If **tch** and **dge** are confused with each other, return to the final sound first rather than asking the child to memorize the whole word.
 
-## Why this spelling concept matters
-
-This concept helps first graders move from spelling one sound at a time to using reliable spelling patterns. It gives students a reason for the letters they write and supports more accurate independent writing.
-
-## Parent-friendly explanation
-
-After a short vowel in a one-syllable word, final /ch/ is often spelled tch and final /j/ is often spelled dge.
-
-## The spelling rule or generalization
-
-After a short vowel, use -tch for final /ch/ and -dge for final /j/ in many one-syllable words.
-
-This is a first-grade generalization. Students will meet exceptions and more advanced choices in later grades.
-
-## Practice word list
-
-- catch
-- match
-- hatch
-- patch
-- pitch
-- ditch
-- badge
-- edge
-- bridge
-- fudge
-- judge
-- wedge
-
-## Example sentences
-
-- Read the word **catch** and spell each sound or spelling part.
-- I can use **match** in a sentence.
-- Find the spelling pattern in **hatch**.
-- Write **patch** and check it from left to right.
-
-## Common mistakes children make
-
-- Leaving out one sound when the word has a consonant team or ending.
-- Spelling by memory only instead of checking the pattern.
-- Reading the word correctly but forgetting the spelling generalization while writing.
-- Rushing through the final sounds or final letters.
-
-## Common Misconceptions
-
-- **Misconception:** If a word is familiar, it does not need to be sounded and mapped.  
-  **Correction:** Familiar words still become stronger when students connect sounds, spellings, and patterns.
-
-- **Misconception:** A spelling pattern must work in every word to be useful.  
-  **Correction:** First-grade generalizations are useful because they work in many common words and prepare students for later refinements.
-
-## How parents can practice at home
-
-Say one word, have your child repeat it, tap the sounds or spelling parts, write it, and then read it back. Ask, “What part of the word shows today’s pattern?” Keep practice short and focused: five strong words are better than twenty rushed words.
-
-## Navigation and related practice
-
-- **Kindergarten review:** Review earlier Grade 1 core lessons if students need a simpler entry point.
-- **Related targeted practice:** TCH and DGE Ending Words.
-- **Previous lesson:** Long E Vowel Teams.
-- **Next lesson:** Grade 2 spelling patterns.
-- **Grade 2 extension:** Students will use this pattern again in longer words, suffix work, and more advanced vowel spelling choices.
+When your child can spell these words in mixed order, choose **-tch** or **-dge** from the final sound and short-vowel context, and correct an occasional simpler spelling by using a known example, they are ready for the Grade 2 Long E Vowel Teams unit that follows in the Core sequence.

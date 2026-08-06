@@ -62,7 +62,7 @@ describe('spelling-lists collection matches the canonical manifests exactly', ()
     expect(nonCanonical.sort()).toEqual([]);
   });
 
-  it('publishes exactly 145 spelling-lists entries (104 grade-curriculum + 41 Skill)', () => {
-    expect(publishedIds.size).toBe(145);
+  it('publishes exactly 148 spelling-lists entries (107 grade-curriculum + 41 Skill)', () => {
+    expect(publishedIds.size).toBe(148);
   });
 });

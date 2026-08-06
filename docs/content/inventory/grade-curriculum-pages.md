@@ -1,5 +1,7 @@
 # Inventory: Grade Curriculum Pages (Canonical Active)
 
+**Canonical totals:** 51 Core Spelling pages · 29 High-Frequency Words pages · 27 Additional Practice pages · 107 Grade curriculum pages.
+
 > URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs now use the flat no-trailing-slash `/{grade}/{page-slug}` structure. The runtime source of truth is `src/lib/content/canonicalGradeRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the generated migration map. The legacy `/spelling-lists/...` route has been removed entirely; historical repository-shaped URLs are not generated and are not redirected (pre-launch, no traffic to preserve).
 
 
@@ -64,19 +66,21 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling 
 
 ## Grade 2
 
-**Canonical Grade Units:** R-Controlled Vowels; Diphthongs and Other Vowel Patterns; Syllable Types and Multisyllabic Words; Silent Letters and Ending Spelling Patterns; Hard and Soft C and G
+**Canonical Grade Units:** Long E Vowel Teams; Long I Patterns; R-Controlled Vowels; Diphthongs and Other Vowel Patterns; Syllable Types and Multisyllabic Words; Silent Letters and Ending Spelling Patterns; Hard and Soft C and G
 
 
-**Frozen hub structure:** 10 Core Spelling cards · 6 Common Words sets (72 words) · 3 Additional Practice card(s)
+**Frozen hub structure:** 13 Core Spelling cards · 6 Common Words sets (72 words) · 5 Additional Practice cards
 
 
-### Canonical active pages (15)
+### Canonical active pages (18)
 
 | Title | id | urlSlug | Role | Status | Source file | Editorial status |
 |---|---|---|---|---|---|---|
 | 2nd Grade Compound Words | grade-2-list-02 | 2nd-grade-compound-words | grade-unit | published | `src/content/2nd-grade/compound-words.md` | Not audited |
 | 2nd Grade Contractions | grade-2-contractions | 2nd-grade-contractions | grade-unit | published | `src/content/2nd-grade/contractions.md` | Not audited |
 | 2nd Grade Silent Letter Words | grade-2-silent-letter-words | 2nd-grade-silent-letter-words | grade-unit | published | `src/content/2nd-grade/silent-letter-words.md` | Not audited |
+| Long E Vowel Teams: EE and EA | grade-2-long-e-ee-ea | grade-2-long-e-ee-ea | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-long-e-ee-ea.md` | Implementation complete |
+| Long I Patterns: IE and IGH | grade-2-long-i-ie-igh | grade-2-long-i-ie-igh | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-long-i-ie-igh.md` | Implementation complete |
 | OI and OY Words | vowel-teams-oi-oy | vowel-teams-oi-oy | grade-unit | published | `src/content/2nd-grade/vowel-teams-oi-oy.md` | Not audited |
 | OU and OW Words | vowel-teams-ou-ow | vowel-teams-ou-ow | grade-unit | published | `src/content/2nd-grade/vowel-teams-ou-ow.md` | Not audited |
 | Grade 2 Transportation Words | grade-2-transportation-words | grade-2-transportation-words | vocabulary-theme | published | `src/content/2nd-grade/transportation-words.md` | Not audited |
@@ -86,6 +90,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling 
 | Grade 2 Community Helpers | grade-2-community-helpers | grade-2-community-helpers | vocabulary-theme | published | `src/content/2nd-grade/community-helpers.md` | Not audited |
 | Two Sounds of oo | grade-2-oo-two-sounds | grade-2-oo-two-sounds | grade-unit | published | `src/content/2nd-grade/oo-two-sounds.md` | Not audited |
 | Vowel Patterns: au and aw | grade-2-au-aw-words | grade-2-au-aw-words | grade-unit | published | `src/content/2nd-grade/au-aw-words.md` | Not audited |
+| R-Controlled Vowels: ER, IR, and UR | grade-2-r-controlled-er-ir-ur | grade-2-r-controlled-er-ir-ur | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-r-controlled-er-ir-ur.md` | Implementation complete |
 | Soft C and Soft G | grade-2-soft-c-soft-g | grade-2-soft-c-soft-g | grade-unit | published | `src/content/2nd-grade/soft-c-soft-g.md` | Not audited |
 | Two-Syllable Words | grade-2-two-syllable-words | grade-2-two-syllable-words | grade-unit | published | `src/content/2nd-grade/two-syllable-words.md` | Not audited |
 | Words Ending in -le | grade-2-final-stable-le | grade-2-final-stable-le | grade-unit | published | `src/content/2nd-grade/final-stable-le.md` | Not audited |
@@ -104,7 +109,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling 
 |---|---|---|---|---|---|---|
 | 3rd Grade Prefix Words | grade-3-prefix-words | 3rd-grade-prefix-words | grade-unit | published | `src/content/3rd-grade/prefix-words.md` | Not audited |
 | 3rd Grade Suffix Words | grade-3-suffix-words | 3rd-grade-suffix-words | grade-unit | published | `src/content/3rd-grade/suffix-words.md` | Not audited |
-| 3rd Grade Spelling Rule: Dropping Silent E | grade-3-dropping-silent-e | 3rd-grade-dropping-silent-e | grade-unit | published | `src/content/3rd-grade/dropping-silent-e.md` | Not audited |
+| Suffix Spelling Changes | grade-3-suffix-spelling-changes | 3rd-grade-suffix-spelling-changes | grade-unit | published | `src/content/spelling-lists/grade-level/3rd-grade-suffix-spelling-changes.md` | Implementation complete |
 | 3rd Grade Map & Globe Words | grade-3-map-globe-words | 3rd-grade-map-globe-words | vocabulary-theme | published | `src/content/3rd-grade/map-globe-words.md` | Not audited |
 | 3rd Grade Possessive Words | grade-3-possessives | 3rd-grade-possessives | grade-unit | published | `src/content/3rd-grade/possessives.md` | Not audited |
 | 3rd Grade Life Cycle Words | grade-3-life-cycle-words | 3rd-grade-life-cycle-words | vocabulary-theme | published | `src/content/3rd-grade/life-cycle-words.md` | Not audited |

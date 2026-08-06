@@ -114,6 +114,13 @@ describe('R-Controlled Vowels Skill Family', () => {
     }
   });
 
+  it('places ER/IR/UR on its focused Grade 2 unit, not the two-syllable application unit', () => {
+    expect(byId.get('grade-2-r-controlled-er-ir-ur')?.skillIds).toEqual([
+      'r-controlled-er-ir-ur',
+    ]);
+    expect(byId.get('grade-2-two-syllable-words')?.skillIds).toEqual(['multisyllabic-words']);
+  });
+
   it('does not give the promoted r-controlled Skills readinessSignals', () => {
     for (const id of R_CONTROLLED_SKILL_IDS) {
       const filePath = join(contentRoot, 'phonics', `${id}.md`);

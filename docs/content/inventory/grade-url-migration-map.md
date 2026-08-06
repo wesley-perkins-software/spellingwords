@@ -1,6 +1,6 @@
 # Canonical Grade URL Reference
 
-Generated from `src/lib/content/canonicalGradeRoutes.ts` and current content frontmatter. These are the site's original launch URLs for the 104 canonical grade-curriculum pages — the site is pre-launch, so there is no prior public URL being migrated away from. Trailing slash convention: no trailing slash.
+Generated from `src/lib/content/canonicalGradeRoutes.ts` and current content frontmatter. These are the site's original launch URLs for the 107 canonical grade-curriculum pages — the site is pre-launch, so there is no prior public URL being migrated away from. Trailing slash convention: no trailing slash.
 
 | id | section | URL | source file |
 |---|---|---|---|
@@ -44,10 +44,13 @@ Generated from `src/lib/content/canonicalGradeRoutes.ts` and current content fro
 | `grade-1-shape-words` | Additional Practice | `/1st-grade/shape-words` | `src/content/spelling-lists/grade-level/grade-1-shape-words.md` |
 | `grade-1-number-words-11-20` | Additional Practice | `/1st-grade/number-words-11-20` | `src/content/spelling-lists/grade-level/grade-1-number-words-11-20.md` |
 | `grade-1-days-of-the-week` | Additional Practice | `/1st-grade/days-of-the-week` | `src/content/spelling-lists/grade-level/grade-1-days-of-the-week.md` |
+| `grade-2-long-e-ee-ea` | Core Spelling | `/2nd-grade/long-e-ee-ea` | `src/content/spelling-lists/phonics/grade-2-long-e-ee-ea.md` |
+| `grade-2-long-i-ie-igh` | Core Spelling | `/2nd-grade/long-i-ie-igh` | `src/content/spelling-lists/phonics/grade-2-long-i-ie-igh.md` |
 | `vowel-teams-oi-oy` | Core Spelling | `/2nd-grade/vowel-teams-oi-oy` | `src/content/spelling-lists/phonics/vowel-teams-oi-oy.md` |
 | `vowel-teams-ou-ow` | Core Spelling | `/2nd-grade/vowel-teams-ou-ow` | `src/content/spelling-lists/phonics/vowel-teams-ou-ow.md` |
 | `grade-2-oo-two-sounds` | Core Spelling | `/2nd-grade/oo-two-sounds` | `src/content/spelling-lists/phonics/grade-2-oo-two-sounds.md` |
 | `grade-2-au-aw-words` | Core Spelling | `/2nd-grade/au-aw-words` | `src/content/spelling-lists/phonics/grade-2-au-aw-words.md` |
+| `grade-2-r-controlled-er-ir-ur` | Core Spelling | `/2nd-grade/r-controlled-er-ir-ur` | `src/content/spelling-lists/phonics/grade-2-r-controlled-er-ir-ur.md` |
 | `grade-2-soft-c-soft-g` | Core Spelling | `/2nd-grade/soft-c-soft-g` | `src/content/spelling-lists/phonics/grade-2-soft-c-soft-g.md` |
 | `grade-2-two-syllable-words` | Core Spelling | `/2nd-grade/two-syllable-words` | `src/content/spelling-lists/phonics/grade-2-two-syllable-words.md` |
 | `grade-2-final-stable-le` | Core Spelling | `/2nd-grade/final-stable-le` | `src/content/spelling-lists/phonics/grade-2-final-stable-le.md` |
@@ -67,7 +70,7 @@ Generated from `src/lib/content/canonicalGradeRoutes.ts` and current content fro
 | `grade-2-months-of-the-year` | Additional Practice | `/2nd-grade/months-of-the-year` | `src/content/spelling-lists/grade-level/grade-2-months-of-the-year.md` |
 | `grade-3-prefix-words` | Core Spelling | `/3rd-grade/prefix-words` | `src/content/spelling-lists/grade-level/3rd-grade-prefix-words.md` |
 | `grade-3-suffix-words` | Core Spelling | `/3rd-grade/suffix-words` | `src/content/spelling-lists/grade-level/3rd-grade-suffix-words.md` |
-| `grade-3-dropping-silent-e` | Core Spelling | `/3rd-grade/dropping-silent-e` | `src/content/spelling-lists/grade-level/3rd-grade-dropping-silent-e.md` |
+| `grade-3-suffix-spelling-changes` | Core Spelling | `/3rd-grade/suffix-spelling-changes` | `src/content/spelling-lists/grade-level/3rd-grade-suffix-spelling-changes.md` |
 | `grade-3-possessives` | Core Spelling | `/3rd-grade/possessives` | `src/content/spelling-lists/grade-level/3rd-grade-possessives.md` |
 | `grade-3-multisyllabic-words` | Core Spelling | `/3rd-grade/multisyllabic-words` | `src/content/spelling-lists/grade-level/3rd-grade-multisyllabic-words.md` |
 | `grade-3-homophones` | Core Spelling | `/3rd-grade/homophones` | `src/content/spelling-lists/grade-level/3rd-grade-homophones.md` |

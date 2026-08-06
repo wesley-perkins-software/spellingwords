@@ -107,12 +107,20 @@ describe('Word Building and Endings Skill Family', () => {
   it('keeps every contributing source page a Grade Unit', () => {
     for (const id of [
       'grade-3-suffix-words',
-      'grade-3-dropping-silent-e',
+      'grade-3-suffix-spelling-changes',
       'grade-2-list-02',
       'grade-2-contractions',
     ]) {
       expect(byId.get(id), id).toMatchObject({ id, contentRole: 'grade-unit' });
     }
+  });
+
+  it('gives the Grade 3 suffix-change unit four examples for each approved rule', () => {
+    expect(byId.get('grade-3-suffix-spelling-changes')?.words).toEqual([
+      'making', 'writing', 'hoped', 'smiled',
+      'running', 'stopped', 'sitting', 'planned',
+      'carried', 'cried', 'happier', 'funniest',
+    ]);
   });
 
   it('keeps a nonempty demonstration set on each Skill without imposing a target count', () => {
@@ -141,7 +149,7 @@ describe('Word Building and Endings Skill Family', () => {
         'grade-3-suffix-words',
       ],
       'suffix-spelling-changes': [
-        'grade-3-dropping-silent-e',
+        'grade-3-suffix-spelling-changes',
       ],
       'compound-words': ['grade-2-list-02'],
       contractions: ['grade-2-contractions'],

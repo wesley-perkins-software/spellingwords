@@ -72,7 +72,7 @@ describe('buildGradeUnitSequence', () => {
     const entries = [
       makeEntry('grade-3-prefix-words', '3', 4, 'grade-unit'),
       makeEntry('grade-3-suffix-words', '3', 5, 'grade-unit'),
-      makeEntry('grade-3-dropping-silent-e', '3', 6, 'grade-unit'),
+      makeEntry('grade-3-suffix-spelling-changes', '3', 6, 'grade-unit'),
       makeEntry('grade-3-doubling-final-consonants', '3', 7, 'skill'),
       makeEntry('grade-3-changing-y-to-i', '3', 8, 'skill'),
       makeEntry('grade-3-possessives', '3', 8.5, 'grade-unit'),
@@ -86,7 +86,7 @@ describe('buildGradeUnitSequence', () => {
     expect(sequence).toEqual([
       'grade-3-prefix-words',
       'grade-3-suffix-words',
-      'grade-3-dropping-silent-e',
+      'grade-3-suffix-spelling-changes',
       'grade-3-possessives',
       'grade-3-multisyllabic-words',
       'grade-3-homophones',

@@ -284,12 +284,8 @@ describe('Vowel Teams Skill Family', () => {
     expect(ighWords.length).toBeGreaterThan(0);
     expect(entry.words).not.toEqual(expect.arrayContaining(['field', 'chief', 'piece']));
 
-    // No current Grade Unit teaches IE/IGH; reverse curriculum placement is
-    // intentionally empty until Phase 2 can make a truthful content decision.
-    for (const summary of summaries) {
-      const unitFrontmatter = readFrontmatter(summary.filePath);
-      expect(readArray(unitFrontmatter, 'skillIds'), summary.id).not.toContain('ie-and-igh-words');
-    }
+    expect(byId.get('grade-2-long-i-ie-igh')?.skillIds).toEqual(['ie-and-igh-words']);
+    expect(byId.get('grade-2-long-e-ee-ea')?.skillIds).toEqual(['vowel-teams-ee-ea']);
   });
 
   it('links OA and OW Words only to other canonical Skills, never to a Grade Unit id', () => {

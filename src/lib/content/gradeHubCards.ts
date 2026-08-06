@@ -366,6 +366,22 @@ export const GRADE_2_HUB_SECTIONS: readonly {
     title: "Core Spelling",
     cards: [
       {
+        id: "grade-2-long-e-ee-ea",
+        title: "Long E Vowel Teams: EE and EA",
+        description:
+          "Practice two common ways to spell long e in words such as feet, team, and beach.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-2-long-i-ie-igh",
+        title: "Long I Patterns: IE and IGH",
+        description:
+          "Extend long-i spelling with final ie in pie and the igh pattern in night and light.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
         id: "vowel-teams-oi-oy",
         title: "Diphthongs: oi and oy",
         description:
@@ -394,6 +410,14 @@ export const GRADE_2_HUB_SECTIONS: readonly {
         title: "Vowel Patterns: au and aw",
         description:
           "Practice the vowel sound in saw and because, and where each spelling belongs in a word.",
+        badge: "Grade Unit",
+        kind: "list",
+      },
+      {
+        id: "grade-2-r-controlled-er-ir-ur",
+        title: "R-Controlled Vowels: ER, IR, and UR",
+        description:
+          "Complete the basic r-controlled vowel set with the spellings in her, bird, and turn.",
         badge: "Grade Unit",
         kind: "list",
       },
@@ -583,7 +607,7 @@ export const GRADE_3_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-3-dropping-silent-e",
+        id: "grade-3-suffix-spelling-changes",
         title: "Suffix Spelling Changes",
         description:
           "Learn the three spelling changes a base word can make before a suffix: dropping silent e, doubling the final consonant, and changing y to i.",

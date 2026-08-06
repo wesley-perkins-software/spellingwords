@@ -43,10 +43,13 @@ export const CORE_SPELLING_SEQUENCE: readonly string[] = [
   'grade-1-r-controlled-ar-or',
   'grade-1-tch-dge-ending-rules',
   // Grade 2
+  'grade-2-long-e-ee-ea',
+  'grade-2-long-i-ie-igh',
   'vowel-teams-oi-oy',
   'vowel-teams-ou-ow',
   'grade-2-oo-two-sounds',
   'grade-2-au-aw-words',
+  'grade-2-r-controlled-er-ir-ur',
   'grade-2-soft-c-soft-g',
   'grade-2-two-syllable-words',
   'grade-2-final-stable-le',
@@ -56,7 +59,7 @@ export const CORE_SPELLING_SEQUENCE: readonly string[] = [
   // Grade 3
   'grade-3-prefix-words',
   'grade-3-suffix-words',
-  'grade-3-dropping-silent-e',
+  'grade-3-suffix-spelling-changes',
   'grade-3-possessives',
   'grade-3-multisyllabic-words',
   'grade-3-homophones',

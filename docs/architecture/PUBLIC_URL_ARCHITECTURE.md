@@ -75,6 +75,6 @@ Because the site has never launched, old repository-shaped URLs for migrated gra
 
 ## Reference inventories
 
-- `docs/content/inventory/grade-url-migration-map.md` — canonical path reference for the 104 grade-curriculum pages, generated from `src/lib/content/canonicalGradeRoutes.ts`.
+- `docs/content/inventory/grade-url-migration-map.md` — canonical path reference for the 107 grade-curriculum pages, generated from `src/lib/content/canonicalGradeRoutes.ts`.
 - `docs/content/inventory/skill-pages.md` — per-Skill id/title/frontmatter-urlSlug/canonical-public-path cross-reference.
 - `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md` — the complete record of every non-canonical `spelling-lists`/`spelling-collections` page removed from the site.

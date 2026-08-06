@@ -182,7 +182,7 @@ describe('Silent E Skill Family', () => {
     expect(route).toContain('itemListElement: skillFamilies.flatMap((family) =>');
     expect(route).toContain('position: ++itemListPosition');
 
-    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(40);
+    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(41);
 
     const silentEStart = SHORT_VOWELS_AND_CVC_SKILL_FAMILY.skillIds.length +
       CONSONANT_DIGRAPHS_SKILL_FAMILY.skillIds.length +

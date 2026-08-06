@@ -174,7 +174,7 @@ describe('Consonant Digraphs Skill Family', () => {
     expect(route).toContain('itemListElement: skillFamilies.flatMap((family) =>');
     expect(route).toContain('position: ++itemListPosition');
 
-    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(40);
+    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(41);
     expect(CURATED_SPELLING_SKILL_IDS.slice(5, 9)).toEqual(CONSONANT_DIGRAPH_SKILL_IDS);
   });
 

@@ -51,7 +51,7 @@ Several of these prefixes work exactly like *un-* and *re-*: they attach to a co
 
 ## Prefixes that attach to a root, not a whole word
 
-Two of this page's prefixes work differently. *Pre-* in *predict* attaches to *-dict-*, and *trans-* in *transport* attaches to *-port-*. Neither *dict* nor *port* is a stand-alone modern English word — they are roots, word parts that carry meaning but don't function as whole words on their own. *-Dict-* comes from a Latin root meaning "to say," so *predict* means "to say beforehand." *-Port-* comes from a Latin root meaning "to carry," so *transport* means "to carry across." This is a preview of [Greek and Latin Roots](/skills/greek-and-latin-roots), where word parts like these are the main focus rather than an exception.
+Two of this page's prefixes work differently. *Pre-* in *predict* attaches to *-dict-*, and *trans-* in *transport* attaches to *-port-*. *Dict* is a bound root: it does not normally stand alone as an English word. *Port* can be a stand-alone word meaning "harbor," but in *transport* it is a root with a different historical meaning, "carry." That makes *predict* "say beforehand" and *transport* "carry across." Some roots cannot stand alone, but whether the same letters appear as a word elsewhere is not a reliable test. Look at the element's role and meaning in the word you are studying. This is a preview of [Greek and Latin Roots](/skills/greek-and-latin-roots), where word parts like these are the main focus rather than an exception.
 
 ## Telling dis- and mis- apart
 
@@ -64,13 +64,13 @@ Two of this page's prefixes work differently. *Pre-* in *predict* attaches to *-
 ## What to notice
 
 - Isolate the prefix first, then check whether what's left is a whole word (*agree*, *read*, *act*, *star*, *freeze*) or a root (*-dict-*, *-port-*).
-- A root's meaning still transfers to the whole word even though the root can't stand alone — knowing *-port-* means "carry" also helps with *transplant* and *import*.
+- A root's meaning still contributes to the whole word whether or not the same letters can stand alone elsewhere — knowing *-port-* means "carry" also helps with *import*.
 - These prefixes generally attach to the front without changing the rest of the word's spelling, the same as *un-*/*re-*.
 - Longer academic words sometimes add a suffix as well, such as *transportation* — that ending is a separate topic (see [Common Suffixes](/skills/common-suffixes)); this page focuses on the prefix at the front.
 
 ## Common mistakes
 
-**Assuming every prefix here attaches to a whole word.** That's true for *dis-*, *mis-*, *inter-*, *super-*, and *anti-*, but *pre-* and *trans-* in this set attach to a root instead. Checking whether the rest of the word is a real, free-standing English word is the key test.
+**Assuming every prefix here attaches to a whole word.** That's true for *dis-*, *mis-*, *inter-*, *super-*, and *anti-*, but *pre-* and *trans-* in this set attach to a root instead. Ask what the remaining element means and what role it plays in this word; do not rely only on whether the same letters can be a free-standing word elsewhere.
 
 **Mixing up sub- and super-.** Because both appear so often in school reading, it helps to anchor each to one unmistakable example: *submarine* (under) and *superstar* (above).
 
@@ -86,7 +86,7 @@ Two of this page's prefixes work differently. *Pre-* in *predict* attaches to *-
 
 ## If a learner struggles
 
-If a learner can't identify the prefix, check whether they can already spell the word that follows it — for base-word prefixes like *dis-agree* or *super-star*, that word should already be familiar. For root-based prefixes like *pre-dict* and *trans-port*, there's no familiar free word to fall back on, so instead check whether the learner can isolate the prefix consistently and treat the remaining letters as one chunk, even before they know the root's full meaning — root meanings are addressed in Greek and Latin Roots.
+If a learner can't identify the prefix, check whether they can already spell the word that follows it — for base-word prefixes like *dis-agree* or *super-star*, that word should already be familiar. For root-based prefixes like *pre-dict* and *trans-port*, a familiar free word may not supply the meaning the root has here, so instead check whether the learner can isolate the prefix consistently and treat the remaining letters as one chunk, even before they know the root's full meaning — root meanings are addressed in Greek and Latin Roots.
 
 ## Signs the skill is becoming secure
 

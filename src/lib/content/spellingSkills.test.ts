@@ -175,12 +175,12 @@ describe('curated spelling Skills browse index', () => {
     ]);
   });
 
-  it('derives curated Skill IDs from the published family order (40 published, per the frozen architecture)', () => {
+  it('derives curated Skill IDs from the published family order (41 published, per the frozen architecture)', () => {
     const expectedSkillIds = SPELLING_SKILL_FAMILIES.flatMap((family) => family.skillIds);
 
     expect(CURATED_SPELLING_SKILL_IDS).toEqual(expectedSkillIds);
     expect(new Set(CURATED_SPELLING_SKILL_IDS).size).toBe(CURATED_SPELLING_SKILL_IDS.length);
-    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(40);
+    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(41);
     expect(CURATED_SPELLING_SKILL_IDS).toEqual([
       'short-a-words',
       'short-e-words',
@@ -205,6 +205,7 @@ describe('curated spelling Skills browse index', () => {
       'vowel-teams-oa-ow',
       'oi-and-oy-words',
       'ou-and-ow-words',
+      'ie-and-igh-words',
       'oo-words',
       'au-and-aw-words',
       'r-controlled-ar',

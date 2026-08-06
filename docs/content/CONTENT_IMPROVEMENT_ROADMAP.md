@@ -629,27 +629,27 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 
 **Frozen hub structure:** 8 Core Spelling cards · 4 Common Words sets (40 words) · 3 Additional Practice card(s)
 
-- [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
+- [x] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [ ] Core Spelling / Grade Unit pages (11 canonical-active)
-  - [ ] Kindergarten First Words (`kindergarten-first-words`)
-    - Status: editorial implementation re-audited and re-drafted against `CANONICAL_GRADE_UNIT_PAGE_STANDARD.md` as part of the first Phase 2 pilot batch (with `kindergarten-short-a-words` and `kindergarten-short-i-words`), and self-reviewed; inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
+  - [x] Kindergarten First Words (`kindergarten-first-words`)
+    - Status: complete after the eight-page Kindergarten Core batch audit; factual scope, dialect, invented-spelling, and teaching guidance were corrected or strengthened.
   - [ ] Kindergarten Animal Words (`kindergarten-animal-words`)
   - [ ] Kindergarten Body Words (`kindergarten-body-words`)
   - [ ] Kindergarten Family Words (`kindergarten-family-words`)
-  - [ ] Kindergarten Short A Words (`kindergarten-short-a-words`)
-    - Status: editorial implementation drafted and self-reviewed as part of the first Phase 2 pilot batch (with `kindergarten-first-words` and `kindergarten-short-i-words`); inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
-  - [ ] Kindergarten Short I Words (`kindergarten-short-i-words`)
-    - Status: editorial implementation drafted and self-reviewed as part of the first Phase 2 pilot batch (with `kindergarten-first-words` and `kindergarten-short-a-words`); inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
-  - [ ] Kindergarten Short O Words (`kindergarten-short-o-words`)
-    - Status: editorial implementation drafted and self-reviewed as part of the second Phase 2 pilot batch (with `kindergarten-short-u-words` and `kindergarten-short-e-words`); inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
-  - [ ] Kindergarten Short U Words (`kindergarten-short-u-words`)
-    - Status: editorial implementation drafted and self-reviewed as part of the second Phase 2 pilot batch (with `kindergarten-short-o-words` and `kindergarten-short-e-words`); inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
-  - [ ] Kindergarten Short E Words (`kindergarten-short-e-words`)
-    - Status: editorial implementation drafted and self-reviewed as part of the second Phase 2 pilot batch (with `kindergarten-short-o-words` and `kindergarten-short-u-words`); inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
-  - [ ] Mixed Vowel CVC Review (`kindergarten-mixed-vowel-review`)
-    - Status: editorial implementation drafted and self-reviewed as part of the third Phase 2 Kindergarten batch (with `kindergarten-consonant-digraphs`); inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
-  - [ ] Consonant Digraphs (`kindergarten-consonant-digraphs`)
-    - Status: editorial implementation drafted and self-reviewed as part of the third Phase 2 Kindergarten batch (with `kindergarten-mixed-vowel-review`); inventory status `Needs review`; independent human sign-off pending before this item can be checked off.
+  - [x] Kindergarten Short A Words (`kindergarten-short-a-words`)
+    - Status: complete after the eight-page Kindergarten Core batch audit; CVC focus, error diagnosis, practice, and move-on guidance were strengthened.
+  - [x] Kindergarten Short I Words (`kindergarten-short-i-words`)
+    - Status: complete after the eight-page Kindergarten Core batch audit; practice, error diagnosis, and move-on guidance received minor improvements.
+  - [x] Kindergarten Short O Words (`kindergarten-short-o-words`)
+    - Status: complete after the eight-page Kindergarten Core batch audit; dialect-safe wording and guidance for the **x** spelling received minor improvements.
+  - [x] Kindergarten Short U Words (`kindergarten-short-u-words`)
+    - Status: complete after the eight-page Kindergarten Core batch audit; dialect-safe comparison and diagnostic guidance received minor improvements.
+  - [x] Kindergarten Short E Words (`kindergarten-short-e-words`)
+    - Status: complete after the eight-page Kindergarten Core batch audit; dialect-safe comparison, mixed practice, and diagnostic guidance received minor improvements.
+  - [x] Mixed Vowel CVC Review (`kindergarten-mixed-vowel-review`)
+    - Status: complete after the eight-page Kindergarten Core batch audit; retained unchanged because its discrimination, transfer, corrective review, and move-on guidance already met the standard.
+  - [x] Consonant Digraphs (`kindergarten-consonant-digraphs`)
+    - Status: complete after the eight-page Kindergarten Core batch audit; digraph/blend distinction, mixed practice, error diagnosis, and the prose sequence destination were corrected or strengthened.
 - [ ] Additional Practice pages (2 canonical-active)
   - [ ] Kindergarten Number Words (`kindergarten-number-words`)
   - [ ] Kindergarten Color Words (`kindergarten-color-words`)
@@ -1063,7 +1063,7 @@ Written implementation and adversarial self-review have been completed for all 4
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + classification decisions | 7 artifacts plus the `silent-e-long-e` decision and the `grade-4-final-stable-syllables`/`grade-5-spelling-rules` legacy-role-exception decision | 0 | 33 unresolved rows | 0 |
 | Phase 1 — Skill-page content | 41 live Skill pages | 0 fully Complete | 41 implementation-complete / `Needs review` across all 12 family batches | 0 to draft | 0 |
-| Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages with their own Grade Hub card (+2 focused component pages folded into an existing combined unit, not separately prioritized) | 0 | 8 implementation-complete / `Needs review` (`kindergarten-first-words`, `kindergarten-short-a-words`, `kindergarten-short-i-words`, `kindergarten-short-o-words`, `kindergarten-short-u-words`, `kindergarten-short-e-words`, `kindergarten-mixed-vowel-review`, `kindergarten-consonant-digraphs`) | 67 | 0 |
+| Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages with their own Grade Hub card (+2 focused component pages folded into an existing combined unit, not separately prioritized) | 8 Kindergarten Core pages | 0 | 67 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |
 | Phase 5 — Main browse-page content | 1 page | 0 | 0 | 1 | 0 |

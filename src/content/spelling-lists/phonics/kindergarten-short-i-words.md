@@ -41,6 +41,8 @@ Every word here follows the same regular, one-sound-per-letter pattern as Short 
 
 ### How to practice this list
 
-Have your child listen to each word, then say each sound separately before writing the matching letter — p, i, g for *pig*. Keep an ear out for short "e" creeping in (as in "peg" instead of "pig"); saying the two sounds side by side, slowly, can help a child hear the difference.
+Say a word without showing it. Have your child repeat it, separate its sounds, write the letters—**p-i-g** for *pig*—and then check the written word. After a few words, mix them with one or two familiar Short A words so the vowel must be chosen by listening.
 
-When a child can blend and spell most of these eight words with growing independence, they're ready for Kindergarten Short O Words.
+Keep an ear out for short **e** replacing short **i**, such as *peg* for *pig*. That vowel choice shows where to focus; a missing or changed consonant needs attention to the beginning or ending instead. Say two words such as *pig* and *peg* naturally rather than exaggerating them, and let the child compare the middle sounds before trying again.
+
+When a child can spell these words in mixed order with growing independence, preserve **i** while the consonants change, and fix an occasional vowel error after comparison, they're ready for Kindergarten Short O Words.

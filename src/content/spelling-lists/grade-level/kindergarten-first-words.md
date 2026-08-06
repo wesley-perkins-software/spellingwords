@@ -2,8 +2,8 @@
 id: kindergarten-first-words
 urlSlug: kindergarten-first-words
 title: 'First Words'
-description: 'Eight short, familiar spelling words that mix several short vowel sounds — cat, pig, dog, bug, bed, sun, cup, and hen — a gentle first step into sound-based spelling.'
-shortAnswer: 'A gentle starting list of eight familiar kindergarten words spanning several short vowel sounds — cat, pig, dog, bug, bed, sun, cup, and hen — simple, sound-based first spelling wins.'
+description: 'Eight short, familiar words — bed, bug, cat, cup, dog, hen, pig, and sun — for a gentle first step in hearing a word, separating its sounds, and writing letters for those sounds.'
+shortAnswer: 'First Words gives kindergarten children eight familiar words for beginning sound-based spelling: hear the word, separate its sounds, and write a letter for each sound.'
 category: grade-level
 grade: 'K'
 difficulty: beginner
@@ -19,12 +19,14 @@ prerequisiteLists: []
 nextLists: []
 featured: true
 readinessSignals:
-  - 'Can identify most letters and the sounds they make'
-  - 'Can break a simple word like "cat" into its three separate sounds (c-a-t)'
-  - "Recognize these words in books or everyday life, even if they can't spell them yet"
+  - 'Can name or write many letters and give their most common sounds'
+  - 'Can hear the first sound in a familiar spoken word such as "sun"'
+  - "Know what these words mean, even if they cannot read or spell them yet"
 faq:
   - question: 'Are these really the first words kindergarteners learn to spell?'
-    answer: "They're a strong starting point, not the only one. These eight words were chosen because they're short, phonetically regular, and already part of a kindergartener's spoken vocabulary — which makes them easier to map to letters than less familiar words would be."
+    answer: "They are one useful starting set, not the only possible first words. The words are short and familiar, so a child can concentrate on listening for sounds and choosing letters instead of learning new vocabulary. Pronunciation differs by dialect, so an adult should model each word naturally rather than insist on one accent."
+  - question: 'Is invented spelling okay at this stage?'
+    answer: 'Yes. An attempt that records sounds the child can hear is useful evidence of their thinking. Praise the attempt, say the word slowly together, and help the child compare each sound with the conventional spelling.'
 words:
   - bed
   - bug
@@ -36,18 +38,18 @@ words:
   - sun
 ---
 
-These eight words were chosen because a kindergartener already knows them — not as spelling words, but as things they can point to and say. That's what makes them a good first step in **beginning spelling**: connecting sounds a child already makes to the letters that represent them, not learning new vocabulary at the same time.
+These eight words were chosen because most kindergarten children already know what they mean. That makes them a useful first step in **beginning spelling**: children can connect sounds in familiar spoken words with written letters instead of learning new vocabulary at the same time.
 
-Each word is short and phonetically regular — three letters, one syllable, and a sound-to-letter match with no silent letters or exceptions. On purpose, the list moves across several short vowel sounds instead of staying on just one: *cat* and *bug* and *bed* and *dog* and *sun* and *pig* and *cup* and *hen* each use a different short vowel. **That mix is the point** — it shows a child that the same sound-it-out-and-spell approach works everywhere, before the next lists slow down and practice one vowel sound at a time.
+Each word has three letters, one syllable, and no silent letters. Together the words include all five short-vowel spellings, with extra examples for *e* and *u*, instead of staying with one vowel. **That mix is the point:** it introduces the sound-it-out-and-spell routine before the next lessons slow down and practice one vowel at a time. Pronunciations can vary by dialect—*dog* is a common example—so model the word as your family says it and focus on matching that pronunciation to its conventional spelling.
 
 At this stage, the skill being built isn't reading, and it isn't memorizing. It's **encoding**: hearing a spoken word, breaking it into its separate sounds, and writing down a letter for each one. *Cat* becomes three sounds — c, a, t — and three letters, said and written in the same order. That's a different task from recognizing the word *cat* in a book, and different again from a sight word a child just has to know on sight. Kindergarten's job here is narrower than either: can a child hear a short, familiar word and turn each sound into a letter, one at a time?
 
 ### How to practice this list
 
-Say each word aloud, then ask your child to say each sound separately before writing the matching letter — *cat* becomes three separate sounds, c, then a, then t, one letter at a time. A few words in one sitting is plenty; there's no need to get through all eight at once.
+Say a word without showing it, ask your child to repeat it, and help them stretch it into sounds before writing the matching letters—*cat* becomes /k/, /a/, /t/, written **c-a-t**. Then show the conventional spelling and compare it with the attempt. A few words in one sitting is plenty; mix their order on a later try so the child is listening rather than recalling the list.
 
-Success at this stage looks slow, not fast. A child who stops after each sound, says it out loud, and writes the matching letter before moving to the next sound is doing exactly what this list is for — even if it takes a while to get through one word. Speed and confidence come later, built on this kind of careful, sound-by-sound accuracy; rushing a child toward faster spelling now, before the sound-to-letter connection is secure, tends to produce guessing instead of the habit this list is meant to build.
+Success at this stage can look slow. Missing a middle or ending sound, reversing a letter, or choosing a plausible letter for a sound are normal early attempts. If a sound is missing, say the word slowly and ask what the child hears first, in the middle, and last; do not turn the word into something to memorize by sight.
 
 When a child can sound out and write most of these eight words with growing independence — needing only occasional help — they're ready to move on to Kindergarten Short A Words.
 
-There is no rush here — just the quiet satisfaction of hearing a word, sounding it out, and getting it right, one word at a time.
+There is no need for perfect speed or perfect spelling after one session. The important first step is using sounds to make and check a reasonable spelling attempt.

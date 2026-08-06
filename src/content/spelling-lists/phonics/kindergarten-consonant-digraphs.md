@@ -36,12 +36,14 @@ words:
   - path
 ---
 
-Sometimes two consonant letters team up and make one brand-new sound instead of two. This list practices three of those letter teams: SH, as in *ship*, *shop*, *fish*, and *wish*; CH, as in *chat*, *chin*, and *chip*; and TH, as in *bath* and *path*.
+Sometimes two consonant letters work together to represent one main consonant sound. This list practices three of those **digraphs**: **sh**, as in *ship*, *shop*, *fish*, and *wish*; **ch**, as in *chat*, *chin*, and *chip*; and **th**, as in *bath* and *path*. In a blend such as **st**, both consonant sounds remain audible; in these digraphs, the pair is treated as one sound unit.
 
 This step comes after the mixed CVC review because the child has already practiced mapping individual consonant and short-vowel sounds in order. These words keep that short-vowel spelling work, but add a new job: noticing when two consonant letters should be treated as one sound unit while the rest of the word is sounded out.
 
 ### How to practice this list
 
-Before writing, point to the digraph in the word and say it as one sound: SH in *ship* and *wish*, CH in *chat* and *chip*, or TH in *bath* and *path*. Then have your child stretch the whole word by sounds, treating the digraph as one unit — sh-i-p for *ship*, w-i-sh for *wish*, ch-i-p for *chip*, or b-a-th for *bath* — before writing the letters.
+Say a word without showing it and ask which digraph is heard. Have your child say that pair as one sound, stretch the whole word by sound units—**sh-i-p**, **w-i-sh**, **ch-i-p**, or **b-a-th**—and then write and check it. After practicing one digraph at a time, mix **sh**, **ch**, and **th** words so the child must choose the pair by listening.
 
-If your child separates the two letters, gently bring the pair back together and say the word again. When they can spot SH, CH, and TH in these words and use each pair as one sound unit with only occasional help, they're ready for Kindergarten -ck Ending Words, where the next step is choosing the right spelling at the end of a short-vowel word.
+Writing only one letter of a digraph is a normal early error: the child may hear one sound but not yet remember that its spelling needs two letters. Point to a known example, say the pair together, and let the child repair it. If the digraph is secure but the vowel or another consonant changes, listen to that part separately rather than reteaching the pair.
+
+When a child can spell these words in mixed order, preserve both letters of the target digraph while spelling the rest of the word, and correct an occasional omission after comparing with a known example, they are ready for the Grade 1 CVC and C/K Rule unit that follows in the Core sequence.

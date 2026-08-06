@@ -35,12 +35,12 @@ words:
   - box
 ---
 
-Short O is the third single vowel sound in this progression, following Short A and Short I — you can hear it in the middle of *dog*, *hot*, and *top*, made with the mouth open and rounded.
+Short O is the third single-vowel lesson in this progression, following Short A and Short I. You can hear the target vowel in the middle of *dog*, *hot*, and *top*, although its exact pronunciation varies across accents and dialects.
 
 Six of these eight words — *dog*, *dot*, *pot*, *hot*, *hop*, and *top* — follow the same one-sound-per-letter pattern as Short A and Short I Words. The other two, *fox* and *box*, add one small wrinkle: the letter "x" stands for two sounds together, /k/ and /s/, so sounding out *fox* means stretching it into four sounds for three letters — f, o, k, s — instead of the neat one-letter-one-sound match the rest of the list uses.
 
 ### How to practice this list
 
-Say each word aloud and have your child echo it back, then sound out each letter before writing it down, the same approach used for Short A and Short I. For *fox* and *box*, slow down on the ending: say the /k/ and /s/ separately — "fo-k-s" — so your child hears both sounds the "x" stands for before writing that one letter.
+Say a word without showing it, have your child repeat and stretch it, write the letters, and then check the result. For *fox* and *box*, slow down on the ending: say /k/ and /s/ separately so your child hears both sounds before writing the single letter **x**. Treat a spelling such as *foks* as evidence that both sounds were heard, then compare it with **fox** and explain that **x** records both ending sounds here.
 
-When a child can blend and spell most of these eight words — including working out that extra step on *fox* and *box* — with only occasional help, they're ready for Kindergarten Short U Words.
+When a child can spell the words in mixed order, preserve the short **o** spelling across different consonants, and use **x** in *fox* and *box* with only occasional help, they're ready for Kindergarten Short U Words.

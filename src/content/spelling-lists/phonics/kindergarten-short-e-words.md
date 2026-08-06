@@ -35,12 +35,12 @@ words:
   - wet
 ---
 
-Short E is the fifth and final single vowel sound in this Kindergarten progression, taught last after Short U — you can hear it in the middle of *bed*, *hen*, and *wet*, made with the mouth partway open and the sound short and flat.
+Short E is the fifth and final single-vowel lesson in this Kindergarten progression, taught after Short U. You can hear the target vowel in the middle of *bed*, *hen*, and *wet*, with natural variation across accents and dialects.
 
 All eight words here — *bed*, *red*, *hen*, *pen*, *leg*, *pet*, *net*, and *wet* — follow the same one-sound-per-letter pattern as the rest of the progression. Short E sits at the end of this sequence because it's the vowel sound most easily confused with short I, already practiced earlier: a child who has spent time hearing *pig* and *sit* has a foothold for noticing when a word shifts to the flatter short E sound instead, in words like *pen* and *net*.
 
 ### How to practice this list
 
-Say each word aloud and have your child echo it back, then sound out each letter before writing it down. If a word sounds uncertain, check for short I creeping in — say the word with each vowel sound in turn, such as "pet" and "pit," so your child can hear which one matches.
+Say a word without showing it, have your child repeat and stretch its three sounds, write the letters, and check the result. Mix words such as *bed*, *hen*, and *wet* so the child listens for the vowel rather than follows a rhyme. If short **i** replaces short **e**, compare a real pair such as *pet* and *pit* in your natural pronunciation; if a consonant changes, listen again to the beginning or ending instead.
 
-Once a child can blend and spell most of these eight words — telling short E and short I apart with only occasional help — they're ready to move on to the Mixed Vowel CVC Review, which checks whether all five short vowel sounds transfer to fresh words your child hasn't seen in these lists.
+Once a child can spell these words in mixed order, preserve **e** as the consonants change, and correct an occasional **e/i** confusion after comparison, they're ready for Mixed Vowel CVC Review. That lesson checks whether all five short-vowel spellings transfer to a mixed set rather than remain tied to one page title.

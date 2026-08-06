@@ -16,6 +16,8 @@ Phase 2 editorial work surfaced a symptom (Kindergarten Consonant Digraphs' "Nex
 
 ## 1. Global Navigation Philosophy
 
+**Core title contract.** The destination entry’s canonical `data.title` is used unchanged on the Grade Hub card, page H1, breadcrumb, and Review first / Next step card. Grade is separate card metadata rather than title decoration. Hub-specific wording is exceptional and must be an explicit override with a reviewed rationale; URL slugs may be shorter than the title.
+
 **Core Spelling final rule.** The model starts from the parent's experience at the bottom of a Core page and answers only two questions:
 
 1. **What should we review first?** (`prerequisiteLists`)

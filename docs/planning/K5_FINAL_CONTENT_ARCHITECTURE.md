@@ -402,6 +402,7 @@ The completed implementation preserves existing flat canonical routes, stable ID
 Any future maintenance across Kindergarten–Grade 5 must continue to follow the frozen decisions in Sections 1–3:
 
 - Use the three public sections in order: Core Spelling, High-Frequency Words, and Additional Practice.
+- Use each Core entry’s canonical `data.title` unchanged for its Grade Hub card, destination H1, breadcrumb, and Review first / Next step labels. Treat grade as separate metadata; permit a Hub-title override only as an explicit, documented exception. A canonical URL slug may remain shorter than the title.
 - Reuse stable canonical practice URLs and add only genuine curricular gaps or approved bounded vocabulary topics.
 - Publish one Common Words gateway per grade and the set counts frozen in Section 1.
 - Curate exact word membership before publishing; do not expose planned-but-unpublished children in visible links or structured data.

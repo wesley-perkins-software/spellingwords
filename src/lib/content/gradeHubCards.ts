@@ -1,5 +1,5 @@
 import type { SpellingListEntry } from "./spellingLists";
-import { getCanonicalListPath } from './canonicalGradeRoutes';
+import { getCanonicalListPath, isCanonicalGradeCurriculumId } from './canonicalGradeRoutes';
 
 export type GradeHubCard = {
   id: string;
@@ -15,7 +15,8 @@ export type GradeHubCard = {
 
 type CardDefinition = {
   id: string;
-  title: string;
+  /** Hub-only display override. Core cards normally omit this and use content frontmatter. */
+  title?: string;
   description: string;
   badge?: string;
   kind: "list";
@@ -27,6 +28,17 @@ export type GradeHubSection = {
   cards: GradeHubCard[];
 };
 
+export type CoreHubTitleOverride = {
+  title: string;
+  rationale: string;
+};
+
+/**
+ * Reviewed exceptions to the canonical-title default. Keep this small: every
+ * entry must explain why exact canonical wording would be worse on a Hub card.
+ */
+export const CORE_HUB_TITLE_OVERRIDES: Readonly<Record<string, CoreHubTitleOverride>> = {};
+
 export const KINDERGARTEN_HUB_SECTIONS: readonly {
   title: string;
   summary?: string;
@@ -37,7 +49,6 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
     cards: [
       {
         id: "kindergarten-first-words",
-        title: "First Words",
         description:
           "Start with eight familiar, sound-out words that help a child connect spoken sounds to letters before concentrating on one vowel pattern.",
         badge: "Grade Unit",
@@ -45,7 +56,6 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
       },
       {
         id: "kindergarten-short-a-words",
-        title: "Short A Words",
         description:
           "Practice short-a CVC words as the first focused vowel step.",
         badge: "Grade Unit",
@@ -53,28 +63,24 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
       },
       {
         id: "kindergarten-short-i-words",
-        title: "Short I Words",
         description: "Continue the sequence with short-i CVC words.",
         badge: "Grade Unit",
         kind: "list",
       },
       {
         id: "kindergarten-short-o-words",
-        title: "Short O Words",
         description: "Practice the short-o vowel sound in simple words.",
         badge: "Grade Unit",
         kind: "list",
       },
       {
         id: "kindergarten-short-u-words",
-        title: "Short U Words",
         description: "Practice the short-u vowel sound in simple words.",
         badge: "Grade Unit",
         kind: "list",
       },
       {
         id: "kindergarten-short-e-words",
-        title: "Short E Words",
         description:
           "Finish the focused short-vowel sequence with short-e words.",
         badge: "Grade Unit",
@@ -82,7 +88,6 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
       },
       {
         id: "kindergarten-mixed-vowel-review",
-        title: "Mixed CVC Review",
         description:
           "Check whether a child can choose among short vowels instead of relying on one list pattern.",
         badge: "Grade Unit",
@@ -90,7 +95,6 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
       },
       {
         id: "kindergarten-consonant-digraphs",
-        title: "Digraph Words",
         description:
           "Try common two-letter consonant sounds after CVC work; this is a preview, not a required kindergarten milestone.",
         badge: "Grade Unit",
@@ -194,7 +198,6 @@ export const GRADE_1_HUB_SECTIONS: readonly {
     cards: [
       {
         id: "grade-1-cvc-short-vowels-c-k-rule",
-        title: "Short Vowel Review and C/K Spelling",
         description:
           "Refresh short vowels and learn when the /k/ sound is usually spelled c or k.",
         badge: "Grade Unit",
@@ -202,7 +205,6 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-1-floss-rule",
-        title: "The FLOSS Rule",
         description:
           "Learn a useful short-vowel ending pattern with doubled f, l, s, or z.",
         badge: "Grade Unit",
@@ -210,7 +212,6 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-1-consonant-digraphs-final-ck",
-        title: "Digraphs and Final -ck",
         description:
           "Practice common two-letter consonant spellings and the -ck ending after a short vowel.",
         badge: "Grade Unit",
@@ -218,7 +219,6 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-1-beginning-consonant-blends",
-        title: "Beginning Consonant Blends",
         description:
           "Spell words that begin with two consonant sounds, such as bl- and st-.",
         badge: "Grade Unit",
@@ -226,7 +226,6 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-1-ending-consonant-blends",
-        title: "Ending Consonant Blends",
         description:
           "Spell words that end with two consonant sounds, such as -nd and -mp.",
         badge: "Grade Unit",
@@ -234,7 +233,6 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-1-long-vowels-silent-e",
-        title: "Long Vowels with Silent E",
         description:
           "Learn how a final silent e can change a vowel sound in a one-syllable word.",
         badge: "Grade Unit",
@@ -242,7 +240,6 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-1-open-syllables-final-y",
-        title: "Open Syllables and Final Y",
         description:
           "Notice short words where an open syllable or final y makes the vowel sound long.",
         badge: "Grade Unit",
@@ -250,7 +247,6 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-1-long-a-long-o-vowel-teams",
-        title: "Long Vowel Teams",
         description:
           "Learn common vowel teams that spell long-vowel sounds, then choose a focused pattern when needed.",
         badge: "Grade Unit",
@@ -258,7 +254,6 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-1-inflectional-endings-s-es",
-        title: "Plural Endings: -s and -es",
         description:
           "Spell common plural endings in words children use in everyday writing.",
         badge: "Grade Unit",
@@ -266,7 +261,6 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-1-inflectional-endings-ed-ing",
-        title: "Verb Endings: -ed and -ing",
         description:
           "Add common verb endings while keeping the base word readable and spellable.",
         badge: "Grade Unit",
@@ -274,7 +268,6 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-1-r-controlled-ar-or",
-        title: "R-Controlled Vowels",
         description:
           "Practice vowel sounds changed by r, then use a focused pattern page for extra help.",
         badge: "Grade Unit",
@@ -282,7 +275,6 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-1-tch-dge-ending-rules",
-        title: "Final -tch and -dge",
         description:
           "Learn useful endings for final /ch/ and /j/ after a short vowel.",
         badge: "Grade Unit",
@@ -367,7 +359,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
     cards: [
       {
         id: "grade-2-long-e-ee-ea",
-        title: "Long E Vowel Teams: EE and EA",
         description:
           "Practice two common ways to spell long e in words such as feet, team, and beach.",
         badge: "Grade Unit",
@@ -375,7 +366,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-2-long-i-ie-igh",
-        title: "Long I Patterns: IE and IGH",
         description:
           "Extend long-i spelling with final ie in pie and the igh pattern in night and light.",
         badge: "Grade Unit",
@@ -383,7 +373,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       },
       {
         id: "vowel-teams-oi-oy",
-        title: "Diphthongs: oi and oy",
         description:
           "Learn the two ways to spell the vowel sound in boy and coin, and when each spelling is used.",
         badge: "Grade Unit",
@@ -391,7 +380,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       },
       {
         id: "vowel-teams-ou-ow",
-        title: "Diphthongs: ou and ow",
         description:
           "Practice the sound in out and cow, where two spellings share one sound with no position rule.",
         badge: "Grade Unit",
@@ -399,7 +387,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-2-oo-two-sounds",
-        title: "Two Sounds of oo",
         description:
           "Learn the same two letters that spell two different sounds, in moon and in book.",
         badge: "Grade Unit",
@@ -407,7 +394,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-2-au-aw-words",
-        title: "Vowel Patterns: au and aw",
         description:
           "Practice the vowel sound in saw and because, and where each spelling belongs in a word.",
         badge: "Grade Unit",
@@ -415,7 +401,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-2-r-controlled-er-ir-ur",
-        title: "R-Controlled Vowels: ER, IR, and UR",
         description:
           "Complete the basic r-controlled vowel set with the spellings in her, bird, and turn.",
         badge: "Grade Unit",
@@ -423,7 +408,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-2-soft-c-soft-g",
-        title: "Soft C and Soft G",
         description:
           "Learn why c sounds like /s/ in city and g sounds like /j/ in page.",
         badge: "Grade Unit",
@@ -431,7 +415,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-2-two-syllable-words",
-        title: "Two-Syllable Words",
         description:
           "Break longer words into two beats so a child can spell them one syllable at a time.",
         badge: "Grade Unit",
@@ -439,7 +422,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-2-final-stable-le",
-        title: "Words Ending in -le",
         description:
           "Practice the quiet ending in little and table, where the last beat has no vowel sound you can hear.",
         badge: "Grade Unit",
@@ -447,7 +429,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-2-silent-letter-words",
-        title: "Silent Letter Words",
         description:
           "Spell words with letters you write but never say, like knee, write, and thumb.",
         badge: "Grade Unit",
@@ -455,7 +436,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-2-list-02",
-        title: "Compound Words",
         description:
           "Spell big words by finding the two small words inside them, like sun and shine.",
         badge: "Grade Unit",
@@ -463,7 +443,6 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-2-contractions",
-        title: "Contractions",
         description:
           "Join two words into one with an apostrophe, and know which letters it replaces.",
         badge: "Grade Unit",
@@ -592,7 +571,6 @@ export const GRADE_3_HUB_SECTIONS: readonly {
     cards: [
       {
         id: "grade-3-prefix-words",
-        title: "Prefixes",
         description:
           "Learn common prefixes such as un-, re-, pre-, dis-, and mis- that come before a base word and change its meaning.",
         badge: "Grade Unit",
@@ -600,7 +578,6 @@ export const GRADE_3_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-3-suffix-words",
-        title: "Suffixes",
         description:
           "Practice common suffixes such as -er, -est, -ly, -ful, -less, -ness, and -ment that come after a base word.",
         badge: "Grade Unit",
@@ -608,7 +585,6 @@ export const GRADE_3_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-3-suffix-spelling-changes",
-        title: "Suffix Spelling Changes",
         description:
           "Learn the three spelling changes a base word can make before a suffix: dropping silent e, doubling the final consonant, and changing y to i.",
         badge: "Grade Unit",
@@ -616,7 +592,6 @@ export const GRADE_3_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-3-possessives",
-        title: "Plurals, Possessives, and Contractions",
         description:
           "Use 's and s' to show ownership, and tell possessives apart from plurals and contractions.",
         badge: "Grade Unit",
@@ -624,7 +599,6 @@ export const GRADE_3_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-3-multisyllabic-words",
-        title: "Longer Words and Syllable Division",
         description:
           "Break two- and three-syllable words into parts so they are easier to spell.",
         badge: "Grade Unit",
@@ -632,7 +606,6 @@ export const GRADE_3_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-3-homophones",
-        title: "Homophones and Commonly Confused Words",
         description:
           "Choose the correct spelling for words that sound alike but have different meanings, such as there, their, and they're.",
         badge: "Grade Unit",
@@ -640,7 +613,6 @@ export const GRADE_3_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-3-root-word-families",
-        title: "Root Word Families",
         description:
           "Review how related words share a meaningful base, and preview the Greek and Latin root study that begins in Grade 4.",
         badge: "Grade Unit",
@@ -748,7 +720,6 @@ export const GRADE_4_HUB_SECTIONS: readonly {
     cards: [
       {
         id: "grade-4-multisyllabic-academic-words",
-        title: "Advanced Multisyllabic Words",
         description:
           "Break longer academic words such as communicate and organize into syllables before moving into affixes and roots.",
         badge: "Grade Unit",
@@ -756,7 +727,6 @@ export const GRADE_4_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-4-advanced-prefixes",
-        title: "Advanced Prefixes",
         description:
           "Learn prefixes such as inter-, sub-, super-, trans-, and anti- that appear in longer academic words.",
         badge: "Grade Unit",
@@ -764,7 +734,6 @@ export const GRADE_4_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-4-advanced-suffixes",
-        title: "Advanced Suffixes and Final Stable Syllables",
         description:
           "Learn advanced suffixes such as -able, -ible, -ous, -ive, -tion, and -sion, then extend into the -ture and -sure endings that complete the Grade 4 final-stable-syllable set.",
         badge: "Grade Unit",
@@ -772,7 +741,6 @@ export const GRADE_4_HUB_SECTIONS: readonly {
       },
       {
         id: "tier-1-roots-and-patterns",
-        title: "Greek and Latin Roots",
         description:
           "Learn Latin roots such as port, dict, spect, rupt, and struct, then Greek roots such as tele, photo, graph, bio, demo, and scope.",
         badge: "Grade Unit",
@@ -780,7 +748,6 @@ export const GRADE_4_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-4-commonly-confused-words",
-        title: "Commonly Confused Words",
         description:
           "Choose the right spelling for words that sound alike or look similar, such as its/it's, than/then, and affect/effect.",
         badge: "Grade Unit",
@@ -788,7 +755,6 @@ export const GRADE_4_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-4-derived-words",
-        title: "Derived Words and Word Meaning",
         description:
           "See how one base word's family — such as nation, national, and nationality — keeps its spelling stable even as pronunciation and meaning shift.",
         badge: "Grade Unit",
@@ -899,7 +865,6 @@ export const GRADE_5_HUB_SECTIONS: readonly {
     cards: [
       {
         id: "grade-5-multisyllabic-academic-words",
-        title: "Advanced Multisyllabic Academic Words",
         description:
           "Break longer academic words such as investigation and responsibility into syllables and word parts before moving into affixes and roots.",
         badge: "Grade Unit",
@@ -907,7 +872,6 @@ export const GRADE_5_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-5-prefix-suffix-words",
-        title: "Advanced Prefixes and Suffixes",
         description:
           "Combine prefixes such as inter-, trans-, and super- with suffixes such as -ive, -ible, and -ity, then extend into the -tion, -sion, -able, -ible, -ance, and -ence spelling rules that complete the set.",
         badge: "Grade Unit",
@@ -915,7 +879,6 @@ export const GRADE_5_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-5-greek-latin-word-parts",
-        title: "Greek and Latin Word Parts",
         description:
           "Use familiar Greek and Latin word parts such as photo, bio, geo, port, and struct inside longer Grade 5 academic vocabulary.",
         badge: "Grade Unit",
@@ -923,7 +886,6 @@ export const GRADE_5_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-5-commonly-confused-words",
-        title: "Commonly Confused Words",
         description:
           "Choose the right spelling for words that sound alike or look similar, such as affect/effect, principal/principle, and advice/advise.",
         badge: "Grade Unit",
@@ -931,7 +893,6 @@ export const GRADE_5_HUB_SECTIONS: readonly {
       },
       {
         id: "grade-5-spelling-changes-related-words",
-        title: "Spelling Changes in Related Words",
         description:
           "See how one base word's family — such as critic, critical, and criticism — keeps its spelling stable even as pronunciation shifts.",
         badge: "Grade Unit",
@@ -1033,7 +994,9 @@ export function buildGradeHubCards(
         {
           id: definition.id,
           href: getCanonicalListPath(entry.data),
-          title: definition.title,
+          title: isCanonicalGradeCurriculumId(definition.id)
+            ? (CORE_HUB_TITLE_OVERRIDES[definition.id]?.title ?? entry.data.title)
+            : (definition.title ?? entry.data.title),
           description: definition.description,
           category: entry.data.category,
           badge: definition.badge,

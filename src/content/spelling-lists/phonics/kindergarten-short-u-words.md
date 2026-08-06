@@ -35,12 +35,12 @@ words:
   - fun
 ---
 
-Short U is the fourth single vowel sound in this progression, following Short O — you can hear it in the middle of *bug*, *sun*, and *cup*, made with the mouth more closed and the sound pulled toward the back of the throat.
+Short U is the fourth single-vowel lesson in this progression, following Short O. You can hear the target vowel in the middle of *bug*, *sun*, and *cup*; model it naturally because vowel pronunciation varies across accents and dialects.
 
 All eight words here — *bug*, *rug*, *sun*, *run*, *nut*, *cut*, *cup*, and *fun* — follow the same one-sound-per-letter pattern already practiced in Short A and Short I. The vowel to listen for carefully here is short O: it's the closest-sounding neighbor in this sequence, and a child who just spent time on *dog* and *hot* can sometimes slip and read or write a short "u" word as though it rhymed with a short "o" one.
 
 ### How to practice this list
 
-Say each word aloud and have your child echo it back, then sound out each letter before writing it down. If your child hesitates on the vowel, say a Short U word next to its Short O counterpart — "bug," then "bog" — so they can hear the difference before choosing which letter to write.
+Say a word without showing it, have your child repeat and stretch its three sounds, write the letters, and check the middle vowel. If the child hesitates, compare a Short U word with a clearly different familiar Short O word in your own pronunciation, then ask which one matches. A changed consonant calls for listening to the edge of the word; writing **o** in the middle calls for another comparison of the vowel sounds.
 
-When a child can blend and spell most of these eight words, correctly picking short "u" over short "o" when it matters, with only occasional help, they're ready for Kindergarten Short E Words.
+When a child can spell the words in mixed order, preserve **u** as the consonants change, and correct an occasional vowel confusion after comparison, they're ready for Kindergarten Short E Words.

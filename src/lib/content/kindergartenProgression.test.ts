@@ -45,6 +45,7 @@ type FrontmatterSummary = {
   words: string[];
   prerequisiteLists: string[];
   nextLists: string[];
+  skillIds: string[];
   filePath: string;
 };
 
@@ -98,6 +99,7 @@ function kindergartenContent(): FrontmatterSummary[] {
         words: readWords(frontmatter),
         prerequisiteLists: readInlineArray(frontmatter, 'prerequisiteLists'),
         nextLists: readInlineArray(frontmatter, 'nextLists'),
+        skillIds: readInlineArray(frontmatter, 'skillIds'),
         filePath,
       };
     })
@@ -189,6 +191,28 @@ describe('kindergartenBadges', () => {
 });
 
 describe('Kindergarten roadmap architecture', () => {
+  it('freezes the complete Kindergarten Core editorial batch contract', () => {
+    const expected = [
+      { id: 'kindergarten-first-words', words: ['bed', 'bug', 'cat', 'cup', 'dog', 'hen', 'pig', 'sun'], skillIds: [] },
+      { id: 'kindergarten-short-a-words', words: ['hat', 'mat', 'sat', 'man', 'can', 'bag', 'cap', 'map'], skillIds: ['short-a-words'] },
+      { id: 'kindergarten-short-i-words', words: ['pig', 'big', 'pin', 'dig', 'sit', 'bit', 'lip', 'win'], skillIds: ['short-i-words'] },
+      { id: 'kindergarten-short-o-words', words: ['dog', 'fox', 'dot', 'pot', 'hot', 'hop', 'top', 'box'], skillIds: ['short-o-words'] },
+      { id: 'kindergarten-short-u-words', words: ['bug', 'rug', 'sun', 'run', 'nut', 'cut', 'cup', 'fun'], skillIds: ['short-u-words'] },
+      { id: 'kindergarten-short-e-words', words: ['bed', 'red', 'hen', 'pen', 'leg', 'pet', 'net', 'wet'], skillIds: ['short-e-words'] },
+      { id: 'kindergarten-mixed-vowel-review', words: ['jam', 'lid', 'dog', 'mud', 'get', 'rag', 'hit', 'web', 'nap', 'hop'], skillIds: [] },
+      { id: 'kindergarten-consonant-digraphs', words: ['ship', 'shop', 'fish', 'wish', 'chat', 'chin', 'chip', 'bath', 'path'], skillIds: ['digraph-sh-words', 'digraph-ch-words', 'digraph-th-words'] },
+    ];
+    const byId = new Map(kindergartenContent().map((entry) => [entry.id, entry]));
+
+    expect(KINDERGARTEN_CORE_IDS).toEqual(expected.map(({ id }) => id));
+    for (const contract of expected) {
+      const entry = byId.get(contract.id);
+      expect(entry, contract.id).toBeDefined();
+      expect(entry).toMatchObject({ status: 'published', words: contract.words, skillIds: contract.skillIds });
+      expect(new Set(entry!.words).size, contract.id).toBe(entry!.words.length);
+    }
+  });
+
   it('does not duplicate ids across roadmap sections', () => {
     const ids = [...KINDERGARTEN_CORE_IDS, ...KINDERGARTEN_ADDITIONAL_IDS];
     expect(new Set(ids).size).toBe(ids.length);

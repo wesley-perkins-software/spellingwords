@@ -5,10 +5,15 @@ import {
   GRADE_1_HUB_SECTIONS,
   GRADE_2_HUB_SECTIONS,
   GRADE_3_HUB_SECTIONS,
+  GRADE_4_HUB_SECTIONS,
   GRADE_5_HUB_SECTIONS,
+  CORE_HUB_TITLE_OVERRIDES,
+  buildGradeHubCards,
   KINDERGARTEN_HUB_SECTIONS,
 } from "./gradeHubCards";
 import { getSequenceNeighbors } from "./navigationSequence";
+import { canonicalGradeRoutes } from "./canonicalGradeRoutes";
+import type { SpellingListEntry } from "./spellingLists";
 
 const contentRoot = join(process.cwd(), "src/content");
 
@@ -373,5 +378,70 @@ describe("Common Words validation slice content", () => {
       return `${category}/${urlSlug}`;
     });
     expect(new Set(routes).size).toBe(routes.length);
+  });
+});
+
+const ALL_HUB_SECTIONS = [
+  KINDERGARTEN_HUB_SECTIONS,
+  GRADE_1_HUB_SECTIONS,
+  GRADE_2_HUB_SECTIONS,
+  GRADE_3_HUB_SECTIONS,
+  GRADE_4_HUB_SECTIONS,
+  GRADE_5_HUB_SECTIONS,
+] as const;
+
+function frontmatterValue(id: string, field: string): string {
+  for (const path of contentFiles(join(contentRoot, "spelling-lists"))) {
+    const value = readFileSync(path, "utf8");
+    if (!new RegExp(`^id:\\s*["']?${id}["']?\\s*$`, "m").test(value)) continue;
+    const match = value.match(new RegExp(`^${field}:\\s*["']?([^"'\\n]+)["']?\\s*$`, "m"));
+    if (!match) throw new Error(`Missing ${field} for ${id}`);
+    return match[1];
+  }
+  throw new Error(`Missing content entry ${id}`);
+}
+
+describe("Core Grade Hub canonical-title contract", () => {
+  const coreRoutes = canonicalGradeRoutes.filter((route) => route.classification === "core-spelling");
+  const coreDefinitions = ALL_HUB_SECTIONS.flatMap((sections) =>
+    sections.find((section) => section.title === "Core Spelling")?.cards ?? [],
+  );
+
+  it("contains exactly 51 Core cards and every canonical Core destination exactly once", () => {
+    expect(coreDefinitions).toHaveLength(51);
+    expect(new Set(coreDefinitions.map((card) => card.id)).size).toBe(51);
+    expect(coreDefinitions.map((card) => card.id)).toEqual(coreRoutes.map((route) => route.id));
+  });
+
+  it("omits authored Core titles so content frontmatter is the default source of truth", () => {
+    expect(coreDefinitions.every((card) => card.title === undefined)).toBe(true);
+
+    const entries = coreRoutes.map((route) => ({
+      data: {
+        id: route.id,
+        title: frontmatterValue(route.id, "title"),
+        category: "grade-level",
+        urlSlug: route.finalSlug,
+        words: ["example"],
+      },
+    })) as unknown as SpellingListEntry[];
+    const rendered = ALL_HUB_SECTIONS.flatMap((sections) => buildGradeHubCards(sections, entries))
+      .flatMap((section) => section.cards);
+
+    for (const route of coreRoutes) {
+      const card = rendered.find((candidate) => candidate.id === route.id);
+      expect(card?.href, route.id).toBe(route.canonicalPath);
+      expect(card?.title, route.id).toBe(frontmatterValue(route.id, "title"));
+    }
+  });
+
+  it("keeps every exceptional override reviewed, documented, and Core-only", () => {
+    for (const [id, override] of Object.entries(CORE_HUB_TITLE_OVERRIDES)) {
+      expect(coreRoutes.some((route) => route.id === id), id).toBe(true);
+      expect(override.title.trim().length, `${id} title`).toBeGreaterThan(0);
+      expect(override.rationale.trim().length, `${id} rationale`).toBeGreaterThan(20);
+      expect(override.title, `${id} mismatch`).not.toBe(frontmatterValue(id, "title"));
+    }
+    expect(Object.keys(CORE_HUB_TITLE_OVERRIDES)).toEqual([]);
   });
 });

@@ -4,7 +4,7 @@
 
 > **Final Core navigation rule:** Core Spelling is one continuous K–5 sequence. The bottom section is headed **“Where to go from here”** and contains **Review first** (the previous `CORE_SPELLING_SEQUENCE` unit) followed by **Next step** (the next unit). Core pages never render **Explore more**. Only `kindergarten-first-words` omits Review first; only `grade-5-spelling-changes-related-words` omits Next step. High-Frequency Words and Additional Practice navigation remain separate pending passes.
 >
-> **Core title rule:** a Core entry's `title` is its canonical page title and is used unchanged by its H1, breadcrumb, and Review first / Next step cards. Grade context is separate presentation metadata, never prefixed to that string. Grade Hub card titles remain independently curated display copy and may be intentionally shorter.
+> **Core title rule:** a Core entry's `title` is its canonical page title and is used unchanged by its H1, breadcrumb, and Review first / Next step cards. Grade context is separate presentation metadata, never prefixed to that string. The same title is the Grade Hub card default; a Hub-only override is permitted only as an explicit reviewed exception with a documented usability rationale. Canonical URL slugs may remain shorter and need not reproduce the title exactly.
 
 ---
 

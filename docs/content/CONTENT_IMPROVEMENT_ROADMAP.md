@@ -88,6 +88,7 @@ Five page layers exist within the canonical architecture. Each layer's page set 
 ### Layer 3 — Grade Hub pages
 **Purpose:** summarize and organize one grade's Core Spelling, Common Words, and any approved Additional Practice (e.g. "3rd Grade Spelling Words"). **Defined by:** `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`; implemented as code (`src/pages/spelling-lists/[gradeSlug].astro` + `src/lib/content/gradeHubCards.ts`/`gradeHubCopy.ts`), not a content file.
 **Belongs here:** short orienting copy, a scannable map of the grade's three sections, and links into every child page.
+**Core title contract:** each Core card defaults to the destination entry’s exact canonical title, matching its H1, breadcrumb, and relationship-card label. Grade is separate metadata. Any Hub-only title is an explicit reviewed exception with a documented usability rationale; shorter canonical URL slugs remain valid.
 **Must not duplicate:** lesson content from any child page.
 **Linking role:** routes down into every Grade Unit/Common Words/Additional Practice page for that grade, and up to the Skills Hub / main browse page.
 

@@ -2,8 +2,8 @@
 id: grade-1-consonant-digraphs-final-ck
 urlSlug: 1st-grade-consonant-digraphs-final-ck
 title: "Consonant Digraphs and Final -ck"
-description: "A first-grade core spelling lesson on sh, ch, th, wh, and final -ck after a short vowel."
-shortAnswer: "This Grade 1 core unit teaches consonant digraphs and reviews final -ck as a two-letter spelling for one sound after a short vowel."
+description: 'Twelve Grade 1 words that practice sh, ch, th, wh, and final ck as two-letter spellings representing one consonant sound.'
+shortAnswer: 'This Grade 1 unit practices consonant digraphs—two consonant letters representing one main sound—and reviews final ck after a short vowel.'
 contentRole: grade-unit
 skillIds: ["digraph-sh-words", "digraph-ch-words", "digraph-th-words", "digraph-wh-words", "ck-tch-dge-word-endings"]
 category: phonics
@@ -21,16 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - "Can spell short-vowel words and simple doubled endings with support"
-  - "Understand that two letters can work together to spell one sound"
-  - "Are ready to compare digraphs such as sh, ch, th, and wh with the final ck spelling"
-faq:
-  - question: "What is a consonant digraph?"
-    answer: "A consonant digraph is two consonant letters that work together to spell one sound, such as sh in ship or ch in chin."
-  - question: "Why include final -ck with digraphs?"
-    answer: "Final ck is also two consonant letters spelling one sound. It fits naturally with digraph practice while reinforcing the short-vowel -ck pattern."
-  - question: "Is wh always pronounced differently from w?"
-    answer: "In many U.S. classrooms, wh is taught as a spelling pattern in question words even when students pronounce it like /w/. The spelling pattern is still useful."
+  - 'Can spell short-vowel words and common doubled endings with support'
+  - 'Understand that a sound can be represented by more than one letter'
+  - 'Can listen for a target consonant sound at the beginning or end of a word'
 words:
   - ship
   - shop
@@ -46,88 +39,14 @@ words:
   - check
 ---
 
-## Introduction: what students learn
+These words practice **sh**, **ch**, **th**, and **wh** at the beginning of short-vowel words, then revisit final **ck** in *back*, *duck*, *sock*, and *check*. Grouping them together reinforces one important idea: a single consonant sound may require a two-letter spelling. The digraph determines the beginning of *ship*, *chin*, *thin*, and *when*, while the child still maps the remaining sounds in order.
 
-This lesson teaches consonant digraphs: two consonant letters that work together to spell one sound. Students practice **sh**, **ch**, **th**, and **wh**, then review final **-ck** after a short vowel.
+This lesson follows the FLOSS Rule because children have already seen that the number of written letters does not always match the number of sounds. Here the two-letter spelling represents one sound unit rather than a doubled final consonant convention. **Wh** remains a useful spelling pattern even for speakers who pronounce *when* and *whip* with the same initial sound as **w** words.
 
-The big idea is simple: sometimes two letters make one sound.
+### How to practice this list
 
-## Learning Objectives
+Say a word without showing it and ask which target sound is heard and where it occurs. Have your child map the word by spelling parts—for example, **sh-i-p**, **ch-a-t**, **th-i-n**, or **du-ck**—then write and check it. Practice one digraph at a time before mixing **sh**, **ch**, **th**, and **wh**; keep final **ck** words in the mix so the child must also attend to position.
 
-Students will learn to:
+Writing *sip* for *ship* or *cin* for *chin* is a normal early attempt: the child may hear one sound but not yet remember its two-letter spelling. Point to a known example, say the digraph as one sound unit, and let the child repair it. The two common pronunciations of **th**, heard in words such as *thin* and *this*, use the same **th** spelling; do not require a child to change their home pronunciation.
 
-- recognize **sh**, **ch**, **th**, and **wh** as consonant digraphs;
-- spell one sound with two letters when a digraph is needed;
-- hear final /k/ after a short vowel and spell it **ck**;
-- compare beginning digraphs with ending digraphs;
-- avoid spelling each sound with only one letter when a two-letter pattern is expected.
-
-## Why this spelling concept matters
-
-Digraphs appear in many early reading and writing words. Students who understand digraphs can spell words like *ship*, *chat*, and *bath* by mapping sounds to spelling patterns instead of guessing.
-
-Final **-ck** also strengthens the idea that one sound can be spelled with two letters.
-
-## Parent-friendly explanation
-
-A digraph is a team of two letters that makes one sound. In *ship*, the letters **sh** spell one sound. In *chin*, **ch** spells one sound. In *bath*, **th** spells one sound. In *when*, **wh** is a spelling team often found in question words.
-
-The ending **ck** also spells one sound. In *duck*, students hear /d/ /ŭ/ /k/, but the final /k/ is spelled **ck** because it comes right after a short vowel.
-
-## The spelling rule or generalization
-
-Use these first-grade generalizations:
-
-- **sh**, **ch**, **th**, and **wh** are consonant digraphs: two letters spelling one sound.
-- At the end of a one-syllable word after a short vowel, final /k/ is often spelled **ck**.
-
-## Practice word list
-
-- ship
-- shop
-- chin
-- chat
-- thin
-- bath
-- when
-- whip
-- back
-- duck
-- sock
-- check
-
-## Example sentences
-
-- The **ship** is big.
-- I can **chat** with my friend.
-- The sock is in the **bath**.
-- A **duck** went by the dock.
-
-## Common mistakes children make
-
-- Spelling *ship* as *sip* because they hear the sound but forget the **sh** spelling.
-- Spelling *chin* as *chin* correctly in reading but *cin* or *shin* in writing.
-- Forgetting that **th** can be voiced or unvoiced but is still spelled **th**.
-- Spelling *duck* as *duk* because they hear only one final /k/ sound.
-
-## Common Misconceptions
-
-- **Misconception:** Two letters always mean two sounds.  
-  **Correction:** In a digraph, two letters work together to spell one sound.
-
-- **Misconception:** Final **ck** means the /k/ sound is doubled.  
-  **Correction:** Final **ck** spells one /k/ sound after a short vowel.
-
-## How parents can practice at home
-
-Write one word and ask your child to underline the letter team. Then have your child say the sounds while touching each spelling part. For *ship*, touch **sh**, **i**, **p**: three sounds, three spelling parts.
-
-For **ck** words, ask: “What vowel do you hear before /k/? Is it short?” If yes, try **ck** at the end.
-
-## Navigation and related practice
-
-- **Kindergarten review:** Consonant Digraphs and The -ck Ending Rule.
-- **Related targeted practice:** SH Digraph Words, CH Digraph Words, TH Digraph Words, WH Digraph Words, Consonant Digraphs, The -ck Ending Rule, C, K, and CK Words.
-- **Previous lesson:** The Floss Rule.
-- **Next lesson:** Beginning Consonant Blends.
-- **Grade 2 extension:** Later long-vowel and vowel-team lessons show more ways two letters can work together in spelling.
+When your child can spell these words in mixed order, preserve both letters of the target digraph or final **ck**, and correct an occasional one-letter attempt after comparing it with a known word, they are ready for Beginning Consonant Blends.

@@ -3,8 +3,8 @@ id: grade-1-long-vowels-silent-e
 urlSlug: 1st-grade-long-vowels-silent-e
 contentRole: grade-unit
 title: "Long Vowels with Silent e (VCe)"
-description: "A first-grade core spelling lesson on silent-e long vowels."
-shortAnswer: "This Grade 1 core unit teaches silent-e long vowels with a focused word list, parent-friendly explanation, misconceptions, and curriculum navigation."
+description: 'Twelve Grade 1 VCe words that practice long a, i, o, and u with a final silent e.'
+shortAnswer: 'In many vowel-consonant-e words, the final e is silent and signals a long vowel sound; this Grade 1 unit practices the common long-a, long-i, long-o, and long-u forms.'
 category: phonics
 grade: "1"
 difficulty: beginner
@@ -21,14 +21,9 @@ nextLists: []
 skillIds: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u"]
 featured: false
 readinessSignals:
-  - "Are ready for a focused first-grade spelling lesson on silent-e long vowels"
-  - "Can listen for sounds and check spellings from left to right"
-  - "Benefit from a short word list rather than a large vocabulary set"
-faq:
-  - question: "Is this a spelling lesson or a vocabulary lesson?"
-    answer: "This is a spelling lesson. The word list is intentionally short so students can focus on the spelling concept."
-  - question: "How many words should students practice at once?"
-    answer: "Use the full list when students are ready, or choose five to eight words for a shorter intervention or home practice session."
+  - 'Can spell short-vowel words with beginning and ending consonants intact'
+  - 'Can compare two words and notice how one changed letter affects the vowel sound'
+  - 'Are ready to represent a long vowel with a pattern that includes final silent e'
 words:
   - cake
   - make
@@ -44,79 +39,14 @@ words:
   - cute
 ---
 
-## Introduction: what students learn
+This list pairs common long-vowel spellings across four productive Grade 1 VCe groups: long **a** in *cake*, *make*, and *name*; long **i** in *bike*, *ride*, and *time*; long **o** in *rope*, *home*, and *bone*; and long **u** in *cube*, *mule*, and *cute*. Long **e** is not included because this final-**e** pattern is uncommon for that vowel.
 
-This lesson teaches **silent-e long vowels** as part of the Grade 1 core spelling progression. Students learn that final silent e often makes the vowel say its long sound.
+The unit follows short-vowel and blend work so children can compare complete word structures rather than focus on the vowel alone. In many VCe words, the final **e** is not pronounced as a separate sound but helps signal that the earlier vowel is long. This is a useful pattern, not a rule for every word ending in **e**. Long **u** also varies by word and accent: some speakers hear /yoo/ and others /oo/ in words of this type; both pronunciations can belong with the same written pattern.
 
-## Learning Objectives
+### How to practice this list
 
-Students will learn to:
+Say a word, have your child segment its spoken sounds, and ask what spelling could show the long vowel. Write or build a short-vowel/long-vowel comparison such as *cap/cape* or *kit/kite*, then have the child mark the vowel, consonant, and final **e**. Practice one vowel group at a time before mixing long **a**, **i**, **o**, and **u** words.
 
-- identify the spelling pattern in spoken and written words;
-- spell a focused set of words using the pattern;
-- explain the pattern in simple language;
-- read their spelling back to check every sound and letter team;
-- connect this lesson to the previous and next steps in the curriculum.
+Writing *cak* for *cake* is a normal sound-based attempt: the child may represent every pronounced sound but omit the silent spelling signal. Compare the attempt with a known VCe word and let the child add final **e**. If the child writes a short-vowel word instead, say the pair naturally and listen to the vowel contrast before returning to the spelling.
 
-## Why this spelling concept matters
-
-This concept helps first graders move from spelling one sound at a time to using reliable spelling patterns. It gives students a reason for the letters they write and supports more accurate independent writing.
-
-## Parent-friendly explanation
-
-In a vowel-consonant-e word, the final e is usually silent. It signals that the earlier vowel is long, as in cake and bike.
-
-## The spelling rule or generalization
-
-In many VCe words, final e is silent and the first vowel is long.
-
-This is a first-grade generalization. Students will meet exceptions and more advanced choices in later grades.
-
-## Practice word list
-
-- cake
-- make
-- bike
-- ride
-- rope
-- home
-- cube
-- mule
-- name
-- time
-- bone
-- cute
-
-## Example sentences
-
-- Read the word **cake** and spell each sound or spelling part.
-- I can use **make** in a sentence.
-- Find the spelling pattern in **bike**.
-- Write **ride** and check it from left to right.
-
-## Common mistakes children make
-
-- Leaving out one sound when the word has a consonant team or ending.
-- Spelling by memory only instead of checking the pattern.
-- Reading the word correctly but forgetting the spelling generalization while writing.
-- Rushing through the final sounds or final letters.
-
-## Common Misconceptions
-
-- **Misconception:** If a word is familiar, it does not need to be sounded and mapped.  
-  **Correction:** Familiar words still become stronger when students connect sounds, spellings, and patterns.
-
-- **Misconception:** A spelling pattern must work in every word to be useful.  
-  **Correction:** First-grade generalizations are useful because they work in many common words and prepare students for later refinements.
-
-## How parents can practice at home
-
-Say one word, have your child repeat it, tap the sounds or spelling parts, write it, and then read it back. Ask, “What part of the word shows today’s pattern?” Keep practice short and focused: five strong words are better than twenty rushed words.
-
-## Navigation and related practice
-
-- **Kindergarten review:** Kindergarten short-vowel and digraph review can help if this lesson feels too hard.
-- **Related targeted practice:** Long A, Long I, Long O, and Long U Silent E Words. The uncommon Long E case is summarized in the Silent E family overview rather than published as a fifth peer page.
-- **Previous lesson:** Ending Consonant Blends.
-- **Next lesson:** Short Words with Long Vowels: Open Syllables & Final Y.
-- **Grade 2 extension:** Students will use this pattern again in longer words, suffix work, and more advanced vowel spelling choices.
+When your child can spell these VCe words in mixed order, include final **e** without trying to pronounce it as another syllable, and repair an omission by comparing word structures, they are ready for Short Words with Long Vowels: Open Syllables and Final Y.

@@ -2,8 +2,8 @@
 id: grade-1-beginning-consonant-blends
 urlSlug: 1st-grade-beginning-consonant-blends
 title: "Beginning Consonant Blends"
-description: "A first-grade core spelling lesson on beginning consonant blends."
-shortAnswer: "This Grade 1 core unit teaches beginning consonant blends with a focused word list, parent-friendly explanation, misconceptions, and curriculum navigation."
+description: 'Twelve Grade 1 words that practice hearing and spelling every consonant sound in beginning l-, r-, and s-blends.'
+shortAnswer: 'A beginning consonant blend has two or three adjacent consonants whose sounds remain identifiable; this Grade 1 unit teaches children to hear and spell each sound in order.'
 contentRole: grade-unit
 category: phonics
 grade: "1"
@@ -21,14 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - "Are ready for a focused first-grade spelling lesson on beginning consonant blends"
-  - "Can listen for sounds and check spellings from left to right"
-  - "Benefit from a short word list rather than a large vocabulary set"
-faq:
-  - question: "Is this a spelling lesson or a vocabulary lesson?"
-    answer: "This is a spelling lesson. The word list is intentionally short so students can focus on the spelling concept."
-  - question: "How many words should students practice at once?"
-    answer: "Use the full list when students are ready, or choose five to eight words for a shorter intervention or home practice session."
+  - 'Can segment and spell short-vowel words'
+  - 'Can represent a digraph with two letters for one sound'
+  - 'Can hear two adjacent consonant sounds when a word beginning is stretched'
 words:
   - black
   - clap
@@ -44,79 +39,14 @@ words:
   - drip
 ---
 
-## Introduction: what students learn
+This list samples a broad range of beginning blends: **l-blends** in *black*, *clap*, *glad*, and *plum*; **r-blends** in *frog*, *crab*, *train*, and *drip*; and **s-blends** in *stop*, *swim*, *snack*, and *grass*. Unlike a digraph, the consonants in a blend do not form one new sound. Each sound remains part of the word and needs a spelling.
 
-This lesson teaches **beginning consonant blends** as part of the Grade 1 core spelling progression. Students learn to hear both consonant sounds at the beginning of a word and spell each one in order.
+Beginning blends follow digraphs so children can make a useful contrast: **sh** in *ship* is one sound unit, while **st** in *stop* preserves /s/ and /t/. The varied list prevents a child from memorizing one blend family and builds the habit of listening through the entire beginning before moving to the vowel.
 
-## Learning Objectives
+### How to practice this list
 
-Students will learn to:
+Say a word without showing it and have your child repeat it slowly. Stretch only the beginning—/s/ /t/ in *stop* or /f/ /r/ in *frog*—then map and write the whole word. Point under each consonant as the child reads it back. Practice one blend family at first, then mix **l-**, **r-**, and **s-blends** so the beginning must be chosen by listening.
 
-- identify the spelling pattern in spoken and written words;
-- spell a focused set of words using the pattern;
-- explain the pattern in simple language;
-- read their spelling back to check every sound and letter team;
-- connect this lesson to the previous and next steps in the curriculum.
+Writing *fog* for *frog* or *sack* for *snack* is a normal developmental attempt because one consonant in a cluster can be hard to notice. Repeat the child's pronunciation naturally, stretch the beginning without adding an extra vowel, and let the child insert the missing spelling. If both consonants are present but the vowel or ending changes, address that part separately rather than reteaching the blend.
 
-## Why this spelling concept matters
-
-This concept helps first graders move from spelling one sound at a time to using reliable spelling patterns. It gives students a reason for the letters they write and supports more accurate independent writing.
-
-## Parent-friendly explanation
-
-A beginning blend has two or three consonants at the start. Each consonant keeps its own sound, as in /s/ /t/ in stop.
-
-## The spelling rule or generalization
-
-Spell every sound in the blend from left to right; unlike digraphs, blend letters do not combine into one new sound.
-
-This is a first-grade generalization. Students will meet exceptions and more advanced choices in later grades.
-
-## Practice word list
-
-- black
-- clap
-- frog
-- glad
-- plum
-- crab
-- stop
-- swim
-- snack
-- train
-- grass
-- drip
-
-## Example sentences
-
-- Read the word **black** and spell each sound or spelling part.
-- I can use **clap** in a sentence.
-- Find the spelling pattern in **frog**.
-- Write **glad** and check it from left to right.
-
-## Common mistakes children make
-
-- Leaving out one sound when the word has a consonant team or ending.
-- Spelling by memory only instead of checking the pattern.
-- Reading the word correctly but forgetting the spelling generalization while writing.
-- Rushing through the final sounds or final letters.
-
-## Common Misconceptions
-
-- **Misconception:** If a word is familiar, it does not need to be sounded and mapped.  
-  **Correction:** Familiar words still become stronger when students connect sounds, spellings, and patterns.
-
-- **Misconception:** A spelling pattern must work in every word to be useful.  
-  **Correction:** First-grade generalizations are useful because they work in many common words and prepare students for later refinements.
-
-## How parents can practice at home
-
-Say one word, have your child repeat it, tap the sounds or spelling parts, write it, and then read it back. Ask, “What part of the word shows today’s pattern?” Keep practice short and focused: five strong words are better than twenty rushed words.
-
-## Navigation and related practice
-
-- **Kindergarten review:** Kindergarten short-vowel and digraph review can help if this lesson feels too hard.
-- **Related targeted practice:** BL Blend Words, BR Blend Words, CL Blend Words, CR Blend Words, DR Blend Words, FL Blend Words, FR Blend Words, GL Blend Words, GR Blend Words, PL Blend Words, PR Blend Words, SL Blend Words, SM Blend Words, SN Blend Words, SP Blend Words, ST Blend Words, SW Blend Words, TR Blend Words.
-- **Previous lesson:** Consonant Digraphs & Final -ck.
-- **Next lesson:** Ending Consonant Blends.
-- **Grade 2 extension:** Students will use this pattern again in longer words, suffix work, and more advanced vowel spelling choices.
+When your child can spell the words in mixed order, preserve every consonant in the beginning blend with growing independence, and repair an omission by stretching the beginning, they are ready for Ending Consonant Blends.

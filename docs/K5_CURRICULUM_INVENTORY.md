@@ -246,6 +246,18 @@
 
 ### Core Spelling
 
+#### Long E Vowel Teams: EE and EA
+
+- **Internal ID:** `grade-2-long-e-ee-ea`
+- **Word count:** 12
+- **Words (published order):** tree, feet, keep, need, week, sleep, eat, team, clean, dream, beach, speak
+
+#### Long I Patterns: IE and IGH
+
+- **Internal ID:** `grade-2-long-i-ie-igh`
+- **Word count:** 10
+- **Words (published order):** pie, tie, high, night, light, right, sight, might, bright, flight
+
 #### OI and OY Words
 
 - **Internal ID:** `vowel-teams-oi-oy`
@@ -269,6 +281,12 @@
 - **Internal ID:** `grade-2-au-aw-words`
 - **Word count:** 8
 - **Words (published order):** saw, draw, lawn, crawl, hawk, because, cause, author
+
+#### R-Controlled Vowels: ER, IR, and UR
+
+- **Internal ID:** `grade-2-r-controlled-er-ir-ur`
+- **Word count:** 9
+- **Words (published order):** her, fern, term, bird, first, girl, turn, hurt, burn
 
 #### Soft C and Soft G
 
@@ -380,11 +398,11 @@
 - **Word count:** 18
 - **Words (published order):** bigger, biggest, faster, fastest, easier, easiest, slowly, nearly, really, careful, helpful, useful, careless, restless, happiness, kindness, movement, enjoyment
 
-#### 3rd Grade Spelling Rule: Dropping Silent E
+#### Suffix Spelling Changes
 
-- **Internal ID:** `grade-3-dropping-silent-e`
-- **Word count:** 10
-- **Words (published order):** making, taking, coming, having, loving, writing, riding, cared, used, hoped
+- **Internal ID:** `grade-3-suffix-spelling-changes`
+- **Word count:** 12
+- **Words (published order):** making, writing, hoped, smiled, running, stopped, sitting, planned, carried, cried, happier, funniest
 
 #### 3rd Grade Possessive Words
 

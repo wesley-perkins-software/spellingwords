@@ -95,7 +95,7 @@ The independent review was explicit that it had no keyword-volume or Search Cons
 | Plural Words with -s and -es | `plurals` | Word Building and Endings | `grade-1-inflectional-endings-s-es.md` + `2nd-grade-regular-plurals.md`; short form "Plurals" fine for card/nav display |
 | Words Ending in -ed and -ing | `ed-and-ing` | Word Building and Endings | `grade-1-inflectional-endings-ed-ing.md` |
 | Common Suffixes | `common-suffixes` | Word Building and Endings | Merges `2nd-grade-suffixes-ful-less.md` + `3rd-grade-suffix-words.md` with comparative endings (`2nd-grade-comparatives-er-est.md`). **Scope boundary:** suffix forms/meanings; must not duplicate Spelling Rules for Adding Suffixes |
-| Spelling Rules for Adding Suffixes | `suffix-spelling-changes` | Word Building and Endings | `3rd-grade-doubling-final-consonants.md`, `3rd-grade-dropping-silent-e.md`, `3rd-grade-changing-y-to-i.md`. **Scope boundary:** base-word spelling changes before a suffix, distinct from Common Suffixes |
+| Spelling Rules for Adding Suffixes | `suffix-spelling-changes` | Word Building and Endings | `suffix-spelling-changes.md`. **Scope boundary:** base-word spelling changes before a suffix, distinct from Common Suffixes |
 | Compound Words | `compound-words` | Word Building and Endings | `2nd-grade-compound-words.md` |
 | Contractions | `contractions` | Word Building and Endings | `2nd-grade-contractions.md` |
 | Un- and Re- Prefixes | `un-and-re-prefixes` | Prefixes | `2nd-grade-prefixes-un-re.md`. **Scope boundary:** focused introductory destination; Common Prefixes should treat un-/re- only as brief review, not primary practice |

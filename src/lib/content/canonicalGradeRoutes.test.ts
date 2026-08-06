@@ -47,6 +47,13 @@ describe('canonical grade routes', () => {
     expect(new Set(canonicalGradeRoutes.map((route) => route.canonicalPath)).size).toBe(canonicalGradeRoutes.length);
   });
 
+  it('keeps the approved 107-page classification totals', () => {
+    expect(canonicalGradeRoutes).toHaveLength(107);
+    expect(canonicalGradeRoutes.filter((route) => route.classification === 'core-spelling')).toHaveLength(51);
+    expect(canonicalGradeRoutes.filter((route) => route.classification === 'high-frequency-words')).toHaveLength(29);
+    expect(canonicalGradeRoutes.filter((route) => route.classification === 'additional-practice')).toHaveLength(27);
+  });
+
   it('has no duplicate final slug within a grade', () => {
     for (const grade of gradeConfig) {
       const slugs = canonicalGradeRoutes.filter((route) => route.grade === grade.grade).map((route) => route.finalSlug);
@@ -67,6 +74,14 @@ describe('canonical grade routes', () => {
     expect(getCanonicalListPathById('grade-1-floss-rule')).toBe('/1st-grade/floss-rule');
     expect(getCanonicalListPathById('grade-1-common-words-1')).toBe('/1st-grade/high-frequency-words-1');
     expect(getCanonicalListPathById('grade-1-weather-words')).toBe('/1st-grade/weather-words');
+    expect(getCanonicalListPathById('grade-2-long-e-ee-ea')).toBe('/2nd-grade/long-e-ee-ea');
+    expect(getCanonicalListPathById('grade-2-long-i-ie-igh')).toBe('/2nd-grade/long-i-ie-igh');
+    expect(getCanonicalListPathById('grade-2-r-controlled-er-ir-ur')).toBe(
+      '/2nd-grade/r-controlled-er-ir-ur',
+    );
+    expect(getCanonicalListPathById('grade-3-suffix-spelling-changes')).toBe(
+      '/3rd-grade/suffix-spelling-changes',
+    );
   });
 
   it('composes with the Skill manifest: getCanonicalListPath resolves Skill ids to /skills/{slug}', () => {

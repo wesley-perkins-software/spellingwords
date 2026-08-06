@@ -170,6 +170,26 @@ describe('Grade 2 Common Words', () => {
 });
 
 describe('Grade 2 Core Spelling', () => {
+  it('freezes the three corrective practice lists within the 8-16 word Grade Unit bound', () => {
+    const expectedWords: Record<string, string[]> = {
+      'grade-2-long-e-ee-ea': [
+        'tree', 'feet', 'keep', 'need', 'week', 'sleep', 'eat', 'team', 'clean', 'dream', 'beach', 'speak',
+      ],
+      'grade-2-long-i-ie-igh': [
+        'pie', 'tie', 'high', 'night', 'light', 'right', 'sight', 'might', 'bright', 'flight',
+      ],
+      'grade-2-r-controlled-er-ir-ur': [
+        'her', 'fern', 'term', 'bird', 'first', 'girl', 'turn', 'hurt', 'burn',
+      ],
+    };
+
+    for (const [id, words] of Object.entries(expectedWords)) {
+      expect(byId.get(id)?.words, id).toEqual(words);
+      expect(words.length, id).toBeGreaterThanOrEqual(8);
+      expect(words.length, id).toBeLessThanOrEqual(16);
+    }
+  });
+
   it('resolves every core id to published content', () => {
     for (const id of GRADE_2_CORE_IDS) {
       const entry = byId.get(id);
@@ -209,12 +229,10 @@ describe('Grade 2 Core Spelling', () => {
 
   it('declares the expected Skill back-references on each core card', () => {
     const expectedSkillIds: Record<string, string[]> = {
-      'grade-2-two-syllable-words': [
-        'r-controlled-ar',
-        'r-controlled-or',
-        'r-controlled-er-ir-ur',
-        'multisyllabic-words',
-      ],
+      'grade-2-long-e-ee-ea': ['vowel-teams-ee-ea'],
+      'grade-2-long-i-ie-igh': ['ie-and-igh-words'],
+      'grade-2-r-controlled-er-ir-ur': ['r-controlled-er-ir-ur'],
+      'grade-2-two-syllable-words': ['multisyllabic-words'],
       'grade-2-final-stable-le': ['multisyllabic-words'],
       'grade-2-silent-letter-words': ['silent-letters'],
       'grade-2-soft-c-soft-g': ['soft-c-soft-g'],

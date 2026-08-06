@@ -680,12 +680,14 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 - [ ] Grade-wide consistency review completed (terminology matches this grade's Skill-page links; word-list difficulty appropriately bounded for the grade)
 ### Grade 2
 
-**Canonical Grade Units:** R-Controlled Vowels; Diphthongs and Other Vowel Patterns; Syllable Types and Multisyllabic Words; Silent Letters and Ending Spelling Patterns; Hard and Soft C and G
+**Canonical Grade Units:** Long E Vowel Teams; Long I Patterns; R-Controlled Vowels; Diphthongs and Other Vowel Patterns; Syllable Types and Multisyllabic Words; Silent Letters and Ending Spelling Patterns; Hard and Soft C and G
 
-**Frozen hub structure:** 10 Core Spelling cards · 6 Common Words sets (72 words) · 3 Additional Practice card(s)
+**Frozen hub structure:** 13 Core Spelling cards · 6 Common Words sets (72 words) · 5 Additional Practice cards
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
-- [ ] Core Spelling / Grade Unit pages (10 canonical-active)
+- [ ] Core Spelling / Grade Unit pages (13 canonical-active)
+  - [ ] Long E Vowel Teams: EE and EA (`grade-2-long-e-ee-ea`)
+  - [ ] Long I Patterns: IE and IGH (`grade-2-long-i-ie-igh`)
   - [ ] 2nd Grade Compound Words (`grade-2-list-02`)
   - [ ] 2nd Grade Contractions (`grade-2-contractions`)
   - [ ] 2nd Grade Silent Letter Words (`grade-2-silent-letter-words`)
@@ -693,6 +695,7 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
   - [ ] OU and OW Words (`vowel-teams-ou-ow`)
   - [ ] Two Sounds of oo (`grade-2-oo-two-sounds`)
   - [ ] Vowel Patterns: au and aw (`grade-2-au-aw-words`)
+  - [ ] R-Controlled Vowels: ER, IR, and UR (`grade-2-r-controlled-er-ir-ur`)
   - [ ] Soft C and Soft G (`grade-2-soft-c-soft-g`)
   - [ ] Two-Syllable Words (`grade-2-two-syllable-words`)
   - [ ] Words Ending in -le (`grade-2-final-stable-le`)
@@ -714,7 +717,7 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 - [ ] Core Spelling / Grade Unit pages (7 canonical-active)
   - [ ] 3rd Grade Prefix Words (`grade-3-prefix-words`)
   - [ ] 3rd Grade Suffix Words (`grade-3-suffix-words`)
-  - [ ] 3rd Grade Spelling Rule: Dropping Silent E (`grade-3-dropping-silent-e`)
+  - [ ] Suffix Spelling Changes (`grade-3-suffix-spelling-changes`)
   - [ ] 3rd Grade Possessive Words (`grade-3-possessives`)
   - [ ] 3rd Grade Multisyllabic Words (`grade-3-multisyllabic-words`)
   - [ ] 3rd Grade Homophones and Commonly Confused Words (`grade-3-homophones`)

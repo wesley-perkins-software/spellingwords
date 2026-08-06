@@ -69,8 +69,8 @@ function allContent(): FrontmatterSummary[] {
 }
 
 describe('CORE_SPELLING_SEQUENCE', () => {
-  it('has exactly 48 ids, matching the 8+12+10+7+6+5 canonical Core Spelling count', () => {
-    expect(CORE_SPELLING_SEQUENCE.length).toBe(48);
+  it('has exactly 51 ids, matching the 8+12+13+7+6+5 canonical Core Spelling count', () => {
+    expect(CORE_SPELLING_SEQUENCE.length).toBe(51);
   });
 
   it('has no duplicate ids', () => {

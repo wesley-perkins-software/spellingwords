@@ -201,9 +201,9 @@ Canonical, hub-visible pages per `K5_FINAL_CONTENT_ARCHITECTURE.md` and `src/lib
 | Page (id) | Review First | Next Step | Explore More |
 |---|---|---|---|
 | `grade-3-prefix-words` | `grade-2-contractions` | `grade-3-suffix-words` | `grade-4-advanced-prefixes` |
-| `grade-3-suffix-words` | `grade-3-prefix-words` | `grade-3-dropping-silent-e` | `grade-4-advanced-suffixes` |
-| `grade-3-dropping-silent-e` | `grade-3-suffix-words` | `grade-3-possessives` | `grade-3-doubling-final-consonants`, `grade-3-changing-y-to-i` |
-| `grade-3-possessives` | `grade-3-dropping-silent-e` | `grade-3-multisyllabic-words` | `grade-2-contractions`, `grade-3-homophones` |
+| `grade-3-suffix-words` | `grade-3-prefix-words` | `grade-3-suffix-spelling-changes` | `grade-4-advanced-suffixes` |
+| `grade-3-suffix-spelling-changes` | `grade-3-suffix-words` | `grade-3-possessives` | — |
+| `grade-3-possessives` | `grade-3-suffix-spelling-changes` | `grade-3-multisyllabic-words` | `grade-2-contractions`, `grade-3-homophones` |
 | `grade-3-multisyllabic-words` | `grade-3-possessives` | `grade-3-homophones` | None |
 | `grade-3-homophones` | `grade-3-multisyllabic-words` | `grade-3-root-word-families` | `grade-3-possessives` |
 | `grade-3-root-word-families` | `grade-3-homophones` | `grade-4-multisyllabic-academic-words` | `tier-1-roots-and-patterns` |

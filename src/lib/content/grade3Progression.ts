@@ -7,12 +7,12 @@
  * by `GRADE_3_HUB_SECTIONS` in `gradeHubCards.ts`, independent of this file.
  *
  * The Suffix Spelling Changes unit is a single roadmap entry
- * (`grade-3-dropping-silent-e`, contentRole: grade-unit).
+ * (`grade-3-suffix-spelling-changes`, contentRole: grade-unit).
  */
 export const GRADE_3_CORE_IDS: readonly string[] = [
   'grade-3-prefix-words',
   'grade-3-suffix-words',
-  'grade-3-dropping-silent-e',
+  'grade-3-suffix-spelling-changes',
   'grade-3-possessives',
   'grade-3-multisyllabic-words',
   'grade-3-homophones',
@@ -47,7 +47,7 @@ export const GRADE_3_VOCABULARY_IDS: readonly string[] = [];
 export const grade3Badges: Record<string, string> = {
   'grade-3-prefix-words': 'Core Unit',
   'grade-3-suffix-words': 'Core Unit',
-  'grade-3-dropping-silent-e': 'Core Unit',
+  'grade-3-suffix-spelling-changes': 'Core Unit',
   'grade-3-possessives': 'Core Unit',
   'grade-3-multisyllabic-words': 'Core Unit',
   'grade-3-homophones': 'Core Unit',

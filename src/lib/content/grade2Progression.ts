@@ -7,10 +7,13 @@
  * by `GRADE_2_HUB_SECTIONS` in `gradeHubCards.ts`, independent of this file.
  */
 export const GRADE_2_CORE_IDS: readonly string[] = [
+  'grade-2-long-e-ee-ea',
+  'grade-2-long-i-ie-igh',
   'vowel-teams-oi-oy',
   'vowel-teams-ou-ow',
   'grade-2-oo-two-sounds',
   'grade-2-au-aw-words',
+  'grade-2-r-controlled-er-ir-ur',
   'grade-2-soft-c-soft-g',
   'grade-2-two-syllable-words',
   'grade-2-final-stable-le',
@@ -48,10 +51,13 @@ export const GRADE_2_VOCABULARY_IDS: readonly string[] = [
  * `kindergartenProgression.ts`/`grade1Progression.ts`.
  */
 export const grade2Badges: Record<string, string> = {
+  'grade-2-long-e-ee-ea': 'Core Unit',
+  'grade-2-long-i-ie-igh': 'Core Unit',
   'vowel-teams-oi-oy': 'Core Unit',
   'vowel-teams-ou-ow': 'Core Unit',
   'grade-2-oo-two-sounds': 'Core Unit',
   'grade-2-au-aw-words': 'Core Unit',
+  'grade-2-r-controlled-er-ir-ur': 'Core Unit',
   'grade-2-soft-c-soft-g': 'Core Unit',
   'grade-2-two-syllable-words': 'Core Unit',
   'grade-2-final-stable-le': 'Core Unit',

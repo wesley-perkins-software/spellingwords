@@ -21,7 +21,7 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell short a words such as “hat” and “map”'
+  - 'Can spell short a words such as “hat” and “map”'
   - 'hear how the middle sound in “sit” differs from the one in “sat”'
   - 'choose the middle vowel by listening, rather than by copying a familiar word'
 words:

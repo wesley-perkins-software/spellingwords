@@ -21,7 +21,7 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell familiar long-i words with silent e or final y'
+  - 'Can spell familiar long-i words with silent e or final y'
   - 'recognize ie in “pie” and the complete igh pattern in “night”'
   - 'keep all three letters in igh during mixed practice with only occasional help'
 faq: []

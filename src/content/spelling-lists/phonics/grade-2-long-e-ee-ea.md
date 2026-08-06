@@ -21,7 +21,7 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell familiar long-vowel words from Grade 1'
+  - 'Can spell familiar long-vowel words from Grade 1'
   - 'hear the same long-e sound in “tree” and “beach” while noticing their different spellings'
   - 'use a known ee or ea word to correct an uncertain spelling'
 faq: []

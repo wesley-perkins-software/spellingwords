@@ -21,7 +21,7 @@ nextLists: []
 skillIds: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u"]
 featured: false
 readinessSignals:
-  - 'spell short-vowel words such as “cap” and “kit”'
+  - 'Can spell short-vowel words such as “cap” and “kit”'
   - 'hear how the vowel changes in pairs such as “cap/cape”'
   - 'keep the final silent e when long-vowel words are mixed together'
 words:

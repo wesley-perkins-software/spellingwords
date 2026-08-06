@@ -21,7 +21,7 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell short-vowel words such as “cat,” “sit,” and “run”'
+  - 'Can spell short-vowel words such as “cat,” “sit,” and “run”'
   - 'recognize that sh, ch, and th each use two letters for one sound'
   - 'keep both letters of a digraph when spelling a new word with only occasional help'
 words:

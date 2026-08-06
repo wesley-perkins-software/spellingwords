@@ -20,7 +20,7 @@ relatedLists: []
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - 'spell many short, everyday words independently'
+  - 'Can spell many short, everyday words independently'
   - 'recognize both smaller words inside a compound such as “backpack”'
   - 'join the two parts in the correct order without leaving a space'
 faq:

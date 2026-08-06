@@ -21,7 +21,7 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell familiar silent-e words such as “cake” and “home”'
+  - 'Can spell familiar silent-e words such as “cake” and “home”'
   - 'hear a long vowel at the end of a short word such as “me” or “go”'
   - 'compare “hi” and “my” to choose a final long-i spelling with only occasional help'
 words:

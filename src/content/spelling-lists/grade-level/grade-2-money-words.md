@@ -15,7 +15,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-number-words-20-100"]
+relatedLists: []
 prerequisiteLists: ["grade-2-transportation-words"]
 nextLists: ["grade-2-number-words-20-100"]
 featured: false

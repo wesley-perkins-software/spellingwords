@@ -13,10 +13,9 @@ import GradeUnitWorldPage from '@/components/GradeUnitWorldPage.astro';
 import {
   isPublished,
   resolveListRefs,
-  dedupeRelatedLists,
   toPlayableWords,
 } from '@/lib/content/spellingLists';
-import { getSequenceNeighbors } from '@/lib/content/navigationSequence';
+import { getNonCoreNavigationModel } from '@/lib/content/nonCoreNavigation';
 import { categoryLabels, cardAccent } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { gradeConfig } from '@/lib/content/gradeConfig';
@@ -44,15 +43,11 @@ const isCoreSpelling = route.classification === 'core-spelling';
 
 const { Content } = await entry.render();
 
-// Review First / Next Step are derived from the canonical CORE_SPELLING_SEQUENCE /
-// HF_WORDS_SEQUENCE arrays, not authored frontmatter — see
-// docs/planning/CANONICAL_NAVIGATION_RELATIONSHIPS.md. `relatedLists` remains
-// manually curated for non-Core pages; Core Grade Units delegate to
-// GradeUnitWorldPage, which deliberately never resolves or renders it.
-const { prerequisiteId, nextId } = getSequenceNeighbors(data.id);
-const prerequisites = resolveListRefs(prerequisiteId ? [prerequisiteId] : [], allEntries);
-const next = resolveListRefs(nextId ? [nextId] : [], allEntries);
-const related = dedupeRelatedLists(prerequisites, resolveListRefs(data.relatedLists, allEntries), next);
+// Classification comes from the canonical route manifest. High-Frequency
+// Words use grade-contained adjacency; Additional Practice uses an explicit
+// editorial map. Neither non-Core model reads scattered relatedLists metadata.
+const nonCoreNavigation = getNonCoreNavigationModel(route.classification, data.id);
+const related = resolveListRefs(nonCoreNavigation?.exploreIds ?? [], allEntries);
 
 const playWords = toPlayableWords(entry);
 const playWordsJson = JSON.stringify(playWords);
@@ -160,8 +155,6 @@ const commonWordsSetTitle = data.contentRole === 'sight-word-set' &&
   ? `${data.grade === '1' ? data.title.replace('Grade 1', '1st Grade') : data.title} | Sight Words and Spelling`
   : undefined;
 
-const easierList = prerequisites[0];
-const harderList = next[0];
 ---
 
 {isCoreSpelling && <GradeUnitWorldPage listId={data.id} />}
@@ -302,34 +295,6 @@ const harderList = next[0];
                 </li>
               ))}
             </ul>
-            {(easierList || harderList) && (
-              <p class="mt-4 text-base leading-relaxed text-ink-soft">
-                {easierList && (
-                  <>
-                    Too much too soon?{' '}
-                    <a
-                      href={listLink(easierList)}
-                      class="font-semibold text-brand-blue hover:underline"
-                    >
-                      {easierList.data.title}
-                    </a>{' '}
-                    is a gentler starting point.{' '}
-                  </>
-                )}
-                {harderList && (
-                  <>
-                    Moving through it easily?{' '}
-                    <a
-                      href={listLink(harderList)}
-                      class="font-semibold text-brand-blue hover:underline"
-                    >
-                      {harderList.data.title}
-                    </a>{' '}
-                    is a natural next step.
-                  </>
-                )}
-              </p>
-            )}
           </div>
         </section>
       )
@@ -461,28 +426,16 @@ const harderList = next[0];
 
     <!-- Learning progression -->
     {
-      (prerequisites.length > 0 || related.length > 0 || next.length > 0) && (
+      related.length > 0 && (
         <section
           class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
           aria-labelledby="progression-heading"
         >
           <div class="mx-auto max-w-2xl md:max-w-3xl">
             <h2 id="progression-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-              Where to Go From Here
+              Where to go from here
             </h2>
-            <RelatedListCards
-              heading="Review First"
-              items={prerequisites}
-              listLink={listLink}
-              accent="previous"
-            />
-            <RelatedListCards
-              heading="Next Step"
-              items={next}
-              listLink={listLink}
-              accent="forward"
-            />
-            <RelatedListCards heading="Explore More" items={related} listLink={listLink} />
+            <RelatedListCards heading="Explore more" items={related} listLink={listLink} />
           </div>
         </section>
       )

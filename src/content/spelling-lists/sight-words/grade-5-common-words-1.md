@@ -18,7 +18,7 @@ sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 5 common words"
-relatedLists: ["grade-2-silent-letter-words"]
+relatedLists: []
 prerequisiteLists: []
 nextLists: []
 featured: false

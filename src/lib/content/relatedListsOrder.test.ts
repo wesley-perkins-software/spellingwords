@@ -10,11 +10,6 @@ import { describe, expect, it } from 'vitest';
 // assert on rendered markup (environment: 'node', no jsdom/happy-dom, no
 // @astrojs/container, no Playwright config).
 
-const nonCoreRendererPaths = [
-  join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro'),
-  join(process.cwd(), 'src/pages/skills/[slug].astro'),
-];
-
 function indexOfHeading(source: string, heading: string): number {
   const match = source.match(new RegExp(`heading=["']${heading}["']`));
   if (!match || match.index === undefined) {
@@ -24,15 +19,24 @@ function indexOfHeading(source: string, heading: string): number {
 }
 
 describe('Relationship navigation rendering', () => {
-  it.each(nonCoreRendererPaths)('preserves non-Core Review First -> Next Step -> Explore More order in %s', (path) => {
-    const source = readFileSync(path, 'utf8');
+  it('renders Explore more only for canonical non-Core Grade pages', () => {
+    const source = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro'), 'utf8');
+    expect(source).toContain('Where to go from here');
+    expect(source).toContain('heading="Explore more"');
+    expect(source).not.toContain('heading="Review First"');
+    expect(source).not.toContain('heading="Next Step"');
+    expect(source).not.toContain('heading="Review first"');
+    expect(source).not.toContain('heading="Next step"');
+  });
 
-    const reviewFirst = indexOfHeading(source, 'Review First');
-    const nextStep = indexOfHeading(source, 'Next Step');
-    const exploreMore = indexOfHeading(source, 'Explore More');
-
-    expect(reviewFirst).toBeLessThan(nextStep);
-    expect(nextStep).toBeLessThan(exploreMore);
+  it('preserves the existing three-bucket model on Skill pages', () => {
+    const source = readFileSync(join(process.cwd(), 'src/pages/skills/[slug].astro'), 'utf8');
+    expect(indexOfHeading(source, 'Review First')).toBeLessThan(
+      indexOfHeading(source, 'Next Step'),
+    );
+    expect(indexOfHeading(source, 'Next Step')).toBeLessThan(
+      indexOfHeading(source, 'Explore More'),
+    );
   });
 
   it('renders Core copy in order without Explore More in the Grade Unit world renderer', () => {

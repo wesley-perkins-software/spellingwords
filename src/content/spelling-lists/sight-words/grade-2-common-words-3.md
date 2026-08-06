@@ -18,7 +18,7 @@ sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
   tier: "Grade 2 common words"
-relatedLists: ["grade-2-soft-c-soft-g", "grade-2-oo-two-sounds"]
+relatedLists: []
 prerequisiteLists: []
 nextLists: []
 featured: false

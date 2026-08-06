@@ -18,7 +18,7 @@ sourceType: curated
 canonicalSource:
   name: 'Hybrid editorial'
   tier: 'Grade 1 common words'
-relatedLists: ["grade-1-r-controlled-ar-or"]
+relatedLists: []
 prerequisiteLists: []
 nextLists: []
 featured: false

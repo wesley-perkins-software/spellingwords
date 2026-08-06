@@ -15,7 +15,7 @@ estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-money-words", "grade-1-number-words-11-20"]
+relatedLists: []
 prerequisiteLists: ["grade-2-money-words"]
 nextLists: ["grade-2-community-helpers"]
 featured: false

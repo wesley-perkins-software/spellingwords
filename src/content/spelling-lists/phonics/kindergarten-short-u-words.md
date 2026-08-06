@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can segment a word like "run" into its three sounds and blend them back together'
-  - 'Recognize the short "u" sound when it is spoken aloud, even before seeing it written down'
-  - 'Feel comfortable with short "a," "i," and "o" words'
+  - 'spell familiar words with short a, i, and o'
+  - 'hear the short u sound in the middle of “run” or “cup”'
+  - 'correct a vowel mix-up after comparing the word with a familiar example'
 words:
   - bug
   - rug

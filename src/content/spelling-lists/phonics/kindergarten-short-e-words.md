@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can segment a word like "bed" into its three sounds and blend them back together'
-  - 'Recognize the short "e" sound when it is spoken aloud, even before seeing it written down'
-  - 'Feel comfortable with short "a," "i," "o," and "u" words'
+  - 'spell familiar words with the other four short vowels'
+  - 'hear the difference between the middle sounds in “pen” and “pin”'
+  - 'choose short e in mixed practice with only occasional help'
 words:
   - bed
   - red

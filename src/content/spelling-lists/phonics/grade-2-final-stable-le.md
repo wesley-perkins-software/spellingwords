@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - "Can already break a two-syllable word into parts and spell each part"
-  - "Notices that some word endings do not sound like they look, and is ready to learn a reliable one"
-  - "Can hear the quiet, almost vowel-less ending in words like table and little"
+  - 'break a two-syllable word into spoken parts'
+  - 'recognize the quiet consonant + le ending in “table” or “little”'
+  - 'keep the complete -le ending when spelling from dictation'
 faq:
   - question: "What makes -le a 'final stable syllable'?"
     answer: "In most syllables, a vowel letter is doing clear work. In a final -le syllable, there is no separate vowel sound you can hear — the l itself carries the syllable, as in the second half of little or table. It is called 'stable' because this ending is spelled the same reliable way almost every time."
@@ -46,6 +46,16 @@ words:
   - people
 ---
 
-Most syllables have a vowel sound a child can hear and spell. This one does not. Words like *little*, *table*, and *simple* end in a syllable made of one consonant, the letter *l*, and a silent *e* — and that final piece has no vowel sound of its own. English spells this ending the same reliable way almost every time, which is why it is called a "final stable syllable."
+Words such as *little* and *table* end with a quiet but dependable **consonant + le** pattern. Recognizing that ending helps children spell the last part without guessing from sound alone.
 
-Once a child can spot the pattern — consonant, then *l*, then *e*, right at the end of a word — dividing and spelling these words becomes mechanical rather than mysterious. This is the last of the two new syllable lessons in the Grade 2 route; from here, the route moves into silent letters and word-building patterns that a child will use constantly in everyday writing.
+## Why these words — and what they teach
+
+Every word ends in **consonant + le**, including *apple, simple, circle,* and *turtle*. The varied first parts help children see the ending as one stable unit while applying earlier two-syllable skills. The linked Skill page on longer words remains the deeper reference.
+
+## How to practice this list
+
+Say the word, clap its two beats, and have your child box the final three letters. Cover the word, dictate it, and ask the child to spell the first part before adding the complete **consonant + le** ending.
+
+A child may write *littel*, leave off silent **e**, or choose **-el** because that matches what is heard. Confirm the two beats, reveal a known word such as *little*, and let the child replace only the ending.
+
+Move on when your child can spot and spell the complete final **-le** unit, keep both syllables, and correct an **-el/-le** reversal by comparing with an anchor word.

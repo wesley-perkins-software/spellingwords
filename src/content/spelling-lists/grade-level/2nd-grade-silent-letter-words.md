@@ -20,9 +20,9 @@ relatedLists: ["grade-4-common-words-1", "grade-5-common-words-1"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can spell basic consonant patterns and are ready for words where not every letter is pronounced"
-  - "Recognize common words such as write, know, knee, lamb, and comb when reading"
-  - "Can compare what a word sounds like with the letters that must still be written"
+  - 'Can spell familiar consonant patterns confidently'
+  - 'recognize that words such as “write” and “know” begin with a letter that is not heard'
+  - 'add a missing silent letter after comparing with a known wr, kn, or mb word'
 faq:
   - question: "Why do silent letters matter for spelling?"
     answer: "Silent letters are part of the correct spelling even though they are not pronounced. Students need to learn patterns such as wr, kn, and mb so they do not spell only the sounds they hear."
@@ -48,8 +48,16 @@ words:
   - comb
 ---
 
-Silent-letter words include letters that are written but not pronounced. This list teaches three common Grade 2 patterns.
+Some familiar words contain a letter that is written but not heard. This focused list helps second graders remember three common silent-letter patterns without mixing in too many exceptions.
 
-**WR words** begin with a silent *w*: *write*, *wrote*, *wrong*, *wrap*, and *wrist*. **KN words** begin with a silent *k*: *know*, *knew*, *knee*, and *knock*. **MB words** end with a silent *b*: *thumb*, *lamb*, and *comb*.
+## Why these words — and what they teach
 
-This list leaves out *gn* words (*gnat*, *sign*) and *gh* words (*ghost*, *night*) on purpose — three clear, bounded patterns are easier to master than five mixed together, and *gh* already overlaps with the `igh` pattern taught in the Grade 2 Common Words sets.
+The words group silent **w** in **wr-**, silent **k** in **kn-**, and silent **b** in final **-mb**. Examples such as *write, know,* and *thumb* teach children to recognize the whole spelling pattern rather than write only the sounds they hear. The linked Skill page gives the deeper explanation.
+
+## How to practice this list
+
+Sort the words by **wr**, **kn**, and **mb**. Have your child circle the silent letter, cover the model, and spell the word while naming its pattern before checking.
+
+Common attempts include *rite, now,* or *thum*. These show sensible listening. Confirm the sounds the child captured, point to the matching pattern group, and let them insert the quiet letter.
+
+Move on when your child can sort the three patterns, include the silent letter in mixed dictation, and repair an omission after naming **wr**, **kn**, or **mb**.

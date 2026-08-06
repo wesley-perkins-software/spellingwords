@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell common long-vowel VCe words and explain the job of final silent e'
-  - 'Can hear a long vowel at the end of a short spoken word'
-  - 'Are ready to compare different spellings for a final long vowel sound'
+  - 'Can spell familiar silent-e words such as “cake” and “home”'
+  - 'hear a long vowel at the end of a short word such as “me” or “go”'
+  - 'compare “hi” and “my” to choose a final long-i spelling with only occasional help'
 words:
   - me
   - he

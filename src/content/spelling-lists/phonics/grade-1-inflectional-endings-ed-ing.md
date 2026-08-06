@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can identify a familiar base word inside a longer spoken form'
-  - 'Can preserve a base spelling while adding -s or -es'
-  - 'Are ready to connect a stable written ending with more than one pronunciation'
+  - 'find and spell the base word inside “jumped” or “jumping”'
+  - 'notice that -ed sounds different in “jumped,” “called,” and “rested”'
+  - 'keep the base word unchanged while adding -ed or -ing independently'
 words:
   - jumped
   - jumping

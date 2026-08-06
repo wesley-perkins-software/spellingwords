@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Are comfortable spelling short-vowel CVC words with single consonant sounds'
-  - 'Notice that "sh," "ch," and "th" do not sound like their two letters said separately'
-  - 'Are beginning to spot these letter pairs in books, even without a name for them yet'
+  - 'Can spell short-vowel words such as “cat,” “sit,” and “run”'
+  - 'recognize that sh, ch, and th each use two letters for one sound'
+  - 'keep both letters of a digraph when spelling a new word with only occasional help'
 words:
   - ship
   - shop

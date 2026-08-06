@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can identify a short vowel in a one-syllable word'
-  - 'Understand that one final consonant sound may require a multi-letter spelling'
-  - 'Can apply a familiar ending pattern such as final ck without adding extra sounds'
+  - 'Can spell familiar short-vowel words with endings such as ck'
+  - 'hear whether the final sound in a word is the one in “catch” or the one in “badge”'
+  - 'keep every letter in -tch or -dge without adding extra spoken sounds'
 words:
   - catch
   - match

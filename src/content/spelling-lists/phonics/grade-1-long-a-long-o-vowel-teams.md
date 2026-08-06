@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell familiar long vowels with silent e or in an open syllable'
-  - 'Understand that one vowel sound can have more than one spelling'
-  - 'Can use a spelling pattern and its position to compare possible choices'
+  - 'spell long-vowel words with silent e and familiar final vowels'
+  - 'notice that ai is inside “rain” while ay is at the end of “day”'
+  - 'compare known words to choose among ai, ay, oa, and ow in mixed practice'
 words:
   - rain
   - train

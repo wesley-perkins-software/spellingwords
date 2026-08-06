@@ -19,9 +19,9 @@ prerequisiteLists: []
 nextLists: []
 featured: true
 readinessSignals:
-  - 'Can name or write many letters and give their most common sounds'
-  - 'Can hear the first sound in a familiar spoken word such as "sun"'
-  - "Know what these words mean, even if they cannot read or spell them yet"
+  - 'name or write many letters and give their most common sounds'
+  - 'hear the first sound in a familiar word such as “sun”'
+  - 'use a letter sound to make a sensible first spelling attempt with only occasional help'
 faq:
   - question: 'Are these really the first words kindergarteners learn to spell?'
     answer: "They are one useful starting set, not the only possible first words. The words are short and familiar, so a child can concentrate on listening for sounds and choosing letters instead of learning new vocabulary. Pronunciation differs by dialect, so an adult should model each word naturally rather than insist on one accent."

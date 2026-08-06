@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can segment a word like "hot" into its three sounds and blend them back together'
-  - 'Recognize the short "o" sound when it is spoken aloud, even before seeing it written down'
-  - 'Feel comfortable with short "a" and short "i" words'
+  - 'spell familiar short a and short i words'
+  - 'recognize the short o sound in “hot” or “dog”'
+  - 'keep the middle vowel correct as the beginning and ending sounds change'
 words:
   - dog
   - fox

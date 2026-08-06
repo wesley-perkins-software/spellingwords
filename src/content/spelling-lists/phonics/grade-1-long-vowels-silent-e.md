@@ -21,9 +21,9 @@ nextLists: []
 skillIds: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u"]
 featured: false
 readinessSignals:
-  - 'Can spell short-vowel words with beginning and ending consonants intact'
-  - 'Can compare two words and notice how one changed letter affects the vowel sound'
-  - 'Are ready to represent a long vowel with a pattern that includes final silent e'
+  - 'Can spell short-vowel words such as “cap” and “kit”'
+  - 'hear how the vowel changes in pairs such as “cap/cape”'
+  - 'keep the final silent e when long-vowel words are mixed together'
 words:
   - cake
   - make

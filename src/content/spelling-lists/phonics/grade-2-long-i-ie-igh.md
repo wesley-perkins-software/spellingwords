@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can hear long i and spell familiar silent-e or final-y long-i words'
-  - 'Can treat several letters as one vowel spelling'
-  - 'Is ready to sort long-i words by visible spelling family rather than sound alone'
+  - 'Can spell familiar long-i words with silent e or final y'
+  - 'recognize ie in “pie” and the complete igh pattern in “night”'
+  - 'keep all three letters in igh during mixed practice with only occasional help'
 faq: []
 words:
   - pie
@@ -38,14 +38,16 @@ words:
   - flight
 ---
 
-## Why these words?
+This list extends familiar long-**i** spelling to final **ie** and **igh**. The small, related word groups make a letter-heavy pattern easier to see and remember.
 
-The first two words establish the small group of short base words ending in `ie`. The remaining words use `igh`, first in _high_ and then in the useful `-ight` family. _Bright_ and _flight_ add initial blends only after the long-i spelling is visible in simpler words.
+## Why these words — and what they teach
 
-Grade 1 introduced long i with silent e and final y. This unit adds two more spellings for that familiar sound before Grade 2 turns to diphthongs. The sound alone cannot identify the spelling, so children compare visible word shapes and use known family words such as _light_ to check _night_ or _bright_.
+*Pie* and *tie* establish final **ie**. *High* introduces **igh**, and the **-ight** family in *night, light, right,* and related words shows how one known ending can support several spellings. The linked Skill page remains the deeper pattern reference.
 
 ## How to practice this list
 
-Sort the words into final `ie`, `igh`, and `-ight` groups. Ask the learner to underline the complete long-i spelling so the silent `g` and `h` are not dropped, then dictate a mixed set and check each word against its family anchor.
+Sort the words into **ie**, **igh**, and **-ight** groups. Have your child underline the complete long-**i** spelling, then practice a mixed dictation and check each answer against a family word.
 
-The learner is ready to continue when they preserve all three letters in `igh`, keep _pie_ and _tie_ in the final-`ie` group, and can use one `-ight` word to support another without changing the rest of the word.
+Likely attempts include *nite* for *night* or leaving out the silent **g** or **h**. Acknowledge that the long-**i** sound was heard, point to *light* as an anchor, and let the child restore the whole **igh** pattern.
+
+Move on when your child keeps all three letters in **igh**, spells *pie* and *tie* with final **ie**, and uses one **-ight** word to check another.

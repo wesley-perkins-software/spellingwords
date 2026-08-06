@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can segment a simple word like "cat" into its three sounds and blend them back together'
-  - 'Recognize the short "a" sound when it is spoken aloud, even before seeing it written down'
-  - 'Have practiced First Words successfully and are ready to slow down and focus on one vowel sound at a time'
+  - 'spell several words from the First Words list'
+  - 'hear the short a sound in the middle of “hat” or “map”'
+  - 'say a three-sound word slowly and write its sounds in order with only occasional help'
 words:
   - hat
   - mat

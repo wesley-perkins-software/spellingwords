@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can identify the short vowel in a one-syllable word'
-  - 'Can hear the final consonant sound without expecting one written letter per sound'
-  - 'Are ready to compare ordinary CVC endings with doubled final spellings'
+  - 'spell one-syllable words with a short vowel'
+  - 'notice the doubled ending in familiar words such as “hill” and “miss”'
+  - 'correct a single-letter ending after comparing it with a known FLOSS word'
 words:
   - hill
   - bell

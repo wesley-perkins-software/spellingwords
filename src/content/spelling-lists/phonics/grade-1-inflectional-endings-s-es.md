@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell the base words or identify them when the ending is removed'
-  - 'Can hear whether a plural ending adds only a final sound or an extra syllable'
-  - 'Are ready to preserve a familiar word while adding a meaningful ending'
+  - 'Can spell the shorter word inside a plural such as “cats” or “dishes”'
+  - 'hear when a plural ending adds an extra beat, as it does in “boxes”'
+  - 'keep the base word unchanged while adding -s or -es in mixed practice'
 words:
   - cats
   - dogs

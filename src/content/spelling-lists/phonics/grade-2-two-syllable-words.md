@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - "Can spell one-syllable words confidently and is ready to apply that skill to longer words"
-  - "Can clap or count the beats in a spoken word before spelling it"
-  - "Already knows short vowels, long vowels, and r-controlled vowels from earlier lessons"
+  - 'spell one-syllable words with familiar vowel patterns'
+  - 'hear and clap the two spoken beats in a word such as “rabbit”'
+  - 'break a longer word apart and spell both parts with only occasional help'
 faq:
   - question: "What is a syllable, in terms a parent can use?"
     answer: "A syllable is one beat of a word — the number of times your mouth opens for a vowel sound. Rabbit has two beats (rab-bit); paper has two beats (pa-per). Clapping the beats before spelling helps a child hear how many parts the word needs."
@@ -50,6 +50,16 @@ words:
   - number
 ---
 
-Every word on this list has two syllables, and every syllable uses a pattern a second grader already knows — the new skill is breaking the word apart, spelling each piece, and putting it back together. *Rabbit* and *basket* split into two closed syllables, each with a short vowel. *Paper* and *baby* split into an open syllable followed by a closed one, so the first syllable's vowel says its own name. *Winter*, *garden*, and *number* end in an r-controlled syllable — patterns established across Grade 1 and the earlier Grade 2 r-controlled unit, now appearing at the end of a longer word instead of standing alone.
+Longer words become manageable when children listen for two spoken beats and spell one part at a time. Every word here applies patterns introduced earlier in the sequence.
 
-This is where Grade 1's one-syllable knowledge finally gets applied to real, everyday words. A child does not need a new vowel rule to spell *winter* — they need to recognize that *-ter* is the same r-controlled pattern they already know from words like *her*, just placed at the end of a two-syllable word.
+## Why these words — and what they teach
+
+The list includes words such as *rabbit* and *basket* with short-vowel parts, *paper* and *baby* with a long first vowel, and *winter* and *garden* with an r-controlled part. The new work is breaking apart and rebuilding the word, not learning a new vowel pattern. The linked Skill page explains the strategy more deeply.
+
+## How to practice this list
+
+Say a word, clap its two beats, and have your child say and write one part at a time. After joining the parts, read the complete word and check that neither beat disappeared.
+
+A child may omit the quieter second vowel, spell only one beat, or change a known pattern inside a longer word. Repeat the word naturally, mark the two beats, and correct only the unfinished part before rebuilding the word.
+
+Move on when your child can hear two beats, write both parts in order, preserve familiar vowel patterns, and use the spoken parts to find and repair an omission.

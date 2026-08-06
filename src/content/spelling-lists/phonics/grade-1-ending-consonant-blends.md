@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can preserve both sounds in common beginning blends'
-  - 'Can spell the beginning and vowel of a short word while continuing to listen to its ending'
-  - 'Can reread a spelling from left to right to look for an omitted sound'
+  - 'Can spell words with beginning blends such as “frog” and “stop”'
+  - 'hear both consonant sounds at the end of a word such as “hand”'
+  - 'reread their spelling and add a missed ending sound with only occasional help'
 words:
   - hand
   - nest

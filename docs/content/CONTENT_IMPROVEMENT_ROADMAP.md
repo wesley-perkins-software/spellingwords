@@ -1,5 +1,7 @@
 # Content Improvement Roadmap — spellingwords.app
 
+> **Core navigation implementation is final:** all 51 Core Spelling Grade Units use the single continuous K–5 `CORE_SPELLING_SEQUENCE` for **Review first** and **Next step**, and render no **Explore more** group. The first Kindergarten unit has only Next step; the Grade 5 capstone has only Review first. High-Frequency Words and Additional Practice navigation are unchanged and remain separate future passes.
+
 > URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs use the flat no-trailing-slash `/{grade}/{page-slug}` structure, and canonical Skill pages use `/skills` + `/skills/{skill-slug}`. The runtime sources of truth are `src/lib/content/canonicalGradeRoutes.ts` and `src/lib/content/canonicalSkillRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the grade-curriculum reference. The site is pre-launch, so the old repository-shaped `/spelling-lists/...` paths for migrated grade-curriculum and Skill pages are simply not generated (404) rather than redirected — these are the site's original launch URLs, not a migration preserving an established public site.
 
 

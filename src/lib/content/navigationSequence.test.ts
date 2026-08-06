@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { CORE_SPELLING_SEQUENCE } from './coreSpellingSequence';
 import { HF_WORDS_SEQUENCE } from './hfWordsSequence';
 import { getSequenceNeighbors } from './navigationSequence';
+import { getCanonicalGradeRouteById, getCanonicalGradeRoutes } from './canonicalGradeRoutes';
 
 function readFrontmatter(filePath: string): string {
   const source = readFileSync(filePath, 'utf8');
@@ -44,6 +45,8 @@ type FrontmatterSummary = {
   status: string;
   prerequisiteLists: string[];
   nextLists: string[];
+  relatedLists: string[];
+  contentRole: string;
   filePath: string;
 };
 
@@ -63,6 +66,8 @@ function allContent(): FrontmatterSummary[] {
         status: readScalar(frontmatter, 'status') ?? '',
         prerequisiteLists: readArray(frontmatter, 'prerequisiteLists'),
         nextLists: readArray(frontmatter, 'nextLists'),
+        relatedLists: readArray(frontmatter, 'relatedLists'),
+        contentRole: readScalar(frontmatter, 'contentRole') ?? '',
         filePath,
       };
     });
@@ -82,6 +87,34 @@ describe('CORE_SPELLING_SEQUENCE', () => {
     for (const id of CORE_SPELLING_SEQUENCE) {
       expect(byId.get(id), id).toMatchObject({ status: 'published' });
     }
+  });
+
+  it('resolves every id to a canonical Core Spelling URL and every consecutive pair to consecutive URLs', () => {
+    const routes = getCanonicalGradeRoutes();
+    for (const [index, id] of CORE_SPELLING_SEQUENCE.entries()) {
+      const route = getCanonicalGradeRouteById(id);
+      expect(route, id).toMatchObject({ classification: 'core-spelling' });
+      expect(route?.canonicalPath).toBe(`/${route?.gradeSlug}/${route?.finalSlug}`);
+      if (index < CORE_SPELLING_SEQUENCE.length - 1) {
+        expect(getSequenceNeighbors(id).nextId).toBe(CORE_SPELLING_SEQUENCE[index + 1]);
+        expect(routes.find((candidate) => candidate.id === getSequenceNeighbors(id).nextId)?.canonicalPath)
+          .toBe(getCanonicalGradeRouteById(CORE_SPELLING_SEQUENCE[index + 1])?.canonicalPath);
+      }
+    }
+  });
+
+  it('has exactly one start and one end, with every interior page linked in both directions', () => {
+    const starts = CORE_SPELLING_SEQUENCE.filter((id) => getSequenceNeighbors(id).prerequisiteId === undefined);
+    const ends = CORE_SPELLING_SEQUENCE.filter((id) => getSequenceNeighbors(id).nextId === undefined);
+    expect(starts).toEqual(['kindergarten-first-words']);
+    expect(ends).toEqual(['grade-5-spelling-changes-related-words']);
+
+    CORE_SPELLING_SEQUENCE.forEach((id, index) => {
+      expect(getSequenceNeighbors(id)).toEqual({
+        prerequisiteId: CORE_SPELLING_SEQUENCE[index - 1],
+        nextId: CORE_SPELLING_SEQUENCE[index + 1],
+      });
+    });
   });
 });
 
@@ -132,13 +165,27 @@ describe('getSequenceNeighbors', () => {
     expect(getSequenceNeighbors('grade-5-common-words-4').nextId).toBeUndefined();
   });
 
-  it('crosses grade boundaries within the Core Spelling chain', () => {
-    expect(getSequenceNeighbors('kindergarten-consonant-digraphs').nextId).toBe(
-      'grade-1-cvc-short-vowels-c-k-rule',
-    );
-    expect(getSequenceNeighbors('grade-1-cvc-short-vowels-c-k-rule').prerequisiteId).toBe(
-      'kindergarten-consonant-digraphs',
-    );
+  it.each([
+    ['kindergarten-consonant-digraphs', 'grade-1-cvc-short-vowels-c-k-rule'],
+    ['grade-1-tch-dge-ending-rules', 'grade-2-long-e-ee-ea'],
+    ['grade-2-contractions', 'grade-3-prefix-words'],
+    ['grade-3-root-word-families', 'grade-4-multisyllabic-academic-words'],
+    ['grade-4-derived-words', 'grade-5-multisyllabic-academic-words'],
+  ])('crosses the Core grade boundary %s -> %s in both directions', (previous, next) => {
+    expect(getSequenceNeighbors(previous).nextId).toBe(next);
+    expect(getSequenceNeighbors(next).prerequisiteId).toBe(previous);
+  });
+
+  it.each([
+    ['grade-1-tch-dge-ending-rules', 'grade-2-long-e-ee-ea'],
+    ['grade-2-long-e-ee-ea', 'grade-2-long-i-ie-igh'],
+    ['grade-2-long-i-ie-igh', 'vowel-teams-oi-oy'],
+    ['grade-2-au-aw-words', 'grade-2-r-controlled-er-ir-ur'],
+    ['grade-2-r-controlled-er-ir-ur', 'grade-2-soft-c-soft-g'],
+    ['grade-2-contractions', 'grade-3-prefix-words'],
+  ])('keeps finalized Grade 2 adjacency %s -> %s', (previous, next) => {
+    expect(getSequenceNeighbors(previous).nextId).toBe(next);
+    expect(getSequenceNeighbors(next).prerequisiteId).toBe(previous);
   });
 
   it('crosses grade boundaries within the HF Words chain', () => {
@@ -158,6 +205,36 @@ describe('getSequenceNeighbors', () => {
     // confirm its neighbor lookup never spills into the HF chain.
     const neighbors = getSequenceNeighbors('grade-5-spelling-changes-related-words');
     expect(HF_WORDS_SEQUENCE).not.toContain(neighbors.prerequisiteId);
+  });
+});
+
+describe('Core rendered relationship model', () => {
+  it('gives every Core page only its zero-or-one canonical Review First and Next Step targets', () => {
+    CORE_SPELLING_SEQUENCE.forEach((id, index) => {
+      const { prerequisiteId, nextId } = getSequenceNeighbors(id);
+      expect(prerequisiteId ? [prerequisiteId] : []).toHaveLength(index === 0 ? 0 : 1);
+      expect(nextId ? [nextId] : []).toHaveLength(index === CORE_SPELLING_SEQUENCE.length - 1 ? 0 : 1);
+
+      for (const targetId of [prerequisiteId, nextId].filter((target): target is string => Boolean(target))) {
+        expect(getCanonicalGradeRouteById(targetId)?.classification, `${id} -> ${targetId}`).toBe('core-spelling');
+      }
+    });
+  });
+
+  it('preserves authored relatedLists data while the Core renderer suppresses Explore More', () => {
+    const content = allContent();
+    const byId = new Map(content.map((entry) => [entry.id, entry]));
+    expect(byId.get('kindergarten-first-words')?.relatedLists).toEqual(['kindergarten-animal-words']);
+    expect(byId.get('grade-2-au-aw-words')?.relatedLists).toEqual([
+      'grade-2-common-words-1',
+      'grade-2-common-words-5',
+      'grade-2-common-words-6',
+    ]);
+    expect(byId.get('grade-1-weather-words')?.relatedLists).toEqual(['grade-1-clothing-words']);
+    expect(byId.get('grade-2-common-words-1')?.relatedLists).toEqual([
+      'grade-2-oo-two-sounds',
+      'grade-2-au-aw-words',
+    ]);
   });
 });
 

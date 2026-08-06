@@ -42,8 +42,9 @@ const { Content } = await entry.render();
 
 // Review First / Next Step are derived from the canonical CORE_SPELLING_SEQUENCE /
 // HF_WORDS_SEQUENCE arrays, not authored frontmatter — see
-// docs/planning/CANONICAL_NAVIGATION_RELATIONSHIPS.md. Explore More
-// (`relatedLists`) remains manually curated frontmatter.
+// docs/planning/CANONICAL_NAVIGATION_RELATIONSHIPS.md. `relatedLists` remains
+// manually curated for non-Core pages; Core Grade Units delegate to
+// GradeUnitWorldPage, which deliberately never resolves or renders it.
 const { prerequisiteId, nextId } = getSequenceNeighbors(data.id);
 const prerequisites = resolveListRefs(prerequisiteId ? [prerequisiteId] : [], allEntries);
 const next = resolveListRefs(nextId ? [nextId] : [], allEntries);

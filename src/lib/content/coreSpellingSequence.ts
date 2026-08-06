@@ -16,8 +16,8 @@
  * for each grade, in hub card order. Combined-roadmap-entry sibling pages
  * (e.g. `grade-1-long-e-vowel-teams`, `grade-3-doubling-final-consonants`)
  * are intentionally excluded — they are not independent hub cards and never
- * become independent chain steps; they are reachable only via `relatedLists`
- * off their anchor page.
+ * become independent chain steps; their separate Skill-support links are not
+ * part of this bottom-of-page sequence.
  */
 export const CORE_SPELLING_SEQUENCE: readonly string[] = [
   // Kindergarten

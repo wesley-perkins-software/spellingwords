@@ -2,6 +2,8 @@
 
 *Status: canonical editorial standard. Governs the writing and review of content for Grade Unit curriculum pages. Does not redesign, retaxonomize, re-route, or re-render anything.*
 
+> **Final Core navigation rule:** Core Spelling is one continuous K–5 sequence. The bottom section is headed **“Where to go from here”** and contains **Review first** (the previous `CORE_SPELLING_SEQUENCE` unit) followed by **Next step** (the next unit). Core pages never render **Explore more**. Only `kindergarten-first-words` omits Review first; only `grade-5-spelling-changes-related-words` omits Next step. High-Frequency Words and Additional Practice navigation remain separate pending passes.
+
 ---
 
 ## 1. Status, purpose, and authority
@@ -131,9 +133,9 @@ For a **Core Spelling Grade Unit or on-ramp/review unit**:
 5. How to practice this list *(covers §3.1.4; ends with concise, observable move-on guidance per §3.2.6 — see §8; no separate "ready to move on" section)*
 6. Go deeper on the pattern *(conditional)*
 7. FAQ *(conditional — zero is normal)*
-8. Review First *(conditional)*
-9. **Ready for Next** *(conditional, §3.2.7)*
-10. Also Worth Practicing *(conditional)*
+8. Where to go from here
+   - Review first *(all except the first Core unit)*
+   - Next step *(all except the final Core unit)*
 11. Source attribution *(conditional)*
 
 For an **Additional Practice / vocabulary-theme page** (§3.1 only): positions 1, 3, 4 (reduced), 5 (brief, no move-on guidance), plus conditionally 6 (narrow), 7, 10, 11. Positions 2, 8, 9 do not apply.
@@ -141,8 +143,8 @@ For an **Additional Practice / vocabulary-theme page** (§3.1 only): positions 1
 **Fixed rules, both variants:**
 
 - The heading in position 2, where present, is preserved verbatim: **"These spelling words are a good fit for students who…"** Never renamed.
-- **Ready for Next must precede Also Worth Practicing whenever both are present.** Review First, when present, precedes both. Order: Review First → Ready for Next → Also Worth Practicing.
-- These three navigation buckets keep separate headings and explicit hierarchy even when sharing one visual region — never collapsed into one generic "What's next."
+- Core navigation order is always Review first → Next step. Explore more is prohibited on Core pages even when `relatedLists` is populated.
+- “Go deeper on the pattern” remains a separate Skill-support feature and is unaffected by the bottom navigation rule.
 
 ---
 

@@ -2,19 +2,17 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-// The canonical Grade Unit Page Standard freezes the relationship
-// navigation order as Review First -> Next Step -> Explore More.
-// Both rendering paths call their card component three times
-// with these exact heading labels; this test locks in the call order in
+// Core Grade Units now have a deliberately narrower relationship model than
+// non-Core pages: Review first -> Next step, with no Explore more. This test
+// locks both that rule and the existing three-bucket non-Core order in
 // source rather than rendered output, since the project has no
 // DOM-capable Vitest environment or Astro component-testing harness to
 // assert on rendered markup (environment: 'node', no jsdom/happy-dom, no
 // @astrojs/container, no Playwright config).
 
-const rendererPaths = [
+const nonCoreRendererPaths = [
   join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro'),
   join(process.cwd(), 'src/pages/skills/[slug].astro'),
-  join(process.cwd(), 'src/components/GradeUnitWorldPage.astro'),
 ];
 
 function indexOfHeading(source: string, heading: string): number {
@@ -25,8 +23,8 @@ function indexOfHeading(source: string, heading: string): number {
   return match.index;
 }
 
-describe('Relationship navigation order (Review First -> Next Step -> Explore More)', () => {
-  it.each(rendererPaths)('orders the three relationship buckets correctly in %s', (path) => {
+describe('Relationship navigation rendering', () => {
+  it.each(nonCoreRendererPaths)('preserves non-Core Review First -> Next Step -> Explore More order in %s', (path) => {
     const source = readFileSync(path, 'utf8');
 
     const reviewFirst = indexOfHeading(source, 'Review First');
@@ -35,5 +33,25 @@ describe('Relationship navigation order (Review First -> Next Step -> Explore Mo
 
     expect(reviewFirst).toBeLessThan(nextStep);
     expect(nextStep).toBeLessThan(exploreMore);
+  });
+
+  it('renders Core copy in order without Explore More in the Grade Unit world renderer', () => {
+    const path = join(process.cwd(), 'src/components/GradeUnitWorldPage.astro');
+    const source = readFileSync(path, 'utf8');
+    const outer = source.indexOf('Where to go from here');
+    const review = indexOfHeading(source, 'Review first');
+    const next = indexOfHeading(source, 'Next step');
+
+    expect(outer).toBeGreaterThan(-1);
+    expect(outer).toBeLessThan(review);
+    expect(review).toBeLessThan(next);
+    expect(source).not.toMatch(/heading=["']Explore [Mm]ore["']/);
+    expect(source).not.toContain('data.relatedLists');
+  });
+
+  it('routes every Grade Unit away from the non-Core rendering branch', () => {
+    const source = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro'), 'utf8');
+    expect(source).toContain('{isGradeUnit && <GradeUnitWorldPage listId={data.id} />}');
+    expect(source).toContain('{!isGradeUnit && (');
   });
 });

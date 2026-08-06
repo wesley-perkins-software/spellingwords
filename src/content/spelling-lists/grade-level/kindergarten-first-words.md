@@ -1,7 +1,7 @@
 ---
 id: kindergarten-first-words
 urlSlug: kindergarten-first-words
-title: 'Kindergarten First Words'
+title: 'First Words'
 description: 'Eight short, familiar spelling words that mix several short vowel sounds — cat, pig, dog, bug, bed, sun, cup, and hen — a gentle first step into sound-based spelling.'
 shortAnswer: 'A gentle starting list of eight familiar kindergarten words spanning several short vowel sounds — cat, pig, dog, bug, bed, sun, cup, and hen — simple, sound-based first spelling wins.'
 category: grade-level

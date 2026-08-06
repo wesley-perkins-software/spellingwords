@@ -1,7 +1,7 @@
 ---
 id: grade-2-contractions
 urlSlug: 2nd-grade-contractions
-title: "2nd Grade Contractions"
+title: "Contractions"
 description: "Common contractions that second graders read in stories and use in dialogue — words that join two words with an apostrophe."
 shortAnswer: "Twelve contractions for second graders, including can't, don't, I'm, I'll, he's, it's, and that's."
 category: grade-level

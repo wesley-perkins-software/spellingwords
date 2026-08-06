@@ -1,7 +1,7 @@
 ---
 id: kindergarten-short-o-words
 urlSlug: kindergarten-short-o-words
-title: 'Kindergarten Short O Words'
+title: 'Short O Words'
 description: 'Eight simple words built around the short "o" sound — dog, fox, dot, pot, hot, hop, top, and box — continuing the kindergarten spelling progression one vowel at a time.'
 contentRole: grade-unit
 skillIds: ['short-o-words']

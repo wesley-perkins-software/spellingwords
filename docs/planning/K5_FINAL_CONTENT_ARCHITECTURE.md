@@ -1,5 +1,7 @@
 # Authoritative K–5 Content Architecture
 
+> **Final Core bottom navigation:** the 51 Core Spelling Grade Units form one continuous Kindergarten–Grade 5 chain in canonical hub order. `CORE_SPELLING_SEQUENCE` is the sole navigation source: previous unit → **Review first**, next unit → **Next step**. Core pages never render **Explore more**; only the first unit lacks Review first, and only the Grade 5 capstone lacks Next step. High-Frequency Words and Additional Practice recommendation models are reserved for separate pending passes.
+
 > URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs use the flat no-trailing-slash `/{grade}/{page-slug}` structure, and canonical Skill pages use `/skills` + `/skills/{skill-slug}`. The runtime sources of truth are `src/lib/content/canonicalGradeRoutes.ts` and `src/lib/content/canonicalSkillRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the grade-curriculum reference. The site is pre-launch, so the old repository-shaped `/spelling-lists/...` paths for migrated grade-curriculum and Skill pages are simply not generated (404) rather than redirected — these are the site's original launch URLs, not a migration preserving an established public site.
 
 

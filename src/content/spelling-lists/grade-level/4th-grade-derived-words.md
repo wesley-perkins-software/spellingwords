@@ -1,7 +1,7 @@
 ---
 id: grade-4-derived-words
 urlSlug: 4th-grade-derived-words-and-word-meaning
-title: "4th Grade Derived Words and Word Meaning"
+title: "Derived Words and Word Meaning"
 description: "A fourth-grade derived words list that shows how one base word's family — such as nation, national, and nationality — keeps its spelling stable across related forms."
 shortAnswer: "Fourth graders study derived word families such as nation/national/nationality, muscle/muscular, and popular/popularity to see how spelling stays stable across a family even when pronunciation shifts."
 category: grade-level

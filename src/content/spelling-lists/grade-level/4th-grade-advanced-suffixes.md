@@ -1,7 +1,7 @@
 ---
 id: grade-4-advanced-suffixes
 urlSlug: 4th-grade-advanced-suffixes
-title: "4th Grade Advanced Suffix Words"
+title: "Advanced Suffix Words"
 description: "A fourth-grade advanced suffixes list for -able, -ible, -ous, -ive, -tion, and -sion words that connect spelling, meaning, and word families."
 shortAnswer: "Fourth graders practice advanced suffixes in words like breakable, visible, creative, dangerous, connection, solution, and discussion."
 contentRole: grade-unit

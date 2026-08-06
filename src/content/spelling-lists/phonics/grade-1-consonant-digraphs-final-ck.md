@@ -1,7 +1,7 @@
 ---
 id: grade-1-consonant-digraphs-final-ck
 urlSlug: 1st-grade-consonant-digraphs-final-ck
-title: "Consonant Digraphs & Final -ck"
+title: "Consonant Digraphs and Final -ck"
 description: "A first-grade core spelling lesson on sh, ch, th, wh, and final -ck after a short vowel."
 shortAnswer: "This Grade 1 core unit teaches consonant digraphs and reviews final -ck as a two-letter spelling for one sound after a short vowel."
 contentRole: grade-unit

@@ -1,7 +1,7 @@
 ---
 id: grade-5-spelling-changes-related-words
 urlSlug: 5th-grade-spelling-changes-in-related-words
-title: "5th Grade Spelling Changes in Related Words"
+title: "Spelling Changes in Related Words"
 description: "A fifth-grade related-words list that shows how a base word's spelling stays stable across a family — such as critic, critical, and criticism — even when a suffix shifts the stress or changes a sound."
 shortAnswer: "Fifth graders study related-word families such as critic/critical/criticism, athlete/athletic/athleticism, and music/musician to see how spelling holds steady across a family even when pronunciation shifts."
 category: grade-level

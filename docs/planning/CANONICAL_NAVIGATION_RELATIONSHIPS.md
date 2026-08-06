@@ -1,4 +1,4 @@
-> **Implementation status: shipped.** This document is the editorial specification for the site's Review First / Next Step / Explore More navigation graph. It is checked in as the ongoing source of truth per §4 recommendation 3 — future navigation changes should update this document first, then the sequence arrays (Core/HF) or `relatedLists` frontmatter (Explore More), never the other way around.
+> **Implementation status: Core Spelling navigation finalized.** Core Spelling uses one continuous 51-page K–5 chain. Its bottom navigation is derived only from `CORE_SPELLING_SEQUENCE`: the previous item is **Review first**, the next item is **Next step**, and **Explore more is never rendered**. Only `kindergarten-first-words` lacks Review first; only `grade-5-spelling-changes-related-words` lacks Next step. High-Frequency Words and Additional Practice recommendation rules remain separate pending passes; their existing metadata and rendering are not finalized by this Core decision.
 >
 > Three corrections were made during implementation that this document's body does not yet reflect inline (kept here rather than silently rewriting the historical record above):
 >
@@ -16,13 +16,11 @@ Phase 2 editorial work surfaced a symptom (Kindergarten Consonant Digraphs' "Nex
 
 ## 1. Global Navigation Philosophy
 
-**v4 — final.** The model starts from the parent's experience at the bottom of a page, not from the metadata fields. Every curriculum page answers three questions:
+**Core Spelling final rule.** The model starts from the parent's experience at the bottom of a Core page and answers only two questions:
 
 1. **What should we review first?** (`prerequisiteLists`)
 2. **What should we learn next?** (`nextLists`)
-3. **What else is worth exploring?** (`relatedLists`)
-
-Questions 1 and 2 are a single **continuous instructional journey**, not per-grade or per-section islands. Question 3 is a **judgment call**, made only when a specific pairing is genuinely useful to a parent — never asserted automatically by category membership.
+Questions 1 and 2 form a single **continuous K–5 instructional journey**, not per-grade islands. Core pages do not answer a third Explore more question in this section. Existing `relatedLists` metadata is retained because non-Core behavior is pending and other features may still use relationship data, but the Core renderer does not resolve it for bottom navigation.
 
 ### Navigation heading rename: "More Practice" → "Explore More"
 
@@ -117,11 +115,11 @@ Additional Practice pages are fun, curious, bounded vocabulary pages for parents
 7. `relatedLists` entries must be de-duplicated against the derived `prerequisiteLists`/`nextLists` (`dedupeRelatedLists()`).
 8. Every `relatedLists` entry must pass the reasonable-parent test.
 
-## 2. Architecture Decision: Derive Review First / Next Step, Keep Explore More Manual
+## 2. Architecture Decision: Derive Core Review First / Next Step and Suppress Explore More
 
-**Decision: Review First / Next Step are computed from two canonical ordered sequence arrays (`coreSpellingSequence.ts` for Core Spelling, `hfWordsSequence.ts` for High-Frequency Words) via `getSequenceNeighbors(id)` in `navigationSequence.ts`, rather than hand-authored per-page frontmatter. Explore More (`relatedLists`) remains manually curated frontmatter, checked against this document.**
+**Decision for Core Spelling: Review first / Next step are computed from `coreSpellingSequence.ts` via `getSequenceNeighbors(id)` in `navigationSequence.ts`, rather than hand-authored per-page frontmatter. The Core renderer never resolves or renders Explore more from `relatedLists`.** High-Frequency Words and Additional Practice retain their current behavior pending their own navigation passes.
 
-Rationale: the arrays are already fully specified by the page-by-page matrix below; a flat ordered array cannot be non-bidirectional, cannot cycle, and has exactly one first/last element by construction, so most chain-integrity concerns collapse into "does every array id resolve, and does every canonical page appear exactly once" rather than a battery of runtime consistency tests against ~77 hand-authored frontmatter files. This directly eliminates the failure mode that caused the original bug: there is no second copy of the chain that can drift out of sync with canonical truth, because there's only one copy. Explore More is correctly excluded from derivation — it's inherently a judgment call, which is the entire reason this document's evidence hierarchy and reasonable-parent test exist.
+Rationale: a flat ordered array makes competing predecessors and cycles structurally difficult and has exactly one first and last element. Chain integrity therefore reduces to verifying that all 51 unique IDs resolve to published canonical Core routes and that each adjacent pair resolves in both directions. Suppressing Core Explore more keeps optional, cross-section relationships out of the ordered curriculum without deleting metadata that may still be relevant outside this finalized renderer rule.
 
 Implementation: `src/lib/content/coreSpellingSequence.ts`, `src/lib/content/hfWordsSequence.ts`, `src/lib/content/navigationSequence.ts`. `prerequisiteLists`/`nextLists` frontmatter is empty on every Core Spelling and HF Words page, enforced by a guard test in `navigationSequence.test.ts`.
 

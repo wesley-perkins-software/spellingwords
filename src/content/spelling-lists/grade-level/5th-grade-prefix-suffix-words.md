@@ -1,7 +1,7 @@
 ---
 id: grade-5-prefix-suffix-words
 urlSlug: 5th-grade-prefix-suffix-words
-title: "5th Grade Prefix & Suffix Words"
+title: "Prefix and Suffix Words"
 description: "Twelve fifth-grade words with useful prefixes and suffixes that help students spell and understand longer academic vocabulary."
 shortAnswer: "Twelve fifth-grade prefix and suffix words — interfere, transport, responsible, activity, agreement, and more."
 contentRole: grade-unit

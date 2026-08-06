@@ -1,7 +1,7 @@
 ---
 id: grade-2-silent-letter-words
 urlSlug: 2nd-grade-silent-letter-words
-title: "2nd Grade Silent Letter Words"
+title: "Silent Letter Words"
 description: "Common silent letter words for second graders, grouped by WR, KN, and MB spelling patterns."
 shortAnswer: "Twelve silent letter words for second graders, including write, wrong, know, knee, thumb, lamb, and comb."
 category: grade-level

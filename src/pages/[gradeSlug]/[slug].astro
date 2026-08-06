@@ -38,12 +38,17 @@ export async function getStaticPaths() {
 const { entry, allEntries } = Astro.props;
 const { data } = entry;
 
+const route = getCanonicalGradeRouteByPath(Astro.params.gradeSlug!, Astro.params.slug!);
+if (!route) throw new Error(`No canonical grade route for ${Astro.params.gradeSlug}/${Astro.params.slug}`);
+const isCoreSpelling = route.classification === 'core-spelling';
+
 const { Content } = await entry.render();
 
 // Review First / Next Step are derived from the canonical CORE_SPELLING_SEQUENCE /
 // HF_WORDS_SEQUENCE arrays, not authored frontmatter — see
-// docs/planning/CANONICAL_NAVIGATION_RELATIONSHIPS.md. Explore More
-// (`relatedLists`) remains manually curated frontmatter.
+// docs/planning/CANONICAL_NAVIGATION_RELATIONSHIPS.md. `relatedLists` remains
+// manually curated for non-Core pages; Core Grade Units delegate to
+// GradeUnitWorldPage, which deliberately never resolves or renders it.
 const { prerequisiteId, nextId } = getSequenceNeighbors(data.id);
 const prerequisites = resolveListRefs(prerequisiteId ? [prerequisiteId] : [], allEntries);
 const next = resolveListRefs(nextId ? [nextId] : [], allEntries);
@@ -57,9 +62,6 @@ function listLink(e: (typeof allEntries)[number]) {
 }
 
 const categoryLabel = categoryLabels[data.category] ?? data.category;
-const route = getCanonicalGradeRouteByPath(Astro.params.gradeSlug!, Astro.params.slug!);
-if (!route) throw new Error(`No canonical grade route for ${Astro.params.gradeSlug}/${Astro.params.slug}`);
-
 const gradeHubForBreadcrumb = gradeConfig.find((g) => g.grade === route.grade);
 if (!gradeHubForBreadcrumb) throw new Error(`No grade hub for grade ${route.grade}`);
 const breadcrumbItems = [
@@ -162,9 +164,9 @@ const easierList = prerequisites[0];
 const harderList = next[0];
 ---
 
-{isGradeUnit && <GradeUnitWorldPage listId={data.id} />}
+{isCoreSpelling && <GradeUnitWorldPage listId={data.id} />}
 
-{!isGradeUnit && (
+{!isCoreSpelling && (
 <Layout
   title={commonWordsSetTitle ?? `${data.title} — spellingwords`}
   description={data.description}

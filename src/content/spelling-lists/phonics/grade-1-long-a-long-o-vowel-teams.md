@@ -1,7 +1,7 @@
 ---
 id: grade-1-long-a-long-o-vowel-teams
 urlSlug: 1st-grade-long-a-long-o-vowel-teams
-title: "Long A & Long O Vowel Teams"
+title: "Long A and Long O Vowel Teams"
 description: "A first-grade core spelling lesson on long a and long o vowel teams."
 shortAnswer: "This Grade 1 core unit teaches long a and long o vowel teams with a focused word list, parent-friendly explanation, misconceptions, and curriculum navigation."
 category: phonics

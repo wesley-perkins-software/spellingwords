@@ -1,7 +1,7 @@
 ---
 id: grade-1-open-syllables-final-y
 urlSlug: 1st-grade-open-syllables-final-y
-title: "Short Words with Long Vowels: Open Syllables & Final Y"
+title: "Short Words with Long Vowels: Open Syllables and Final Y"
 description: "A first-grade core spelling lesson on open syllables and final y."
 shortAnswer: "This Grade 1 core unit teaches open syllables and final y with a focused word list, parent-friendly explanation, misconceptions, and curriculum navigation."
 category: phonics

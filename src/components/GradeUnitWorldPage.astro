@@ -20,10 +20,9 @@ import WorldRelatedCards from '@/components/WorldRelatedCards.astro';
 import {
   isPublished,
   resolveListRefs,
-  dedupeRelatedLists,
   toPlayableWords,
 } from '@/lib/content/spellingLists';
-import { getSequenceNeighbors } from '@/lib/content/navigationSequence';
+import { getCoreNavigationModel } from '@/lib/content/navigationSequence';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { buildGradeUnitSequence } from '@/lib/content/gradeUnitSequence';
@@ -43,9 +42,10 @@ const entry = entries.find((e) => e.data.id === listId);
 if (!entry) {
   throw new Error(`GradeUnitWorldPage: "${listId}" not found in the spelling-lists collection.`);
 }
-if (entry.data.contentRole !== 'grade-unit') {
+const canonicalGradeRoute = getCanonicalGradeRouteById(entry.data.id);
+if (canonicalGradeRoute?.classification !== 'core-spelling') {
   throw new Error(
-    `GradeUnitWorldPage: "${listId}" has contentRole "${entry.data.contentRole ?? 'undefined'}", not "grade-unit".`,
+    `GradeUnitWorldPage: "${listId}" is not a canonical Core Spelling route.`,
   );
 }
 
@@ -54,11 +54,12 @@ const { Content } = await entry.render();
 
 // Review First / Next Step are derived from the canonical CORE_SPELLING_SEQUENCE
 // array, not authored frontmatter — see docs/planning/CANONICAL_NAVIGATION_RELATIONSHIPS.md.
-// Explore More (`relatedLists`) remains manually curated frontmatter.
-const { prerequisiteId, nextId } = getSequenceNeighbors(data.id);
-const prerequisites = resolveListRefs(prerequisiteId ? [prerequisiteId] : [], entries);
-const next = resolveListRefs(nextId ? [nextId] : [], entries);
-const related = dedupeRelatedLists(prerequisites, resolveListRefs(data.relatedLists, entries), next);
+// Core Spelling intentionally has no Explore More bucket. `relatedLists`
+// remains available to the non-Core renderers, but it is never resolved here.
+const navigation = getCoreNavigationModel(data.id);
+if (!navigation) throw new Error(`GradeUnitWorldPage: "${data.id}" is missing from CORE_SPELLING_SEQUENCE.`);
+const prerequisites = resolveListRefs(navigation.reviewIds, entries);
+const next = resolveListRefs(navigation.nextIds, entries);
 const conceptSkills = data.skillIds
   .map((id) => entries.find((e) => e.data.id === id))
   .filter((e): e is (typeof entries)[number] => e !== undefined);
@@ -93,7 +94,6 @@ const worldStyleVars = [
   `--world-accent-soft:${kit.palette.accentSoft}`,
 ].join('; ');
 
-const canonicalGradeRoute = getCanonicalGradeRouteById(data.id);
 if (!canonicalGradeRoute || !gradeHub) {
   throw new Error(`GradeUnitWorldPage: "${data.id}" has no canonical grade route or grade hub.`);
 }
@@ -269,12 +269,11 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
 
     <!-- Where to go from here -->
     {
-      (prerequisites.length > 0 || related.length > 0 || next.length > 0) && (
+      (prerequisites.length > 0 || next.length > 0) && (
         <section class="section-block whats-next" style={worldStyleVars}>
-          <h2 class="section-heading">Where to Go From Here</h2>
-          <WorldRelatedCards heading="Review First" items={prerequisites} listLink={listLink} />
-          <WorldRelatedCards heading="Next Step" items={next} listLink={listLink} />
-          <WorldRelatedCards heading="Explore More" items={related} listLink={listLink} />
+          <h2 class="section-heading">Where to go from here</h2>
+          <WorldRelatedCards heading="Review first" items={prerequisites} listLink={listLink} />
+          <WorldRelatedCards heading="Next step" items={next} listLink={listLink} />
         </section>
       )
     }

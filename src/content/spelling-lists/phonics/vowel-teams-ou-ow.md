@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - "Can recognize earlier vowel teams and are ready for OW to represent a different sound than it did in long-o words"
-  - "Can hear the gliding vowel sound in spoken words like 'out,' 'cow,' and 'down'"
-  - "Are ready to learn common word spellings even when position clues are less reliable"
+  - 'recognize familiar vowel teams, including long-o ow in “snow”'
+  - 'hear the shared vowel sound in “out” and “cow”'
+  - 'correct an ou/ow mix-up after comparing with a known word'
 faq:
   - question: "What sound do OU and OW make in this list?"
     answer: "They make the diphthong heard in 'out' and 'cow.' The sound glides, so students should listen for the whole vowel movement rather than a short or long vowel."

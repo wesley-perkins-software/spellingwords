@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can hear and spell both sounds at the beginning of “frog”'
-  - 'Can keep listening after the vowel to hear the ending of a word'
-  - 'Can reread a spelling such as “han” and notice the missing /d/ in “hand”'
+  - 'spell words with beginning blends such as “frog” and “stop”'
+  - 'hear both consonant sounds at the end of a word such as “hand”'
+  - 'reread their spelling and add a missed ending sound with only occasional help'
 words:
   - hand
   - nest

@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell most words from the five short-vowel lists'
-  - 'Can hear the middle sound in a new short word such as “jam” or “web”'
-  - 'Can say a new short word slowly and write its sounds in order'
+  - 'spell most words from the five short-vowel lists'
+  - 'hear the middle vowel in a new word such as “jam” or “web”'
+  - 'use the sound-it-out routine without relying on the page title or a memorized list'
 words:
   - jam
   - lid

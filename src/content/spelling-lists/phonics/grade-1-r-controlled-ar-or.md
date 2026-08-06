@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell one-syllable words with blends and familiar endings, such as “star” or “short”'
-  - 'Can find the same “ar” spelling in “car” and “star”'
-  - 'Can hear the target vowel sound in “car” and “corn” in their own natural accent'
+  - 'spell one-syllable words with blends and familiar endings'
+  - 'recognize the shared ar spelling in “car” and “star” and or in “corn” and “storm”'
+  - 'use a familiar ar or or word to correct an uncertain vowel spelling'
 words:
   - car
   - far

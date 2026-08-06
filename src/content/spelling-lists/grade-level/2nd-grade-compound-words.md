@@ -20,9 +20,9 @@ relatedLists: []
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can read and spell many short everyday words before combining them into longer words"
-  - "Understand that two familiar words can join to name one thing or idea"
-  - "Can point to both smaller words inside a compound word"
+  - 'spell many short, everyday words independently'
+  - 'recognize both smaller words inside a compound such as “backpack”'
+  - 'join the two parts in the correct order without leaving a space'
 faq:
   - question: "What is a compound word?"
     answer: "A compound word is made when two words join to make one word with its own meaning. Sunshine, backpack, and football each contain two smaller words that work together."

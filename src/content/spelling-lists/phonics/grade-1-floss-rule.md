@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can hear the middle vowel in a short word such as “hill”'
-  - 'Can hear the last sound in words such as “bell” and “miss”'
-  - 'Can compare endings such as the single l in “pal” and the double l in “hill”'
+  - 'spell one-syllable words with a short vowel'
+  - 'notice the doubled ending in familiar words such as “hill” and “miss”'
+  - 'correct a single-letter ending after comparing it with a known FLOSS word'
 words:
   - hill
   - bell

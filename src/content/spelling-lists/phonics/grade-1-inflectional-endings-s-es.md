@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can find the shorter word inside “cats” or “dishes”'
-  - 'Can hear that “dishes” adds a whole extra beat while “cats” does not'
-  - 'Can keep the spelling of “cat” unchanged when adding -s'
+  - 'spell the shorter word inside a plural such as “cats” or “dishes”'
+  - 'hear when a plural ending adds an extra beat, as it does in “boxes”'
+  - 'keep the base word unchanged while adding -s or -es in mixed practice'
 words:
   - cats
   - dogs

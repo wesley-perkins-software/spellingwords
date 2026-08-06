@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can say the three sounds in “cat” and blend them back into the word'
-  - 'Can hear the middle sound in “cat”'
-  - 'Can spell several words from the First Words list'
+  - 'spell several words from the First Words list'
+  - 'hear the short a sound in the middle of “hat” or “map”'
+  - 'say a three-sound word slowly and write its sounds in order with only occasional help'
 words:
   - hat
   - mat

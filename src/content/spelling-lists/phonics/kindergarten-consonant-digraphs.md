@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell short words such as “cat,” “sit,” and “run”'
-  - 'Can hear that “sh,” “ch,” and “th” each work together to make one sound'
-  - 'Can find “sh,” “ch,” or “th” in a familiar printed word'
+  - 'spell short-vowel words such as “cat,” “sit,” and “run”'
+  - 'recognize that sh, ch, and th each use two letters for one sound'
+  - 'keep both letters of a digraph when spelling a new word with only occasional help'
 words:
   - ship
   - shop

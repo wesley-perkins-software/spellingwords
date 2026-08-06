@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - "Can read simpler vowel-team words and are ready for a vowel sound that glides instead of staying still"
-  - "Can hear the /oi/ sound in spoken words like 'coin,' 'toy,' and 'voice'"
-  - "Can use word position to choose between a middle spelling and an ending spelling"
+  - 'read and spell familiar vowel-team words'
+  - 'hear the shared vowel sound in “coin” and “toy”'
+  - 'use the sound’s place in the word to choose oi or oy in mixed practice'
 faq:
   - question: "What is the OI/OY sound?"
     answer: "OI and OY usually spell a diphthong, which means the mouth glides from one vowel sound to another. Children hear it in words like 'oil,' 'boy,' and 'voice.'"

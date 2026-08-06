@@ -21,9 +21,9 @@ nextLists: []
 skillIds: ["silent-e-long-a", "silent-e-long-i", "silent-e-long-o", "silent-e-long-u"]
 featured: false
 readinessSignals:
-  - 'Can spell short-vowel words such as “cap” and “kit”'
-  - 'Can hear how the vowel changes between “cap” and “cape”'
-  - 'Can remember the final silent e in a word such as “cake”'
+  - 'spell short-vowel words such as “cap” and “kit”'
+  - 'hear how the vowel changes in pairs such as “cap/cape”'
+  - 'keep the final silent e when long-vowel words are mixed together'
 words:
   - cake
   - make

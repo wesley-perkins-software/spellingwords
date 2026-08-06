@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - "Can spell one-syllable words confidently and is ready to apply that skill to longer words"
-  - "Can clap or count the beats in a spoken word before spelling it"
-  - "Already knows short vowels, long vowels, and r-controlled vowels from earlier lessons"
+  - 'spell one-syllable words with familiar vowel patterns'
+  - 'hear and clap the two spoken beats in a word such as “rabbit”'
+  - 'break a longer word apart and spell both parts with only occasional help'
 faq:
   - question: "What is a syllable, in terms a parent can use?"
     answer: "A syllable is one beat of a word — the number of times your mouth opens for a vowel sound. Rabbit has two beats (rab-bit); paper has two beats (pa-per). Clapping the beats before spelling helps a child hear how many parts the word needs."

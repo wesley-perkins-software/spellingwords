@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can hear the long-e sound in familiar spoken words such as tree and beach'
-  - 'Can spell simpler long-vowel patterns and is ready to compare two spellings for one sound'
-  - 'Understands that listening alone may not reveal whether a word uses EE or EA'
+  - 'spell familiar long-vowel words from Grade 1'
+  - 'hear the same long-e sound in “tree” and “beach” while noticing their different spellings'
+  - 'use a known ee or ea word to correct an uncertain spelling'
 faq: []
 words:
   - tree

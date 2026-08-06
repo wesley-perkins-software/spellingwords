@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can say the three sounds in “bed” and blend them back into the word'
-  - 'Can hear the middle sound in “bed”'
-  - 'Can spell short “a,” “i,” “o,” and “u” words such as “hat,” “sit,” “hot,” and “run”'
+  - 'spell familiar words with the other four short vowels'
+  - 'hear the difference between the middle sounds in “pen” and “pin”'
+  - 'choose short e in mixed practice with only occasional help'
 words:
   - bed
   - red

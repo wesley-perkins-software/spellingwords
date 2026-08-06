@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell short-vowel words and words ending in doubled letters such as “hill”'
-  - 'Knows that two letters can work together to spell one sound, as in “ship”'
-  - 'Can hear the target sound at the beginning or end of a word such as “chat” or “wish”'
+  - 'spell short-vowel words with familiar doubled endings'
+  - 'recognize a digraph such as sh in “ship” as two letters working together'
+  - 'hear the target sound at the beginning or end of a word and keep its full spelling'
 words:
   - ship
   - shop

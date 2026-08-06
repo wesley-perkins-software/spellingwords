@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell long-vowel words such as “cake,” “go,” and “my”'
-  - 'Knows that the same vowel sound can have different spellings, as in “cake” and “day”'
-  - 'Can notice that “ai” is inside “rain” while “ay” is at the end of “day”'
+  - 'spell long-vowel words with silent e and familiar final vowels'
+  - 'notice that ai is inside “rain” while ay is at the end of “day”'
+  - 'compare known words to choose among ai, ay, oa, and ow in mixed practice'
 words:
   - rain
   - train

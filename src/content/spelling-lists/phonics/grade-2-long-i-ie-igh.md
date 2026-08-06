@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can hear long i and spell familiar silent-e or final-y long-i words'
-  - 'Can treat several letters as one vowel spelling'
-  - 'Is ready to sort long-i words by visible spelling family rather than sound alone'
+  - 'spell familiar long-i words with silent e or final y'
+  - 'recognize ie in “pie” and the complete igh pattern in “night”'
+  - 'keep all three letters in igh during mixed practice with only occasional help'
 faq: []
 words:
   - pie

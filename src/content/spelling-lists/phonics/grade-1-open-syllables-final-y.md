@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell silent-e words such as “cake,” “bike,” and “home”'
-  - 'Can hear the long vowel at the end of “me,” “go,” or “hi”'
-  - 'Can compare final long-i spellings in words such as “hi” and “my”'
+  - 'spell familiar silent-e words such as “cake” and “home”'
+  - 'hear a long vowel at the end of a short word such as “me” or “go”'
+  - 'compare “hi” and “my” to choose a final long-i spelling with only occasional help'
 words:
   - me
   - he

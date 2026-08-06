@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can say the three sounds in “run” and blend them back into the word'
-  - 'Can hear the middle sound in “run”'
-  - 'Can spell short “a,” “i,” and “o” words such as “hat,” “sit,” and “hot”'
+  - 'spell familiar words with short a, i, and o'
+  - 'hear the short u sound in the middle of “run” or “cup”'
+  - 'correct a vowel mix-up after comparing the word with a familiar example'
 words:
   - bug
   - rug

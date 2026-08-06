@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can find the shorter word “jump” inside “jumped” or “jumping”'
-  - 'Can keep a word such as “cat” unchanged when adding -s'
-  - 'Can hear that -ed sounds different in “jumped,” “called,” and “rested”'
+  - 'find and spell the base word inside “jumped” or “jumping”'
+  - 'notice that -ed sounds different in “jumped,” “called,” and “rested”'
+  - 'keep the base word unchanged while adding -ed or -ing independently'
 words:
   - jumped
   - jumping

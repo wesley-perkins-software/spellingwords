@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can say the three sounds in “hot” and blend them back into the word'
-  - 'Can hear the middle sound in “hot”'
-  - 'Can spell short “a” and short “i” words such as “hat” and “sit”'
+  - 'spell familiar short a and short i words'
+  - 'recognize the short o sound in “hot” or “dog”'
+  - 'keep the middle vowel correct as the beginning and ending sounds change'
 words:
   - dog
   - fox

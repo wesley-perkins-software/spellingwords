@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - "Can already break a two-syllable word into parts and spell each part"
-  - "Notices that some word endings do not sound like they look, and is ready to learn a reliable one"
-  - "Can hear the quiet, almost vowel-less ending in words like table and little"
+  - 'break a two-syllable word into spoken parts'
+  - 'recognize the quiet consonant + le ending in “table” or “little”'
+  - 'keep the complete -le ending when spelling from dictation'
 faq:
   - question: "What makes -le a 'final stable syllable'?"
     answer: "In most syllables, a vowel letter is doing clear work. In a final -le syllable, there is no separate vowel sound you can hear — the l itself carries the syllable, as in the second half of little or table. It is called 'stable' because this ending is spelled the same reliable way almost every time."

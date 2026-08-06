@@ -1,5 +1,6 @@
 ---
 import type { SpellingListEntry } from '@/lib/content/spellingLists';
+import { getRelationshipCardModel } from '@/lib/content/relationshipCard';
 
 interface Props {
   heading: string;
@@ -15,12 +16,16 @@ const { heading, items, listLink } = Astro.props;
     <div class="related-block">
       <h3 class="related-heading">{heading}</h3>
       <div class="related-row">
-        {items.map((item) => (
-          <a href={listLink(item)} class="related-card">
-            <span class="related-title">{item.data.title}</span>
-            <span class="related-count">{item.data.words.length} words →</span>
-          </a>
-        ))}
+        {items.map((item) => {
+          const card = getRelationshipCardModel(item);
+          return (
+            <a href={listLink(item)} class="related-card">
+              {card.gradeLabel && <span class="related-grade">{card.gradeLabel}</span>}
+              <span class="related-title">{card.canonicalTitle}</span>
+              <span class="related-count">{card.wordCount} words →</span>
+            </a>
+          );
+        })}
       </div>
     </div>
   )
@@ -86,6 +91,17 @@ const { heading, items, listLink } = Astro.props;
     font-weight: 600;
     font-size: 16px;
     line-height: 1.3;
+  }
+  .related-grade {
+    display: block;
+    margin-bottom: 3px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--world-ink);
+    opacity: 0.55;
   }
   .related-count {
     display: block;

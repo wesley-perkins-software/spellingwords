@@ -1,7 +1,7 @@
 ---
 id: grade-3-possessives
 urlSlug: 3rd-grade-possessives
-title: "3rd Grade Possessive Words"
+title: "Possessive Words"
 description: "A Grade 3 possessives list that teaches the apostrophe -'s and -s' endings that show ownership, plus irregular plural possessives like children's."
 shortAnswer: "Third graders learn to add 's to show one owner and s' to show more than one owner, along with irregular plural possessives like children's."
 contentRole: grade-unit

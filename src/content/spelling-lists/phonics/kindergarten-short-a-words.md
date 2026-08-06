@@ -1,7 +1,7 @@
 ---
 id: kindergarten-short-a-words
 urlSlug: kindergarten-short-a-words
-title: 'Kindergarten Short A Words'
+title: 'Short A Words'
 description: 'Eight simple words built on the short "a" sound — hat, mat, sat, man, can, bag, cap, and map — the first single-vowel step after First Words.'
 shortAnswer: 'The second step in the kindergarten spelling progression — eight fully regular words that let a child settle into the short "a" sound after First Words.'
 contentRole: grade-unit

@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { CORE_SPELLING_SEQUENCE } from './coreSpellingSequence';
 import { HF_WORDS_SEQUENCE } from './hfWordsSequence';
-import { getSequenceNeighbors } from './navigationSequence';
+import { getCoreNavigationModel, getSequenceNeighbors } from './navigationSequence';
 import { getCanonicalGradeRouteById, getCanonicalGradeRoutes } from './canonicalGradeRoutes';
 
 function readFrontmatter(filePath: string): string {
@@ -42,6 +42,7 @@ function readArray(frontmatter: string, key: string): string[] {
 
 type FrontmatterSummary = {
   id: string;
+  title: string;
   status: string;
   prerequisiteLists: string[];
   nextLists: string[];
@@ -63,6 +64,7 @@ function allContent(): FrontmatterSummary[] {
       const frontmatter = readFrontmatter(filePath);
       return {
         id: readScalar(frontmatter, 'id') ?? '',
+        title: readScalar(frontmatter, 'title') ?? '',
         status: readScalar(frontmatter, 'status') ?? '',
         prerequisiteLists: readArray(frontmatter, 'prerequisiteLists'),
         nextLists: readArray(frontmatter, 'nextLists'),
@@ -86,6 +88,15 @@ describe('CORE_SPELLING_SEQUENCE', () => {
     const byId = new Map(allContent().map((entry) => [entry.id, entry]));
     for (const id of CORE_SPELLING_SEQUENCE) {
       expect(byId.get(id), id).toMatchObject({ status: 'published' });
+    }
+  });
+
+  it('keeps grade context and abbreviations out of every canonical Core title', () => {
+    const byId = new Map(allContent().map((entry) => [entry.id, entry]));
+    for (const id of CORE_SPELLING_SEQUENCE) {
+      const title = byId.get(id)?.title ?? '';
+      expect(title, id).not.toMatch(/^(?:Kindergarten|Grade [1-5]|[1-5](?:st|nd|rd|th) Grade)\s/);
+      expect(title, id).not.toContain('&');
     }
   });
 
@@ -209,13 +220,33 @@ describe('getSequenceNeighbors', () => {
 });
 
 describe('Core rendered relationship model', () => {
+  it('resolves the exact start, middle, and end page models without Explore More', () => {
+    expect(getCoreNavigationModel('kindergarten-first-words')).toEqual({
+      reviewIds: [],
+      nextIds: ['kindergarten-short-a-words'],
+      exploreIds: [],
+    });
+    expect(getCoreNavigationModel('kindergarten-short-a-words')).toEqual({
+      reviewIds: ['kindergarten-first-words'],
+      nextIds: ['kindergarten-short-i-words'],
+      exploreIds: [],
+    });
+    expect(getCoreNavigationModel('grade-5-spelling-changes-related-words')).toEqual({
+      reviewIds: ['grade-5-commonly-confused-words'],
+      nextIds: [],
+      exploreIds: [],
+    });
+  });
+
   it('gives every Core page only its zero-or-one canonical Review First and Next Step targets', () => {
     CORE_SPELLING_SEQUENCE.forEach((id, index) => {
-      const { prerequisiteId, nextId } = getSequenceNeighbors(id);
-      expect(prerequisiteId ? [prerequisiteId] : []).toHaveLength(index === 0 ? 0 : 1);
-      expect(nextId ? [nextId] : []).toHaveLength(index === CORE_SPELLING_SEQUENCE.length - 1 ? 0 : 1);
+      const model = getCoreNavigationModel(id);
+      expect(model).toBeDefined();
+      expect(model!.reviewIds).toHaveLength(index === 0 ? 0 : 1);
+      expect(model!.nextIds).toHaveLength(index === CORE_SPELLING_SEQUENCE.length - 1 ? 0 : 1);
+      expect(model!.exploreIds, `${id} Explore More`).toEqual([]);
 
-      for (const targetId of [prerequisiteId, nextId].filter((target): target is string => Boolean(target))) {
+      for (const targetId of [...model!.reviewIds, ...model!.nextIds]) {
         expect(getCanonicalGradeRouteById(targetId)?.classification, `${id} -> ${targetId}`).toBe('core-spelling');
       }
     });

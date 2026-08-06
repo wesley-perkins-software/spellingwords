@@ -38,6 +38,10 @@ export async function getStaticPaths() {
 const { entry, allEntries } = Astro.props;
 const { data } = entry;
 
+const route = getCanonicalGradeRouteByPath(Astro.params.gradeSlug!, Astro.params.slug!);
+if (!route) throw new Error(`No canonical grade route for ${Astro.params.gradeSlug}/${Astro.params.slug}`);
+const isCoreSpelling = route.classification === 'core-spelling';
+
 const { Content } = await entry.render();
 
 // Review First / Next Step are derived from the canonical CORE_SPELLING_SEQUENCE /
@@ -58,9 +62,6 @@ function listLink(e: (typeof allEntries)[number]) {
 }
 
 const categoryLabel = categoryLabels[data.category] ?? data.category;
-const route = getCanonicalGradeRouteByPath(Astro.params.gradeSlug!, Astro.params.slug!);
-if (!route) throw new Error(`No canonical grade route for ${Astro.params.gradeSlug}/${Astro.params.slug}`);
-
 const gradeHubForBreadcrumb = gradeConfig.find((g) => g.grade === route.grade);
 if (!gradeHubForBreadcrumb) throw new Error(`No grade hub for grade ${route.grade}`);
 const breadcrumbItems = [
@@ -163,9 +164,9 @@ const easierList = prerequisites[0];
 const harderList = next[0];
 ---
 
-{isGradeUnit && <GradeUnitWorldPage listId={data.id} />}
+{isCoreSpelling && <GradeUnitWorldPage listId={data.id} />}
 
-{!isGradeUnit && (
+{!isCoreSpelling && (
 <Layout
   title={commonWordsSetTitle ?? `${data.title} — spellingwords`}
   description={data.description}

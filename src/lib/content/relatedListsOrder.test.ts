@@ -51,7 +51,8 @@ describe('Relationship navigation rendering', () => {
 
   it('routes every Grade Unit away from the non-Core rendering branch', () => {
     const source = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro'), 'utf8');
-    expect(source).toContain('{isGradeUnit && <GradeUnitWorldPage listId={data.id} />}');
-    expect(source).toContain('{!isGradeUnit && (');
+    expect(source).toContain("const isCoreSpelling = route.classification === 'core-spelling';");
+    expect(source).toContain('{isCoreSpelling && <GradeUnitWorldPage listId={data.id} />}');
+    expect(source).toContain('{!isCoreSpelling && (');
   });
 });

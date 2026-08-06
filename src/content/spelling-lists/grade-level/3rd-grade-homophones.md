@@ -1,7 +1,7 @@
 ---
 id: grade-3-homophones
 urlSlug: 3rd-grade-homophones
-title: "3rd Grade Homophones and Commonly Confused Words"
+title: "Homophones and Commonly Confused Words"
 description: "A Grade 3 homophones list with commonly confused words that sound alike but have different spellings and meanings."
 shortAnswer: "Third graders practice homophones and commonly confused words so they can choose the spelling that matches the meaning of the sentence."
 contentRole: grade-unit

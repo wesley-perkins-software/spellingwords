@@ -1,7 +1,7 @@
 ---
 id: grade-3-root-word-families
 urlSlug: 3rd-grade-root-word-families
-title: "3rd Grade Root Word Families"
+title: "Root Word Families"
 description: "A Grade 3 root word families list that introduces how related words can share a meaningful base before deeper Greek and Latin root study in Grade 4."
 shortAnswer: "Third graders practice root word families to see how words like act, action, active, form, reform, port, report, sign, and design are connected by meaning."
 contentRole: grade-unit

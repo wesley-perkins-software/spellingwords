@@ -1,7 +1,7 @@
 ---
 id: grade-1-cvc-short-vowels-c-k-rule
 urlSlug: 1st-grade-cvc-short-vowels-c-k-rule
-title: "CVC Short Vowel Review & The C/K Rule"
+title: "CVC Short Vowel Review and The C/K Rule"
 description: "A first-grade core spelling lesson that reviews short-vowel CVC words and teaches when the /k/ sound is usually spelled with c, k, or ck."
 contentRole: grade-unit
 shortAnswer: "This Grade 1 core unit reviews short-vowel CVC spelling and introduces the C/K/CK spelling choices for the /k/ sound."

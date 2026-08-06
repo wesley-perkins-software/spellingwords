@@ -1,7 +1,7 @@
 ---
 id: grade-2-list-02
 urlSlug: 2nd-grade-compound-words
-title: "2nd Grade Compound Words"
+title: "Compound Words"
 description: "Two small words joined into one — compound words give second graders a window into how English builds bigger words from smaller parts."
 shortAnswer: "This list practices compound words such as sunshine, backpack, and football, where two familiar words combine into one."
 category: grade-level

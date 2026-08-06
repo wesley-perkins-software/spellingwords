@@ -1,7 +1,7 @@
 ---
 id: tier-1-roots-and-patterns
 urlSlug: tier-1-roots-and-patterns
-title: "4th Grade Latin Root Words"
+title: "Latin Root Words"
 description: "A fourth-grade Latin roots list built around port, dict, spect, rupt, and struct — roots that help students spell and understand longer academic words."
 shortAnswer: "Fourth graders study Latin roots such as port, dict, spect, rupt, and struct in words like transport, predict, inspect, interrupt, and erupt."
 contentRole: grade-unit

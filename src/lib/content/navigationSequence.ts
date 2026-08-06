@@ -6,6 +6,12 @@ export type SequenceNeighbors = {
   nextId?: string;
 };
 
+export type CoreNavigationModel = {
+  reviewIds: readonly string[];
+  nextIds: readonly string[];
+  exploreIds: readonly string[];
+};
+
 /**
  * Precomputed id -> index lookups for both canonical sequences, built once
  * at module load rather than per call.
@@ -45,4 +51,19 @@ export function getSequenceNeighbors(id: string): SequenceNeighbors {
   }
 
   return {};
+}
+
+/**
+ * The complete bottom-navigation model for a canonical Core page. Keeping
+ * the empty Explore More bucket in this resolved model makes the product rule
+ * explicit and testable instead of leaving it to template branching.
+ */
+export function getCoreNavigationModel(id: string): CoreNavigationModel | undefined {
+  if (!CORE_SPELLING_INDEX.has(id)) return undefined;
+  const { prerequisiteId, nextId } = getSequenceNeighbors(id);
+  return {
+    reviewIds: prerequisiteId ? [prerequisiteId] : [],
+    nextIds: nextId ? [nextId] : [],
+    exploreIds: [],
+  };
 }

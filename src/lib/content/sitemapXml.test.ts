@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { GET } from './sitemap.xml';
+import { GET } from '@/pages/sitemap.xml';
 
 describe('canonical sitemap', () => {
   it('contains exactly 157 unique URLs including the four corrected curriculum destinations', async () => {

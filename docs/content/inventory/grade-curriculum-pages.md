@@ -7,7 +7,6 @@
 
 Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling (Grade Unit) and Additional Practice (vocabulary-theme) pages that `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` defines for each grade and that `src/lib/content/gradeHubCards.ts` confirms are wired into that grade's live hub. Common Words (High-Frequency Words) pages are inventoried separately in `sight-words-and-common-words.md`. Canonical Grade Unit names below are copied verbatim from `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`.
 
-
 ## Kindergarten
 
 **Canonical Grade Units:** Sounds, Letters, and Early Encoding; Short Vowels and CVC Words; High-Frequency Words
@@ -99,25 +98,27 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling 
 
 **Canonical Grade Units:** Prefixes; Suffixes; Spelling Changes When Adding Suffixes; Plurals, Possessives, and Contractions; Homophones and Commonly Confused Words
 
+For Grade 3, the table `Title` column records each page's canonical frontmatter title. Independently curated Grade Hub architecture labels may summarize a combined curriculum concept; they do not replace the page title or other identity metadata.
 
-**Frozen hub structure:** 7 Core Spelling cards · 5 Common Words sets (60 words) · 0 Additional Practice card(s)
+
+**Frozen hub structure:** 7 Core Spelling cards · 5 Common Words sets (60 words) · 4 Additional Practice cards
 
 
 ### Canonical active pages (11)
 
 | Title | id | urlSlug | Role | Status | Source file | Editorial status |
 |---|---|---|---|---|---|---|
-| 3rd Grade Prefix Words | grade-3-prefix-words | 3rd-grade-prefix-words | grade-unit | published | `src/content/3rd-grade/prefix-words.md` | Not audited |
-| 3rd Grade Suffix Words | grade-3-suffix-words | 3rd-grade-suffix-words | grade-unit | published | `src/content/3rd-grade/suffix-words.md` | Not audited |
-| Suffix Spelling Changes | grade-3-suffix-spelling-changes | 3rd-grade-suffix-spelling-changes | grade-unit | published | `src/content/spelling-lists/grade-level/3rd-grade-suffix-spelling-changes.md` | Implementation complete |
-| 3rd Grade Map & Globe Words | grade-3-map-globe-words | 3rd-grade-map-globe-words | vocabulary-theme | published | `src/content/3rd-grade/map-globe-words.md` | Not audited |
-| 3rd Grade Possessive Words | grade-3-possessives | 3rd-grade-possessives | grade-unit | published | `src/content/3rd-grade/possessives.md` | Not audited |
-| 3rd Grade Life Cycle Words | grade-3-life-cycle-words | 3rd-grade-life-cycle-words | vocabulary-theme | published | `src/content/3rd-grade/life-cycle-words.md` | Not audited |
-| 3rd Grade Multisyllabic Words | grade-3-multisyllabic-words | 3rd-grade-multisyllabic-words | grade-unit | published | `src/content/3rd-grade/multisyllabic-words.md` | Not audited |
-| 3rd Grade Homophones and Commonly Confused Words | grade-3-homophones | 3rd-grade-homophones | grade-unit | published | `src/content/3rd-grade/homophones.md` | Not audited |
-| 3rd Grade Time Words | grade-3-time-words | 3rd-grade-time-words | vocabulary-theme | published | `src/content/3rd-grade/time-words.md` | Not audited |
-| 3rd Grade Multiplication & Division Words | grade-3-multiplication-division-words | 3rd-grade-multiplication-division-words | vocabulary-theme | published | `src/content/3rd-grade/multiplication-division-words.md` | Not audited |
-| 3rd Grade Root Word Families | grade-3-root-word-families | 3rd-grade-root-word-families | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/3rd-grade/root-word-families.md` | Not audited |
+| Prefix Words | grade-3-prefix-words | 3rd-grade-prefix-words | grade-unit | published | `src/content/spelling-lists/grade-level/3rd-grade-prefix-words.md` | Complete (Grade 3 Core batch editorial audit; material list rationale, practice, error-response, and move-on guidance improvements) |
+| Suffix Words | grade-3-suffix-words | 3rd-grade-suffix-words | grade-unit | published | `src/content/spelling-lists/grade-level/3rd-grade-suffix-words.md` | Complete (Grade 3 Core batch editorial audit; material functional grouping, practice, correction, and sequence improvements) |
+| Suffix Spelling Changes | grade-3-suffix-spelling-changes | 3rd-grade-suffix-spelling-changes | grade-unit | published | `src/content/spelling-lists/grade-level/3rd-grade-suffix-spelling-changes.md` | Complete (Grade 3 Core batch editorial audit; retained unchanged because it already met the standard) |
+| Map & Globe Words | grade-3-map-globe-words | 3rd-grade-map-globe-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/3rd-grade-map-globe-words.md` | Not audited |
+| Possessive Words | grade-3-possessives | 3rd-grade-possessives | grade-unit | published | `src/content/spelling-lists/grade-level/3rd-grade-possessives.md` | Complete (Grade 3 Core batch editorial audit; material ownership-decision, contrast, correction, and move-on guidance improvements) |
+| Life Cycle Words | grade-3-life-cycle-words | 3rd-grade-life-cycle-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/3rd-grade-life-cycle-words.md` | Not audited |
+| Multisyllabic Words | grade-3-multisyllabic-words | 3rd-grade-multisyllabic-words | grade-unit | published | `src/content/spelling-lists/grade-level/3rd-grade-multisyllabic-words.md` | Complete (Grade 3 Core batch editorial audit; material word-part, dialect-safe practice, correction, and move-on guidance improvements) |
+| Homophones and Commonly Confused Words | grade-3-homophones | 3rd-grade-homophones | grade-unit | published | `src/content/spelling-lists/grade-level/3rd-grade-homophones.md` | Complete (Grade 3 Core batch editorial audit; material meaning-based practice, error diagnosis, and move-on guidance improvements) |
+| Time Words | grade-3-time-words | 3rd-grade-time-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/3rd-grade-time-words.md` | Not audited |
+| Multiplication & Division Words | grade-3-multiplication-division-words | 3rd-grade-multiplication-division-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/3rd-grade-multiplication-division-words.md` | Not audited |
+| Root Word Families | grade-3-root-word-families | 3rd-grade-root-word-families | grade-unit | published | `src/content/spelling-lists/grade-level/3rd-grade-root-word-families.md` | Complete (Grade 3 Core batch editorial audit; material base/root accuracy, family practice, correction, and move-on guidance improvements) |
 
 ## Grade 4
 

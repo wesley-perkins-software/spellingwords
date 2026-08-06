@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can segment a word like "sit" into its three sounds without help, and blend them back together'
-  - 'Recognize the short "i" sound when it is spoken aloud, even before seeing it written down'
-  - 'Feel comfortable with short "a" words and are ready for a new vowel sound'
+  - 'Can say the three sounds in “sit” and blend them back into the word'
+  - 'Can hear the middle sound in “sit”'
+  - 'Can spell short “a” words such as “hat”'
 words:
   - pig
   - big

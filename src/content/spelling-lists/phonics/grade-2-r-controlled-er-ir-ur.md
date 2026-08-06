@@ -39,14 +39,16 @@ words:
   - burn
 ---
 
-## Why these words?
+The vowel sound in *her, bird,* and *turn* can be spelled three ways. This list helps children remember which spelling belongs to a small group of familiar words.
 
-The nine words form three balanced groups: `er` in _her, fern,_ and _term_; `ir` in _bird, first,_ and _girl_; and `ur` in _turn, hurt,_ and _burn_. They keep the r-controlled spelling inside short, familiar words so the choice among the three vowel letters remains the main task.
+## Why these words — and what they teach
 
-Grade 1 established `ar` and `or`. This unit completes the basic r-controlled set after Grade 2's other vowel patterns and before consonant rules and two-syllable words. That placement lets children apply `er`, `ir`, and `ur` later in longer examples such as _winter_ and _turtle_ without asking the syllable lesson to introduce the spellings.
+The balanced groups show **er** in *her, fern,* and *term*; **ir** in *bird, first,* and *girl*; and **ur** in *turn, hurt,* and *burn*. Since the three patterns sound alike in these words, visual comparison and memory matter. The linked Skill page remains the canonical deep reference.
 
 ## How to practice this list
 
-Read the three groups aloud, cover them, and dictate a mixed selection. When a spelling is uncertain, show the correct word again and ask the learner to name its vowel letters; sounding it out again cannot distinguish three spellings that sound alike.
+Read each group, cover it, and dictate a mixed selection. When your child hesitates, ask for a known word from the same spelling group rather than asking them to sound it out again.
 
-The learner is ready to continue when they recognize the r-controlled sound, preserve the correct vowel in familiar words across more than one attempt, and can sort each word under `er`, `ir`, or `ur` independently.
+A child may choose the wrong vowel while keeping **r**, such as *berd* for *bird*. Confirm that the r-controlled sound is right, show the correct group anchor, and invite a vowel-only correction.
+
+Move on when your child can sort and spell the familiar words under **er**, **ir**, or **ur** across more than one practice session and use an anchor to revise a mix-up.

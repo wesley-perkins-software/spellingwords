@@ -49,6 +49,16 @@ words:
   - that's
 ---
 
-A contraction joins two words into one shorter word. The apostrophe marks the letters that were left out, as in *do not* becoming *don't* and *I am* becoming *I'm*.
+Contractions join two words and use an apostrophe to mark missing letters. These familiar examples help second graders treat the apostrophe as part of the spelling.
 
-These Grade 2 contractions are common in dialogue and everyday reading. Students practice the whole word, including the apostrophe, so the spelling matches the meaning.
+## Why these words — and what they teach
+
+The list includes **not** contractions, pronoun-and-verb forms such as *I'm* and *we're*, and common forms such as *it's* and *that's*. Expanding each contraction makes the missing letters visible; *won't* is included as a useful exception. The linked Skill page provides the fuller reference.
+
+## How to practice this list
+
+Say the two full words, write them, and cross out the letters that disappear. Join what remains with an apostrophe, then mix the contractions for dictation and ask your child to expand each one when checking.
+
+A child may omit the apostrophe, put it in the wrong place, or write *willn't* for *won't*. Confirm the two source words, show exactly which letters are missing, and let the child place the apostrophe; teach *won't* as a remembered exception.
+
+Move on when your child can expand and spell the contractions, place the apostrophe where letters are missing, and recognize that *won't* must be remembered separately.

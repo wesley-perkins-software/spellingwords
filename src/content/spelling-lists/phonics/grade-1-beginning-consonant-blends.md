@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can segment and spell short-vowel words'
-  - 'Can represent a digraph with two letters for one sound'
-  - 'Can hear two adjacent consonant sounds when a word beginning is stretched'
+  - 'Can say the sounds in a short word such as “cat” and spell them in order'
+  - 'Can spell a two-letter sound such as “sh” in “ship”'
+  - 'Can hear both sounds at the beginning of “frog”'
 words:
   - black
   - clap

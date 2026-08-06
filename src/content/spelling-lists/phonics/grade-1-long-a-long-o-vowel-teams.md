@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell familiar long vowels with silent e or in an open syllable'
-  - 'Understand that one vowel sound can have more than one spelling'
-  - 'Can use a spelling pattern and its position to compare possible choices'
+  - 'Can spell long-vowel words such as “cake,” “go,” and “my”'
+  - 'Knows that the same vowel sound can have different spellings, as in “cake” and “day”'
+  - 'Can notice that “ai” is inside “rain” while “ay” is at the end of “day”'
 words:
   - rain
   - train

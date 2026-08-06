@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can segment a word like "bed" into its three sounds and blend them back together'
-  - 'Recognize the short "e" sound when it is spoken aloud, even before seeing it written down'
-  - 'Feel comfortable with short "a," "i," "o," and "u" words'
+  - 'Can say the three sounds in “bed” and blend them back into the word'
+  - 'Can hear the middle sound in “bed”'
+  - 'Can spell short “a,” “i,” “o,” and “u” words such as “hat,” “sit,” “hot,” and “run”'
 words:
   - bed
   - red

@@ -48,6 +48,16 @@ words:
   - change
 ---
 
-Second graders already know that *c* usually says /k/ and *g* usually says its hard sound, as in *cat* and *game*. This lesson introduces the exception: when *c* or *g* is followed by *e*, *i*, or *y*, the sound changes. *C* softens to /s/, the sound at the start of *city* and *ice*. *G* softens to /j/, the sound at the start of *page* and *large*. It is the same idea working on two different letters, which is why this list teaches them together.
+The letters **c** and **g** do not always have the sounds heard in *cat* and *game*. This list helps children use the next letter to predict the sound in words such as *city* and *page*.
 
-This is a genuine Grade 2 gap: the /k/-spelling choice among c, k, and ck was taught in Grade 1, but this reverse question — what sound a written c or g actually makes — has not been taught before. Once children can predict soft and hard sounds from the letter that follows, they are ready for longer words where this pattern appears constantly, from *circle* and *century* to *giant* and *magic*.
+## Why these words — and what they teach
+
+The list shows soft **c** before **e, i,** or **y** in *city, face,* and *ice*, and soft **g** in *giant, page,* and *large*. Children learn to look at two letters together rather than guess from **c** or **g** alone. The linked Skill page covers the rule and its limits in depth.
+
+## How to practice this list
+
+Have your child circle **c** or **g** and underline the letter immediately after it. Sort the words by soft **c** and soft **g**, then mix them and ask the child to read each word before spelling it.
+
+A child may use **s** for soft **c** or **j** for soft **g**, or read the letter with its hard sound. Confirm that the sound is sensible, point out the following **e, i,** or **y**, and compare with *city* or *page* before revising.
+
+Move on when your child can use the following letter to read the target sound, spell the listed words with **c** or **g**, and explain the choice with a familiar example.

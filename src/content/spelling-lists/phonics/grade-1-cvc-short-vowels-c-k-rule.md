@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can segment and spell simple short-vowel CVC words'
-  - 'Can identify whether /k/ is at the beginning or end of a spoken word'
-  - 'Are ready to choose among more than one spelling for the same sound'
+  - 'Can say the sounds in a short word such as “cat” and spell them in order'
+  - 'Can hear whether the /k/ sound comes at the beginning or end of a word'
+  - 'Can compare spellings such as “cat,” “kit,” and “back”'
 words:
   - cat
   - cot

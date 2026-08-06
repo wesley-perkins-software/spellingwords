@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Have practiced Short A, I, O, U, and E Words and can spell most of them confidently'
-  - 'Can hear a short vowel sound in a word they have never seen before, not just a memorized one'
-  - 'Are ready to apply the sound-it-out approach to brand-new words'
+  - 'Can spell most words from the five short-vowel lists'
+  - 'Can hear the middle sound in a new short word such as “jam” or “web”'
+  - 'Can say a new short word slowly and write its sounds in order'
 words:
   - jam
   - lid

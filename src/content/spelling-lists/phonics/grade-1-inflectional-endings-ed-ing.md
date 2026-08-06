@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can identify a familiar base word inside a longer spoken form'
-  - 'Can preserve a base spelling while adding -s or -es'
-  - 'Are ready to connect a stable written ending with more than one pronunciation'
+  - 'Can find the shorter word “jump” inside “jumped” or “jumping”'
+  - 'Can keep a word such as “cat” unchanged when adding -s'
+  - 'Can hear that -ed sounds different in “jumped,” “called,” and “rested”'
 words:
   - jumped
   - jumping

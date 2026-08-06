@@ -46,6 +46,16 @@ words:
   - cupcake
 ---
 
-Recognizing that "sunshine" is just "sun" plus "shine" gives students a powerful spelling strategy: break a big word into smaller, familiar pieces. Every word on this list is a closed compound — the two smaller words are joined with no space and no hyphen, which is the most common and most predictable compound pattern for a second grader to learn first.
+Compound words let children spell a longer word by finding two smaller words they already know. This list keeps the focus on closed compounds written without a space or hyphen.
 
-This list is a natural next step after silent letters: both lessons teach that a longer or trickier-looking word is still built from parts a child already knows how to spell. Compound words lead directly into contractions, which join two words the opposite way — with an apostrophe standing in for missing letters instead of two whole words standing side by side.
+## Why these words — and what they teach
+
+Each word joins two clear parts: *sun + shine, back + pack,* and *foot + ball*, for example. Children learn to hold both words in order and combine their meanings and spellings. The linked Skill page is the canonical deeper reference.
+
+## How to practice this list
+
+Say a compound, ask your child to name its two smaller words, and spell each part separately. Then join the parts, reread the whole word, and check the meeting point.
+
+A child may leave a space, drop a letter, or reverse the two parts. Acknowledge both words they identified, write a small divider between them, and have the child remove the divider only after both spellings are complete.
+
+Move on when your child can identify both parts, spell them in order as one word, and use the two-part check to repair a space or missing letter.

@@ -48,6 +48,16 @@ words:
   - foot
 ---
 
-Second graders already know that one letter can spell more than one sound — short and long vowels have taught them that much. The `oo` vowel team pushes the idea further: the very same two letters spell two different sounds depending on the word. *Moon*, *food*, and *zoo* use the long sound; *book*, *look*, and *foot* use a shorter one. There is no visual clue on the page that tells a child which sound to use — they have to try the word and listen.
+The letters **oo** do not sound the same in every word. This list helps second graders listen for the difference between *moon* and *book* while keeping one stable spelling.
 
-This list practices the long sound first, then the short sound, so children meet each pattern in its own group before mixing them. It is one of the most common vowel teams in everyday reading and writing, which makes it worth the extra attention a two-sound spelling deserves.
+## Why these words — and what they teach
+
+The first group uses the sound in *moon, food,* and *zoo*; the second uses the sound in *book, good,* and *foot*. Practicing both groups teaches children to try the sound that makes a familiar word instead of assuming **oo** has only one pronunciation. The linked Skill page is the deeper reference.
+
+## How to practice this list
+
+Read and sort the words into “like *moon*” and “like *book*.” Then show or dictate a mixed set and ask your child to name the anchor word with the same vowel sound.
+
+A child may read *book* with the vowel from *moon* or spell the sound with a single **u**. Say the intended word naturally, compare it with the matching anchor, and invite the child to keep both **o** letters.
+
+Move on when your child can sort the two sounds, spell **oo** consistently, and switch to the other sound when the first pronunciation does not make a known word.

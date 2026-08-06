@@ -44,6 +44,16 @@ words:
   - author
 ---
 
-The `au` and `aw` spellings both make the vowel sound heard in *saw* and *cause* — a sound that is neither short nor long, and does not appear in any pattern taught so far. Like the vowel teams from Grade 1, there is a helpful positional habit to notice: *aw* tends to show up at the end of a word or right before *n* or *l*, while *au* tends to show up in the middle.
+This list introduces two spellings for the vowel sound in *saw* and *cause*. A helpful position pattern gives children a practical starting point without pretending it works for every word.
 
-This list finishes the Grade 2 vowel-pattern sequence that began with *oi/oy*, continued through *ou/ow* and *oo*, and ends here. Once a child can hear and spell this sound, the Grade 2 route moves on to soft c and g, syllables, and word endings — patterns that build on vowels a child already knows rather than teaching new ones.
+## Why these words — and what they teach
+
+**Aw** appears at the end in *saw* and *draw* and before **n** or **l** in *lawn* and *crawl*. **Au** appears inside *because, cause,* and *author*. Children learn to notice both the sound and its place. The linked Skill page provides the fuller explanation.
+
+## How to practice this list
+
+Sort the words under **au** and **aw**. Before spelling, ask where the vowel sound occurs and what letter follows it; then mix the list and underline the chosen pattern.
+
+A child may write *sau* or *cawse*. Confirm that the correct sound was identified, compare the attempt with *saw* or *cause*, and let the child revise the vowel letters without treating the whole word as wrong.
+
+Move on when your child can spell these words in mixed order, use position as a clue, and correct an occasional **au/aw** swap with a known example.

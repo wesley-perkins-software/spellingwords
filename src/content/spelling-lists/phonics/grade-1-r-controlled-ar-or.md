@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell short one-syllable words with blends and common endings'
-  - 'Can compare words by a shared two-letter vowel-r spelling'
-  - 'Are ready to learn a spelling pattern whose pronunciation varies across accents'
+  - 'Can spell one-syllable words with blends and familiar endings, such as “star” or “short”'
+  - 'Can find the same “ar” spelling in “car” and “star”'
+  - 'Can hear the target vowel sound in “car” and “corn” in their own natural accent'
 words:
   - car
   - far

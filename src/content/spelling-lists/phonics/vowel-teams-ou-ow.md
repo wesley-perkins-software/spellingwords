@@ -48,6 +48,16 @@ words:
   - sound
 ---
 
-The OU and OW teams produce the same diphthong — the gliding sound in *out* and *cow* — but there's no strict positional rule between them the way there is for AI/AY or OA/OW. Both spellings appear in the middle and at the end of words, which means students need to practice both.
+The sound in *out* and *cow* has two common spellings. Because position does not always settle the choice, children need a small store of familiar examples.
 
-These twelve words cover the most common OU and OW words students encounter, giving them a strong base of correctly-spelled examples to draw on when writing.
+## Why these words — and what they teach
+
+The list pairs common **ou** words such as *out, sound,* and *ground* with **ow** words such as *cow, now,* and *brown*. Children learn that **ow** can occur at the end or inside a word and can represent a different sound than it does in *snow*. The linked Skill page explores the pattern more fully.
+
+## How to practice this list
+
+Sort the words by **ou** and **ow**, read each group, and then dictate them in mixed order. Ask your child to name a known word with the same spelling before checking an uncertain answer.
+
+Likely attempts include swapping **ou** and **ow** or using the long-**o** sound when reading **ow**. Confirm what the child heard, compare the word with *out* or *cow*, and have them change only the vowel team.
+
+Move on when your child spells the list in mixed order, keeps both vowel letters, and uses a familiar word to repair an occasional **ou/ow** choice.

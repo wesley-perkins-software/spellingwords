@@ -1,5 +1,4 @@
 import { CORE_SPELLING_SEQUENCE } from './coreSpellingSequence';
-import { HF_WORDS_SEQUENCE } from './hfWordsSequence';
 
 export type SequenceNeighbors = {
   prerequisiteId?: string;
@@ -19,19 +18,17 @@ export type CoreNavigationModel = {
 const CORE_SPELLING_INDEX: ReadonlyMap<string, number> = new Map(
   CORE_SPELLING_SEQUENCE.map((id, index) => [id, index]),
 );
-const HF_WORDS_INDEX: ReadonlyMap<string, number> = new Map(HF_WORDS_SEQUENCE.map((id, index) => [id, index]));
 
 /**
  * Returns the Review First (`prerequisiteId`) and Next Step (`nextId`) ids
  * for a page, derived from its position in whichever canonical sequence
- * (`CORE_SPELLING_SEQUENCE` or `HF_WORDS_SEQUENCE`) it belongs to.
+ * (`CORE_SPELLING_SEQUENCE`) it belongs to.
  *
  * A page absent from both sequences — every Additional Practice page, every
  * combined-roadmap sibling, every reusable Skill page — returns `{}`, which
  * is exactly correct: those pages never have a Review First or Next Step.
- * The two sequences are checked independently, so an id present in one is
- * never treated as adjacent to an id in the other; this is what keeps the
- * Core Spelling and High-Frequency Words chains from crossing.
+ * High-Frequency Words use their separate, grade-contained Explore More
+ * helper and therefore never enter this prerequisite/next-step model.
  */
 export function getSequenceNeighbors(id: string): SequenceNeighbors {
   const coreIndex = CORE_SPELLING_INDEX.get(id);
@@ -39,14 +36,6 @@ export function getSequenceNeighbors(id: string): SequenceNeighbors {
     return {
       prerequisiteId: CORE_SPELLING_SEQUENCE[coreIndex - 1],
       nextId: CORE_SPELLING_SEQUENCE[coreIndex + 1],
-    };
-  }
-
-  const hfIndex = HF_WORDS_INDEX.get(id);
-  if (hfIndex !== undefined) {
-    return {
-      prerequisiteId: HF_WORDS_SEQUENCE[hfIndex - 1],
-      nextId: HF_WORDS_SEQUENCE[hfIndex + 1],
     };
   }
 

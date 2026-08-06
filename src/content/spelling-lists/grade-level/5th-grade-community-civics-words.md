@@ -15,7 +15,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-money-management-words"]
+relatedLists: []
 prerequisiteLists: ["grade-5-fraction-decimal-words"]
 nextLists: []
 featured: false

@@ -15,7 +15,7 @@ estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-5-community-civics-words"]
+relatedLists: []
 prerequisiteLists: []
 nextLists: ["grade-5-ecosystem-environment-words"]
 featured: false

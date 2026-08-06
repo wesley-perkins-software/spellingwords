@@ -716,17 +716,24 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 
 **Canonical Grade Units:** Prefixes; Suffixes; Spelling Changes When Adding Suffixes; Plurals, Possessives, and Contractions; Homophones and Commonly Confused Words
 
-**Frozen hub structure:** 7 Core Spelling cards · 5 Common Words sets (60 words) · 0 Additional Practice card(s)
+**Frozen hub structure:** 7 Core Spelling cards · 5 Common Words sets (60 words) · 4 Additional Practice cards
 
-- [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
-- [ ] Core Spelling / Grade Unit pages (7 canonical-active)
-  - [ ] 3rd Grade Prefix Words (`grade-3-prefix-words`)
-  - [ ] 3rd Grade Suffix Words (`grade-3-suffix-words`)
-  - [ ] Suffix Spelling Changes (`grade-3-suffix-spelling-changes`)
-  - [ ] 3rd Grade Possessive Words (`grade-3-possessives`)
-  - [ ] 3rd Grade Multisyllabic Words (`grade-3-multisyllabic-words`)
-  - [ ] 3rd Grade Homophones and Commonly Confused Words (`grade-3-homophones`)
-  - [ ] 3rd Grade Root Word Families (`grade-3-root-word-families`)
+- [x] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
+- [x] Core Spelling / Grade Unit pages (7 canonical-active)
+  - [x] Prefix Words (`grade-3-prefix-words`)
+    - Status: complete after the seven-page Grade 3 Core batch audit; prefix grouping, base preservation, meaning-based selection, correction, and move-on guidance were strengthened.
+  - [x] Suffix Words (`grade-3-suffix-words`)
+    - Status: complete after the seven-page Grade 3 Core batch audit; the frozen words were organized by suffix function and clearly separated from the following spelling-change lesson.
+  - [x] Suffix Spelling Changes (`grade-3-suffix-spelling-changes`)
+    - Status: complete after the seven-page Grade 3 Core batch audit; retained unchanged because its list rationale, mixed decision practice, correction, and move-on guidance already met the standard.
+  - [x] Possessive Words (`grade-3-possessives`)
+    - Status: complete after the seven-page Grade 3 Core batch audit; singular/plural ownership decisions, paired contrasts, error response, and move-on guidance were added.
+  - [x] Multisyllabic Words (`grade-3-multisyllabic-words`)
+    - Status: complete after the seven-page Grade 3 Core batch audit; actual word structures, dialect-safe chunking, targeted correction, and transfer guidance were added.
+  - [x] Homophones and Commonly Confused Words (`grade-3-homophones`)
+    - Status: complete after the seven-page Grade 3 Core batch audit; sentence meaning, contraction expansion, selection-versus-spelling diagnosis, and move-on guidance were strengthened.
+  - [x] Root Word Families (`grade-3-root-word-families`)
+    - Status: complete after the seven-page Grade 3 Core batch audit; base/root terminology, less-transparent families, comparison practice, and move-on guidance were corrected or strengthened.
 - [ ] Additional Practice pages (4 canonical-active)
   - [ ] 3rd Grade Map & Globe Words (`grade-3-map-globe-words`)
   - [ ] 3rd Grade Life Cycle Words (`grade-3-life-cycle-words`)

@@ -2,8 +2,8 @@
 id: grade-5-commonly-confused-words
 urlSlug: 5th-grade-commonly-confused-words
 title: "Commonly Confused Words"
-description: "A fifth-grade commonly confused words list that helps students choose the right spelling for words that sound alike or look similar in writing."
-shortAnswer: "Fifth graders practice commonly confused words such as affect, effect, principal, principle, advice, advise, desert, dessert, loose, and lose."
+description: "A fifth-grade list of six commonly confused word pairs that teaches students to select the intended complete word from context and then spell it accurately."
+shortAnswer: "Fifth graders use brief sentence context to choose and spell desert/dessert, affect/effect, principal/principle, advice/advise, loose/lose, and past/passed."
 contentRole: grade-unit
 skillIds: ["commonly-confused-words"]
 category: grade-level
@@ -48,6 +48,16 @@ words:
   - passed
 ---
 
-Fifth-grade writers need to choose the word that fits the meaning of the sentence. Some confusing words sound alike, such as *past* and *passed*. Others look similar, such as *advice* and *advise*, or differ by just one letter, such as *desert* and *dessert*. Careful spelling helps a reader understand exactly what the writer means.
+## Why these words — and what they teach
 
-This list extends the Grade 4 commonly confused words work with choices students often need in reports, stories, explanations, and opinion writing.
+These twelve words form six useful contrasts: *desert/dessert*, *affect/effect*, *principal/principle*, *advice/advise*, *loose/lose*, and *past/passed*. Some may sound alike in a learner's dialect, while others are confusing because their spellings or pronunciations are close. In every case, sound alone is not a dependable way to choose the intended complete word.
+
+This unit extends earlier commonly confused word practice by combining meaning-based choices with close spelling contrasts. Meaning, and occasionally a word's job in a sentence, identifies which word is intended; accurate encoding must follow that decision. The instructional goal remains spelling, not a separate vocabulary or grammar lesson.
+
+## How to practice this list
+
+Read a short sentence that makes one member of a pair clear, but do not show the target word. Ask the learner to name the intended word and then spell it. Practice both members before mixing all six pairs in new sentences. A learner might spell the wrong real word correctly, choose the intended word but misspell it, or be uncertain about both the choice and its letter sequence; those attempts require different responses.
+
+For a selection error, clarify the sentence meaning and have the learner choose again before discussing letters. For a spelling error, confirm that the intended word was correct and compare only the uncertain sequence, such as one or two *s* in *desert/dessert* or the endings in *principal/principle*. For mixed uncertainty, settle the word choice first and then repair its spelling. Preserve every correct decision and letter sequence rather than turning correction into repeated copying.
+
+The learner is ready to continue when they can choose and spell both members of all six pairs in mixed, previously unseen sentences and can tell whether a correction concerns the word choice, the spelling, or both.

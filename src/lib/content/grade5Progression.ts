@@ -17,14 +17,10 @@
  * Meaning). Commonly Confused Words sits second-to-last, the same slot the
  * accuracy card holds in Grades 3-4.
  *
- * Grade 5 Additional Practice ships two cards (Civics and Government Words;
- * Money Management Words) after auditing three other candidates —
- * Science Words and Math Vocabulary read as open, subject-wide vocabulary
- * (the same defect that sank Grade 2's and Grade 4's generic "Math"/"Science"
- * candidates) rather than a genuinely closed, standard-named set, so they
- * stay off-hub vocabulary (see GRADE_5_VOCABULARY_IDS) instead of being
- * promoted. Geography was not reconsidered — Section 1 of
- * `K5_FINAL_CONTENT_ARCHITECTURE.md` blocklists it by name.
+ * Grade 5 Additional Practice ships four cards: Money Management, Ecosystem
+ * & Environment, Fraction & Decimal, and Civics and Government Words. The
+ * Grade Hub and canonical route manifest are authoritative for public
+ * membership and order; the documentation-only array below mirrors them.
  */
 export const GRADE_5_CORE_IDS: readonly string[] = [
   'grade-5-multisyllabic-academic-words',
@@ -61,8 +57,10 @@ export const GRADE_5_COMMON_WORD_IDS: readonly string[] = [
  * `buildGradeUnitSequence()` either.
  */
 export const GRADE_5_ADDITIONAL_PRACTICE_IDS: readonly string[] = [
-  'grade-5-community-civics-words',
   'grade-5-money-management-words',
+  'grade-5-ecosystem-environment-words',
+  'grade-5-fraction-decimal-words',
+  'grade-5-community-civics-words',
 ];
 
 /**
@@ -82,4 +80,6 @@ export const grade5Badges: Record<string, string> = {
   'grade-5-common-words-4': 'Common Words',
   'grade-5-community-civics-words': 'Vocabulary',
   'grade-5-money-management-words': 'Vocabulary',
+  'grade-5-ecosystem-environment-words': 'Vocabulary',
+  'grade-5-fraction-decimal-words': 'Vocabulary',
 };

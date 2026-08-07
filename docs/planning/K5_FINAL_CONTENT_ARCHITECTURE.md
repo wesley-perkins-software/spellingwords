@@ -395,7 +395,7 @@ Kindergarten, Grade 1, Grade 2, Grade 3, Grade 4, and Grade 5 now all realize th
 
 Grade 4's Core Spelling section realizes the frozen hub pattern: six cards, two of them combined roadmap entries reusing existing pages, one wholly new closing page (Section 8). Grade 4's Common Words (four sets, 48 words) and Additional Practice (one card, Measurement Words) are also now implemented (Section 8), following the same audit process as every prior grade's Additional Practice decision — including, for Additional Practice, arriving at exactly one card rather than the three K–2 shipped (Grade 3's Additional Practice count was revised in a later pass — see Section 7).
 
-Grade 5's Core Spelling section also now realizes the hub pattern: five cards, one a combined roadmap entry, one wholly new closing page (Section 14). Grade 5's Common Words are also implemented: four sets, 48 words, zero overlap with the 292 words already owned by Kindergarten–Grade 4 (Section 15). Grade 5's Additional Practice is also now implemented: two cards, Civics and Government Words and Money Management Words, after auditing five candidates and rejecting three (Section 16). The Grade 5 hub now renders all three sections — Grade 5 is implementation-complete, with no phase remaining deferred.
+Grade 5's Core Spelling section also now realizes the hub pattern: five cards, including one wholly new closing page (Section 14). Grade 5's Common Words are also implemented: four sets, 48 words, zero overlap with the 292 words already owned by Kindergarten–Grade 4 (Section 15). Grade 5's Additional Practice now contains four cards: Money Management, Ecosystem & Environment, Fraction & Decimal, and Civics and Government Words (Section 16). The Grade 5 hub now renders all three sections — Grade 5 is implementation-complete, with no phase remaining deferred.
 
 The completed implementation preserves existing flat canonical routes, stable IDs, parent/adjacent links, server-rendered gateway orientation, and visible-content-aligned breadcrumb and `ItemList` structured data. Focused Skills and compatibility pages retain their routes without becoming duplicate canonical curriculum pages. Grade 2's, Grade 3's, Grade 4's, and Grade 5's implementations additionally required no schema change — they reused `contentRole: grade-unit`/`skill`/`sight-word-set`/`vocabulary-theme`, `skillIds`, `prerequisiteLists`/`nextLists`, and the existing `spelling-collections` gateway model exactly as documented above.
 
@@ -441,6 +441,8 @@ This document supersedes only prior **planning documents** whose purpose was to 
 
 ## 14. Exact Grade 5 grade-hub cards (Core Spelling — Phase 1)
 
+> **Current-state supersession:** Executable manifests now use the canonical frontmatter titles **Multisyllabic Academic Words**, **Prefix and Suffix Words**, **Greek and Latin Word Parts**, **Commonly Confused Words**, and **Spelling Changes in Related Words**. The former `grade-5-spelling-rules` focused component was subsequently deleted without content migration and is no longer an active sibling or related-practice destination. The historical implementation narrative below records the earlier decision but does not override current executable architecture.
+
 The Grade 5 hub's Core Spelling section was implemented first, as documented below. High-Frequency Words (Section 15) and Additional Practice (Section 16) followed as later phases; all three sections are now live — Grade 5's three content-area vocabulary files (`grade-5-science-nature-words`, `grade-5-community-civics-words`, `grade-5-math-vocabulary`) were held pending that later work rather than wired in early, the same discipline Grade 3's Additional Practice review (Section 7) and Grade 4's placeholder-rejection decision (Section 8) both document. Section 16 records the outcome: two of the three were promoted (one corrected first), one pair stayed off-hub.
 
 | # | Section | Public title | Type and destination | Underlying content | Status | Parent-facing purpose |
@@ -464,6 +466,8 @@ The Grade 5 hub's Core Spelling section was implemented first, as documented bel
 **Nothing remains deferred for Grade 5.** Additional Practice is no longer deferred — see Section 16.
 
 ## 16. Exact Grade 5 Additional Practice
+
+> **Current-state supersession:** Grade 5 now has four canonical Additional Practice cards, in authoritative Grade Hub order: Money Management Words, Ecosystem & Environment Words, Fraction & Decimal Words, and Civics and Government Words. The two-card audit narrative below records the first implementation phase and no longer defines current membership.
 
 Two cards, following an audit of five candidates against the same bounded-set, standard-anchored, non-duplicative bar every prior grade's Additional Practice candidates were held to (Sections 6–8).
 

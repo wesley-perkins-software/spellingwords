@@ -873,7 +873,7 @@ export const GRADE_5_HUB_SECTIONS: readonly {
       {
         id: "grade-5-prefix-suffix-words",
         description:
-          "Combine prefixes such as inter-, trans-, and super- with suffixes such as -ive, -ible, and -ity, then extend into the -tion, -sion, -able, -ible, -ance, and -ence spelling rules that complete the set.",
+          "Spell longer words with prefixes such as inter-, trans-, super-, and sub-, then attend to suffixes and joins in words such as creative, activity, courageous, and agreement.",
         badge: "Grade Unit",
         kind: "list",
       },
@@ -894,7 +894,7 @@ export const GRADE_5_HUB_SECTIONS: readonly {
       {
         id: "grade-5-spelling-changes-related-words",
         description:
-          "See how one base word's family — such as critic, critical, and criticism — keeps its spelling stable even as pronunciation shifts.",
+          "Use recognizable family spelling in related words such as critic, critical, and criticism while noticing pronunciation and suffix-join changes.",
         badge: "Grade Unit",
         kind: "list",
       },
@@ -970,7 +970,7 @@ export const GRADE_5_HUB_SECTIONS: readonly {
         id: "grade-5-community-civics-words",
         title: "Civics and Government Words",
         description:
-          "Practice words for reading and writing about the Constitution, government, and citizenship, such as democracy and amendment.",
+          "Practice words for reading and writing about the Constitution, government, and citizenship, such as justice and amendment.",
         badge: "Vocabulary",
         kind: "list",
       },

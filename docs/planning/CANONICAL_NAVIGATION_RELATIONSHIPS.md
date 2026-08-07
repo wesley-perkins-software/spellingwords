@@ -116,7 +116,7 @@ Additional Practice pages are fun, curious, bounded vocabulary pages for parents
 2. `prerequisiteLists`/`nextLists` never cross a section boundary; they do cross grade boundaries within their own section, by design. `relatedLists` may cross any boundary when there's a genuine educational rationale.
 3. No dangling references — enforced by `relatedListsValidation.test.ts`.
 4. `prerequisiteLists`/`nextLists` must be bidirectionally consistent and non-circular — guaranteed by construction since both are derived from `coreSpellingSequence.ts`/`hfWordsSequence.ts` (see the architecture decision below), not authored per page.
-5. Combined-roadmap-entry siblings never become their own hub-visible Core Spelling card or their own Review First/Next Step chain link — reachable only via `relatedLists` off their anchor page. (`grade-1-long-e-vowel-teams`, `grade-1-r-controlled-er-ir-ur`, `grade-3-doubling-final-consonants`, `grade-3-changing-y-to-i`, `grade-4-final-stable-syllables`, `tier-2-greek-latin-roots`, `grade-5-spelling-rules`.)
+5. Combined-roadmap-entry siblings never become their own hub-visible Core Spelling card or their own Review First/Next Step chain link — reachable only via `relatedLists` off their anchor page. (`grade-1-long-e-vowel-teams`, `grade-1-r-controlled-er-ir-ur`, `grade-3-doubling-final-consonants`, `grade-3-changing-y-to-i`, `tier-2-greek-latin-roots`.)
 6. `kindergarten-ck-ending-words` and `kindergarten-double-consonants` are support/practice content, not Kindergarten core-sequence pages. Never in `prerequisiteLists`/`nextLists`/`coreSpellingSequence.ts`.
 7. `relatedLists` entries must be de-duplicated against the derived `prerequisiteLists`/`nextLists` (`dedupeRelatedLists()`).
 8. Every `relatedLists` entry must pass the reasonable-parent test.
@@ -237,15 +237,17 @@ The executable `CORE_SPELLING_SEQUENCE` is authoritative. Core pages render Revi
 
 ### Grade 5
 
-**Core Spelling**
+**Core Spelling — current derived navigation**
 
-| Page (id) | Review First | Next Step | Explore More |
-|---|---|---|---|
-| `grade-5-multisyllabic-academic-words` | `grade-4-derived-words` | `grade-5-prefix-suffix-words` | None |
-| `grade-5-prefix-suffix-words` | `grade-5-multisyllabic-academic-words` | `grade-5-greek-latin-word-parts` | `grade-5-spelling-rules` |
-| `grade-5-greek-latin-word-parts` | `grade-5-prefix-suffix-words` | `grade-5-commonly-confused-words` | `tier-1-roots-and-patterns` |
-| `grade-5-commonly-confused-words` | `grade-5-greek-latin-word-parts` | `grade-5-spelling-changes-related-words` | `grade-4-commonly-confused-words` |
-| `grade-5-spelling-changes-related-words` | `grade-5-commonly-confused-words` | — (K–5 terminal page) | None |
+The executable `CORE_SPELLING_SEQUENCE` is authoritative. Core pages render Review first and Next step only; `relatedLists` metadata does not produce a Core Explore more section.
+
+| Page (id) | Review First | Next Step |
+|---|---|---|
+| `grade-5-multisyllabic-academic-words` | `grade-4-derived-words` | `grade-5-prefix-suffix-words` |
+| `grade-5-prefix-suffix-words` | `grade-5-multisyllabic-academic-words` | `grade-5-greek-latin-word-parts` |
+| `grade-5-greek-latin-word-parts` | `grade-5-prefix-suffix-words` | `grade-5-commonly-confused-words` |
+| `grade-5-commonly-confused-words` | `grade-5-greek-latin-word-parts` | `grade-5-spelling-changes-related-words` |
+| `grade-5-spelling-changes-related-words` | `grade-5-commonly-confused-words` | — (K–5 terminal page) |
 
 **High-Frequency Words**: `-1` → `grade-2-silent-letter-words`; `-2` → `grade-3-doubling-final-consonants`; `-3`, `-4`: None.
 

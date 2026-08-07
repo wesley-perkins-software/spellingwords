@@ -20,9 +20,9 @@ relatedLists: ["tier-1-roots-and-patterns"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can identify familiar Greek and Latin parts inside longer academic words"
-  - "Are comfortable spelling words with three or more syllables when they can be broken into chunks"
-  - "Use word-part meanings to support comprehension in science, social studies, and ELA vocabulary"
+  - "can identify familiar Greek and Latin parts inside longer academic words"
+  - "are comfortable spelling words with three or more syllables when they can be broken into chunks"
+  - "use word-part meanings to support comprehension in science, social studies, and ELA vocabulary"
 faq:
   - question: "Why combine Greek and Latin word parts in one list?"
     answer: "By fifth grade, students often meet Greek and Latin parts together across academic vocabulary. Combining them helps students transfer root knowledge instead of treating each long word as unrelated."

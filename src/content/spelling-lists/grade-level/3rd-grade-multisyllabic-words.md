@@ -20,9 +20,9 @@ relatedLists: []
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can spell many one-syllable words accurately and are ready to manage longer word length"
-  - "Can clap, tap, or mark syllables in two- and three-syllable words"
-  - "Are beginning to notice familiar chunks inside longer words, such as endings or smaller base words"
+  - "can spell many one-syllable words accurately and are ready to manage longer word length"
+  - "can clap, tap, or mark syllables in two- and three-syllable words"
+  - "are beginning to notice familiar chunks inside longer words, such as endings or smaller base words"
 featured: false
 words:
   - basket

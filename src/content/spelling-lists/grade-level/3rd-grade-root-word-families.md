@@ -20,9 +20,9 @@ relatedLists: ["tier-1-roots-and-patterns"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can notice that words such as act, action, and active share both letters and meaning"
-  - "Are comfortable reading two- and three-syllable words with support from context"
-  - "Can separate a base or root from common prefixes and suffixes in familiar words"
+  - "can notice that words such as act, action, and active share both letters and meaning"
+  - "are comfortable reading two- and three-syllable words with support from context"
+  - "can separate a base or root from common prefixes and suffixes in familiar words"
 featured: false
 words:
   - act

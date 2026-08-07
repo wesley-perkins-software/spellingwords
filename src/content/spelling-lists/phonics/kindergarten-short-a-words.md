@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell several words from the First Words list'
-  - 'hear the short a sound in the middle of “hat” or “map”'
-  - 'say a three-sound word slowly and write its sounds in order with only occasional help'
+  - 'can spell several words from the First Words list'
+  - 'can hear the short a sound in the middle of “hat” or “map”'
+  - 'can say a three-sound word slowly and write its sounds in order with only occasional help'
 words:
   - hat
   - mat

@@ -25,9 +25,9 @@ const CORE_FIXTURES = [
     skillIds: ['multisyllabic-words'],
     relatedLists: [],
     readinessSignals: [
-      'Can spell shorter academic words and are ready for longer words with several meaningful chunks',
-      'Can use syllables to hold a long word in order while writing',
-      'Notice recurring endings such as -tion, -ation, -ment, and -ology in school vocabulary',
+      'can spell shorter academic words and are ready for longer words with several meaningful chunks',
+      'can use syllables to hold a long word in order while writing',
+      'notice recurring endings such as -tion, -ation, -ment, and -ology in school vocabulary',
     ],
     words: [
       'information',
@@ -53,9 +53,9 @@ const CORE_FIXTURES = [
     skillIds: ['common-prefixes'],
     relatedLists: [],
     readinessSignals: [
-      'Can identify both a beginning word part and an ending word part in longer vocabulary',
-      'Spell common prefix and suffix chunks accurately inside multisyllabic words',
-      'Use word-part meaning to check whether a long academic word makes sense in context',
+      'can identify both a beginning word part and an ending word part in longer vocabulary',
+      'have practiced common prefixes and suffixes separately in earlier lessons',
+      'use word-part meaning to check whether a long academic word makes sense in context',
     ],
     words: [
       'interfere',
@@ -81,9 +81,9 @@ const CORE_FIXTURES = [
     skillIds: ['greek-and-latin-roots'],
     relatedLists: ['tier-1-roots-and-patterns'],
     readinessSignals: [
-      'Can identify familiar Greek and Latin parts inside longer academic words',
-      'Are comfortable spelling words with three or more syllables when they can be broken into chunks',
-      'Use word-part meanings to support comprehension in science, social studies, and ELA vocabulary',
+      'can identify familiar Greek and Latin parts inside longer academic words',
+      'are comfortable spelling words with three or more syllables when they can be broken into chunks',
+      'use word-part meanings to support comprehension in science, social studies, and ELA vocabulary',
     ],
     words: [
       'photography',
@@ -109,9 +109,9 @@ const CORE_FIXTURES = [
     skillIds: ['commonly-confused-words'],
     relatedLists: ['grade-4-commonly-confused-words'],
     readinessSignals: [
-      'Can compare word meanings closely enough to explain why one choice fits a sentence better than another',
-      'Write reports, arguments, stories, or explanations where precise vocabulary affects credibility and clarity',
-      'Have practiced earlier homophones and are ready for confusing pairs that may differ by part of speech, spelling pattern, or context',
+      'can compare word meanings closely enough to explain why one choice fits a sentence better than another',
+      'write reports, arguments, stories, or explanations where precise vocabulary affects credibility and clarity',
+      'have practiced earlier homophones and are ready for confusing pairs that may differ by part of speech, spelling pattern, or context',
     ],
     words: [
       'desert',
@@ -137,9 +137,9 @@ const CORE_FIXTURES = [
     skillIds: [],
     relatedLists: [],
     readinessSignals: [
-      'Can spell base words such as critic, athlete, magic, music, and electric',
-      'Notice that related words such as magic and magician share a spelling even when a sound shifts from /k/ to /sh/',
-      "Are ready to reason about a whole word family's spelling rather than sounding out one word at a time",
+      'can spell base words such as critic, athlete, magic, music, and electric',
+      'notice that related words such as magic and magician share a spelling even when a sound shifts from /k/ to /sh/',
+      "are ready to reason about a whole word family's spelling rather than sounding out one word at a time",
     ],
     words: [
       'critic',

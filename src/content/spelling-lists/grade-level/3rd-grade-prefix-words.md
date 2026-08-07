@@ -20,9 +20,9 @@ relatedLists: ["grade-4-advanced-prefixes"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can spell common base words such as agree, play, read, kind, and safe with reasonable accuracy"
-  - "Understand that a beginning word part can reverse, repeat, or preview a word’s meaning"
-  - "Are beginning to use prefix clues when reading longer words in sentences"
+  - "can spell common base words such as agree, play, read, kind, and safe with reasonable accuracy"
+  - "understand that a beginning word part can reverse, repeat, or preview a word’s meaning"
+  - "are beginning to use prefix clues when reading longer words in sentences"
 featured: false
 words:
   - unfair

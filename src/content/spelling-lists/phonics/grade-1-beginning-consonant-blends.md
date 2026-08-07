@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell short-vowel words and familiar digraphs'
-  - 'hear both sounds at the beginning of “frog” or “stop”'
-  - 'keep both consonants in a beginning blend during mixed practice'
+  - 'can spell short-vowel words and familiar digraphs'
+  - 'can hear both sounds at the beginning of “frog” or “stop”'
+  - 'try a new blend word by sounding out both beginning consonants, even if one sometimes gets left out at first'
 words:
   - black
   - clap

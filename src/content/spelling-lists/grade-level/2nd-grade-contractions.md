@@ -20,9 +20,9 @@ relatedLists: ["grade-3-homophones"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - 'read and spell the two words behind common contractions, such as “do not”'
+  - 'can read and spell the two words behind common contractions, such as “do not”'
   - 'notice which letters disappear when “I am” becomes “I’m”'
-  - 'use the missing letters to place the apostrophe with only occasional help'
+  - 'are beginning to place an apostrophe where they think letters are missing, even if the spot is sometimes off'
 faq:
   - question: "What is a contraction?"
     answer: "A contraction joins two words into a shorter form and uses an apostrophe to show missing letters. For example, do not becomes don't and I am becomes I'm."

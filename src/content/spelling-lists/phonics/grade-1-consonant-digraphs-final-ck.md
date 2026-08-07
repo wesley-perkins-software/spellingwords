@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell short-vowel words with familiar doubled endings'
+  - 'can spell short-vowel words with familiar doubled endings'
   - 'recognize a digraph such as sh in “ship” as two letters working together'
-  - 'hear the target sound at the beginning or end of a word and keep its full spelling'
+  - 'can hear whether the target sound comes at the beginning or end of a word'
 words:
   - ship
   - shop

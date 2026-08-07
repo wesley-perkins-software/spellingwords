@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell familiar ar and or words from Grade 1'
-  - 'hear the shared r-controlled sound in “her,” “bird,” and “turn”'
-  - 'use a known word to choose among er, ir, and ur when the sound alone is not enough'
+  - 'can spell familiar ar and or words from Grade 1'
+  - 'can hear the shared r-controlled sound in “her,” “bird,” and “turn”'
+  - 'will try er, ir, or ur on an unfamiliar word even when the guess turns out wrong'
 faq:
   - question: 'Is there a rule for choosing ER, IR, or UR?'
     answer: 'No dependable sound rule identifies the spelling because ER, IR, and UR sound alike in these words. Children learn the spelling by comparing, reading, and writing familiar words repeatedly.'

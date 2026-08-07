@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell familiar short-vowel words independently'
-  - 'hear whether the /k/ sound comes at the beginning or end of a word'
-  - 'compare examples such as “cat,” “kit,” and “back” to choose c, k, or ck'
+  - 'can spell familiar short-vowel words independently'
+  - 'can hear whether the /k/ sound comes at the beginning or end of a word'
+  - 'notice that words like “cat,” “kit,” and “back” all have the /k/ sound spelled in different ways'
 words:
   - cat
   - cot

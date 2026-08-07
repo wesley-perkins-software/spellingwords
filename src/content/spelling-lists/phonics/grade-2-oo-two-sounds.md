@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell familiar words with two-letter vowel teams'
-  - 'hear the difference between the oo sounds in “moon” and “book”'
-  - 'try the other oo sound when the first one does not make a known word'
+  - 'can spell familiar words with two-letter vowel teams'
+  - 'can hear the difference between the oo sounds in “moon” and “book”'
+  - 'will try a second pronunciation for oo if the first guess doesn’t sound like a real word'
 faq:
   - question: "Why does oo spell two different sounds?"
     answer: "English vowel teams do not always match one spelling to one sound. The oo team is one of the clearest examples: it spells a long sound in words like moon and a short sound in words like book, and children learn to tell them apart by listening, not by a rule they can see on the page."

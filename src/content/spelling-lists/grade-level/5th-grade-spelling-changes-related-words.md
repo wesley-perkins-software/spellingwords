@@ -19,9 +19,9 @@ relatedLists: []
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can spell base words such as critic, athlete, magic, music, and electric"
-  - "Notice that related words such as magic and magician share a spelling even when a sound shifts from /k/ to /sh/"
-  - "Are ready to reason about a whole word family's spelling rather than sounding out one word at a time"
+  - "can spell base words such as critic, athlete, magic, music, and electric"
+  - "notice that related words such as magic and magician share a spelling even when a sound shifts from /k/ to /sh/"
+  - "are ready to reason about a whole word family's spelling rather than sounding out one word at a time"
 faq:
   - question: "How is this different from Derived Words and Word Meaning in Grade 4?"
     answer: "Grade 4's Derived Words and Word Meaning introduces recognizable spelling across related forms. This list continues with denser families, adds a changed join in athlete/athletic, and includes written c before -ian where pronunciation changes, as in music/musician."

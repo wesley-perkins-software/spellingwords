@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell long-vowel words with silent e and familiar final vowels'
+  - 'can spell long-vowel words with silent e and familiar final vowels'
   - 'notice that ai is inside “rain” while ay is at the end of “day”'
-  - 'compare known words to choose among ai, ay, oa, and ow in mixed practice'
+  - 'notice that long a and long o can each be spelled more than one way, depending on where the sound falls in the word'
 words:
   - rain
   - train

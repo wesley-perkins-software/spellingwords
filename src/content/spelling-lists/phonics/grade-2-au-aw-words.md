@@ -21,9 +21,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell the Grade 2 vowel patterns practiced in earlier lessons'
-  - 'hear the shared vowel sound in “saw” and “cause”'
-  - 'notice where the sound occurs before choosing au or aw, with only occasional help'
+  - 'can spell the Grade 2 vowel patterns practiced in earlier lessons'
+  - 'can hear the shared vowel sound in “saw” and “cause”'
+  - 'have practiced other Grade 2 vowel patterns that also depend on a sound’s position in the word'
 faq:
   - question: "How do children know whether to use au or aw?"
     answer: "Position is the most reliable clue: aw is common at the end of a word (saw, draw) and before n or l (lawn, crawl), while au usually appears in the middle of a word (cause, author). It is a helpful pattern, not an absolute rule, so listening still matters."

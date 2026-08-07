@@ -20,9 +20,9 @@ relatedLists: ["grade-4-advanced-suffixes"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can spell common base words before adding endings such as -ly, -ful, -less, -ness, and -ment"
-  - "Understand that suffixes can change meaning, comparison, or part of speech"
-  - "Are beginning to check whether a base word needs a spelling change before a suffix"
+  - "can spell common base words before adding endings such as -ly, -ful, -less, -ness, and -ment"
+  - "understand that suffixes can change meaning, comparison, or part of speech"
+  - "can identify the base word inside a longer word, such as help in helpful"
 featured: false
 words:
   - bigger

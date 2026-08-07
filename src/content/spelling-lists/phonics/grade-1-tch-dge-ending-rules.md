@@ -20,9 +20,9 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell familiar short-vowel words with endings such as ck'
-  - 'hear whether the final sound in a word is the one in “catch” or the one in “badge”'
-  - 'keep every letter in -tch or -dge without adding extra spoken sounds'
+  - 'can spell familiar short-vowel words with endings such as ck'
+  - 'can hear whether the final sound in a word is the one in “catch” or the one in “badge”'
+  - 'notice that words like “catch” and “badge” end with more letters than the sound alone would suggest'
 words:
   - catch
   - match

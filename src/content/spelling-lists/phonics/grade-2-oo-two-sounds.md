@@ -50,8 +50,6 @@ words:
 
 The letters **oo** do not sound the same in every word. This list helps second graders listen for the difference between *moon* and *book* while keeping one stable spelling.
 
-## Why these words — and what they teach
-
 The first group uses the sound in *moon, food,* and *zoo*; the second uses the sound in *book, good,* and *foot*. Practicing both groups teaches children to try the sound that makes a familiar word instead of assuming **oo** has only one pronunciation. The linked Skill page is the deeper reference.
 
 ## How to practice this list

@@ -51,8 +51,6 @@ words:
 
 Contractions join two words and use an apostrophe to mark missing letters. These familiar examples help second graders treat the apostrophe as part of the spelling.
 
-## Why these words — and what they teach
-
 The list includes **not** contractions, pronoun-and-verb forms such as *I'm* and *we're*, and common forms such as *it's* and *that's*. Expanding each contraction makes the missing letters visible; *won't* is included as a useful exception. The linked Skill page provides the fuller reference.
 
 ## How to practice this list

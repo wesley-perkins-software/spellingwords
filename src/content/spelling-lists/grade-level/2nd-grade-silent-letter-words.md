@@ -50,8 +50,6 @@ words:
 
 Some familiar words contain a letter that is written but not heard. This focused list helps second graders remember three common silent-letter patterns without mixing in too many exceptions.
 
-## Why these words — and what they teach
-
 The words group silent **w** in **wr-**, silent **k** in **kn-**, and silent **b** in final **-mb**. Examples such as *write, know,* and *thumb* teach children to recognize the whole spelling pattern rather than write only the sounds they hear. The linked Skill page gives the deeper explanation.
 
 ## How to practice this list

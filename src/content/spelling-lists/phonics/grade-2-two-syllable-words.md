@@ -52,8 +52,6 @@ words:
 
 Longer words become manageable when children listen for two spoken beats and spell one part at a time. Every word here applies patterns introduced earlier in the sequence.
 
-## Why these words — and what they teach
-
 The list includes words such as *rabbit* and *basket* with short-vowel parts, *paper* and *baby* with a long first vowel, and *winter* and *garden* with an r-controlled part. The new work is breaking apart and rebuilding the word, not learning a new vowel pattern. The linked Skill page explains the strategy more deeply.
 
 ## How to practice this list

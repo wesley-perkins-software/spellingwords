@@ -46,8 +46,6 @@ words:
 
 This list introduces two spellings for the vowel sound in *saw* and *cause*. A helpful position pattern gives children a practical starting point without pretending it works for every word.
 
-## Why these words — and what they teach
-
 **Aw** appears at the end in *saw* and *draw* and before **n** or **l** in *lawn* and *crawl*. **Au** appears inside *because, cause,* and *author*. Children learn to notice both the sound and its place. The linked Skill page provides the fuller explanation.
 
 ## How to practice this list

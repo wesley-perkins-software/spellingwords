@@ -48,16 +48,14 @@ words:
   - agreement
 ---
 
-## Why these words — and what they teach
-
 The first six words give Grade 5 students longer prefix-led spellings: *inter-* in *interfere* and *international*, *trans-* in *transfer* and *transport*, *super-* in *supervise*, and *sub-* in *substitute*. A prefix can be a dependable beginning even when the remaining root or word part, such as the bound root in *transfer*, does not stand alone as a modern English word.
 
 The other six focus attention on suffixes and joins: *attractive* and *creative* use *-ive*, *responsible* uses *-ible*, *activity* uses *-ity*, *courageous* uses *-ous*, and *agreement* uses *-ment*. The join is not identical in every word. *Create* loses final *e* in *creative*; *active* becomes *activity*; *courage* loses final *e* in *courageous*; and *agree* keeps its final *e* in *agreement*. This extends earlier affix work by asking students to keep track of a prefix or suffix, the internal spelling, and the join within one longer word.
 
 ## How to practice this list
 
-Work with a small contrast, such as *transfer/transport* or *creative/activity*. Say the word, identify the prefix or suffix, cover the model, and have the learner spell the complete word from dictation. Compare four locations in order: prefix, internal base or root spelling, suffix, and the join. Later, mix prefix-led and suffix-led words so the learner must decide which part provides the best spelling support.
+Work with a small contrast, such as *transfer/transport* or *creative/activity*. Say the word, identify the prefix or suffix, cover the model, and have your child spell the complete word from dictation. Compare four locations in order: prefix, internal base or root spelling, suffix, and the join. Later, mix prefix-led and suffix-led words so they must decide which part provides the best spelling support.
 
-Diagnose an error by its location. If the prefix is correct but the middle is uncertain, leave the prefix alone and repair the internal word part. If the suffix is correct but the join is wrong, preserve the suffix and compare only the base-to-suffix boundary. Do not require the learner to recopy correct parts repeatedly; after the local repair, ask for the complete word once from memory.
+Diagnose an error by its location. If the prefix is correct but the middle is uncertain, leave the prefix alone and repair the internal word part. If the suffix is correct but the join is wrong, preserve the suffix and compare only the base-to-suffix boundary. Do not require them to recopy correct parts repeatedly; after the local repair, ask for the complete word once from memory.
 
 The learner is ready to continue when they can spell a mixed group, identify whether uncertainty lies in the prefix, internal spelling, suffix, or join, and use that diagnosis to make a focused correction.

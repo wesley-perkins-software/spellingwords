@@ -44,14 +44,12 @@ words:
   - funniest
 ---
 
-## Why these words?
-
 The list gives equal practice to three base-word changes. _Making, writing, hoped,_ and _smiled_ drop final silent _e_. _Running, stopped, sitting,_ and _planned_ double one final consonant after a short vowel. _Carried, cried, happier,_ and _funniest_ change consonant-plus-_y_ to _i_ before the suffix.
 
 This unit follows the Grade 3 Suffixes list, which introduces what common suffixes mean and do. Here the focus shifts to the spelling at the join between a familiar base and its suffix. Keeping all three decisions together helps a learner inspect the base first instead of applying one change to every word.
 
 ## How to practice this list
 
-Write the base word beside the finished word and mark what changed: _make → making_, _run → running_, or _carry → carried_. Mix the three groups and ask the learner to name the base-word shape before choosing **drop**, **double**, **change**, or **attach unchanged**. Include an occasional unchanged comparison such as _rain → raining_, _hope → hopeful_, or _play → played_ without adding those words to the practice list.
+Write the base word beside the finished word and mark what changed: _make → making_, _run → running_, or _carry → carried_. Mix the three groups and ask your child to name the base-word shape before choosing **drop**, **double**, **change**, or **attach unchanged**. Include an occasional unchanged comparison such as _rain → raining_, _hope → hopeful_, or _play → played_ without adding those words to the practice list.
 
 The learner is ready to continue when they can recover the base, explain which condition triggered a change, and choose the correct operation in a mixed set rather than repeating the most recently practiced rule.

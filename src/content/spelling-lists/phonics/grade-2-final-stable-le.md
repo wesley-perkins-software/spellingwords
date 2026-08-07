@@ -48,8 +48,6 @@ words:
 
 Words such as *little* and *table* end with a quiet but dependable **consonant + le** pattern. Recognizing that ending helps children spell the last part without guessing from sound alone.
 
-## Why these words — and what they teach
-
 Every word ends in **consonant + le**, including *apple, simple, circle,* and *turtle*. The varied first parts help children see the ending as one stable unit while applying earlier two-syllable skills. The linked Skill page on longer words remains the deeper reference.
 
 ## How to practice this list

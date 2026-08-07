@@ -48,8 +48,6 @@ words:
   - strategy
 ---
 
-## Why these words — and what they teach
-
 These twelve words appear in directions, explanations, and writing across school subjects. They belong together because each asks a speller to hold several parts in order. Useful spoken beats can make a long word manageable, but speakers may hear or divide those beats differently. The written word is the final check.
 
 Look for stable written parts as well as spoken ones. *Communicate* and *organize* have recognizable endings; *include*, *improve*, and *provide* have useful beginning and ending chunks; and *knowledge*, *purpose*, and *strategy* contain letter choices that sound alone may not settle. Less-prominent vowels in words such as *consider* and *consequence* may be weakened in speech, so students need to check that no written part has disappeared.

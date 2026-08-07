@@ -50,8 +50,6 @@ words:
 
 The letters **c** and **g** do not always have the sounds heard in *cat* and *game*. This list helps children use the next letter to predict the sound in words such as *city* and *page*.
 
-## Why these words — and what they teach
-
 The list shows soft **c** before **e, i,** or **y** in *city, face,* and *ice*, and soft **g** in *giant, page,* and *large*. Children learn to look at two letters together rather than guess from **c** or **g** alone. The linked Skill page covers the rule and its limits in depth.
 
 ## How to practice this list

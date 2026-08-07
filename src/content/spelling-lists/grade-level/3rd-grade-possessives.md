@@ -26,8 +26,8 @@ readinessSignals:
   - "Can already join two words into a contraction with an apostrophe, such as don't or it's"
   - "Are starting to write sentences that name who or what owns something"
 faq:
-  - question: "Why does class's add 's when class already ends in s?"
-    answer: "Many school and publishing styles form the singular possessive class's, which is the form practiced here. Some style guides use only an apostrophe in certain names or other singular words ending in s, so follow whichever convention your school or curriculum uses."
+  - question: "Why does children's use 's instead of just an apostrophe, like dogs' does?"
+    answer: "Children is already plural, but unlike dogs or teachers it does not end in the letter s. Because there is no final s to add an apostrophe after, children's follows the same 's pattern as a singular owner. Only the sentence tells you whether child's or children's is meant."
 featured: false
 words:
   - dog's
@@ -40,13 +40,13 @@ words:
   - friends'
   - family's
   - families'
+  - child's
   - children's
-  - class's
 ---
 
 An apostrophe can mark missing letters in a contraction or show a relationship such as ownership in a possessive. This list focuses on possessives and asks learners to decide who or what owns something before placing the apostrophe.
 
-Five matched pairs make the ownership decision visible: *dog's/dogs', teacher's/teachers', boy's/boys', friend's/friends',* and *family's/families'*. The spelling before the apostrophe shows whether the owner is singular or plural. *Children's* demonstrates an irregular plural that does not end in *s*, while *class's* gives practice with a singular noun that already ends in *s*.
+Six matched pairs make the ownership decision visible: *dog's/dogs', teacher's/teachers', boy's/boys', friend's/friends', family's/families',* and *child's/children's*. The first five pairs follow the regular pattern: add *'s* for one owner, and add just an apostrophe after the existing final *s* for more than one owner. The sixth pair breaks that pattern on purpose. *Children* is an irregular plural—it does not end in *s*—so its possessive still takes *'s*, the same ending as the singular *child's*. Spelling *children's* correctly means recognizing the irregular plural, not just adding an apostrophe after a final *s*.
 
 This lesson follows suffix spelling changes because a learner must first spell the noun correctly—especially *family/families*—and then mark possession. It also builds on Grade 2 contractions, but the apostrophe has a different job here: no letters are being omitted.
 

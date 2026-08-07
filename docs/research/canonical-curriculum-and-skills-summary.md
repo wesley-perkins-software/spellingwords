@@ -499,7 +499,7 @@ Do NOT recommend vocabulary pages, reading skills, phonics concepts taught only 
 - ID: `grade-3-possessives`
 - URL: `/grade-3/possessives`
 - Skills: None
-- Words: dog's, dogs', teacher's, teachers', boy's, boys', friend's, friends', family's, families', children's, class's
+- Words: dog's, dogs', teacher's, teachers', boy's, boys', friend's, friends', family's, families', child's, children's
 
 ### 3rd Grade Multisyllabic Words
 

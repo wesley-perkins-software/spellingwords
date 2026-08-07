@@ -49,6 +49,16 @@ words:
   - principle
 ---
 
-Fourth graders already know many homophones, but upper-elementary writing asks them to choose the correct word more carefully. These words matter in explanations, opinions, stories, and reports because the wrong spelling can change the meaning of a sentence. Each word is taught with its confusing partner so students practice meaning as well as spelling.
+## Why these words — and what they teach
 
-This list reviews important Grade 3 homophones and adds commonly confused words that fourth graders are ready to use in longer writing.
+These thirteen words form six contrasts that continue to cause errors in longer Grade 4 writing: *there/their/they’re*, *its/it’s*, *than/then*, *accept/except*, *affect/effect*, and *principal/principle*. Some sound alike; others look similar or occur in similar sentences. In every group, sentence meaning identifies the intended word, and then the learner must spell that word accurately.
+
+Keep two kinds of error separate. A **selection error** happens when a learner writes a real word correctly but chooses the wrong member, such as *their* for *there*. A **spelling error** happens when the intended member is clear but its letters are wrong. The first calls for a quick meaning check; the second calls for focused spelling correction.
+
+## How to practice this list
+
+Practice one contrast group with short oral sentences. Ask what the sentence means, have the learner name the intended word, and then remove the model before they write it. For *there/their/they’re* and *its/it’s*, a brief expansion check can identify the contraction; stop there rather than turning the activity into a grammar lesson.
+
+When the wrong member is selected, do not mark it as a misspelling. Ask a short question that restores the intended meaning—place, belonging to them, or *they are*, for example—and let the learner replace the word. When the intended member is misspelled, keep the choice and correct only its uncertain letters or apostrophe. Retest the complete word later in a different sentence.
+
+Mix all six groups once individual contrasts are secure. The learner is ready to continue when they can select and spell the intended member in new sentences, explain whether a mistake was a choice or a spelling error, and use the matching correction without prompting.

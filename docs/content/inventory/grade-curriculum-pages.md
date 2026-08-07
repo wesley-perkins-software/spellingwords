@@ -122,26 +122,26 @@ For Grade 3, the table `Title` column records each page's canonical frontmatter 
 
 ## Grade 4
 
-**Canonical Grade Units:** Greek and Latin Roots; Advanced Multisyllabic Words; Final Stable Syllables and Common Word Endings; Derived Words and Word Meaning
+**Canonical Grade 4 Core sequence:** Multisyllabic Academic Words; Advanced Prefix Words; Advanced Suffix Words; Latin Root Words; Commonly Confused Words; Derived Words and Word Meaning. These are conceptual curriculum placements; the table records each page’s exact canonical frontmatter title.
 
 
-**Frozen hub structure:** 6 Core Spelling cards · 4 Common Words sets (48 words) · 1 Additional Practice card(s)
+**Frozen hub structure:** 6 Core Spelling cards · 4 Common Words sets (48 words) · 4 Additional Practice cards
 
 
 ### Canonical active pages (10)
 
 | Title | id | urlSlug | Role | Status | Source file | Editorial status |
 |---|---|---|---|---|---|---|
-| 4th Grade Multisyllabic Academic Words | grade-4-multisyllabic-academic-words | 4th-grade-multisyllabic-academic-words | grade-unit | published | `src/content/4th-grade/multisyllabic-academic-words.md` | Not audited |
-| 4th Grade Advanced Prefix Words | grade-4-advanced-prefixes | 4th-grade-advanced-prefixes | grade-unit | published | `src/content/4th-grade/advanced-prefixes.md` | Not audited |
-| 4th Grade Advanced Suffix Words | grade-4-advanced-suffixes | 4th-grade-advanced-suffixes | grade-unit | published | `src/content/4th-grade/advanced-suffixes.md` | Not audited |
-| 4th Grade Latin Root Words | tier-1-roots-and-patterns | tier-1-roots-and-patterns | grade-unit | published | `src/content/4th-grade/roots-and-patterns.md` | Not audited |
-| 4th Grade Commonly Confused Words | grade-4-commonly-confused-words | 4th-grade-commonly-confused-words | grade-unit | published | `src/content/4th-grade/commonly-confused-words.md` | Not audited |
-| 4th Grade Derived Words and Word Meaning | grade-4-derived-words | 4th-grade-derived-words-and-word-meaning | grade-unit | published | `src/content/spelling-lists/grade-level/4th-grade-derived-words.md` | Not audited |
-| 4th Grade Measurement Words | grade-4-measurement-words | 4th-grade-measurement-words | vocabulary-theme | published | `src/content/4th-grade/measurement-words.md` | Not audited |
-| 4th Grade Solar System Words | grade-4-solar-system-words | 4th-grade-solar-system-words | vocabulary-theme | published | `src/content/4th-grade/solar-system-words.md` | Not audited |
-| 4th Grade Career & Occupation Words | grade-4-career-occupation-words | 4th-grade-career-occupation-words | vocabulary-theme | published | `src/content/4th-grade/career-occupation-words.md` | Not audited |
-| 4th Grade Geometry Words | grade-4-geometry-words | 4th-grade-geometry-words | vocabulary-theme | published | `src/content/4th-grade/geometry-words.md` | Not audited |
+| Multisyllabic Academic Words | grade-4-multisyllabic-academic-words | 4th-grade-multisyllabic-academic-words | grade-unit | published | `src/content/spelling-lists/grade-level/4th-grade-multisyllabic-academic-words.md` | Complete (Grade 4 Core batch editorial audit; material word-part, dialect-safe practice, correction, and move-on guidance improvements) |
+| Advanced Prefix Words | grade-4-advanced-prefixes | 4th-grade-advanced-prefixes | grade-unit | published | `src/content/spelling-lists/grade-level/4th-grade-advanced-prefixes.md` | Complete (Grade 4 Core batch editorial audit; material prefix grouping, preservation, correction, and move-on guidance improvements) |
+| Advanced Suffix Words | grade-4-advanced-suffixes | 4th-grade-advanced-suffixes | grade-unit | published | `src/content/spelling-lists/grade-level/4th-grade-advanced-suffixes.md` | Complete (Grade 4 Core batch editorial audit; material suffix grouping, error-location, correction, and move-on guidance improvements) |
+| Latin Root Words | tier-1-roots-and-patterns | tier-1-roots-and-patterns | grade-unit | published | `src/content/spelling-lists/grade-level/tier-1-roots-and-patterns.md` | Complete (Grade 4 Core batch editorial audit; material root-terminology, spelling-anchor, correction, and move-on guidance improvements) |
+| Commonly Confused Words | grade-4-commonly-confused-words | 4th-grade-commonly-confused-words | grade-unit | published | `src/content/spelling-lists/grade-level/4th-grade-commonly-confused-words.md` | Complete (Grade 4 Core batch editorial audit; material contrast grouping, error diagnosis, correction, and move-on guidance improvements) |
+| Derived Words and Word Meaning | grade-4-derived-words | 4th-grade-derived-words-and-word-meaning | grade-unit | published | `src/content/spelling-lists/grade-level/4th-grade-derived-words.md` | Complete (Grade 4 Core batch editorial audit; material family grouping, stable-versus-adjusted join, correction, and move-on guidance improvements) |
+| 4th Grade Measurement Words | grade-4-measurement-words | 4th-grade-measurement-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/4th-grade-measurement-words.md` | Not audited |
+| 4th Grade Solar System Words | grade-4-solar-system-words | 4th-grade-solar-system-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/4th-grade-solar-system-words.md` | Not audited |
+| 4th Grade Career & Occupation Words | grade-4-career-occupation-words | 4th-grade-career-occupation-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/4th-grade-career-occupation-words.md` | Not audited |
+| 4th Grade Geometry Words | grade-4-geometry-words | 4th-grade-geometry-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/4th-grade-geometry-words.md` | Not audited |
 
 **Removed (legacy-architecture-removal PR):** `grade-4-final-stable-syllables` (4th Grade Final Stable Syllables: -ture and -sure) realized the -ture/-sure portion of the "Final Stable Syllables and Common Word Endings" canonical unit, reached only through `grade-4-advanced-suffixes`'s related-practice link. It was never a canonical Skill or a separate Grade Hub card. The standalone page has been deleted (no content migrated, per explicit product direction) and the anchor's `relatedLists` reference to it removed. See `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md`. This does not change the Grade 4 Core Spelling card count (still 6) or the canonical-active page count above (still 10).
 

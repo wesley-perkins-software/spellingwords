@@ -48,6 +48,16 @@ words:
   - antibiotic
 ---
 
-Fourth graders are ready for prefixes that appear often in science, social studies, and longer reading assignments. The prefixes *inter-*, *sub-*, *super-*, *trans-*, and *anti-* help students spell bigger words by finding the meaningful part at the beginning.
+## Why these words — and what they teach
 
-This list builds on the Grade 3 prefix work with *un-*, *re-*, *dis-*, *mis-*, and *pre-* and prepares students for Greek and Latin root study.
+These words extend Grade 3 prefix work with five beginnings found in longer Grade 4 words: *inter-*, *sub-*, *super-*, *trans-*, and *anti-*. The prefix is a dependable spelling anchor. Meaning can help confirm whether the intended word begins with the idea of between, under, above, across, or against, but the spelling task is to write that prefix accurately and preserve the letters that follow it.
+
+Some words separate into familiar written parts: *inter + act*, *sub + way*, *super + star*, *trans + plant/form/port*, and *anti + freeze*. In *intermission*, *international*, *submarine*, *supervise*, and *antibiotic*, the letters after the prefix are still worth preserving and checking even though the remainder is not necessarily a familiar standalone modern English word. Removing a prefix does not always leave a word that can be used by itself.
+
+## How to practice this list
+
+Sort the words by their five prefixes. For each word, have the learner underline the prefix, say the whole word, cover it, and write the prefix first. Then add the remaining written part without changing or dropping its letters. Compare the two parts separately: “Is the prefix right? Is the rest right?”
+
+If a student writes the wrong beginning, use the intended meaning to choose the prefix and correct only that opening. If the prefix is secure but letters are missing from *mission*, *marine*, *vise*, or *biotic*, leave the prefix in place and rebuild the uncertain remainder. Avoid making the learner recopy a correct prefix to repair a later error.
+
+Finally, mix all five groups so the heading no longer gives away the prefix. The learner is ready for the suffix unit when they can choose and spell the correct prefix, preserve the remaining letters, and explain which part they checked without needing the words pre-sorted.

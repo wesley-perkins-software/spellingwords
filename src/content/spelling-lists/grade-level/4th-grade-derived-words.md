@@ -47,6 +47,16 @@ words:
   - originate
 ---
 
-By the end of fourth grade, students are ready to see how a single base word can grow into a family of related words that keep the same core spelling. *Nation* becomes *national* and *nationality*. *Muscle* becomes *muscular*. *Popular* becomes *popularity*. In each family, the spelling of the base stays stable even when a suffix shifts where the stress falls or changes how a vowel sounds.
+## Why these words — and what they teach
 
-This is different from noticing a root inside unrelated words, and it goes further than the simple word families introduced in Grade 3. Here, students trace one base word through its whole family and use meaning, not just sound, to keep every family member spelled correctly — the same skill fifth-grade academic vocabulary will keep building on.
+These words form five related families: *nation/national/nationality*, *muscle/muscular*, *human/humanity*, *popular/popularity*, and *origin/original/originate*. Meaning confirms that the words belong to one family; spelling is the purpose of the lesson. A known family member can help a learner spell another when pronunciation alone is not enough.
+
+Related words often preserve a recognizable sequence of letters, but the whole base does not always remain unchanged. *Nation*, *national*, and *nationality* keep a visible family spelling even as the spoken emphasis changes. *Muscle* helps with *muscular*, but final *e* is not retained when the ending is added. The useful question is therefore not “Did the base always stay exactly the same?” but “Which letters remain recognizable, and what happens at the join?”
+
+## How to practice this list
+
+Work within one family at a time. Show one known member, ask the learner to point to the recognizable shared spelling, and then cover the model before they write a second member. Compare the shared letters first, then the ending and the join. Reverse the direction so *nationality* can support *national* just as *nation* can.
+
+If the family spelling is damaged, place two members side by side and repair only the shared section. If the shared letters are secure but an ending or join is wrong, leave the secure part alone and correct that location. With *muscle/muscular*, explicitly notice that the relationship stays recognizable even though final *e* drops; do not ask the learner to pretend every letter is preserved.
+
+Finish by mixing members from all five families. The learner is ready to continue when they can use one family member to spell another, identify the letters that stay recognizable, notice an adjusted join, and correct only the part that is uncertain.

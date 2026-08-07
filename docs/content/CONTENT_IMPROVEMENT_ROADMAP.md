@@ -53,7 +53,7 @@ Every content-collection page in the repository falls into exactly one of three 
 | **Deprecated / legacy** | Exists in the repository, sometimes still live and linked, but not part of the frozen architecture; documented for awareness only | `deprecated-and-legacy-pages.md` — no checklists, no DoD, no priority, no phase membership |
 | **Unresolved** | Not named by the architecture docs and not matched by a documented legacy pattern; needs a classification decision before any work | `untagged-and-data-quality.md` |
 
-Current counts: **153 canonical-active pages** (151 with their own public destination + 2 focused component pages, `grade-4-final-stable-syllables` and `grade-5-spelling-rules`, that are settled as not canonical Skills and are reachable only via their anchor Grade Unit's related-practice link — see `skill-pages.md` and `grade-curriculum-pages.md`; not separately prioritized, not their own Grade Hub card) · **82 deprecated/legacy pages** · **33 unresolved pages**. See §4 and §14 for the breakdown, and §15 for how a page moves between buckets as facts change.
+Current canonical-active editorial scope is **151 pages**. The former focused component pages `grade-4-final-stable-syllables` and `grade-5-spelling-rules` were deleted during legacy-architecture removal and are no longer counted or reachable from their former anchors. See §4 for the active breakdown and `inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md` for their disposition.
 
 A deprecated/legacy classification is not a judgment that the content is bad — it means the frozen architecture doesn't currently define a role for it. The legacy Dolch tier is, in fact, still linked from the main browse page today (`/spelling-lists` → `/spelling-lists/sight-words` → the Dolch collections) — real, reachable, and still explicitly out of this roadmap's scope, because reachability and canonical status are different questions. If a future product decision brings a deprecated page back into the architecture, move it into the active inventory at that time (§15) — don't start improving it first.
 
@@ -139,7 +139,7 @@ Editorial order: **Skill pages → Grade curriculum pages → Grade Hub pages �
 ### Phase 2 — Grade curriculum content
 **Position rationale:** each Grade Unit page needs a finished canonical Skill page to link back to and differentiate itself from (§2) — writing grade content first risks re-deriving the same explanation 5–6 times per family and then retrofitting links.
 **Dependencies:** the corresponding Skill page(s) must be implementation-complete and independently audited before that family's Grade Unit pages are drafted. A page may still carry `Needs review` while final project-wide human sign-off remains open; `Complete` remains reserved for the full §8 definition of done. Organize by grade **within** a family once its Skill implementation is stable, per the canonical Grade Unit sequence (K→5), not by grade first.
-**Outputs:** canonical-active grade-unit and vocabulary-theme pages differentiated from their Skill pages, with populated `skillIds` back-links and correct `prerequisiteLists`/`nextLists`.
+**Outputs:** canonical-active grade-unit and vocabulary-theme pages differentiated from their Skill pages, with earned `skillIds` back-links and correct navigation metadata. Core Spelling Review first / Next step relationships are derived from `CORE_SPELLING_SEQUENCE`, not duplicated in page frontmatter.
 **Must not do prematurely:** don't write later grades ahead of earlier grades within the same family if doing so requires guessing at a still-unwritten earlier grade's terminology.
 
 ### Phase 3 — Grade Hub content
@@ -176,7 +176,6 @@ Full per-page tables live in the companion inventory files (linked at the top of
 |---|---:|---|---|
 | Skill pages (41-slot taxonomy) | 41 live | Canonical active | `inventory/skill-pages.md` |
 | Grade Unit + Additional Practice pages (own Grade Hub card) | 75 | Canonical active | `inventory/grade-curriculum-pages.md` |
-| Focused component pages of an existing combined Grade Hub unit (no separate card) | 2 | Canonical active — legacy-role exception, not canonical Skills | `inventory/grade-curriculum-pages.md`, `inventory/skill-pages.md` |
 | Common Words gateway pages | 6 | Canonical active | `inventory/sight-words-and-common-words.md` |
 | Common Words member sets | 29 | Canonical active | `inventory/sight-words-and-common-words.md` |
 | Grade Hubs, Skills Hub, main browse page | 8 (6 + 1 + 1, code-driven) | Canonical active | this file, §7 |
@@ -184,7 +183,7 @@ Full per-page tables live in the companion inventory files (linked at the top of
 | Pages not resolved by the classification test | 33 | Unresolved | `inventory/untagged-and-data-quality.md` |
 | **Total content-collection files** | **268** (256 `spelling-lists` + 12 `spelling-collections`) | — | all inventory files combined |
 
-**Active editorial scope = 153 canonical-active content pages**: 41 canonical Skills + 75 Grade curriculum pages with their own Grade Hub card + 2 focused component pages folded into an existing combined Grade Hub unit + 6 Common Words gateways + 29 Common Words member sets. The 2 focused component pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) are not their own Grade Hub card, not canonical Skills, and not given an independent P0–P3 priority — any future editorial work on them happens alongside their anchor page. The 8 code-driven browse/hub pages and 33 unresolved pages are tracked separately and are not included in 153. Every classification was made against the frozen architecture documents, verified against live code, and cross-checked directly with each file's frontmatter — none of it was inferred from filenames or folder names.
+**Active editorial scope = 151 canonical-active content pages**: 41 canonical Skills + 75 Grade curriculum pages with their own Grade Hub card + 6 Common Words gateways + 29 Common Words member sets. The former focused component pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) were deleted and are recorded only in the legacy-removal manifest. The 8 code-driven browse/hub pages and unresolved pages are tracked separately and are not included in 151.
 
 ---
 

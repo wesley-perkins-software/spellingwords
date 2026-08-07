@@ -21,8 +21,8 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell familiar long-vowel words from Grade 1'
-  - 'hear the same long-e sound in “tree” and “beach” while noticing their different spellings'
+  - 'can spell familiar long-vowel words from Grade 1'
+  - 'can hear the same long-e sound in “tree” and “beach” while noticing their different spellings'
   - 'can read familiar ee and ea words on sight, even if spelling a new one correctly is still inconsistent'
 faq: []
 words:

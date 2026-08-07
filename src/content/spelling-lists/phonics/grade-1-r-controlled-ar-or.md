@@ -20,7 +20,7 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell one-syllable words with blends and familiar endings'
+  - 'can spell one-syllable words with blends and familiar endings'
   - 'recognize the shared ar spelling in “car” and “star” and or in “corn” and “storm”'
   - 'notice that “car” and “corn” have a vowel sound that isn’t a plain short or long vowel'
 words:

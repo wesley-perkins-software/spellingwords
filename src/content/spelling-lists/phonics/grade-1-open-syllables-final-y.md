@@ -21,8 +21,8 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell familiar silent-e words such as “cake” and “home”'
-  - 'hear a long vowel at the end of a short word such as “me” or “go”'
+  - 'can spell familiar silent-e words such as “cake” and “home”'
+  - 'can hear a long vowel at the end of a short word such as “me” or “go”'
   - 'notice that some short words ending in a long-vowel sound use a final y, like “my,” instead of just one vowel letter'
 words:
   - me

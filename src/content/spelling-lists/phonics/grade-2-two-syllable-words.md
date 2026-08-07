@@ -21,8 +21,8 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell one-syllable words with familiar vowel patterns'
-  - 'hear and clap the two spoken beats in a word such as “rabbit”'
+  - 'can spell one-syllable words with familiar vowel patterns'
+  - 'can hear and clap the two spoken beats in a word such as “rabbit”'
   - 'are beginning to divide a longer word into smaller chunks when trying to spell it'
 faq:
   - question: "What is a syllable, in terms a parent can use?"

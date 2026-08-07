@@ -19,9 +19,9 @@ relatedLists: ["grade-3-root-word-families"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can spell base words such as nation, muscle, human, popular, and origin"
-  - "Notice that related words such as national and nationality share a spelling even when the stressed syllable moves"
-  - "Are ready to reason about meaning and spelling together, not just sound alone"
+  - "can spell base words such as nation, muscle, human, popular, and origin"
+  - "notice that related words such as national and nationality share a spelling even when the stressed syllable moves"
+  - "are ready to reason about meaning and spelling together, not just sound alone"
 faq:
   - question: "How is this different from Root Word Families in Grade 3?"
     answer: "Root Word Families introduces the idea that related words share a base, using pairs like act and action. Derived Words and Word Meaning goes further: it studies a full family built from one base — nation, national, nationality — and shows that the spelling of the base stays the same even when a suffix shifts the stress or changes the vowel sound."

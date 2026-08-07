@@ -20,7 +20,7 @@ relatedLists: ["grade-3-homophones"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - 'read and spell the two words behind common contractions, such as “do not”'
+  - 'can read and spell the two words behind common contractions, such as “do not”'
   - 'notice which letters disappear when “I am” becomes “I’m”'
   - 'are beginning to place an apostrophe where they think letters are missing, even if the spot is sometimes off'
 faq:

@@ -20,7 +20,7 @@ relatedLists: ["grade-4-common-words-1", "grade-5-common-words-1"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - 'Can spell familiar consonant patterns confidently'
+  - 'can spell familiar consonant patterns confidently'
   - 'recognize that words such as “write” and “know” begin with a letter that is not heard'
   - 'have seen words like “write” or “know” in reading, even before reliably spelling their silent letters'
 faq:

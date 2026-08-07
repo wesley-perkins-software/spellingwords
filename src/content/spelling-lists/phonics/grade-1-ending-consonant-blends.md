@@ -21,8 +21,8 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'Can spell words with beginning blends such as “frog” and “stop”'
-  - 'hear both consonant sounds at the end of a word such as “hand”'
+  - 'can spell words with beginning blends such as “frog” and “stop”'
+  - 'can hear both consonant sounds at the end of a word such as “hand”'
   - 'are used to rereading their spelling and checking whether they wrote every sound they heard'
 words:
   - hand

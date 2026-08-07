@@ -22,7 +22,7 @@ nextLists: []
 featured: false
 readinessSignals:
   - 'recognize familiar vowel teams, including long-o ow in “snow”'
-  - 'hear the shared vowel sound in “out” and “cow”'
+  - 'can hear the shared vowel sound in “out” and “cow”'
   - 'notice that “out” and “cow” share the same vowel sound even though they’re spelled differently'
 faq:
   - question: "What sound do OU and OW make in this list?"

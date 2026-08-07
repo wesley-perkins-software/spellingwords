@@ -21,8 +21,8 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'read and spell familiar vowel-team words'
-  - 'hear the shared vowel sound in “coin” and “toy”'
+  - 'can read and spell familiar vowel-team words'
+  - 'can hear the shared vowel sound in “coin” and “toy”'
   - 'have spelled other vowel-team words, such as ee or ea, earlier in Grade 2'
 faq:
   - question: "What is the OI/OY sound?"

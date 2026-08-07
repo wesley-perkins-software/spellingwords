@@ -20,8 +20,8 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell most words from the five short-vowel lists'
-  - 'hear the middle vowel in a new word such as “jam” or “web”'
+  - 'can spell most words from the five short-vowel lists'
+  - 'can hear the middle vowel in a new word such as “jam” or “web”'
   - 'have practiced the sound-it-out routine while working through the five separate short-vowel lists'
 words:
   - jam

@@ -20,9 +20,9 @@ relatedLists: []
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can spell shorter academic words and are ready for longer words with several meaningful chunks"
-  - "Can use syllables to hold a long word in order while writing"
-  - "Notice recurring endings such as -tion, -ation, -ment, and -ology in school vocabulary"
+  - "can spell shorter academic words and are ready for longer words with several meaningful chunks"
+  - "can use syllables to hold a long word in order while writing"
+  - "notice recurring endings such as -tion, -ation, -ment, and -ology in school vocabulary"
 faq:
   - question: "What makes fifth-grade multisyllabic words challenging?"
     answer: "These words are longer and often contain abstract academic endings. Students must track syllables, roots, and suffixes at the same time."

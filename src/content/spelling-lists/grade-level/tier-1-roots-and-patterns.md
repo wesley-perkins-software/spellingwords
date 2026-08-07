@@ -20,9 +20,9 @@ relatedLists: ["grade-3-root-word-families"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can read longer words such as transport, predict, and erupt by looking for meaningful chunks"
-  - "Understand that one Latin root can appear in several related academic words"
-  - "Can use prefixes and suffixes to help explain a root word’s meaning in context"
+  - "can read longer words such as transport, predict, and erupt by looking for meaningful chunks"
+  - "understand that one Latin root can appear in several related academic words"
+  - "can use prefixes and suffixes to help explain a root word’s meaning in context"
 faq:
   - question: "Which Latin roots does this list teach?"
     answer: "This list focuses on roots such as port, dict, spect, rupt, and struct. They appear in useful academic words like transport, predict, inspect, interrupt, and construct."

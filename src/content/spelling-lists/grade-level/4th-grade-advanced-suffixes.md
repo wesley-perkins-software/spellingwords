@@ -19,9 +19,9 @@ relatedLists: ["grade-3-suffix-words"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can spell common suffix words and are ready for longer endings such as -tion, -sion, -able, and -ible"
-  - "Recognize that suffixes can signal nouns, adjectives, or abstract academic vocabulary"
-  - "Can slow down when a long ending sounds similar to another ending"
+  - "can spell common suffix words and are ready for longer endings such as -tion, -sion, -able, and -ible"
+  - "recognize that suffixes can signal nouns, adjectives, or abstract academic vocabulary"
+  - "can slow down when a long ending sounds similar to another ending"
 faq:
   - question: "What makes these suffixes advanced?"
     answer: "Endings such as -tion, -sion, -able, -ible, -ous, and -ive are common in academic vocabulary and often appear in multisyllabic words. Students must connect spelling, meaning, and word families."

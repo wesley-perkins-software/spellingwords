@@ -21,8 +21,8 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell the Grade 2 vowel patterns practiced in earlier lessons'
-  - 'hear the shared vowel sound in “saw” and “cause”'
+  - 'can spell the Grade 2 vowel patterns practiced in earlier lessons'
+  - 'can hear the shared vowel sound in “saw” and “cause”'
   - 'have practiced other Grade 2 vowel patterns that also depend on a sound’s position in the word'
 faq:
   - question: "How do children know whether to use au or aw?"

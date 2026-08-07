@@ -21,8 +21,8 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell familiar words with the other four short vowels'
-  - 'hear the difference between the middle sounds in “pen” and “pin”'
+  - 'can spell familiar words with the other four short vowels'
+  - 'can hear the difference between the middle sounds in “pen” and “pin”'
   - 'can sound out a short word and make a reasonable spelling attempt, even if e and i sometimes get mixed up'
 words:
   - bed

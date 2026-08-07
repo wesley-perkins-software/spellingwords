@@ -20,9 +20,9 @@ relatedLists: []
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - 'Can spell familiar base words before adding endings such as -ing, -ed, -er, and -est'
-  - 'Can identify a short vowel, final silent e, or consonant-plus-y at the end of a base word'
-  - 'Is ready to compare the unchanged base with its suffixed form'
+  - 'can spell familiar base words before adding endings such as -ing, -ed, -er, and -est'
+  - 'can identify a short vowel, final silent e, or consonant-plus-y at the end of a base word'
+  - 'is ready to compare the unchanged base with its suffixed form'
 faq:
   - question: 'Do all words change before a suffix is added?'
     answer: "No. The base word's ending and the suffix determine whether a change is needed. Many suffixes attach without changing the base, so learners should inspect the base before choosing an action."

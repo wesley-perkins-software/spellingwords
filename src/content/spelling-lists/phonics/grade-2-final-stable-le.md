@@ -21,7 +21,7 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'break a two-syllable word into spoken parts'
+  - 'can break a two-syllable word into spoken parts'
   - 'recognize the quiet consonant + le ending in “table” or “little”'
   - 'can read words ending in -le, such as “table” or “little,” even if spelling a new one is still inconsistent'
 faq:

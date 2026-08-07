@@ -20,7 +20,7 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'find and spell the base word inside “jumped” or “jumping”'
+  - 'can find and spell the base word inside “jumped” or “jumping”'
   - 'notice that -ed sounds different in “jumped,” “called,” and “rested”'
   - 'are beginning to add -ed or -ing to a familiar base word, even if the base spelling sometimes changes by mistake'
 words:

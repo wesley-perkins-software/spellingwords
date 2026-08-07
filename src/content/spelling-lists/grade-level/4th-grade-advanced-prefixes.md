@@ -20,9 +20,9 @@ relatedLists: ["grade-3-prefix-words"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can read and spell shorter prefix words without treating the prefix as a separate word"
-  - "Recognize longer academic words as made of meaningful parts, not just syllables to memorize"
-  - "Can use context to infer whether a prefix means between, under, across, above, or against"
+  - "can read and spell shorter prefix words without treating the prefix as a separate word"
+  - "recognize longer academic words as made of meaningful parts, not just syllables to memorize"
+  - "can use context to infer whether a prefix means between, under, across, above, or against"
 faq:
   - question: "What makes these prefixes more advanced?"
     answer: "Prefixes such as inter-, sub-, super-, trans-, and anti- appear in longer academic words and often carry precise meanings. Students need both spelling control and meaning knowledge to use them well."

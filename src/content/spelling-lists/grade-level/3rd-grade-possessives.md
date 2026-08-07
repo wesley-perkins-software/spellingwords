@@ -22,9 +22,9 @@ relatedLists: ["grade-2-contractions", "grade-3-homophones"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can spell regular plurals with -s and -es, and know that a plural does not use an apostrophe"
-  - "Can already join two words into a contraction with an apostrophe, such as don't or it's"
-  - "Are starting to write sentences that name who or what owns something"
+  - "can spell regular plurals with -s and -es, and know that a plural does not use an apostrophe"
+  - "can already join two words into a contraction with an apostrophe, such as don't or it's"
+  - "are starting to write sentences that name who or what owns something"
 faq:
   - question: "Why does children's use 's instead of just an apostrophe, like dogs' does?"
     answer: "Children is already plural, but unlike dogs or teachers it does not end in the letter s. Because there is no final s to add an apostrophe after, children's follows the same 's pattern as a singular owner. Only the sentence tells you whether child's or children's is meant."

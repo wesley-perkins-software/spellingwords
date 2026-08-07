@@ -21,8 +21,8 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell familiar words with two-letter vowel teams'
-  - 'hear the difference between the oo sounds in “moon” and “book”'
+  - 'can spell familiar words with two-letter vowel teams'
+  - 'can hear the difference between the oo sounds in “moon” and “book”'
   - 'will try a second pronunciation for oo if the first guess doesn’t sound like a real word'
 faq:
   - question: "Why does oo spell two different sounds?"

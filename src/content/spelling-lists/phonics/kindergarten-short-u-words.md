@@ -21,8 +21,8 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'spell familiar words with short a, i, and o'
-  - 'hear the short u sound in the middle of “run” or “cup”'
+  - 'can spell familiar words with short a, i, and o'
+  - 'can hear the short u sound in the middle of “run” or “cup”'
   - 'try a new short u word by sounding it out, even if the vowel sometimes comes out as a, i, or o'
 words:
   - bug

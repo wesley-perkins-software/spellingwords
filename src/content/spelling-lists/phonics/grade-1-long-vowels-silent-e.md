@@ -23,7 +23,7 @@ featured: false
 readinessSignals:
   - 'Can spell short-vowel words such as “cap” and “kit”'
   - 'hear how the vowel changes in pairs such as “cap/cape”'
-  - 'keep the final silent e when long-vowel words are mixed together'
+  - 'notice that some long-vowel words end with an extra letter that isn’t heard, like the e in “cape”'
 words:
   - cake
   - make

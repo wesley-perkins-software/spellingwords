@@ -23,7 +23,7 @@ featured: false
 readinessSignals:
   - 'recognize familiar vowel teams, including long-o ow in “snow”'
   - 'hear the shared vowel sound in “out” and “cow”'
-  - 'correct an ou/ow mix-up after comparing with a known word'
+  - 'notice that “out” and “cow” share the same vowel sound even though they’re spelled differently'
 faq:
   - question: "What sound do OU and OW make in this list?"
     answer: "They make the diphthong heard in 'out' and 'cow.' The sound glides, so students should listen for the whole vowel movement rather than a short or long vowel."

@@ -23,7 +23,7 @@ skillIds: ["soft-c-soft-g"]
 readinessSignals:
   - 'spell the /k/ sound with c, k, or ck in familiar words'
   - 'hear how c changes between “cat” and “city” and g between “game” and “page”'
-  - 'check the letter after c or g to read and spell its soft sound independently'
+  - 'can read words with soft c and soft g, such as “city” and “page,” even if spelling them correctly is still inconsistent'
 faq:
   - question: "What is the rule for soft c and soft g?"
     answer: "When c or g is followed by e, i, or y, it usually takes its soft sound: c says /s/ (city, ice) and g says /j/ (page, gem). Followed by a, o, u, or another consonant, they usually keep their hard sounds, as in cat and game."

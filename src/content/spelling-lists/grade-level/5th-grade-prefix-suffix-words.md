@@ -21,7 +21,7 @@ prerequisiteLists: []
 nextLists: []
 readinessSignals:
   - "Can identify both a beginning word part and an ending word part in longer vocabulary"
-  - "Spell common prefix and suffix chunks accurately inside multisyllabic words"
+  - "Have practiced common prefixes and suffixes separately in earlier lessons"
   - "Use word-part meaning to check whether a long academic word makes sense in context"
 faq:
   - question: "Why study prefixes and suffixes together?"

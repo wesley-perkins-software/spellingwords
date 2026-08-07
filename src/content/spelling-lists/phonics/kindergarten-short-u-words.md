@@ -23,7 +23,7 @@ featured: false
 readinessSignals:
   - 'spell familiar words with short a, i, and o'
   - 'hear the short u sound in the middle of “run” or “cup”'
-  - 'correct a vowel mix-up after comparing the word with a familiar example'
+  - 'try a new short u word by sounding it out, even if the vowel sometimes comes out as a, i, or o'
 words:
   - bug
   - rug

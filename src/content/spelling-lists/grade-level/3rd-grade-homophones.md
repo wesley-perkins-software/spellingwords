@@ -20,7 +20,7 @@ relatedLists: ["grade-3-possessives"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:
-  - "Can use sentence context to choose among familiar homophones rather than relying only on pronunciation"
+  - "Can understand familiar homophone pairs such as there/their in context, even when spelling them correctly is still inconsistent"
   - "Understand that contractions such as they're and you're have different meanings from their homophone partners"
   - "Write multi-sentence responses where confusing word choices can affect the reader's understanding"
 featured: false

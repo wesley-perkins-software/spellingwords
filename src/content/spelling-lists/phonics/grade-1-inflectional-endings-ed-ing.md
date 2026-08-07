@@ -22,7 +22,7 @@ featured: false
 readinessSignals:
   - 'find and spell the base word inside “jumped” or “jumping”'
   - 'notice that -ed sounds different in “jumped,” “called,” and “rested”'
-  - 'keep the base word unchanged while adding -ed or -ing independently'
+  - 'are beginning to add -ed or -ing to a familiar base word, even if the base spelling sometimes changes by mistake'
 words:
   - jumped
   - jumping

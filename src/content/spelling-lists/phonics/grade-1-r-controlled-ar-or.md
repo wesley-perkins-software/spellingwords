@@ -22,7 +22,7 @@ featured: false
 readinessSignals:
   - 'spell one-syllable words with blends and familiar endings'
   - 'recognize the shared ar spelling in “car” and “star” and or in “corn” and “storm”'
-  - 'use a familiar ar or or word to correct an uncertain vowel spelling'
+  - 'notice that “car” and “corn” have a vowel sound that isn’t a plain short or long vowel'
 words:
   - car
   - far

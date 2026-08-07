@@ -23,7 +23,7 @@ featured: false
 readinessSignals:
   - 'spell familiar short a and short i words'
   - 'recognize the short o sound in “hot” or “dog”'
-  - 'keep the middle vowel correct as the beginning and ending sounds change'
+  - 'try a new short o word by sounding it out, even if the vowel sometimes comes out as a or i'
 words:
   - dog
   - fox

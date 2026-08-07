@@ -23,7 +23,7 @@ featured: false
 readinessSignals:
   - 'Can spell familiar long-vowel words from Grade 1'
   - 'hear the same long-e sound in “tree” and “beach” while noticing their different spellings'
-  - 'use a known ee or ea word to correct an uncertain spelling'
+  - 'can read familiar ee and ea words on sight, even if spelling a new one correctly is still inconsistent'
 faq: []
 words:
   - tree

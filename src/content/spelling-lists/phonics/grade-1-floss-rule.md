@@ -22,7 +22,7 @@ featured: false
 readinessSignals:
   - 'spell one-syllable words with a short vowel'
   - 'notice the doubled ending in familiar words such as “hill” and “miss”'
-  - 'correct a single-letter ending after comparing it with a known FLOSS word'
+  - 'try spelling a new short word with a doubled ending, even if only one letter gets written at first'
 words:
   - hill
   - bell

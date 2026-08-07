@@ -4,10 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { getSentenceBankEntry } from './lookup';
 
 // Regression coverage for the Grade 3 Possessive Words practice-fairness fix:
-// the five matched singular/plural pairs (dog's/dogs', etc.) are pronounced
-// identically, so the practice engine can only distinguish them fairly when
-// each word resolves to its own contextual sentence. See PR "Fix Grade 3
-// possessive practice context".
+// the five regular singular/plural pairs (dog's/dogs', etc.) are pronounced
+// identically, and the sixth pair (child's/children's) is an irregular plural
+// that must not be taught as a simple apostrophe-position shortcut. The
+// practice engine can only distinguish these fairly when each word resolves
+// to its own contextual sentence. See PR "Fix Grade 3 possessive practice
+// context".
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const POSSESSIVES_LIST_ID = 'grade-3-possessives';
@@ -75,13 +77,23 @@ const filePath = findContentFileById(POSSESSIVES_LIST_ID);
 const frontmatter = readFrontmatter(filePath);
 const words = readArray(frontmatter, 'words');
 
-const MATCHED_PAIRS: Array<[singular: string, plural: string]> = [
+// The five "regular" pairs: singular 's vs. a plural that already ends in s,
+// so the plural possessive is just that final s plus an apostrophe.
+const REGULAR_MATCHED_PAIRS: Array<[singular: string, plural: string]> = [
   ["dog's", "dogs'"],
   ["teacher's", "teachers'"],
   ["boy's", "boys'"],
   ["friend's", "friends'"],
   ["family's", "families'"],
 ];
+
+// The sixth pair is deliberately irregular: "children" does not end in s, so
+// its possessive takes 's just like the singular "child's" does. This pair
+// protects the instructional distinction (singular vs. irregular plural),
+// not an apostrophe-before-s vs. apostrophe-after-s contrast.
+const IRREGULAR_PAIR: [singular: string, plural: string] = ["child's", "children's"];
+
+const ALL_PAIRS = [...REGULAR_MATCHED_PAIRS, IRREGULAR_PAIR];
 
 describe('Grade 3 Possessive Words practice context', () => {
   it('loads the frozen 12-word list from the canonical content source', () => {
@@ -96,9 +108,13 @@ describe('Grade 3 Possessive Words practice context', () => {
       "friends'",
       "family's",
       "families'",
+      "child's",
       "children's",
-      "class's",
     ]);
+  });
+
+  it('no longer includes class\'s — replaced by the child\'s / children\'s irregular-plural pair', () => {
+    expect(words).not.toContain("class's");
   });
 
   it('every one of the 12 frozen words resolves to a non-empty sentence-bank example sentence', () => {
@@ -113,7 +129,7 @@ describe('Grade 3 Possessive Words practice context', () => {
     expect(readArray(frontmatter, 'skillIds')).toEqual([]);
   });
 
-  it.each(MATCHED_PAIRS)(
+  it.each(ALL_PAIRS)(
     '"%s" and "%s" resolve independently and do not share a sentence',
     (singular, plural) => {
       const singularEntry = getSentenceBankEntry(singular);
@@ -124,7 +140,7 @@ describe('Grade 3 Possessive Words practice context', () => {
     },
   );
 
-  it.each(MATCHED_PAIRS)(
+  it.each(ALL_PAIRS)(
     'sentence-bank lookup preserves the exact possessive spelling for "%s" vs "%s"',
     (singular, plural) => {
       // Proves apostrophe position is not collapsed by normalization: the
@@ -135,8 +151,11 @@ describe('Grade 3 Possessive Words practice context', () => {
     },
   );
 
-  it('resolves the irregular plural "children\'s" and the singular-ending-in-s "class\'s"', () => {
-    expect(getSentenceBankEntry("children's")?.exampleSentence).toBeTruthy();
-    expect(getSentenceBankEntry("class's")?.exampleSentence).toBeTruthy();
+  it('"children\'s" is an irregular plural, not just "child\'s" plus an apostrophe-after-s', () => {
+    // Guards against the misleading "singular = 's, plural = '" shortcut:
+    // "children" does not end in s, so its possessive is spelled the same
+    // way as a singular ('s), not with a bare trailing apostrophe.
+    expect(getSentenceBankEntry("children's")?.word.endsWith("'s")).toBe(true);
+    expect(getSentenceBankEntry("children's")?.word.endsWith("s'")).toBe(false);
   });
 });

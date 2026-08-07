@@ -408,7 +408,7 @@
 
 - **Internal ID:** `grade-3-possessives`
 - **Word count:** 12
-- **Words (published order):** dog's, dogs', teacher's, teachers', boy's, boys', friend's, friends', family's, families', children's, class's
+- **Words (published order):** dog's, dogs', teacher's, teachers', boy's, boys', friend's, friends', family's, families', child's, children's
 
 #### 3rd Grade Multisyllabic Words
 

@@ -735,14 +735,14 @@ export const GRADE_4_HUB_SECTIONS: readonly {
       {
         id: "grade-4-advanced-suffixes",
         description:
-          "Learn advanced suffixes such as -able, -ible, -ous, -ive, -tion, and -sion, then extend into the -ture and -sure endings that complete the Grade 4 final-stable-syllable set.",
+          "Practice advanced suffixes such as -able, -ible, -ous, -ive, -tion, and -sion in longer Grade 4 words.",
         badge: "Grade Unit",
         kind: "list",
       },
       {
         id: "tier-1-roots-and-patterns",
         description:
-          "Learn Latin roots such as port, dict, spect, rupt, and struct, then Greek roots such as tele, photo, graph, bio, demo, and scope.",
+          "Use the recurring Latin roots port, dict, spect, rupt, and struct as spelling anchors in longer words.",
         badge: "Grade Unit",
         kind: "list",
       },

@@ -218,16 +218,18 @@ Canonical, hub-visible pages per `K5_FINAL_CONTENT_ARCHITECTURE.md` and `src/lib
 
 ### Grade 4
 
-**Core Spelling**
+**Core Spelling — current derived navigation**
 
-| Page (id) | Review First | Next Step | Explore More |
-|---|---|---|---|
-| `grade-4-multisyllabic-academic-words` | `grade-3-root-word-families` | `grade-4-advanced-prefixes` | None |
-| `grade-4-advanced-prefixes` | `grade-4-multisyllabic-academic-words` | `grade-4-advanced-suffixes` | `grade-3-prefix-words` |
-| `grade-4-advanced-suffixes` | `grade-4-advanced-prefixes` | `tier-1-roots-and-patterns` | `grade-4-final-stable-syllables`, `grade-3-suffix-words` |
-| `tier-1-roots-and-patterns` | `grade-4-advanced-suffixes` | `grade-4-commonly-confused-words` | `tier-2-greek-latin-roots`, `grade-3-root-word-families` |
-| `grade-4-commonly-confused-words` | `tier-1-roots-and-patterns` | `grade-4-derived-words` | `grade-3-homophones`, `grade-4-common-words-4` |
-| `grade-4-derived-words` | `grade-4-commonly-confused-words` | `grade-5-multisyllabic-academic-words` | `grade-3-root-word-families` |
+The executable `CORE_SPELLING_SEQUENCE` is authoritative. Core pages render Review first and Next step only; former `relatedLists`/Explore More relationships in earlier reviews are not part of the current navigation model.
+
+| Page (id) | Review First | Next Step |
+|---|---|---|
+| `grade-4-multisyllabic-academic-words` | `grade-3-root-word-families` | `grade-4-advanced-prefixes` |
+| `grade-4-advanced-prefixes` | `grade-4-multisyllabic-academic-words` | `grade-4-advanced-suffixes` |
+| `grade-4-advanced-suffixes` | `grade-4-advanced-prefixes` | `tier-1-roots-and-patterns` |
+| `tier-1-roots-and-patterns` | `grade-4-advanced-suffixes` | `grade-4-commonly-confused-words` |
+| `grade-4-commonly-confused-words` | `tier-1-roots-and-patterns` | `grade-4-derived-words` |
+| `grade-4-derived-words` | `grade-4-commonly-confused-words` | `grade-5-multisyllabic-academic-words` |
 
 **High-Frequency Words**: `-1` → `grade-2-silent-letter-words`; `-2` → `grade-3-doubling-final-consonants`; `-3`: None; `-4` → `grade-4-commonly-confused-words`.
 

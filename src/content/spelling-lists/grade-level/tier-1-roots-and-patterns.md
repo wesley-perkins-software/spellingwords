@@ -46,6 +46,16 @@ words:
   - instruct
 ---
 
-Many longer words are built from roots that carry meaning. In fourth grade, students are ready to notice how Latin roots such as *port* meaning carry, *dict* meaning say, *spect* meaning look, *rupt* meaning break, and *struct* meaning build appear inside academic words.
+## Why these words — and what they teach
 
-When students can spot the root, the spelling becomes easier to remember and the meaning becomes easier to unlock.
+These ten words contain five recurring Latin-root spellings that can serve as anchors: *port* in *portable* and *transport*; *dict* in *dictate* and *predict*; *spect* in *inspect* and *spectator*; *rupt* in *interrupt* and *erupt*; and *struct* in *construct* and *instruct*. Keeping those shared letters intact makes each longer spelling easier to check.
+
+A root is a meaningful word part, and it does not have to stand alone as a modern English word. A familiar-looking string of letters is not automatically the same root wherever it appears, either. Here, the limited meanings—carry, say, look, break, and build—are useful mainly because they confirm why the paired words share a root spelling. The goal is spelling these families, not memorizing Latin history or a larger vocabulary system.
+
+## How to practice this list
+
+Work with one pair at a time. Locate and box the shared root, read both words, and then cover one word. Write its root letters first, keeping their order, and add the surrounding prefix or suffix material separately. Compare the root before checking the letters around it. Reverse the direction on the next turn so either family member can support the other.
+
+If the root letters change, place the two family members side by side and repair only the shared spelling. If the root is correct but *trans-*, *pre-*, *in-*, *con-*, or an ending is wrong, leave the root untouched and correct the surrounding part. This shows the learner exactly which unit is uncertain instead of requiring unnecessary whole-word copying.
+
+Mix all five families for the final practice. The learner is ready to continue when they preserve *port*, *dict*, *spect*, *rupt*, and *struct* in an unfamiliar order and can tell whether they need to check the root or the letters around it. The Greek and Latin Roots Skill provides the broader reference when an adult wants to explore the concept beyond this set.

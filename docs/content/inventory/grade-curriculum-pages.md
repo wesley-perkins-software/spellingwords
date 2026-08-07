@@ -150,18 +150,18 @@ For Grade 3, the table `Title` column records each page's canonical frontmatter 
 **Canonical Grade Units:** Advanced Roots, Affixes, and Academic Words; Spelling Changes in Related Words; Meaning-Based and Conventional Spelling
 
 
-**Frozen hub structure:** 5 Core Spelling cards · 4 Common Words sets (48 words) · 2 Additional Practice card(s)
+**Frozen hub structure:** 5 Core Spelling cards · 4 Common Words sets (48 words) · 4 Additional Practice cards
 
 
 ### Canonical active pages (9)
 
 | Title | id | urlSlug | Role | Status | Source file | Editorial status |
 |---|---|---|---|---|---|---|
-| 5th Grade Multisyllabic Academic Words | grade-5-multisyllabic-academic-words | 5th-grade-multisyllabic-academic-words | grade-unit | published | `src/content/5th-grade/multisyllabic-academic-words.md` | Not audited |
-| 5th Grade Prefix & Suffix Words | grade-5-prefix-suffix-words | 5th-grade-prefix-suffix-words | grade-unit | published | `src/content/5th-grade/prefix-suffix-words.md` | Not audited |
-| 5th Grade Greek & Latin Word Parts | grade-5-greek-latin-word-parts | 5th-grade-greek-latin-word-parts | grade-unit | published | `src/content/5th-grade/greek-latin-word-parts.md` | Not audited |
-| 5th Grade Commonly Confused Words | grade-5-commonly-confused-words | 5th-grade-commonly-confused-words | grade-unit | published | `src/content/5th-grade/commonly-confused-words.md` | Not audited |
-| 5th Grade Spelling Changes in Related Words | grade-5-spelling-changes-related-words | 5th-grade-spelling-changes-in-related-words | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-spelling-changes-related-words.md` | Not audited |
+| Multisyllabic Academic Words | grade-5-multisyllabic-academic-words | 5th-grade-multisyllabic-academic-words | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-multisyllabic-academic-words.md` | Complete (Grade 5 Core editorial pass) |
+| Prefix and Suffix Words | grade-5-prefix-suffix-words | 5th-grade-prefix-suffix-words | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-prefix-suffix-words.md` | Complete (Grade 5 Core editorial pass) |
+| Greek and Latin Word Parts | grade-5-greek-latin-word-parts | 5th-grade-greek-latin-word-parts | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-greek-latin-word-parts.md` | Complete (Grade 5 Core editorial pass) |
+| Commonly Confused Words | grade-5-commonly-confused-words | 5th-grade-commonly-confused-words | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-commonly-confused-words.md` | Complete (Grade 5 Core editorial pass) |
+| Spelling Changes in Related Words | grade-5-spelling-changes-related-words | 5th-grade-spelling-changes-in-related-words | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-spelling-changes-related-words.md` | Complete (Grade 5 Core editorial pass) |
 | 5th Grade Civics and Government Words | grade-5-community-civics-words | 5th-grade-community-civics-words | vocabulary-theme | published | `src/content/5th-grade/community-civics-words.md` | Not audited |
 | 5th Grade Money Management Words | grade-5-money-management-words | 5th-grade-money-management-words | vocabulary-theme | published | `src/content/5th-grade/money-management-words.md` | Not audited |
 | 5th Grade Ecosystem & Environment Words | grade-5-ecosystem-environment-words | 5th-grade-ecosystem-environment-words | vocabulary-theme | published | `src/content/5th-grade/ecosystem-environment-words.md` | Not audited |
@@ -170,7 +170,7 @@ For Grade 3, the table `Title` column records each page's canonical frontmatter 
 **Removed (legacy-architecture-removal PR):** `grade-5-spelling-rules` (5th Grade Spelling Rules) taught suffix-ending spelling disambiguation (-tion/-sion, -able/-ible, -ance/-ence) as part of the combined "Advanced Roots, Affixes, and Academic Words" canonical unit, reached only through `grade-5-prefix-suffix-words`'s related-practice link. It was never a canonical Skill or a separate Grade Hub card. The standalone page has been deleted (no content migrated, per explicit product direction) and the anchor's `relatedLists` reference to it removed. See `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md`. This does not change the Grade 5 Core Spelling card count (still 5) or the canonical-active page count above (still 9).
 
 ---
-**Total: 75 canonical-active Core Spelling / Additional Practice pages across K–5.** This counts pages that are their own Grade Hub card (a public curriculum-placement destination). `grade-4-final-stable-syllables` and `grade-5-spelling-rules` — formerly published, grade-owned content pages reachable via an existing combined unit's anchor page, never separate Hub cards — have been deleted (see `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md`).
+**Total: 78 canonical-active Core Spelling / Additional Practice pages across K–5.** This counts pages that are their own Grade Hub card (a public curriculum-placement destination). `grade-4-final-stable-syllables` and `grade-5-spelling-rules` — formerly published, grade-owned content pages reachable via an existing combined unit's anchor page, never separate Hub cards — have been deleted (see `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md`).
 
 
 Every page that was grade-scoped in naming but not confirmed as part of the canonical architecture has been reviewed, deleted, or (never) promoted — see `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md` for the full record. `grade-4-final-stable-syllables` and `grade-5-spelling-rules` were deleted, not promoted — see the notes above.

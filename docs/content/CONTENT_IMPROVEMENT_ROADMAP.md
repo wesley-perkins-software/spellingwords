@@ -53,7 +53,7 @@ Every content-collection page in the repository falls into exactly one of three 
 | **Deprecated / legacy** | Exists in the repository, sometimes still live and linked, but not part of the frozen architecture; documented for awareness only | `deprecated-and-legacy-pages.md` — no checklists, no DoD, no priority, no phase membership |
 | **Unresolved** | Not named by the architecture docs and not matched by a documented legacy pattern; needs a classification decision before any work | `untagged-and-data-quality.md` |
 
-Current canonical-active editorial scope is **151 pages**. The former focused component pages `grade-4-final-stable-syllables` and `grade-5-spelling-rules` were deleted during legacy-architecture removal and are no longer counted or reachable from their former anchors. See §4 for the active breakdown and `inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md` for their disposition.
+Current canonical-active editorial scope is **154 pages**. The former focused component pages `grade-4-final-stable-syllables` and `grade-5-spelling-rules` were deleted during legacy-architecture removal and are no longer counted or reachable from their former anchors. See §4 for the active breakdown and `inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md` for their disposition.
 
 A deprecated/legacy classification is not a judgment that the content is bad — it means the frozen architecture doesn't currently define a role for it. The legacy Dolch tier is, in fact, still linked from the main browse page today (`/spelling-lists` → `/spelling-lists/sight-words` → the Dolch collections) — real, reachable, and still explicitly out of this roadmap's scope, because reachability and canonical status are different questions. If a future product decision brings a deprecated page back into the architecture, move it into the active inventory at that time (§15) — don't start improving it first.
 
@@ -123,7 +123,7 @@ Editorial order: **Skill pages → Grade curriculum pages → Grade Hub pages �
 ### Phase 0 — Inventory and baseline
 **Position rationale:** sequencing "complete families together" (the central planning principle) requires first knowing which pages are actually in scope. This roadmap's classification pass is Phase 0's main deliverable.
 **Dependencies:** none — this is the starting point.
-**Outputs:** this document; the five inventory files; the resolved `silent-e-long-e` decision; the resolved-as-legacy-role-exception classification for the two non-taxonomy `skill`-tagged pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules` — not canonical Skills, settled) and 33 other unresolved pages; `contentRole` backfilled only on pages already confirmed canonical-active.
+**Outputs:** this document; the five inventory files; the resolved `silent-e-long-e` decision; the subsequent deletion record for the former focused-component pages; and 33 other unresolved pages. `contentRole` was backfilled only on pages already confirmed canonical-active.
 **Must not do prematurely:** rewrite any page's prose content, or begin editorial work on an unresolved or deprecated/legacy page before it's confirmed canonical-active.
 
 ### Phase 1 — Skill-page content
@@ -175,7 +175,7 @@ Full per-page tables live in the companion inventory files (linked at the top of
 | Layer / grouping | Count | Classification | Inventory file |
 |---|---:|---|---|
 | Skill pages (41-slot taxonomy) | 41 live | Canonical active | `inventory/skill-pages.md` |
-| Grade Unit + Additional Practice pages (own Grade Hub card) | 75 | Canonical active | `inventory/grade-curriculum-pages.md` |
+| Grade Unit + Additional Practice pages (own Grade Hub card) | 78 | Canonical active | `inventory/grade-curriculum-pages.md` |
 | Common Words gateway pages | 6 | Canonical active | `inventory/sight-words-and-common-words.md` |
 | Common Words member sets | 29 | Canonical active | `inventory/sight-words-and-common-words.md` |
 | Grade Hubs, Skills Hub, main browse page | 8 (6 + 1 + 1, code-driven) | Canonical active | this file, §7 |
@@ -183,7 +183,7 @@ Full per-page tables live in the companion inventory files (linked at the top of
 | Pages not resolved by the classification test | 33 | Unresolved | `inventory/untagged-and-data-quality.md` |
 | **Total content-collection files** | **268** (256 `spelling-lists` + 12 `spelling-collections`) | — | all inventory files combined |
 
-**Active editorial scope = 151 canonical-active content pages**: 41 canonical Skills + 75 Grade curriculum pages with their own Grade Hub card + 6 Common Words gateways + 29 Common Words member sets. The former focused component pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) were deleted and are recorded only in the legacy-removal manifest. The 8 code-driven browse/hub pages and unresolved pages are tracked separately and are not included in 151.
+**Active editorial scope = 154 canonical-active content pages**: 41 canonical Skills + 78 Grade curriculum pages with their own Grade Hub card + 6 Common Words gateways + 29 Common Words member sets. The former focused component pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) were deleted and are recorded only in the legacy-removal manifest. The 8 code-driven browse/hub pages and unresolved pages are tracked separately and are not included in 154.
 
 ---
 
@@ -613,7 +613,7 @@ The six pages' prose, word equations, comparison tables, and FAQs were re-read i
 
 **IE and IGH Words note:** the page was authored only after its persisted brief passed the Standard §20 acceptance checklist. No existing Grade Unit teaches enough IE/IGH content for a truthful metadata-only back-reference, so curriculum placement is deliberately empty. This is **resolved, not deferred**: IE and IGH Words is intentionally grade-independent with no Grade Unit placement, and that absence is the correct, permanent state pending any future curriculum decision to add explicit Grade 1/2 coverage of the pattern — it is not tracked as an open Phase 2 item.
 
-**Resolved as a documented legacy-role exception:** `silent-e-long-e` remains archived and redirected. The proposed third content role for `grade-4-final-stable-syllables` and `grade-5-spelling-rules` was rejected and rolled back; the question of whether either page belongs in the canonical Skill taxonomy is settled — neither does. Both remain published, grade-owned focused component pages of an existing combined Grade Hub unit, reachable via their anchor page's related-practice link, outside the canonical Skill registry and outside the Grade Hub card list (by design, matching every other combined-unit sibling page). Reclassifying their stored `contentRole: skill` to `grade-unit` was evaluated and found to change their live rendering (routes them through the `GradeUnitWorldPage` template and the cross-grade world-kit sequence), so the legacy value is being kept deliberately rather than "fixed" into a technically cleaner label that would alter public behavior. Final technical normalization of that one frontmatter field is deferred to the Grade 4 and Grade 5 curriculum editorial passes — full detail in `docs/content/inventory/skill-pages.md`.
+**Current state:** `silent-e-long-e` remains archived and redirected. The former focused-component pages `grade-4-final-stable-syllables` and `grade-5-spelling-rules` were subsequently deleted without content migration; they are not active Grade Units, Skills, Hub cards, or related-practice destinations. See `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md`.
 
 ---
 
@@ -765,15 +765,20 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 
 **Canonical Grade Units:** Advanced Roots, Affixes, and Academic Words; Spelling Changes in Related Words; Meaning-Based and Conventional Spelling
 
-**Frozen hub structure:** 5 Core Spelling cards · 4 Common Words sets (48 words) · 2 Additional Practice card(s)
+**Frozen hub structure:** 5 Core Spelling cards · 4 Common Words sets (48 words) · 4 Additional Practice cards
 
-- [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
-- [ ] Core Spelling / Grade Unit pages (5 canonical-active)
-  - [ ] 5th Grade Multisyllabic Academic Words (`grade-5-multisyllabic-academic-words`)
-  - [ ] 5th Grade Prefix & Suffix Words (`grade-5-prefix-suffix-words`)
-  - [ ] 5th Grade Greek & Latin Word Parts (`grade-5-greek-latin-word-parts`)
-  - [ ] 5th Grade Commonly Confused Words (`grade-5-commonly-confused-words`)
-  - [ ] 5th Grade Spelling Changes in Related Words (`grade-5-spelling-changes-related-words`)
+- [x] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
+- [x] Core Spelling / Grade Unit pages (5 canonical-active)
+  - [x] Multisyllabic Academic Words (`grade-5-multisyllabic-academic-words`)
+    - Status: complete after the five-page Grade 5 Core editorial pass; long-word structure, mixed endings, diagnosis, targeted correction, and move-on guidance added.
+  - [x] Prefix and Suffix Words (`grade-5-prefix-suffix-words`)
+    - Status: complete after the Grade 5 Core pass; prefix, bound-root, suffix, and join work aligned to the frozen list.
+  - [x] Greek and Latin Word Parts (`grade-5-greek-latin-word-parts`)
+    - Status: complete after the Grade 5 Core pass; recurring written parts, bound-root terminology, spelling practice, and repair guidance added.
+  - [x] Commonly Confused Words (`grade-5-commonly-confused-words`)
+    - Status: complete after the Grade 5 Core pass; selection and spelling errors now receive distinct practice and correction.
+  - [x] Spelling Changes in Related Words (`grade-5-spelling-changes-related-words`)
+    - Status: complete after the Grade 5 Core pass; the unchanged-base overstatement was corrected and the K–5 endpoint now includes standalone family-based practice.
 - [ ] Additional Practice pages (4 canonical-active)
   - [ ] 5th Grade Civics and Government Words (`grade-5-community-civics-words`)
   - [ ] 5th Grade Money Management Words (`grade-5-money-management-words`)
@@ -1017,7 +1022,7 @@ Initial assignment by grouping (refine per-family/per-grade as Phase 0 audits la
 | Grade Hubs (K–5) | P2 | Depend on Phase 1–2 completion before final copy is accurate |
 | Skills Hub, main browse page | P2 | Depend on Phase 1/3–4 completion |
 | Additional Practice pages | P3 | Small, optional, bounded; lowest dependency weight |
-| `grade-4-final-stable-syllables`, `grade-5-spelling-rules` | Resolved (legacy-role exception) | Not canonical Skills — settled. Published, grade-owned focused component pages of an existing combined Grade Hub unit, reachable via their anchor page. `contentRole: skill` retained deliberately (reclassifying to `grade-unit` changes live rendering, see `skill-pages.md`); only the frontmatter's technical normalization is deferred, to the Grade curriculum editorial phase |
+| `grade-4-final-stable-syllables`, `grade-5-spelling-rules` | Resolved (deleted) | Former focused-component pages; deleted without content migration and removed from their anchors. See the legacy-removal manifest. |
 
 ---
 
@@ -1069,14 +1074,14 @@ Written implementation and adversarial self-review have been completed for all 4
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + classification decisions | 7 artifacts plus the `silent-e-long-e` decision and the `grade-4-final-stable-syllables`/`grade-5-spelling-rules` legacy-role-exception decision | 0 | 33 unresolved rows | 0 |
 | Phase 1 — Skill-page content | 41 live Skill pages | 0 fully Complete | 41 implementation-complete / `Needs review` across all 12 family batches | 0 to draft | 0 |
-| Phase 2 — Grade curriculum content | 75 canonical-active Grade Unit + Additional Practice pages with their own Grade Hub card (+2 focused component pages folded into an existing combined unit, not separately prioritized) | 8 Kindergarten Core pages | 0 | 67 | 0 |
+| Phase 2 — Grade curriculum content | 78 canonical-active Core Spelling + Additional Practice pages with their own Grade Hub card | 8 Kindergarten Core pages | 0 | 70 | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |
 | Phase 5 — Main browse-page content | 1 page | 0 | 0 | 1 | 0 |
 | Phase 6 — Cross-site consistency and final audit | 1 site-wide pass | 0 | 0 | 1 | 0 |
 | *(Reference, not a phase)* Common Words gateway + member sets | 6 + 29 = 35 | 0 | 0 | 35 | 0 |
 
-**Excluded from every phase and total above — transparency only, not part of active scope:** 82 deprecated/legacy pages and 33 unresolved pages. Canonical-active content total: **153 pages** (151 with their own public destination + 2 focused component pages, `grade-4-final-stable-syllables` and `grade-5-spelling-rules`, folded into an existing combined Grade Hub unit — see §4); repository-wide content total: **268 files** (256 `spelling-lists` + 12 `spelling-collections`).
+**Excluded from every phase and total above — transparency only, not part of active scope:** deprecated/legacy and unresolved pages. Canonical-active editorial scope is **154 pages**; the deleted focused-component pages are recorded only in the legacy-removal manifest. Repository-wide historical file totals are not an authority for current canonical membership.
 
 ---
 

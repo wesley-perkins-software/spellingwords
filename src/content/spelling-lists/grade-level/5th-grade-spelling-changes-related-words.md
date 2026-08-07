@@ -2,8 +2,8 @@
 id: grade-5-spelling-changes-related-words
 urlSlug: 5th-grade-spelling-changes-in-related-words
 title: "Spelling Changes in Related Words"
-description: "A fifth-grade related-words list that shows how a base word's spelling stays stable across a family — such as critic, critical, and criticism — even when a suffix shifts the stress or changes a sound."
-shortAnswer: "Fifth graders study related-word families such as critic/critical/criticism, athlete/athletic/athleticism, and music/musician to see how spelling holds steady across a family even when pronunciation shifts."
+description: "A fifth-grade related-words list showing how recognizable family spelling supports derived forms even when pronunciation or the suffix join changes."
+shortAnswer: "Fifth graders use related families such as critic/critical/criticism, athlete/athletic/athleticism, and music/musician to preserve recognizable spelling while attending to pronunciation and suffix-join changes."
 category: grade-level
 grade: "5"
 contentRole: grade-unit
@@ -24,13 +24,13 @@ readinessSignals:
   - "Are ready to reason about a whole word family's spelling rather than sounding out one word at a time"
 faq:
   - question: "How is this different from Derived Words and Word Meaning in Grade 4?"
-    answer: "Grade 4's Derived Words and Word Meaning introduces the idea with families like nation, national, and nationality, where a suffix shifts stress but the base spelling holds. This list continues that same skill with denser academic families — critic, critical, criticism and athlete, athletic, athleticism — and adds families where a suffix also changes a sound, such as the /k/ in music becoming /sh/ in musician."
+    answer: "Grade 4's Derived Words and Word Meaning introduces recognizable spelling across related forms. This list continues with denser families, adds a changed join in athlete/athletic, and includes written c before -ian where pronunciation changes, as in music/musician."
   - question: "How is this different from the Greek and Latin Word Parts list?"
     answer: "Greek and Latin Word Parts teaches recurring word parts, such as photo or graph, that appear inside many unrelated words. Spelling Changes in Related Words studies one base word at a time and traces its own family of related forms, the way Grade 4's Derived Words and Word Meaning did."
   - question: "Why does the ending -ician sometimes surprise students?"
-    answer: "In words like magician, musician, and electrician, the base word's hard c sound shifts to a /sh/ sound once -ian is added, but the spelling of the base — magic, music, electric — never changes. Students who spell by ear alone can lose track of that shared spelling; thinking about the family helps them keep it."
+    answer: "In magician, musician, and electrician, the written c remains recognizable before -ian even though its pronunciation changes. Comparing each word with magic, music, or electric helps a learner retain that family spelling instead of relying on sound alone."
   - question: "Why does this close the Grade 5 Core Spelling sequence?"
-    answer: "By the end of Grade 5, students have already secured roots, affixes, and an accuracy check with Commonly Confused Words. This list asks them to bring all of that together — using meaning and word-family knowledge, not sound alone — which is the same integrated word-study skill middle school reading and writing will keep building on."
+    answer: "By the end of Grade 5, students have already practiced roots, affixes, and an accuracy check with Commonly Confused Words. This list asks them to bring all of that together — using meaning and word-family knowledge, not sound alone — which is the same integrated word-study skill middle school reading and writing will keep building on."
 featured: false
 words:
   - critic
@@ -47,6 +47,16 @@ words:
   - electrician
 ---
 
-By the end of fifth grade, students are ready to trace a base word through a whole family of related forms and see how the spelling of that base holds steady even when a suffix changes the way the word sounds. *Critic* becomes *critical* and *criticism*. *Athlete* becomes *athletic* and *athleticism*. In families like *magic*/*magician*, *music*/*musician*, and *electric*/*electrician*, the base word's hard c sound shifts to a soft /sh/ sound once *-ian* is added — but the spelling of *magic*, *music*, and *electric* never changes.
+## Why these words — and what they teach
 
-This is the same skill Grade 4's Derived Words and Word Meaning introduced, applied to denser academic vocabulary. It closes the Grade 5 Core Spelling sequence by bringing together everything the sequence has built — multisyllabic words, prefixes and suffixes, Greek and Latin word parts, and careful word-choice accuracy — into one integrated habit: using meaning and word-family knowledge, not sound alone, to keep every member of a family spelled correctly. That is exactly the kind of word study middle school vocabulary will keep demanding.
+These words form five related families: *critic/critical/criticism*, *athlete/athletic/athleticism*, *magic/magician*, *music/musician*, and *electric/electrician*. Related words often preserve a recognizable family spelling, but pronunciation and the suffix join may change. The family relationship gives a learner useful evidence; it is not a promise that every letter in the complete base will always remain unchanged.
+
+*Critic, critical,* and *criticism* retain the recognizable spelling *critic* across all three forms. In the *athlete* family, the final *e* drops when *-ic* is added to make *athletic* and remains absent in *athleticism*. In *magic/magician*, *music/musician,* and *electric/electrician*, the written *c* remains recognizable even though its pronunciation changes before *-ian*. This extends Grade 4 related-word work by requiring students to inspect both shared family letters and the join.
+
+## How to practice this list
+
+Work within one family at a time. Show one known member, ask the learner to identify the recognizable shared spelling, then cover it and dictate another member. Compare the shared family section, suffix, and join separately. Reverse the direction so a longer form can support a shorter one, and finish with mixed families.
+
+If the shared spelling is damaged, preserve a correct suffix and repair the family section. If the shared section is secure but the suffix or join is wrong, leave the secure letters alone and focus on that boundary. For *athlete/athletic*, explicitly repair the dropped final *e* at the join; for an *-ician* word, keep the written *c* even when the learner's pronunciation might suggest a different spelling. Have the learner write the complete word once after the focused correction.
+
+This is the final unit in the K–5 Core sequence, not the end of spelling development. The learner is ready to move beyond this sequence when they can use a known related word, meaningful part, or spelling pattern to investigate another form, notice a changed join, and correct an uncertain section with increasing independence.

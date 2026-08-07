@@ -18,9 +18,7 @@ This document governs the **editorial content** of three page types:
 - **Curriculum on-ramp and review units** — a subtype with no single canonical Skill (e.g. Kindergarten First Words, Mixed CVC Review).
 - **Additional Practice / vocabulary-theme pages** (`contentRole: vocabulary-theme`) — optional, bounded, topic-organized supplemental pages.
 
-For traceability, this is the page set `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md` §2 calls "Layer 2" (75 canonical-active pages with their own Grade Hub card). That roadmap terminology is cited here once for cross-reference; it is not this document's everyday editorial vocabulary.
-
-One concise exception note, not a fourth page type (see §4): `grade-4-final-stable-syllables` and `grade-5-spelling-rules` are audited alongside their named anchor pages, not as independent pages under this standard.
+For traceability, this is the page set `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md` §2 calls "Layer 2" (78 canonical-active pages with their own Grade Hub card). That roadmap terminology is cited here once for cross-reference; it is not this document's everyday editorial vocabulary.
 
 **Not governed by this standard:**
 
@@ -90,18 +88,6 @@ These four apply identically to all three page types — §4 governs depth per t
 
 Additional Practice / vocabulary-theme pages do not carry obligations 5–7.
 
-### 3.3 — Focused-component exception note
-
-`grade-4-final-stable-syllables` and `grade-5-spelling-rules` are documented, settled legacy-role exceptions:
-
-- `grade-4-final-stable-syllables` is audited alongside its anchor, `grade-4-advanced-suffixes`.
-- `grade-5-spelling-rules` is audited alongside its anchor, `grade-5-prefix-suffix-words`.
-- Neither is a standalone canonical Skill or a separate Grade Hub card.
-- This standard does not resolve their renderer, `contentRole`, or exact editorial depth.
-- They are considered during their anchor's audit, not elevated into a reusable page type of their own; their anchor, when audited, carries the full §3.1 + §3.2 obligation set for the combined concept as a whole.
-
----
-
 ## 4. Page variants
 
 Three first-class editorial variants. Each is defined by what it does with the §3.1 core and whether §3.2 applies.
@@ -120,9 +106,6 @@ Three first-class editorial variants. Each is defined by what it does with the �
 - **Skill link:** not forced by default; permitted only when the page *intentionally* practices a canonical concept and the body explains the relationship. Topical membership alone does not earn a link.
 - May use "Also Worth Practicing" when a genuine optional relationship exists.
 - Must not be padded to imitate a full Core Spelling unit's depth.
-
-### Exception note: focused-component pages
-Not a fourth variant. `grade-4-final-stable-syllables` and `grade-5-spelling-rules` are considered only during their named anchor's audit (§3.3), not independently classified into one of the three variants above.
 
 ---
 

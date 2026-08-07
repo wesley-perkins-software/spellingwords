@@ -47,8 +47,6 @@ words:
 
 A suffix is a meaningful word part added after a base word or root. This list lets third graders compare several jobs that common suffixes do in words they can use in their own writing.
 
-## Why these words — and what they teach
-
 The paired forms *bigger/biggest, faster/fastest,* and *easier/easiest* show how *-er* and *-est* compare. *Slowly, nearly,* and *really* use *-ly* to form words that often tell how or to what degree. The *-ful/-less* groups create useful meaning contrasts such as *careful/careless*, while *happiness, kindness, movement,* and *enjoyment* show *-ness* and *-ment* forming nouns.
 
 Unlike the Prefix Words lesson, these meaningful parts come after the base. Some examples attach directly, while others preserve a spelling change already made at the join: *big* becomes *bigger*, and *easy* becomes *easier*. The purpose here is to recognize and spell the suffixes and understand their jobs. The following Suffix Spelling Changes unit teaches how to decide among the changes themselves.
@@ -59,4 +57,4 @@ First sort the words by suffix. For a comparison word, say the base and compare 
 
 A learner may leave out a suffix letter, confuse *-ful* with *-less*, or preserve a base incorrectly at the join. Ask which meaning or job the ending must carry, compare the word with its base, and correct only the uncertain join or suffix. If the intended suffix is correct but another part of the word is not, acknowledge the successful suffix choice before reviewing that separate spelling.
 
-Move on when the learner can identify the base and suffix in these words, spell the endings during mixed practice, and pause to inspect the join instead of assuming that every suffix attaches in the same way.
+Move on when your child can identify the base and suffix in these words, spell the endings during mixed practice, and pause to inspect the join instead of assuming that every suffix attaches in the same way.

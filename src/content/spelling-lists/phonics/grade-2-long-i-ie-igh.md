@@ -40,8 +40,6 @@ words:
 
 This list extends familiar long-**i** spelling to final **ie** and **igh**. The small, related word groups make a letter-heavy pattern easier to see and remember.
 
-## Why these words — and what they teach
-
 *Pie* and *tie* establish final **ie**. *High* introduces **igh**, and the **-ight** family in *night, light, right,* and related words shows how one known ending can support several spellings. The linked Skill page remains the deeper pattern reference.
 
 ## How to practice this list

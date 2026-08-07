@@ -48,8 +48,6 @@ words:
 
 Compound words let children spell a longer word by finding two smaller words they already know. This list keeps the focus on closed compounds written without a space or hyphen.
 
-## Why these words — and what they teach
-
 Each word joins two clear parts: *sun + shine, back + pack,* and *foot + ball*, for example. Children learn to hold both words in order and combine their meanings and spellings. The linked Skill page is the canonical deeper reference.
 
 ## How to practice this list

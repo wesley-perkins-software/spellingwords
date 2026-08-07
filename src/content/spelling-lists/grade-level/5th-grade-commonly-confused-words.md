@@ -48,16 +48,14 @@ words:
   - passed
 ---
 
-## Why these words — and what they teach
-
 These twelve words form six useful contrasts: *desert/dessert*, *affect/effect*, *principal/principle*, *advice/advise*, *loose/lose*, and *past/passed*. Some may sound alike in a learner's dialect, while others are confusing because their spellings or pronunciations are close. In every case, sound alone is not a dependable way to choose the intended complete word.
 
 This unit extends earlier commonly confused word practice by combining meaning-based choices with close spelling contrasts. Meaning, and occasionally a word's job in a sentence, identifies which word is intended; accurate encoding must follow that decision. The instructional goal remains spelling, not a separate vocabulary or grammar lesson.
 
 ## How to practice this list
 
-Read a short sentence that makes one member of a pair clear, but do not show the target word. Ask the learner to name the intended word and then spell it. Practice both members before mixing all six pairs in new sentences. A learner might spell the wrong real word correctly, choose the intended word but misspell it, or be uncertain about both the choice and its letter sequence; those attempts require different responses.
+Read a short sentence that makes one member of a pair clear, but do not show the target word. Ask your child to name the intended word and then spell it. Practice both members before mixing all six pairs in new sentences. A learner might spell the wrong real word correctly, choose the intended word but misspell it, or be uncertain about both the choice and its letter sequence; those attempts require different responses.
 
-For a selection error, clarify the sentence meaning and have the learner choose again before discussing letters. For a spelling error, confirm that the intended word was correct and compare only the uncertain sequence, such as one or two *s* in *desert/dessert* or the endings in *principal/principle*. For mixed uncertainty, settle the word choice first and then repair its spelling. Preserve every correct decision and letter sequence rather than turning correction into repeated copying.
+For a selection error, clarify the sentence meaning and have them choose again before discussing letters. For a spelling error, confirm that the intended word was correct and compare only the uncertain sequence, such as one or two *s* in *desert/dessert* or the endings in *principal/principle*. For mixed uncertainty, settle the word choice first and then repair its spelling. Preserve every correct decision and letter sequence rather than turning correction into repeated copying.
 
 The learner is ready to continue when they can choose and spell both members of all six pairs in mixed, previously unseen sentences and can tell whether a correction concerns the word choice, the spelling, or both.

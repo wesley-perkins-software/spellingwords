@@ -48,8 +48,6 @@ words:
 
 The same vowel sound appears in *coin* and *boy*, but its spelling usually changes with its place in the word. This list gives second graders a useful, concrete choice to practice.
 
-## Why these words — and what they teach
-
 These words show **oi** inside a word, as in *coin, oil,* and *voice*, and **oy** at the end, as in *boy, joy,* and *toy*. *Enjoy* helps children notice the end of a syllable inside a longer word. The linked Skill page gives fuller guidance and exceptions.
 
 ## How to practice this list

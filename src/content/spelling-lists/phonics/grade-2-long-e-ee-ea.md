@@ -42,8 +42,6 @@ words:
 
 Long **e** can be spelled more than one way. This list helps second graders compare **ee** and **ea** in familiar words without asking them to discover a rule that does not exist.
 
-## Why these words — and what they teach
-
 The list groups **ee** words such as *tree, feet,* and *sleep* before **ea** words such as *eat, team,* and *beach*. Children learn to keep both vowel letters and use a familiar word as a spelling anchor. The linked Skill page explains these patterns in more depth.
 
 ## How to practice this list

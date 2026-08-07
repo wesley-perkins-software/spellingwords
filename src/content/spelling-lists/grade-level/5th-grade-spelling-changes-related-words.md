@@ -47,16 +47,14 @@ words:
   - electrician
 ---
 
-## Why these words — and what they teach
-
 These words form five related families: *critic/critical/criticism*, *athlete/athletic/athleticism*, *magic/magician*, *music/musician*, and *electric/electrician*. Related words often preserve a recognizable family spelling, but pronunciation and the suffix join may change. The family relationship gives a learner useful evidence; it is not a promise that every letter in the complete base will always remain unchanged.
 
 *Critic, critical,* and *criticism* retain the recognizable spelling *critic* across all three forms. In the *athlete* family, the final *e* drops when *-ic* is added to make *athletic* and remains absent in *athleticism*. In *magic/magician*, *music/musician,* and *electric/electrician*, the written *c* remains recognizable even though its pronunciation changes before *-ian*. This extends Grade 4 related-word work by requiring students to inspect both shared family letters and the join.
 
 ## How to practice this list
 
-Work within one family at a time. Show one known member, ask the learner to identify the recognizable shared spelling, then cover it and dictate another member. Compare the shared family section, suffix, and join separately. Reverse the direction so a longer form can support a shorter one, and finish with mixed families.
+Work within one family at a time. Show one known member, ask your child to identify the recognizable shared spelling, then cover it and dictate another member. Compare the shared family section, suffix, and join separately. Reverse the direction so a longer form can support a shorter one, and finish with mixed families.
 
-If the shared spelling is damaged, preserve a correct suffix and repair the family section. If the shared section is secure but the suffix or join is wrong, leave the secure letters alone and focus on that boundary. For *athlete/athletic*, explicitly repair the dropped final *e* at the join; for an *-ician* word, keep the written *c* even when the learner's pronunciation might suggest a different spelling. Have the learner write the complete word once after the focused correction.
+If the shared spelling is damaged, preserve a correct suffix and repair the family section. If the shared section is secure but the suffix or join is wrong, leave the secure letters alone and focus on that boundary. For *athlete/athletic*, explicitly repair the dropped final *e* at the join; for an *-ician* word, keep the written *c* even when your child's pronunciation might suggest a different spelling. Have them write the complete word once after the focused correction.
 
 This is the final unit in the K–5 Core sequence, not the end of spelling development. The learner is ready to move beyond this sequence when they can use a known related word, meaningful part, or spelling pattern to investigate another form, notice a changed join, and correct an uncertain section with increasing independence.

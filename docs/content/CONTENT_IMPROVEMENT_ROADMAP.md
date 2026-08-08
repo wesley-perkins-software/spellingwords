@@ -26,7 +26,7 @@ Keep this file and the inventory files synchronized: this file owns strategy, ph
 
 **Editorial content standard for HFW member sets:** `docs/content/CANONICAL_HIGH_FREQUENCY_WORD_SET_PAGE_STANDARD.md` is final and governs all 27 individual set pages. Kindergarten Set 1 is the completed reference pilot; the remaining 26 member sets still require editorial transformation. The six HFW gateways are separate and deferred.
 
-**Editorial content standard for Themed Spelling Practice members:** `docs/content/CANONICAL_THEMED_SPELLING_PRACTICE_PAGE_STANDARD.md` is frozen and governs all 27 individual member pages. The Kindergarten and Grade 1 member batches are complete; `1st Grade Weather Spelling Words` remains the reference implementation. The remaining 17 members in Grades 2–5 await controlled editorial batches. The six grade gateways and the coordinated cross-strand ordinal-grade-label migration remain separate work.
+**Editorial content standard for Themed Spelling Practice members:** `docs/content/CANONICAL_THEMED_SPELLING_PRACTICE_PAGE_STANDARD.md` is frozen and governs all 27 individual member pages. The Kindergarten, Grade 1, and Grade 2 member batches are complete; `1st Grade Weather Spelling Words` remains the reference implementation. The remaining 12 members in Grades 3–5 await controlled editorial batches. The six grade gateways, including the Grade 2 gateway, and the coordinated cross-strand ordinal-grade-label migration remain separate work.
 
 ---
 
@@ -708,12 +708,13 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
   - [ ] Soft C and Soft G (`grade-2-soft-c-soft-g`)
   - [ ] Two-Syllable Words (`grade-2-two-syllable-words`)
   - [ ] Words Ending in -le (`grade-2-final-stable-le`)
-- [ ] Additional Practice pages (5 canonical-active)
-  - [ ] Grade 2 Transportation Words (`grade-2-transportation-words`)
-  - [ ] Grade 2 Months of the Year (`grade-2-months-of-the-year`)
-  - [ ] Grade 2 Money Words (`grade-2-money-words`)
-  - [ ] Grade 2 Number Words 20–100 (`grade-2-number-words-20-100`)
-  - [ ] Grade 2 Community Helpers (`grade-2-community-helpers`)
+- [x] Additional Practice pages (5 canonical-active)
+  - [x] 2nd Grade Transportation Spelling Words (`grade-2-transportation-words`)
+  - [x] 2nd Grade Months of the Year Spelling Words (`grade-2-months-of-the-year`)
+  - [x] 2nd Grade Money Spelling Words (`grade-2-money-words`)
+  - [x] 2nd Grade Number Spelling Words 20–100 (`grade-2-number-words-20-100`)
+  - [x] 2nd Grade Community Helpers Spelling Words (`grade-2-community-helpers`)
+  - Status: Grade 2 themed member pages complete; the Grade 2 themed gateway remains pending.
 - [ ] High-Frequency Words sets audited (see `inventory/high-frequency-words.md` for the Grade 2 rows)
 - [ ] Grade-wide consistency review completed (terminology matches this grade's Skill-page links; word-list difficulty appropriately bounded for the grade)
 ### Grade 3

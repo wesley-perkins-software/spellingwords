@@ -1,24 +1,30 @@
 ---
 id: grade-2-money-words
 urlSlug: grade-2-money-words
-title: "Grade 2 Money Words"
-description: "Practice the coin and dollar words second graders meet in math word problems, allowances, and everyday shopping."
-shortAnswer: "Practice spelling money words such as penny, nickel, dime, quarter, dollar, and cent for Grade 2 math and everyday writing."
+title: '2nd Grade Money Spelling Words'
+description: 'Coin names and other money words are useful in shopping talk, games, and schoolwork. This eight-word set practices doubled consonants, vowel teams, silent e, and several stable endings.'
+shortAnswer: 'This money set contrasts the doubled consonants in penny and dollar with the vowel spellings in dime, coin, and change, while nickel and quarter provide useful longer-word chunks.'
 contentRole: vocabulary-theme
 category: grade-level
-grade: "2"
+grade: '2'
 difficulty: developing
-skillTags: ["grade-2", "money", "vocabulary"]
-tags: ["grade-2", "money", "vocabulary", "themed-spelling-practice"]
+skillTags: ['grade-2', 'money', 'vocabulary']
+tags: ['grade-2', 'money', 'vocabulary', 'themed-spelling-practice']
 order: 13
 estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: []
-prerequisiteLists: ["grade-2-transportation-words"]
-nextLists: ["grade-2-number-words-20-100"]
+prerequisiteLists: ['grade-2-transportation-words']
+nextLists: ['grade-2-number-words-20-100']
 featured: false
+wordNotes:
+  - word: 'nickel'
+    note: 'After ni, spell the middle sound with ck. Finish with the written ending el, in that order.'
+  - word: 'change'
+    note: 'The final ge keeps the soft g sound at the end of change. Keep the silent e when writing the word.'
+    contextExample: 'I received change after paying for the snack.'
 words:
   - penny
   - nickel
@@ -30,6 +36,14 @@ words:
   - change
 ---
 
-Practice spelling the coin and dollar words a second grader needs for math word problems and everyday writing about money. *Penny*, *nickel*, *dime*, *quarter*, and *dollar* are the exact coin and bill names used in Grade 2 math lessons; *cent*, *coin*, and *change* are the words needed to write a full sentence about them.
+### Notice doubled consonants and longer endings
 
-This page is additional practice, not part of the Grade 2 Core Spelling route. It pairs naturally with math word problems that ask a child to count or compare coins.
+*Penny* has two *n*s before its final *y*, and *dollar* has two *l*s. The longer words can also be held in parts: *nick-el*, *quar-ter*, and *dol-lar*. In *quarter* and *dollar*, the endings *er* and *ar* are r-controlled spellings.
+
+### Compare the vowel spellings
+
+The silent *e* in *dime* helps mark its long *i* sound. The vowel team *oi* spells the middle sound in *coin*, while *change* uses *a* before *n* and the consonant team *ch* at the beginning.
+
+### Keep the short words distinct
+
+*Cent* begins with soft *c*, which spells the /s/ sound before *e*. Spell *coin* with *c* too, but there the *c* spells /k/ before *o*. This comparison makes the two beginnings easier to retrieve.

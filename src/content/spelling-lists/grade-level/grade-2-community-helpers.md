@@ -9,7 +9,7 @@ category: grade-level
 grade: "2"
 difficulty: developing
 skillTags: ["grade-2", "community", "vocabulary"]
-tags: ["grade-2", "community", "vocabulary", "additional-practice"]
+tags: ["grade-2", "community", "vocabulary", "themed-spelling-practice"]
 order: 15
 estimatedDurationMinutes: 8
 status: published
@@ -25,7 +25,7 @@ faq:
   - question: "Which community helper words are included?"
     answer: "This list includes doctor, teacher, firefighter, nurse, farmer, dentist, librarian, and baker."
   - question: "Why practice community helper words in Grade 2?"
-    answer: "\"Community helpers\" is a classic early social studies unit, and these words are longer and less predictable than most other Grade 2 Additional Practice words, such as firefighter and librarian."
+    answer: "\"Community helpers\" is a classic early social studies unit, and these words are longer and less predictable than most other Grade 2 Themed Spelling Practice words, such as firefighter and librarian."
 words:
   - doctor
   - teacher

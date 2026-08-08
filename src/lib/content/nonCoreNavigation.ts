@@ -1,5 +1,5 @@
 import type { GradeRouteClassification } from './canonicalGradeRoutes';
-import { getAdditionalPracticeExploreMore } from './additionalPracticeExploreMore';
+import { getThemedSpellingPracticeExploreMore } from './themedSpellingPracticeExploreMore';
 import { getHighFrequencyNeighbors } from './hfWordsSequence';
 
 export type NonCoreNavigationModel = {
@@ -33,6 +33,6 @@ export function getNonCoreNavigationModel(
   return {
     reviewIds: [],
     nextIds: [],
-    exploreIds: getAdditionalPracticeExploreMore(id),
+    exploreIds: getThemedSpellingPracticeExploreMore(id),
   };
 }

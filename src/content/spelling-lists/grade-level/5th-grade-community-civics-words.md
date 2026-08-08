@@ -9,7 +9,7 @@ category: grade-level
 grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "civics", "government", "vocabulary"]
-tags: ["grade-5", "civics", "government", "vocabulary", "additional-practice"]
+tags: ["grade-5", "civics", "government", "vocabulary", "themed-spelling-practice"]
 order: 12
 estimatedDurationMinutes: 10
 status: published

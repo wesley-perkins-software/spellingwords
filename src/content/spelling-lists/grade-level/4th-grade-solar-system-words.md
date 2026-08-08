@@ -9,7 +9,7 @@ category: grade-level
 grade: "4"
 difficulty: intermediate
 skillTags: ["grade-4", "space", "science", "vocabulary"]
-tags: ["grade-4", "space", "science", "vocabulary", "additional-practice"]
+tags: ["grade-4", "space", "science", "vocabulary", "themed-spelling-practice"]
 order: 13
 estimatedDurationMinutes: 8
 status: published

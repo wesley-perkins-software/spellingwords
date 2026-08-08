@@ -17,7 +17,7 @@
  * Meaning). Commonly Confused Words sits second-to-last, the same slot the
  * accuracy card holds in Grades 3-4.
  *
- * Grade 5 Additional Practice ships four cards: Money Management, Ecosystem
+ * Grade 5 Themed Spelling Practice ships four cards: Money Management, Ecosystem
  * & Environment, Fraction & Decimal, and Civics and Government Words. The
  * Grade Hub and canonical route manifest are authoritative for public
  * membership and order; the documentation-only array below mirrors them.
@@ -50,11 +50,11 @@ export const GRADE_5_COMMON_WORD_IDS: readonly string[] = [
 ];
 
 /**
- * Grade 5 Additional Practice, published. Documentation only —
+ * Grade 5 Themed Spelling Practice, published. Documentation only —
  * `vocabulary-theme` is not a `grade-unit`, so these ids never enter
  * `buildGradeUnitSequence()` either.
  */
-export const GRADE_5_ADDITIONAL_PRACTICE_IDS: readonly string[] = [
+export const GRADE_5_THEMED_SPELLING_PRACTICE_IDS: readonly string[] = [
   'grade-5-money-management-words',
   'grade-5-ecosystem-environment-words',
   'grade-5-fraction-decimal-words',

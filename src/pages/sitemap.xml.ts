@@ -1,4 +1,4 @@
-import { getCanonicalGradeRoutes, getGradeHubPath } from '@/lib/content/canonicalGradeRoutes';
+import { getCanonicalGradeRoutes, getGradeHubPath, gradeStrandGatewayPaths } from '@/lib/content/canonicalGradeRoutes';
 import { getCanonicalSkillRoutes, SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 
@@ -14,12 +14,13 @@ export async function GET() {
     '/play',
     SKILLS_INDEX_PATH,
     ...gradeConfig.map((grade) => getGradeHubPath(grade.grade)),
+    ...gradeStrandGatewayPaths,
     ...getCanonicalGradeRoutes().map((route) => route.canonicalPath),
     ...getCanonicalSkillRoutes().map((route) => route.canonicalPath),
   ];
 
   const uniquePaths = new Set(paths);
-  const expectedPathCount = 2 + gradeConfig.length + 1 + getCanonicalGradeRoutes().length + getCanonicalSkillRoutes().length;
+  const expectedPathCount = 2 + gradeConfig.length + 1 + gradeStrandGatewayPaths.length + getCanonicalGradeRoutes().length + getCanonicalSkillRoutes().length;
   if (uniquePaths.size !== expectedPathCount) {
     throw new Error(
       `Sitemap expected exactly ${expectedPathCount} canonical URLs, got ${uniquePaths.size}.`,

@@ -37,7 +37,7 @@ describe("frozen K–2 grade hub cards", () => {
     expect(KINDERGARTEN_HUB_SECTIONS.map((section) => section.title)).toEqual([
       "Core Spelling",
       "High-Frequency Words",
-      "Additional Practice",
+      "Themed Spelling Practice",
     ]);
     expect(idsFor(KINDERGARTEN_HUB_SECTIONS)).toEqual([
       "kindergarten-first-words",
@@ -68,7 +68,7 @@ describe("frozen K–2 grade hub cards", () => {
     expect(GRADE_1_HUB_SECTIONS.map((section) => section.title)).toEqual([
       "Core Spelling",
       "High-Frequency Words",
-      "Additional Practice",
+      "Themed Spelling Practice",
     ]);
     expect(idsFor(GRADE_1_HUB_SECTIONS)).toEqual([
       "grade-1-cvc-short-vowels-c-k-rule",
@@ -105,7 +105,7 @@ describe("frozen K–2 grade hub cards", () => {
     expect(GRADE_2_HUB_SECTIONS.map((section) => section.title)).toEqual([
       "Core Spelling",
       "High-Frequency Words",
-      "Additional Practice",
+      "Themed Spelling Practice",
     ]);
     expect(idsFor(GRADE_2_HUB_SECTIONS)).toEqual([
       "grade-2-long-e-ee-ea",
@@ -148,7 +148,7 @@ describe("frozen K–2 grade hub cards", () => {
     expect(GRADE_3_HUB_SECTIONS.map((section) => section.title)).toEqual([
       "Core Spelling",
       "High-Frequency Words",
-      "Additional Practice",
+      "Themed Spelling Practice",
     ]);
     expect(idsFor(GRADE_3_HUB_SECTIONS)).toEqual([
       "grade-3-prefix-words",
@@ -191,7 +191,7 @@ describe("Grade 5 grade hub cards", () => {
     expect(GRADE_5_HUB_SECTIONS.map((section) => section.title)).toEqual([
       "Core Spelling",
       "High-Frequency Words",
-      "Additional Practice",
+      "Themed Spelling Practice",
     ]);
     expect(idsFor(GRADE_5_HUB_SECTIONS)).toEqual([
       "grade-5-multisyllabic-academic-words",

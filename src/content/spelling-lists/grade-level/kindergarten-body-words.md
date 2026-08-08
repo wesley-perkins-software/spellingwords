@@ -30,7 +30,7 @@ faq:
   - question: "What mistakes are common with these words?"
     answer: "Children may rely on memory of the whole word and skip sound-by-sound work. Ask them to stretch the word aloud and point to the letters that represent the sounds they hear."
   - question: "Which early vocabulary fits after body words?"
-    answer: "This is the last of the kindergarten Additional Practice pages, so there is no set next step — families are welcome to revisit any of the earlier pages."
+    answer: "This is the last of the kindergarten Themed Spelling Practice pages, so there is no set next step — families are welcome to revisit any of the earlier pages."
 words:
   - eyes
   - ears

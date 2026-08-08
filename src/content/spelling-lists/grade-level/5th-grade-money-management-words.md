@@ -9,7 +9,7 @@ category: grade-level
 grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "financial-literacy", "vocabulary"]
-tags: ["grade-5", "financial-literacy", "money", "vocabulary", "additional-practice"]
+tags: ["grade-5", "financial-literacy", "money", "vocabulary", "themed-spelling-practice"]
 order: 14
 estimatedDurationMinutes: 10
 status: published

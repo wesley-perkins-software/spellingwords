@@ -244,7 +244,7 @@ describe('getSequenceNeighbors', () => {
     expect(getSequenceNeighbors('grade-1-common-words-1')).toEqual({});
   });
 
-  it('returns {} for a page outside both sequences (Additional Practice, combined-roadmap sibling)', () => {
+  it('returns {} for a page outside both sequences (Themed Spelling Practice, combined-roadmap sibling)', () => {
     expect(getSequenceNeighbors('kindergarten-animal-words')).toEqual({});
     expect(getSequenceNeighbors('grade-1-long-e-vowel-teams')).toEqual({});
     expect(getSequenceNeighbors('kindergarten-ck-ending-words')).toEqual({});

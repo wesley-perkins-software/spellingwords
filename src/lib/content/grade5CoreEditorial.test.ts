@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { canonicalGradeRoutes } from './canonicalGradeRoutes';
 import { CORE_SPELLING_SEQUENCE } from './coreSpellingSequence';
 import {
-  GRADE_5_ADDITIONAL_PRACTICE_IDS,
+  GRADE_5_THEMED_SPELLING_PRACTICE_IDS,
   GRADE_5_CORE_IDS,
 } from './grade5Progression';
 import { GRADE_5_HUB_SECTIONS } from './gradeHubCards';
@@ -259,8 +259,8 @@ describe('Grade 5 Core editorial invariants', () => {
     ).toEqual([]);
   });
 
-  it('mirrors the authoritative four-card Additional Practice order in the secondary manifest', () => {
-    expect(GRADE_5_ADDITIONAL_PRACTICE_IDS).toEqual(
+  it('mirrors the authoritative four-card Themed Spelling Practice order in the secondary manifest', () => {
+    expect(GRADE_5_THEMED_SPELLING_PRACTICE_IDS).toEqual(
       GRADE_5_HUB_SECTIONS[2].cards.map(({ id }) => id),
     );
   });

@@ -9,7 +9,7 @@ category: grade-level
 grade: "4"
 difficulty: intermediate
 skillTags: ["grade-4", "geometry", "math", "vocabulary"]
-tags: ["grade-4", "geometry", "math", "vocabulary", "additional-practice"]
+tags: ["grade-4", "geometry", "math", "vocabulary", "themed-spelling-practice"]
 order: 15
 estimatedDurationMinutes: 8
 status: published
@@ -39,4 +39,4 @@ words:
 
 Grade 4 geometry moves beyond naming shapes into describing their properties — measuring the *perimeter* and *area* of a rectangle, noticing whether two lines are *perpendicular*, and classifying a *quadrilateral* by its sides, angles, and *vertex* points.
 
-This is optional additional practice, not part of the Grade 4 Core Spelling route. It closes out Grade 4's Additional Practice section — *quadrilateral* and *perpendicular* are the two longest words in the whole K–4 catalog.
+This is optional additional practice, not part of the Grade 4 Core Spelling route. It closes out Grade 4's Themed Spelling Practice section — *quadrilateral* and *perpendicular* are the two longest words in the whole K–4 catalog.

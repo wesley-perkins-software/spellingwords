@@ -9,7 +9,7 @@ category: grade-level
 grade: "3"
 difficulty: intermediate
 skillTags: ["grade-3", "multiplication", "division", "vocabulary"]
-tags: ["grade-3", "multiplication", "division", "vocabulary", "additional-practice"]
+tags: ["grade-3", "multiplication", "division", "vocabulary", "themed-spelling-practice"]
 order: 11
 estimatedDurationMinutes: 8
 status: published
@@ -39,4 +39,4 @@ words:
 
 Grade 3 is the year multiplication and division take center stage in math class, and this page gathers the vocabulary that goes with it — from the operations themselves (*multiply*, *divide*) to the words for their answers (*product*, *quotient*).
 
-This is optional additional practice, not part of the Grade 3 Core Spelling route. This page closes out Grade 3's Additional Practice section — *quotient* and *equation* are its two most abstract, least phonetically predictable words.
+This is optional additional practice, not part of the Grade 3 Core Spelling route. This page closes out Grade 3's Themed Spelling Practice section — *quotient* and *equation* are its two most abstract, least phonetically predictable words.

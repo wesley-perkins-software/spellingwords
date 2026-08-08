@@ -9,7 +9,7 @@ category: grade-level
 grade: "3"
 difficulty: intermediate
 skillTags: ["grade-3", "map-skills", "vocabulary"]
-tags: ["grade-3", "map-skills", "vocabulary", "additional-practice"]
+tags: ["grade-3", "map-skills", "vocabulary", "themed-spelling-practice"]
 order: 8
 estimatedDurationMinutes: 8
 status: published

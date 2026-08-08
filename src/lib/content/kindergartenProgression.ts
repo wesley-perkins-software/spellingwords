@@ -52,7 +52,7 @@ export const kindergartenBadges: Record<string, string> = {
 /**
  * Returns a unit's 1-based position within the Kindergarten core progression,
  * for the "Kindergarten spelling · Step N of M" indicator on Grade Unit pages.
- * Returns undefined for anything outside the core roadmap (additional-practice
+ * Returns undefined for anything outside the core roadmap (themed-spelling-practice
  * lists, Skills, other grades), which renders no indicator.
  */
 export function getKindergartenRoadmapPosition(

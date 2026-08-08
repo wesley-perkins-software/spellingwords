@@ -5,7 +5,7 @@ import type { GradeCode } from './gradeConfig';
  *
  * Frequency determines eligibility for this strand. Spelling complexity and
  * developmental appropriateness determine the grade of spelling ownership.
- * Core Spelling and themed Additional Practice may overlap when a word
+ * Core Spelling and Themed Spelling Practice may overlap when a word
  * independently belongs in both strands. HFW ownership itself remains unique.
  */
 export const FROZEN_HF_WORDS_CURRICULUM = {

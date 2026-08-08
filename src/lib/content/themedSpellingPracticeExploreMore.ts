@@ -1,15 +1,15 @@
-export type AdditionalPracticeExploreMore = {
+export type ThemedSpellingPracticeExploreMore = {
   sourceId: string;
   targetIds: readonly [string, string, string];
   rationale: string;
 };
 
 /**
- * Editorial, same-grade peer recommendations for every canonical Additional
+ * Editorial, same-grade peer recommendations for every canonical Themed Spelling
  * Practice page. Array order is presentation order. Rationales make each
  * choice reviewable; none of these rows represents a learning sequence.
  */
-export const ADDITIONAL_PRACTICE_EXPLORE_MORE = [
+export const THEMED_SPELLING_PRACTICE_EXPLORE_MORE = [
   {
     sourceId: 'kindergarten-animal-words',
     targetIds: ['kindergarten-color-words', 'kindergarten-body-words', 'kindergarten-family-words'],
@@ -215,12 +215,12 @@ export const ADDITIONAL_PRACTICE_EXPLORE_MORE = [
     ],
     rationale: 'Connects civic and money vocabulary, with science and math alternatives.',
   },
-] as const satisfies readonly AdditionalPracticeExploreMore[];
+] as const satisfies readonly ThemedSpellingPracticeExploreMore[];
 
 const recommendationsBySource: ReadonlyMap<string, readonly [string, string, string]> = new Map(
-  ADDITIONAL_PRACTICE_EXPLORE_MORE.map(({ sourceId, targetIds }) => [sourceId, targetIds]),
+  THEMED_SPELLING_PRACTICE_EXPLORE_MORE.map(({ sourceId, targetIds }) => [sourceId, targetIds]),
 );
 
-export function getAdditionalPracticeExploreMore(id: string): readonly string[] {
+export function getThemedSpellingPracticeExploreMore(id: string): readonly string[] {
   return recommendationsBySource.get(id) ?? [];
 }

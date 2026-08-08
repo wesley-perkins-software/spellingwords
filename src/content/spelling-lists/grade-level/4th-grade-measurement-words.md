@@ -9,7 +9,7 @@ category: grade-level
 grade: "4"
 difficulty: intermediate
 skillTags: ["grade-4", "measurement", "vocabulary"]
-tags: ["grade-4", "measurement", "vocabulary", "additional-practice"]
+tags: ["grade-4", "measurement", "vocabulary", "themed-spelling-practice"]
 order: 12
 estimatedDurationMinutes: 8
 status: published

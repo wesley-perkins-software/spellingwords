@@ -33,6 +33,16 @@ const hfwWordNote = z.object({
   pronunciationNote: z.string().optional(),
 });
 
+// Selective notes for inventory-based pages outside the HFW strand. This is
+// intentionally separate from hfwWordNotes while the Themed Spelling Practice
+// pilot validates the generic semantic model.
+const wordNote = z.object({
+  word: z.string(),
+  note: z.string(),
+  contextExample: z.string().optional(),
+  pronunciationNote: z.string().optional(),
+});
+
 const spellingLists = defineCollection({
   type: 'content',
   schema: z.object({
@@ -85,6 +95,7 @@ const spellingLists = defineCollection({
     // section until a list has real, specific signals written for it.
     readinessSignals: z.array(z.string()).default([]),
     hfwWordNotes: z.array(hfwWordNote).default([]),
+    wordNotes: z.array(wordNote).default([]),
     // Real parent/teacher questions specific to this list, for the FAQ
     // section and FAQPage structured data. Optional for the same reason.
     faq: z

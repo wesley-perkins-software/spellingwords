@@ -16,7 +16,7 @@ estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-common-words-1", "grade-2-common-words-3"]
+relatedLists: ["grade-2-high-frequency-words-set-1", "grade-2-high-frequency-words-set-3"]
 prerequisiteLists: []
 nextLists: []
 featured: false

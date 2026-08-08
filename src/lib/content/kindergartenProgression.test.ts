@@ -107,7 +107,7 @@ function kindergartenContent(): FrontmatterSummary[] {
 }
 
 const KINDERGARTEN_GRADE_UNIT_IDS = new Set(KINDERGARTEN_CORE_IDS);
-const KINDERGARTEN_SIGHT_WORD_SET_IDS = new Set<string>([]);
+const KINDERGARTEN_HFW_SET_IDS = new Set<string>([]);
 const KINDERGARTEN_VOCABULARY_THEME_IDS = new Set(['kindergarten-animal-words']);
 const ARCHIVED_KINDERGARTEN_THEME_IDS = new Set([
   'kindergarten-body-words',
@@ -183,7 +183,7 @@ describe('kindergartenBadges', () => {
   });
 
   it('only uses the four approved badge labels', () => {
-    const allowed = new Set(['Phonics', 'Sight Words', 'Spelling Rules', 'Vocabulary']);
+    const allowed = new Set(['Phonics', 'High-Frequency Words', 'Spelling Rules', 'Vocabulary']);
     for (const label of Object.values(kindergartenBadges)) {
       expect(allowed.has(label)).toBe(true);
     }
@@ -221,13 +221,13 @@ describe('Kindergarten roadmap architecture', () => {
   it('keeps only Grade Units in the core progression', () => {
     for (const id of KINDERGARTEN_CORE_IDS) {
       expect(KINDERGARTEN_GRADE_UNIT_IDS.has(id)).toBe(true);
-      expect(KINDERGARTEN_SIGHT_WORD_SET_IDS.has(id)).toBe(false);
+      expect(KINDERGARTEN_HFW_SET_IDS.has(id)).toBe(false);
       expect(KINDERGARTEN_VOCABULARY_THEME_IDS.has(id)).toBe(false);
     }
   });
 
-  it('keeps Sight Word Sets and Vocabulary or Theme Lists in Themed Spelling Practice', () => {
-    for (const id of [...KINDERGARTEN_SIGHT_WORD_SET_IDS, ...KINDERGARTEN_VOCABULARY_THEME_IDS]) {
+  it('keeps High-Frequency Word Sets and Vocabulary or Theme Lists in Themed Spelling Practice', () => {
+    for (const id of [...KINDERGARTEN_HFW_SET_IDS, ...KINDERGARTEN_VOCABULARY_THEME_IDS]) {
       expect(KINDERGARTEN_ADDITIONAL_IDS).toContain(id);
       expect(KINDERGARTEN_CORE_IDS).not.toContain(id);
     }

@@ -4,13 +4,13 @@
 
 ## Executive recommendation
 
-The three-section model is sound and should be kept. It matches what parents actually need from a grade-level spelling page: a clear starting path, a place for commonly assigned everyday words, and a place for optional topic-based review. The problem was not the three-part structure itself; the problem was vague labeling and an unclear boundary between transferable spelling instruction and miscellaneous word lists. A stable architecture for SpellingWords.app should therefore use these section names across all grades: Learn in Order, Common Words to Spell, and Practice by Topic. Those labels are clearer than Core Progression, High-Frequency Words, and Additional Practice because they use everyday search language, describe what the parent can do next, and avoid low-information-scent labels that usability research consistently warns against.
+The three-section model is sound and should be kept. It matches what parents actually need from a grade-level spelling page: a clear starting path, a place for commonly assigned everyday words, and a place for optional topic-based review. The problem was not the three-part structure itself; the problem was vague labeling and an unclear boundary between transferable spelling instruction and miscellaneous word lists. A stable architecture for SpellingWords.app should therefore use these section names across all grades: Learn in Order, High-Frequency Words to Spell, and Practice by Topic. Those labels are clearer than Core Progression, High-Frequency Words, and Additional Practice because they use everyday search language, describe what the parent can do next, and avoid low-information-scent labels that usability research consistently warns against.
 
-Use Learn in Order consistently from Kindergarten through Grade 5. It is stronger than Spelling Lessons because it conveys sequence, which is the defining feature of this section. Use Common Words to Spell consistently across all grades as well. It is broader and more accurate than Sight Words or High-Frequency Words because early grades include high-frequency and Heart Word work, while upper grades shift toward persistent everyday trouble words and commonly misspelled forms. Use Practice by Topic across all grades for optional collections; it is clearer than Additional Practice or More Practice because it tells parents that these are browsable topic pages rather than the main sequence.
+Use Learn in Order consistently from Kindergarten through Grade 5. It is stronger than Spelling Lessons because it conveys sequence, which is the defining feature of this section. Use High-Frequency Words to Spell consistently across all grades as well. It is broader and more accurate than High-Frequency Words or High-Frequency Words because early grades include high-frequency and Heart Word work, while upper grades shift toward persistent everyday trouble words and commonly misspelled forms. Use Practice by Topic across all grades for optional collections; it is clearer than Additional Practice or More Practice because it tells parents that these are browsable topic pages rather than the main sequence.
 
 This architecture is stable enough to implement now. The site should treat grade pages as recommended routes and skill pages as alternate routes to the same canonical practice pages. In other words, "Short A Words" or "Prefixes Un-, Re-, and Dis-" should exist once, with one canonical URL, and appear wherever they are relevant: in a grade sequence, in a skill browse page, and in search. That approach fits both literacy instruction and clean information architecture.
 
-The high-frequency-word section should not disappear in Grades 3–5, but its meaning should change. In Kindergarten through Grade 2, it should primarily cover high-utility common words, including irregular and temporarily irregular words taught with Heart Word logic. In Grades 3–5, it should narrow to everyday words that continue to matter in children's writing and are often misspelled, while homophones and concept-driven conventional choices should live primarily in Learn in Order. That division better reflects how orthographic mapping, phonics, morphology, and conventional spelling develop over time.
+The high-frequency-word section should not disappear in Grades 3–5, but its meaning should change. In Kindergarten through Grade 2, it should primarily cover high-utility high-frequency words, including irregular and temporarily irregular words taught with Heart Word logic. In Grades 3–5, it should narrow to everyday words that continue to matter in children's writing and are often misspelled, while homophones and concept-driven conventional choices should live primarily in Learn in Order. That division better reflects how orthographic mapping, phonics, morphology, and conventional spelling develop over time.
 
 ## Evidence base and decision rules
 
@@ -34,7 +34,7 @@ Standards and state guidance. Common Core Language and Foundational Skills; Kent
 
 Phonics and spelling progression. Reading Rockets early-reading guidelines; UFLI scope and sequence; Moats on spelling development.
 
-High-frequency words and orthographic mapping. Ehri; Reading Rockets on sight words and orthographic mapping; Reading Rockets' high-frequency-word model; UFLI irregular and Heart Word guidance.
+High-frequency words and orthographic mapping. Ehri; Reading Rockets on high-frequency words and orthographic mapping; Reading Rockets' high-frequency-word model; UFLI irregular and Heart Word guidance.
 
 Morphology and multisyllabic spelling. Manyak, Baumann, and Manyak; Louisiana multisyllabic word guide; South Carolina morphology progression.
 
@@ -44,21 +44,21 @@ Plain-language and IA guidance. Nielsen Norman Group and Digital.gov plain-langu
 
 The following conclusions are strongly supported: K–2 spelling should follow a systematic phonics/encoding sequence; high-frequency words should not be taught primarily as unanalyzed wholes; irregular portions should be marked and learned "by heart" while regular parts stay connected to phonics; focused morphology becomes more important beginning in Grade 3 and is clearly expected in Grades 4–5.
 
-The following are product judgments made for website clarity rather than dictated by standards: the exact section labels; the target number of visible cards per grade; the decision to use one common-word gateway per grade page; the exact number of common-word pages; and the final optional-topic lineup. Those decisions are designed to make the site implementable and calm without flattening the curriculum.
+The following are product judgments made for website clarity rather than dictated by standards: the exact section labels; the target number of visible cards per grade; the decision to use one high-frequency-word gateway per grade page; the exact number of high-frequency-word pages; and the final optional-topic lineup. Those decisions are designed to make the site implementable and calm without flattening the curriculum.
 
 The main uncertainties that should remain flexible only at the margin are these: whether late-Kindergarten includes blends and digraphs as essential or preview content; whether some suffix-spelling-change work appears in Grade 2 or Grade 3; and the exact root sets used in Grades 4 and 5. The architecture below already absorbs those uncertainties by placing borderline content either late in a grade, as preview/review, or in reusable skill routes.
 
-## High-frequency words, sight words, and Heart Words
+## High-Frequency Words and Heart Words
 
-A modern evidence-based spelling website should not use sight words as its main public architecture term. In research-based reading instruction, a sight word is any word a reader can recognize instantly from memory; that is an outcome, not a curriculum category. A high-frequency word is a word that appears often in print. Some high-frequency words are fully decodable; some are irregular or only temporarily irregular because students have not yet learned the relevant pattern. Heart Words are a teaching routine for drawing attention to the irregular part that must be learned "by heart," while still analyzing the regular part through phonics.
+A modern evidence-based spelling website should use High-Frequency Words as its public architecture term. A high-frequency word is a word that appears often in print; instant recognition from memory is a learning outcome, not the definition of the curriculum category. Some high-frequency words are fully decodable; some are irregular or only temporarily irregular because students have not yet learned the relevant pattern. Heart Words are a teaching routine for drawing attention to the irregular part that must be learned "by heart," while still analyzing the regular part through phonics.
 
-That distinction matters for SpellingWords.app. Reading Rockets' overview explains that memorizing lists does not create a sight-word vocabulary unless phonics and phonemic awareness are also present. Its "new model" article recommends dividing common words into decodable Flash Words and irregular Heart Words, grouping them by teachable patterns rather than treating them as raw frequency lists. UFLI similarly distinguishes permanently irregular and temporarily irregular words and teaches only the unexpected part as the "heart" part.
+That distinction matters for SpellingWords.app. Reading Rockets' overview explains that memorizing lists does not create a high-frequency-word vocabulary unless phonics and phonemic awareness are also present. Its "new model" article recommends dividing high-frequency words into decodable Flash Words and irregular Heart Words, grouping them by teachable patterns rather than treating them as raw frequency lists. UFLI similarly distinguishes permanently irregular and temporarily irregular words and teaches only the unexpected part as the "heart" part.
 
-For list sources, Dolch and Fry should be treated as reference pools, not as the site's visible organizing system. The Dolch 220 list comes from Edward Dolch's basic sight-vocabulary work; Fry's list is a later and much larger "Instant Words" list divided into hundreds. Both are widely used, but neither should dictate public page titles or a strict grade architecture. Instead, the site should use a hybrid: draw from high-frequency lists and school-common words, sequence words by instructional usefulness and teachability, and tag individual words internally as decodable, temporarily irregular, or permanently irregular.
+For list sources, Dolch and Fry should be treated as reference pools, not as the site's visible organizing system. The Dolch 220 list comes from Edward Dolch's basic sight-vocabulary work; Fry's list is a later and much larger "Instant Words" list divided into hundreds. Both are widely used, but neither should dictate public page titles or a strict grade architecture. Instead, the site should use a hybrid: draw from high-frequency lists and school-high-frequency words, sequence words by instructional usefulness and teachability, and tag individual words internally as decodable, temporarily irregular, or permanently irregular.
 
-This also answers the "all taught as wholes?" question: no. Farrell, Osenga, and Hunter's model explicitly argues that high-frequency words should be sorted by whether they are regular or irregular, and many words can move from Heart Word status to decodable status after a child learns more phonics. Reading Rockets' broad phonics guidance likewise recommends only a limited set of early sight words and says that irregular words should not overshadow word-identification strategies.
+This also answers the "all taught as wholes?" question: no. Farrell, Osenga, and Hunter's model explicitly argues that high-frequency words should be sorted by whether they are regular or irregular, and many words can move from Heart Word status to decodable status after a child learns more phonics. Reading Rockets' broad phonics guidance likewise recommends only a limited set of early high-frequency words and says that irregular words should not overshadow word-identification strategies.
 
-The public section heading should therefore be Common Words to Spell. That heading is parent-understandable, still compatible with search queries like kindergarten sight words and 1st grade sight words, and broad enough to remain useful in Grades 3–5 when the focus shifts away from classic sight-word acquisition. The site should preserve familiar terminology in helper copy, internal tags, page metadata, and optional explanatory notes such as "Includes kindergarten sight words and Heart Words."
+The public section heading should therefore be High-Frequency Words. That heading is parent-understandable, still compatible with search queries like kindergarten high-frequency words and 1st grade high-frequency words, and broad enough to remain useful in Grades 3–5 when the focus shifts away from classic high-frequency-word acquisition. The site should use the same canonical terminology in helper copy, internal tags, page metadata, and optional explanatory notes.
 
 In Grades 3–5, this section should not simply continue raw Dolch/Fry coverage. Instead, it should pivot toward high-utility everyday words and conventionally difficult spellings that children still need in writing, while homophone pairs and contrastive spelling decisions belong mainly in Learn in Order because they are concept-based conventional choices, not just word-frequency problems. Texas explicitly identifies homophone spelling in Grade 3 foundational spelling expectations, and upper-grade standards increasingly foreground affixes, roots, and word analysis.
 
@@ -66,70 +66,70 @@ In Grades 3–5, this section should not simply continue raw Dolch/Fry coverage.
 
 | Grade | Recommended public label | Approximate total words | Number of 8–16-word practice pages | Organizational method | Relationship to Dolch, Fry, and Heart Words | Notes |
 |---|---|---|---|---|---|---|
-| Kindergarten | Common Words to Spell | 50 | 5 | Hybrid sequence: highest-utility everyday words first; within pages, group similar spellings when possible | Draw from early Dolch/Fry-style words; mark irregular parts as Heart Word features | Includes a very small pre-decoding core, then simple common words tied to phonics |
-| Grade 1 | Common Words to Spell | 84 | 7 | Hybrid sequence by usefulness and teachability | Continue common Dolch/Fry pool; Heart Word marking used when needed | Many words will also become fully decodable as phonics expands |
-| Grade 2 | Common Words to Spell | 96 | 8 | Hybrid sequence, cumulative across school writing needs | Remaining high-utility K–2 common words, contractions, and irregular forms | Final heavy year for classic common-word acquisition |
-| Grade 3 | Common Words to Spell | 72 | 6 | Everyday writing words, not pure frequency order | Mix of remaining high-utility common words and frequent trouble words | Shift away from "sight words" as a visible concept |
-| Grade 4 | Common Words to Spell | 60 | 5 | Everyday/tricky words grouped into usable writing sets | Only light use of Dolch/Fry as background pools | Exclude words already taught in dedicated homophone core pages |
-| Grade 5 | Common Words to Spell | 60 | 5 | Everyday/tricky words and persistent misspellings | High-frequency lists are background only | Keep distinct from morphology-heavy core lessons |
+| Kindergarten | High-Frequency Words to Spell | 50 | 5 | Hybrid sequence: highest-utility everyday words first; within pages, group similar spellings when possible | Draw from early Dolch/Fry-style words; mark irregular parts as Heart Word features | Includes a very small pre-decoding core, then simple high-frequency words tied to phonics |
+| Grade 1 | High-Frequency Words to Spell | 84 | 7 | Hybrid sequence by usefulness and teachability | Continue common Dolch/Fry pool; Heart Word marking used when needed | Many words will also become fully decodable as phonics expands |
+| Grade 2 | High-Frequency Words to Spell | 96 | 8 | Hybrid sequence, cumulative across school writing needs | Remaining high-utility K–2 high-frequency words, contractions, and irregular forms | Final heavy year for classic high-frequency-word acquisition |
+| Grade 3 | High-Frequency Words to Spell | 72 | 6 | Everyday writing words, not pure frequency order | Mix of remaining high-utility high-frequency words and frequent trouble words | Shift away from "high-frequency words" as a visible concept |
+| Grade 4 | High-Frequency Words to Spell | 60 | 5 | Everyday/tricky words grouped into usable writing sets | Only light use of Dolch/Fry as background pools | Exclude words already taught in dedicated homophone core pages |
+| Grade 5 | High-Frequency Words to Spell | 60 | 5 | Everyday/tricky words and persistent misspellings | High-frequency lists are background only | Keep distinct from morphology-heavy core lessons |
 
 The site should use one gateway card on each grade page for this section, with the individual sets listed on the gateway page. That keeps the grade page calm while still allowing full coverage. This is a justified gateway because the underlying pages are tightly related and sequential, not a miscellaneous bucket.
 
 ### Recommended sample sequence of page titles
 
 **Kindergarten:**
-- Kindergarten Common Words 1
-- Kindergarten Common Words 2
-- Kindergarten Common Words 3
-- Kindergarten Common Words 4
-- Kindergarten Common Words 5
+- Kindergarten High-Frequency Words 1
+- Kindergarten High-Frequency Words 2
+- Kindergarten High-Frequency Words 3
+- Kindergarten High-Frequency Words 4
+- Kindergarten High-Frequency Words 5
 
 **Grade 1:**
-- Grade 1 Common Words 1
-- Grade 1 Common Words 2
-- Grade 1 Common Words 3
-- Grade 1 Common Words 4
-- Grade 1 Common Words 5
-- Grade 1 Common Words 6
-- Grade 1 Common Words 7
+- Grade 1 High-Frequency Words 1
+- Grade 1 High-Frequency Words 2
+- Grade 1 High-Frequency Words 3
+- Grade 1 High-Frequency Words 4
+- Grade 1 High-Frequency Words 5
+- Grade 1 High-Frequency Words 6
+- Grade 1 High-Frequency Words 7
 
 **Grade 2:**
-- Grade 2 Common Words 1
-- Grade 2 Common Words 2
-- Grade 2 Common Words 3
-- Grade 2 Common Words 4
-- Grade 2 Common Words 5
-- Grade 2 Common Words 6
-- Grade 2 Common Words 7
-- Grade 2 Common Words 8
+- Grade 2 High-Frequency Words 1
+- Grade 2 High-Frequency Words 2
+- Grade 2 High-Frequency Words 3
+- Grade 2 High-Frequency Words 4
+- Grade 2 High-Frequency Words 5
+- Grade 2 High-Frequency Words 6
+- Grade 2 High-Frequency Words 7
+- Grade 2 High-Frequency Words 8
 
 **Grade 3:**
-- Grade 3 Common Words 1
-- Grade 3 Common Words 2
-- Grade 3 Common Words 3
-- Grade 3 Common Words 4
-- Grade 3 Common Words 5
-- Grade 3 Common Words 6
+- Grade 3 High-Frequency Words 1
+- Grade 3 High-Frequency Words 2
+- Grade 3 High-Frequency Words 3
+- Grade 3 High-Frequency Words 4
+- Grade 3 High-Frequency Words 5
+- Grade 3 High-Frequency Words 6
 
 **Grade 4:**
-- Grade 4 Common Words 1
-- Grade 4 Common Words 2
-- Grade 4 Common Words 3
-- Grade 4 Common Words 4
-- Grade 4 Common Words 5
+- Grade 4 High-Frequency Words 1
+- Grade 4 High-Frequency Words 2
+- Grade 4 High-Frequency Words 3
+- Grade 4 High-Frequency Words 4
+- Grade 4 High-Frequency Words 5
 
 **Grade 5:**
-- Grade 5 Common Words 1
-- Grade 5 Common Words 2
-- Grade 5 Common Words 3
-- Grade 5 Common Words 4
-- Grade 5 Common Words 5
+- Grade 5 High-Frequency Words 1
+- Grade 5 High-Frequency Words 2
+- Grade 5 High-Frequency Words 3
+- Grade 5 High-Frequency Words 4
+- Grade 5 High-Frequency Words 5
 
-### Exact common-word page philosophy
+### Exact high-frequency-word page philosophy
 
-Use numbered sets, not theme names, for the common-word pages themselves. Numbering is clearer because the section is cumulative and sequential. Within each set, group words by spelling feature wherever possible so children can notice patterns and Heart Word features rather than memorizing disconnected word strings. That recommendation aligns with Reading Rockets' high-frequency-word model and still preserves the familiar parent expectation of "word sets."
+Use numbered sets, not theme names, for the high-frequency-word pages themselves. Numbering is clearer because the section is cumulative and sequential. Within each set, group words by spelling feature wherever possible so children can notice patterns and Heart Word features rather than memorizing disconnected word strings. That recommendation aligns with Reading Rockets' high-frequency-word model and still preserves the familiar parent expectation of "word sets."
 
-Do not duplicate the same word across multiple common-word pages unless there is a purposeful review page. Decodable common words may show up as examples elsewhere in core practice, but they should have only one canonical home in the common-word sequence. Heart Word status should be handled as an instructional note, not as a separate public page type. A word can move from "temporarily irregular" to "fully decodable" as the child learns more spelling patterns.
+Do not duplicate the same word across multiple high-frequency-word pages unless there is a purposeful review page. Decodable high-frequency words may show up as examples elsewhere in core practice, but they should have only one canonical home in the high-frequency-word sequence. Heart Word status should be handled as an instructional note, not as a separate public page type. A word can move from "temporarily irregular" to "fully decodable" as the child learns more spelling patterns.
 
 ## Final K–5 grade-page plan
 
@@ -147,7 +147,7 @@ Kindergarten standards and mainstream early-literacy guidance emphasize letter-s
 | Learn in Order | Mixed CVC Words | Review across all five short vowels | 6 | Review page | 1 | cat, sit, mop | Review | Helps parents see whether the child can choose the right vowel, not just match a list |
 | Learn in Order | Beginning Blends | Offer late-year practice with simple consonant clusters | 7 | Individual practice page | 1 | flag, step, drum | Preview | Blend timing varies across programs, so late-K preview is safer than making it central |
 | Learn in Order | Digraph Words | Offer late-year practice with common digraphs | 8 | Individual practice page | 1 | ship, chop, that | Preview | Digraphs often arrive late in K or early in Grade 1 depending on curriculum |
-| Common Words to Spell | Kindergarten Common Words | Provide the full Kindergarten common-word sequence | 1 | Gateway page | 5 | the, a, I, and, is | Essential | K needs more than one "sight word" page, but a single gateway keeps the grade page calm |
+| High-Frequency Words to Spell | Kindergarten High-Frequency Words | Provide the full Kindergarten high-frequency-word sequence | 1 | Gateway page | 5 | the, a, I, and, is | Essential | K needs more than one "high-frequency word" page, but a single gateway keeps the grade page calm |
 | Practice by Topic | Color Words | Meet one of the most common parent requests | 1 | Individual practice page | 1 | red, blue, green | Optional high-value | Useful, concrete, and age-appropriate |
 | Practice by Topic | Number Words 1–10 | Support school-home practice for early number words | 2 | Individual practice page | 1 | one, two, three | Optional high-value | Frequently requested and worthwhile for early spelling |
 | Practice by Topic | Family Words | Support everyday writing vocabulary | 3 | Individual practice page | 1 | mom, dad, sister | Optional high-value | High relevance in early writing |
@@ -170,7 +170,7 @@ Grade 1 is the heaviest one-syllable spelling year. Across major guidance, it is
 | Learn in Order | Plurals with -S and -Es | Begin spelling with simple inflectional endings | 8 | Individual practice page | 1 | cats, wishes, boxes | Essential | Grade 1/2 standards increasingly connect morphology with spelling |
 | Learn in Order | Endings -Ing and -Ed | Practice frequent endings used in everyday writing | 9 | Individual practice page | 1 | jumping, jumped, rested | Essential | Inflectional endings support both reading and writing transfer |
 | Learn in Order | Final V Spelled Ve | Teach a reliable English spelling convention | 10 | Individual practice page | 1 | have, give, solve | Essential | This convention is high utility and reduces persistent errors |
-| Common Words to Spell | Grade 1 Common Words | Provide the full Grade 1 common-word sequence | 1 | Gateway page | 7 | was, you, for, said | Essential | Grade 1 needs sustained common-word instruction, not a token list |
+| High-Frequency Words to Spell | Grade 1 High-Frequency Words | Provide the full Grade 1 high-frequency-word sequence | 1 | Gateway page | 7 | was, you, for, said | Essential | Grade 1 needs sustained high-frequency-word instruction, not a token list |
 | Practice by Topic | Days of the Week | Support immediate school writing needs | 1 | Individual practice page | 1 | Monday, Tuesday | Optional high-value | Common teacher/parent request |
 | Practice by Topic | Family and Home Words | Extend everyday writing vocabulary | 2 | Individual practice page | 1 | kitchen, bedroom, family | Optional high-value | Real writing relevance |
 | Practice by Topic | School Words | Reinforce classroom vocabulary | 3 | Individual practice page | 1 | pencil, teacher, recess | Optional high-value | Practical and frequently needed |
@@ -193,7 +193,7 @@ Grade 2 is the bridge from one-syllable mastery to dependable multisyllabic spel
 | Learn in Order | Two-Syllable Words | Begin explicit longer-word spelling in small steps | 8 | Gateway page | 2 | robot, napkin, sunset | Essential | Moves children beyond one-syllable dependence |
 | Learn in Order | Plurals and Past-Tense Endings | Build the most common spelling-change patterns | 9 | Gateway page | 3 | babies, boxes, jumped | Essential | South Carolina's grade progression specifically moves into spelling changes by Grade 2 |
 | Learn in Order | Harder Sound Spellings | Gather common multiple-spelling trouble spots | 10 | Individual practice page | 1 | city, gem, bridge | Essential | Prevents core conventions from being lost in miscues |
-| Common Words to Spell | Grade 2 Common Words | Provide the full Grade 2 common-word sequence | 1 | Gateway page | 8 | because, together, again | Essential | Still a major year for high-utility common-word coverage |
+| High-Frequency Words to Spell | Grade 2 High-Frequency Words | Provide the full Grade 2 high-frequency-word sequence | 1 | Gateway page | 8 | because, together, again | Essential | Still a major year for high-utility high-frequency-word coverage |
 | Practice by Topic | Months of the Year | Meet a frequent school-home practice need | 1 | Individual practice page | 1 | January, April, July | Optional high-value | Common assignment content |
 | Practice by Topic | Math Words | Reinforce useful school vocabulary | 2 | Individual practice page | 1 | number, plus, equal | Optional high-value | Early content-area spelling starts to make sense here |
 | Practice by Topic | Science Words: Plants and Animals | Add meaningful topic practice | 3 | Individual practice page | 1 | stem, roots, habitat | Optional high-value | Useful and age-appropriate |
@@ -215,7 +215,7 @@ Grade 3 is the real transition year into multisyllabic spelling, derivational mo
 | Learn in Order | Compound Words and Contractions Review | Keep earlier conventions active in longer writing | 7 | Review page | 1 | playground, won't, sunflower | Review | Still useful, but no longer the center of instruction |
 | Learn in Order | Tricky Spellings in Longer Words | Cover unstable-looking common spellings | 8 | Individual practice page | 1 | eight, rough, listen | Essential | Prevents upper-elementary errors from accumulating |
 | Learn in Order | Final Ch and J in Longer Words | Revisit ending spellings in harder words | 9 | Individual practice page | 1 | stretch, village, courage | Essential | Good placement once longer words are established |
-| Common Words to Spell | Grade 3 Common Words | Provide the full Grade 3 common-word sequence | 1 | Gateway page | 6 | enough, through, answer | Essential | By Grade 3 this section shifts from classic sight words toward everyday writing words |
+| High-Frequency Words to Spell | Grade 3 High-Frequency Words | Provide the full Grade 3 high-frequency-word sequence | 1 | Gateway page | 6 | enough, through, answer | Essential | By Grade 3 this section shifts from classic high-frequency words toward everyday writing words |
 | Practice by Topic | Math Words | Reinforce school math vocabulary | 1 | Individual practice page | 1 | multiply, fraction, measure | Optional high-value | High utility in school texts |
 | Practice by Topic | Science Words: Earth and Weather | Support content-area spelling | 2 | Individual practice page | 1 | climate, thunder, forecast | Optional high-value | Useful and motivating |
 | Practice by Topic | Science Words: Plants and Animals | Continue meaningful science vocabulary | 3 | Individual practice page | 1 | blossom, mammal, habitat | Optional high-value | Good school-home fit |
@@ -229,14 +229,14 @@ Grade 4 is the year when morphology should become visibly prominent on the site.
 | Section | Exact card title | Purpose | Recommended order | Page type | Estimated underlying 8–16-word pages | Example spelling content | Status | Evidence-based rationale |
 |---|---|---|---|---|---|---|---|---|
 | Learn in Order | Multisyllable Review | Refresh earlier syllable types in longer words | 1 | Gateway page | 2 | dentist, reptile, little | Review | Still needed for many writers |
-| Learn in Order | Prefixes That Change Meaning | Expand meaning-bearing prefixes in common words | 2 | Gateway page | 2 | preview, nonprofit, transport | Essential | Upper elementary should now use prefixes systematically |
+| Learn in Order | Prefixes That Change Meaning | Expand meaning-bearing prefixes in high-frequency words | 2 | Gateway page | 2 | preview, nonprofit, transport | Essential | Upper elementary should now use prefixes systematically |
 | Learn in Order | Suffixes That Build New Words | Add productive derivational suffixes | 3 | Gateway page | 2 | movement, possible, active | Essential | Supports spelling and vocabulary growth together |
 | Learn in Order | Latin Root Words | Introduce common Latin-root families | 4 | Gateway page | 3 | import, inspect, construction | Essential | Strong Grade 4 fit in standards and morphology research |
 | Learn in Order | Greek Root Words | Add the most usable school-related Greek roots | 5 | Gateway page | 2 | autograph, thermometer, bicycle | Essential | Common in science and academic vocabulary |
 | Learn in Order | Hard-to-Hear Vowels in Longer Words | Address unstressed-vowel trouble spots in plain language | 6 | Individual practice page | 1 | separate, family, memory | Essential | Important, but parent-facing naming should avoid jargon |
 | Learn in Order | Homophones and Commonly Confused Words | Continue convention-based spelling choices | 7 | Gateway page | 2 | rain/rein, accept/except | Essential | These belong in core because the skill is discriminating between spellings |
 | Learn in Order | Base-Word Changes Review | Keep earlier suffix rules active | 8 | Review page | 1 | studied, hoping, running | Review | Prevents regression in longer writing |
-| Common Words to Spell | Grade 4 Common Words | Provide the full Grade 4 common-word sequence | 1 | Gateway page | 5 | separate, finally, probably | Essential | Upper-grade common-word practice should narrow, not disappear |
+| High-Frequency Words to Spell | Grade 4 High-Frequency Words | Provide the full Grade 4 high-frequency-word sequence | 1 | Gateway page | 5 | separate, finally, probably | Essential | Upper-grade high-frequency-word practice should narrow, not disappear |
 | Practice by Topic | Math Words | Provide content-area support | 1 | Individual practice page | 1 | decimal, quotient, perimeter | Optional high-value | Real curricular relevance |
 | Practice by Topic | Science Words: Energy and Ecosystems | Provide useful science vocabulary | 2 | Individual practice page | 1 | energy, habitat, predator | Optional high-value | Fits upper-elementary content |
 | Practice by Topic | Social Studies Words: Regions and Government | Support content-area writing | 3 | Individual practice page | 1 | region, governor, election | Optional high-value | Clear and school-relevant |
@@ -258,7 +258,7 @@ Grade 5 should continue the upper-elementary pattern: advanced multisyllabic spe
 | Learn in Order | Word-Origin Spellings Tion, Sion, and Cian | Give a clean parent-facing entry to major derived-word endings | 7 | Individual practice page | 1 | station, expression, magician | Essential | High-utility upper-grade pattern family |
 | Learn in Order | Homophones and Commonly Confused Words | Cover persistent high-level conventional choices | 8 | Gateway page | 2 | principle/principal, stationary/stationery | Essential | Conventional choice remains core spelling work |
 | Learn in Order | Editing for Correct Spelling | Connect learned patterns to authentic proofreading | 9 | Review page | 1 | their/there, separate | Review | CCSS expects correct grade-appropriate spelling with references as needed |
-| Common Words to Spell | Grade 5 Common Words | Provide the full Grade 5 common-word sequence | 1 | Gateway page | 5 | necessary, different, business | Essential | By Grade 5 this section is a targeted support section, not a giant list |
+| High-Frequency Words to Spell | Grade 5 High-Frequency Words | Provide the full Grade 5 high-frequency-word sequence | 1 | Gateway page | 5 | necessary, different, business | Essential | By Grade 5 this section is a targeted support section, not a giant list |
 | Practice by Topic | Math Words | Support upper-elementary math vocabulary | 1 | Individual practice page | 1 | numerator, equation, volume | Optional high-value | Useful and relevant |
 | Practice by Topic | Science Words: Matter and Space | Provide content-area spelling support | 2 | Individual practice page | 1 | matter, orbit, gravity | Optional high-value | Good school fit |
 | Practice by Topic | Social Studies Words: U.S. History | Add relevant social-studies vocabulary | 3 | Individual practice page | 1 | colony, revolution, constitution | Optional high-value | Common classroom crossover |
@@ -269,7 +269,7 @@ Grade 5 should continue the upper-elementary pattern: advanced multisyllabic spe
 
 ### Minimum complete curriculum
 
-This inventory includes the recommended minimum complete curriculum: all core pages, all common-word pages, all visible gateway pages, and the high-value Practice by Topic pages. Secondary optional topic pages are listed later and are not included in this minimum inventory.
+This inventory includes the recommended minimum complete curriculum: all core pages, all high-frequency-word pages, all visible gateway pages, and the high-value Practice by Topic pages. Secondary optional topic pages are listed later and are not included in this minimum inventory.
 
 #### Kindergarten inventory
 
@@ -283,12 +283,12 @@ This inventory includes the recommended minimum complete curriculum: all core pa
 | Kindergarten | Learn in Order | 6 | Mixed CVC Words | Review page | mixed short vowels | 8–10 | Review | Cross-vowel review |
 | Kindergarten | Learn in Order | 7 | Beginning Blends | Optional preview page | early CCVC/CVCC blend spelling | 8–10 | Optional preview | Late-K preview |
 | Kindergarten | Learn in Order | 8 | Digraph Words | Optional preview page | sh, ch, th, wh | 8–10 | Optional preview | Late-K preview |
-| Kindergarten | Common Words to Spell | 1 | Kindergarten Common Words | Gateway page | gateway to all K common-word sets | — | Essential | Parent-facing hub |
-| Kindergarten | Common Words to Spell | 1a | Kindergarten Common Words 1 | Individual practice page | earliest common words | 10 | Essential | includes the, a, I, to |
-| Kindergarten | Common Words to Spell | 1b | Kindergarten Common Words 2 | Individual practice page | simple high-utility words | 10 | Essential | includes and, is, in |
-| Kindergarten | Common Words to Spell | 1c | Kindergarten Common Words 3 | Individual practice page | mixed regular/temporary Heart Words | 10 | Essential | cumulative set |
-| Kindergarten | Common Words to Spell | 1d | Kindergarten Common Words 4 | Individual practice page | common classroom words | 10 | Essential | cumulative set |
-| Kindergarten | Common Words to Spell | 1e | Kindergarten Common Words 5 | Individual practice page | end-of-year common words | 10 | Essential | cumulative set |
+| Kindergarten | High-Frequency Words to Spell | 1 | Kindergarten High-Frequency Words | Gateway page | gateway to all K high-frequency-word sets | — | Essential | Parent-facing hub |
+| Kindergarten | High-Frequency Words to Spell | 1a | Kindergarten High-Frequency Words 1 | Individual practice page | earliest high-frequency words | 10 | Essential | includes the, a, I, to |
+| Kindergarten | High-Frequency Words to Spell | 1b | Kindergarten High-Frequency Words 2 | Individual practice page | simple high-utility words | 10 | Essential | includes and, is, in |
+| Kindergarten | High-Frequency Words to Spell | 1c | Kindergarten High-Frequency Words 3 | Individual practice page | mixed regular/temporary Heart Words | 10 | Essential | cumulative set |
+| Kindergarten | High-Frequency Words to Spell | 1d | Kindergarten High-Frequency Words 4 | Individual practice page | common classroom words | 10 | Essential | cumulative set |
+| Kindergarten | High-Frequency Words to Spell | 1e | Kindergarten High-Frequency Words 5 | Individual practice page | end-of-year high-frequency words | 10 | Essential | cumulative set |
 | Kindergarten | Practice by Topic | 1 | Color Words | Individual practice page | common color names | 8–10 | Optional high-value | High parent demand |
 | Kindergarten | Practice by Topic | 2 | Number Words 1–10 | Individual practice page | number words | 8–10 | Optional high-value | Useful for school-home practice |
 | Kindergarten | Practice by Topic | 3 | Family Words | Individual practice page | family vocabulary | 8–10 | Optional high-value | Everyday writing words |
@@ -321,14 +321,14 @@ This inventory includes the recommended minimum complete curriculum: all core pa
 | Grade 1 | Learn in Order | 8 | Plurals with -S and -Es | Individual practice page | simple plural endings | 10–12 | Essential | frequent writing forms |
 | Grade 1 | Learn in Order | 9 | Endings -Ing and -Ed | Individual practice page | common inflectional endings | 10–12 | Essential | frequent writing forms |
 | Grade 1 | Learn in Order | 10 | Final V Spelled Ve | Individual practice page | word-final v convention | 8–10 | Essential | have, give, live |
-| Grade 1 | Common Words to Spell | 1 | Grade 1 Common Words | Gateway page | gateway to all Grade 1 common-word sets | — | Essential | Parent-facing hub |
-| Grade 1 | Common Words to Spell | 1a | Grade 1 Common Words 1 | Individual practice page | common function words | 12 | Essential | early Grade 1 set |
-| Grade 1 | Common Words to Spell | 1b | Grade 1 Common Words 2 | Individual practice page | common school words | 12 | Essential | cumulative set |
-| Grade 1 | Common Words to Spell | 1c | Grade 1 Common Words 3 | Individual practice page | mixed regular/Heart Words | 12 | Essential | cumulative set |
-| Grade 1 | Common Words to Spell | 1d | Grade 1 Common Words 4 | Individual practice page | mixed regular/Heart Words | 12 | Essential | cumulative set |
-| Grade 1 | Common Words to Spell | 1e | Grade 1 Common Words 5 | Individual practice page | mixed regular/Heart Words | 12 | Essential | cumulative set |
-| Grade 1 | Common Words to Spell | 1f | Grade 1 Common Words 6 | Individual practice page | end-of-year common words | 12 | Essential | cumulative set |
-| Grade 1 | Common Words to Spell | 1g | Grade 1 Common Words 7 | Individual practice page | end-of-year common words | 12 | Essential | cumulative set |
+| Grade 1 | High-Frequency Words to Spell | 1 | Grade 1 High-Frequency Words | Gateway page | gateway to all Grade 1 high-frequency-word sets | — | Essential | Parent-facing hub |
+| Grade 1 | High-Frequency Words to Spell | 1a | Grade 1 High-Frequency Words 1 | Individual practice page | common function words | 12 | Essential | early Grade 1 set |
+| Grade 1 | High-Frequency Words to Spell | 1b | Grade 1 High-Frequency Words 2 | Individual practice page | common school words | 12 | Essential | cumulative set |
+| Grade 1 | High-Frequency Words to Spell | 1c | Grade 1 High-Frequency Words 3 | Individual practice page | mixed regular/Heart Words | 12 | Essential | cumulative set |
+| Grade 1 | High-Frequency Words to Spell | 1d | Grade 1 High-Frequency Words 4 | Individual practice page | mixed regular/Heart Words | 12 | Essential | cumulative set |
+| Grade 1 | High-Frequency Words to Spell | 1e | Grade 1 High-Frequency Words 5 | Individual practice page | mixed regular/Heart Words | 12 | Essential | cumulative set |
+| Grade 1 | High-Frequency Words to Spell | 1f | Grade 1 High-Frequency Words 6 | Individual practice page | end-of-year high-frequency words | 12 | Essential | cumulative set |
+| Grade 1 | High-Frequency Words to Spell | 1g | Grade 1 High-Frequency Words 7 | Individual practice page | end-of-year high-frequency words | 12 | Essential | cumulative set |
 | Grade 1 | Practice by Topic | 1 | Days of the Week | Individual practice page | day names | 8–10 | Optional high-value | Common request |
 | Grade 1 | Practice by Topic | 2 | Family and Home Words | Individual practice page | family/home vocabulary | 8–10 | Optional high-value | Everyday relevance |
 | Grade 1 | Practice by Topic | 3 | School Words | Individual practice page | school vocabulary | 8–10 | Optional high-value | Practical use |
@@ -358,15 +358,15 @@ This inventory includes the recommended minimum complete curriculum: all core pa
 | Grade 2 | Learn in Order | 9b | Past-Tense -Ed | Individual practice page | past tense ending | 10–12 | Essential | jumped, landed |
 | Grade 2 | Learn in Order | 9c | Changing Y to Ies | Individual practice page | y to ies in plurals | 8–10 | Essential | babies, puppies |
 | Grade 2 | Learn in Order | 10 | Harder Sound Spellings | Individual practice page | tougher sound-spelling choices | 10–12 | Essential | city, gem, badge |
-| Grade 2 | Common Words to Spell | 1 | Grade 2 Common Words | Gateway page | gateway to all Grade 2 common-word sets | — | Essential | Parent-facing hub |
-| Grade 2 | Common Words to Spell | 1a | Grade 2 Common Words 1 | Individual practice page | high-utility common words | 12 | Essential | early set |
-| Grade 2 | Common Words to Spell | 1b | Grade 2 Common Words 2 | Individual practice page | high-utility common words | 12 | Essential | cumulative set |
-| Grade 2 | Common Words to Spell | 1c | Grade 2 Common Words 3 | Individual practice page | high-utility common words | 12 | Essential | cumulative set |
-| Grade 2 | Common Words to Spell | 1d | Grade 2 Common Words 4 | Individual practice page | mixed regular/Heart Words | 12 | Essential | cumulative set |
-| Grade 2 | Common Words to Spell | 1e | Grade 2 Common Words 5 | Individual practice page | mixed regular/Heart Words | 12 | Essential | cumulative set |
-| Grade 2 | Common Words to Spell | 1f | Grade 2 Common Words 6 | Individual practice page | mixed regular/Heart Words | 12 | Essential | cumulative set |
-| Grade 2 | Common Words to Spell | 1g | Grade 2 Common Words 7 | Individual practice page | end-of-year common words | 12 | Essential | cumulative set |
-| Grade 2 | Common Words to Spell | 1h | Grade 2 Common Words 8 | Individual practice page | end-of-year common words | 12 | Essential | cumulative set |
+| Grade 2 | High-Frequency Words to Spell | 1 | Grade 2 High-Frequency Words | Gateway page | gateway to all Grade 2 high-frequency-word sets | — | Essential | Parent-facing hub |
+| Grade 2 | High-Frequency Words to Spell | 1a | Grade 2 High-Frequency Words 1 | Individual practice page | high-utility high-frequency words | 12 | Essential | early set |
+| Grade 2 | High-Frequency Words to Spell | 1b | Grade 2 High-Frequency Words 2 | Individual practice page | high-utility high-frequency words | 12 | Essential | cumulative set |
+| Grade 2 | High-Frequency Words to Spell | 1c | Grade 2 High-Frequency Words 3 | Individual practice page | high-utility high-frequency words | 12 | Essential | cumulative set |
+| Grade 2 | High-Frequency Words to Spell | 1d | Grade 2 High-Frequency Words 4 | Individual practice page | mixed regular/Heart Words | 12 | Essential | cumulative set |
+| Grade 2 | High-Frequency Words to Spell | 1e | Grade 2 High-Frequency Words 5 | Individual practice page | mixed regular/Heart Words | 12 | Essential | cumulative set |
+| Grade 2 | High-Frequency Words to Spell | 1f | Grade 2 High-Frequency Words 6 | Individual practice page | mixed regular/Heart Words | 12 | Essential | cumulative set |
+| Grade 2 | High-Frequency Words to Spell | 1g | Grade 2 High-Frequency Words 7 | Individual practice page | end-of-year high-frequency words | 12 | Essential | cumulative set |
+| Grade 2 | High-Frequency Words to Spell | 1h | Grade 2 High-Frequency Words 8 | Individual practice page | end-of-year high-frequency words | 12 | Essential | cumulative set |
 | Grade 2 | Practice by Topic | 1 | Months of the Year | Individual practice page | month names | 8–10 | Optional high-value | Common school need |
 | Grade 2 | Practice by Topic | 2 | Math Words | Individual practice page | basic math vocabulary | 8–10 | Optional high-value | Content-area support |
 | Grade 2 | Practice by Topic | 3 | Science Words: Plants and Animals | Individual practice page | science vocabulary | 8–10 | Optional high-value | Useful and concrete |
@@ -397,13 +397,13 @@ This inventory includes the recommended minimum complete curriculum: all core pa
 | Grade 3 | Learn in Order | 7 | Compound Words and Contractions Review | Review page | review of earlier conventions | 10–12 | Review | keeps prior knowledge active |
 | Grade 3 | Learn in Order | 8 | Tricky Spellings in Longer Words | Individual practice page | eigh, ough, and similar trouble spots | 10–12 | Essential | transition trouble words |
 | Grade 3 | Learn in Order | 9 | Final Ch and J in Longer Words | Individual practice page | final /ch/ and /j/ spellings | 10–12 | Essential | village, stretch |
-| Grade 3 | Common Words to Spell | 1 | Grade 3 Common Words | Gateway page | gateway to all Grade 3 common-word sets | — | Essential | Parent-facing hub |
-| Grade 3 | Common Words to Spell | 1a | Grade 3 Common Words 1 | Individual practice page | everyday common words | 12 | Essential | includes tricky but useful words |
-| Grade 3 | Common Words to Spell | 1b | Grade 3 Common Words 2 | Individual practice page | everyday common words | 12 | Essential | cumulative set |
-| Grade 3 | Common Words to Spell | 1c | Grade 3 Common Words 3 | Individual practice page | everyday common words | 12 | Essential | cumulative set |
-| Grade 3 | Common Words to Spell | 1d | Grade 3 Common Words 4 | Individual practice page | everyday common words | 12 | Essential | cumulative set |
-| Grade 3 | Common Words to Spell | 1e | Grade 3 Common Words 5 | Individual practice page | everyday common words | 12 | Essential | cumulative set |
-| Grade 3 | Common Words to Spell | 1f | Grade 3 Common Words 6 | Individual practice page | everyday common words | 12 | Essential | cumulative set |
+| Grade 3 | High-Frequency Words to Spell | 1 | Grade 3 High-Frequency Words | Gateway page | gateway to all Grade 3 high-frequency-word sets | — | Essential | Parent-facing hub |
+| Grade 3 | High-Frequency Words to Spell | 1a | Grade 3 High-Frequency Words 1 | Individual practice page | everyday high-frequency words | 12 | Essential | includes tricky but useful words |
+| Grade 3 | High-Frequency Words to Spell | 1b | Grade 3 High-Frequency Words 2 | Individual practice page | everyday high-frequency words | 12 | Essential | cumulative set |
+| Grade 3 | High-Frequency Words to Spell | 1c | Grade 3 High-Frequency Words 3 | Individual practice page | everyday high-frequency words | 12 | Essential | cumulative set |
+| Grade 3 | High-Frequency Words to Spell | 1d | Grade 3 High-Frequency Words 4 | Individual practice page | everyday high-frequency words | 12 | Essential | cumulative set |
+| Grade 3 | High-Frequency Words to Spell | 1e | Grade 3 High-Frequency Words 5 | Individual practice page | everyday high-frequency words | 12 | Essential | cumulative set |
+| Grade 3 | High-Frequency Words to Spell | 1f | Grade 3 High-Frequency Words 6 | Individual practice page | everyday high-frequency words | 12 | Essential | cumulative set |
 | Grade 3 | Practice by Topic | 1 | Math Words | Individual practice page | math vocabulary | 8–10 | Optional high-value | content-area set |
 | Grade 3 | Practice by Topic | 2 | Science Words: Earth and Weather | Individual practice page | science vocabulary | 8–10 | Optional high-value | content-area set |
 | Grade 3 | Practice by Topic | 3 | Science Words: Plants and Animals | Individual practice page | science vocabulary | 8–10 | Optional high-value | content-area set |
@@ -435,12 +435,12 @@ This inventory includes the recommended minimum complete curriculum: all core pa
 | Grade 4 | Learn in Order | 7a | Homophones and Commonly Confused Words 1 | Individual practice page | homophones/confusions | 10–12 | Essential | rain/rein |
 | Grade 4 | Learn in Order | 7b | Homophones and Commonly Confused Words 2 | Individual practice page | homophones/confusions | 10–12 | Essential | accept/except |
 | Grade 4 | Learn in Order | 8 | Base-Word Changes Review | Review page | suffix-rule review | 10–12 | Review | protects earlier learning |
-| Grade 4 | Common Words to Spell | 1 | Grade 4 Common Words | Gateway page | gateway to all Grade 4 common-word sets | — | Essential | Parent-facing hub |
-| Grade 4 | Common Words to Spell | 1a | Grade 4 Common Words 1 | Individual practice page | everyday/tricky common words | 12 | Essential | narrowed upper-grade focus |
-| Grade 4 | Common Words to Spell | 1b | Grade 4 Common Words 2 | Individual practice page | everyday/tricky common words | 12 | Essential | cumulative set |
-| Grade 4 | Common Words to Spell | 1c | Grade 4 Common Words 3 | Individual practice page | everyday/tricky common words | 12 | Essential | cumulative set |
-| Grade 4 | Common Words to Spell | 1d | Grade 4 Common Words 4 | Individual practice page | everyday/tricky common words | 12 | Essential | cumulative set |
-| Grade 4 | Common Words to Spell | 1e | Grade 4 Common Words 5 | Individual practice page | everyday/tricky common words | 12 | Essential | cumulative set |
+| Grade 4 | High-Frequency Words to Spell | 1 | Grade 4 High-Frequency Words | Gateway page | gateway to all Grade 4 high-frequency-word sets | — | Essential | Parent-facing hub |
+| Grade 4 | High-Frequency Words to Spell | 1a | Grade 4 High-Frequency Words 1 | Individual practice page | everyday/tricky high-frequency words | 12 | Essential | narrowed upper-grade focus |
+| Grade 4 | High-Frequency Words to Spell | 1b | Grade 4 High-Frequency Words 2 | Individual practice page | everyday/tricky high-frequency words | 12 | Essential | cumulative set |
+| Grade 4 | High-Frequency Words to Spell | 1c | Grade 4 High-Frequency Words 3 | Individual practice page | everyday/tricky high-frequency words | 12 | Essential | cumulative set |
+| Grade 4 | High-Frequency Words to Spell | 1d | Grade 4 High-Frequency Words 4 | Individual practice page | everyday/tricky high-frequency words | 12 | Essential | cumulative set |
+| Grade 4 | High-Frequency Words to Spell | 1e | Grade 4 High-Frequency Words 5 | Individual practice page | everyday/tricky high-frequency words | 12 | Essential | cumulative set |
 | Grade 4 | Practice by Topic | 1 | Math Words | Individual practice page | math vocabulary | 8–10 | Optional high-value | content-area set |
 | Grade 4 | Practice by Topic | 2 | Science Words: Energy and Ecosystems | Individual practice page | science vocabulary | 8–10 | Optional high-value | content-area set |
 | Grade 4 | Practice by Topic | 3 | Social Studies Words: Regions and Government | Individual practice page | social-studies vocabulary | 8–10 | Optional high-value | content-area set |
@@ -472,12 +472,12 @@ This inventory includes the recommended minimum complete curriculum: all core pa
 | Grade 5 | Learn in Order | 8a | Homophones and Commonly Confused Words 1 | Individual practice page | upper-grade confusions | 10–12 | Essential | principle/principal |
 | Grade 5 | Learn in Order | 8b | Homophones and Commonly Confused Words 2 | Individual practice page | upper-grade confusions | 10–12 | Essential | stationary/stationery |
 | Grade 5 | Learn in Order | 9 | Editing for Correct Spelling | Review page | proofreading and application | 10–12 | Review | authentic writing transfer |
-| Grade 5 | Common Words to Spell | 1 | Grade 5 Common Words | Gateway page | gateway to all Grade 5 common-word sets | — | Essential | Parent-facing hub |
-| Grade 5 | Common Words to Spell | 1a | Grade 5 Common Words 1 | Individual practice page | everyday/tricky common words | 12 | Essential | narrowed upper-grade focus |
-| Grade 5 | Common Words to Spell | 1b | Grade 5 Common Words 2 | Individual practice page | everyday/tricky common words | 12 | Essential | cumulative set |
-| Grade 5 | Common Words to Spell | 1c | Grade 5 Common Words 3 | Individual practice page | everyday/tricky common words | 12 | Essential | cumulative set |
-| Grade 5 | Common Words to Spell | 1d | Grade 5 Common Words 4 | Individual practice page | everyday/tricky common words | 12 | Essential | cumulative set |
-| Grade 5 | Common Words to Spell | 1e | Grade 5 Common Words 5 | Individual practice page | everyday/tricky common words | 12 | Essential | cumulative set |
+| Grade 5 | High-Frequency Words to Spell | 1 | Grade 5 High-Frequency Words | Gateway page | gateway to all Grade 5 high-frequency-word sets | — | Essential | Parent-facing hub |
+| Grade 5 | High-Frequency Words to Spell | 1a | Grade 5 High-Frequency Words 1 | Individual practice page | everyday/tricky high-frequency words | 12 | Essential | narrowed upper-grade focus |
+| Grade 5 | High-Frequency Words to Spell | 1b | Grade 5 High-Frequency Words 2 | Individual practice page | everyday/tricky high-frequency words | 12 | Essential | cumulative set |
+| Grade 5 | High-Frequency Words to Spell | 1c | Grade 5 High-Frequency Words 3 | Individual practice page | everyday/tricky high-frequency words | 12 | Essential | cumulative set |
+| Grade 5 | High-Frequency Words to Spell | 1d | Grade 5 High-Frequency Words 4 | Individual practice page | everyday/tricky high-frequency words | 12 | Essential | cumulative set |
+| Grade 5 | High-Frequency Words to Spell | 1e | Grade 5 High-Frequency Words 5 | Individual practice page | everyday/tricky high-frequency words | 12 | Essential | cumulative set |
 | Grade 5 | Practice by Topic | 1 | Math Words | Individual practice page | math vocabulary | 8–10 | Optional high-value | content-area set |
 | Grade 5 | Practice by Topic | 2 | Science Words: Matter and Space | Individual practice page | science vocabulary | 8–10 | Optional high-value | content-area set |
 | Grade 5 | Practice by Topic | 3 | Social Studies Words: U.S. History | Individual practice page | social-studies vocabulary | 8–10 | Optional high-value | content-area set |
@@ -486,7 +486,7 @@ This inventory includes the recommended minimum complete curriculum: all core pa
 
 ### Final publishing totals
 
-| Grade | Core Progression practice pages | Common Words practice pages | Additional Practice pages | Gateway pages | Total practice pages | Total pages including gateways |
+| Grade | Core Progression practice pages | High-Frequency Words practice pages | Additional Practice pages | Gateway pages | Total practice pages | Total pages including gateways |
 |---|---|---|---|---|---|---|
 | Kindergarten | 8 | 5 | 5 | 1 | 18 | 19 |
 | Grade 1 | 18 | 7 | 5 | 5 | 30 | 35 |
@@ -546,23 +546,23 @@ The logic is straightforward: publish optional pages that are either repeatedly 
 
 Every practice page should have one canonical home and one canonical URL. A grade page may feature it, and a skill page may also feature it, but both should point to the same page. For example, R-Controlled Ar may appear under Grade 1 → Learn in Order and also under a reusable R-Controlled Vowels skills route, but the content object should be identical. That avoids drift and duplicated maintenance work.
 
-Dolch and Fry overlap should not create separate duplicate pages. Use them as source pools when selecting words, then publish only one common-word sequence per grade. Likewise, do not create both a Sight Words page and a Heart Words page for the same word set. Heart Word status should be a teaching note inside the common-word pages, not a parallel content taxonomy.
+Dolch and Fry overlap should not create separate duplicate pages. Use them as source pools when selecting words, then publish only one high-frequency-word sequence per grade. Likewise, do not create both a High-Frequency Words page and a Heart Words page for the same word set. Heart Word status should be a teaching note inside the high-frequency-word pages, not a parallel content taxonomy.
 
-Homophones should appear in only one main place: Learn in Order from Grade 3 upward. Do not repeat the same homophone pairs in Common Words to Spell unless a very small overlap is unavoidable for search reasons. If a word such as their happens to appear in a common-word list, it should not generate a second full practice page that duplicates the homophone lesson.
+Homophones should appear in only one main place: Learn in Order from Grade 3 upward. Do not repeat the same homophone pairs in High-Frequency Words to Spell unless a very small overlap is unavoidable for search reasons. If a word such as their happens to appear in a high-frequency-word list, it should not generate a second full practice page that duplicates the homophone lesson.
 
 Themed pages may reuse a few words already seen in core, but only if the thematic goal is genuinely useful and the overlap is limited. A Color Words page will naturally contain red or blue, which may also have appeared elsewhere; that is acceptable. What should be avoided is building themed pages that are mostly recycled core words with no new purpose. Review pages are acceptable only when they are clearly labeled as review and gather closely related previously taught content.
 
-Gateway pages should be stable navigational hubs, not alternate content. A gateway such as Long Vowel Teams or Grade 2 Common Words should never contain a second independent set of words that competes with the child pages. Its job is to explain, orient, and link. That rule will make canonical URLs, analytics, and future maintenance much cleaner.
+Gateway pages should be stable navigational hubs, not alternate content. A gateway such as Long Vowel Teams or Grade 2 High-Frequency Words should never contain a second independent set of words that competes with the child pages. Its job is to explain, orient, and link. That rule will make canonical URLs, analytics, and future maintenance much cleaner.
 
 ## Implementation order and Final Recommended Content Architecture
 
 ### Implementation order
 
-Finalize Grade 1 first. It establishes the site's most reusable lesson templates: a simple single-pattern page, a gateway-to-related-patterns page, a common-word set page, and a small optional topic page. It also contains the largest concentration of reusable orthographic patterns used elsewhere on the site: short-vowel review, blends, digraphs, silent e, vowel teams, r-controlled vowels, endings, and common words.
+Finalize Grade 1 first. It establishes the site's most reusable lesson templates: a simple single-pattern page, a gateway-to-related-patterns page, a high-frequency-word set page, and a small optional topic page. It also contains the largest concentration of reusable orthographic patterns used elsewhere on the site: short-vowel review, blends, digraphs, silent e, vowel teams, r-controlled vowels, endings, and high-frequency words.
 
 Build Kindergarten immediately afterward. Kindergarten reuses the same page template with simpler content and clarifies the site's policy on preview content. Then build Grade 2, which extends the system into two-syllable words, silent letters, and spelling changes. Only after those three grades are fully templated should implementation move into Grades 3–5, where the morphology-heavy gateways and root pages can reuse the same structural model.
 
-The first high-frequency/common-word sequence to produce should be Kindergarten Common Words, followed by Grade 1 Common Words, then Grade 2 Common Words. Those pages set the site-wide conventions for handling regular words, temporarily irregular words, permanently irregular words, and Heart Word marking. Once those conventions are stable, the Grade 3–5 common-word pages can be produced much faster because they are conceptually simpler.
+The first High-Frequency Words sequence to produce should be Kindergarten High-Frequency Words, followed by Grade 1 High-Frequency Words, then Grade 2 High-Frequency Words. Those pages set the site-wide conventions for handling regular words, temporarily irregular words, permanently irregular words, and Heart Word marking. Once those conventions are stable, the Grade 3–5 high-frequency-word pages can be produced much faster because they are conceptually simpler.
 
 Optional topic pages should wait until all minimum-sequence pages are complete for Kindergarten through Grade 2 and at least one upper-elementary grade is implemented. In practice, that means the site owner should not let Practice by Topic reopen the architecture debate. The architecture is already decided; optional pages simply plug into the existing third section later.
 
@@ -571,7 +571,7 @@ Optional topic pages should wait until all minimum-sequence pages are complete f
 The final three section names should be:
 
 - Learn in Order
-- Common Words to Spell
+- High-Frequency Words to Spell
 - Practice by Topic
 
 Recommended visible card counts on each main grade page:
@@ -585,9 +585,9 @@ Recommended visible card counts on each main grade page:
 | Grade 4 | 14 | 25 | 6 |
 | Grade 5 | 15 | 25 | 6 |
 
-How sight words and Heart Words are handled:
+How high-frequency words and Heart Words are handled:
 
-The public heading should not be Sight Words or Heart Words. The public heading should be Common Words to Spell. The site should preserve search language such as kindergarten sight words in metadata and helper copy. Within K–2 common-word pages, individual words may be marked as Heart Words when only part of the spelling is irregular or temporarily irregular. Heart Word status is an instructional note, not a separate public architecture.
+The public heading should be High-Frequency Words, not Heart Words or another competing taxonomy. The site should preserve search language such as kindergarten high-frequency words in metadata and helper copy. Within K–2 high-frequency-word pages, individual words may be marked as Heart Words when only part of the spelling is irregular or temporarily irregular. Heart Word status is an instructional note, not a separate public architecture.
 
 What belongs in Learn in Order:
 
@@ -599,10 +599,10 @@ Themed collections, school-subject vocabulary collections, seasonal or family-re
 
 Which decisions are firm:
 
-The three-section architecture; the three public section names; the use of one common-word gateway per grade; the decision to keep common words visible through Grade 5 but narrower in the upper grades; the placement of homophones in core beginning in Grade 3; the role of roots and affixes in Grades 4–5; and the canonical-URL rule for reuse.
+The three-section architecture; the three public section names; the use of one high-frequency-word gateway per grade; the decision to keep high-frequency words visible through Grade 5 but narrower in the upper grades; the placement of homophones in core beginning in Grade 3; the role of roots and affixes in Grades 4–5; and the canonical-URL rule for reuse.
 
 Which minor details can remain flexible during implementation:
 
 The exact word lists on individual pages; the precise split of late-K preview vs early-Grade-1 review for blends and digraphs; small revisions to the root families in Grades 4 and 5; and the order of secondary optional topic pages. Those are implementation details, not architecture questions.
 
-This is the durable recommendation: SpellingWords.app should publish a national parent-facing K–5 spelling plan built around Learn in Order, Common Words to Spell, and Practice by Topic, with 153 minimum practice pages and 27 gateway pages across Kindergarten through Grade 5, and an optional expansion path to 171 practice pages without changing the architecture.
+This is the durable recommendation: SpellingWords.app should publish a national parent-facing K–5 spelling plan built around Learn in Order, High-Frequency Words to Spell, and Practice by Topic, with 153 minimum practice pages and 27 gateway pages across Kindergarten through Grade 5, and an optional expansion path to 171 practice pages without changing the architecture.

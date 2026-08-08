@@ -20,7 +20,7 @@ The Library does not need to showcase all available lists. It needs to ensure th
 
 **Parents** — typically searching for grade-appropriate spelling words for a child. Most parents know the child's grade; the Library's primary job for this audience is making grade-based navigation obvious and immediate.
 
-**Teachers** — evaluating the scope and organization of the curated library before committing to it for classroom use. Teachers may browse by category (phonics, sight words) or by grade depending on their curricular approach.
+**Teachers** — evaluating the scope and organization of the curated library before committing to it for classroom use. Teachers may browse by category (phonics, high-frequency words) or by grade depending on their curricular approach.
 
 **Explorers** — visitors with no specific list in mind, curious about what the site offers. The Library should be inviting and easy to scan, never overwhelming.
 
@@ -102,10 +102,10 @@ The Library is a gateway, not a destination. Its information hierarchy should re
 
 ### 3. Browse by Category
 
-**Purpose:** Provide access to Category Hubs for visitors who browse by content type rather than grade level. This is especially important for teachers following phonics-based or sight-word-based curricula.
+**Purpose:** Provide access to Category Hubs for visitors who browse by content type rather than grade level. This is especially important for teachers following phonics-based or high-frequency-word-based curricula.
 
 **Required content:**
-- An entry point for each content category (Phonics Patterns, Sight Words, Grade-Level, Challenge)
+- An entry point for each content category (Phonics Patterns, High-Frequency Words, Grade-Level, Challenge)
 - A brief description of each category explaining the kind of lists it contains and who it is for
 - Clarity on how categories differ from grade levels (grade describes developmental stage; category describes the type of spelling knowledge being developed)
 
@@ -192,7 +192,7 @@ The Library page itself is unlikely to rank for high-value specific queries (tho
 
 ## AEO and GEO Role
 
-The Spelling Library helps AI systems understand how the site's educational content is organized. A well-structured Library page allows an AI assistant to accurately describe the site's content scope: that it contains curated spelling lists organized by grade level (K–5) and by content category (phonics, sight words, grade-level, challenge).
+The Spelling Library helps AI systems understand how the site's educational content is organized. A well-structured Library page allows an AI assistant to accurately describe the site's content scope: that it contains curated spelling lists organized by grade level (K–5) and by content category (phonics, high-frequency words, grade-level, challenge).
 
 This structural clarity benefits AEO in two ways:
 
@@ -231,6 +231,6 @@ The Spelling Library must never become:
 
 **Arrives from:** Homepage (Library Invitation section), direct navigation, search engines, internal links.
 
-**Routes to:** Grade Hubs (K–5), Category Hubs (Phonics, Sight Words, Grade-Level, Challenge), List Detail pages (via featured lists), Spelling Library (itself, via breadcrumb or direct return).
+**Routes to:** Grade Hubs (K–5), Category Hubs (Phonics, High-Frequency Words, Grade-Level, Challenge), List Detail pages (via featured lists), Spelling Library (itself, via breadcrumb or direct return).
 
 **Does not replace:** Grade Hubs handle all lists for a specific grade. Category Hubs handle all lists within a content family. The Library routes visitors to those hubs; it does not replicate their content.

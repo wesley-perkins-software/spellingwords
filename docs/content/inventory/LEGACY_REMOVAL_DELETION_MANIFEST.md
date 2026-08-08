@@ -2,13 +2,13 @@
 
 This is the complete, reviewable manifest of every `spelling-lists` content file deleted by the legacy-architecture-removal PR. It is a historical record — the deleted content itself is not preserved anywhere in the active repository; git history is the record of what these pages contained.
 
-**Verification method:** computed directly from the live `spelling-lists` collection and the live `CANONICAL_GRADE_ROUTE_DEFS`/`CANONICAL_SKILL_ROUTE_DEFS` manifests at the time of this PR — not from prior planning docs (which are themselves deleted by this PR). 249 published entries − 145 canonical ids (104 grade + 41 skill) = 104 non-canonical published entries, all accounted for below, plus 12 `spelling-collections` files (not part of the `spelling-lists` collection, deleted alongside it — 6 Dolch collections + 6 Common Words gateway collections, the latter already excluded from static generation).
+**Verification method:** computed directly from the live `spelling-lists` collection and the live `CANONICAL_GRADE_ROUTE_DEFS`/`CANONICAL_SKILL_ROUTE_DEFS` manifests at the time of this PR — not from prior planning docs (which are themselves deleted by this PR). 249 published entries − 145 canonical ids (104 grade + 41 skill) = 104 non-canonical published entries, all accounted for below, plus 12 `spelling-collections` files (not part of the `spelling-lists` collection, deleted alongside it — 6 Dolch collections + 6 High-Frequency Words gateway collections, the latter already excluded from static generation).
 
 After this PR, `getCollection('spelling-lists')`'s published ids equal exactly the union of the two canonical manifests — enforced by `src/lib/content/retainedSpellingListPages.test.ts`.
 
 ## Disposition 1 — Deleted outright (71 pages)
 
-No unique content worth preserving: Dolch sight-word member sets, standalone Heart Word pages, orphaned single-pattern "focused child" phonics pages, and grade-1 practice/review pages duplicating live Grade Unit content.
+No unique content worth preserving: Dolch high-frequency-word member sets, standalone Heart Word pages, orphaned single-pattern "focused child" phonics pages, and grade-1 practice/review pages duplicating live Grade Unit content.
 
 | id | title | source file |
 |---|---|---|
@@ -17,30 +17,30 @@ No unique content worth preserving: Dolch sight-word member sets, standalone Hea
 | `c-k-ck-words` | C, K, and CK Words | `src/content/spelling-lists/phonics/c-k-ck-words.md` |
 | `cl-blend-words` | CL Blend Words | `src/content/spelling-lists/phonics/cl-blend-words.md` |
 | `cr-blend-words` | CR Blend Words | `src/content/spelling-lists/phonics/cr-blend-words.md` |
-| `dolch-first-grade-a` | Dolch First Grade Sight Words — Part A | `src/content/spelling-lists/sight-words/dolch-first-grade-a.md` |
-| `dolch-first-grade-b` | Dolch First Grade Sight Words — Part B | `src/content/spelling-lists/sight-words/dolch-first-grade-b.md` |
-| `dolch-first-grade-c` | Dolch First Grade Sight Words — Part C | `src/content/spelling-lists/sight-words/dolch-first-grade-c.md` |
-| `dolch-nouns-a` | Dolch Noun Words — Part A | `src/content/spelling-lists/sight-words/dolch-nouns-a.md` |
-| `dolch-nouns-b` | Dolch Noun Words — Part B | `src/content/spelling-lists/sight-words/dolch-nouns-b.md` |
-| `dolch-nouns-c` | Dolch Noun Words — Part C | `src/content/spelling-lists/sight-words/dolch-nouns-c.md` |
-| `dolch-nouns-d` | Dolch Noun Words — Part D | `src/content/spelling-lists/sight-words/dolch-nouns-d.md` |
-| `dolch-nouns-e` | Dolch Noun Words — Part E | `src/content/spelling-lists/sight-words/dolch-nouns-e.md` |
-| `dolch-nouns-f` | Dolch Noun Words — Part F | `src/content/spelling-lists/sight-words/dolch-nouns-f.md` |
-| `dolch-nouns-g` | Dolch Noun Words — Part G | `src/content/spelling-lists/sight-words/dolch-nouns-g.md` |
-| `dolch-pre-primer-a` | Dolch Pre-Primer Sight Words — Part A | `src/content/spelling-lists/sight-words/dolch-pre-primer-a.md` |
-| `dolch-pre-primer-b` | Dolch Pre-Primer Sight Words — Part B | `src/content/spelling-lists/sight-words/dolch-pre-primer-b.md` |
-| `dolch-pre-primer-c` | Dolch Pre-Primer Sight Words — Part C | `src/content/spelling-lists/sight-words/dolch-pre-primer-c.md` |
-| `dolch-primer-a` | Dolch Primer Sight Words — Part A | `src/content/spelling-lists/sight-words/dolch-primer-a.md` |
-| `dolch-primer-b` | Dolch Primer Sight Words — Part B | `src/content/spelling-lists/sight-words/dolch-primer-b.md` |
-| `dolch-primer-c` | Dolch Primer Sight Words — Part C | `src/content/spelling-lists/sight-words/dolch-primer-c.md` |
-| `dolch-primer-d` | Dolch Primer Sight Words — Part D | `src/content/spelling-lists/sight-words/dolch-primer-d.md` |
-| `dolch-second-grade-a` | Dolch Second Grade Sight Words — Part A | `src/content/spelling-lists/sight-words/dolch-second-grade-a.md` |
-| `dolch-second-grade-b` | Dolch Second Grade Sight Words — Part B | `src/content/spelling-lists/sight-words/dolch-second-grade-b.md` |
-| `dolch-second-grade-c` | Dolch Second Grade Sight Words — Part C | `src/content/spelling-lists/sight-words/dolch-second-grade-c.md` |
-| `dolch-second-grade-d` | Dolch Second Grade Sight Words — Part D | `src/content/spelling-lists/sight-words/dolch-second-grade-d.md` |
-| `dolch-third-grade-a` | Dolch Third Grade Sight Words — Part A | `src/content/spelling-lists/sight-words/dolch-third-grade-a.md` |
-| `dolch-third-grade-b` | Dolch Third Grade Sight Words — Part B | `src/content/spelling-lists/sight-words/dolch-third-grade-b.md` |
-| `dolch-third-grade-c` | Dolch Third Grade Sight Words — Part C | `src/content/spelling-lists/sight-words/dolch-third-grade-c.md` |
+| `dolch-first-grade-a` | Dolch First Grade High-Frequency Words — Part A | `src/content/spelling-lists/high-frequency-words/dolch-first-grade-a.md` |
+| `dolch-first-grade-b` | Dolch First Grade High-Frequency Words — Part B | `src/content/spelling-lists/high-frequency-words/dolch-first-grade-b.md` |
+| `dolch-first-grade-c` | Dolch First Grade High-Frequency Words — Part C | `src/content/spelling-lists/high-frequency-words/dolch-first-grade-c.md` |
+| `dolch-nouns-a` | Dolch Noun Words — Part A | `src/content/spelling-lists/high-frequency-words/dolch-nouns-a.md` |
+| `dolch-nouns-b` | Dolch Noun Words — Part B | `src/content/spelling-lists/high-frequency-words/dolch-nouns-b.md` |
+| `dolch-nouns-c` | Dolch Noun Words — Part C | `src/content/spelling-lists/high-frequency-words/dolch-nouns-c.md` |
+| `dolch-nouns-d` | Dolch Noun Words — Part D | `src/content/spelling-lists/high-frequency-words/dolch-nouns-d.md` |
+| `dolch-nouns-e` | Dolch Noun Words — Part E | `src/content/spelling-lists/high-frequency-words/dolch-nouns-e.md` |
+| `dolch-nouns-f` | Dolch Noun Words — Part F | `src/content/spelling-lists/high-frequency-words/dolch-nouns-f.md` |
+| `dolch-nouns-g` | Dolch Noun Words — Part G | `src/content/spelling-lists/high-frequency-words/dolch-nouns-g.md` |
+| `dolch-pre-primer-a` | Dolch Pre-Primer High-Frequency Words — Part A | `src/content/spelling-lists/high-frequency-words/dolch-pre-primer-a.md` |
+| `dolch-pre-primer-b` | Dolch Pre-Primer High-Frequency Words — Part B | `src/content/spelling-lists/high-frequency-words/dolch-pre-primer-b.md` |
+| `dolch-pre-primer-c` | Dolch Pre-Primer High-Frequency Words — Part C | `src/content/spelling-lists/high-frequency-words/dolch-pre-primer-c.md` |
+| `dolch-primer-a` | Dolch Primer High-Frequency Words — Part A | `src/content/spelling-lists/high-frequency-words/dolch-primer-a.md` |
+| `dolch-primer-b` | Dolch Primer High-Frequency Words — Part B | `src/content/spelling-lists/high-frequency-words/dolch-primer-b.md` |
+| `dolch-primer-c` | Dolch Primer High-Frequency Words — Part C | `src/content/spelling-lists/high-frequency-words/dolch-primer-c.md` |
+| `dolch-primer-d` | Dolch Primer High-Frequency Words — Part D | `src/content/spelling-lists/high-frequency-words/dolch-primer-d.md` |
+| `dolch-second-grade-a` | Dolch Second Grade High-Frequency Words — Part A | `src/content/spelling-lists/high-frequency-words/dolch-second-grade-a.md` |
+| `dolch-second-grade-b` | Dolch Second Grade High-Frequency Words — Part B | `src/content/spelling-lists/high-frequency-words/dolch-second-grade-b.md` |
+| `dolch-second-grade-c` | Dolch Second Grade High-Frequency Words — Part C | `src/content/spelling-lists/high-frequency-words/dolch-second-grade-c.md` |
+| `dolch-second-grade-d` | Dolch Second Grade High-Frequency Words — Part D | `src/content/spelling-lists/high-frequency-words/dolch-second-grade-d.md` |
+| `dolch-third-grade-a` | Dolch Third Grade High-Frequency Words — Part A | `src/content/spelling-lists/high-frequency-words/dolch-third-grade-a.md` |
+| `dolch-third-grade-b` | Dolch Third Grade High-Frequency Words — Part B | `src/content/spelling-lists/high-frequency-words/dolch-third-grade-b.md` |
+| `dolch-third-grade-c` | Dolch Third Grade High-Frequency Words — Part C | `src/content/spelling-lists/high-frequency-words/dolch-third-grade-c.md` |
 | `dr-blend-words` | DR Blend Words | `src/content/spelling-lists/phonics/dr-blend-words.md` |
 | `fl-blend-words` | FL Blend Words | `src/content/spelling-lists/phonics/fl-blend-words.md` |
 | `fr-blend-words` | FR Blend Words | `src/content/spelling-lists/phonics/fr-blend-words.md` |
@@ -52,16 +52,16 @@ No unique content worth preserving: Dolch sight-word member sets, standalone Hea
 | `grade-1-ending-blend-practice` | Ending Blend Practice | `src/content/spelling-lists/phonics/grade-1-ending-blend-practice.md` |
 | `grade-1-heart-word-practice` | Heart Word Practice | `src/content/spelling-lists/phonics/grade-1-heart-word-practice.md` |
 | `grade-1-heart-words` | First Grade Heart Words | `src/content/spelling-lists/phonics/grade-1-heart-words.md` |
-| `grade-1-heart-words-part-1` | First Grade Heart Words Part 1 | `src/content/spelling-lists/sight-words/grade-1-heart-words-part-1.md` |
-| `grade-1-heart-words-part-2` | First Grade Heart Words Part 2 | `src/content/spelling-lists/sight-words/grade-1-heart-words-part-2.md` |
-| `grade-1-heart-words-part-3` | First Grade Heart Words Part 3 | `src/content/spelling-lists/sight-words/grade-1-heart-words-part-3.md` |
+| `grade-1-heart-words-part-1` | First Grade Heart Words Part 1 | `src/content/spelling-lists/high-frequency-words/grade-1-heart-words-part-1.md` |
+| `grade-1-heart-words-part-2` | First Grade Heart Words Part 2 | `src/content/spelling-lists/high-frequency-words/grade-1-heart-words-part-2.md` |
+| `grade-1-heart-words-part-3` | First Grade Heart Words Part 3 | `src/content/spelling-lists/high-frequency-words/grade-1-heart-words-part-3.md` |
 | `grade-1-r-controlled-vowel-practice` | R-Controlled Vowel Practice | `src/content/spelling-lists/phonics/grade-1-r-controlled-vowel-practice.md` |
 | `grade-1-short-vowel-practice` | Short Vowel Practice | `src/content/spelling-lists/phonics/grade-1-short-vowel-practice.md` |
 | `grade-1-silent-e-practice` | Silent E Practice | `src/content/spelling-lists/phonics/grade-1-silent-e-practice.md` |
 | `grade-1-tch-dge-practice` | Final -tch and -dge Practice | `src/content/spelling-lists/phonics/grade-1-tch-dge-practice.md` |
 | `grade-1-vowel-team-practice` | Vowel Team Practice | `src/content/spelling-lists/phonics/grade-1-vowel-team-practice.md` |
 | `grade-2-list-01` | 2nd Grade Everyday Words | `src/content/spelling-lists/grade-level/2nd-grade-everyday-words.md` |
-| `kindergarten-heart-words` | Kindergarten Heart Words | `src/content/spelling-lists/sight-words/kindergarten-heart-words.md` |
+| `kindergarten-heart-words` | Kindergarten Heart Words | `src/content/spelling-lists/high-frequency-words/kindergarten-heart-words.md` |
 | `kindergarten-number-color-words` | Kindergarten Number and Color Words | `src/content/spelling-lists/grade-level/kindergarten-number-color-words.md` |
 | `ld-final-blend-words` | LD Final Blend Words | `src/content/spelling-lists/phonics/ld-final-blend-words.md` |
 | `lk-final-blend-words` | LK Final Blend Words | `src/content/spelling-lists/phonics/lk-final-blend-words.md` |

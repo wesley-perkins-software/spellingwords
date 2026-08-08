@@ -36,7 +36,7 @@ into:
 
 > a vocabulary and curriculum system that happens to have a website attached to it.
 
-Today, lists are authored individually and words are scattered across Markdown files. The long-term goal is for every list family — grade-level, sight words, phonics, challenge — to be generated as a view over the Word Universe, filtered and ordered by metadata.
+Today, lists are authored individually and words are scattered across Markdown files. The long-term goal is for every list family — grade-level, high-frequency words, phonics, challenge — to be generated as a view over the Word Universe, filtered and ordered by metadata.
 
 **Words are the foundation. Lists are presentations.**
 
@@ -49,7 +49,7 @@ This document tracks the state of that foundation and flags where it needs to gr
 The vocabulary currently draws from three established sources:
 
 1. **Reading Rockets** — Evidence-based word lists aligned to literacy research. Primary source for grade-level vocabulary.
-2. **Dolch** — The classic 220 high-frequency sight word list, widely used in K–3 instruction. Covered across eight published lists.
+2. **Dolch** — The classic 220 high-frequency word list, widely used in K–3 instruction. Covered across eight published lists.
 3. **Phonics collections** — CVC patterns, silent-e variants, vowel teams, r-controlled vowels. Derived from common phonics sequences used in structured literacy programs.
 
 Future candidates under consideration:
@@ -113,7 +113,7 @@ What these numbers mean:
 The sentence bank uses three grade bands:
 
 **K–1 (352 entries)**
-Kindergarten and first grade. High-frequency words, short CVC patterns, common sight words, early phonics. These words support pre-reader and emerging-reader practice.
+Kindergarten and first grade. High-frequency words, short CVC patterns, common high-frequency words, early phonics. These words support pre-reader and emerging-reader practice.
 
 **2–3 (497 entries)**
 Second and third grade. Expanding vocabulary, compound words, inflected endings, more complex phonics patterns. The largest and most developed band.
@@ -145,7 +145,7 @@ Prefixes, suffixes, and Greek/Latin roots exist as two challenge lists, but the 
 
 The following categories are under consideration for future list generation. These are planning ideas only — no implementation is implied.
 
-- **Sight words** — High-frequency words prioritized for automaticity (Dolch, Fry)
+- **High-Frequency Words** — High-frequency words prioritized for automaticity (Dolch, Fry)
 - **Phonics** — Pattern-based words grouped by phonics rule or sequence
 - **Compound words** — Two-word combinations functioning as a single unit
 - **Action words** — Verbs; useful for early grammar and vocabulary work
@@ -216,7 +216,7 @@ Introduce structured metadata on sentence bank entries: individual grade levels 
 
 ### Phase 3 — Generated Lists
 
-Build grade lists, phonics lists, challenge lists, and sight-word lists as queries over the metadata rather than hand-authored word arrays. At this stage, adding a new word to the bank automatically makes it available to any list that matches its metadata.
+Build grade lists, phonics lists, challenge lists, and high-frequency-word lists as queries over the metadata rather than hand-authored word arrays. At this stage, adding a new word to the bank automatically makes it available to any list that matches its metadata.
 
 ### Phase 4 — UI
 
@@ -308,7 +308,7 @@ interface WordEntry {
 
   gradeBand?: 'K' | '1' | '2' | '3' | '4' | '5';
 
-  categories?: string[];       // e.g. ['sight-words', 'phonics']
+  categories?: string[];       // e.g. ['high-frequency-words', 'phonics']
 
   source?: string[];           // e.g. ['dolch', 'reading-rockets']
 
@@ -338,7 +338,7 @@ The expanded `gradeBand` (individual grades instead of bands) and `source` array
 **20** (13 avoid, 4 safe-to-add, 1 needs-review, 2 other).
 
 ### Number of Published Lists
-**32** across 4 categories: grade-level (12), phonics (10), sight-words (8), challenge (2).
+**32** across 4 categories: grade-level (12), phonics (10), high-frequency-words (8), challenge (2).
 
 ### Approximate Percentage of Words Surfaced in Lists
 ~**36%** (~336 of 932 sentence bank entries appear in at least one list).

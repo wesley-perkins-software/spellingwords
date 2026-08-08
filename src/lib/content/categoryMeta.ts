@@ -4,7 +4,7 @@ type Category = SpellingListEntry['data']['category'];
 type Difficulty = SpellingListEntry['data']['difficulty'];
 
 export const categoryLabels: Record<Category, string> = {
-  'sight-words': 'Sight Words',
+  'high-frequency-words': 'High-Frequency Words',
   phonics: 'Phonics',
   'grade-level': 'Grade-Level',
   theme: 'Theme',
@@ -20,7 +20,7 @@ export const difficultyLabels: Record<Difficulty, string> = {
 };
 
 export const categoryDescriptions: Record<Category, string> = {
-  'sight-words':
+  'high-frequency-words':
     'High-frequency words students should recognize and spell automatically.',
   phonics:
     'Lists organized around a single sound-spelling pattern, building from short vowels through silent-e and beyond.',
@@ -34,7 +34,7 @@ export const categoryDescriptions: Record<Category, string> = {
  * Display priority for grade-hub sections: grade-level is the primary,
  * most-searched family (see docs/GRADE_LEVEL_STRATEGY.md); others support it.
  */
-export const categoryOrder = ['grade-level', 'sight-words', 'phonics'] as const;
+export const categoryOrder = ['grade-level', 'high-frequency-words', 'phonics'] as const;
 
 /**
  * The list-detail template's card-family accent. Earlier revisions varied

@@ -15,7 +15,7 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 skillIds: ["r-controlled-ar", "r-controlled-or"]
-relatedLists: ["grade-1-common-words-3"]
+relatedLists: ["grade-1-high-frequency-words-set-3"]
 prerequisiteLists: []
 nextLists: []
 featured: false

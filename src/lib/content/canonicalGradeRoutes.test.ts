@@ -86,7 +86,7 @@ describe('canonical grade routes', () => {
     expect(getCanonicalListPathById('kindergarten-first-words')).toBe('/kindergarten/core-spelling/first-words');
     expect(getCanonicalListPathById('kindergarten-short-a-words')).toBe('/kindergarten/core-spelling/short-a-words');
     expect(getCanonicalListPathById('grade-1-floss-rule')).toBe('/1st-grade/core-spelling/floss-rule');
-    expect(getCanonicalListPathById('grade-1-common-words-1')).toBe('/1st-grade/high-frequency-words/set-1');
+    expect(getCanonicalListPathById('grade-1-high-frequency-words-set-1')).toBe('/1st-grade/high-frequency-words/set-1');
     expect(getCanonicalListPathById('grade-1-weather-words')).toBe('/1st-grade/themed-spelling-practice/weather-words');
     expect(getCanonicalListPathById('grade-2-long-e-ee-ea')).toBe('/2nd-grade/core-spelling/long-e-ee-ea');
     expect(getCanonicalListPathById('grade-2-long-i-ie-igh')).toBe('/2nd-grade/core-spelling/long-i-ie-igh');
@@ -109,7 +109,7 @@ describe('canonical grade routes', () => {
 
   it('throws for an id in neither manifest, instead of constructing a legacy /spelling-lists path', () => {
     expect(() =>
-      getCanonicalListPath({ id: 'dolch-nouns-a', category: 'sight-words', urlSlug: 'dolch-nouns-a-sight-words' }),
+      getCanonicalListPath({ id: 'dolch-nouns-a', category: 'high-frequency-words', urlSlug: 'dolch-nouns-a-high-frequency-words' }),
     ).toThrow(/No canonical path/);
   });
 });

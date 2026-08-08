@@ -16,13 +16,13 @@ The repository contains strong underlying word-list inventory for many canonical
 - Primary-grade metadata is inconsistent with the blueprint for Kindergarten digraphs, Grade 1 r-controlled vowels, Grade 2 contractions/plurals/homophones, and Grade 3 `-tch`/`-dge` endings.
 - High-frequency content exists as Dolch and Heart Word sets, but it is not represented as the canonical Kindergarten introductory Grade Unit/roadmap milestone. The Kindergarten hub also omits its grade-tagged Dolch Pre-Primer lists from its curated additional-practice section.
 
-The repository’s content model is compatible with fixing these issues without a one-page-per-unit rewrite: a Grade Unit can be a grade-specific milestone with linked Skills and practice sets, while Sight Word Sets and Vocabulary/Theme Lists retain their distinct purposes. See `docs/architecture/CONTENT_MODEL.md`.
+The repository’s content model is compatible with fixing these issues without a one-page-per-unit rewrite: a Grade Unit can be a grade-specific milestone with linked Skills and practice sets, while High-Frequency Word Sets and Vocabulary/Theme Lists retain their distinct purposes. See `docs/architecture/CONTENT_MODEL.md`.
 
 ## Scope and implementation facts
 
 ### Content identities and routes
 
-- `src/content/config.ts` defines optional identities including `grade-unit`, `skill`, `sight-word-set`, and `vocabulary-theme`; it also defines Grade Unit → Skill links through `skillIds`.
+- `src/content/config.ts` defines optional identities including `grade-unit`, `skill`, `high-frequency-word-set`, and `vocabulary-theme`; it also defines Grade Unit → Skill links through `skillIds`.
 - `src/pages/spelling-lists/[category]/[slug].astro` delegates every `contentRole: grade-unit` entry to `src/components/GradeUnitWorldPage.astro`.
 - `src/components/GradeUnitWorldPage.astro` describes the intended Grade Unit contract: one curriculum grade, roadmap placement, a grade-specific objective, a primary practice set, sequence relationships, and zero or more linked Skills.
 - `src/lib/content/gradeUnitSequence.ts` sequences only published entries with `contentRole: grade-unit`; it therefore cannot represent canonical units that only exist as ordinary lists.
@@ -55,7 +55,7 @@ The repository’s content model is compatible with fixing these issues without 
 |---|---|---|---|---|---|---|
 | **Sounds, Letters, and Early Encoding** | `kindergarten-first-words` begins the K core progression. The individual short-vowel units and mixed review contribute. | **Partial** | No explicit sound-letter mapping, phoneme segmentation-to-writing workflow, or early-encoding progression. No controlled beginning/middle/ending-sound practice set. Dictation and word-building are not modeled as embedded supports. | “First Words” is too vague for the foundational encoding milestone. | **Rename** and **merge** introductory material into one broader K Grade Unit; keep phonological awareness, handwriting, word building, and dictation embedded. | **High.** `src/content/kindergarten/first-words.md`; `src/lib/content/kindergartenProgression.ts`; canonical K overview. |
 | **Short Vowels and CVC Words** | Grade Units for Short A/E/I/O/U and `kindergarten-mixed-vowel-review`; reusable Skills `short-a-words` through `short-u-words`; `short-vowels-cvc-words` contributes. | **Substantially complete** | Needs one unit-level CVC explanation, unfamiliar-word transfer, and integrated review/dictation guidance. Raw short-vowel word coverage is strong. | Six Grade Units represent one canonical unit while the same narrow concepts also exist as Skills. | **Merge** the five vowel units and mixed review; keep individual vowel pages as Skills or focused practice sets. | **High.** `src/content/spelling-lists/phonics/kindergarten-short-*.md`; `src/content/kindergarten/mixed-vowel-review.md`; `src/lib/content/spellingSkills.ts`. |
-| **High-Frequency Words** | `kindergarten-heart-words`; Dolch Pre-Primer Parts A–C. | **Partial** | Missing initial regular/irregular mapping, sentence-level use, and ongoing-review framing. The K hub omits Dolch Pre-Primer lists despite their K metadata. | The canonical introductory unit is split between Heart Words and Dolch with no shared roadmap treatment. | **Create new Grade Unit** or named K roadmap milestone backed by existing Sight Word Sets; do not duplicate word data. | **High.** `src/content/spelling-lists/sight-words/kindergarten-heart-words.md`; `src/content/spelling-lists/sight-words/dolch-pre-primer-*.md`; `src/lib/content/kindergartenProgression.ts`; `src/pages/spelling-lists/[gradeSlug].astro`. |
+| **High-Frequency Words** | `kindergarten-heart-words`; Dolch Pre-Primer Parts A–C. | **Partial** | Missing initial regular/irregular mapping, sentence-level use, and ongoing-review framing. The K hub omits Dolch Pre-Primer lists despite their K metadata. | The canonical introductory unit is split between Heart Words and Dolch with no shared roadmap treatment. | **Create new Grade Unit** or named K roadmap milestone backed by existing High-Frequency Word Sets; do not duplicate word data. | **High.** `src/content/spelling-lists/high-frequency-words/kindergarten-heart-words.md`; `src/content/spelling-lists/high-frequency-words/dolch-pre-primer-*.md`; `src/lib/content/kindergartenProgression.ts`; `src/pages/spelling-lists/[gradeSlug].astro`. |
 | *(Non-canonical, supporting)* CK Ending / Double Consonants | `kindergarten-ck-ending-words`, `kindergarten-double-consonants` — live K core-roadmap steps (orders 9–10), omitted from this audit's original inventory. | **Live, not canonical** | Not evaluated against any canonical K unit; both are narrow orthographic-pattern pages, not one of the three canonical Kindergarten units. | Previously miscounted as absent from the K Grade Unit inventory; `CURRICULUM_MAP.md` ties them to future Grade 1 concepts (Final CK, FLOSS) rather than to Short Vowels and CVC Words. | **Remove** from the canonical Kindergarten roadmap while keeping both published as supporting/additional-practice content; preserve IDs, routes, and word lists; revisit at the Phase 3 Grade 1 cutover for possible Grade 1 supporting-content placement. | **High.** `src/content/spelling-lists/phonics/kindergarten-ck-ending-words.md`; `kindergarten-double-consonants.md`; `src/lib/content/kindergartenProgression.ts`; `docs/architecture/CURRICULUM_MAP.md` rows 9–10. |
 
 ### Grade 1
@@ -94,7 +94,7 @@ The repository’s content model is compatible with fixing these issues without 
 |---|---|---|---|---|---|---|
 | **Greek and Latin Roots** | `tier-1-roots-and-patterns`, `tier-2-greek-latin-roots`, advanced prefixes/suffixes. | **Substantially complete** | Missing one Grade 4 milestone linking roots, spelling, affixes, meaning, and academic-word use. | Internal tier labels do not communicate one parent-facing canonical unit. | **Merge** under one Grade 4 Grade Unit; retain separate Latin/Greek practice resources. | **High.** `src/content/4th-grade/roots-and-patterns.md`; `tier-2-greek-latin-roots.md`; `4th-grade-advanced-prefixes.md`; `4th-grade-advanced-suffixes.md`. |
 | **Advanced Multisyllabic Words** | `4th-grade-multisyllabic-academic-words`. | **Partial** | Missing integrated syllabication/morphology strategy, advanced word analysis, and embedded schwa/difficult-vowel work. | Current title identifies a word collection rather than an instructional unit. | **Create new Grade Unit** using the existing list as one practice set. | **High.** `src/content/4th-grade/multisyllabic-academic-words.md`. |
-| **Final Stable Syllables and Common Word Endings** | `4th-grade-advanced-suffixes`; later `5th-grade-spelling-rules` has some related examples. | **Partial** | Missing explicit Grade 4 final stable syllables including `-tion`, `-sion`, and `-ture`; current examples are scattered. | Advanced suffix inventory is not the same as final stable syllables. | **Create new Grade Unit**; keep individual endings as subskills. | **High.** `src/content/4th-grade/advanced-suffixes.md`; `5th-grade-spelling-rules.md`. |
+| **Final Stable Syllables and High-Frequency Word Endings** | `4th-grade-advanced-suffixes`; later `5th-grade-spelling-rules` has some related examples. | **Partial** | Missing explicit Grade 4 final stable syllables including `-tion`, `-sion`, and `-ture`; current examples are scattered. | Advanced suffix inventory is not the same as final stable syllables. | **Create new Grade Unit**; keep individual endings as subskills. | **High.** `src/content/4th-grade/advanced-suffixes.md`; `5th-grade-spelling-rules.md`. |
 | **Derived Words and Word Meaning** | Grade 3 root-word families; Grade 4 advanced affixes and commonly confused words. | **Partial** | Missing explicit word-family analysis tying spelling, pronunciation, and meaning across derived forms; missing deliberately paired family sets. | Advanced prefixes/suffixes should support an integrated derived-word unit rather than become parallel Grade 4 canonical units. | **Merge** contributors into one broader Grade 4 Grade Unit. | **High.** `src/content/3rd-grade/root-word-families.md`; `4th-grade-advanced-prefixes.md`; `4th-grade-advanced-suffixes.md`; `4th-grade-commonly-confused-words.md`. |
 
 ### Grade 5
@@ -117,7 +117,7 @@ The following should retain a supplemental identity rather than become canonical
 - Challenge academic vocabulary.
 - Dolch and Heart Word sequences.
 
-This agrees with the content model distinction among Vocabulary/Theme Lists, Sight Word Sets, and Grade Units. Evidence: `docs/architecture/CONTENT_MODEL.md`; `src/content/spelling-lists/grade-level/`; `src/content/spelling-lists/sight-words/`; `src/content/spelling-lists/challenge/academic-vocabulary.md`.
+This agrees with the content model distinction among Vocabulary/Theme Lists, High-Frequency Word Sets, and Grade Units. Evidence: `docs/architecture/CONTENT_MODEL.md`; `src/content/spelling-lists/grade-level/`; `src/content/spelling-lists/high-frequency-words/`; `src/content/spelling-lists/challenge/academic-vocabulary.md`.
 
 ### Duplicate or overlapping Grade Units
 
@@ -163,14 +163,14 @@ This is an educational/roadmap structure, not a requirement for one page per row
 2. **Grade 1:** Consonant Digraphs and Blends; Inflectional Endings; Silent E and Long Vowels; Vowel Teams; Syllables and Two-Syllable Words.
 3. **Grade 2:** R-Controlled Vowels; Diphthongs and Other Vowel Patterns; Syllable Types and Multisyllabic Words; Silent Letters and Ending Spelling Patterns; Hard and Soft C and G.
 4. **Grade 3:** Prefixes; Suffixes; Spelling Changes When Adding Suffixes; Plurals, Possessives, and Contractions; Homophones and Commonly Confused Words.
-5. **Grade 4:** Greek and Latin Roots; Advanced Multisyllabic Words; Final Stable Syllables and Common Word Endings; Derived Words and Word Meaning.
+5. **Grade 4:** Greek and Latin Roots; Advanced Multisyllabic Words; Final Stable Syllables and High-Frequency Word Endings; Derived Words and Word Meaning.
 6. **Grade 5:** Advanced Roots, Affixes, and Academic Words; Spelling Changes in Related Words; Meaning-Based and Conventional Spelling.
 
-Focused phonics, spelling-rule, morphology, high-frequency, and vocabulary resources should be linked Skills, Sight Word Sets, Practice Sets, or supplemental lists—not automatically Grade Units.
+Focused phonics, spelling-rule, morphology, high-frequency, and vocabulary resources should be linked Skills, High-Frequency Word Sets, Practice Sets, or supplemental lists—not automatically Grade Units.
 
 ## Ordered implementation backlog
 
-1. Approve Grade Unit-to-Skill/Sight Word Set migration rules before changing content identity.
+1. Approve Grade Unit-to-Skill/High-Frequency Word Set migration rules before changing content identity.
 2. Reconcile the canonical curriculum with `docs/architecture/CONSTITUTION.md` and `docs/architecture/CONTENT_MODEL.md`; confirm how canonical units may compose existing resources.
 3. Normalize Kindergarten into the three canonical milestones, move `kindergarten-ck-ending-words` and `kindergarten-double-consonants` to supporting/additional-practice content, and surface high-frequency content.
 4. Normalize Grade 1 into the five canonical units and move r-controlled vowels to Grade 2 primary placement.
@@ -194,9 +194,9 @@ Focused phonics, spelling-rule, morphology, high-frequency, and vocabulary resou
 
 ## Risks and unresolved product decisions
 
-1. **Representation:** Decide whether a canonical Grade Unit must be a content entry/page or may be a roadmap milestone that composes existing practice sets, Skills, and Sight Word Sets.
+1. **Representation:** Decide whether a canonical Grade Unit must be a content entry/page or may be a roadmap milestone that composes existing practice sets, Skills, and High-Frequency Word Sets.
 2. **Stable IDs and routes:** Preserve stable IDs and public URLs where possible. Do not silently repurpose a narrow ID for a materially broader user purpose.
-3. **High-frequency words:** Decide whether K High-Frequency Words is a Grade Unit entry backed by sight-word sets or a named roadmap lane. Either can satisfy the curriculum if discoverable and coherent.
+3. **High-frequency words:** Decide whether K High-Frequency Words is a Grade Unit entry backed by high-frequency-word sets or a named roadmap lane. Either can satisfy the curriculum if discoverable and coherent.
 4. **Skill lifecycle:** The content model says a published Skill should have a published Grade Unit placement. Expanding Skills ahead of units requires staged drafts or an explicit exception.
 5. **Grade hubs:** Grades 2–5 need roadmap data before their implementation can be curriculum-equivalent to K/1 rather than category browse pages.
 6. **Instructional depth:** Final stable syllables, derived words, syllable types, and related-word changes require controlled instructional design—not generic vocabulary additions.

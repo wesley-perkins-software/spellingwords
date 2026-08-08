@@ -21,7 +21,7 @@ nextLists: []
 featured: false
 faq:
   - question: "Is there a position rule for choosing OU or OW, the way there is for OI and OY?"
-    answer: "No — and this is worth saying plainly rather than papering over. OW does turn up at the end of a word more often than OU does in everyday vocabulary (cow, now, how), but that's not a dependable condition: both spellings show up in the middle of words just as commonly (found, sound; brown, down), so a learner can't use position to predict the spelling the way they can with OI and OY. Common words need to be learned individually rather than worked out from a rule."
+    answer: "No — and this is worth saying plainly rather than papering over. OW does turn up at the end of a word more often than OU does in everyday vocabulary (cow, now, how), but that's not a dependable condition: both spellings show up in the middle of words just as commonly (found, sound; brown, down), so a learner can't use position to predict the spelling the way they can with OI and OY. Frequent words with these spellings need to be learned individually rather than worked out from a rule."
   - question: "How is this OW different from the OW in 'snow'?"
     answer: "The same two letters spell two unrelated sounds. In snow, know, and grow, OW spells long o — a steady vowel sound, taught on OA and OW Words. In cow, brown, and down, OW spells the gliding sound taught on this page. Neither spelling gives a visual clue about which sound is meant; recognizing the specific word is what settles it."
   - question: "Why doesn't this page use the same 'listen and compare' teaching routine as OI/OY?"
@@ -62,7 +62,7 @@ There's a second scope boundary worth naming, separate from the OW/snow one abov
 
 ### There Is No Reliable Rule — and That's Worth Saying Directly
 
-Some vowel teams have a genuine position tendency worth teaching as a first guess — OI and OY do, and OA and OW do. OU and OW don't. *Ow* shows up at the end of a word in the common words taught here (*cow*, *now*), but it shows up in the middle just as easily (*brown*, *down*). *Ou* shows up at the very start of a word (*out*) and in the middle (*loud*, *found*, *round*, *sound*, *ground*). Neither spelling favors one position strongly enough to be worth teaching as a rule. Teaching a false rule here would do more harm than good — a learner who trusts a "rule" that doesn't actually hold will be wrong often enough to lose confidence in the pattern itself.
+Some vowel teams have a genuine position tendency worth teaching as a first guess — OI and OY do, and OA and OW do. OU and OW don't. *Ow* shows up at the end of a word in the high-frequency words taught here (*cow*, *now*), but it shows up in the middle just as easily (*brown*, *down*). *Ou* shows up at the very start of a word (*out*) and in the middle (*loud*, *found*, *round*, *sound*, *ground*). Neither spelling favors one position strongly enough to be worth teaching as a rule. Teaching a false rule here would do more harm than good — a learner who trusts a "rule" that doesn't actually hold will be wrong often enough to lose confidence in the pattern itself.
 
 ### What Should the Learner Notice?
 

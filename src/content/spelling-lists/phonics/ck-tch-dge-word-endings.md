@@ -22,10 +22,10 @@ featured: false
 faq:
   - question: "Are ck and k interchangeable at the end of a word?"
     answer: "No. In a one-syllable word, ck is used only when the /k/ sound comes right after a single short vowel, as in back and duck. Everywhere else — after another consonant (milk, pink) or after a long vowel (bike, leak) — the ending is spelled with k alone, not ck."
-  - question: "Why don't common words like if, yes, and bus double their final letter?"
+  - question: "Why don't high-frequency words like if, yes, and bus double their final letter?"
     answer: "They meet the FLOSS shape (one syllable, short vowel, final f or s sound) but simply don't follow it — if, chef, and clef are irregular single-f spellings, while yes, bus, gas, plus, and this are irregular single-s spellings. Some other short words, like is, was, and his, aren't really exceptions at all: their final s stands for the /z/ sound, not /s/, so the doubling question never applied to them in the first place."
   - question: "How is ch different from tch at the end of a word?"
-    answer: "Check what comes right before the /ch/ sound. Immediately after a single short vowel in a one-syllable word, it's spelled tch (catch, pitch). After a consonant, a long vowel, or a vowel team, it's spelled ch instead (bench, ranch, reach). A handful of common words — much, such, which, and rich — keep ch even though they follow a short vowel, and are worth learning by sight."
+    answer: "Check what comes right before the /ch/ sound. Immediately after a single short vowel in a one-syllable word, it's spelled tch (catch, pitch). After a consonant, a long vowel, or a vowel team, it's spelled ch instead (bench, ranch, reach). A handful of high-frequency words — much, such, which, and rich — keep ch even though they follow a short vowel, and are worth learning by sight."
   - question: "How is ge different from dge at the end of a word?"
     answer: "The same test applies: immediately after a single short vowel in a one-syllable word, the /j/ sound is spelled dge (badge, bridge). After a consonant like n or l, or after a long vowel, it's spelled ge instead (change, bulge, page, cage) — even in a word like change, where the vowel sounds long, because the /j/ sound there actually follows the consonant n, not the vowel directly."
 words:
@@ -67,7 +67,7 @@ The same three-part condition applies here: one syllable, one short vowel, and t
 | /z/ at the end of a one-syllable word, right after a single short vowel | sometimes doubled | buzz, fuzz, jazz |
 | Any of these sounds after a consonant blend, not directly after the vowel | single letter | shelf, golf, else |
 
-Doubling only applies when a single short vowel sits directly against the final sound. In *shelf* or *else*, two consonant sounds follow the vowel, not one, so the doubling question doesn't come up at all — this is a common overgeneralization to watch for (writing *shelff* for *shelf*). Of the four letters, *z* is the least reliable: many common words with a genuine final /z/ sound spelled *z* stay single (*quiz*), so it's worth teaching *z* cautiously rather than as confidently as *f*, *l*, and *s*.
+Doubling only applies when a single short vowel sits directly against the final sound. In *shelf* or *else*, two consonant sounds follow the vowel, not one, so the doubling question doesn't come up at all — this is a common overgeneralization to watch for (writing *shelff* for *shelf*). Of the four letters, *z* is the least reliable: many high-frequency words with a genuine final /z/ sound spelled *z* stay single (*quiz*), so it's worth teaching *z* cautiously rather than as confidently as *f*, *l*, and *s*.
 
 The exceptions to *f* and *s* doubling aren't all the same kind of exception, and it helps to keep them apart:
 
@@ -88,7 +88,7 @@ A word simply containing the letters "c-h" is not automatically an example of th
 | /ch/ at the end of a one-syllable word, right after a consonant | ch | bench, lunch, ranch |
 | /ch/ at the end of a one-syllable word, right after a long vowel or vowel team | ch | reach, coach, pooch |
 
-Four common words break the pattern: *much*, *such*, *which*, and *rich* all follow a short vowel but are spelled with plain *ch*. They're frequent enough in early reading that they're usually taught by sight, alongside the regular *tch* pattern rather than instead of it.
+Four high-frequency words break the pattern: *much*, *such*, *which*, and *rich* all follow a short vowel but are spelled with plain *ch*. They're frequent enough in early reading that they're usually taught by sight, alongside the regular *tch* pattern rather than instead of it.
 
 ### DGE and GE: Two Spellings for the Same /j/ Sound
 

@@ -28,9 +28,9 @@ This is a solid foundation, but it is not yet complete. Significant gaps remain:
 
 ## Why Phonics Matters
 
-Sight words and phonics are often taught in parallel, but they serve different purposes.
+High-Frequency Words and phonics are often taught in parallel, but they serve different purposes.
 
-Sight-word lists prioritize **reading fluency**. Children memorize high-frequency words so they can read a page without stopping. The emphasis is recognition speed, not pattern understanding.
+High-frequency-word lists prioritize **reading fluency**. Children memorize high-frequency words so they can read a page without stopping. The emphasis is recognition speed, not pattern understanding.
 
 Phonics lists prioritize **spelling logic**. Phonics explains *why* a word is spelled the way it is. When a child knows the AI vowel team, they can spell "rain," "mail," "chain," and "paint" not by memory but by pattern. That generative ability is the goal.
 
@@ -183,13 +183,13 @@ Patterns that lie at the edge of phonics, shading into morphology and etymology.
 
 ---
 
-## Relationship to Sight Words
+## Relationship to High-Frequency Words
 
-Phonics and sight words are complementary, not competing. They address different dimensions of literacy.
+Phonics and high-frequency words are complementary, not competing. They address different dimensions of literacy.
 
 Words like "said," "was," "want," and "come" are irregular — their spelling does not follow predictable phonics rules. They appear on Dolch lists because children need to memorize them for reading fluency. But those same words can still appear in phonics-adjacent lists (irregular vowel patterns, for example) as counterexamples or as the focus of a "tricky words" list.
 
-The principle is simple: a word can serve both purposes. A sight-word list and a phonics list are different views of the same word, just as a grade-level list and a phonics list can share a word without conflict. The word exists once in the word universe; lists are lenses.
+The principle is simple: a word can serve both purposes. A high-frequency-word list and a phonics list are different views of the same word, just as a grade-level list and a phonics list can share a word without conflict. The word exists once in the word universe; lists are lenses.
 
 ---
 

@@ -16,7 +16,7 @@ This document is the operating plan for improving the written content of every c
 
 - `docs/content/inventory/skill-pages.md` — every canonical Skill page, by family
 - `docs/content/inventory/grade-curriculum-pages.md` — every canonical Grade Unit and Additional Practice page, by grade
-- `docs/content/inventory/sight-words-and-common-words.md` — the canonical Common Words (High-Frequency Words) gateways and sets
+- `docs/content/inventory/high-frequency-words.md` — the canonical High-Frequency Words (High-Frequency Words) gateways and sets
 - `docs/content/inventory/deprecated-and-legacy-pages.md` — pages that exist in the repository but are **not** part of the canonical architecture; repository awareness only, not an editorial worklist
 - `docs/content/inventory/untagged-and-data-quality.md` — pages that couldn't yet be classified canonical-active or deprecated-legacy, plus repository findings
 
@@ -32,7 +32,7 @@ Keep this file and the inventory files synchronized: this file owns strategy, ph
 
 - The K–5 Grade Unit curriculum and sequence (`docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`).
 - The Grade Hub architecture — Core Spelling / High-Frequency Words / Additional Practice, three sections per grade (`docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`, frozen, authoritative for public architecture).
-- Common Words (High-Frequency Words) set counts and structure per grade.
+- High-Frequency Words (High-Frequency Words) set counts and structure per grade.
 - Additional Practice: the specific, bounded set of approved cards per grade (including the grades — Grade 3 currently has zero — that intentionally have none).
 - The canonical Skills architecture: 12 families and 41 live, content-backed Skill pages (`docs/architecture/SKILLS_ARCHITECTURE.md`).
 - The Skills Hub organization and the set of public pages that should exist.
@@ -41,7 +41,7 @@ Keep this file and the inventory files synchronized: this file owns strategy, ph
 
 ### Scope is the canonical architecture, not the repository
 
-The repository contains more published content than the frozen architecture defines — most notably a legacy Dolch sight-word system and a set of orphaned single-pattern phonics pages that predate the current Grade Hub/Skills design. Every page in this roadmap's active scope is classified using one test:
+The repository contains more published content than the frozen architecture defines — most notably a legacy Dolch high-frequency-word system and a set of orphaned single-pattern phonics pages that predate the current Grade Hub/Skills design. Every page in this roadmap's active scope is classified using one test:
 
 **A page is canonical active if it is explicitly defined by `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` or `docs/architecture/SKILLS_ARCHITECTURE.md`, or it is a required implementation artifact of that architecture** (a Grade Hub, the Skills Hub, or the main browse page). Live code (`src/lib/content/gradeHubCards.ts`, `src/lib/content/spellingSkills.ts`) verifies the architecture is actually wired into navigation and surfaces drift — it does not redefine what's canonical.
 
@@ -49,13 +49,13 @@ Every content-collection page in the repository falls into exactly one of three 
 
 | Classification | Meaning | Where it lives |
 |---|---|---|
-| **Canonical active** | Defined by the frozen architecture; in this roadmap's editorial scope | `skill-pages.md`, `grade-curriculum-pages.md`, `sight-words-and-common-words.md` |
+| **Canonical active** | Defined by the frozen architecture; in this roadmap's editorial scope | `skill-pages.md`, `grade-curriculum-pages.md`, `high-frequency-words.md` |
 | **Deprecated / legacy** | Exists in the repository, sometimes still live and linked, but not part of the frozen architecture; documented for awareness only | `deprecated-and-legacy-pages.md` — no checklists, no DoD, no priority, no phase membership |
 | **Unresolved** | Not named by the architecture docs and not matched by a documented legacy pattern; needs a classification decision before any work | `untagged-and-data-quality.md` |
 
 Current canonical-active editorial scope is **154 pages**. The former focused component pages `grade-4-final-stable-syllables` and `grade-5-spelling-rules` were deleted during legacy-architecture removal and are no longer counted or reachable from their former anchors. See §4 for the active breakdown and `inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md` for their disposition.
 
-A deprecated/legacy classification is not a judgment that the content is bad — it means the frozen architecture doesn't currently define a role for it. The legacy Dolch tier is, in fact, still linked from the main browse page today (`/spelling-lists` → `/spelling-lists/sight-words` → the Dolch collections) — real, reachable, and still explicitly out of this roadmap's scope, because reachability and canonical status are different questions. If a future product decision brings a deprecated page back into the architecture, move it into the active inventory at that time (§15) — don't start improving it first.
+A deprecated/legacy classification is not a judgment that the content is bad — it means the frozen architecture doesn't currently define a role for it. The legacy Dolch tier is, in fact, still linked from the main browse page today (`/spelling-lists` → `/spelling-lists/high-frequency-words` → the Dolch collections) — real, reachable, and still explicitly out of this roadmap's scope, because reachability and canonical status are different questions. If a future product decision brings a deprecated page back into the architecture, move it into the active inventory at that time (§15) — don't start improving it first.
 
 ### What this phase includes
 
@@ -64,7 +64,7 @@ Rewriting, strengthening, and completing the *written content* of canonical-acti
 ### What this phase excludes
 
 - Visual and presentation redesign — deferred to a later phase. Do not touch layout, components, or styling.
-- Re-deciding curriculum, page taxonomy, Skill families, Grade Unit sequence, Common Words, Additional Practice, or the public page hierarchy. If content work surfaces a real architectural gap, record it (§11, and the mismatches already logged in the inventory files) — don't resolve it by moving pages, renaming ids/slugs, or inventing new pages.
+- Re-deciding curriculum, page taxonomy, Skill families, Grade Unit sequence, High-Frequency Words, Additional Practice, or the public page hierarchy. If content work surfaces a real architectural gap, record it (§11, and the mismatches already logged in the inventory files) — don't resolve it by moving pages, renaming ids/slugs, or inventing new pages.
 - Editorial work of any kind on deprecated/legacy or unresolved pages, until a product-owner decision moves a page into canonical-active scope.
 - New curriculum pages, page deletions, or page merges.
 - Full research citations for every page as part of this planning task (§11 governs future page work).
@@ -88,11 +88,11 @@ Five page layers exist within the canonical architecture. Each layer's page set 
 **Linking role:** links up to its canonical Skill page, sideways to `prerequisiteLists`/`nextLists`, and up to its Grade Hub.
 
 ### Layer 3 — Grade Hub pages
-**Purpose:** summarize and organize one grade's Core Spelling, Common Words, and any approved Additional Practice (e.g. "3rd Grade Spelling Words"). **Defined by:** `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`; implemented as code (`src/pages/spelling-lists/[gradeSlug].astro` + `src/lib/content/gradeHubCards.ts`/`gradeHubCopy.ts`), not a content file.
+**Purpose:** summarize and organize one grade's Core Spelling, High-Frequency Words, and any approved Additional Practice (e.g. "3rd Grade Spelling Words"). **Defined by:** `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`; implemented as code (`src/pages/spelling-lists/[gradeSlug].astro` + `src/lib/content/gradeHubCards.ts`/`gradeHubCopy.ts`), not a content file.
 **Belongs here:** short orienting copy, a scannable map of the grade's three sections, and links into every child page.
 **Core title contract:** each Core card defaults to the destination entry’s exact canonical title, matching its H1, breadcrumb, and relationship-card label. Grade is separate metadata. Any Hub-only title is an explicit reviewed exception with a documented usability rationale; shorter canonical URL slugs remain valid.
 **Must not duplicate:** lesson content from any child page.
-**Linking role:** routes down into every Grade Unit/Common Words/Additional Practice page for that grade, and up to the Skills Hub / main browse page.
+**Linking role:** routes down into every Grade Unit/High-Frequency Words/Additional Practice page for that grade, and up to the Skills Hub / main browse page.
 
 ### Layer 4 — Skills Hub
 **Purpose:** the main "Browse by Skill" directory across all 12 frozen families. **Defined by:** `docs/architecture/SKILLS_ARCHITECTURE.md`; implemented as `src/pages/skills/index.astro` + `spellingSkills.ts`/`canonicalSkillRoutes.ts`, serving at `/skills`.
@@ -104,7 +104,7 @@ Five page layers exist within the canonical architecture. Each layer's page set 
 **Purpose:** the top-level entry point where a user chooses Grade-based or Skill-based browsing (`src/pages/spelling-lists/index.astro`).
 **Belongs here:** a short explanation of the journeys — Grade-based, Skill-based, and "practice your own words," per `docs/architecture/CONSTITUTION.md`'s three user journeys — and links to the Grade Hubs and Skills Hub.
 **Must not duplicate:** hub-level or page-level content — this page should be the shortest, least detailed page in the whole hierarchy.
-**Note:** this page currently also links to legacy category pages (`/spelling-lists/sight-words`, etc.) that are outside canonical scope — see §1 and `deprecated-and-legacy-pages.md`. That linkage is a fact about today's implementation, not something this roadmap resolves.
+**Note:** this page currently also links to legacy category pages (`/spelling-lists/high-frequency-words`, etc.) that are outside canonical scope — see §1 and `deprecated-and-legacy-pages.md`. That linkage is a fact about today's implementation, not something this roadmap resolves.
 
 ### The Skill-page vs. Grade-unit distinction (the one most at risk of duplication)
 
@@ -144,7 +144,7 @@ Editorial order: **Skill pages → Grade curriculum pages → Grade Hub pages �
 
 ### Phase 3 — Grade Hub content
 **Position rationale:** a Grade Hub's job is to accurately summarize and route to its children — writing hub copy before the children are in good shape means the hub either misrepresents what's there or has to be rewritten later.
-**Dependencies:** that grade's Core Spelling and Common Words content substantially complete.
+**Dependencies:** that grade's Core Spelling and High-Frequency Words content substantially complete.
 **Outputs:** 6 Grade Hub pages (K–5) with accurate, non-duplicative orienting copy.
 **Must not do prematurely:** don't let hub copy expand into full lessons (§7).
 
@@ -176,14 +176,14 @@ Full per-page tables live in the companion inventory files (linked at the top of
 |---|---:|---|---|
 | Skill pages (41-slot taxonomy) | 41 live | Canonical active | `inventory/skill-pages.md` |
 | Grade Unit + Additional Practice pages (own Grade Hub card) | 78 | Canonical active | `inventory/grade-curriculum-pages.md` |
-| Common Words gateway pages | 6 | Canonical active | `inventory/sight-words-and-common-words.md` |
-| Common Words member sets | 29 | Canonical active | `inventory/sight-words-and-common-words.md` |
+| High-Frequency Words gateway pages | 6 | Canonical active | `inventory/high-frequency-words.md` |
+| High-Frequency Words member sets | 29 | Canonical active | `inventory/high-frequency-words.md` |
 | Grade Hubs, Skills Hub, main browse page | 8 (6 + 1 + 1, code-driven) | Canonical active | this file, §7 |
 | Dolch tier gateways + member sets, orphaned phonics pages, archived pages | 82 | Deprecated / legacy | `inventory/deprecated-and-legacy-pages.md` |
 | Pages not resolved by the classification test | 33 | Unresolved | `inventory/untagged-and-data-quality.md` |
 | **Total content-collection files** | **268** (256 `spelling-lists` + 12 `spelling-collections`) | — | all inventory files combined |
 
-**Active editorial scope = 154 canonical-active content pages**: 41 canonical Skills + 78 Grade curriculum pages with their own Grade Hub card + 6 Common Words gateways + 29 Common Words member sets. The former focused component pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) were deleted and are recorded only in the legacy-removal manifest. The 8 code-driven browse/hub pages and unresolved pages are tracked separately and are not included in 154.
+**Active editorial scope = 154 canonical-active content pages**: 41 canonical Skills + 78 Grade curriculum pages with their own Grade Hub card + 6 High-Frequency Words gateways + 29 High-Frequency Words member sets. The former focused component pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) were deleted and are recorded only in the legacy-removal manifest. The 8 code-driven browse/hub pages and unresolved pages are tracked separately and are not included in 154.
 
 ---
 
@@ -423,9 +423,9 @@ Generated from the frozen taxonomy in `docs/architecture/SKILLS_ARCHITECTURE.md`
 - [ ] Independent family editorial sign-off received
 ### R-Controlled Vowels
 
-**Sixth batch note:** the audit step found all three existing pages pre-dated the Standard: each was a single unstructured two-paragraph body, with no bounded-scope statement, no word-family groupings, no explicit sound-vs-letter-name framing beyond a passing mention, no mistakes/exceptions treatment, no teaching routine, no diagnostic response, and no "signs of security" section. R-Controlled AR Words additionally carried a wrong `relatedLists`/`prerequisiteLists` link to `vowel-teams-ou-ow` (an unrelated vowel-team page, evidently a copy-paste leftover) — removed and replaced with genuinely justified relationships rather than left in place or swapped for another family member by default (per the roadmap's own "same-family membership alone does not earn a relationship" standard): AR now takes `short-a-words` as a real prerequisite (the short-a/AR contrast is a required Variant 1 element, not just a convenient link) and `r-controlled-or` as a related Skill; OR takes `short-o-words` as its own parallel prerequisite, plus both `r-controlled-ar` (parallel single-spelling sibling) and `r-controlled-er-ir-ur` (a concrete, non-arbitrary link: OR's own `wor-` exception words make the ER/IR/UR sound) as related; ER/IR/UR takes `r-controlled-ar` as prerequisite (the foundational r-controlled concept is clearest through AR's single-spelling case) and `r-controlled-or` as related (reciprocal to the `wor-` link). Two independently verified, real phonetic exceptions were researched and added rather than left as unqualified "always" claims: AR's regular sound shifts after `w` or `qu` (`war`, `warm`, `ward`, `quart`, rhyming with `for`/`form`/`cord`/`short` instead of `car`/`farm`), and OR's regular sound shifts in the small `wor-` group (`word`, `work`, `world`, `worm`, `worth`, rhyming with `bird`/`turn`/`her` instead of `corn`/`short`) — with `worn` named explicitly as a counter-example so the `wor-` exception isn't overgeneralized to every word starting with those letters. OR's real, bounded dialect variation (the horse–hoarse merger, where `horse` and historically-distinct `hoarse`/`four` have merged in most modern American English) replaces a vague, unverifiable "pronunciation varies" claim. ER/IR/UR explicitly distinguishes the clear, stressed sound in one-syllable words (`her`, `bird`, `turn`) from the softer, unstressed ending in longer common words (`sister`, `winter`, `under`) rather than treating all ten demonstration words as phonetically identical, and scopes its "one sound" claim to mainstream rhotic American English with a brief note that non-rhotic accents pronounce these words differently. No prediction rule was invented for ER/IR/UR — the page states plainly that recognition through repeated exposure is the practical strategy, matching the existing FAQ's honest stance. Every demonstration word was individually re-screened per the Standard's example-and-word-list criteria rather than assumed to deserve its place: `large` was dropped from AR's set (introduces the soft-g pattern, an untaught Grade 2 Skill, ahead of Grade 1 sequence) and `order` was dropped from OR's set (its unstressed `-er` ending introduces the ER/IR/UR pattern before that Skill is taught in sequence); the ER/IR/UR set was kept at its original ten words after individual review found no confound, reorganized instead into a stressed-core group and a labeled unstressed-ending group. As part of the internal-links audit, both Grade 1 Grade Unit siblings (`grade-1-r-controlled-ar-or.md`, `grade-1-r-controlled-er-ir-ur.md`) were confirmed to have no `skillIds` back-reference to their Skills — the same gap already fixed for every earlier family — so a one-line `skillIds` addition was made to each, with no other change to those files (`grade-2-two-syllable-words.md` already carried the correct back-reference to all three and needed no change). Following the existing `short-a-words`/`silent-e-long-a` reciprocal-link precedent, a one-line reciprocal `relatedLists` entry was also added to `short-a-words.md` (→ `r-controlled-ar`) and `short-o-words.md` (→ `r-controlled-or`), since a new genuine prerequisite relationship was introduced in this batch. A dedicated adversarial-review pass then re-examined every claim above under the assumption it was false until independently verified — including the AR/OR w-shift exceptions, the horse–hoarse merger, the stressed/unstressed ER distinction, and every demonstration word and relationship field — before this batch note was written.
+**Sixth batch note:** the audit step found all three existing pages pre-dated the Standard: each was a single unstructured two-paragraph body, with no bounded-scope statement, no word-family groupings, no explicit sound-vs-letter-name framing beyond a passing mention, no mistakes/exceptions treatment, no teaching routine, no diagnostic response, and no "signs of security" section. R-Controlled AR Words additionally carried a wrong `relatedLists`/`prerequisiteLists` link to `vowel-teams-ou-ow` (an unrelated vowel-team page, evidently a copy-paste leftover) — removed and replaced with genuinely justified relationships rather than left in place or swapped for another family member by default (per the roadmap's own "same-family membership alone does not earn a relationship" standard): AR now takes `short-a-words` as a real prerequisite (the short-a/AR contrast is a required Variant 1 element, not just a convenient link) and `r-controlled-or` as a related Skill; OR takes `short-o-words` as its own parallel prerequisite, plus both `r-controlled-ar` (parallel single-spelling sibling) and `r-controlled-er-ir-ur` (a concrete, non-arbitrary link: OR's own `wor-` exception words make the ER/IR/UR sound) as related; ER/IR/UR takes `r-controlled-ar` as prerequisite (the foundational r-controlled concept is clearest through AR's single-spelling case) and `r-controlled-or` as related (reciprocal to the `wor-` link). Two independently verified, real phonetic exceptions were researched and added rather than left as unqualified "always" claims: AR's regular sound shifts after `w` or `qu` (`war`, `warm`, `ward`, `quart`, rhyming with `for`/`form`/`cord`/`short` instead of `car`/`farm`), and OR's regular sound shifts in the small `wor-` group (`word`, `work`, `world`, `worm`, `worth`, rhyming with `bird`/`turn`/`her` instead of `corn`/`short`) — with `worn` named explicitly as a counter-example so the `wor-` exception isn't overgeneralized to every word starting with those letters. OR's real, bounded dialect variation (the horse–hoarse merger, where `horse` and historically-distinct `hoarse`/`four` have merged in most modern American English) replaces a vague, unverifiable "pronunciation varies" claim. ER/IR/UR explicitly distinguishes the clear, stressed sound in one-syllable words (`her`, `bird`, `turn`) from the softer, unstressed ending in longer high-frequency words (`sister`, `winter`, `under`) rather than treating all ten demonstration words as phonetically identical, and scopes its "one sound" claim to mainstream rhotic American English with a brief note that non-rhotic accents pronounce these words differently. No prediction rule was invented for ER/IR/UR — the page states plainly that recognition through repeated exposure is the practical strategy, matching the existing FAQ's honest stance. Every demonstration word was individually re-screened per the Standard's example-and-word-list criteria rather than assumed to deserve its place: `large` was dropped from AR's set (introduces the soft-g pattern, an untaught Grade 2 Skill, ahead of Grade 1 sequence) and `order` was dropped from OR's set (its unstressed `-er` ending introduces the ER/IR/UR pattern before that Skill is taught in sequence); the ER/IR/UR set was kept at its original ten words after individual review found no confound, reorganized instead into a stressed-core group and a labeled unstressed-ending group. As part of the internal-links audit, both Grade 1 Grade Unit siblings (`grade-1-r-controlled-ar-or.md`, `grade-1-r-controlled-er-ir-ur.md`) were confirmed to have no `skillIds` back-reference to their Skills — the same gap already fixed for every earlier family — so a one-line `skillIds` addition was made to each, with no other change to those files (`grade-2-two-syllable-words.md` already carried the correct back-reference to all three and needed no change). Following the existing `short-a-words`/`silent-e-long-a` reciprocal-link precedent, a one-line reciprocal `relatedLists` entry was also added to `short-a-words.md` (→ `r-controlled-ar`) and `short-o-words.md` (→ `r-controlled-or`), since a new genuine prerequisite relationship was introduced in this batch. A dedicated adversarial-review pass then re-examined every claim above under the assumption it was false until independently verified — including the AR/OR w-shift exceptions, the horse–hoarse merger, the stressed/unstressed ER distinction, and every demonstration word and relationship field — before this batch note was written.
 
-**Follow-up adversarial pass (same batch):** a second, dedicated adversarial re-read of the drafted pages found four issues, all now corrected. (1) AR's short-a/AR contrast table included an invented third pair, `mad`/`mart` — `mart` is an uncommon word for this audience and the pair wasn't a clean contrast the way `cat`/`car` is; the row was dropped rather than patched with another forced pairing. (2) AR's `-are` scope-boundary FAQ originally attributed the `hair`/`stair` sound to "the combination of a, r, and a silent e together," which is only true of `care`/`share`/`dare` — `hair` and `stair` reach the same sound through a vowel-team spelling with no silent e at all, so the FAQ conflated two different spellings of one sound; reworded to separate the sound from the spelling mechanism. (3) OR's short-o/OR contrast table paired `hot` with `short` and `dot` with `sort` — neither pair actually contrasts cleanly (`short` and `sort` don't share `hot`/`dot`'s onset or structure); replaced with `hot`/`horn`, a real, common, structurally parallel pair, and dropped the third row rather than force another weak match. (4) ER/IR/UR's "no rule" FAQ asserted that "some advanced patterns exist in longer, less frequent words" without naming or verifying any — an unsupported claim; removed rather than left as an unverifiable gesture.
+**Follow-up adversarial pass (same batch):** a second, dedicated adversarial re-read of the drafted pages found four issues, all now corrected. (1) AR's short-a/AR contrast table included an invented third pair, `mad`/`mart` — `mart` is an unhigh-frequency word for this audience and the pair wasn't a clean contrast the way `cat`/`car` is; the row was dropped rather than patched with another forced pairing. (2) AR's `-are` scope-boundary FAQ originally attributed the `hair`/`stair` sound to "the combination of a, r, and a silent e together," which is only true of `care`/`share`/`dare` — `hair` and `stair` reach the same sound through a vowel-team spelling with no silent e at all, so the FAQ conflated two different spellings of one sound; reworded to separate the sound from the spelling mechanism. (3) OR's short-o/OR contrast table paired `hot` with `short` and `dot` with `sort` — neither pair actually contrasts cleanly (`short` and `sort` don't share `hot`/`dot`'s onset or structure); replaced with `hot`/`horn`, a real, common, structurally parallel pair, and dropped the third row rather than force another weak match. (4) ER/IR/UR's "no rule" FAQ asserted that "some advanced patterns exist in longer, less frequent words" without naming or verifying any — an unsupported claim; removed rather than left as an unverifiable gesture.
 
 **Third pass — external verification and relationship reconfirmation (same batch):** a follow-up review, prompted by a request to independently verify the dialect claim and re-examine two relationship decisions, made three further corrections. (1) OR's horse–hoarse FAQ was checked against external sources (Wikipedia's "English-language vowel changes before historic r" article and corroborating web search results) per the Standard's evidence-ladder requirement (§14) for dialect claims. The original wording — "in some older or regional accents... were pronounced differently" — understated and mis-timed the phenomenon: the merger is not a fading historical artifact but a live, present-day distinction actively maintained by identifiable current speaker populations, including Southern American English, the Boston accent, and some Scottish and Irish varieties, alongside General American's majority merger. The FAQ was reworded to state this accurately (present tense, named accents, explicit "neither pronunciation is more correct") rather than removed, since it serves a genuine purpose: preventing a parent whose own or child's speech reflects one of these non-merging varieties from treating it as an error. (2) The reciprocal `relatedLists` entries added to `short-a-words.md` (→ `r-controlled-ar`) and `short-o-words.md` (→ `r-controlled-or`) were reverted. Neither short-vowel page's body prose explained the relationship in the surrounding text — the Standard (§12) requires every link to be explained in prose, not just represented by a related-Skill card — and retrofitting new prose into those two already-reviewed pages (short-a-words is the family's reference implementation) to justify a card added purely for reciprocity risked displacing their existing, more central purposeful links (short-e-words/silent-e-long-a and short-u-words/silent-e-long-o respectively). The relationship remains one-directional: AR and OR still declare `short-a-words`/`short-o-words` as `prerequisiteLists`, and each R-Controlled page's own "Compared With Short [Vowel]" section substantively explains why, satisfying §12 from that side. (3) ER/IR/UR's `prerequisiteLists: ["r-controlled-ar"]` was re-examined and found not to be a genuine instructional prerequisite — no architecture doc documents a conceptual dependency, and a learner does not need AR's specific single-spelling pattern or its `war`/`warm` exception to understand that ER, IR, and UR share one sound. The only real basis was that Grade 1 happens to teach AR/OR before ER/IR/UR, which is Grade Unit sequencing, not a Skill-level dependency, and the Standard explicitly warns against a Skill page adopting one grade's framing as if it were universal (§2). Moved to `relatedLists` alongside `r-controlled-or`, with `prerequisiteLists` left empty; the body's existing "Unlike AR and OR..." contrast already treats the relationship as related prior context rather than assuming it as required preparation, so no body-prose change was needed.
 
@@ -626,7 +626,7 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 
 **Canonical Grade Units:** Sounds, Letters, and Early Encoding; Short Vowels and CVC Words; High-Frequency Words
 
-**Frozen hub structure:** 8 Core Spelling cards · 4 Common Words sets (40 words) · 3 Additional Practice card(s)
+**Frozen hub structure:** 8 Core Spelling cards · 4 High-Frequency Words sets (40 words) · 3 Additional Practice card(s)
 
 - [x] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [ ] Core Spelling / Grade Unit pages (11 canonical-active)
@@ -652,13 +652,13 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 - [ ] Additional Practice pages (2 canonical-active)
   - [ ] Kindergarten Number Words (`kindergarten-number-words`)
   - [ ] Kindergarten Color Words (`kindergarten-color-words`)
-- [ ] Common Words sets audited (see `inventory/sight-words-and-common-words.md` for the Kindergarten rows)
+- [ ] High-Frequency Words sets audited (see `inventory/high-frequency-words.md` for the Kindergarten rows)
 - [ ] Grade-wide consistency review completed (terminology matches this grade's Skill-page links; word-list difficulty appropriately bounded for the grade)
 ### Grade 1
 
 **Canonical Grade Units:** Consonant Digraphs and Blends; Inflectional Endings; Silent E and Long Vowels; Vowel Teams; Syllables and Two-Syllable Words
 
-**Frozen hub structure:** 12 Core Spelling cards · 6 Common Words sets (72 words) · 3 Additional Practice card(s)
+**Frozen hub structure:** 12 Core Spelling cards · 6 High-Frequency Words sets (72 words) · 3 Additional Practice card(s)
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [ ] Core Spelling / Grade Unit pages (12 canonical-active)
@@ -680,13 +680,13 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
   - [ ] Grade 1 Weather Words (`grade-1-weather-words`)
   - [ ] Grade 1 Clothing Words (`grade-1-clothing-words`)
   - [ ] Grade 1 Shape Words (`grade-1-shape-words`)
-- [ ] Common Words sets audited (see `inventory/sight-words-and-common-words.md` for the Grade 1 rows)
+- [ ] High-Frequency Words sets audited (see `inventory/high-frequency-words.md` for the Grade 1 rows)
 - [ ] Grade-wide consistency review completed (terminology matches this grade's Skill-page links; word-list difficulty appropriately bounded for the grade)
 ### Grade 2
 
 **Canonical Grade Units:** Long E Vowel Teams; Long I Patterns; R-Controlled Vowels; Diphthongs and Other Vowel Patterns; Syllable Types and Multisyllabic Words; Silent Letters and Ending Spelling Patterns; Hard and Soft C and G
 
-**Frozen hub structure:** 13 Core Spelling cards · 6 Common Words sets (72 words) · 5 Additional Practice cards
+**Frozen hub structure:** 13 Core Spelling cards · 6 High-Frequency Words sets (72 words) · 5 Additional Practice cards
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [ ] Core Spelling / Grade Unit pages (13 canonical-active)
@@ -709,13 +709,13 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
   - [ ] Grade 2 Money Words (`grade-2-money-words`)
   - [ ] Grade 2 Number Words 20–100 (`grade-2-number-words-20-100`)
   - [ ] Grade 2 Community Helpers (`grade-2-community-helpers`)
-- [ ] Common Words sets audited (see `inventory/sight-words-and-common-words.md` for the Grade 2 rows)
+- [ ] High-Frequency Words sets audited (see `inventory/high-frequency-words.md` for the Grade 2 rows)
 - [ ] Grade-wide consistency review completed (terminology matches this grade's Skill-page links; word-list difficulty appropriately bounded for the grade)
 ### Grade 3
 
 **Canonical Grade Units:** Prefixes; Suffixes; Spelling Changes When Adding Suffixes; Plurals, Possessives, and Contractions; Homophones and Commonly Confused Words
 
-**Frozen hub structure:** 7 Core Spelling cards · 5 Common Words sets (60 words) · 4 Additional Practice cards
+**Frozen hub structure:** 7 Core Spelling cards · 5 High-Frequency Words sets (60 words) · 4 Additional Practice cards
 
 - [x] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [x] Core Spelling / Grade Unit pages (7 canonical-active)
@@ -738,13 +738,13 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
   - [ ] 3rd Grade Life Cycle Words (`grade-3-life-cycle-words`)
   - [ ] 3rd Grade Time Words (`grade-3-time-words`)
   - [ ] 3rd Grade Multiplication & Division Words (`grade-3-multiplication-division-words`)
-- [ ] Common Words sets audited (see `inventory/sight-words-and-common-words.md` for the Grade 3 rows)
+- [ ] High-Frequency Words sets audited (see `inventory/high-frequency-words.md` for the Grade 3 rows)
 - [ ] Grade-wide consistency review completed (terminology matches this grade's Skill-page links; word-list difficulty appropriately bounded for the grade)
 ### Grade 4
 
-**Canonical Grade Units:** Greek and Latin Roots; Advanced Multisyllabic Words; Final Stable Syllables and Common Word Endings; Derived Words and Word Meaning
+**Canonical Grade Units:** Greek and Latin Roots; Advanced Multisyllabic Words; Final Stable Syllables and High-Frequency Word Endings; Derived Words and Word Meaning
 
-**Frozen hub structure:** 6 Core Spelling cards · 4 Common Words sets (48 words) · 1 Additional Practice card(s)
+**Frozen hub structure:** 6 Core Spelling cards · 4 High-Frequency Words sets (48 words) · 1 Additional Practice card(s)
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [ ] Core Spelling / Grade Unit pages (6 canonical-active)
@@ -759,13 +759,13 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
   - [ ] 4th Grade Solar System Words (`grade-4-solar-system-words`)
   - [ ] 4th Grade Career & Occupation Words (`grade-4-career-occupation-words`)
   - [ ] 4th Grade Geometry Words (`grade-4-geometry-words`)
-- [ ] Common Words sets audited (see `inventory/sight-words-and-common-words.md` for the Grade 4 rows)
+- [ ] High-Frequency Words sets audited (see `inventory/high-frequency-words.md` for the Grade 4 rows)
 - [ ] Grade-wide consistency review completed (terminology matches this grade's Skill-page links; word-list difficulty appropriately bounded for the grade)
 ### Grade 5
 
 **Canonical Grade Units:** Advanced Roots, Affixes, and Academic Words; Spelling Changes in Related Words; Meaning-Based and Conventional Spelling
 
-**Frozen hub structure:** 5 Core Spelling cards · 4 Common Words sets (48 words) · 4 Additional Practice cards
+**Frozen hub structure:** 5 Core Spelling cards · 4 High-Frequency Words sets (48 words) · 4 Additional Practice cards
 
 - [x] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [x] Core Spelling / Grade Unit pages (5 canonical-active)
@@ -784,7 +784,7 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
   - [ ] 5th Grade Money Management Words (`grade-5-money-management-words`)
   - [ ] 5th Grade Ecosystem & Environment Words (`grade-5-ecosystem-environment-words`)
   - [ ] 5th Grade Fraction & Decimal Words (`grade-5-fraction-decimal-words`)
-- [ ] Common Words sets audited (see `inventory/sight-words-and-common-words.md` for the Grade 5 rows)
+- [ ] High-Frequency Words sets audited (see `inventory/high-frequency-words.md` for the Grade 5 rows)
 - [ ] Grade-wide consistency review completed (terminology matches this grade's Skill-page links; word-list difficulty appropriately bounded for the grade)
 
 ---
@@ -810,7 +810,7 @@ Hub pages are code-driven, always canonical active, and have no frontmatter row 
 
 - [ ] Introductory copy reviewed
 - [ ] User journey clarity reviewed
-- [ ] Section descriptions (Core Spelling / Common Words / Additional Practice) reviewed
+- [ ] Section descriptions (Core Spelling / High-Frequency Words / Additional Practice) reviewed
 - [ ] Internal links to all child pages verified
 - [ ] Terminology consistency with child pages verified
 - [ ] Metadata and structured data reviewed
@@ -819,7 +819,7 @@ Hub pages are code-driven, always canonical active, and have no frontmatter row 
 
 - [ ] Introductory copy reviewed
 - [ ] User journey clarity reviewed
-- [ ] Section descriptions (Core Spelling / Common Words / Additional Practice) reviewed
+- [ ] Section descriptions (Core Spelling / High-Frequency Words / Additional Practice) reviewed
 - [ ] Internal links to all child pages verified
 - [ ] Terminology consistency with child pages verified
 - [ ] Metadata and structured data reviewed
@@ -828,7 +828,7 @@ Hub pages are code-driven, always canonical active, and have no frontmatter row 
 
 - [ ] Introductory copy reviewed
 - [ ] User journey clarity reviewed
-- [ ] Section descriptions (Core Spelling / Common Words / Additional Practice) reviewed
+- [ ] Section descriptions (Core Spelling / High-Frequency Words / Additional Practice) reviewed
 - [ ] Internal links to all child pages verified
 - [ ] Terminology consistency with child pages verified
 - [ ] Metadata and structured data reviewed
@@ -837,7 +837,7 @@ Hub pages are code-driven, always canonical active, and have no frontmatter row 
 
 - [ ] Introductory copy reviewed
 - [ ] User journey clarity reviewed
-- [ ] Section descriptions (Core Spelling / Common Words / Additional Practice) reviewed
+- [ ] Section descriptions (Core Spelling / High-Frequency Words / Additional Practice) reviewed
 - [ ] Internal links to all child pages verified
 - [ ] Terminology consistency with child pages verified
 - [ ] Metadata and structured data reviewed
@@ -846,7 +846,7 @@ Hub pages are code-driven, always canonical active, and have no frontmatter row 
 
 - [ ] Introductory copy reviewed
 - [ ] User journey clarity reviewed
-- [ ] Section descriptions (Core Spelling / Common Words / Additional Practice) reviewed
+- [ ] Section descriptions (Core Spelling / High-Frequency Words / Additional Practice) reviewed
 - [ ] Internal links to all child pages verified
 - [ ] Terminology consistency with child pages verified
 - [ ] Metadata and structured data reviewed
@@ -855,7 +855,7 @@ Hub pages are code-driven, always canonical active, and have no frontmatter row 
 
 - [ ] Introductory copy reviewed
 - [ ] User journey clarity reviewed
-- [ ] Section descriptions (Core Spelling / Common Words / Additional Practice) reviewed
+- [ ] Section descriptions (Core Spelling / High-Frequency Words / Additional Practice) reviewed
 - [ ] Internal links to all child pages verified
 - [ ] Terminology consistency with child pages verified
 - [ ] Metadata and structured data reviewed
@@ -877,7 +877,7 @@ Hub pages are code-driven, always canonical active, and have no frontmatter row 
 - [ ] Internal links to all Grade Hubs and the Skills Hub verified
 - [ ] Metadata and structured data reviewed
 - [ ] Shortest, least detailed page in the hierarchy — confirmed no lesson content has crept in
-- [ ] Legacy category-page links (e.g. `/spelling-lists/sight-words`) reviewed for whether they should remain, per a product-owner decision — not silently removed or expanded as part of a content pass
+- [ ] Legacy category-page links (e.g. `/spelling-lists/high-frequency-words`) reviewed for whether they should remain, per a product-owner decision — not silently removed or expanded as part of a content pass
 
 ---
 
@@ -971,7 +971,7 @@ Explicit rules to prevent duplication, validated against the frozen architecture
 
 **Skill page vs. Skills Hub.** The Skills Hub explains families briefly and helps users choose a destination; it must not contain any family's actual pattern explanation — that stays on the Skill page.
 
-**Common Words gateway vs. individual Common Words set.** The gateway page (e.g. "Kindergarten High-Frequency Words") explains the cumulative structure and Heart Word approach once; individual sets should not each re-explain what a Heart Word is — link back to the gateway instead.
+**High-Frequency Words gateway vs. individual High-Frequency Words set.** The gateway page (e.g. "Kindergarten High-Frequency Words") explains the cumulative structure and Heart Word approach once; individual sets should not each re-explain what a Heart Word is — link back to the gateway instead.
 
 **Core Spelling vs. Additional Practice.** Core Spelling is the recommended encoding/spelling route for the grade — the default path. Additional Practice is small, optional, bounded vocabulary content; its pages should be shorter and lighter than Core Spelling pages by design, not through neglect.
 
@@ -1018,7 +1018,7 @@ Initial assignment by grouping (refine per-family/per-grade as Phase 0 audits la
 | IE and IGH Words | P1 | Newly implemented 41st canonical Skill; implementation complete, pending final editorial sign-off |
 | Grade K–2 Grade Unit pages | P1 | High-traffic early grades, dependent on the P0/P1 Skill pages already prioritized |
 | Grade 3–5 Grade Unit pages | P2 | Sequenced after earlier grades and their Skill-page dependencies |
-| Common Words gateway + member-set pages | P2 | Structurally frozen and functional; editorial polish, not urgent |
+| High-Frequency Words gateway + member-set pages | P2 | Structurally frozen and functional; editorial polish, not urgent |
 | Grade Hubs (K–5) | P2 | Depend on Phase 1–2 completion before final copy is accurate |
 | Skills Hub, main browse page | P2 | Depend on Phase 1/3–4 completion |
 | Additional Practice pages | P3 | Small, optional, bounded; lowest dependency weight |
@@ -1079,7 +1079,7 @@ Written implementation and adversarial self-review have been completed for all 4
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |
 | Phase 5 — Main browse-page content | 1 page | 0 | 0 | 1 | 0 |
 | Phase 6 — Cross-site consistency and final audit | 1 site-wide pass | 0 | 0 | 1 | 0 |
-| *(Reference, not a phase)* Common Words gateway + member sets | 6 + 29 = 35 | 0 | 0 | 35 | 0 |
+| *(Reference, not a phase)* High-Frequency Words gateway + member sets | 6 + 29 = 35 | 0 | 0 | 35 | 0 |
 
 **Excluded from every phase and total above — transparency only, not part of active scope:** deprecated/legacy and unresolved pages. Canonical-active editorial scope is **154 pages**; the deleted focused-component pages are recorded only in the legacy-removal manifest. Repository-wide historical file totals are not an authority for current canonical membership.
 

@@ -19,22 +19,22 @@ export const GRADE_4_CORE_IDS: readonly string[] = [
 ];
 
 /**
- * Off-hub Grade 4 vocabulary, not yet Common Words. Documentation only —
+ * Off-hub Grade 4 vocabulary, not yet High-Frequency Words. Documentation only —
  * `vocabulary-theme` (and undeclared `contentRole`) is not a `grade-unit`, so
  * these ids never enter `buildGradeUnitSequence()`.
  */
 export const GRADE_4_VOCABULARY_IDS: readonly string[] = [];
 
 /**
- * Grade 4 Common Words sets, published. Documentation only —
- * `sight-word-set` is not a `grade-unit`, so these ids never enter
+ * Grade 4 High-Frequency Words sets, published. Documentation only —
+ * `high-frequency-word-set` is not a `grade-unit`, so these ids never enter
  * `buildGradeUnitSequence()`. The Grade 4 hub's High-Frequency Words section
  * is driven directly by `GRADE_4_HUB_SECTIONS` in `gradeHubCards.ts`,
  * independent of this file.
  */
-export const GRADE_4_COMMON_WORD_IDS: readonly string[] = [
-  'grade-4-common-words-1',
-  'grade-4-common-words-2',
+export const GRADE_4_HFW_SET_IDS: readonly string[] = [
+  'grade-4-high-frequency-words-set-1',
+  'grade-4-high-frequency-words-set-2',
 ];
 
 /**
@@ -55,7 +55,7 @@ export const grade4Badges: Record<string, string> = {
   'tier-1-roots-and-patterns': 'Core Unit',
   'grade-4-commonly-confused-words': 'Core Unit',
   'grade-4-derived-words': 'Core Unit',
-  'grade-4-common-words-1': 'Common Words',
-  'grade-4-common-words-2': 'Common Words',
+  'grade-4-high-frequency-words-set-1': 'High-Frequency Words',
+  'grade-4-high-frequency-words-set-2': 'High-Frequency Words',
   'grade-4-measurement-words': 'Vocabulary',
 };

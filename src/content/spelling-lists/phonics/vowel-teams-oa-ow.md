@@ -52,7 +52,7 @@ A learner meeting a new *ow* word for the first time can't tell which sound is m
 
 ### Why OA Appears in the Middle and OW at the End
 
-Within the long-o words taught on this page, *oa* is typically found inside the word, followed by at least one more consonant sound, as in *boat*, *coat*, and *soap*. *Ow* is typically found at the very end of the word, as in *snow*, *crow*, and *blow*. This mirrors the tendency taught with AI and AY: when long o is followed by another sound in the same word, *oa* is the better first guess; when long o is the very last sound, *ow* is the better first guess. As with that earlier pattern, this describes the common words taught here — it's a useful tendency for building early accuracy, not a claim that covers every long-o word in English.
+Within the long-o words taught on this page, *oa* is typically found inside the word, followed by at least one more consonant sound, as in *boat*, *coat*, and *soap*. *Ow* is typically found at the very end of the word, as in *snow*, *crow*, and *blow*. This mirrors the tendency taught with AI and AY: when long o is followed by another sound in the same word, *oa* is the better first guess; when long o is the very last sound, *ow* is the better first guess. As with that earlier pattern, this describes the high-frequency words taught here — it's a useful tendency for building early accuracy, not a claim that covers every long-o word in English.
 
 ### A Genuine Exception Worth Knowing
 

@@ -3,7 +3,7 @@ id: soft-c-soft-g
 urlSlug: soft-c-soft-g
 title: "Soft C and Soft G"
 description: "Why city sounds different from cat, and page sounds different from game: c and g usually change from their hard sounds to soft ones when the next letter is e, i, or y."
-shortAnswer: "Soft c and soft g are a real, teachable spelling pattern: when the letter right after c or g is e, i, or y, that c or g usually changes from its hard sound to a softer one. C changes from /k/ (as in cat) to /s/ (as in city). G changes from /g/ (as in game) to /j/ (as in page). The pattern is very reliable for c — soft c almost always shows up before e, i, or y. G is less reliable: common words like get, give, girl, and gift keep the hard /g/ sound even though g is followed by e or i."
+shortAnswer: "Soft c and soft g are a real, teachable spelling pattern: when the letter right after c or g is e, i, or y, that c or g usually changes from its hard sound to a softer one. C changes from /k/ (as in cat) to /s/ (as in city). G changes from /g/ (as in game) to /j/ (as in page). The pattern is very reliable for c — soft c almost always shows up before e, i, or y. G is less reliable: high-frequency words like get, give, girl, and gift keep the hard /g/ sound even though g is followed by e or i."
 contentRole: skill
 category: phonics
 grade: "2"
@@ -50,11 +50,11 @@ Soft *c* and soft *g* almost always show up right before *e*, *i*, or *y* — th
 
 ### Soft C: A Reliable Pattern
 
-Soft c shows up in all three trigger positions: *city* (before *i*), *ice* (before *e*), *icy* (before *y*). Real exceptions among common words are rare — a child who applies "soft c before e, i, or y" can trust it in nearly every word they'll meet at this level.
+Soft c shows up in all three trigger positions: *city* (before *i*), *ice* (before *e*), *icy* (before *y*). Real exceptions among high-frequency words are rare — a child who applies "soft c before e, i, or y" can trust it in nearly every word they'll meet at this level.
 
 ### Soft G: A Pattern With Real Exceptions
 
-Soft g also shows up in all three positions: *giant* (before *i*), *page* (before *e*), *gym* (before *y*). But soft g is noticeably less dependable than soft c. Some of the most common words in a child's vocabulary keep the hard /g/ sound even though g is followed by e or i:
+Soft g also shows up in all three positions: *giant* (before *i*), *page* (before *e*), *gym* (before *y*). But soft g is noticeably less dependable than soft c. Some of the most frequent words in a child's vocabulary keep the hard /g/ sound even though g is followed by e or i:
 
 - *get* — hard g, not "jet"
 - *give* — hard g, not "jive"

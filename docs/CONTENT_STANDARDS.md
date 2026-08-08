@@ -39,7 +39,7 @@ When these groups' interests conflict, **children's comprehension comes first.**
 - Common elementary vocabulary — words a child in the target grade range would plausibly already be using or hearing.
 - Curriculum words — words that map onto what schools at that grade level actually teach.
 - Canonical word sources, such as:
-  - high-frequency sight words
+  - high-frequency words
   - phonics patterns
   - curriculum vocabulary
 - Words children are likely to encounter in books or school — i.e., words with a real reading-life payoff, not just a spelling-list payoff.
@@ -57,7 +57,7 @@ When these groups' interests conflict, **children's comprehension comes first.**
 ## Duplicate Rules
 
 - **Adjacent lists should avoid duplicates whenever possible.** Lists that sit next to each other in the taxonomy (e.g., consecutive grade levels, sibling phonics patterns) should each contribute distinct words rather than reshuffling the same set.
-- **If a duplicate is pedagogically necessary, it must be explained.** Some words legitimately belong in more than one list (for example, a high-frequency sight word that also fits a phonics pattern). When this happens, the list specification should state plainly *why* the overlap exists, so it reads as a deliberate teaching decision rather than an oversight.
+- **If a duplicate is pedagogically necessary, it must be explained.** Some words legitimately belong in more than one list (for example, a high-frequency word that also fits a phonics pattern). When this happens, the list specification should state plainly *why* the overlap exists, so it reads as a deliberate teaching decision rather than an oversight.
 - **Do not create multiple lists containing the same words merely to increase page count.** A list that exists primarily to duplicate or lightly remix an existing list provides no educational value and actively works against the "every list should be independently valuable" principle above.
 
 ---

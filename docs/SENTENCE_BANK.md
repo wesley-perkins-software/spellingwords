@@ -107,7 +107,7 @@ Each sentence must not:
 
 Good candidates:
 
-- Common Dolch / sight words
+- Common Dolch / high-frequency words
 - Common K–5 grade-level spelling words
 - Words very likely to appear on a weekly homework list
 - Words with a single clear, unambiguous pronunciation

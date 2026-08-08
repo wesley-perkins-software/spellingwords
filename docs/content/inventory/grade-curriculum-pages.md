@@ -5,14 +5,14 @@
 > URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs now use the flat no-trailing-slash `/{grade}/{page-slug}` structure. The runtime source of truth is `src/lib/content/canonicalGradeRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the generated migration map. The legacy `/spelling-lists/...` route has been removed entirely; historical repository-shaped URLs are not generated and are not redirected (pre-launch, no traffic to preserve).
 
 
-Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling (Grade Unit) and Additional Practice (vocabulary-theme) pages that `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` defines for each grade and that `src/lib/content/gradeHubCards.ts` confirms are wired into that grade's live hub. Common Words (High-Frequency Words) pages are inventoried separately in `sight-words-and-common-words.md`. Canonical Grade Unit names below are copied verbatim from `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`.
+Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling (Grade Unit) and Additional Practice (vocabulary-theme) pages that `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` defines for each grade and that `src/lib/content/gradeHubCards.ts` confirms are wired into that grade's live hub. High-Frequency Words (High-Frequency Words) pages are inventoried separately in `high-frequency-words.md`. Canonical Grade Unit names below are copied verbatim from `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`.
 
 ## Kindergarten
 
 **Canonical Grade Units:** Sounds, Letters, and Early Encoding; Short Vowels and CVC Words; High-Frequency Words
 
 
-**Frozen hub structure:** 8 Core Spelling cards · 4 Common Words sets (40 words) · 3 Additional Practice card(s)
+**Frozen hub structure:** 8 Core Spelling cards · 4 High-Frequency Words sets (40 words) · 3 Additional Practice card(s)
 
 
 ### Canonical active pages (13)
@@ -38,7 +38,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling 
 **Canonical Grade Units:** Consonant Digraphs and Blends; Inflectional Endings; Silent E and Long Vowels; Vowel Teams; Syllables and Two-Syllable Words
 
 
-**Frozen hub structure:** 12 Core Spelling cards · 6 Common Words sets (72 words) · 3 Additional Practice card(s)
+**Frozen hub structure:** 12 Core Spelling cards · 6 High-Frequency Words sets (72 words) · 3 Additional Practice card(s)
 
 
 ### Canonical active pages (17)
@@ -68,7 +68,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling 
 **Canonical Grade Units:** Long E Vowel Teams; Long I Patterns; R-Controlled Vowels; Diphthongs and Other Vowel Patterns; Syllable Types and Multisyllabic Words; Silent Letters and Ending Spelling Patterns; Hard and Soft C and G
 
 
-**Frozen hub structure:** 13 Core Spelling cards · 6 Common Words sets (72 words) · 5 Additional Practice cards
+**Frozen hub structure:** 13 Core Spelling cards · 6 High-Frequency Words sets (72 words) · 5 Additional Practice cards
 
 
 ### Canonical active pages (18)
@@ -101,7 +101,7 @@ Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling 
 For Grade 3, the table `Title` column records each page's canonical frontmatter title. Independently curated Grade Hub architecture labels may summarize a combined curriculum concept; they do not replace the page title or other identity metadata.
 
 
-**Frozen hub structure:** 7 Core Spelling cards · 5 Common Words sets (60 words) · 4 Additional Practice cards
+**Frozen hub structure:** 7 Core Spelling cards · 5 High-Frequency Words sets (60 words) · 4 Additional Practice cards
 
 
 ### Canonical active pages (11)
@@ -125,7 +125,7 @@ For Grade 3, the table `Title` column records each page's canonical frontmatter 
 **Canonical Grade 4 Core sequence:** Multisyllabic Academic Words; Advanced Prefix Words; Advanced Suffix Words; Latin Root Words; Commonly Confused Words; Derived Words and Word Meaning. These are conceptual curriculum placements; the table records each page’s exact canonical frontmatter title.
 
 
-**Frozen hub structure:** 6 Core Spelling cards · 4 Common Words sets (48 words) · 4 Additional Practice cards
+**Frozen hub structure:** 6 Core Spelling cards · 4 High-Frequency Words sets (48 words) · 4 Additional Practice cards
 
 
 ### Canonical active pages (10)
@@ -143,14 +143,14 @@ For Grade 3, the table `Title` column records each page's canonical frontmatter 
 | 4th Grade Career & Occupation Words | grade-4-career-occupation-words | 4th-grade-career-occupation-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/4th-grade-career-occupation-words.md` | Not audited |
 | 4th Grade Geometry Words | grade-4-geometry-words | 4th-grade-geometry-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/4th-grade-geometry-words.md` | Not audited |
 
-**Removed (legacy-architecture-removal PR):** `grade-4-final-stable-syllables` (4th Grade Final Stable Syllables: -ture and -sure) realized the -ture/-sure portion of the "Final Stable Syllables and Common Word Endings" canonical unit, reached only through `grade-4-advanced-suffixes`'s related-practice link. It was never a canonical Skill or a separate Grade Hub card. The standalone page has been deleted (no content migrated, per explicit product direction) and the anchor's `relatedLists` reference to it removed. See `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md`. This does not change the Grade 4 Core Spelling card count (still 6) or the canonical-active page count above (still 10).
+**Removed (legacy-architecture-removal PR):** `grade-4-final-stable-syllables` (4th Grade Final Stable Syllables: -ture and -sure) realized the -ture/-sure portion of the "Final Stable Syllables and High-Frequency Word Endings" canonical unit, reached only through `grade-4-advanced-suffixes`'s related-practice link. It was never a canonical Skill or a separate Grade Hub card. The standalone page has been deleted (no content migrated, per explicit product direction) and the anchor's `relatedLists` reference to it removed. See `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md`. This does not change the Grade 4 Core Spelling card count (still 6) or the canonical-active page count above (still 10).
 
 ## Grade 5
 
 **Canonical Grade Units:** Advanced Roots, Affixes, and Academic Words; Spelling Changes in Related Words; Meaning-Based and Conventional Spelling
 
 
-**Frozen hub structure:** 5 Core Spelling cards · 4 Common Words sets (48 words) · 4 Additional Practice cards
+**Frozen hub structure:** 5 Core Spelling cards · 4 High-Frequency Words sets (48 words) · 4 Additional Practice cards
 
 
 ### Canonical active pages (9)

@@ -1,15 +1,15 @@
 ---
-id: grade-1-common-words-6
-urlSlug: grade-1-common-words-6
-title: 'Grade 1 Common Words 6'
+id: grade-1-high-frequency-words-set-6
+urlSlug: grade-1-high-frequency-words-set-6
+title: "Grade 1 High-Frequency Words — Set 6"
 description: "Practice 12 high-frequency words assigned to Grade 1 Set 6 for accurate and increasingly automatic spelling."
 shortAnswer: "Practice 12 high-frequency words assigned to Grade 1 Set 6 for accurate and increasingly automatic spelling."
-contentRole: sight-word-set
-category: sight-words
+contentRole: high-frequency-word-set
+category: high-frequency-words
 grade: '1'
 difficulty: developing
-skillTags: ['common-words', 'high-frequency']
-tags: ['common-words', 'sight-words', 'high-frequency', 'heart-words']
+skillTags: ['high-frequency-words', 'high-frequency']
+tags: ['high-frequency-words', 'high-frequency', 'heart-words']
 order: 106
 estimatedDurationMinutes: 7
 status: published
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: 'Hybrid editorial'
-  tier: 'Grade 1 common words'
+  tier: 'Grade 1 high-frequency words'
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

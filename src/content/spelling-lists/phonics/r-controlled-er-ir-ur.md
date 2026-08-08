@@ -23,7 +23,7 @@ prerequisiteLists: []
 nextLists: []
 faq:
   - question: "Is there a rule for choosing ER, IR, or UR?"
-    answer: "No dependable rule works for the common words a beginning speller meets — a first grader can't predict whether a new word uses er, ir, or ur just from its sound. Students learn the correct spelling by reading and writing real words often enough that girl, turn, and her start to look right on sight."
+    answer: "No dependable rule works for the high-frequency words a beginning speller meets — a first grader can't predict whether a new word uses er, ir, or ur just from its sound. Students learn the correct spelling by reading and writing real words often enough that girl, turn, and her start to look right on sight."
   - question: "Why are ER, IR, and UR taught together instead of as three separate lists?"
     answer: "Because the teaching challenge is the same for all three: recognizing that they sound alike and remembering which spelling belongs to which specific word. Splitting them into separate lists would suggest each has its own distinct sound, which isn't the case."
   - question: "Do word, work, and world belong on this page even though they're spelled with or?"
@@ -53,7 +53,7 @@ Reading each group aloud confirms that none of the three spellings sounds more "
 
 ### Why There's No Rule to Predict the Spelling
 
-Unlike AR and OR, where one spelling reliably matches one sound, ER, IR, and UR ask a learner to remember which of three spellings belongs to each specific word. There's no dependable position rule, no neighboring-letter rule, and no shortcut that works across common words — *bird* isn't spelled *ir* for a reason a first grader can apply to a new word, it simply is. The practical strategy is exposure: reading and writing each word enough times that the correct spelling starts to look right, the same way many high-frequency sight words are learned.
+Unlike AR and OR, where one spelling reliably matches one sound, ER, IR, and UR ask a learner to remember which of three spellings belongs to each specific word. There's no dependable position rule, no neighboring-letter rule, and no shortcut that works across high-frequency words — *bird* isn't spelled *ir* for a reason a first grader can apply to a new word, it simply is. The practical strategy is exposure: reading and writing each word enough times that the correct spelling starts to look right, the same way many high-frequency words are learned.
 
 ### The Sound in Short Words Versus Longer Words
 

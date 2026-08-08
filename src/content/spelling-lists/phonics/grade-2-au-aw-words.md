@@ -16,7 +16,7 @@ estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-2-common-words-1", "grade-2-common-words-5", "grade-2-common-words-6"]
+relatedLists: ["grade-2-high-frequency-words-set-1", "grade-2-high-frequency-words-set-5", "grade-2-high-frequency-words-set-6"]
 prerequisiteLists: []
 nextLists: []
 featured: false
@@ -28,7 +28,7 @@ faq:
   - question: "How do children know whether to use au or aw?"
     answer: "Position is the most reliable clue: aw is common at the end of a word (saw, draw) and before n or l (lawn, crawl), while au usually appears in the middle of a word (cause, author). It is a helpful pattern, not an absolute rule, so listening still matters."
   - question: "Why is because on this list?"
-    answer: "Because is one of the most useful words a second grader writes, and its first syllable uses the same au sound taught here. It already belongs to a Grade 1 Common Words set, so this page reinforces the pattern rather than teaching the word for the first time."
+    answer: "Because is one of the most useful words a second grader writes, and its first syllable uses the same au sound taught here. It already belongs to a Grade 1 High-Frequency Words set, so this page reinforces the pattern rather than teaching the word for the first time."
   - question: "What comes after au and aw in the vowel-pattern sequence?"
     answer: "This is the last of the Grade 2 vowel-pattern lessons. After au and aw, the Grade 2 route moves from vowel sounds into soft c and g, syllables, and word endings."
   - question: "Are augh words like caught and taught included here?"

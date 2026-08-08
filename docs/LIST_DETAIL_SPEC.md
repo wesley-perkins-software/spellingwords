@@ -24,7 +24,7 @@ The page must help a parent, teacher, or independent visitor evaluate a list and
 
 **Older children browsing independently** — children aged roughly 9 and up who discover lists through navigation or search and want to decide for themselves whether to practice.
 
-**Search engine visitors** — users landing directly from a query such as "2nd grade sight words list" or "short vowel CVC words." They arrive with a specific intent; the page must immediately confirm or redirect them.
+**Search engine visitors** — users landing directly from a query such as "2nd grade high-frequency words list" or "short vowel CVC words." They arrive with a specific intent; the page must immediately confirm or redirect them.
 
 **AI-referred visitors** — users who followed a recommendation from an AI assistant. These visitors arrive pre-sold on a concept and need the page to confirm that what they see matches what they were told.
 
@@ -69,7 +69,7 @@ The complete word list is primary content, not supporting material. It should be
 **Required content:**
 - List title (e.g., "Short A Words — CVC Pattern")
 - Grade level or target audience indicator (e.g., "Grade 1" or "Kindergarten–Grade 1")
-- Category chip or label (e.g., Phonics, Sight Words, Grade-Level)
+- Category chip or label (e.g., Phonics, High-Frequency Words, Grade-Level)
 - Difficulty indicator, when meaningful (e.g., Beginner, Intermediate)
 - Estimated session duration, when useful (e.g., "About 10 minutes")
 - Short description: one to two sentences stating what the list is and who it is for
@@ -136,7 +136,7 @@ The word list is primary content. It is why the page exists. It should never be 
 **Purpose:** Help parents and teachers understand the spelling skill this list develops, why it matters, and how it fits into a broader learning progression. This section is primarily for adults.
 
 **Required content:**
-- A clear explanation of the spelling pattern, rule, or category the list addresses (e.g., what CVC means, why sight words are learned differently from phonics words)
+- A clear explanation of the spelling pattern, rule, or category the list addresses (e.g., what CVC means, why high-frequency words are learned differently from phonics words)
 - The approximate grade level or developmental stage this skill belongs to
 - A plain statement of why this list is useful
 
@@ -208,8 +208,8 @@ Target query patterns include:
 
 - Grade-specific spelling lists ("1st grade spelling words", "3rd grade spelling list")
 - Phonics-pattern queries ("short vowel words for kids", "CVC word list")
-- Sight word queries ("Dolch sight words list kindergarten", "Fry words grade 2")
-- Named-list searches ("second grade sight words", "long E words spelling list")
+- High-Frequency Words queries ("Dolch high-frequency words list kindergarten", "Fry words grade 2")
+- Named-list searches ("second grade high-frequency words", "long E words spelling list")
 
 Each List Detail page is a self-contained, authoritative document about a specific spelling list. The page title, meta description, and body content should be written to clearly answer the search query that would lead someone to it.
 

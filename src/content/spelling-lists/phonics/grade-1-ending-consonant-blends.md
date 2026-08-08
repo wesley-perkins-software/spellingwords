@@ -16,7 +16,7 @@ status: published
 masteryThreshold: 90
 sourceType: curated
 skillIds: ["ending-blends"]
-relatedLists: ["grade-2-common-words-2"]
+relatedLists: ["grade-2-high-frequency-words-set-2"]
 prerequisiteLists: []
 nextLists: []
 featured: false

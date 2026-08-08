@@ -28,7 +28,7 @@ The Content Model distinguishes several identities that must remain separate:
 - **Skill:** a reusable spelling concept or focused pattern.
 - **Practice Set:** the actual word set loaded into practice.
 - **Teaching Guide:** adult-facing explanatory content.
-- **Sight Word Set:** a distinct high-frequency or irregular-word practice identity.
+- **High-Frequency Word Set:** a distinct high-frequency or irregular-word practice identity.
 - **Collection:** an editorial grouping or named sequence.
 - **Vocabulary or Theme List:** supplemental spelling practice organized by topic, subject, or enrichment purpose.
 
@@ -123,7 +123,7 @@ Recommended canonical families:
 11. Greek and Latin Word Parts
 12. Homophones and Commonly Confused Words
 
-Sight Words and Irregular Words may appear as a discovery bridge, but sight-word systems remain parallel to ordinary Skills.
+High-Frequency Words and Irregular Words may appear as a discovery bridge, but high-frequency-word systems remain parallel to ordinary Skills.
 
 ### B. Focused Skills
 
@@ -283,7 +283,7 @@ This family covers upper-elementary roots, combining forms, and meaning-based wo
 Likely focused Skills:
 
 - Greek and Latin Roots
-- Common Word Parts
+- High-Frequency Word Parts
 
 Individual roots should usually remain Practice Sets, filters, or examples. A root should become an independent Skill only if it has unusually strong instructional and practice value.
 
@@ -412,7 +412,7 @@ Internal metadata may continue to track concepts such as CVC, closed syllables, 
 | Prefixes | Broad Skill Family | Canonical Broad Skill Family | UN/RE, common prefixes | introduced 2, extended 3–5 | Individual prefixes usually subsections. |
 | Greek and Latin Word Parts | Broad Skill Family | Canonical Broad Skill Family | roots, word parts | introduced 4, extended 5 | Individual roots usually Practice Sets. |
 | Homophones and Commonly Confused Words | Broad Skill Family | Canonical Broad Skill Family | homophones, confused sets | introduced 2–3, extended 4–5 | Specific sets are provisional. |
-| Sight Words and Irregular Words | Parallel system | Parallel Sight Word System | Dolch, Fry, Heart Words | introduced K, practiced K–3 | Discovery bridge only; Dolch/Fry levels are not Skills. |
+| High-Frequency Words and Irregular Words | Parallel system | Parallel High-Frequency Word System | Dolch, Fry, Heart Words | introduced K, practiced K–3 | Discovery bridge only; Dolch/Fry levels are not Skills. |
 | Vocabulary and Theme Lists | Other content identity | Not Recommended as Skills | animals, weather, science words | supplemental | Discoverable elsewhere, not part of Skills taxonomy. |
 
 ## 11. Grade relationships
@@ -450,19 +450,19 @@ Grade Units should not become gateways whose main job is to send users elsewhere
 
 Skills should not pretend to be Grade Units. A Short A Skill may serve Kindergarten introduction, Grade 1 review, and later intervention without changing identity.
 
-## 13. Sight Words and irregular-word systems
+## 13. High-Frequency Words and irregular-word systems
 
-Sight Words remain parallel to the ordinary Skills taxonomy.
+High-Frequency Words remain parallel to the ordinary Skills taxonomy.
 
-The site may use **Sight Words and Irregular Words** as a discovery bridge, but it must preserve these distinctions:
+The site may use **High-Frequency Words and Irregular Words** as a discovery bridge, but it must preserve these distinctions:
 
-- **Sight Word Set:** a distinct content identity for high-frequency or irregular-word practice.
+- **High-Frequency Word Set:** a distinct content identity for high-frequency or irregular-word practice.
 - **Dolch and Fry:** named collections/systems, not ordinary Skills.
 - **Heart Words:** an instructional frame for attending to irregular or temporarily irregular parts of words, not one universal list.
 - **High-frequency:** a statement about how often words appear in print.
 - **Irregular:** a statement about spelling predictability.
 
-These concepts overlap but are not synonyms. Dolch Primer, Dolch First Grade, Fry levels, and Heart Word sets should not be represented as Skills. They may be reached through grade roadmaps, collections, search, contextual links, or a sight-word browsing experience.
+These concepts overlap but are not synonyms. Dolch Primer, Dolch First Grade, Fry levels, and Heart Word sets should not be represented as Skills. They may be reached through grade roadmaps, collections, search, contextual links, or a high-frequency-word browsing experience.
 
 ## 14. Vocabulary/theme exclusion
 
@@ -523,7 +523,7 @@ Conceptual principles:
 - Practice Sets do not automatically receive URLs.
 - Grade Units remain conceptually grade-specific.
 - Skills remain conceptually grade-neutral.
-- Sight Word Sets and Collections follow sight-word identity, not ordinary Skill identity.
+- High-Frequency Word Sets and Collections follow high-frequency-word identity, not ordinary Skill identity.
 - Current `/spelling-lists/phonics/` locations are legacy route choices, not content identity.
 
 This document intentionally does not provide exact route trees, migration maps, or redirect plans.
@@ -634,9 +634,9 @@ Grade 4/5 Roots Grade Unit → Greek and Latin Word Parts → Greek and Latin Ro
 
 Individual roots should not become pages by default. They can be practiced in sets organized by frequency, utility, or curriculum purpose.
 
-### Sight Words, Dolch, and Heart Words
+### High-Frequency Words, Dolch, and Heart Words
 
-Kindergarten Heart Words or Dolch Pre-Primer → Sight Word Set or Collection → Sight Words and Irregular Words discovery bridge.
+Kindergarten Heart Words or Dolch Pre-Primer → High-Frequency Word Set or Collection → High-Frequency Words and Irregular Words discovery bridge.
 
 Dolch tiers and Heart Word sets are not Skills. Heart Words are an instructional framing; Dolch and Fry are named systems.
 

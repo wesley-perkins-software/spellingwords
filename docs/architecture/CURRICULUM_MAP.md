@@ -10,7 +10,7 @@ This document is the single canonical Grade Unit ↔ Skill curriculum map for Sp
 
 **This document defines intended architecture, not merely current implementation.** Where the two differ, the intended architecture is recorded as canonical and the implementation gap is called out explicitly — current frontmatter, routing, or category grouping is never silently treated as curriculum policy.
 
-Once approved, this document supersedes `K5_CURRICULUM_COVERAGE.md` for sequencing/mapping purposes (that document remains useful as historical backlog evidence) and sits alongside `CONSTITUTION.md`/`CONTENT_MODEL.md`/`SKILLS_MODEL.md` in the documentation governance hierarchy (`CONSTITUTION.md` §17, tier 3: "curriculum research and grade-skill source documents"). It does not replace `curriculum-bible.md`'s governance of non-Grade-Unit content (vocabulary/theme lists, sight-word sets).
+Once approved, this document supersedes `K5_CURRICULUM_COVERAGE.md` for sequencing/mapping purposes (that document remains useful as historical backlog evidence) and sits alongside `CONSTITUTION.md`/`CONTENT_MODEL.md`/`SKILLS_MODEL.md` in the documentation governance hierarchy (`CONSTITUTION.md` §17, tier 3: "curriculum research and grade-skill source documents"). It does not replace `curriculum-bible.md`'s governance of non-Grade-Unit content (vocabulary/theme lists, high-frequency-word sets).
 
 **What is canonical today vs. proposed:** Kindergarten and Grade 1 core sequences are already implemented, tested, and shipped (`kindergartenProgression.ts`, `grade1Progression.ts`) — they are documented here as canonical. Every Grade 2–5 row, every reclassification recommendation, and every newly identified Skill gap is a **proposal** awaiting sign-off via the Decision Register (§8). Nothing in this document authorizes new content creation, frontmatter changes, or code changes on its own.
 
@@ -51,7 +51,7 @@ Every row's **Canonical Skill link(s)** states the *intended* relationship regar
 
 | Title | ID | Concept | Canonical Skill link | Implementation status | Grade Unit status |
 |---|---|---|---|---|---|
-| Kindergarten Heart Words | `kindergarten-heart-words` | Irregular high-frequency words | none (Sight Word Set identity) | n/a | Published but supporting |
+| Kindergarten Heart Words | `kindergarten-heart-words` | Irregular high-frequency words | none (High-Frequency Word Set identity) | n/a | Published but supporting |
 | Kindergarten Animal Words | `kindergarten-animal-words` | Thematic vocabulary | none (Vocabulary/Theme identity) | n/a | Published but supporting |
 | Kindergarten Number and Color Words | `kindergarten-number-color-words` | Thematic vocabulary | none (Vocabulary/Theme identity) | n/a | Published but supporting |
 
@@ -66,7 +66,7 @@ Every row's **Canonical Skill link(s)** states the *intended* relationship regar
 | 5 | Grade 1 Ending Consonant Blends | `grade-1-ending-consonant-blends` | Adjacent consonants, word-final | 11-blend sampler | Unit 4 | `grade-1-long-vowels-silent-e` | Ending Blends (not built) | Not wired | Published and canonical |
 | 6 | Grade 1 Long Vowels — Silent E | `grade-1-long-vowels-silent-e` | VCe long-vowel pattern | Mixed silent-e words | Unit 5 | `grade-1-open-syllables-final-y` | `silent-e-long-a/e/i/o/u` (Silent E family) | Not wired | Published and canonical |
 | 7 | Grade 1 Open Syllables / Final Y | `grade-1-open-syllables-final-y` | Open-syllable long vowels; y as a vowel | -y ending words | Unit 6 | `grade-1-heart-words` | Open Syllables (not built, provisional) | Not wired | Published and canonical |
-| 8 | Grade 1 Heart Words | `grade-1-heart-words` | Irregular high-frequency words | Heart-word set | Unit 7 | `grade-1-inflectional-endings-s-es` | none (Sight Word Set identity) | n/a | Published and canonical |
+| 8 | Grade 1 Heart Words | `grade-1-heart-words` | Irregular high-frequency words | Heart-word set | Unit 7 | `grade-1-inflectional-endings-s-es` | none (High-Frequency Word Set identity) | n/a | Published and canonical |
 | 9 | Grade 1 Inflectional Endings -s/-es | `grade-1-inflectional-endings-s-es` | Regular plural/verb inflection | -s/-es words | Unit 8 | `grade-1-inflectional-endings-ed-ing` | Plurals and -s/-es (not built) | Not wired | Published and canonical |
 | 10 | Grade 1 Inflectional Endings -ed/-ing | `grade-1-inflectional-endings-ed-ing` | Verb tense inflection | -ed/-ing words | Unit 9 | `grade-1-r-controlled-ar-or` | -ed and -ing (not built) | Not wired | Published and canonical |
 | 11 | Grade 1 R-Controlled AR/OR | `grade-1-r-controlled-ar-or` | Vowel-r spelling change | ar/or words | Unit 10 | `grade-1-r-controlled-er-ir-ur` | `r-controlled-ar`, `r-controlled-or` | Not wired | Published and canonical |
@@ -225,7 +225,7 @@ Grade 1's core sequence fans out into 9 gateway pages, 52 targeted-skill pages, 
 | Silent-E targeted pages (4 live + 1 archived) | `silent-e-long-a/i/o/u`; archived `silent-e-long-e` | **Skill pages plus retired compatibility URL** | Four canonical peers remain live. Long E is summarized in family guidance and its former route redirects to that overview. |
 | Vowel-team targeted pages (3) | `vowel-teams-ai-ay/ee-ea/oa-ow` | **Skill page** | Already `Existing`/`Canonical` in §2. |
 | R-controlled targeted pages (3) | `r-controlled-ar/or/er-ir-ur` | **Skill page** | Built but `Proposed` curriculum status in §2 — recommended promotion to `Canonical` pending Decision Register item 4. |
-| Heart-word targeted pages (3) | `grade-1-heart-words-part-1/2/3` | **Supporting Grade Unit** (Sight Word Set sub-parts, not Skills) | These split the Grade 1 Heart Words Grade Unit's word set; they are not reusable spelling-pattern Skills, so they don't belong in §2. |
+| Heart-word targeted pages (3) | `grade-1-heart-words-part-1/2/3` | **Supporting Grade Unit** (High-Frequency Word Set sub-parts, not Skills) | These split the Grade 1 Heart Words Grade Unit's word set; they are not reusable spelling-pattern Skills, so they don't belong in §2. |
 | CK / TCH-DGE pages | `c-k-ck-words`, `tch-dge-ending-words` | **Needs reclassification** | See §2 — role vs. Grade Unit vs. One-Syllable-Patterns family membership is unresolved. |
 | Gateway pages (9) | `grade-1-short-vowel-practice`, `grade-1-consonant-digraph-practice`, `grade-1-beginning-blend-practice`, `grade-1-ending-blend-practice`, `grade-1-silent-e-practice`, `grade-1-heart-word-practice`, `grade-1-r-controlled-vowel-practice`, `grade-1-vowel-team-practice`, `grade-1-tch-dge-practice` | **Needs reclassification** | These exist specifically to route users to the targeted pages above — `CONSTITUTION.md` §11 (No-Gateway Rule) says a page inserted into the learning path "merely to expose another directory of links" should not survive indefinitely. Whether these become redundant once their sibling Skill pages are properly discoverable is Decision Register item 6. |
 | Vocabulary pages (3) | `grade-1-list-01`, `grade-1-list-02`, `grade-1-describing-words` | **Supporting Grade Unit** (Vocabulary/Theme List identity) | Useful supplemental practice; not part of the phonics/morphology spine. |

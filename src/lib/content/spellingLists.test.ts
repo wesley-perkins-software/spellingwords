@@ -49,14 +49,14 @@ describe('groupByCategory', () => {
     const entries = [
       makeEntry({ id: 'phonics-2', category: 'phonics', order: 2 }),
       makeEntry({ id: 'phonics-1', category: 'phonics', order: 1 }),
-      makeEntry({ id: 'sight-1', category: 'sight-words', order: 1 }),
+      makeEntry({ id: 'hfw-set-1', category: 'high-frequency-words', order: 1 }),
     ];
 
     const groups = groupByCategory(entries);
 
-    expect([...groups.keys()]).toEqual(['phonics', 'sight-words']);
+    expect([...groups.keys()]).toEqual(['phonics', 'high-frequency-words']);
     expect(groups.get('phonics')!.map((e) => e.data.id)).toEqual(['phonics-1', 'phonics-2']);
-    expect(groups.get('sight-words')!.map((e) => e.data.id)).toEqual(['sight-1']);
+    expect(groups.get('high-frequency-words')!.map((e) => e.data.id)).toEqual(['hfw-set-1']);
   });
 
   it('omits categories with no entries', () => {
@@ -68,7 +68,7 @@ describe('groupByCategory', () => {
 describe('groupGradeListsByCategory', () => {
   it('orders groups with grade-level first regardless of alphabetical order', () => {
     const entries = [
-      makeEntry({ id: 'sight-1', category: 'sight-words', order: 1 }),
+      makeEntry({ id: 'hfw-set-1', category: 'high-frequency-words', order: 1 }),
       makeEntry({ id: 'phonics-1', category: 'phonics', order: 1 }),
       makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 }),
       makeEntry({ id: 'theme-1', category: 'theme', order: 1 }),
@@ -78,7 +78,7 @@ describe('groupGradeListsByCategory', () => {
 
     expect(groups.map((g) => g.category)).toEqual([
       'grade-level',
-      'sight-words',
+      'high-frequency-words',
       'phonics',
       'theme',
     ]);
@@ -87,12 +87,12 @@ describe('groupGradeListsByCategory', () => {
   it('omits a category entirely when a grade has no entries for it (e.g. no phonics)', () => {
     const entries = [
       makeEntry({ id: 'grade-1', category: 'grade-level', order: 1 }),
-      makeEntry({ id: 'sight-1', category: 'sight-words', order: 1 }),
+      makeEntry({ id: 'hfw-set-1', category: 'high-frequency-words', order: 1 }),
     ];
 
     const groups = groupGradeListsByCategory(entries);
 
-    expect(groups.map((g) => g.category)).toEqual(['grade-level', 'sight-words']);
+    expect(groups.map((g) => g.category)).toEqual(['grade-level', 'high-frequency-words']);
   });
 
   it('sorts entries within each group by order', () => {

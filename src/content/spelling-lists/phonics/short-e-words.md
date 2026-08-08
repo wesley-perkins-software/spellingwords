@@ -22,7 +22,7 @@ nextLists: []
 featured: false
 faq:
   - question: "Are 'said' and 'says' short e words?"
-    answer: "They contain the short e sound but don't fit this page's spelling pattern — 'said' and 'says' spell that sound with 'ai' and 'a,' not a plain e, which makes them irregular sight words rather than words a learner can sound out letter by letter. Practice them separately, by sight, rather than folding them into short-e spelling practice."
+    answer: "They contain the short e sound but don't fit this page's spelling pattern — 'said' and 'says' spell that sound with 'ai' and 'a,' not a plain e, which makes them irregular high-frequency words rather than words a learner can sound out letter by letter. Practice them separately, by sight, rather than folding them into short-e spelling practice."
   - question: "Should short e words be sounded out or memorized?"
     answer: "Sounded out. A regular short e word yields to sound-by-sound spelling every time, so memorizing isn't necessary — and skipping straight to memorization would skip the skill that transfers to new words."
   - question: "Are there other short e word families besides these four?"

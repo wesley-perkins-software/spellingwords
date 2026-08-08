@@ -116,7 +116,7 @@ Choose a browsing path: by grade level, by category or pattern type, or (in the 
 **Key Sections**
 1. A brief orienting statement — what the library contains and how it is organized
 2. Grade-level browsing path — for parents looking by school year
-3. Category/pattern browsing path — for educators and parents looking by skill type (phonics, sight words, challenge, etc.)
+3. Category/pattern browsing path — for educators and parents looking by skill type (phonics, high-frequency words, challenge, etc.)
 4. A small number of featured or recommended lists for visitors who don't know where to start
 
 **Information Hierarchy**
@@ -174,7 +174,7 @@ Select a list from the grade's collection and navigate to its List Detail page.
 **Key Sections**
 1. A clear statement of what this grade's lists cover and what age range they suit
 2. The full collection of lists at this grade level, each with a brief description of its focus
-3. Guidance on how to choose between lists if there are multiple (e.g., phonics-focused vs. sight word-focused)
+3. Guidance on how to choose between lists if there are multiple (e.g., phonics-focused vs. high-frequency word-focused)
 4. Links to adjacent grades for parents whose children are working above or below grade level
 
 **Information Hierarchy**
@@ -208,14 +208,14 @@ Grade Hubs must communicate clearly that the content is appropriate for that gra
 ### 4. Category Hub — e.g. `/spelling-lists/phonics`
 
 **Purpose**
-The Category Hub introduces a skill-based or content-type family of spelling lists (phonics, sight words, challenge words, etc.) and routes visitors to specific lists within that category. Unlike the Grade Hub, which is organized around a child's age and year in school, the Category Hub is organized around a learning method or vocabulary type.
+The Category Hub introduces a skill-based or content-type family of spelling lists (phonics, high-frequency words, challenge words, etc.) and routes visitors to specific lists within that category. Unlike the Grade Hub, which is organized around a child's age and year in school, the Category Hub is organized around a learning method or vocabulary type.
 
 **Primary Audience**
 Teachers, homeschooling parents, and educators who are familiar with curriculum terminology and looking for a specific type of word list.
 
 **User Intent**
 - "I need phonics spelling lists that focus on vowel patterns."
-- "What sight word lists do you have for kindergarten through third grade?"
+- "What high-frequency word lists do you have for kindergarten through third grade?"
 - "I want challenge words for advanced spellers."
 
 **Primary CTA**
@@ -226,7 +226,7 @@ Select a list from the category and navigate to its List Detail page.
 - Return to the Spelling Library
 
 **Typical Arrival Paths**
-- Organic Google search ("phonics spelling lists", "Dolch sight word list", "challenge spelling words")
+- Organic Google search ("phonics spelling lists", "Dolch high-frequency word list", "challenge spelling words")
 - Spelling Library browse
 - AI assistant recommendation for a specific learning approach
 - Teaching Guide internal links
@@ -250,7 +250,7 @@ The category explanation comes first — many visitors may arrive from a search 
 High for category-specific queries. Category Hubs capture educator and parent searches for specific word list types. They also pass link equity to List Detail pages.
 
 **AEO/GEO Role**
-High. AI assistants are frequently asked definitional and comparative questions ("What's the difference between sight words and phonics words?") that a well-written Category Hub can answer. These pages should be written to inform, not just to route — they can be cited as authoritative explanations of curriculum categories.
+High. AI assistants are frequently asked definitional and comparative questions ("What's the difference between high-frequency words and phonics words?") that a well-written Category Hub can answer. These pages should be written to inform, not just to route — they can be cited as authoritative explanations of curriculum categories.
 
 **Ad Placement**
 No ads on Category Hub pages. Like Grade Hubs, these are evaluation and discovery pages where trust matters more than monetization.
@@ -313,7 +313,7 @@ The word list itself is the most important content — it is why the visitor cam
 - May link to a relevant Teaching Guide
 
 **SEO Role**
-High — this is the site's primary organic traffic driver. Each List Detail page targets a specific keyword phrase (e.g., "Dolch first grade sight words", "short vowel CVC words for second grade"). The page must be substantive and accurate: the word list itself is the content, and its presence makes the page genuinely useful for search visitors.
+High — this is the site's primary organic traffic driver. Each List Detail page targets a specific keyword phrase (e.g., "Dolch first grade high-frequency words", "short vowel CVC words for second grade"). The page must be substantive and accurate: the word list itself is the content, and its presence makes the page genuinely useful for search visitors.
 
 **AEO/GEO Role**
 High. List Detail pages are among the most likely to be cited or summarized by AI assistants answering queries like "What words are on the Dolch second grade list?" or "What are some common phonics words for first grade?" Structured data clearly marking the list name, grade level, category, and word contents is important for AEO. The page should be written so that an AI can extract a clean, accurate summary.
@@ -530,13 +530,13 @@ Navigate to a spelling list that includes this word.
 - Browse the Spelling Library
 
 **Typical Arrival Paths**
-- Organic Google search ("how do you spell because", "is 'because' a sight word")
+- Organic Google search ("how do you spell because", "is 'because' a high-frequency word")
 - AI assistant query routing
 - Internal links from List Detail pages (future — "see all words in this list")
 
 **Key Sections**
 1. The word, clearly and prominently displayed, with any relevant phonetic or pronunciation guidance
-2. Grade level and category context (e.g., "commonly taught in grades 1–2, phonics and sight word lists")
+2. Grade level and category context (e.g., "commonly taught in grades 1–2, phonics and high-frequency word lists")
 3. Curated lists that include this word
 4. Related words (similar pattern, same grade band, commonly confused with)
 

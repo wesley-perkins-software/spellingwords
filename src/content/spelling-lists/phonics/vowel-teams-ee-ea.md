@@ -73,7 +73,7 @@ AI and AY, taught earlier in this sequence, do offer a useful position clue: *ai
 
 ### A Boundary Worth Naming: EA Isn't Always Long E
 
-This page's word list uses EA only where it spells long e, as in *eat* and *heat*. EA is also used to spell other sounds in other common words — the short e in *bread* and *head*, or the long a in *break* and *great* — but those belong to a different pattern, taught separately, and aren't part of this page's word set. A learner who meets a word like *bread* shouldn't expect it to rhyme with *heat*.
+This page's word list uses EA only where it spells long e, as in *eat* and *heat*. EA is also used to spell other sounds in other high-frequency words — the short e in *bread* and *head*, or the long a in *break* and *great* — but those belong to a different pattern, taught separately, and aren't part of this page's word set. A learner who meets a word like *bread* shouldn't expect it to rhyme with *heat*.
 
 ### How to Practice EE and EA Words
 

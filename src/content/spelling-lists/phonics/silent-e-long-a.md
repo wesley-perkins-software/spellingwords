@@ -25,7 +25,7 @@ faq:
   - question: "Is silent e the only way to spell the long a sound?"
     answer: "No. Silent e is one common way to spell long a in one-syllable words, but English also spells it with letter pairs such as ai and ay, as in rain and day. This page focuses only on the silent-e spelling."
   - question: "Why does have keep its silent e but still sound like short a?"
-    answer: "Have breaks the usual pattern: it ends in a silent e, but its a stays short, as in cat. That's because English spelling almost never lets a common word end in the single letter v — the e is there to satisfy that spelling convention, not to lengthen the vowel. It's worth naming once the regular -ave pattern feels secure."
+    answer: "Have breaks the usual pattern: it ends in a silent e, but its a stays short, as in cat. That's because English spelling almost never lets a high-frequency word end in the single letter v — the e is there to satisfy that spelling convention, not to lengthen the vowel. It's worth naming once the regular -ave pattern feels secure."
 words:
   - cake
   - gate
@@ -80,7 +80,7 @@ Long a says the letter's own name; short a is the quicker, open sound covered on
 
 The most common mistake is dropping the silent e when writing — a sign the learner has heard the long vowel but hasn't yet connected it to the e that marks it, so *cake* comes out as *cak*. Practicing the stretch-and-write routine below, then reading the result back, usually resolves this quickly.
 
-A smaller, genuinely useful exception worth knowing: *have* looks like it should rhyme with *gave* and *save*, but it doesn't — its a stays short, as in *cat*. English spelling almost never lets a common word end in a bare v, so *have* keeps its silent e for that reason alone, not to lengthen the vowel. It's worth naming once the regular *-ave* pattern feels secure, so this one common word doesn't quietly undermine confidence in the rule.
+A smaller, genuinely useful exception worth knowing: *have* looks like it should rhyme with *gave* and *save*, but it doesn't — its a stays short, as in *cat*. English spelling almost never lets a high-frequency word end in a bare v, so *have* keeps its silent e for that reason alone, not to lengthen the vowel. It's worth naming once the regular *-ave* pattern feels secure, so this one high-frequency word doesn't quietly undermine confidence in the rule.
 
 ### How to Practice Long A Silent E Words
 

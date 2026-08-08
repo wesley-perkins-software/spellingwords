@@ -1,15 +1,15 @@
 ---
-id: grade-2-common-words-4
-urlSlug: grade-2-common-words-4
-title: "Grade 2 Common Words 4"
+id: grade-2-high-frequency-words-set-4
+urlSlug: grade-2-high-frequency-words-set-4
+title: "Grade 2 High-Frequency Words — Set 4"
 description: "Practice 12 high-frequency words assigned to Grade 2 Set 4 for accurate and increasingly automatic spelling."
 shortAnswer: "Practice 12 high-frequency words assigned to Grade 2 Set 4 for accurate and increasingly automatic spelling."
-contentRole: sight-word-set
-category: sight-words
+contentRole: high-frequency-word-set
+category: high-frequency-words
 grade: "2"
 difficulty: developing
-skillTags: ["common-words", "high-frequency"]
-tags: ["common-words", "sight-words", "high-frequency", "heart-words"]
+skillTags: ["high-frequency-words", "high-frequency"]
+tags: ["high-frequency-words", "high-frequency", "heart-words"]
 order: 104
 estimatedDurationMinutes: 7
 status: published
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 2 common words"
+  tier: "Grade 2 high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

@@ -4,13 +4,13 @@
 
 ## Context
 
-The K–5 Grade curriculum, Common Words, and Additional Practice are frozen and are not touched by this document. This document defines the **frozen canonical Skills architecture** for the "Browse by Skill" pathway — the destination for the user journey "I know what we need to practice."
+The K–5 Grade curriculum, High-Frequency Words, and Additional Practice are frozen and are not touched by this document. This document defines the **frozen canonical Skills architecture** for the "Browse by Skill" pathway — the destination for the user journey "I know what we need to practice."
 
 This is the third and final revision of the process that produced it. **v1** validated `docs/architecture/SKILLS_MODEL.md` against the implemented K–5 curriculum and a parent/teacher search-and-browse test, arriving at 12 families and 37 skills. An **independent Deep Research pass** reviewed v1 against Structured Literacy, Orton-Gillingham, Words Their Way, UFLI, and Fundations scope-and-sequence evidence and returned **B: fundamentally sound, bounded corrections required**, with eight specific corrections and a skill-by-skill title audit. **v2** was an intermediate draft that applied every one of those eight corrections wholesale, without independent adjudication. **v3 (this document)** replaces v2 entirely — §1 below re-examines every one of the reviewer's recommendations on its own merits, verified directly against this repo's files rather than taken on faith, and accepts, rejects, or modifies each one accordingly.
 
-Sources used: `docs/architecture/SKILLS_MODEL.md`, `src/lib/content/spellingSkills.ts` + `src/pages/spelling-lists/skills/index.astro`, `src/content/spelling-lists/phonics/` (85 files, including direct frontmatter verification of live page titles), `src/content/spelling-lists/grade-level/` (including direct verification of word-list contents for the Greek/Latin scope question), `src/content/spelling-lists/sight-words/` and `challenge/`, `src/content/config.ts`, plus the independent Deep Research validation's structured-literacy citations (UFLI, Fundations, Wilson, Words Their Way, IDA).
+Sources used: `docs/architecture/SKILLS_MODEL.md`, `src/lib/content/spellingSkills.ts` + `src/pages/spelling-lists/skills/index.astro`, `src/content/spelling-lists/phonics/` (85 files, including direct frontmatter verification of live page titles), `src/content/spelling-lists/grade-level/` (including direct verification of word-list contents for the Greek/Latin scope question), `src/content/spelling-lists/high-frequency-words/` and `challenge/`, `src/content/config.ts`, plus the independent Deep Research validation's structured-literacy citations (UFLI, Fundations, Wilson, Words Their Way, IDA).
 
-This document does not redesign the Grade curriculum, Grade pages, Common Words, or Additional Practice, and does not write Skill page content.
+This document does not redesign the Grade curriculum, Grade pages, High-Frequency Words, or Additional Practice, and does not write Skill page content.
 
 ---
 

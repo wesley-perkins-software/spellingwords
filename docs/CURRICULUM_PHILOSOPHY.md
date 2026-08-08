@@ -26,7 +26,7 @@ Every list in the library must answer **yes** to one question:
 
 Not: would students recognize these words. Not: would they hear or discuss these words. Not: are these words taught in science, math, or social studies. Only whether a teacher would put this exact word set on a spelling assignment at this grade.
 
-A fast, practical version of the test: **can the list name its shared spelling pattern in one sentence?** ("Short-a CVC words." "Words with the -tion suffix." "Dolch pre-primer sight words.") If the honest answer is "these words share a topic, not a pattern," the list fails the test regardless of how useful, popular, or well-written it is.
+A fast, practical version of the test: **can the list name its shared spelling pattern in one sentence?** ("Short-a CVC words." "Words with the -tion suffix." "Dolch pre-primer high-frequency words.") If the honest answer is "these words share a topic, not a pattern," the list fails the test regardless of how useful, popular, or well-written it is.
 
 ## Why spelling curriculum differs from vocabulary curriculum
 

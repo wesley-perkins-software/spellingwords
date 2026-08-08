@@ -2,8 +2,8 @@
 id: short-u-words
 urlSlug: short-u-words
 title: 'Short U Words'
-description: "How to recognize, group, and teach the short 'u' sound — the central vowel in sun, cup, and drum — including word families, common words that spell this sound with 'o' instead of 'u', and the short u/short o mix-up, for parents and teachers."
-shortAnswer: 'Short u words use the quick, central /ŭ/ vowel sound heard in the middle of sun and cup — different from saying the letter''s own name, which sounds like "you." Within this page''s scope, that sound is usually spelled with the letter u in simple words like sun, cup, and drum, though a set of very common words — including son, love, and come — spell this same sound with the letter o instead. Below are grouped word families, that o-spelling exception, and a comparison with the easily confused short o sound.'
+description: "How to recognize, group, and teach the short 'u' sound — the central vowel in sun, cup, and drum — including word families, high-frequency words that spell this sound with 'o' instead of 'u', and the short u/short o mix-up, for parents and teachers."
+shortAnswer: 'Short u words use the quick, central /ŭ/ vowel sound heard in the middle of sun and cup — different from saying the letter''s own name, which sounds like "you." Within this page''s scope, that sound is usually spelled with the letter u in simple words like sun, cup, and drum, though a set of very high-frequency words — including son, love, and come — spell this same sound with the letter o instead. Below are grouped word families, that o-spelling exception, and a comparison with the easily confused short o sound.'
 contentRole: skill
 category: phonics
 grade: '1'
@@ -27,7 +27,7 @@ faq:
   - question: "Why do words like 'son' and 'love' sound like short u but are spelled with 'o'?"
     answer: "It's a common irregular spelling carried by a handful of very frequent English words — son, love, come, some, and mother among them — where history left the letter o in place even though the sound spoken today is short u. Because the spelling can't be sounded out from the pronunciation alone, these words are best taught by sight, a few at a time, rather than folded into short-u spelling practice."
   - question: 'Should short u words be sounded out or memorized?'
-    answer: "Sounded out for words that actually spell the sound with 'u,' like sun, cup, and drum — that group is fully regular. The o-spelled words above are the exception: since their spelling doesn't match their sound, they're worth memorizing as sight words rather than sounded out."
+    answer: "Sounded out for words that actually spell the sound with 'u,' like sun, cup, and drum — that group is fully regular. The o-spelled words above are the exception: since their spelling doesn't match their sound, they're worth memorizing as high-frequency words rather than sounded out."
 words:
   - cup
   - bug
@@ -60,7 +60,7 @@ Read a row aloud and notice that the middle vowel sound stays exactly the same, 
 - The vowel sound sits in the middle of the word, held steady by the consonants around it.
 - It's a different sound from saying the letter's name.
 - Changing the first or last consonant (_cup_ → _cut_ → _cub_) doesn't change the vowel sound in the middle — that consistency is what makes the pattern reliable.
-- A small set of common words — _son_, _love_, _come_, _some_, _mother_ — carry the same sound but spell it with the letter _o_, and are worth learning separately by sight.
+- A small set of high-frequency words — _son_, _love_, _come_, _some_, _mother_ — carry the same sound but spell it with the letter _o_, and are worth learning separately by sight.
 
 ### How to Help a Learner Hear Short U
 

@@ -174,7 +174,7 @@ The current layout has natural seam points (below the hero, below the library pr
 
 **Rating: Partial**
 
-SPELLING_LIBRARY_SPEC defines the library's primary job as **routing** — helping visitors find the right list and move on — not showcasing. The current page does attempt routing (grade navigation chips, list cards), but it lacks the orientation layer the spec requires. A first-time visitor landing here doesn't immediately understand the structure: what grade levels mean in context, how many lists exist, what the difference is between phonics and sight words.
+SPELLING_LIBRARY_SPEC defines the library's primary job as **routing** — helping visitors find the right list and move on — not showcasing. The current page does attempt routing (grade navigation chips, list cards), but it lacks the orientation layer the spec requires. A first-time visitor landing here doesn't immediately understand the structure: what grade levels mean in context, how many lists exist, what the difference is between phonics and high-frequency words.
 
 The title and intro copy ("The Spelling Lists Library") are correct in direction. The explanation paragraph is a start. But the page underinvests in helping the visitor orient before asking them to choose.
 
@@ -197,7 +197,7 @@ The grade navigation chips are a strong orientation device. However, they appear
 
 The "Learning Paths" section appears before the main list grid, which is conceptually correct, but since no paths are currently published this section is effectively invisible. The page structure anticipates content that doesn't exist yet.
 
-The category type distinction (phonics, sight words, grade-level, challenge) is expressed only through the "category badge" on each card, not in the page structure itself. SPELLING_LIBRARY_SPEC calls for browsing by both grade and category. The current implementation is grade-first only.
+The category type distinction (phonics, high-frequency words, grade-level, challenge) is expressed only through the "category badge" on each card, not in the page structure itself. SPELLING_LIBRARY_SPEC calls for browsing by both grade and category. The current implementation is grade-first only.
 
 ---
 
@@ -618,7 +618,7 @@ Current trust signals:
 - "No account needed" (homepage benefit card)
 - "Hear every word" (homepage benefit card)
 - "Works everywhere" (homepage benefit card)
-- Source attribution on list detail pages (e.g., "Based on Dolch sight words")
+- Source attribution on list detail pages (e.g., "Based on Dolch high-frequency words")
 
 Missing trust signals (per PRODUCT_VISION and SITE_ARCHITECTURE):
 
@@ -661,7 +661,7 @@ SITE_ARCHITECTURE defines Grade Hub pages as Tier 2 — dedicated pages for each
 
 ### Category Hub Pages (`/category/[category]`)
 
-SITE_ARCHITECTURE defines Category Hub pages for phonics, sight words, grade-level, and challenge. No Category Hub pages exist. A teacher searching "phonics spelling lists" finds no category-level landing page.
+SITE_ARCHITECTURE defines Category Hub pages for phonics, high-frequency words, grade-level, and challenge. No Category Hub pages exist. A teacher searching "phonics spelling lists" finds no category-level landing page.
 
 **Impact:** High SEO value, improved library navigation, essential for the cross-cutting browse path SPELLING_LIBRARY_SPEC requires.
 
@@ -703,7 +703,7 @@ LEARNING_MODEL and CONTENT_ARCHITECTURE define Learning Paths as first-class obj
 
 ### Launch Library Content
 
-LAUNCH_LIBRARY.md targets 36 lists at launch (16 grade-level, 12 phonics, 6 sight words, 2 challenge). The library UI is capable of displaying these, but the current sparse state means the library experience is not fully evaluable. Many library UX concerns in this audit (empty states, greyed grade chips, lack of featured content) are partly consequences of pre-launch content volume.
+LAUNCH_LIBRARY.md targets 36 lists at launch (16 grade-level, 12 phonics, 6 high-frequency words, 2 challenge). The library UI is capable of displaying these, but the current sparse state means the library experience is not fully evaluable. Many library UX concerns in this audit (empty states, greyed grade chips, lack of featured content) are partly consequences of pre-launch content volume.
 
 **Impact:** Unlocks the full intended library experience. Required before broad promotion.
 
@@ -732,7 +732,7 @@ The frontend and the content library should mature together. UI work in every ph
 The content target:
 - **16 grade-level lists** (K–5, across all grades)
 - **12 phonics lists** (Phase 1 patterns per PHONICS_STRATEGY)
-- **6 sight word lists** (complete Dolch set per GRADE_LEVEL_STRATEGY)
+- **6 high-frequency word lists** (complete Dolch set per GRADE_LEVEL_STRATEGY)
 - **2 challenge lists**
 
 Each list published during a UI phase improves the testability of that phase's work. Aim to have meaningful content at each grade level before Phase 3 (Discovery) begins, since Grade Hub and Category Hub pages depend on having lists to display.
@@ -887,7 +887,7 @@ Create `/grade/[grade]` pages (K, 1, 2, 3, 4, 5) with dedicated URLs, a grade-le
 - Complexity: Medium (new page type + editorial content per grade).
 
 **3.2 — Category Hub pages**
-Create `/category/[category]` pages (phonics, sight-words, grade-level, challenge) with a category-level editorial introduction and filtered list display. Teachers search by method, not by grade. No category-level landing page currently exists.
+Create `/category/[category]` pages (phonics, high-frequency-words, grade-level, challenge) with a category-level editorial introduction and filtered list display. Teachers search by method, not by grade. No category-level landing page currently exists.
 
 - SEO impact: High.
 - Complexity: Medium.
@@ -903,7 +903,7 @@ Show only grade sections with published content. Replace disabled/greyed grade c
 - Complexity: Low.
 
 **3.5 — Library: category-first browse path**
-Add secondary navigation to the library index page for browsing by category (phonics, sight words) alongside the existing grade-first navigation. The two browse paths — by grade for parents, by method for teachers — are both required per SPELLING_LIBRARY_SPEC.
+Add secondary navigation to the library index page for browsing by category (phonics, high-frequency words) alongside the existing grade-first navigation. The two browse paths — by grade for parents, by method for teachers — are both required per SPELLING_LIBRARY_SPEC.
 
 - Complexity: Medium.
 - Dependencies: 3.2 (Category Hub pages as link targets).
@@ -954,7 +954,7 @@ Create one Teaching Guide page — e.g., "How to Practice Spelling with Your Chi
 - Complexity: Low (static Astro page, editorial investment).
 
 **5.2 — Teaching guide expansion**
-Publish additional Teaching Guides covering the topics SITE_ARCHITECTURE defines: phonics method explanation, sight word rationale, grade-level progression, how to use spellingwords.app in the classroom. Each guide is a standalone SEO and AEO asset.
+Publish additional Teaching Guides covering the topics SITE_ARCHITECTURE defines: phonics method explanation, high-frequency word rationale, grade-level progression, how to use spellingwords.app in the classroom. Each guide is a standalone SEO and AEO asset.
 
 - Complexity: Low per guide (editorial investment scales with volume).
 

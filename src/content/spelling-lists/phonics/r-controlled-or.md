@@ -3,7 +3,7 @@ id: r-controlled-or
 urlSlug: r-controlled-or
 title: "R-Controlled OR Words"
 description: "How to teach the OR r-controlled vowel pattern, as in corn, short, and morning — including the sound, word families, a comparison with short o, the word/work exception, and a note on genuine regional pronunciation variation, for parents and teachers."
-shortAnswer: "OR words use the r-controlled vowel sound heard in corn and short — a sound the letter r creates by changing the vowel just before it, different from the short o sound in cot. Within this page's scope, that's the letter combination o-r in common words like corn, north, and story, where or reliably makes this one sound in most words. A well-known exception is the small group of words spelled with wor-, like word and work, which make a different sound instead. Below are grouped example words, a comparison with short o, that exception, and teaching guidance."
+shortAnswer: "OR words use the r-controlled vowel sound heard in corn and short — a sound the letter r creates by changing the vowel just before it, different from the short o sound in cot. Within this page's scope, that's the letter combination o-r in high-frequency words like corn, north, and story, where or reliably makes this one sound in most words. A well-known exception is the small group of words spelled with wor-, like word and work, which make a different sound instead. Below are grouped example words, a comparison with short o, that exception, and teaching guidance."
 contentRole: skill
 category: phonics
 grade: "1"
@@ -77,7 +77,7 @@ Saying a pair aloud — *cot, corn* — makes the difference easy to feel: short
 
 ### The Wor- Exception: Word, Work, and World
 
-OR is a reliable pattern, with one notable exception: when w comes right before or, the sound changes completely. *Word*, *work*, *world*, *worm*, and *worth* don't rhyme with *corn* or *short* — they rhyme with *bird*, *turn*, and *her* instead, the same sound taught on the R-Controlled ER, IR, and UR Words page. This exception is limited to a specific, small group of common words; it isn't a general rule that every word starting with *wor-* changes sound. *Worn*, for example, keeps the regular OR sound and rhymes with *corn* and *torn*, so the exception needs to be learned word by word rather than applied automatically to anything spelled *wor-*.
+OR is a reliable pattern, with one notable exception: when w comes right before or, the sound changes completely. *Word*, *work*, *world*, *worm*, and *worth* don't rhyme with *corn* or *short* — they rhyme with *bird*, *turn*, and *her* instead, the same sound taught on the R-Controlled ER, IR, and UR Words page. This exception is limited to a specific, small group of high-frequency words; it isn't a general rule that every word starting with *wor-* changes sound. *Worn*, for example, keeps the regular OR sound and rhymes with *corn* and *torn*, so the exception needs to be learned word by word rather than applied automatically to anything spelled *wor-*.
 
 ### How to Help a Learner Hear and Spell OR Words
 

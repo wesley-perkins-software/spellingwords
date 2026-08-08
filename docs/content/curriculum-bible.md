@@ -42,7 +42,7 @@ These principles apply to every content decision, regardless of grade or topic.
 | **Secondary Grade** | A grade at which this list is useful for review (lower grade) or preview/enrichment (higher grade). Optional. Should be used sparingly to avoid bloating grade hubs. |
 | **Skill** | A discrete phonics or word-study concept: a pattern, rule, or structural feature (e.g., "short-a CVC words", "silent-e long vowel", "prefix un-"). Skills drive K–2 phonics lists and 3–5 morphology lists. |
 | **Theme** | A concrete topic that groups words by meaning rather than spelling pattern (e.g., "color words", "school words", "science vocabulary"). Themes are most useful in K and early 1st grade before phonics patterns are established. |
-| **Sight Word / High-Frequency Word** | A word that appears very frequently in written English and must be recognized quickly. Many are phonetically irregular. We use the Dolch list as our primary source. |
+| **High-Frequency Word / High-Frequency Word** | A word that appears very frequently in written English and must be recognized quickly. Many are phonetically irregular. We use the Dolch list as our primary source. |
 | **Challenge Word** | A word appropriate for advanced practice beyond the expected grade level. The `challenge/` category is reserved for content with no single natural grade home — genuine cross-grade enrichment that extends past a grade's own expectation, not content that merely fills it. `difficulty: challenge` is a separate, independent signal for rigor and can apply to any category, including `grade-level` lists whose content is core curriculum for their grade but written at a demanding tier. |
 | **Prerequisite Skill** | A skill that students should have mastered before this list will be effective. Noted as "Builds Upon" in grade sections below. |
 | **Coverage** | The degree to which a grade's expected curriculum has lists in the app. "Full" = major skills covered; "Partial" = some skills covered; "Thin" = few lists exist; "Missing" = no lists exist. |
@@ -64,7 +64,7 @@ Homepage
 
 Parents and teachers arrive with a grade in mind. Grade hubs must immediately answer: *"Here are the spelling lists for your child's grade."*
 
-Skill-based browsing (e.g., "all phonics lists", "all sight word lists") is a secondary navigation layer — useful but never the primary path.
+Skill-based browsing (e.g., "all phonics lists", "all high-frequency word lists") is a secondary navigation layer — useful but never the primary path.
 
 ### K–2 vs. 3–5 Curriculum Split
 
@@ -78,7 +78,7 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 ### Taxonomy Constraints
 
 - **Do not create new top-level categories** without explicit justification in this document.
-- Current categories: `phonics/`, `sight-words/`, `grade-level/`, `challenge/`
+- Current categories: `phonics/`, `high-frequency-words/`, `grade-level/`, `challenge/`
 - New sub-themes within a category are acceptable; new top-level categories are not.
 - Grade tags (`grades` frontmatter field) drive grade hub membership — keep tagging conservative.
 
@@ -113,7 +113,7 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 | Category | List Count | Notes |
 |---|---|---|
 | `phonics/` | 50 | Blends, digraphs, short vowels, silent-e, r-controlled, vowel teams |
-| `sight-words/` | 7 | Dolch pre-primer through 3rd grade — all 7 tiers now `status: published` |
+| `high-frequency-words/` | 7 | Dolch pre-primer through 3rd grade — all 7 tiers now `status: published` |
 | `grade-level/` — Kindergarten | 7 | first-words, number-color-words, describing-words, shape-words, animal-words, family-words, school-words |
 | `grade-level/` — 1st Grade | 3 | action-words, describing-words, everyday-words |
 | `grade-level/` — 2nd Grade | 4 | action-words, compound-words, describing-words, everyday-words |
@@ -134,13 +134,13 @@ This split reflects how skilled reading develops: phonics fluency must precede m
 **Builds Upon:** Pre-literacy (letter recognition, phonemic awareness, print concepts)
 
 #### Expected Focus
-Letter sounds, beginning sounds, ending sounds, simple CVC words, short vowels, color words, number words, shape words, family words, school words, animal words, beginner high-frequency/sight words (Dolch pre-primer and primer).
+Letter sounds, beginning sounds, ending sounds, simple CVC words, short vowels, color words, number words, shape words, family words, school words, animal words, beginner high-frequency words (Dolch pre-primer and primer).
 
 #### Common List Types
 - Thematic vocabulary lists (color, number, shape, family, school, animal)
 - Simple CVC word lists by vowel
 - Beginning/ending sound sorts
-- Dolch pre-primer and primer sight words
+- Dolch pre-primer and primer high-frequency words
 
 #### Current Coverage
 | List | Type | Notes |
@@ -152,8 +152,8 @@ Letter sounds, beginning sounds, ending sounds, simple CVC words, short vowels, 
 | kindergarten-animal-words | Theme | Farm and pet animal names |
 | kindergarten-family-words | Theme | Immediate and extended family vocabulary |
 | kindergarten-school-words | Theme | Classroom and school vocabulary |
-| dolch-pre-primer | Sight words | ✅ Live (`status: published`) |
-| dolch-primer | Sight words | ✅ Live (`status: published`) |
+| dolch-pre-primer | High-Frequency Words | ✅ Live (`status: published`) |
+| dolch-primer | High-Frequency Words | ✅ Live (`status: published`) |
 
 Coverage: **Improving** — 9 lists total; shape/family/school/animal thematic gaps filled in Phase D. Only individual short-vowel CVC lists remain as a likely gap.
 
@@ -169,8 +169,8 @@ Coverage: **Improving** — 9 lists total; shape/family/school/animal thematic g
 - [x] Family words (mom, dad, sister, brother…)
 - [x] School words (desk, pencil, teacher…)
 - [x] Animal words (cat, dog, fish…)
-- [x] Dolch pre-primer sight words
-- [x] Dolch primer sight words
+- [x] Dolch pre-primer high-frequency words
+- [x] Dolch primer high-frequency words
 - [x] Basic describing/adjective words
 
 #### Likely Gaps
@@ -185,7 +185,7 @@ Real K phonics foundations — letter sounds, beginning/ending sounds, phonemic 
 
 ### 1st Grade
 
-**Builds Upon:** Kindergarten letter sounds, CVC words, pre-primer/primer sight words
+**Builds Upon:** Kindergarten letter sounds, CVC words, pre-primer/primer high-frequency words
 
 #### Expected Focus
 Short vowel mastery across all five vowels, initial consonant blends, consonant digraphs (ch, sh, th, wh), silent-e / magic-e long vowels, simple inflectional endings (-s, -ed, -ing), simple two-syllable words, irregular high-frequency words (Dolch 1st grade).
@@ -196,7 +196,7 @@ Short vowel mastery across all five vowels, initial consonant blends, consonant 
 - Final blend lists (-ft, -ld, -lk, -lt, -mp, -nd, -ng, -nk, -nt, -sk, -st)
 - Digraph lists (ch, sh, th, wh)
 - Silent-e long vowel lists
-- Dolch 1st grade sight words
+- Dolch 1st grade high-frequency words
 
 #### Current Coverage
 | List | Type | Notes |
@@ -207,12 +207,12 @@ Short vowel mastery across all five vowels, initial consonant blends, consonant 
 | phonics/*-final-blend-words (11 lists) | Phonics | ✅ Comprehensive final blend coverage |
 | phonics/digraph-ch/sh/th/wh-words | Phonics | ✅ All four major digraphs |
 | phonics/silent-e-long-a/i/o | Phonics | ✅ Three silent-e patterns |
-| dolch-first-grade-a/b/c | Sight words | ✅ Full Dolch 1st grade set |
+| dolch-first-grade-a/b/c | High-Frequency Words | ✅ Full Dolch 1st grade set |
 | grade-level/1st-grade-action-words | Theme | Vocabulary enrichment |
 | grade-level/1st-grade-describing-words | Theme | Vocabulary enrichment |
 | grade-level/1st-grade-everyday-words | Theme | Vocabulary enrichment |
 
-Coverage: **Strong for phonics and sight words.** May appear "overbuilt" because the 44 phonics lists are all natural 1st grade instructional content.
+Coverage: **Strong for phonics and high-frequency words.** May appear "overbuilt" because the 44 phonics lists are all natural 1st grade instructional content.
 
 #### Target Coverage Checklist
 - [x] Short-a, e, i, o, u word lists
@@ -222,7 +222,7 @@ Coverage: **Strong for phonics and sight words.** May appear "overbuilt" because
 - [x] Digraphs (ch, sh, th, wh)
 - [x] Silent-e long-a, long-i, long-o
 - [ ] Silent-e long-u (cube, tune…)
-- [x] Dolch 1st grade sight words (a, b, c sets)
+- [x] Dolch 1st grade high-frequency words (a, b, c sets)
 - [ ] Inflectional endings (-s, -ed, -ing) as a dedicated list
 - [ ] Simple two-syllable words list
 
@@ -249,7 +249,7 @@ Vowel teams (ai/ay, ee/ea, oa/ow, oi/oy, ou/ow), r-controlled vowels (ar, er/ir/
 - Compound word lists
 - Contraction lists
 - Homophone pairs
-- Dolch 2nd grade sight words
+- Dolch 2nd grade high-frequency words
 - Early prefix/suffix lists
 
 #### Current Coverage
@@ -267,7 +267,7 @@ Vowel teams (ai/ay, ee/ea, oa/ow, oi/oy, ou/ow), r-controlled vowels (ar, er/ir/
 | grade-level/2nd-grade-action-words | Theme | Vocabulary |
 | grade-level/2nd-grade-describing-words | Theme | Vocabulary |
 | grade-level/2nd-grade-everyday-words | Theme | Vocabulary |
-| dolch-second-grade | Sight words | ✅ |
+| dolch-second-grade | High-Frequency Words | ✅ |
 
 Coverage: **Moderate.** Core phonics patterns are covered; morphology (contractions, homophones, prefixes/suffixes, plurals) is largely missing.
 
@@ -275,7 +275,7 @@ Coverage: **Moderate.** Core phonics patterns are covered; morphology (contracti
 - [x] Vowel teams: ai/ay, ee/ea, oa/ow, oi/oy, ou/ow
 - [x] R-controlled: ar, er/ir/ur, or
 - [x] Compound words
-- [x] Dolch 2nd grade sight words
+- [x] Dolch 2nd grade high-frequency words
 - [ ] Contractions (I'm, it's, can't, won't…)
 - [ ] Homophones (to/two/too, their/there/they're…)
 - [ ] Plural spelling rules (-s, -es, -ies)
@@ -308,7 +308,7 @@ Prefixes (un-, re-, pre-, dis-, mis-), suffixes (-er, -est, -tion, -ly, -ness, -
 - Homophone pairs and sets
 - Spelling-change rule lists
 - Root word introductions
-- Dolch 3rd grade sight words
+- Dolch 3rd grade high-frequency words
 - Academic vocabulary (tier 2 words)
 
 #### Current Coverage
@@ -317,12 +317,12 @@ Prefixes (un-, re-, pre-, dis-, mis-), suffixes (-er, -est, -tion, -ly, -ness, -
 | grade-level/3rd-grade-everyday-words | Theme | General vocabulary |
 | grade-level/3rd-grade-describing-words | Theme | Adjectives/adverbs |
 | grade-level/3rd-grade-reading-writing-words | Theme | Academic/ELA vocabulary |
-| dolch-third-grade | Sight words | ✅ |
+| dolch-third-grade | High-Frequency Words | ✅ |
 
 Coverage: **Thin.** Four lists only; no morphology lists exist for this grade.
 
 #### Target Coverage Checklist
-- [x] Dolch 3rd grade sight words
+- [x] Dolch 3rd grade high-frequency words
 - [x] Reading/writing academic vocabulary
 - [ ] Prefix un- (review/expansion from 2nd grade)
 - [ ] Prefix re- (review/expansion)
@@ -448,9 +448,9 @@ Coverage: **Strong**. Grade 5 now has a 12-list architecture that keeps morpholo
 
 **Core Spelling hub update:** five of these files are now the Grade 5 Core Spelling hub, with `contentRole` set and a new closing page added — see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 14 for the full record. In hub order: `5th-grade-multisyllabic-academic-words` → `5th-grade-prefix-suffix-words` (anchor, merged with `5th-grade-spelling-rules` as its `contentRole: skill` sibling) → `5th-grade-greek-latin-word-parts` → `5th-grade-commonly-confused-words` → the new `5th-grade-spelling-changes-related-words` (K–5 capstone). `5th-grade-everyday-words`, `5th-grade-academic-words`, `5th-grade-reading-writing-words`, and `5th-grade-opinion-argument-words` remain off-hub vocabulary, the same treatment Grade 4 gives its own everyday/reading-writing/community lists. `5th-grade-science-nature-words`, `5th-grade-community-civics-words`, and `5th-grade-math-vocabulary` are strong Additional Practice candidates but remain unwired pending that separate implementation phase.
 
-**Common Words update:** Grade 5 now has its own four-set, 48-word Common Words sequence (`grade-5-common-words-1` through `-4`, gateway `grade-5-common-words`), zero overlap with the 292 words already owned by Kindergarten–Grade 4 — see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 15 for the full record, including the theme table and the editorial decisions behind Set 4's connector/editing blend and the `guard` → `vague` substitution in Set 1.
+**High-Frequency Words update:** Grade 5 now has its own four-set, 48-word High-Frequency Words sequence (`grade-5-high-frequency-words-set-1` through `-4`, gateway `grade-5-high-frequency-words`), zero overlap with the 292 words already owned by Kindergarten–Grade 4 — see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 15 for the full record, including the theme table and the editorial decisions behind Set 4's connector/editing blend and the `guard` → `vague` substitution in Set 1.
 
-**Additional Practice update:** Grade 5 now has two Additional Practice cards, closing out the K–5 implementation. `5th-grade-community-civics-words` was retitled "5th Grade Civics and Government Words" and corrected (`government`, `president`, `responsibility`, and `democracy` were each swapped out for `amendment`, `congress`, `liberty`, and `justice` — the originals all silently duplicated existing Grade 4/5 Common Words or Core Spelling content). A new `5th-grade-money-management-words` page was added for budgeting/banking vocabulary, extending Grade 2's Money Words without duplicating it. `5th-grade-science-nature-words` and `5th-grade-math-vocabulary` were evaluated and did not clear the bounded-set bar (they read as one-word-per-subject-strand grab-bags); both remain published as off-hub vocabulary rather than promoted. See `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 16 for the full audit record.
+**Additional Practice update:** Grade 5 now has two Additional Practice cards, closing out the K–5 implementation. `5th-grade-community-civics-words` was retitled "5th Grade Civics and Government Words" and corrected (`government`, `president`, `responsibility`, and `democracy` were each swapped out for `amendment`, `congress`, `liberty`, and `justice` — the originals all silently duplicated existing Grade 4/5 High-Frequency Words or Core Spelling content). A new `5th-grade-money-management-words` page was added for budgeting/banking vocabulary, extending Grade 2's Money Words without duplicating it. `5th-grade-science-nature-words` and `5th-grade-math-vocabulary` were evaluated and did not clear the bounded-set bar (they read as one-word-per-subject-strand grab-bags); both remain published as off-hub vocabulary rather than promoted. See `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 16 for the full audit record.
 
 #### Target Coverage Checklist
 - [x] Academic vocabulary (general)
@@ -610,7 +610,7 @@ Follow these rules for every content decision:
 
 4. **Grade hubs must answer the parent's question immediately.** If a parent of a 3rd grader sees the grade hub and can't quickly find relevant practice lists, the hub has failed. Organize lists by skill cluster, not just alphabetically.
 
-5. **Sight words support grade hubs; they do not dominate site architecture.** Sight words are important but should be clearly positioned as one category among many, not the defining feature of the app.
+5. **High-Frequency Words support grade hubs; they do not dominate site architecture.** High-Frequency Words are important but should be clearly positioned as one category among many, not the defining feature of the app.
 
 6. **Phonics lists belong primarily to 1st and 2nd grade.** Phonics lists tagged to 3rd grade and above should have a clear justification (e.g., review for struggling readers, specific pattern that bridges grades).
 

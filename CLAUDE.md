@@ -47,7 +47,7 @@ src/
 │   └── speech/               #   speechSynthesis controller + voice selection
 ├── content/
 │   ├── config.ts             # Content Collection schemas
-│   └── spelling-lists/       # Curated word lists as Markdown (phonics/, sight-words/,
+│   └── spelling-lists/       # Curated word lists as Markdown (phonics/, high-frequency-words/,
 │                             #   grade-level/, challenge/ — frontmatter drives routes)
 ├── types/spelling.ts         # Core domain types
 ├── data/fixtures/            # Sample list fixtures not yet migrated to Markdown

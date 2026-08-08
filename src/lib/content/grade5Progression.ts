@@ -31,22 +31,22 @@ export const GRADE_5_CORE_IDS: readonly string[] = [
 ];
 
 /**
- * Off-hub Grade 5 vocabulary, not yet Common Words. Documentation only —
+ * Off-hub Grade 5 vocabulary, not yet High-Frequency Words. Documentation only —
  * undeclared `contentRole` is not a `grade-unit`, so these ids never enter
  * `buildGradeUnitSequence()`.
  */
 export const GRADE_5_VOCABULARY_IDS: readonly string[] = [];
 
 /**
- * Grade 5 Common Words sets, published. Documentation only —
- * `sight-word-set` is not a `grade-unit`, so these ids never enter
+ * Grade 5 High-Frequency Words sets, published. Documentation only —
+ * `high-frequency-word-set` is not a `grade-unit`, so these ids never enter
  * `buildGradeUnitSequence()`. The Grade 5 hub's High-Frequency Words section
  * is driven directly by `GRADE_5_HUB_SECTIONS` in `gradeHubCards.ts`,
  * independent of this file.
  */
-export const GRADE_5_COMMON_WORD_IDS: readonly string[] = [
-  'grade-5-common-words-1',
-  'grade-5-common-words-2',
+export const GRADE_5_HFW_SET_IDS: readonly string[] = [
+  'grade-5-high-frequency-words-set-1',
+  'grade-5-high-frequency-words-set-2',
 ];
 
 /**
@@ -72,8 +72,8 @@ export const grade5Badges: Record<string, string> = {
   'grade-5-greek-latin-word-parts': 'Core Unit',
   'grade-5-commonly-confused-words': 'Core Unit',
   'grade-5-spelling-changes-related-words': 'Core Unit',
-  'grade-5-common-words-1': 'Common Words',
-  'grade-5-common-words-2': 'Common Words',
+  'grade-5-high-frequency-words-set-1': 'High-Frequency Words',
+  'grade-5-high-frequency-words-set-2': 'High-Frequency Words',
   'grade-5-community-civics-words': 'Vocabulary',
   'grade-5-money-management-words': 'Vocabulary',
   'grade-5-ecosystem-environment-words': 'Vocabulary',

@@ -20,17 +20,17 @@ export const GRADE_3_CORE_IDS: readonly string[] = [
 ];
 
 /**
- * Grade 3 Common Words, published. Documentation only — `sight-word-set` is
+ * Grade 3 High-Frequency Words, published. Documentation only — `high-frequency-word-set` is
  * not a `grade-unit`, so these ids never enter `buildGradeUnitSequence()`.
  * The Grade 3 hub's High-Frequency Words section is driven directly by
  * `GRADE_3_HUB_SECTIONS` in `gradeHubCards.ts`, independent of this file.
  */
-export const GRADE_3_COMMON_WORD_IDS: readonly string[] = [
-  'grade-3-common-words-1',
-  'grade-3-common-words-2',
-  'grade-3-common-words-3',
-  'grade-3-common-words-4',
-  'grade-3-common-words-5',
+export const GRADE_3_HFW_SET_IDS: readonly string[] = [
+  'grade-3-high-frequency-words-set-1',
+  'grade-3-high-frequency-words-set-2',
+  'grade-3-high-frequency-words-set-3',
+  'grade-3-high-frequency-words-set-4',
+  'grade-3-high-frequency-words-set-5',
 ];
 
 /**
@@ -52,9 +52,9 @@ export const grade3Badges: Record<string, string> = {
   'grade-3-multisyllabic-words': 'Core Unit',
   'grade-3-homophones': 'Core Unit',
   'grade-3-root-word-families': 'Core Unit',
-  'grade-3-common-words-1': 'Common Words',
-  'grade-3-common-words-2': 'Common Words',
-  'grade-3-common-words-3': 'Common Words',
-  'grade-3-common-words-4': 'Common Words',
-  'grade-3-common-words-5': 'Common Words',
+  'grade-3-high-frequency-words-set-1': 'High-Frequency Words',
+  'grade-3-high-frequency-words-set-2': 'High-Frequency Words',
+  'grade-3-high-frequency-words-set-3': 'High-Frequency Words',
+  'grade-3-high-frequency-words-set-4': 'High-Frequency Words',
+  'grade-3-high-frequency-words-set-5': 'High-Frequency Words',
 };

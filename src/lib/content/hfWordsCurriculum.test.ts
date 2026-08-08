@@ -90,7 +90,7 @@ describe('frozen High-Frequency Words curriculum', () => {
   });
 
   it('matches every published HFW Markdown file exactly and has no extra files', () => {
-    const paths = contentFiles(join(contentRoot, 'sight-words'));
+    const paths = contentFiles(join(contentRoot, 'high-frequency-words'));
     const byId = new Map(paths.map((path) => [field(frontmatter(path), 'id'), { path, source: frontmatter(path) }]));
     expect([...byId.keys()].sort()).toEqual(allFrozenSets.map((set) => set.id).sort());
 
@@ -99,21 +99,17 @@ describe('frozen High-Frequency Words curriculum', () => {
         const content = byId.get(set.id);
         expect(content, set.id).toBeDefined();
         expect(field(content!.source, 'grade')).toBe(grade);
-        expect(field(content!.source, 'contentRole')).toBe('sight-word-set');
-        expect(field(content!.source, 'category')).toBe('sight-words');
+        expect(field(content!.source, 'contentRole')).toBe('high-frequency-word-set');
+        expect(field(content!.source, 'category')).toBe('high-frequency-words');
         expect(field(content!.source, 'status')).toBe('published');
         expect(wordsIn(content!.source), set.id).toEqual([...set.words]);
       }
     }
   });
 
-  it('records the bounded sentence-bank coverage gap for Project B without blocking playability', () => {
+  it('has sentence-bank coverage for every frozen HFW spelling', () => {
     const missing = allFrozenWords.filter((word) => !getSentenceBankEntry(word)).sort((a, b) => a.localeCompare(b));
-    expect(missing).toEqual([
-      'actually', 'business', 'certain', 'common', 'control', 'difficult', "don't", 'especially',
-      'experience', 'general', 'however', "I'm", 'increase', "it's", 'language', 'natural', 'oh',
-      'practice', 'sometimes', 'straight', 'subject', 'understand', 'whether', 'within',
-    ]);
+    expect(missing).toEqual([]);
   });
 
   it('has exact content, route, Hub, and sequence parity', () => {
@@ -141,7 +137,7 @@ describe('frozen High-Frequency Words curriculum', () => {
     ]) expect(paths).not.toContain(path);
   });
 
-  it('permits the reviewed Core and themed Themed Spelling Practice overlaps', () => {
+  it('permits the reviewed Core and Themed Spelling Practice overlaps', () => {
     const hfw = new Set(allFrozenWords.map((word) => normalizeWord(word, { lowercase: true })));
     const overlaps = { core: new Set<string>(), themed: new Set<string>() };
     const classificationById = new Map(canonicalGradeRoutes.map((route) => [route.id, route.classification]));
@@ -151,7 +147,7 @@ describe('frozen High-Frequency Words curriculum', () => {
       if (classification !== 'core-spelling' && classification !== 'themed-spelling-practice') continue;
       for (const word of wordsIn(source)) {
         const normalized = normalizeWord(word, { lowercase: true });
-        if (hfw.has(normalized)) overlaps[classification === 'core-spelling' ? 'core' : 'additional'].add(normalized);
+        if (hfw.has(normalized)) overlaps[classification === 'core-spelling' ? 'core' : 'themed'].add(normalized);
       }
     }
     expect(overlaps.core.size).toBe(75);

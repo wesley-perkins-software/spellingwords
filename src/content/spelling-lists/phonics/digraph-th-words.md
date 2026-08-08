@@ -56,7 +56,7 @@ Both versions are spelled exactly the same way, which is the most important thin
 
 ### Where TH Shows Up
 
-TH shows up at the beginning and the end of common words:
+TH shows up at the beginning and the end of high-frequency words:
 
 | Position | Example words |
 |---|---|

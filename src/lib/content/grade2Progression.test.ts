@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
-  GRADE_2_COMMON_WORD_IDS,
+  GRADE_2_HFW_SET_IDS,
   GRADE_2_CORE_IDS,
   GRADE_2_VOCABULARY_IDS,
   grade2Badges,
@@ -87,7 +87,7 @@ function readSpellingListFrontmatter(): FrontmatterSummary[] {
 
 const allLists = readSpellingListFrontmatter();
 const byId = new Map(allLists.map((entry) => [entry.id, entry]));
-const grade2Sets = GRADE_2_COMMON_WORD_IDS.map((id) => byId.get(id));
+const grade2Sets = GRADE_2_HFW_SET_IDS.map((id) => byId.get(id));
 
 describe('Grade 2 Core Spelling', () => {
   it('freezes the three corrective practice lists within the 8-16 word Grade Unit bound', () => {
@@ -172,14 +172,14 @@ describe('Grade 2 Core Spelling', () => {
 });
 
 describe('grade2Badges', () => {
-  it('has a badge for every core, common-word, and vocabulary id', () => {
-    for (const id of [...GRADE_2_CORE_IDS, ...GRADE_2_COMMON_WORD_IDS, ...GRADE_2_VOCABULARY_IDS]) {
+  it('has a badge for every core, high-frequency-word, and vocabulary id', () => {
+    for (const id of [...GRADE_2_CORE_IDS, ...GRADE_2_HFW_SET_IDS, ...GRADE_2_VOCABULARY_IDS]) {
       expect(grade2Badges[id]).toBeTruthy();
     }
   });
 
   it('only uses the three approved badge labels', () => {
-    const allowed = new Set(['Core Unit', 'Common Words', 'Vocabulary']);
+    const allowed = new Set(['Core Unit', 'High-Frequency Words', 'Vocabulary']);
     for (const label of Object.values(grade2Badges)) {
       expect(allowed.has(label)).toBe(true);
     }

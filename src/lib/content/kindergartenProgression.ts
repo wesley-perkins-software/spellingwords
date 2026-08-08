@@ -34,7 +34,7 @@ export const KINDERGARTEN_ADDITIONAL_IDS: readonly string[] = [
 
 /**
  * Card badge label, independent of `category` — the taxonomy a parent sees
- * ("Phonics", "Spelling Rules", "Sight Words", "Vocabulary") is presentation
+ * ("Phonics", "Spelling Rules", "High-Frequency Words", "Vocabulary") is presentation
  * only and must never determine which hub section a list appears in.
  */
 export const kindergartenBadges: Record<string, string> = {

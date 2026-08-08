@@ -102,15 +102,15 @@ Eight families are discussed here. Not all should launch at the same time or wit
 
 ---
 
-### Sight Words
+### High-Frequency Words
 
 **Educational purpose:** High-frequency words that children are expected to recognize and spell automatically. These do not decode phonetically — they must be memorized. They are foundational for early readers and writers.
 
-**SEO value:** High. "Dolch sight words," "Fry sight words," and "kindergarten sight words" are among the most-searched spelling-related terms online. Parents and teachers know these names. This category has strong brand recognition in the education market.
+**SEO value:** High. "Dolch high-frequency words," "Fry high-frequency words," and "kindergarten high-frequency words" are among the most-searched spelling-related terms online. Parents and teachers know these names. This category has strong brand recognition in the education market.
 
 **Long-term maintenance burden:** Low. The Dolch and Fry lists are stable, well-known, and finite. Once published, these lists require almost no editorial maintenance.
 
-**Launch or later:** **Launch.** Sight words may be the single most-recognized category to parents of early readers. They should be present and complete at launch.
+**Launch or later:** **Launch.** High-Frequency Words may be the single most-recognized category to parents of early readers. They should be present and complete at launch.
 
 ---
 
@@ -130,7 +130,7 @@ Eight families are discussed here. Not all should launch at the same time or wit
 
 **Educational purpose:** Upper-level enrichment for strong spellers, gifted students, or children who have outpaced their grade-level lists. These words are typically longer, less phonetically predictable, or drawn from academic and literary vocabulary.
 
-**SEO value:** Moderate. Parents searching for "hard spelling words" or "advanced spelling lists" represent a real segment. Less volume than grade-level or sight words, but meaningful.
+**SEO value:** Moderate. Parents searching for "hard spelling words" or "advanced spelling lists" represent a real segment. Less volume than grade-level or high-frequency words, but meaningful.
 
 **Long-term maintenance burden:** Moderate. Challenge content requires more editorial judgment — the bar for what counts as "challenging but fair" is less standardized than phonics patterns or grade expectations.
 
@@ -154,7 +154,7 @@ Eight families are discussed here. Not all should launch at the same time or wit
 
 **Educational purpose:** Words from science, social studies, mathematics, and writing instruction that appear across classroom content areas. These are not necessarily hard to spell, but they appear frequently in school contexts and carry academic meaning children need.
 
-**SEO value:** Moderate, niche. Parents and teachers looking for "science vocabulary spelling words" or "social studies spelling list" represent a specific intent. This content differentiates the library from competitors whose vocabulary is mostly sight words and phonics.
+**SEO value:** Moderate, niche. Parents and teachers looking for "science vocabulary spelling words" or "social studies spelling list" represent a specific intent. This content differentiates the library from competitors whose vocabulary is mostly high-frequency words and phonics.
 
 **Long-term maintenance burden:** High. Academic vocabulary is broad and subjective. Deciding which science words belong in a 2nd-grade list vs a 4th-grade list requires editorial judgment. Subject areas (science, social studies, math, writing) may each eventually warrant their own family.
 
@@ -178,7 +178,7 @@ Eight families are discussed here. Not all should launch at the same time or wit
 
 **Educational purpose:** Animals, food, transportation, community helpers. Thematic lists group words by subject rather than curriculum skill. They are engaging and accessible but do not build a sequential skill.
 
-**SEO value:** Low to moderate. Thematic search is diffuse — "animal spelling words" is searched, but the volume is much lower than grade-level or sight-word terms.
+**SEO value:** Low to moderate. Thematic search is diffuse — "animal spelling words" is searched, but the volume is much lower than grade-level or high-frequency-word terms.
 
 **Long-term maintenance burden:** High risk of scope creep. Thematic content has no natural boundary. Once animals are published, the implicit question is: why not weather? Plants? Sports? The family can grow indefinitely without clear curriculum payoff.
 
@@ -195,7 +195,7 @@ This is a recommendation, not a final decision. The goal is to avoid deferring e
 | Family | Depth |
 |---|---|
 | Grade-Level | At least 2–3 lists per grade, K–5 |
-| Sight Words | Dolch tiers complete; Fry as secondary |
+| High-Frequency Words | Dolch tiers complete; Fry as secondary |
 | Phonics | Core patterns: short vowels, silent-e, vowel teams, blends, digraphs, r-controlled |
 | Challenge Words | 2–4 lists minimum |
 
@@ -208,7 +208,7 @@ This is a recommendation, not a final decision. The goal is to avoid deferring e
 | Seasonal | Optional; only with high editorial bar |
 | Thematic | Low priority; only if a clear curriculum rationale exists |
 
-**The reasoning:** Parents looking for a spelling practice app will evaluate the site in roughly this order — grade-level content, then sight words, then phonics, then enrichment. A site with strong coverage of those three core areas will feel authoritative and complete. A site that launches with morphology but thin grade-level content will feel unfinished to most visitors.
+**The reasoning:** Parents looking for a spelling practice app will evaluate the site in roughly this order — grade-level content, then high-frequency words, then phonics, then enrichment. A site with strong coverage of those three core areas will feel authoritative and complete. A site that launches with morphology but thin grade-level content will feel unfinished to most visitors.
 
 ---
 
@@ -256,13 +256,13 @@ The current library is already moving toward this — there are individual lists
 
 ---
 
-## 8. Sight Word Strategy
+## 8. High-Frequency Word Strategy
 
 **Dolch vs Fry:**
 
 Both lists are widely used in elementary education, but they differ in origin and composition:
 
-- **Dolch** (1936) — 220 service words + 95 nouns, organized into 5 grade-level tiers (Pre-Primer, Primer, 1st Grade, 2nd Grade, 3rd Grade). The most cited sight word list in primary education. Familiar to most parents and teachers.
+- **Dolch** (1936) — 220 service words + 95 nouns, organized into 5 grade-level tiers (Pre-Primer, Primer, 1st Grade, 2nd Grade, 3rd Grade). The most cited high-frequency word list in primary education. Familiar to most parents and teachers.
 - **Fry** (1957, updated) — 1,000 words organized by frequency of appearance in written English, divided into sets of 100. Broader than Dolch. More modern. Less universally known by parents.
 
 **Overlap:** The two lists have substantial overlap, particularly in the lower tiers. Pre-Primer Dolch words like *the*, *a*, *is*, *in*, *and* appear in Fry's first 25 words. Estimating overlap at 60–70% for the most common tiers is reasonable.
@@ -271,7 +271,7 @@ Both lists are widely used in elementary education, but they differ in origin an
 
 **Whether users should see both:**
 
-Publishing both Dolch and Fry gives users more choice and better SEO coverage. A parent who knows "Dolch" will find Dolch. A teacher who uses Fry words will find Fry. But both should not be presented as equivalent starting points — they should be introduced with context: "Dolch is the classic sight word list. Fry extends Dolch with more words."
+Publishing both Dolch and Fry gives users more choice and better SEO coverage. A parent who knows "Dolch" will find Dolch. A teacher who uses Fry words will find Fry. But both should not be presented as equivalent starting points — they should be introduced with context: "Dolch is the classic high-frequency word list. Fry extends Dolch with more words."
 
 **Recommendation:** Publish Dolch first and completely. Add Fry tiers as secondary coverage. In the UI, consider a note explaining the relationship between the two lists. Do not hide duplication — acknowledge that the same high-frequency words appear across multiple lists and that this is expected.
 
@@ -354,10 +354,10 @@ A `GRADE_LEVEL_STRATEGY.md` should specify:
 **After that:**
 
 - `PHONICS_STRATEGY.md` — the complete phonics progression, scope decisions, and pattern sequencing
-- `SIGHT_WORD_STRATEGY.md` — the Dolch/Fry relationship, tier presentation, and duplication policy
+- `HIGH_FREQUENCY_WORDS_STRATEGY.md` — the Dolch/Fry relationship, tier presentation, and duplication policy
 - `MORPHOLOGY_STRATEGY.md` — when morphology is ready to build
 
-The planning sequence mirrors the recommended launch priority: grade-level first, phonics and sight words second, morphology and academic vocabulary third.
+The planning sequence mirrors the recommended launch priority: grade-level first, phonics and high-frequency words second, morphology and academic vocabulary third.
 
 ---
 

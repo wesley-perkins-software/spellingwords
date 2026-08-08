@@ -29,7 +29,7 @@ faq:
   - question: "Are commonly confused words always homophones?"
     answer: "No. Some sound alike, but others are confused because they look similar or appear in similar kinds of sentences. Fourth graders need to compare both spelling and meaning."
   - question: "How can a teacher tell whether a student is ready for this page?"
-    answer: "A ready student can already spell many common words but still needs support choosing the exact word in explanations, reports, and stories. If a student can discuss what a sentence means, this list is useful."
+    answer: "A ready student can already spell many high-frequency words but still needs support choosing the exact word in explanations, reports, and stories. If a student can discuss what a sentence means, this list is useful."
   - question: "What is a good follow-up after these words?"
     answer: "Derived Words and Word Meaning is the natural next step. It closes the fourth-grade sequence by showing how a base word's spelling stays stable across a whole family of related words."
 featured: false

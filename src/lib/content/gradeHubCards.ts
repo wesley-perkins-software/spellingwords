@@ -108,7 +108,7 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
       "4 sets · 40 words · High-frequency words for accurate and increasingly automatic spelling.",
     cards: [
       {
-        id: "kindergarten-common-words-1",
+        id: "kindergarten-high-frequency-words-set-1",
         title: "Kindergarten High-Frequency Words 1",
         description:
           "Practice the frozen Kindergarten Set 1 high-frequency words for accurate and increasingly automatic spelling.",
@@ -116,7 +116,7 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "kindergarten-common-words-2",
+        id: "kindergarten-high-frequency-words-set-2",
         title: "Kindergarten High-Frequency Words 2",
         description:
           "Practice the frozen Kindergarten Set 2 high-frequency words for accurate and increasingly automatic spelling.",
@@ -124,7 +124,7 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "kindergarten-common-words-3",
+        id: "kindergarten-high-frequency-words-set-3",
         title: "Kindergarten High-Frequency Words 3",
         description:
           "Practice the frozen Kindergarten Set 3 high-frequency words for accurate and increasingly automatic spelling.",
@@ -132,7 +132,7 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "kindergarten-common-words-4",
+        id: "kindergarten-high-frequency-words-set-4",
         title: "Kindergarten High-Frequency Words 4",
         description:
           "Practice the frozen Kindergarten Set 4 high-frequency words for accurate and increasingly automatic spelling.",
@@ -288,7 +288,7 @@ export const GRADE_1_HUB_SECTIONS: readonly {
       "7 sets · 84 words · High-frequency words for accurate and increasingly automatic spelling.",
     cards: [
       {
-        id: "grade-1-common-words-1",
+        id: "grade-1-high-frequency-words-set-1",
         title: "Grade 1 High-Frequency Words 1",
         description:
           "Practice the frozen Grade 1 Set 1 high-frequency words for accurate and increasingly automatic spelling.",
@@ -296,7 +296,7 @@ export const GRADE_1_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-1-common-words-2",
+        id: "grade-1-high-frequency-words-set-2",
         title: "Grade 1 High-Frequency Words 2",
         description:
           "Practice the frozen Grade 1 Set 2 high-frequency words for accurate and increasingly automatic spelling.",
@@ -304,7 +304,7 @@ export const GRADE_1_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-1-common-words-3",
+        id: "grade-1-high-frequency-words-set-3",
         title: "Grade 1 High-Frequency Words 3",
         description:
           "Practice the frozen Grade 1 Set 3 high-frequency words for accurate and increasingly automatic spelling.",
@@ -312,7 +312,7 @@ export const GRADE_1_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-1-common-words-4",
+        id: "grade-1-high-frequency-words-set-4",
         title: "Grade 1 High-Frequency Words 4",
         description:
           "Practice the frozen Grade 1 Set 4 high-frequency words for accurate and increasingly automatic spelling.",
@@ -320,7 +320,7 @@ export const GRADE_1_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-1-common-words-5",
+        id: "grade-1-high-frequency-words-set-5",
         title: "Grade 1 High-Frequency Words 5",
         description:
           "Practice the frozen Grade 1 Set 5 high-frequency words for accurate and increasingly automatic spelling.",
@@ -328,7 +328,7 @@ export const GRADE_1_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-1-common-words-6",
+        id: "grade-1-high-frequency-words-set-6",
         title: "Grade 1 High-Frequency Words 6",
         description:
           "Practice the frozen Grade 1 Set 6 high-frequency words for accurate and increasingly automatic spelling.",
@@ -336,7 +336,7 @@ export const GRADE_1_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-1-common-words-7",
+        id: "grade-1-high-frequency-words-set-7",
         title: "Grade 1 High-Frequency Words 7",
         description:
           "Practice the frozen Grade 1 Set 7 high-frequency words for accurate and increasingly automatic spelling.",
@@ -464,7 +464,7 @@ export const GRADE_2_HUB_SECTIONS: readonly {
       "7 sets · 84 words · High-frequency words for accurate and increasingly automatic spelling.",
     cards: [
       {
-        id: "grade-2-common-words-1",
+        id: "grade-2-high-frequency-words-set-1",
         title: "Grade 2 High-Frequency Words 1",
         description:
           "Practice the frozen Grade 2 Set 1 high-frequency words for accurate and increasingly automatic spelling.",
@@ -472,7 +472,7 @@ export const GRADE_2_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-2-common-words-2",
+        id: "grade-2-high-frequency-words-set-2",
         title: "Grade 2 High-Frequency Words 2",
         description:
           "Practice the frozen Grade 2 Set 2 high-frequency words for accurate and increasingly automatic spelling.",
@@ -480,7 +480,7 @@ export const GRADE_2_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-2-common-words-3",
+        id: "grade-2-high-frequency-words-set-3",
         title: "Grade 2 High-Frequency Words 3",
         description:
           "Practice the frozen Grade 2 Set 3 high-frequency words for accurate and increasingly automatic spelling.",
@@ -488,7 +488,7 @@ export const GRADE_2_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-2-common-words-4",
+        id: "grade-2-high-frequency-words-set-4",
         title: "Grade 2 High-Frequency Words 4",
         description:
           "Practice the frozen Grade 2 Set 4 high-frequency words for accurate and increasingly automatic spelling.",
@@ -496,7 +496,7 @@ export const GRADE_2_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-2-common-words-5",
+        id: "grade-2-high-frequency-words-set-5",
         title: "Grade 2 High-Frequency Words 5",
         description:
           "Practice the frozen Grade 2 Set 5 high-frequency words for accurate and increasingly automatic spelling.",
@@ -504,7 +504,7 @@ export const GRADE_2_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-2-common-words-6",
+        id: "grade-2-high-frequency-words-set-6",
         title: "Grade 2 High-Frequency Words 6",
         description:
           "Practice the frozen Grade 2 Set 6 high-frequency words for accurate and increasingly automatic spelling.",
@@ -512,7 +512,7 @@ export const GRADE_2_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-2-common-words-7",
+        id: "grade-2-high-frequency-words-set-7",
         title: "Grade 2 High-Frequency Words 7",
         description:
           "Practice the frozen Grade 2 Set 7 high-frequency words for accurate and increasingly automatic spelling.",
@@ -642,7 +642,7 @@ export const GRADE_3_HUB_SECTIONS: readonly {
       "5 sets · 60 words · High-frequency words for accurate and increasingly automatic spelling.",
     cards: [
       {
-        id: "grade-3-common-words-1",
+        id: "grade-3-high-frequency-words-set-1",
         title: "Grade 3 High-Frequency Words 1",
         description:
           "Practice the frozen Grade 3 Set 1 high-frequency words for accurate and increasingly automatic spelling.",
@@ -650,7 +650,7 @@ export const GRADE_3_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-3-common-words-2",
+        id: "grade-3-high-frequency-words-set-2",
         title: "Grade 3 High-Frequency Words 2",
         description:
           "Practice the frozen Grade 3 Set 2 high-frequency words for accurate and increasingly automatic spelling.",
@@ -658,7 +658,7 @@ export const GRADE_3_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-3-common-words-3",
+        id: "grade-3-high-frequency-words-set-3",
         title: "Grade 3 High-Frequency Words 3",
         description:
           "Practice the frozen Grade 3 Set 3 high-frequency words for accurate and increasingly automatic spelling.",
@@ -666,7 +666,7 @@ export const GRADE_3_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-3-common-words-4",
+        id: "grade-3-high-frequency-words-set-4",
         title: "Grade 3 High-Frequency Words 4",
         description:
           "Practice the frozen Grade 3 Set 4 high-frequency words for accurate and increasingly automatic spelling.",
@@ -674,7 +674,7 @@ export const GRADE_3_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-3-common-words-5",
+        id: "grade-3-high-frequency-words-set-5",
         title: "Grade 3 High-Frequency Words 5",
         description:
           "Practice the frozen Grade 3 Set 5 high-frequency words for accurate and increasingly automatic spelling.",
@@ -784,7 +784,7 @@ export const GRADE_4_HUB_SECTIONS: readonly {
       "2 sets · 24 words · High-frequency words for accurate and increasingly automatic spelling.",
     cards: [
       {
-        id: "grade-4-common-words-1",
+        id: "grade-4-high-frequency-words-set-1",
         title: "Grade 4 High-Frequency Words 1",
         description:
           "Practice the frozen Grade 4 Set 1 high-frequency words for accurate and increasingly automatic spelling.",
@@ -792,7 +792,7 @@ export const GRADE_4_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-4-common-words-2",
+        id: "grade-4-high-frequency-words-set-2",
         title: "Grade 4 High-Frequency Words 2",
         description:
           "Practice the frozen Grade 4 Set 2 high-frequency words for accurate and increasingly automatic spelling.",
@@ -906,7 +906,7 @@ export const GRADE_5_HUB_SECTIONS: readonly {
       "2 sets · 24 words · High-frequency words for accurate and increasingly automatic spelling.",
     cards: [
       {
-        id: "grade-5-common-words-1",
+        id: "grade-5-high-frequency-words-set-1",
         title: "Grade 5 High-Frequency Words 1",
         description:
           "Practice the frozen Grade 5 Set 1 high-frequency words for accurate and increasingly automatic spelling.",
@@ -914,7 +914,7 @@ export const GRADE_5_HUB_SECTIONS: readonly {
         kind: "list",
       },
       {
-        id: "grade-5-common-words-2",
+        id: "grade-5-high-frequency-words-set-2",
         title: "Grade 5 High-Frequency Words 2",
         description:
           "Practice the frozen Grade 5 Set 2 high-frequency words for accurate and increasingly automatic spelling.",

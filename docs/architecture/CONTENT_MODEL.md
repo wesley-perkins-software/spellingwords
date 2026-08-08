@@ -23,7 +23,7 @@ The model separates four things that the current implementation often blends tog
 | Practice configuration | Which words are practiced, in what set, and for what purpose? | page identity |
 | Presentation and discovery | Where can users find or be recommended this content? | URL or schema type |
 
-A content item may have one identity while appearing in several discovery contexts. A reusable Skill can be recommended from a Grade Roadmap. A Sight Word Set can belong to a Collection. A Vocabulary or Theme List can be useful for a grade without becoming a Grade Unit.
+A content item may have one identity while appearing in several discovery contexts. A reusable Skill can be recommended from a Grade Roadmap. A High-Frequency Word Set can belong to a Collection. A Vocabulary or Theme List can be useful for a grade without becoming a Grade Unit.
 
 Every content item must have one primary content identity based on its primary user purpose. Identity is not determined by subject matter alone. Two items may address the same spelling concept while having different identities when their purposes differ. A Grade 1 Silent E curriculum milestone is a Grade Unit; a reusable Silent E practice resource is a Skill. If both are needed, they should be separate content items with separate stable IDs and explicit relationships, not one item left indefinitely as “either this or that.”
 
@@ -38,7 +38,7 @@ To determine identity, ask: **What is the primary reason this item exists for th
 - To provide one milestone in a grade sequence → Grade Unit.
 - To provide reusable focused concept practice → Skill.
 - To provide an actual selectable word set → Practice Set.
-- To provide a named high-frequency sequence → Sight Word Set.
+- To provide a named high-frequency sequence → High-Frequency Word Set.
 - To provide supplemental topic-based words → Vocabulary or Theme List.
 - To explain a concept to an adult → Teaching Guide.
 - To group related items → Collection.
@@ -107,11 +107,11 @@ A Skill's demonstration is not a Practice Set (see §4) and does not launch the 
 
 Broad Skills and focused subskills can use the same conceptual identity. For example, Consonant Digraphs and SH Digraph may both be Skills, with one broader than the other.
 
-### Sight Word Set
+### High-Frequency Word Set
 
-A Sight Word Set represents a named or curated high-frequency-word practice set. It may come from a known system or a custom editorial set.
+A High-Frequency Word Set represents a named or curated high-frequency-word practice set. It may come from a known system or a custom editorial set.
 
-A Sight Word Set may include:
+A High-Frequency Word Set may include:
 
 - stable ID;
 - source/system, such as Dolch, Fry, Heart Words, or custom;
@@ -170,7 +170,7 @@ It may include:
 - optional source/system;
 - status.
 
-Collections are not Grade Roadmaps. A Dolch Primer Collection is a named grouping from an external sight-word sequence. A Grade 1 Roadmap is a grade-specific developmental curriculum path. Both may contain ordered references, but they mean different things.
+Collections are not Grade Roadmaps. A Dolch Primer Collection is a named grouping from an external high-frequency-word sequence. A Grade 1 Roadmap is a grade-specific developmental curriculum path. Both may contain ordered references, but they mean different things.
 
 ## 4. Practice Sets
 
@@ -202,7 +202,7 @@ Avoid a complex grade mastery matrix. The smallest useful model is:
 
 - for Grade Units: curriculum grade and roadmap placement/order;
 - for Skills: introduced grade, recommended grade or grade range, and optional notes about later review or extension when useful;
-- for Sight Word Sets and Vocabulary/Theme Lists: grade association only when it helps users choose practice.
+- for High-Frequency Word Sets and Vocabulary/Theme Lists: grade association only when it helps users choose practice.
 
 The model should express that Short A is introduced early and can be reviewed later; Silent E appears first as a long-vowel Skill and later relates to suffix rules; a Grade 1 Silent E unit uses a simple Practice Set; a Grade 3 suffix unit may reference the broader Silent E Skill for a different objective; and an older learner may access Silent E directly for remediation.
 
@@ -233,7 +233,7 @@ Examples:
 - `kindergarten-short-a-words` is a Grade Unit: a Kindergarten curriculum experience with Kindergarten framing, placement, and a curated Short A Practice Set.
 - `short-a-words` is a Skill: reusable focused Short A practice that may be linked from Kindergarten, Grade 1 review, intervention, search, or skill browsing.
 - `grade-1-floss-rule` is a Grade Unit: it belongs to a Grade 1 core sequence.
-- `dolch-primer-a` is a Sight Word Set: it may appear in Grade 1 and in a Dolch Primer Collection.
+- `dolch-primer-a` is a High-Frequency Word Set: it may appear in Grade 1 and in a Dolch Primer Collection.
 - `kindergarten-animal-words` is a Vocabulary or Theme List: it may be optional Kindergarten practice, but it is not a Kindergarten curriculum milestone.
 
 Two items can relate to the same spelling concept without being duplicates when their intent, audience, framing, or Practice Set differs.
@@ -246,7 +246,7 @@ Long-term identities should include:
 
 - `grade-unit`;
 - `skill`;
-- `sight-word-set`;
+- `high-frequency-word-set`;
 - `vocabulary-theme`;
 - `teaching-guide`;
 - `collection`.
@@ -306,7 +306,7 @@ Examples:
 |---|---|
 | Silent E | VCe |
 | Ending Spelling Patterns | final short-vowel orthographic conventions |
-| Sight Words | high-frequency and irregular words, depending on context |
+| High-Frequency Words | high-frequency and irregular words, depending on context |
 
 This does not require a full synonym system. A minimal approach is enough: public title, optional technical label, and optional recognized search terms where useful.
 
@@ -340,7 +340,7 @@ Later validation can become stricter after migration:
 
 - Grade Units require curriculum grade and roadmap placement.
 - Skills require reusable identity independent of one grade.
-- Sight Word Sets require source/framing when relevant.
+- High-Frequency Word Sets require source/framing when relevant.
 - Collections require member IDs and collection type.
 - Practice Sets require usable words and status.
 
@@ -391,8 +391,8 @@ Later implementation plans must respect the content-level distinctions here with
 | Grade 1 Beginning Consonant Blends | Grade Unit | Grade-appropriate blend words | Grade 1 core sequence | Related to broader Consonant Blends and focused BL/BR/etc. Skills | Grade 1 roadmap, focused-practice links | Unit role does not come from `phonics` category. |
 | Reusable Silent E Skill | Skill | One mixed set initially; additional long-a/long-i sets only if needed | Introduced early; later related to suffix rules | Broader/narrower relationships with long-vowel and VCe patterns | skill browsing, search, Grade 1, Grade 3 review/remediation | Silent E is not owned by any grade or URL. |
 | SH Digraph focused practice | Focused Skill | Primary SH word set | Recommended early, useful for review | Narrower than Consonant Digraphs; related to CH/TH/WH | skill browsing, Grade 1 support, intervention | Skill identity remains independent of grade route; a future implementation may model SH only as a Practice Set if it lacks independent identity. |
-| Dolch Primer Collection and members | Collection plus Sight Word Sets | Each member part has its own set | Grade association where helpful, not core grade unit | Related to high-frequency/irregular word practice | sight-word browsing, Grade 1 recommendations, Dolch sequence | Collection and member IDs remain stable apart from URL slugs. |
-| First Grade Heart Words practice set | Sight Word Set | Heart-word set | Recommended for or associated with Grade 1 | Related to high-frequency and irregular-word concepts | Grade 1 recommendations, sight-word browsing, direct search | Heart-word sequence identity remains independent of category or URL; a separate Grade 1 Heart Words Grade Unit may reference it. |
+| Dolch Primer Collection and members | Collection plus High-Frequency Word Sets | Each member part has its own set | Grade association where helpful, not core grade unit | Related to high-frequency/irregular word practice | high-frequency-word browsing, Grade 1 recommendations, Dolch sequence | Collection and member IDs remain stable apart from URL slugs. |
+| First Grade Heart Words practice set | High-Frequency Word Set | Heart-word set | Recommended for or associated with Grade 1 | Related to high-frequency and irregular-word concepts | Grade 1 recommendations, high-frequency-word browsing, direct search | Heart-word sequence identity remains independent of category or URL; a separate Grade 1 Heart Words Grade Unit may reference it. |
 | Kindergarten Animal Words | Vocabulary or Theme List | Animal word set | Optional Kindergarten supplemental practice | May relate loosely to vocabulary, not core spelling Skill | additional practice, search, theme browsing | Grade K does not make it a Grade Unit. |
 | Grade 3 Dropping Silent E | Grade Unit | Suffix-rule words such as making/writing | Grade 3 roadmap placement | Related to Silent E Skill and suffix spelling changes | Grade 3 roadmap, related Silent E guide | Later morphology objective remains distinct from early Silent E Skill page. |
 | Prefixes across multiple grades | Skill or Skill family with grade-specific units | Sets by grade/objective where justified | Introduced and expanded across grades | Broader Prefixes with narrower un-, re-, advanced prefixes | Grade roadmaps, skill browsing, writing support | Prefix Skill identity remains stable across grade placements. |

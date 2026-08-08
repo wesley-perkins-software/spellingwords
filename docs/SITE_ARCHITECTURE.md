@@ -57,8 +57,8 @@ List Detail pages are the highest-SEO-value pages on the site — they match spe
 **Grade Hubs** (one per grade: K, 1, 2, 3, 4, 5)
 A single hub page for each grade level aggregating all lists, any relevant learning paths or sequences, and links to relevant teaching guides. Grade hubs match real, high-volume search queries ("kindergarten spelling words," "3rd grade spelling lists") and serve as the primary SEO landing pages for grade-based discovery.
 
-**Category Hubs** (Phonics, Sight Words, Grade-Level, Challenge)
-A hub page for each content category. Phonics and Sight Words are particularly strong SEO targets. Category hubs contextualize the category for newcomers (what is phonics? why does it matter?) before presenting the list inventory.
+**Category Hubs** (Phonics, High-Frequency Words, Grade-Level, Challenge)
+A hub page for each content category. Phonics and High-Frequency Words are particularly strong SEO targets. Category hubs contextualize the category for newcomers (what is phonics? why does it matter?) before presenting the list inventory.
 
 **[Future] Library Search and Filter**
 As the library grows, users need to filter by grade, category, difficulty, or keyword. This is a client-side feature — no backend required. It should be built when the list count makes browsing without it impractical.
@@ -68,7 +68,7 @@ As the library grows, users need to filter by grade, category, difficulty, or ke
 ### Tier 3 — Authority Content
 
 **Teaching Guides**
-Long-form explanatory content answering questions that parents, teachers, and curious learners search for: "How to teach silent E," "What are r-controlled vowels," "Why are sight words important," "The difference between homophones and homonyms." Each guide links to the most relevant curated lists and serves as an organic entry point into the Core Product.
+Long-form explanatory content answering questions that parents, teachers, and curious learners search for: "How to teach silent E," "What are r-controlled vowels," "Why are high-frequency words important," "The difference between homophones and homonyms." Each guide links to the most relevant curated lists and serves as an organic entry point into the Core Product.
 
 Teaching guides establish the topical authority signals (E-E-A-T) that make the entire domain more credible in search rankings. They are not content filler — each guide must exist because it solves a genuine educational problem for a parent or teacher, and be genuinely informative, hand-written, and worth reading on its own merits. SEO is the downstream benefit of writing something truly useful, not the reason to write it.
 
@@ -91,7 +91,7 @@ A static, print-optimized view of any list — useful for parents who want to pr
 Structured, multi-list sequences designed to take a learner from one milestone to another (e.g., "Complete Phonics Foundations: Short Vowels → Silent E → Vowel Teams"). The core value of a Learning Path is sequencing and motivation. This can be partially delivered through strong prerequisite and next-list metadata on existing List Detail pages. Evaluate whether a dedicated page type adds enough user value to justify the URL structure complexity.
 
 **Collections**
-Curated groupings of multiple related lists (e.g., "Complete Dolch Sight Words"). May be implementable as a grouped library view or a metadata field rather than its own page type.
+Curated groupings of multiple related lists (e.g., "Complete Dolch High-Frequency Words"). May be implementable as a grouped library view or a metadata field rather than its own page type.
 
 **Parent and Teacher Resource Hubs**
 Dedicated sections for adult audiences. Could be organized as a subset of Teaching Guides rather than a separate page type.
@@ -226,7 +226,7 @@ Teaching Guides and (eventually) Word Pages are the primary AEO targets. The Abo
 
 ## Taxonomy Durability
 
-The four content categories — **Grade-Level, Phonics, Sight Words, Challenge** — are educationally meaningful, stable, and durable. Grade Hub and Category Hub pages map cleanly to these categories. A fifth future category (Morphology, Academic Vocabulary) can be added without restructuring anything.
+The four content categories — **Grade-Level, Phonics, High-Frequency Words, Challenge** — are educationally meaningful, stable, and durable. Grade Hub and Category Hub pages map cleanly to these categories. A fifth future category (Morphology, Academic Vocabulary) can be added without restructuring anything.
 
 The taxonomy should not be expanded without a dedicated strategy document (equivalent to the existing PHONICS_STRATEGY.md and GRADE_LEVEL_STRATEGY.md) and a clear rationale for why the new category cannot be served by the existing four.
 

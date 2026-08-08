@@ -23,7 +23,7 @@ faq:
   - question: "Why do children sometimes add a silent e to words that don't need one?"
     answer: "Once a child learns that a final silent e changes a vowel, it's common to over-apply the rule for a while — spelling a short-vowel word like pig as pige, for example. That's a sign the rule has been learned, not a sign of confusion. The fix is direct practice comparing short- and long-vowel pairs, like pin and pine, rather than avoiding the rule."
   - question: "Why do give and live keep a silent e but still have a short i sound?"
-    answer: "Give and live (the verb, as in I live here) both break the usual pattern — their i stays short, as in sit. English spelling almost never lets a common word end in a bare v, so the silent e is there for that spelling reason, the same convention behind Long A Silent E Words' exception, have."
+    answer: "Give and live (the verb, as in I live here) both break the usual pattern — their i stays short, as in sit. English spelling almost never lets a high-frequency word end in a bare v, so the silent e is there for that spelling reason, the same convention behind Long A Silent E Words' exception, have."
   - question: "Is silent e the only way to spell the long i sound?"
     answer: "No — English also spells long i with other patterns, such as igh in light and night. This page focuses only on the silent-e spelling."
 words:
@@ -70,7 +70,7 @@ A learner who can explain why *cake* isn't spelled *cak* already has what's need
 
 The overgeneralization mentioned above is the most common mistake at this stage: a learner who has just learned "silent e makes the vowel long" may start adding a silent e to already-correct short-vowel words, spelling *pig* as *pige* or *sit* as *site*. This isn't a sign of confusion — it's a sign the rule has been learned as a rule, just not yet bounded. Practicing pairs like *pin*/*pine* side by side, so the learner has to choose rather than default to adding an e, usually resolves it.
 
-A second exception worth naming: *give* and *live* (the verb, as in *I live here*) keep a silent e but stay short, as in *sit* — the same "a common word almost never ends in v" spelling convention behind *have* on the Long A page, not a vowel-lengthening e. *Live* is also spelled the same whether it means "I live here" (short i) or "a live performance" (long i); which one applies is decided by context, not spelling — a detail worth mentioning only if it comes up.
+A second exception worth naming: *give* and *live* (the verb, as in *I live here*) keep a silent e but stay short, as in *sit* — the same "a high-frequency word almost never ends in v" spelling convention behind *have* on the Long A page, not a vowel-lengthening e. *Live* is also spelled the same whether it means "I live here" (short i) or "a live performance" (long i); which one applies is decided by context, not spelling — a detail worth mentioning only if it comes up.
 
 ### How to Practice Long I Silent E Words
 

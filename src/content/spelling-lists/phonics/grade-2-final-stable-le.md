@@ -31,8 +31,8 @@ faq:
     answer: "Count back three letters from the end of the word: consonant, l, e. Everything before that split is the first syllable. In little, that means lit- and -tle; in simple, sim- and -ple."
   - question: "Is this the same as words like camel or animal?"
     answer: "No. Camel and animal end in -el and -al, which are related but different final syllables. This list focuses only on consonant + le, the most common of the three, and keeps the pattern easy to isolate before other endings are introduced later."
-  - question: "Why do little and people appear on this list even though they are also common words?"
-    answer: "Both words are useful, everyday examples of the -le pattern, and their appearance here is about the spelling pattern, not about teaching them as sight words — that happens on the Common Words pages."
+  - question: "Why do little and people appear on this list even though they are also high-frequency words?"
+    answer: "Both words are useful, everyday examples of the -le pattern, and their appearance here is about the spelling pattern, not about teaching them as high-frequency words — that happens on the High-Frequency Words pages."
 words:
   - little
   - apple

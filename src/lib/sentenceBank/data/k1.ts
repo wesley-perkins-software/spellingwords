@@ -351,6 +351,7 @@ export const K1_ENTRIES: SentenceBankEntry[] = [
   { word: 'nut', exampleSentence: 'The squirrel found a nut and carried it home.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'of', exampleSentence: 'I drink a glass of milk.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'off', exampleSentence: 'She turned off the light and went to sleep.', gradeBand: 'K-1', sourceType: 'curated' },
+  { word: 'oh', exampleSentence: 'Oh, I left my lunch box on the bus!', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'old', exampleSentence: 'My shoes are old and worn.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'on', exampleSentence: 'The cat sits on the rug.', gradeBand: 'K-1', sourceType: 'curated' },
   { word: 'one', exampleSentence: 'I have one apple in my bag.', gradeBand: 'K-1', sourceType: 'curated' },

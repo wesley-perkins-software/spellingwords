@@ -88,6 +88,26 @@ describe('Grade 2 High-Frequency Words Sets 1–2 editorial pilot', () => {
     }
   });
 
+  it('keeps semantic context examples optional and lets the renderer present them as sentences', () => {
+    const set1Source = sourceFor(expected[0].id);
+    const set2Source = sourceFor(expected[1].id);
+    expect(set1Source).toContain('contextExample: "Put the book over there."');
+    expect(set1Source).toContain('contextExample: "The children packed their lunches."');
+    expect(set1Source).not.toMatch(/^\s+contextExample: "\s/m);
+    expect(set2Source).not.toContain('contextExample:');
+
+    const schema = readFileSync(new URL('../../content/config.ts', import.meta.url), 'utf8');
+    expect(schema).toContain('contextExample: z.string().optional()');
+
+    const renderer = readFileSync(
+      new URL('../../pages/[gradeSlug]/[strand]/[slug].astro', import.meta.url),
+      'utf8',
+    );
+    expect(renderer).toMatch(/>In a sentence:<\/strong>\{' '\}\s*\{item\.contextExample\}/);
+    expect(renderer).not.toContain('In context:');
+    expect(renderer).not.toContain('In a sentence:</strong> {item.contextExample}');
+  });
+
   it('excludes obsolete terminology and renderer-owned sections', () => {
     for (const set of expected) {
       const source = sourceFor(set.id);

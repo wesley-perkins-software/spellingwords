@@ -1,9 +1,9 @@
 ---
 id: grade-1-shape-words
 urlSlug: grade-1-shape-words
-title: 'Grade 1 Shape Words'
-description: 'Practice spelling common shape names like circle, square, triangle, and rectangle.'
-shortAnswer: 'Practice Grade 1 shape words such as circle, square, triangle, rectangle, oval, diamond, star, and heart for math talk, art, and everyday description.'
+title: '1st Grade Shape Spelling Words'
+description: 'Shape names are familiar labels in school and everyday surroundings. This eight-word set gives first graders practice with r-controlled vowels, vowel teams, and longer words built from manageable spoken parts.'
+shortAnswer: 'This shape set helps first graders compare ar in star with ear in heart, notice silent e in square, and organize circle, triangle, rectangle, oval, and diamond by syllables.'
 contentRole: vocabulary-theme
 category: grade-level
 grade: '1'
@@ -19,14 +19,9 @@ relatedLists: []
 prerequisiteLists: ['grade-1-clothing-words']
 nextLists: ['grade-1-number-words-11-20']
 featured: false
-readinessSignals:
-  - "Can name common shapes by sight"
-  - "Can describe simple objects using shape names in speech"
-faq:
-  - question: 'Which shape words are included?'
-    answer: 'This list includes circle, square, triangle, rectangle, oval, diamond, star, and heart.'
-  - question: 'Why practice shape words in Grade 1?'
-    answer: 'Shape words come up naturally in math, art, and everyday description, and several of them — such as triangle and rectangle — are genuinely longer than they sound in speech.'
+wordNotes:
+  - word: 'heart'
+    note: 'The word heart uses the written chunk ear before its final t. This vowel spelling must be remembered as part of the word.'
 words:
   - circle
   - square
@@ -38,6 +33,14 @@ words:
   - heart
 ---
 
-Shapes are everywhere in a first grader's world — the circle of a plate, the square of a window, the triangle of a slice of pizza. These eight words give children a vocabulary for describing shapes they already see and sort every day.
+### Compare the shortest shape words
 
-This is optional additional practice, not part of the Grade 1 Core Spelling route. Most of these words are short and regular; *triangle* and *rectangle* are the two that need a little extra attention, since they carry more syllables than they seem to in speech.
+The words *star* and *heart* both end in *r* followed by *t*, but their vowel spellings differ: *star* has *ar*, while *heart* has *ear*. In *square*, the final silent *e* is part of the *are* ending.
+
+### Break longer words into spoken parts
+
+Listen for two parts in *circle*, *oval*, and *diamond*. The words *triangle* and *rectangle* each have three spoken parts. Saying a longer word slowly helps keep its middle letters in order.
+
+### Keep the shared ending in two words
+
+The words *triangle* and *rectangle* share the written ending *angle*. Find and spell that same five-letter chunk in both words, then check the different beginning.

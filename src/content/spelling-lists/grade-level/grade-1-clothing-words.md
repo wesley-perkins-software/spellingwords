@@ -1,9 +1,9 @@
 ---
 id: grade-1-clothing-words
 urlSlug: grade-1-clothing-words
-title: 'Grade 1 Clothing Words'
-description: 'Practice spelling everyday clothing words like shirt, pants, shoes, and jacket.'
-shortAnswer: 'Practice Grade 1 clothing words such as shirt, pants, shoes, socks, jacket, hat, mittens, and boots for dressing-for-the-weather routines and everyday writing.'
+title: '1st Grade Clothing Spelling Words'
+description: 'Clothing words appear in everyday conversations and writing. This eight-word set builds spelling practice with consonant teams, plural endings, vowel teams, and doubled consonants.'
+shortAnswer: 'This clothing set helps first graders compare sh in shirt and shoes, final s in five plural words, and the doubled t in mittens.'
 contentRole: vocabulary-theme
 category: grade-level
 grade: '1'
@@ -19,14 +19,9 @@ relatedLists: []
 prerequisiteLists: ['grade-1-weather-words']
 nextLists: []
 featured: false
-readinessSignals:
-  - "Can name everyday clothing items in speech or pictures"
-  - "Can connect clothing choices to weather, such as wearing a jacket on a cold day"
-faq:
-  - question: 'Which clothing words are included?'
-    answer: 'This list includes shirt, pants, shoes, socks, jacket, hat, mittens, and boots.'
-  - question: 'Why pair clothing words with weather words?'
-    answer: 'Choosing what to wear for the weather is a genuine daily routine, and this list gives children the vocabulary to write and talk about it.'
+wordNotes:
+  - word: 'shoes'
+    note: 'The word shoes begins with sh, uses oe for its vowel spelling, and ends with s.'
 words:
   - shirt
   - pants
@@ -38,6 +33,14 @@ words:
   - boots
 ---
 
-Deciding what to wear is one of the most concrete, familiar decisions a first grader makes every single day — and it usually depends on the weather. These eight words cover everyday clothing, from a *shirt* and *shoes* to a warm *jacket* and *mittens* for a cold morning.
+### Compare beginning and ending consonants
 
-This is optional additional practice, not part of the Grade 1 Core Spelling route. It pairs naturally with Weather Words — a child who can spell *snowy* is ready to spell *boots* and *mittens* too.
+The consonant team *sh* begins both *shirt* and *shoes*. At the ends of words, listen for the blends in *shirt* and *pants* and the final consonants in *hat* and *jacket*.
+
+### Notice five plural endings
+
+The words *pants*, *shoes*, *socks*, *mittens*, and *boots* end in *s*. In *pants*, the letters *nt* come before the final *s*. Keep the whole ending in view so that none of its three consonants is dropped.
+
+### Use vowel spellings and doubled letters
+
+The vowel team *oo* spells the vowel sound in *boots*. The two-syllable words *jacket* and *mittens* can be spelled one spoken part at a time; *mittens* needs two *t*s in the middle.

@@ -26,6 +26,8 @@ Keep this file and the inventory files synchronized: this file owns strategy, ph
 
 **Editorial content standard for HFW member sets:** `docs/content/CANONICAL_HIGH_FREQUENCY_WORD_SET_PAGE_STANDARD.md` is final and governs all 27 individual set pages. Kindergarten Set 1 is the completed reference pilot; the remaining 26 member sets still require editorial transformation. The six HFW gateways are separate and deferred.
 
+**Editorial content standard for Themed Spelling Practice members:** `docs/content/CANONICAL_THEMED_SPELLING_PRACTICE_PAGE_STANDARD.md` is frozen and governs all 27 individual member pages. The research and post-merge integrity audit are complete; `1st Grade Weather Spelling Words` is the completed reference implementation. The remaining 26 members await controlled editorial batches. The six grade gateways and the coordinated cross-strand ordinal-grade-label migration remain separate work.
+
 ---
 
 ## 1. Status and purpose
@@ -679,7 +681,8 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 - [ ] Additional Practice pages (5 canonical-active)
   - [ ] Grade 1 Number Words 11–20 (`grade-1-number-words-11-20`)
   - [ ] Grade 1 Days of the Week (`grade-1-days-of-the-week`)
-  - [ ] Grade 1 Weather Words (`grade-1-weather-words`)
+  - [x] 1st Grade Weather Spelling Words (`grade-1-weather-words`)
+    - Status: complete reference implementation for the frozen Themed Spelling Practice member-page standard; identity, route, and nine-word inventory remain unchanged.
   - [ ] Grade 1 Clothing Words (`grade-1-clothing-words`)
   - [ ] Grade 1 Shape Words (`grade-1-shape-words`)
 - [ ] High-Frequency Words sets audited (see `inventory/high-frequency-words.md` for the Grade 1 rows)

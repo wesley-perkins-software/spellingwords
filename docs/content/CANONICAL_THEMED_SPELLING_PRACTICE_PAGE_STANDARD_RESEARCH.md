@@ -30,7 +30,7 @@ The canonical route manifest contains **27 pages: K 5, Grade 1 5, Grade 2 5, Gra
 | 3 | K | `kindergarten-number-words.md`; `kindergarten-number-words` | `/kindergarten/themed-spelling-practice/number-words` | Kindergarten Number Words | 10: `one`, `two`, `three`, `four`, `five`, `six`, `seven`, `eight`, `nine`, `ten` | 2 |
 | 4 | K | `kindergarten-color-words.md`; `kindergarten-color-words` | `/kindergarten/themed-spelling-practice/color-words` | Kindergarten Color Words | 8: `red`, `blue`, `green`, `yellow`, `black`, `white`, `brown`, `pink` | 3 |
 | 5 | K | `kindergarten-family-words.md`; `kindergarten-family-words` | `/kindergarten/themed-spelling-practice/family-words` | Kindergarten Family Words | 8: `mom`, `dad`, `sister`, `brother`, `baby`, `grandma`, `grandpa`, `family` | 9 |
-| 6 | 1 | `grade-1-weather-words.md`; `grade-1-weather-words` | `/1st-grade/themed-spelling-practice/weather-words` | Grade 1 Weather Words | 9: `sunny`, `rainy`, `cloudy`, `windy`, `snowy`, `stormy`, `foggy`, `hot`, `cold` | 6 |
+| 6 | 1 | `grade-1-weather-words.md`; `grade-1-weather-words` | `/1st-grade/themed-spelling-practice/weather-words` | 1st Grade Weather Spelling Words | 9: `sunny`, `rainy`, `cloudy`, `windy`, `snowy`, `stormy`, `foggy`, `hot`, `cold` | 6 |
 | 7 | 1 | `grade-1-clothing-words.md`; `grade-1-clothing-words` | `/1st-grade/themed-spelling-practice/clothing-words` | Grade 1 Clothing Words | 8: `shirt`, `pants`, `shoes`, `socks`, `jacket`, `hat`, `mittens`, `boots` | 7 |
 | 8 | 1 | `grade-1-shape-words.md`; `grade-1-shape-words` | `/1st-grade/themed-spelling-practice/shape-words` | Grade 1 Shape Words | 8: `circle`, `square`, `triangle`, `rectangle`, `oval`, `diamond`, `star`, `heart` | 8 |
 | 9 | 1 | `grade-1-number-words-11-20.md`; `grade-1-number-words-11-20` | `/1st-grade/themed-spelling-practice/number-words-11-20` | Grade 1 Number Words 11–20 | 10: `eleven`, `twelve`, `thirteen`, `fourteen`, `fifteen`, `sixteen`, `seventeen`, `eighteen`, `nineteen`, `twenty` | 4 |
@@ -152,7 +152,7 @@ Commercial programs such as Words Their Way, Fundations, UFLI, and Core Knowledg
 
 The order below freezes meaning and responsibility, not visual placement.
 
-1. **Identity and concise summary — required, authored.** Name grade, theme, exact number of words, and the most useful spelling character of this inventory in about 35–70 words. It must be unique and answer what the page is for. Avoid enumerating every word when the inventory immediately follows.
+1. **Identity and concise summary — required, authored.** Normally connect two semantic ingredients: one brief, human statement about why the theme is recognizable or relevant in a child's everyday or school experience, followed immediately by the spelling work the actual inventory provides. Name the grade, theme, exact number of words, and most useful spelling character of the inventory in about 35–70 words. This is a meaning requirement, not a rigid sentence template; vary the natural construction across pages. The summary must be unique and answer what the page is for. Avoid enumerating every word when the inventory immediately follows.
 2. **Practice action — required, renderer-owned.** Provide a clear route to hear and spell the authoritative inventory. Do not duplicate player instructions in prose.
 3. **Exact word inventory — required, executable data.** Preserve spelling, apostrophes, and required capitalization. Frontmatter remains the single source for display and practice.
 4. **“What to notice while spelling these words” — required, authored.** Usually 2–4 concise observations (roughly 120–250 words total), each grounded in named inventory examples. Across observations, select only what earns attention: sound–letter mapping, vowel/consonant contrast, syllable chunks, stable sequences, capitalization, compounds, bases/affixes, inflections, or a small number of unexpected spellings. Explicitly allow “these words use several patterns.”
@@ -172,6 +172,8 @@ A typical page needs 200–400 authored words beyond its inventory; K can be 100
 **Allowed:** identify the category in one sentence; compare actual spellings; discuss syllables, graphemes, meaningful parts, compounds, endings, capitalization, and selective irregularities; use the theme for a bounded recall or writing prompt; disambiguate a word only when needed to prompt it.
 
 **Not allowed:** definitions for each animal/body part/color/relative; anatomy, color theory, family norms, science explanations, math instruction, civics instruction, career descriptions, trivia, or “fun facts”; testing whether a learner understands the domain rather than can spell its words. Family prose should use inclusive, neutral language and never prescribe family structure; spelling does not require doing so.
+
+The brief human-context sentence in the summary does not relax these guardrails. It may explain that learners encounter or use the themed words in familiar daily or school contexts, but it is not an invitation to define the theme, teach topic knowledge, add trivia, or expand into vocabulary or reading-comprehension content. One sentence will normally suffice; occasionally two may be justified. Spelling purpose remains dominant.
 
 ## F. Readiness recommendation
 
@@ -225,7 +227,7 @@ The grade Themed Spelling Practice gateway should later own broad discovery inte
 
 ### Metadata and cannibalization
 
-- Recommended H1/title semantic pattern: **`[Grade label] [Theme] Spelling Words`**. It leads with the common query noun and clearly states spelling purpose. Examples: “Kindergarten Animal Spelling Words”; “Grade 4 Geometry Spelling Words.”
+- Recommended H1/title semantic pattern: **`[Public grade label] [Theme] Spelling Words`**. It clearly states spelling purpose and distinguishes the member from a generic vocabulary page. Examples: “Kindergarten Animal Spelling Words”; “4th Grade Geometry Spelling Words.”
 - A natural alternative (“[Grade] [Theme] Words for Spelling Practice”) may be used only if a title becomes awkward, but consistency is more valuable than gratuitous variation.
 - Description: unique, accurate summary with count and one or two real spelling features; do not dump the inventory or repeat keyword variants.
 - Keep current routes unchanged. Route labels need not exactly mirror H1 wording.
@@ -266,10 +268,12 @@ A member may link to one or exceptionally two Core/Skill resources when (1) the 
 ## M. Naming recommendation
 
 - **Public strand:** keep **Themed Spelling Practice** exactly. Never restore “Additional Practice.”
-- **Member H1/page title:** migrate editorially, page by page, toward `[Grade label] [Theme] Spelling Words`; this is clearer than current “Animal Words” and less awkward than placing “for Spelling Practice” in every H1.
+- **Member H1/page title:** use `[Public grade label] [Theme] Spelling Words`; this explicitly owns spelling intent and distinguishes the page from generic themed vocabulary. Public grade labels are `Kindergarten`, `1st Grade`, `2nd Grade`, `3rd Grade`, `4th Grade`, and `5th Grade`.
 - **Browser title:** renderer may add the site name; avoid hard-coded duplicate brand text in authored titles.
 - **Theme label:** derive/display a human-edited theme name rather than guessing from the URL. Ampersand versus “and” should be editorially consistent, but routes stay frozen.
 - **Internal role:** `vocabulary-theme` is semantically misleading as the sole role name and inconsistently applied. Recommend a separately reviewed migration to `themed-spelling-practice-page` (or omission if manifest classification is sufficient). Do not conflate `contentRole` with strand classification.
+
+The ordinal-label decision is a public naming convention, not an internal grade-data migration: values such as `grade: "1"` and existing ordinal route slugs remain unchanged. Complete normalization is deferred to a separately scoped, cross-strand pass covering Core, HFW, Themed member pages, gateways, Grade Hubs, breadcrumbs, page titles, structured-data names, and navigation labels. Do not create mixed piecemeal changes beyond an explicitly approved pilot before that pass.
 
 ## N. Core vs HFW vs Themed comparison table
 
@@ -373,7 +377,7 @@ These are treatment sketches, not production edits.
 
 ## Q. Pilot recommendation
 
-Pilot **Grade 1 Weather Words** (`grade-1-weather-words.md`, `/1st-grade/themed-spelling-practice/weather-words`). It is representative rather than trivial: nine coherent words, a genuine recurring ending, two doubling cases, several base-spelling contrasts, and two non-`-y` words. It tests the core editorial challenge—finding real cross-word observations without claiming one pattern—while avoiding the heavy subject-definition pressure of upper-grade domain sets.
+Pilot **1st Grade Weather Spelling Words** (`grade-1-weather-words.md`, `/1st-grade/themed-spelling-practice/weather-words`). It is representative rather than trivial: nine coherent words, a genuine recurring ending, two doubling cases, several base-spelling contrasts, and two non-`-y` words. It tests the core editorial challenge—finding real cross-word observations without claiming one pattern—while avoiding the heavy subject-definition pressure of upper-grade domain sets.
 
 The pilot should validate:
 
@@ -429,7 +433,7 @@ Before production editing begins:
 1. A member page is spelling practice in a meaningful theme, not a vocabulary or subject lesson.
 2. Its governing question is: **What can I notice, say, and retrieve to spell the words in this theme accurately?**
 3. The canonical route manifest owns strand identity; frontmatter `words` owns exact inventory and practice data.
-4. Required authored content: unique grade/theme/count/spelling summary and 2–4 concise, inventory-grounded spelling observations.
+4. Required authored content: a unique grade/theme/count summary that briefly connects recognizable human context to the inventory's spelling value, plus 2–4 concise, inventory-grounded spelling observations. Human context must not become vocabulary, subject teaching, trivia, or topic knowledge.
 5. Required shared behavior: exact inventory, hear-and-spell practice, feedback, later mixed review, practice-success guidance, owner gateway, and reviewed same-grade peers.
 6. Selective notes are optional and justified only by retrieval-helpful spelling, morphology, capitalization/punctuation, or necessary pronunciation/context; straightforward words receive none.
 7. Theme context may identify or cue targets but may not teach definitions, domain content, trivia, or social norms.
@@ -437,9 +441,9 @@ Before production editing begins:
 9. Core-style readiness is absent by default; rare fit guidance is non-gating and based on spelling difficulty.
 10. Success means accurate spelling from a spoken prompt without looking and retention in later mixed practice; no arbitrary score or timing claim.
 11. Analysis matures from simple sound–letter attention to selective syllable/morpheme reasoning according to the actual K–5 inventories; it does not create a second scope and sequence.
-12. Titles should clearly own grade + theme + spelling intent; routes and public strand name remain unchanged.
+12. Themed member titles follow `[Public grade label] [Theme] Spelling Words`, using `Kindergarten` or ordinal `1st Grade`–`5th Grade`; routes, internal grade values, and the public strand name remain unchanged. Cross-strand label normalization is a separate sitewide task.
 13. Internal links follow Grade → gateway → member, plus reviewed peer links and only selectively relevant Core/Skill links.
 14. Semantic content and relationships are frozen independently of cards, colors, columns, accordions, typography, or future layout.
 15. Research claims remain conservative: themes provide accessible practice context; orthographic analysis, retrieval, feedback, and review provide the instructional mechanism.
 
-**THEMED SPELLING PRACTICE STANDARD READY FOR PILOT IMPLEMENTATION**
+**THEMED SPELLING PRACTICE PILOT REFINED — READY TO FREEZE STANDARD**

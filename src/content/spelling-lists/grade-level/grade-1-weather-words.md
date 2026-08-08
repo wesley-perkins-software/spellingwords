@@ -1,9 +1,9 @@
 ---
 id: grade-1-weather-words
 urlSlug: grade-1-weather-words
-title: 'Grade 1 Weather Words'
-description: 'Practice spelling everyday weather words like sunny, rainy, cloudy, and windy.'
-shortAnswer: 'Practice Grade 1 weather words such as sunny, rainy, cloudy, windy, snowy, stormy, foggy, hot, and cold for classroom weather charts and calendar routines.'
+title: '1st Grade Weather Spelling Words'
+description: 'First graders can use these nine weather words when talking about the day and noticing what it is like outside. The set builds spelling practice with final y, doubled consonants, and several vowel spellings.'
+shortAnswer: 'This nine-word weather set helps first graders compare the final y in sunny, rainy, cloudy, windy, snowy, stormy, and foggy, including the doubled consonants in sunny and foggy.'
 contentRole: vocabulary-theme
 category: grade-level
 grade: '1'
@@ -19,14 +19,9 @@ relatedLists: []
 prerequisiteLists: []
 nextLists: ['grade-1-clothing-words']
 featured: false
-readinessSignals:
-  - "Can describe today's weather in speech using words like sunny or rainy"
-  - "Recognize weather words from a classroom calendar or weather chart"
-faq:
-  - question: 'Which weather words are included?'
-    answer: 'This list includes sunny, rainy, cloudy, windy, snowy, stormy, foggy, hot, and cold.'
-  - question: 'Why practice weather words in Grade 1?'
-    answer: 'Weather words come up constantly in classroom calendar routines, daily journals, and everyday conversation, making them a natural, high-interest vocabulary set.'
+wordNotes:
+  - word: 'cloudy'
+    note: 'Say cloud before cloudy. Keep every letter in cloud, including the vowel team ou, and then add y.'
 words:
   - sunny
   - rainy
@@ -39,6 +34,14 @@ words:
   - cold
 ---
 
-Every classroom morning routine seems to ask the same question: what is the weather like today? These nine words — from *sunny* and *rainy* to *stormy* and *foggy* — are the ones a first grader reaches for again and again on a calendar chart or in a weather journal.
+### Seven words end in *y*
 
-This is optional additional practice, not part of the Grade 1 Core Spelling route. Most of these words are straightforward to sound out; give a little extra attention to *stormy* and *foggy*, which carry less common vowel patterns.
+The final *y* in *sunny*, *rainy*, *cloudy*, *windy*, *snowy*, *stormy*, and *foggy* spells the long *e* sound. Say the shorter word first—*sun*, *rain*, *cloud*, *wind*, *snow*, *storm*, or *fog*—and then add *y*. Keeping that first word in mind makes the longer spelling easier to retrieve.
+
+### Double the last consonant in two words
+
+The short vowel in *sun* is followed by one final consonant, so *sunny* has two *n*s. The same change turns *fog* into *foggy* with two *g*s. The other *-y* words in this list do not double their final consonant.
+
+### Compare the vowel spellings
+
+Several words keep a familiar vowel spelling from the shorter word: *rainy* keeps *ai*, *cloudy* keeps *ou*, and *snowy* keeps *ow*. In the two shortest words, *hot* has a short *o*, while the written chunk *old* helps hold the long vowel spelling in *cold*.

@@ -41,6 +41,7 @@ const route = getCanonicalGradeRouteByPath(Astro.params.gradeSlug!, Astro.params
 if (!route) throw new Error(`No canonical grade route for ${Astro.params.gradeSlug}/${Astro.params.strand}/${Astro.params.slug}`);
 const isCoreSpelling = route.classification === 'core-spelling';
 const isHighFrequencyWords = route.classification === 'high-frequency-words';
+const isThemedSpellingPractice = route.classification === 'themed-spelling-practice';
 
 const { Content } = await entry.render();
 
@@ -59,7 +60,9 @@ function listLink(e: (typeof allEntries)[number]) {
 
 const categoryLabel = isHighFrequencyWords
   ? 'High-Frequency Words'
-  : categoryLabels[data.category] ?? data.category;
+  : isThemedSpellingPractice
+    ? 'Themed Spelling Practice'
+    : categoryLabels[data.category] ?? data.category;
 const gradeHubForBreadcrumb = gradeConfig.find((g) => g.grade === route.grade);
 if (!gradeHubForBreadcrumb) throw new Error(`No grade hub for grade ${route.grade}`);
 const breadcrumbItems = [
@@ -154,7 +157,9 @@ const bodyHeading = isSkill
   ? 'Understanding the pattern'
   : isHighFrequencyWords
     ? 'What to notice when spelling these words'
-    : 'Why these words — and what they teach';
+    : isThemedSpellingPractice
+      ? 'What to notice when spelling these words'
+      : 'Why these words — and what they teach';
 
 ---
 
@@ -266,7 +271,7 @@ const bodyHeading = isSkill
 
     <!-- Is this the right list? -->
     {
-      !isHighFrequencyWords && data.readinessSignals.length > 0 && (
+      !isHighFrequencyWords && !isThemedSpellingPractice && data.readinessSignals.length > 0 && (
         <section
           class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
           aria-labelledby="readiness-heading"
@@ -364,6 +369,38 @@ const bodyHeading = isSkill
     }
 
     {
+      isThemedSpellingPractice && data.wordNotes.length > 0 && (
+        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="themed-word-notes-heading">
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
+            <h2 id="themed-word-notes-heading" class="font-display text-lg font-semibold text-ink">
+              Notes for particular words
+            </h2>
+            <div class="mt-4 space-y-4">
+              {data.wordNotes.map((item) => (
+                <article class="rounded-3xl border border-line bg-white px-6 py-5 shadow-card">
+                  <h3 class="font-word text-lg font-semibold text-ink">{item.word}</h3>
+                  <p class="mt-1 text-base leading-relaxed text-ink-soft">{item.note}</p>
+                  {item.contextExample && (
+                    <p class="mt-2 text-base leading-relaxed text-ink-soft">
+                      <strong class="font-semibold text-ink">In a sentence:</strong>{' '}
+                      {item.contextExample}
+                    </p>
+                  )}
+                  {item.pronunciationNote && (
+                    <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+                      <strong class="font-semibold text-ink">Pronunciation note:</strong>{' '}
+                      {item.pronunciationNote}
+                    </p>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    {
       isHighFrequencyWords && (
         <section class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14" aria-labelledby="hfw-practice-heading">
           <div class="mx-auto max-w-2xl md:max-w-3xl">
@@ -375,6 +412,23 @@ const bodyHeading = isSkill
               Check the spelling and retrieve it again later in mixed review. When most words are
               becoming secure, begin the next set and carry one or two difficult words forward for
               more review.
+            </p>
+          </div>
+        </section>
+      )
+    }
+
+    {
+      isThemedSpellingPractice && (
+        <section class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14" aria-labelledby="themed-practice-heading">
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
+            <h2 id="themed-practice-heading" class="font-display text-lg font-semibold text-ink">
+              Practice and review
+            </h2>
+            <p class="mt-3 max-w-2xl text-base leading-relaxed text-ink-soft">
+              Hear or say each word, notice a useful part of its spelling, and spell it without
+              looking. Check the whole word, correct it if needed, and try it again later with
+              words from other practice lists.
             </p>
           </div>
         </section>
@@ -484,9 +538,17 @@ const bodyHeading = isSkill
         >
           <div class="mx-auto max-w-2xl md:max-w-3xl">
             <h2 id="progression-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-              Where to go from here
+              {isThemedSpellingPractice ? 'More themed spelling practice' : 'Where to go from here'}
             </h2>
             <RelatedListCards heading="Explore more" items={related} listLink={listLink} />
+            {isThemedSpellingPractice && (
+              <a
+                href={`/${route.gradeSlug}/themed-spelling-practice`}
+                class="mt-5 inline-block font-semibold text-brand-blue hover:underline"
+              >
+                All {gradeHubForBreadcrumb.label} Themed Spelling Practice
+              </a>
+            )}
           </div>
         </section>
       )

@@ -1,8 +1,8 @@
 ---
 id: grade-1-weather-words
 urlSlug: grade-1-weather-words
-title: 'Grade 1 Weather Words'
-description: 'Nine Grade 1 weather spelling words for comparing final y, doubled consonants, vowel teams, and short- and long-vowel spellings.'
+title: '1st Grade Weather Spelling Words'
+description: 'First graders can use these nine weather words when talking about the day and noticing what it is like outside. The set builds spelling practice with final y, doubled consonants, and several vowel spellings.'
 shortAnswer: 'This nine-word weather set helps first graders compare the final y in sunny, rainy, cloudy, windy, snowy, stormy, and foggy, including the doubled consonants in sunny and foggy.'
 contentRole: vocabulary-theme
 category: grade-level

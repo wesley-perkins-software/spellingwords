@@ -82,6 +82,7 @@ describe('Themed Spelling Practice shared foundation', () => {
 describe('Grade 1 Weather Words pilot', () => {
   it('preserves canonical identity, route, classification, grade, inventory, and order', () => {
     expect(weatherSource).toContain(`id: ${weatherId}`);
+    expect(weatherSource).toContain("title: '1st Grade Weather Spelling Words'");
     expect(weatherSource).toContain("grade: '1'");
     expect(weatherSource).toContain('contentRole: vocabulary-theme');
     expect(listItems('words')).toEqual(weatherWords);

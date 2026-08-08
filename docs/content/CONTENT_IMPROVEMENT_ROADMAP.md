@@ -1,5 +1,5 @@
 
-> **Non-Core navigation is now final:** all 27 High-Frequency Words sets use grade-contained previous/next peers under Explore more, and all 27 Additional Practice pages use exactly three explicit, curated same-grade peers under Explore more. Neither type shows Review first or Next step. Core's finalized 51-page model is unchanged. “Where to go from here” never contains a Grade Hub card; canonical relationship-card titles retain separate grade metadata. A broader “Continue exploring” grade-orientation section remains a separate future pass.
+> **Non-Core navigation is now final:** all 27 High-Frequency Words sets expose grade-contained previous/next adjacency plus their owning HFW gateway; all 27 Additional Practice pages use exactly three explicit, curated same-grade peers under Explore more. Neither type uses Core's Review first / Next step model. Core's finalized 51-page model is unchanged.
 # Content Improvement Roadmap — spellingwords.app
 
 > **Core navigation implementation is final:** all 51 Core Spelling Grade Units use the single continuous K–5 `CORE_SPELLING_SEQUENCE` for **Review first** and **Next step**, and render no **Explore more** group. The first Kindergarten unit has only Next step; the Grade 5 capstone has only Review first. High-Frequency Words and Additional Practice now follow the finalized non-Core rules above.
@@ -23,6 +23,8 @@ This document is the operating plan for improving the written content of every c
 Keep this file and the inventory files synchronized: this file owns strategy, phases, definitions of done, priority framework, and running totals; the inventory files own per-page rows and per-page editorial status. See §15.
 
 **Editorial content standard for the Skill layer:** `docs/content/CANONICAL_SKILL_PAGE_STANDARD.md` governs the detailed content structure, instructional variants, example selection, and editorial review for canonical Skill pages (Layer 1, §2). It is subordinate to this roadmap for scope, sequencing, priority, and definition of done, and subordinate to the frozen architecture docs for taxonomy and identity — see §5 and the Phase 1 entry in §3.
+
+**Editorial content standard for HFW member sets:** `docs/content/CANONICAL_HIGH_FREQUENCY_WORD_SET_PAGE_STANDARD.md` is final and governs all 27 individual set pages. Kindergarten Set 1 is the completed reference pilot; the remaining 26 member sets still require editorial transformation. The six HFW gateways are separate and deferred.
 
 ---
 
@@ -53,7 +55,7 @@ Every content-collection page in the repository falls into exactly one of three 
 | **Deprecated / legacy** | Exists in the repository, sometimes still live and linked, but not part of the frozen architecture; documented for awareness only | `deprecated-and-legacy-pages.md` — no checklists, no DoD, no priority, no phase membership |
 | **Unresolved** | Not named by the architecture docs and not matched by a documented legacy pattern; needs a classification decision before any work | `untagged-and-data-quality.md` |
 
-Current canonical-active editorial scope is **154 pages**. The former focused component pages `grade-4-final-stable-syllables` and `grade-5-spelling-rules` were deleted during legacy-architecture removal and are no longer counted or reachable from their former anchors. See §4 for the active breakdown and `inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md` for their disposition.
+Current canonical-active editorial scope is **152 pages**. The former focused component pages `grade-4-final-stable-syllables` and `grade-5-spelling-rules` were deleted during legacy-architecture removal and are no longer counted or reachable from their former anchors. See §4 for the active breakdown and `inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md` for their disposition.
 
 A deprecated/legacy classification is not a judgment that the content is bad — it means the frozen architecture doesn't currently define a role for it. The legacy Dolch tier is, in fact, still linked from the main browse page today (`/spelling-lists` → `/spelling-lists/high-frequency-words` → the Dolch collections) — real, reachable, and still explicitly out of this roadmap's scope, because reachability and canonical status are different questions. If a future product decision brings a deprecated page back into the architecture, move it into the active inventory at that time (§15) — don't start improving it first.
 
@@ -177,13 +179,13 @@ Full per-page tables live in the companion inventory files (linked at the top of
 | Skill pages (41-slot taxonomy) | 41 live | Canonical active | `inventory/skill-pages.md` |
 | Grade Unit + Additional Practice pages (own Grade Hub card) | 78 | Canonical active | `inventory/grade-curriculum-pages.md` |
 | High-Frequency Words gateway pages | 6 | Canonical active | `inventory/high-frequency-words.md` |
-| High-Frequency Words member sets | 29 | Canonical active | `inventory/high-frequency-words.md` |
+| High-Frequency Words member sets | 27 | Canonical active | `inventory/high-frequency-words.md` |
 | Grade Hubs, Skills Hub, main browse page | 8 (6 + 1 + 1, code-driven) | Canonical active | this file, §7 |
 | Dolch tier gateways + member sets, orphaned phonics pages, archived pages | 82 | Deprecated / legacy | `inventory/deprecated-and-legacy-pages.md` |
 | Pages not resolved by the classification test | 33 | Unresolved | `inventory/untagged-and-data-quality.md` |
 | **Total content-collection files** | **268** (256 `spelling-lists` + 12 `spelling-collections`) | — | all inventory files combined |
 
-**Active editorial scope = 154 canonical-active content pages**: 41 canonical Skills + 78 Grade curriculum pages with their own Grade Hub card + 6 High-Frequency Words gateways + 29 High-Frequency Words member sets. The former focused component pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) were deleted and are recorded only in the legacy-removal manifest. The 8 code-driven browse/hub pages and unresolved pages are tracked separately and are not included in 154.
+**Active editorial scope = 152 canonical-active content pages**: 41 canonical Skills + 78 Grade curriculum pages with their own Grade Hub card + 6 High-Frequency Words gateways + 27 High-Frequency Words member sets. The former focused component pages (`grade-4-final-stable-syllables`, `grade-5-spelling-rules`) were deleted and are recorded only in the legacy-removal manifest. The 8 code-driven browse/hub pages and unresolved pages are tracked separately and are not included in 152.
 
 ---
 
@@ -658,7 +660,7 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 
 **Canonical Grade Units:** Consonant Digraphs and Blends; Inflectional Endings; Silent E and Long Vowels; Vowel Teams; Syllables and Two-Syllable Words
 
-**Frozen hub structure:** 12 Core Spelling cards · 6 High-Frequency Words sets (72 words) · 3 Additional Practice card(s)
+**Frozen hub structure:** 12 Core Spelling cards · 7 High-Frequency Words sets (84 words) · 3 Additional Practice card(s)
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [ ] Core Spelling / Grade Unit pages (12 canonical-active)
@@ -686,7 +688,7 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 
 **Canonical Grade Units:** Long E Vowel Teams; Long I Patterns; R-Controlled Vowels; Diphthongs and Other Vowel Patterns; Syllable Types and Multisyllabic Words; Silent Letters and Ending Spelling Patterns; Hard and Soft C and G
 
-**Frozen hub structure:** 13 Core Spelling cards · 6 High-Frequency Words sets (72 words) · 5 Additional Practice cards
+**Frozen hub structure:** 13 Core Spelling cards · 7 High-Frequency Words sets (84 words) · 5 Additional Practice cards
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [ ] Core Spelling / Grade Unit pages (13 canonical-active)
@@ -744,7 +746,7 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 
 **Canonical Grade Units:** Greek and Latin Roots; Advanced Multisyllabic Words; Final Stable Syllables and High-Frequency Word Endings; Derived Words and Word Meaning
 
-**Frozen hub structure:** 6 Core Spelling cards · 4 High-Frequency Words sets (48 words) · 1 Additional Practice card(s)
+**Frozen hub structure:** 6 Core Spelling cards · 2 High-Frequency Words sets (24 words) · 1 Additional Practice card(s)
 
 - [ ] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [ ] Core Spelling / Grade Unit pages (6 canonical-active)
@@ -765,7 +767,7 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 
 **Canonical Grade Units:** Advanced Roots, Affixes, and Academic Words; Spelling Changes in Related Words; Meaning-Based and Conventional Spelling
 
-**Frozen hub structure:** 5 Core Spelling cards · 4 High-Frequency Words sets (48 words) · 4 Additional Practice cards
+**Frozen hub structure:** 5 Core Spelling cards · 2 High-Frequency Words sets (24 words) · 4 Additional Practice cards
 
 - [x] Canonical Grade Unit sequence confirmed against curriculum doc for this grade
 - [x] Core Spelling / Grade Unit pages (5 canonical-active)
@@ -971,7 +973,7 @@ Explicit rules to prevent duplication, validated against the frozen architecture
 
 **Skill page vs. Skills Hub.** The Skills Hub explains families briefly and helps users choose a destination; it must not contain any family's actual pattern explanation — that stays on the Skill page.
 
-**High-Frequency Words gateway vs. individual High-Frequency Words set.** The gateway page (e.g. "Kindergarten High-Frequency Words") explains the cumulative structure and Heart Word approach once; individual sets should not each re-explain what a Heart Word is — link back to the gateway instead.
+**High-Frequency Words gateway vs. individual High-Frequency Words set.** The future gateway transformation owns broad grade-level orientation and cumulative sequencing. Individual sets own inventory-specific spelling analysis and must not repeat generic HFW, sight-word, or Heart Word essays. Follow `CANONICAL_HIGH_FREQUENCY_WORD_SET_PAGE_STANDARD.md` rather than treating an old methodology label as active taxonomy.
 
 **Core Spelling vs. Additional Practice.** Core Spelling is the recommended encoding/spelling route for the grade — the default path. Additional Practice is small, optional, bounded vocabulary content; its pages should be shorter and lighter than Core Spelling pages by design, not through neglect.
 
@@ -1018,7 +1020,7 @@ Initial assignment by grouping (refine per-family/per-grade as Phase 0 audits la
 | IE and IGH Words | P1 | Newly implemented 41st canonical Skill; implementation complete, pending final editorial sign-off |
 | Grade K–2 Grade Unit pages | P1 | High-traffic early grades, dependent on the P0/P1 Skill pages already prioritized |
 | Grade 3–5 Grade Unit pages | P2 | Sequenced after earlier grades and their Skill-page dependencies |
-| High-Frequency Words gateway + member-set pages | P2 | Structurally frozen and functional; editorial polish, not urgent |
+| High-Frequency Words gateway + member-set pages | P2 | Member standard and Kindergarten Set 1 pilot complete; 26 member transformations and all gateway transformations remain |
 | Grade Hubs (K–5) | P2 | Depend on Phase 1–2 completion before final copy is accurate |
 | Skills Hub, main browse page | P2 | Depend on Phase 1/3–4 completion |
 | Additional Practice pages | P3 | Small, optional, bounded; lowest dependency weight |
@@ -1079,9 +1081,9 @@ Written implementation and adversarial self-review have been completed for all 4
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |
 | Phase 5 — Main browse-page content | 1 page | 0 | 0 | 1 | 0 |
 | Phase 6 — Cross-site consistency and final audit | 1 site-wide pass | 0 | 0 | 1 | 0 |
-| *(Reference, not a phase)* High-Frequency Words gateway + member sets | 6 + 29 = 35 | 0 | 0 | 35 | 0 |
+| *(Reference, not a phase)* High-Frequency Words gateway + member sets | 6 + 27 = 33 | 1 member set | Final standard + Kindergarten Set 1 pilot complete | 26 member sets + 6 gateways | 0 |
 
-**Excluded from every phase and total above — transparency only, not part of active scope:** deprecated/legacy and unresolved pages. Canonical-active editorial scope is **154 pages**; the deleted focused-component pages are recorded only in the legacy-removal manifest. Repository-wide historical file totals are not an authority for current canonical membership.
+**Excluded from every phase and total above — transparency only, not part of active scope:** deprecated/legacy and unresolved pages. Canonical-active editorial scope is **152 pages**; the deleted focused-component pages are recorded only in the legacy-removal manifest. Repository-wide historical file totals are not an authority for current canonical membership.
 
 ---
 

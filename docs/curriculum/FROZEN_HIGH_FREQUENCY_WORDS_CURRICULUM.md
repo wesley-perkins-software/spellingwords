@@ -84,6 +84,8 @@ This document is the canonical human-readable record of the 27-set, 316-word Hig
 | 1 | `grade-5-high-frequency-words-set-1` | `/5th-grade/high-frequency-words/set-1` | government, although, business, language, information, special, attention, control, beautiful, increase, future, interest |
 | 2 | `grade-5-high-frequency-words-set-2` | `/5th-grade/high-frequency-words/set-2` | process, piece, provide, present, action, problem, company, effect, suddenly, suppose, natural, experience |
 
-## Project A implementation boundary
+## Current implementation status
 
-The curriculum migration preserves playable word practice without performing the later comprehensive page rewrite. At migration time, 292 of the 316 HFW spellings have sentence-bank entries; the remaining 24-word coverage gap is recorded in `hfWordsCurriculum.test.ts` for Project B. Missing example sentences do not prevent isolated-word practice.
+All 316 frozen HFW spellings now have sentence-bank support. The executable test in `hfWordsCurriculum.test.ts` requires 316/316 coverage. The curriculum remains frozen while the individual set pages receive their separate editorial transformation; Kindergarten Set 1 is the completed reference pilot, and the other 26 sets remain pending.
+
+The authoritative member-page editorial rules live in [`docs/content/CANONICAL_HIGH_FREQUENCY_WORD_SET_PAGE_STANDARD.md`](../content/CANONICAL_HIGH_FREQUENCY_WORD_SET_PAGE_STANDARD.md).

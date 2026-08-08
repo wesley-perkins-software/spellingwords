@@ -1,8 +1,8 @@
 # Inventory: High-Frequency Words — Canonical Active
 
-> Canonical K–5 Grade Hub card URLs use `/{grade}/high-frequency-words-{set}`. The runtime route source is `src/lib/content/canonicalGradeRoutes.ts`; the exact frozen curriculum is `src/lib/content/hfWordsCurriculum.ts`.
+> Canonical member URLs use `/{grade}/high-frequency-words/set-{n}`. The runtime route source is `src/lib/content/canonicalGradeRoutes.ts`; the exact frozen curriculum is `src/lib/content/hfWordsCurriculum.ts`; and the member-page editorial authority is [`CANONICAL_HIGH_FREQUENCY_WORD_SET_PAGE_STANDARD.md`](../CANONICAL_HIGH_FREQUENCY_WORD_SET_PAGE_STANDARD.md).
 
-The former `spelling-collections` High-Frequency Words gateways were removed. Grade Hubs remain the only parent landing pages; no standalone HFW gateway exists.
+Each grade has an HFW strand gateway at `/{grade}/high-frequency-words`. Its final editorial transformation is deferred; the canonical standard governs only the member sets below.
 
 ## Active sets
 
@@ -19,6 +19,6 @@ The former `spelling-collections` High-Frequency Words gateways were removed. Gr
 
 For exact ordered word arrays, routes, principles, and grade totals, see [`docs/curriculum/FROZEN_HIGH_FREQUENCY_WORDS_CURRICULUM.md`](../../curriculum/FROZEN_HIGH_FREQUENCY_WORDS_CURRICULUM.md).
 
-## Historical gateway note
+## Editorial status
 
-Six High-Frequency Words gateway collections once existed, but the `spelling-collections` content type and those gateways were removed by the legacy-architecture cleanup. Their Git history remains the historical record; they are not part of the executable site.
+The final member-page standard and Kindergarten Set 1 reference pilot are complete. The other 26 member sets remain pending editorial transformation. Gateway editorial work is also deferred and is not governed by the member-page standard.

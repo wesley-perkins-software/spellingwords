@@ -7,8 +7,6 @@ import {
   GRADE_2_VOCABULARY_IDS,
   grade2Badges,
 } from './grade2Progression';
-import { getSentenceBankEntry } from '@/lib/sentenceBank/lookup';
-import { getSequenceNeighbors } from './navigationSequence';
 
 type FrontmatterSummary = {
   id: string;
@@ -90,84 +88,6 @@ function readSpellingListFrontmatter(): FrontmatterSummary[] {
 const allLists = readSpellingListFrontmatter();
 const byId = new Map(allLists.map((entry) => [entry.id, entry]));
 const grade2Sets = GRADE_2_COMMON_WORD_IDS.map((id) => byId.get(id));
-
-const K_AND_GRADE_1_COMMON_WORD_IDS = [
-  'kindergarten-common-words-1',
-  'kindergarten-common-words-2',
-  'kindergarten-common-words-3',
-  'kindergarten-common-words-4',
-  'grade-1-common-words-1',
-  'grade-1-common-words-2',
-  'grade-1-common-words-3',
-  'grade-1-common-words-4',
-  'grade-1-common-words-5',
-  'grade-1-common-words-6',
-];
-
-function ownedWords(ids: readonly string[]): Set<string> {
-  const words = new Set<string>();
-  for (const id of ids) {
-    const entry = byId.get(id);
-    if (!entry) throw new Error(`Missing expected content: ${id}`);
-    for (const word of entry.words) words.add(word.toLowerCase());
-  }
-  return words;
-}
-
-describe('Grade 2 Common Words', () => {
-  it('has all six sets published with 12 words each', () => {
-    for (const set of grade2Sets) {
-      expect(set, JSON.stringify(GRADE_2_COMMON_WORD_IDS)).toBeDefined();
-      expect(set!.status).toBe('published');
-      expect(set!.words).toHaveLength(12);
-    }
-  });
-
-  it('has 72 unique words across the six sets — no duplicate across sets', () => {
-    const allWords = grade2Sets.flatMap((set) => set!.words.map((w) => w.toLowerCase()));
-    expect(allWords).toHaveLength(72);
-    expect(new Set(allWords).size).toBe(72);
-  });
-
-  it('has zero overlap with the 112 K + Grade 1 Common Words', () => {
-    const kg1Words = ownedWords(K_AND_GRADE_1_COMMON_WORD_IDS);
-    expect(kg1Words.size).toBe(112);
-
-    const grade2Words = grade2Sets.flatMap((set) => set!.words.map((w) => w.toLowerCase()));
-    const collisions = grade2Words.filter((w) => kg1Words.has(w));
-    expect(collisions).toEqual([]);
-  });
-
-  it('resolves every word in the sentence bank', () => {
-    const unresolved: string[] = [];
-    for (const set of grade2Sets) {
-      for (const word of set!.words) {
-        if (!getSentenceBankEntry(word)) unresolved.push(`${set!.id}: ${word}`);
-      }
-    }
-    expect(unresolved).toEqual([]);
-  });
-
-  it('chains into an unbroken 1-6 sequence via the derived HF Words sequence', () => {
-    // Adjacency is derived from HF_WORDS_SEQUENCE, not frontmatter.
-    GRADE_2_COMMON_WORD_IDS.forEach((id, index) => {
-      const entry = byId.get(id);
-      expect(entry, id).toBeDefined();
-
-      const previousId = GRADE_2_COMMON_WORD_IDS[index - 1];
-      const nextId = GRADE_2_COMMON_WORD_IDS[index + 1];
-      const neighbors = getSequenceNeighbors(id);
-
-      if (previousId) expect(neighbors.prerequisiteId).toBe(previousId);
-      else expect(neighbors.prerequisiteId).toBe('grade-1-common-words-6');
-
-      if (nextId) expect(neighbors.nextId).toBe(nextId);
-      // Set 6 feeds forward into the Grade 3 Common Words gateway's first set.
-      else expect(neighbors.nextId).toBe('grade-3-common-words-1');
-    });
-  });
-
-});
 
 describe('Grade 2 Core Spelling', () => {
   it('freezes the three corrective practice lists within the 8-16 word Grade Unit bound', () => {

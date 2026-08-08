@@ -2,8 +2,8 @@
 id: kindergarten-common-words-4
 urlSlug: kindergarten-common-words-4
 title: "Kindergarten Common Words 4"
-description: "Finish kindergarten common-word practice with words used in early questions, counting, and simple stories. Several spellings are not fully predictable yet, so practice the regular parts and remember only the tricky part."
-shortAnswer: "Finish kindergarten common-word practice with words used in early questions, counting, and simple stories. Several spellings are not fully predictable yet, so practice the regular parts and remember only the tricky part."
+description: "Practice 10 high-frequency words assigned to Kindergarten Set 4 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 10 high-frequency words assigned to Kindergarten Set 4 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: "K"
@@ -23,24 +23,18 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
-  - "this"
-  - "that"
+  - "come"
+  - "look"
   - "with"
-  - "they"
-  - word: "one"
-    hint: "Heart part: o_e"
-  - word: "two"
-    hint: "Heart part: w"
-  - word: "three"
-    hint: "Heart part: ee"
-  - word: "where"
-    hint: "Heart part: wh/ere"
-  - "little"
+  - "two"
   - "play"
+  - "old"
+  - "big"
+  - "yes"
+  - "let"
+  - "got"
 ---
 
-Finish kindergarten common-word practice with words used in early questions, counting, and simple stories. Several spellings are not fully predictable yet, so practice the regular parts and remember only the tricky part.
+Practice 10 high-frequency words assigned to Kindergarten Set 4 for accurate and increasingly automatic spelling.
 
-This phonics-aware set uses regular sound-spelling patterns where they help. When a small part is not yet predictable, use the Heart Word hint as a reminder to learn that part by heart.
-
-Continue with the [Grade 1 Common Words](/1st-grade) section on the Grade 1 hub when your child is ready for the next cumulative sequence.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

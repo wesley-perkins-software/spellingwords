@@ -2,8 +2,8 @@
 id: grade-1-common-words-6
 urlSlug: grade-1-common-words-6
 title: 'Grade 1 Common Words 6'
-description: 'Finish Grade 1 common-word practice with flexible words for choices, explanations, opinions, and fluent writing.'
-shortAnswer: 'Practice flexible Grade 1 writing words for choices, explanations, opinions, and stories.'
+description: "Practice 12 high-frequency words assigned to Grade 1 Set 6 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 12 high-frequency words assigned to Grade 1 Set 6 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: '1'
@@ -23,25 +23,20 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
-  - 'or'
-  - 'so'
-  - 'just'
-  - 'us'
-  - 'may'
-  - 'make'
-  - word: 'many'
-    hint: 'Heart part: a.'
-  - 'very'
-  - word: 'people'
-    hint: 'Heart part: eo.'
-  - word: 'know'
-    hint: 'Temporary Heart Word: kn is a spelling pattern taught later.'
-  - word: 'would'
-    hint: 'Heart part: oul.'
-  - word: 'should'
-    hint: 'Heart part: oul.'
+  - "more"
+  - "put"
+  - "love"
+  - "than"
+  - "may"
+  - "help"
+  - "most"
+  - "long"
+  - "last"
+  - "still"
+  - "need"
+  - "name"
 ---
 
-Finish Grade 1 common-word practice with flexible words for choices, explanations, and stories. Use familiar patterns in _or_, _so_, _just_, _may_, _make_, and _very_. In _many_, _people_, _know_, _would_, and _should_, map the regular sounds first and learn only the unexpected spelling parts.
+Practice 12 high-frequency words assigned to Grade 1 Set 6 for accurate and increasingly automatic spelling.
 
-Teach _would_ and _should_ as members of the same **-ould** family introduced earlier by _could_.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

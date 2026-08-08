@@ -148,6 +148,8 @@ Important terms must not be collapsed:
 
 These overlap, but they are not synonyms.
 
+For the frozen K–5 High-Frequency Words strand, **frequency determines eligibility**, while spelling complexity and developmental appropriateness determine the ownership grade. Core Spelling may teach a structure represented by an HFW word while HFW practice builds accurate and increasingly automatic retrieval. Themed Additional Practice may also overlap when independently justified. Overlap across strands is therefore not inherently a defect; duplicate ownership inside the HFW strand is prohibited. The exact inventory lives in `docs/curriculum/FROZEN_HIGH_FREQUENCY_WORDS_CURRICULUM.md` and `src/lib/content/hfWordsCurriculum.ts`.
+
 ### 5.6 Vocabulary or Theme List
 
 A Vocabulary or Theme List provides supplemental spelling practice organized by topic, subject, writing use, or enrichment purpose.

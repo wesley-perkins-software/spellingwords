@@ -47,8 +47,6 @@ export const GRADE_5_VOCABULARY_IDS: readonly string[] = [];
 export const GRADE_5_COMMON_WORD_IDS: readonly string[] = [
   'grade-5-common-words-1',
   'grade-5-common-words-2',
-  'grade-5-common-words-3',
-  'grade-5-common-words-4',
 ];
 
 /**
@@ -76,8 +74,6 @@ export const grade5Badges: Record<string, string> = {
   'grade-5-spelling-changes-related-words': 'Core Unit',
   'grade-5-common-words-1': 'Common Words',
   'grade-5-common-words-2': 'Common Words',
-  'grade-5-common-words-3': 'Common Words',
-  'grade-5-common-words-4': 'Common Words',
   'grade-5-community-civics-words': 'Vocabulary',
   'grade-5-money-management-words': 'Vocabulary',
   'grade-5-ecosystem-environment-words': 'Vocabulary',

@@ -1,5 +1,8 @@
 # Canonical Grade URL Reference
 
+> **August 2026 HFW update:** Canonical Grade routes now total 105, including 27 HFW sets. Grade 1/2 Set 7 routes are active; Grade 4/5 Sets 3–4 are retired under the pre-launch 404 policy. The executable route manifest is authoritative.
+
+
 Generated from `src/lib/content/canonicalGradeRoutes.ts` and current content frontmatter. These are the site's original launch URLs for the 107 canonical grade-curriculum pages — the site is pre-launch, so there is no prior public URL being migrated away from. Trailing slash convention: no trailing slash.
 
 | id | section | URL | source file |
@@ -39,6 +42,7 @@ Generated from `src/lib/content/canonicalGradeRoutes.ts` and current content fro
 | `grade-1-common-words-4` | High-Frequency Words | `/1st-grade/high-frequency-words-4` | `src/content/spelling-lists/sight-words/grade-1-common-words-4.md` |
 | `grade-1-common-words-5` | High-Frequency Words | `/1st-grade/high-frequency-words-5` | `src/content/spelling-lists/sight-words/grade-1-common-words-5.md` |
 | `grade-1-common-words-6` | High-Frequency Words | `/1st-grade/high-frequency-words-6` | `src/content/spelling-lists/sight-words/grade-1-common-words-6.md` |
+| `grade-1-common-words-7` | High-Frequency Words | `/1st-grade/high-frequency-words-7` | `src/content/spelling-lists/sight-words/grade-1-common-words-7.md` |
 | `grade-1-weather-words` | Additional Practice | `/1st-grade/weather-words` | `src/content/spelling-lists/grade-level/grade-1-weather-words.md` |
 | `grade-1-clothing-words` | Additional Practice | `/1st-grade/clothing-words` | `src/content/spelling-lists/grade-level/grade-1-clothing-words.md` |
 | `grade-1-shape-words` | Additional Practice | `/1st-grade/shape-words` | `src/content/spelling-lists/grade-level/grade-1-shape-words.md` |
@@ -63,6 +67,7 @@ Generated from `src/lib/content/canonicalGradeRoutes.ts` and current content fro
 | `grade-2-common-words-4` | High-Frequency Words | `/2nd-grade/high-frequency-words-4` | `src/content/spelling-lists/sight-words/grade-2-common-words-4.md` |
 | `grade-2-common-words-5` | High-Frequency Words | `/2nd-grade/high-frequency-words-5` | `src/content/spelling-lists/sight-words/grade-2-common-words-5.md` |
 | `grade-2-common-words-6` | High-Frequency Words | `/2nd-grade/high-frequency-words-6` | `src/content/spelling-lists/sight-words/grade-2-common-words-6.md` |
+| `grade-2-common-words-7` | High-Frequency Words | `/2nd-grade/high-frequency-words-7` | `src/content/spelling-lists/sight-words/grade-2-common-words-7.md` |
 | `grade-2-transportation-words` | Additional Practice | `/2nd-grade/transportation-words` | `src/content/spelling-lists/grade-level/grade-2-transportation-words.md` |
 | `grade-2-money-words` | Additional Practice | `/2nd-grade/money-words` | `src/content/spelling-lists/grade-level/grade-2-money-words.md` |
 | `grade-2-number-words-20-100` | Additional Practice | `/2nd-grade/number-words-20-100` | `src/content/spelling-lists/grade-level/grade-2-number-words-20-100.md` |
@@ -92,8 +97,6 @@ Generated from `src/lib/content/canonicalGradeRoutes.ts` and current content fro
 | `grade-4-derived-words` | Core Spelling | `/4th-grade/derived-words-and-word-meaning` | `src/content/spelling-lists/grade-level/4th-grade-derived-words.md` |
 | `grade-4-common-words-1` | High-Frequency Words | `/4th-grade/high-frequency-words-1` | `src/content/spelling-lists/sight-words/grade-4-common-words-1.md` |
 | `grade-4-common-words-2` | High-Frequency Words | `/4th-grade/high-frequency-words-2` | `src/content/spelling-lists/sight-words/grade-4-common-words-2.md` |
-| `grade-4-common-words-3` | High-Frequency Words | `/4th-grade/high-frequency-words-3` | `src/content/spelling-lists/sight-words/grade-4-common-words-3.md` |
-| `grade-4-common-words-4` | High-Frequency Words | `/4th-grade/high-frequency-words-4` | `src/content/spelling-lists/sight-words/grade-4-common-words-4.md` |
 | `grade-4-measurement-words` | Additional Practice | `/4th-grade/measurement-words` | `src/content/spelling-lists/grade-level/4th-grade-measurement-words.md` |
 | `grade-4-solar-system-words` | Additional Practice | `/4th-grade/solar-system-words` | `src/content/spelling-lists/grade-level/4th-grade-solar-system-words.md` |
 | `grade-4-career-occupation-words` | Additional Practice | `/4th-grade/career-occupation-words` | `src/content/spelling-lists/grade-level/4th-grade-career-occupation-words.md` |
@@ -105,8 +108,6 @@ Generated from `src/lib/content/canonicalGradeRoutes.ts` and current content fro
 | `grade-5-spelling-changes-related-words` | Core Spelling | `/5th-grade/spelling-changes-in-related-words` | `src/content/spelling-lists/grade-level/5th-grade-spelling-changes-related-words.md` |
 | `grade-5-common-words-1` | High-Frequency Words | `/5th-grade/high-frequency-words-1` | `src/content/spelling-lists/sight-words/grade-5-common-words-1.md` |
 | `grade-5-common-words-2` | High-Frequency Words | `/5th-grade/high-frequency-words-2` | `src/content/spelling-lists/sight-words/grade-5-common-words-2.md` |
-| `grade-5-common-words-3` | High-Frequency Words | `/5th-grade/high-frequency-words-3` | `src/content/spelling-lists/sight-words/grade-5-common-words-3.md` |
-| `grade-5-common-words-4` | High-Frequency Words | `/5th-grade/high-frequency-words-4` | `src/content/spelling-lists/sight-words/grade-5-common-words-4.md` |
 | `grade-5-money-management-words` | Additional Practice | `/5th-grade/money-management-words` | `src/content/spelling-lists/grade-level/5th-grade-money-management-words.md` |
 | `grade-5-ecosystem-environment-words` | Additional Practice | `/5th-grade/ecosystem-environment-words` | `src/content/spelling-lists/grade-level/5th-grade-ecosystem-environment-words.md` |
 | `grade-5-fraction-decimal-words` | Additional Practice | `/5th-grade/fraction-decimal-words` | `src/content/spelling-lists/grade-level/5th-grade-fraction-decimal-words.md` |

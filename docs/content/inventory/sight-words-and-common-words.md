@@ -1,86 +1,24 @@
-# Inventory: Common Words (High-Frequency Words) — Canonical Active
+# Inventory: High-Frequency Words — Canonical Active
 
-> URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs now use the flat no-trailing-slash `/{grade}/{page-slug}` structure. The runtime source of truth is `src/lib/content/canonicalGradeRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the generated migration map. The legacy `/spelling-lists/...` route has been removed entirely; historical repository-shaped URLs are not generated and are not redirected (pre-launch, no traffic to preserve).
+> Canonical K–5 Grade Hub card URLs use `/{grade}/high-frequency-words-{set}`. The runtime route source is `src/lib/content/canonicalGradeRoutes.ts`; the exact frozen curriculum is `src/lib/content/hfWordsCurriculum.ts`.
 
+The former `spelling-collections` Common Words gateways were removed. Grade Hubs remain the only parent landing pages; no standalone HFW gateway exists.
 
-Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. This is the Common Words / High-Frequency Words layer defined by `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` and confirmed wired into each Grade Hub's High-Frequency Words section via `src/lib/content/gradeHubCards.ts`.
+## Active sets
 
-**The legacy Dolch tier and the `spelling-collections` content type (including the gateway table below) have been removed entirely** by the legacy-architecture-removal PR — see `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md`. The table below is retained as a historical record of what the gateway collections contained; the `spelling-collections` collection itself no longer exists in `src/content/`.
+| Grade | Canonical active IDs | Sets | Words |
+|---|---|---:|---:|
+| Kindergarten | `kindergarten-common-words-1`, `kindergarten-common-words-2`, `kindergarten-common-words-3`, `kindergarten-common-words-4` | 4 | 40 |
+| Grade 1 | `grade-1-common-words-1`, `grade-1-common-words-2`, `grade-1-common-words-3`, `grade-1-common-words-4`, `grade-1-common-words-5`, `grade-1-common-words-6`, `grade-1-common-words-7` | 7 | 84 |
+| Grade 2 | `grade-2-common-words-1`, `grade-2-common-words-2`, `grade-2-common-words-3`, `grade-2-common-words-4`, `grade-2-common-words-5`, `grade-2-common-words-6`, `grade-2-common-words-7` | 7 | 84 |
+| Grade 3 | `grade-3-common-words-1`, `grade-3-common-words-2`, `grade-3-common-words-3`, `grade-3-common-words-4`, `grade-3-common-words-5` | 5 | 60 |
+| Grade 4 | `grade-4-common-words-1`, `grade-4-common-words-2` | 2 | 24 |
+| Grade 5 | `grade-5-common-words-1`, `grade-5-common-words-2` | 2 | 24 |
 
+**Total:** 27 canonical-active HFW member sets / 316 unique spellings.
 
-## Common Words gateway pages (`spelling-collections`, removed)
+For exact ordered word arrays, routes, principles, and grade totals, see [`docs/curriculum/FROZEN_HIGH_FREQUENCY_WORDS_CURRICULUM.md`](../../curriculum/FROZEN_HIGH_FREQUENCY_WORDS_CURRICULUM.md).
 
-| Title | id | urlSlug | Grade | Status | Member listIds | Source file |
-|---|---|---|---|---|---|---|
-| Grade 1 Common Words | grade-1-common-words | grade-1-common-words | 1 | published | grade-1-common-words-1, grade-1-common-words-2, grade-1-common-words-3, grade-1-common-words-4, grade-1-common-words-5, grade-1-common-words-6 | `src/content/spelling-collections/grade-1-common-words.md` |
-| Grade 2 Common Words | grade-2-common-words | grade-2-common-words | 2 | published | grade-2-common-words-1, grade-2-common-words-2, grade-2-common-words-3, grade-2-common-words-4, grade-2-common-words-5, grade-2-common-words-6 | `src/content/spelling-collections/grade-2-common-words.md` |
-| Grade 3 Common Words | grade-3-common-words | grade-3-common-words | 3 | published | grade-3-common-words-1, grade-3-common-words-2, grade-3-common-words-3, grade-3-common-words-4, grade-3-common-words-5 | `src/content/spelling-collections/grade-3-common-words.md` |
-| Grade 4 Common Words | grade-4-common-words | grade-4-common-words | 4 | published | grade-4-common-words-1, grade-4-common-words-2, grade-4-common-words-3, grade-4-common-words-4 | `src/content/spelling-collections/grade-4-common-words.md` |
-| Grade 5 Common Words | grade-5-common-words | grade-5-common-words | 5 | published | grade-5-common-words-1, grade-5-common-words-2, grade-5-common-words-3, grade-5-common-words-4 | `src/content/spelling-collections/grade-5-common-words.md` |
-| Kindergarten High-Frequency Words | kindergarten-common-words | kindergarten-common-words | K | published | kindergarten-common-words-1, kindergarten-common-words-2, kindergarten-common-words-3, kindergarten-common-words-4 | `src/content/spelling-collections/kindergarten-common-words.md` |
+## Historical gateway note
 
-## Common Words member sets (`contentRole: sight-word-set`)
-
-
-### Kindergarten (4 sets)
-
-| Title | id | urlSlug | Status | Source file | Editorial status |
-|---|---|---|---|---|---|
-| Kindergarten Common Words 1 | kindergarten-common-words-1 | kindergarten-common-words-1 | published | `src/content/kindergarten/high-frequency-words-1.md` | Not audited |
-| Kindergarten Common Words 2 | kindergarten-common-words-2 | kindergarten-common-words-2 | published | `src/content/kindergarten/high-frequency-words-2.md` | Not audited |
-| Kindergarten Common Words 3 | kindergarten-common-words-3 | kindergarten-common-words-3 | published | `src/content/kindergarten/high-frequency-words-3.md` | Not audited |
-| Kindergarten Common Words 4 | kindergarten-common-words-4 | kindergarten-common-words-4 | published | `src/content/kindergarten/high-frequency-words-4.md` | Not audited |
-
-### Grade 1 (6 sets)
-
-| Title | id | urlSlug | Status | Source file | Editorial status |
-|---|---|---|---|---|---|
-| Grade 1 Common Words 1 | grade-1-common-words-1 | grade-1-common-words-1 | published | `src/content/1st-grade/high-frequency-words-1.md` | Not audited |
-| Grade 1 Common Words 2 | grade-1-common-words-2 | grade-1-common-words-2 | published | `src/content/1st-grade/high-frequency-words-2.md` | Not audited |
-| Grade 1 Common Words 3 | grade-1-common-words-3 | grade-1-common-words-3 | published | `src/content/1st-grade/high-frequency-words-3.md` | Not audited |
-| Grade 1 Common Words 4 | grade-1-common-words-4 | grade-1-common-words-4 | published | `src/content/1st-grade/high-frequency-words-4.md` | Not audited |
-| Grade 1 Common Words 5 | grade-1-common-words-5 | grade-1-common-words-5 | published | `src/content/1st-grade/high-frequency-words-5.md` | Not audited |
-| Grade 1 Common Words 6 | grade-1-common-words-6 | grade-1-common-words-6 | published | `src/content/1st-grade/high-frequency-words-6.md` | Not audited |
-
-### Grade 2 (6 sets)
-
-| Title | id | urlSlug | Status | Source file | Editorial status |
-|---|---|---|---|---|---|
-| Grade 2 Common Words 1 | grade-2-common-words-1 | grade-2-common-words-1 | published | `src/content/2nd-grade/high-frequency-words-1.md` | Not audited |
-| Grade 2 Common Words 2 | grade-2-common-words-2 | grade-2-common-words-2 | published | `src/content/2nd-grade/high-frequency-words-2.md` | Not audited |
-| Grade 2 Common Words 3 | grade-2-common-words-3 | grade-2-common-words-3 | published | `src/content/2nd-grade/high-frequency-words-3.md` | Not audited |
-| Grade 2 Common Words 4 | grade-2-common-words-4 | grade-2-common-words-4 | published | `src/content/2nd-grade/high-frequency-words-4.md` | Not audited |
-| Grade 2 Common Words 5 | grade-2-common-words-5 | grade-2-common-words-5 | published | `src/content/2nd-grade/high-frequency-words-5.md` | Not audited |
-| Grade 2 Common Words 6 | grade-2-common-words-6 | grade-2-common-words-6 | published | `src/content/2nd-grade/high-frequency-words-6.md` | Not audited |
-
-### Grade 3 (5 sets)
-
-| Title | id | urlSlug | Status | Source file | Editorial status |
-|---|---|---|---|---|---|
-| Grade 3 Common Words 1 | grade-3-common-words-1 | grade-3-common-words-1 | published | `src/content/3rd-grade/high-frequency-words-1.md` | Not audited |
-| Grade 3 Common Words 2 | grade-3-common-words-2 | grade-3-common-words-2 | published | `src/content/3rd-grade/high-frequency-words-2.md` | Not audited |
-| Grade 3 Common Words 3 | grade-3-common-words-3 | grade-3-common-words-3 | published | `src/content/3rd-grade/high-frequency-words-3.md` | Not audited |
-| Grade 3 Common Words 4 | grade-3-common-words-4 | grade-3-common-words-4 | published | `src/content/3rd-grade/high-frequency-words-4.md` | Not audited |
-| Grade 3 Common Words 5 | grade-3-common-words-5 | grade-3-common-words-5 | published | `src/content/3rd-grade/high-frequency-words-5.md` | Not audited |
-
-### Grade 4 (4 sets)
-
-| Title | id | urlSlug | Status | Source file | Editorial status |
-|---|---|---|---|---|---|
-| Grade 4 Common Words 1 | grade-4-common-words-1 | grade-4-common-words-1 | published | `src/content/4th-grade/high-frequency-words-1.md` | Not audited |
-| Grade 4 Common Words 2 | grade-4-common-words-2 | grade-4-common-words-2 | published | `src/content/4th-grade/high-frequency-words-2.md` | Not audited |
-| Grade 4 Common Words 3 | grade-4-common-words-3 | grade-4-common-words-3 | published | `src/content/4th-grade/high-frequency-words-3.md` | Not audited |
-| Grade 4 Common Words 4 | grade-4-common-words-4 | grade-4-common-words-4 | published | `src/content/4th-grade/high-frequency-words-4.md` | Not audited |
-
-### Grade 5 (4 sets)
-
-| Title | id | urlSlug | Status | Source file | Editorial status |
-|---|---|---|---|---|---|
-| Grade 5 Common Words 1 | grade-5-common-words-1 | grade-5-common-words-1 | published | `src/content/5th-grade/high-frequency-words-1.md` | Not audited |
-| Grade 5 Common Words 2 | grade-5-common-words-2 | grade-5-common-words-2 | published | `src/content/5th-grade/high-frequency-words-2.md` | Not audited |
-| Grade 5 Common Words 3 | grade-5-common-words-3 | grade-5-common-words-3 | published | `src/content/5th-grade/high-frequency-words-3.md` | Not audited |
-| Grade 5 Common Words 4 | grade-5-common-words-4 | grade-5-common-words-4 | published | `src/content/5th-grade/high-frequency-words-4.md` | Not audited |
-
----
-**Totals:** 6 Common Words gateway pages (removed) · 29 canonical-active Common Words member sets. The 6 Dolch gateways and their 24 member sets were deleted in the legacy-architecture-removal PR — see `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md`.
-
+Six Common Words gateway collections once existed, but the `spelling-collections` content type and those gateways were removed by the legacy-architecture cleanup. Their Git history remains the historical record; they are not part of the executable site.

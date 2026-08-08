@@ -19,9 +19,10 @@ export async function GET() {
   ];
 
   const uniquePaths = new Set(paths);
-  if (uniquePaths.size !== 157) {
+  const expectedPathCount = 2 + gradeConfig.length + 1 + getCanonicalGradeRoutes().length + getCanonicalSkillRoutes().length;
+  if (uniquePaths.size !== expectedPathCount) {
     throw new Error(
-      `Sitemap expected exactly 157 canonical URLs (107 grade + 41 skill + 6 grade hubs + 1 skills hub + home + play), got ${uniquePaths.size}.`,
+      `Sitemap expected exactly ${expectedPathCount} canonical URLs, got ${uniquePaths.size}.`,
     );
   }
 

@@ -1,5 +1,7 @@
 # K–5 Curriculum Inventory
 
+> **August 2026 HFW supersession:** The current HFW inventory is 27 sets / 316 unique words in a 4/7/7/5/2/2 distribution. See `docs/curriculum/FROZEN_HIGH_FREQUENCY_WORDS_CURRICULUM.md`; older Common Words inventory entries below are historical.
+
 > **Status:** Authoritative codebase extraction of every published list directly owned by the K–5 grade hubs. Generated from the ordered card definitions in `src/lib/content/gradeHubCards.ts` and the corresponding published Markdown entries in `src/content/spelling-lists/`. This is an inventory only, not an educational evaluation. Collection gateways, focused related-skill pages, compatibility pages, and off-hub library lists are not separately grade-owned curriculum lists and are therefore outside this inventory.
 
 ## Scope and counting rules

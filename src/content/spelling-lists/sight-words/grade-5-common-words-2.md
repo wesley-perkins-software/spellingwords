@@ -2,8 +2,8 @@
 id: grade-5-common-words-2
 urlSlug: grade-5-common-words-2
 title: "Grade 5 Common Words 2"
-description: "Grade 5 common words with doubled letters in longer academic words, including accommodate, occurrence, and committee."
-shortAnswer: "Twelve fifth-grade words with doubled letters, including millennium, appreciate, and accidentally."
+description: "Practice 12 high-frequency words assigned to Grade 5 Set 2 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 12 high-frequency words assigned to Grade 5 Set 2 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: "5"
@@ -23,32 +23,20 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
-  - word: "accommodate"
-    hint: "One c, two m's — often called the most commonly misspelled word in English."
-  - word: "occurrence"
-    hint: "Two c's, two r's."
-  - word: "committee"
-    hint: "Two m's, two t's."
-  - word: "millennium"
-    hint: "Two l's, two n's."
-  - word: "appreciate"
-    hint: "Two p's."
-  - word: "parallel"
-    hint: "One r, two l's — the middle a is easy to drop."
-  - word: "appointment"
-    hint: "Two p's."
-  - word: "accidentally"
-    hint: "Two c's, and -ally, not -aly."
-  - word: "excellent"
-    hint: "Two l's, and cc says /ks/."
-  - word: "arrangement"
-    hint: "Two r's."
-  - word: "collaborate"
-    hint: "Two l's."
-  - word: "appeal"
-    hint: "Two p's."
+  - "process"
+  - "piece"
+  - "provide"
+  - "present"
+  - "action"
+  - "problem"
+  - "company"
+  - "effect"
+  - "suddenly"
+  - "suppose"
+  - "natural"
+  - "experience"
 ---
 
-Fifth graders keep meeting doubled letters, but now inside longer, more academic words than earlier grades practiced. *Accommodate* is one of the most commonly misspelled words in the language for exactly this reason — one c, two m's, and easy to get backward.
+Practice 12 high-frequency words assigned to Grade 5 Set 2 for accurate and increasingly automatic spelling.
 
-This set moves the doubled-letter pattern from Grade 4's everyday words into the longer, report-and-essay vocabulary fifth graders are starting to use on their own.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

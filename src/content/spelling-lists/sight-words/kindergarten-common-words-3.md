@@ -2,8 +2,8 @@
 id: kindergarten-common-words-3
 urlSlug: kindergarten-common-words-3
 title: "Kindergarten Common Words 3"
-description: "Practice high-use words that help children explain, tell, and describe. Use the sounds that make sense and learn the small unexpected parts in words such as said, was, of, and come."
-shortAnswer: "Practice high-use words that help children explain, tell, and describe. Use the sounds that make sense and learn the small unexpected parts in words such as said, was, of, and come."
+description: "Practice 10 high-frequency words assigned to Kindergarten Set 3 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 10 high-frequency words assigned to Kindergarten Set 3 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: "K"
@@ -23,22 +23,18 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
+  - "she"
+  - "do"
+  - "like"
   - "for"
-  - word: "of"
-    hint: "Heart part: f"
-  - word: "was"
-    hint: "Heart part: a"
-  - word: "said"
-    hint: "Heart part: ai"
-  - "have"
+  - "was"
   - "are"
-  - "here"
-  - word: "come"
-    hint: "Heart part: o"
-  - "look"
   - "see"
+  - "this"
+  - "that"
+  - "here"
 ---
 
-Practice high-use words that help children explain, tell, and describe. Use the sounds that make sense and learn the small unexpected parts in words such as said, was, of, and come.
+Practice 10 high-frequency words assigned to Kindergarten Set 3 for accurate and increasingly automatic spelling.
 
-This phonics-aware set uses regular sound-spelling patterns where they help. When a small part is not yet predictable, use the Heart Word hint as a reminder to learn that part by heart.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

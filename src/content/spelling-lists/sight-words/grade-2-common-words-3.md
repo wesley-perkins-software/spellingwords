@@ -2,8 +2,8 @@
 id: grade-2-common-words-3
 urlSlug: grade-2-common-words-3
 title: "Grade 2 Common Words 3"
-description: "Second graders write these words every school day. Several connect to patterns on the Grade 2 route — page uses soft g, book uses short oo. School, question, and answer each keep one letter that does not say what you expect."
-shortAnswer: "Twelve school and reading words for second graders, including question, answer, sentence, and story."
+description: "Practice 12 high-frequency words assigned to Grade 2 Set 3 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 12 high-frequency words assigned to Grade 2 Set 3 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: "2"
@@ -23,25 +23,20 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
-  - word: "school"
-    hint: "Heart part: ch says /k/."
-  - "book"
-  - "page"
-  - word: "word"
-    hint: "Heart part: or says /er/ here, not its usual sound."
-  - "letter"
-  - "sentence"
+  - "before"
+  - "goes"
+  - "gave"
+  - "word"
   - "story"
-  - word: "question"
-    hint: "Heart part: ti says /sh/."
-  - word: "answer"
-    hint: "Heart part: the w is silent."
-  - word: "learn"
-    hint: "Heart part: ear says the /er/ sound here, like in earth."
-  - "study"
-  - "never"
+  - "great"
+  - "those"
+  - "its"
+  - "between"
+  - "under"
+  - "made"
+  - "found"
 ---
 
-Second graders write these words every school day. Several connect to patterns on the Grade 2 route — *page* uses soft g, *book* uses short oo. *School*, *question*, and *answer* each keep one letter that does not say what you expect.
+Practice 12 high-frequency words assigned to Grade 2 Set 3 for accurate and increasingly automatic spelling.
 
-This phonics-aware set uses regular sound-spelling patterns where they help. When a small part is not yet predictable, use the Heart Word hint as a reminder to learn that part by heart.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

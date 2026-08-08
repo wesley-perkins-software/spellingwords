@@ -1,5 +1,7 @@
 # Canonical Kindergarten Through Grade Five Spelling Grade Unit Curriculum
 
+> **August 2026 HFW supersession:** High-Frequency Words is frozen at 27 sets / 316 unique words, distributed 4/7/7/5/2/2. The exact current inventory and frequency-versus-spelling-complexity ownership policy live in [`FROZEN_HIGH_FREQUENCY_WORDS_CURRICULUM.md`](./FROZEN_HIGH_FREQUENCY_WORDS_CURRICULUM.md). Older Common Words implementation counts in this document are historical.
+
 > **Superseded.** Superseded for K–5 architecture decisions: use [K5_FINAL_CONTENT_ARCHITECTURE.md](../planning/K5_FINAL_CONTENT_ARCHITECTURE.md) as the authoritative public architecture and implementation reference. Retain this curriculum synthesis as supporting educational research.
 
 **Status:** Canonical educational research reference  
@@ -68,7 +70,7 @@ The best Grade 1 ordering is: Consonant Digraphs and Blends → Inflectional End
 
 The concepts absorbed into Grade 1 units rather than made separate units are open and closed syllables, schwa-free early syllable division, and continued high-frequency-word work. Open/closed syllables are real concepts, but at this stage they function better inside Syllables and Two-Syllable Words than as separate Grade Units. High-frequency words continue every year, but Grade 1 does not need a second standalone unit because the strand was already introduced in kindergarten.
 
-> **Implementation note:** Grade 1 is now implemented on the public website. The five broad curriculum units above map to twelve more granular Core Spelling cards; closely related patterns are separated when a focused public practice step improves sequencing and navigation. The site also presents six cumulative Common Words sets containing 72 unique words and three bounded Additional Practice cards. The dedicated **Open Syllables and Final Y** card is a focused presentation of the syllable work described above, and the Grade 1 **R-Controlled Vowels** card is an intentional early instructional treatment within the timing range acknowledged later in this research. Neither changes the canonical progression: the public architecture makes its components more explicit.
+> **Implementation note:** Grade 1 is now implemented on the public website. The five broad curriculum units above map to twelve more granular Core Spelling cards; closely related patterns are separated when a focused public practice step improves sequencing and navigation. The site also presents seven cumulative High-Frequency Words sets containing 84 unique words and three bounded Additional Practice cards. The dedicated **Open Syllables and Final Y** card is a focused presentation of the syllable work described above, and the Grade 1 **R-Controlled Vowels** card is an intentional early instructional treatment within the timing range acknowledged later in this research. Neither changes the canonical progression: the public architecture makes its components more explicit.
 
 ### Grade Two overview
 
@@ -86,7 +88,7 @@ The recommended Grade 2 ordering is: R-Controlled Vowels → Diphthongs and Othe
 
 The major concepts absorbed into Grade 2 units are early prefix/suffix exposure, consonant-le, open and closed syllables as stand-alone labels, and continuing high-frequency irregular words. Although standards mention common prefixes and suffixes in Grade 2, they are usually functioning here as support for longer-word decoding, not yet as the full morphology units that become more coherent in Grade 3.
 
-> **Implementation note:** Grade 2 is implemented through thirteen Core Spelling cards. The sequence begins with focused EE/EA and IE/IGH long-vowel units, continues through OI/OY, OU/OW, OO, and AU/AW, completes the r-controlled vowel set with focused ER/IR/UR practice, and then moves through Soft C/G, Two-Syllable Words, final stable -le, Silent Letters, Compound Words, and Contractions. The site also presents six cumulative Common Words sets containing 72 unique words and five bounded Additional Practice cards.
+> **Implementation note:** Grade 2 is implemented through thirteen Core Spelling cards. The sequence begins with focused EE/EA and IE/IGH long-vowel units, continues through OI/OY, OU/OW, OO, and AU/AW, completes the r-controlled vowel set with focused ER/IR/UR practice, and then moves through Soft C/G, Two-Syllable Words, final stable -le, Silent Letters, Compound Words, and Contractions. The site also presents seven cumulative High-Frequency Words sets containing 84 unique words and five bounded Additional Practice cards.
 >
 > Grade 1 establishes AR and OR; the focused Grade 2 ER/IR/UR card completes the basic r-controlled set. Two-Syllable Words then applies those earlier patterns in longer examples such as *winter* and *garden* rather than claiming to introduce or reteach them.
 

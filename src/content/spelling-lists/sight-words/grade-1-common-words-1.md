@@ -2,8 +2,8 @@
 id: grade-1-common-words-1
 urlSlug: grade-1-common-words-1
 title: "Grade 1 Common Words 1"
-description: "Begin Grade 1 common words with useful words for sentences, directions, and everyday writing. Some sound out with known patterns; in good, no, our, and want, remember the part that is not yet predictable."
-shortAnswer: "Begin Grade 1 common words with useful words for sentences, directions, and everyday writing. Some sound out with known patterns; in good, no, our, and want, remember the part that is not yet predictable."
+description: "Practice 12 high-frequency words assigned to Grade 1 Set 1 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 12 high-frequency words assigned to Grade 1 Set 1 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: "1"
@@ -23,23 +23,20 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
+  - "of"
+  - "said"
+  - "have"
+  - "they"
+  - "one"
   - "all"
+  - "after"
+  - "an"
+  - "what"
+  - "down"
+  - "or"
   - "but"
-  - "did"
-  - "no"
-  - "get"
-  - word: "good"
-    hint: "Heart part: oo"
-  - "new"
-  - "now"
-  - word: "our"
-    hint: "Heart part: ou"
-  - "out"
-  - "please"
-  - word: "want"
-    hint: "Heart part: a"
 ---
 
-Begin Grade 1 common words with useful words for sentences, directions, and everyday writing. Some sound out with known patterns; in good, no, our, and want, remember the part that is not yet predictable.
+Practice 12 high-frequency words assigned to Grade 1 Set 1 for accurate and increasingly automatic spelling.
 
-This phonics-aware set uses regular sound-spelling patterns where they help. When a small part is not yet predictable, use the Heart Word hint as a reminder to learn that part by heart.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

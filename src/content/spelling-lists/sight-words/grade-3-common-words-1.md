@@ -2,8 +2,8 @@
 id: grade-3-common-words-1
 urlSlug: grade-3-common-words-1
 title: "Grade 3 Common Words 1"
-description: "Grade 3 common words for showing position and connecting ideas, including across, among, toward, and throughout."
-shortAnswer: "Twelve position and connecting words for third graders, including beneath, among, toward, and throughout."
+description: "Practice 12 high-frequency words assigned to Grade 3 Set 1 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 12 high-frequency words assigned to Grade 3 Set 1 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: "3"
@@ -23,24 +23,20 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
-  - "across"
-  - word: "above"
-    hint: "Heart part: o says /uh/, the same family as other and mother."
-  - "below"
-  - "beneath"
-  - "beside"
-  - word: "among"
-    hint: "Heart part: o says /uh/."
-  - "upon"
-  - "toward"
-  - word: "against"
-    hint: "Heart part: ai says /eh/, the same sound in again."
-  - "within"
-  - "beyond"
-  - word: "throughout"
-    hint: "Heart part: ough says the long-oo sound, the same family as through and enough."
+  - "always"
+  - "friend"
+  - "family"
+  - "another"
+  - "children"
+  - "everyone"
+  - "different"
+  - "question"
+  - "something"
+  - "enough"
+  - "without"
+  - "through"
 ---
 
-Start Grade 3 with twelve words that show where something is or connect one idea to another. Most sound out with patterns your child already knows. *Throughout* shares the same `ough` letters taught with *through* and *enough* in Grade 2 — one part learned once, used in three words.
+Practice 12 high-frequency words assigned to Grade 3 Set 1 for accurate and increasingly automatic spelling.
 
-This phonics-aware set uses regular sound-spelling patterns where they help. When a small part is not yet predictable, use the Heart Word hint as a reminder to learn that part by heart.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

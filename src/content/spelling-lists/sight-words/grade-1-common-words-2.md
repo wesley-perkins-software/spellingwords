@@ -2,8 +2,8 @@
 id: grade-1-common-words-2
 urlSlug: grade-1-common-words-2
 title: "Grade 1 Common Words 2"
-description: "Continue with words first graders need for stories, questions, and classroom writing. Use familiar patterns when they help, and pay special attention to the unexpected spellings in again, any, could, and every."
-shortAnswer: "Continue with words first graders need for stories, questions, and classroom writing. Use familiar patterns when they help, and pay special attention to the unexpected spellings in again, any, could, and every."
+description: "Practice 12 high-frequency words assigned to Grade 1 Set 2 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 12 high-frequency words assigned to Grade 1 Set 2 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: "1"
@@ -23,24 +23,20 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
-  - "after"
-  - word: "again"
-    hint: "Heart part: ai"
-  - word: "any"
-    hint: "Heart part: a"
+  - "as"
+  - "when"
+  - "back"
+  - "just"
+  - "did"
+  - "if"
+  - "who"
+  - "over"
+  - "us"
+  - "no"
   - "ask"
-  - "by"
-  - word: "could"
-    hint: "Heart part: oul"
-  - word: "every"
-    hint: "Heart part: e"
-  - "fly"
-  - "from"
-  - "give"
-  - "going"
-  - "had"
+  - "has"
 ---
 
-Continue with words first graders need for stories, questions, and classroom writing. Use familiar patterns when they help, and pay special attention to the unexpected spellings in again, any, could, and every.
+Practice 12 high-frequency words assigned to Grade 1 Set 2 for accurate and increasingly automatic spelling.
 
-This phonics-aware set uses regular sound-spelling patterns where they help. When a small part is not yet predictable, use the Heart Word hint as a reminder to learn that part by heart.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

@@ -16,7 +16,7 @@ estimatedDurationMinutes: 12
 status: published
 masteryThreshold: 90
 sourceType: curated
-relatedLists: ["grade-3-homophones", "grade-4-common-words-4"]
+relatedLists: ["grade-3-homophones"]
 prerequisiteLists: []
 nextLists: []
 readinessSignals:

@@ -145,8 +145,8 @@ describe('CORE_SPELLING_SEQUENCE', () => {
 });
 
 describe('HF_WORDS_SEQUENCE', () => {
-  it('has exactly 29 ids, matching the 4+6+6+5+4+4 canonical High-Frequency Words count', () => {
-    expect(HF_WORDS_SEQUENCE.length).toBe(29);
+  it('has exactly 27 ids, matching the 4+7+7+5+2+2 canonical High-Frequency Words count', () => {
+    expect(HF_WORDS_SEQUENCE.length).toBe(27);
   });
 
   it('has no duplicate ids', () => {
@@ -165,7 +165,7 @@ describe('HF_WORDS_SEQUENCE', () => {
       Object.fromEntries(
         Object.entries(HF_WORDS_SEQUENCES).map(([grade, ids]) => [grade, ids.length]),
       ),
-    ).toEqual({ K: 4, '1': 6, '2': 6, '3': 5, '4': 4, '5': 4 });
+    ).toEqual({ K: 4, '1': 7, '2': 7, '3': 5, '4': 2, '5': 2 });
 
     for (const sequence of Object.values(HF_WORDS_SEQUENCES)) {
       sequence.forEach((id, index) => {
@@ -181,9 +181,11 @@ describe('HF_WORDS_SEQUENCE', () => {
     ['kindergarten-common-words-1', undefined, 'kindergarten-common-words-2'],
     ['kindergarten-common-words-4', 'kindergarten-common-words-3', undefined],
     ['grade-1-common-words-3', 'grade-1-common-words-2', 'grade-1-common-words-4'],
-    ['grade-2-common-words-6', 'grade-2-common-words-5', undefined],
+    ['grade-1-common-words-7', 'grade-1-common-words-6', undefined],
+    ['grade-2-common-words-7', 'grade-2-common-words-6', undefined],
     ['grade-3-common-words-3', 'grade-3-common-words-2', 'grade-3-common-words-4'],
-    ['grade-5-common-words-4', 'grade-5-common-words-3', undefined],
+    ['grade-4-common-words-2', 'grade-4-common-words-1', undefined],
+    ['grade-5-common-words-2', 'grade-5-common-words-1', undefined],
   ])('resolves representative HFW neighbors for %s', (id, previousId, nextId) => {
     expect(getHighFrequencyNeighbors(id)).toEqual({ previousId, nextId });
   });

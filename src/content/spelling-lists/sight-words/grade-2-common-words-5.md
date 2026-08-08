@@ -2,8 +2,8 @@
 id: grade-2-common-words-5
 urlSlug: grade-2-common-words-5
 title: "Grade 2 Common Words 5"
-description: "Describing words let a second grader say more than big and good. High, light, and right all use the same three surprising letters — spot igh once and all three follow."
-shortAnswer: "Twelve describing and comparing words for second graders, including important, great, high, and right."
+description: "Practice 12 high-frequency words assigned to Grade 2 Set 5 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 12 high-frequency words assigned to Grade 2 Set 5 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: "2"
@@ -23,27 +23,20 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
-  - "best"
-  - word: "both"
-    hint: "Heart part: says long o without a silent e or vowel team."
-  - "different"
-  - "important"
-  - word: "great"
-    hint: "Heart part: ea says long a here, not its usual long-e sound."
-  - "large"
-  - word: "small"
-    hint: "Heart part: all says the same sound as au and aw, spelled differently."
-  - word: "high"
-    hint: "Heart part: igh says long i."
-  - word: "light"
-    hint: "Heart part: igh says long i, the same as high and right."
-  - word: "cold"
-    hint: "Heart part: the old family (cold, told, gold) says long o before ld."
-  - "fast"
-  - word: "right"
-    hint: "Heart part: igh says long i, the same as high and light."
+  - "young"
+  - "kind"
+  - "high"
+  - "light"
+  - "only"
+  - "other"
+  - "together"
+  - "took"
+  - "came"
+  - "say"
+  - "tell"
+  - "three"
 ---
 
-Describing words let a second grader say more than *big* and *good*. *High*, *light*, and *right* all use the same three surprising letters — spot `igh` once and all three follow.
+Practice 12 high-frequency words assigned to Grade 2 Set 5 for accurate and increasingly automatic spelling.
 
-This phonics-aware set uses regular sound-spelling patterns where they help. When a small part is not yet predictable, use the Heart Word hint as a reminder to learn that part by heart.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

@@ -75,6 +75,11 @@ Because the site has never launched, old repository-shaped URLs for migrated gra
 
 ## Reference inventories
 
-- `docs/content/inventory/grade-url-migration-map.md` — canonical path reference for the 107 grade-curriculum pages, generated from `src/lib/content/canonicalGradeRoutes.ts`.
+- `docs/content/inventory/grade-url-migration-map.md` — canonical path reference for the 105 grade-curriculum pages, generated from `src/lib/content/canonicalGradeRoutes.ts`.
 - `docs/content/inventory/skill-pages.md` — per-Skill id/title/frontmatter-urlSlug/canonical-public-path cross-reference.
 - `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md` — the complete record of every non-canonical `spelling-lists`/`spelling-collections` page removed from the site.
+
+
+## August 2026 HFW curriculum migration
+
+The HFW curriculum now contains 27 canonical sets. Grade 1 and Grade 2 add `/high-frequency-words-7`; Grade 4 and Grade 5 each end at Set 2. The former Grade 4/5 Set 3 and Set 4 routes are not generated and return 404 under the verified pre-launch policy above. Repository deployment documentation, the empty redirect configuration, and absence of a configured deployment remote support that disposition; if the operational launch status changes, redirects require a separate explicit decision.

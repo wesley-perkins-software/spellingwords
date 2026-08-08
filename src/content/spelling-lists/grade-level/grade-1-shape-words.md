@@ -9,7 +9,7 @@ category: grade-level
 grade: '1'
 difficulty: developing
 skillTags: ['grade-1', 'shapes', 'geometry', 'vocabulary']
-tags: ['grade-1', 'shapes', 'geometry', 'vocabulary', 'additional-practice']
+tags: ['grade-1', 'shapes', 'geometry', 'vocabulary', 'themed-spelling-practice']
 order: 8
 estimatedDurationMinutes: 7
 status: published

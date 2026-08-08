@@ -9,7 +9,7 @@ category: grade-level
 grade: '1'
 difficulty: developing
 skillTags: ['grade-1', 'weather', 'vocabulary']
-tags: ['grade-1', 'weather', 'vocabulary', 'additional-practice']
+tags: ['grade-1', 'weather', 'vocabulary', 'themed-spelling-practice']
 order: 6
 estimatedDurationMinutes: 7
 status: published

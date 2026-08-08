@@ -133,29 +133,29 @@ describe('frozen High-Frequency Words curriculum', () => {
 
   it('publishes the new Set 7 routes and retires the four obsolete upper-grade routes', () => {
     const paths = new Set(canonicalGradeRoutes.map((route) => route.canonicalPath));
-    expect(paths).toContain('/1st-grade/high-frequency-words-7');
-    expect(paths).toContain('/2nd-grade/high-frequency-words-7');
+    expect(paths).toContain('/1st-grade/high-frequency-words/set-7');
+    expect(paths).toContain('/2nd-grade/high-frequency-words/set-7');
     for (const path of [
       '/4th-grade/high-frequency-words-3', '/4th-grade/high-frequency-words-4',
       '/5th-grade/high-frequency-words-3', '/5th-grade/high-frequency-words-4',
     ]) expect(paths).not.toContain(path);
   });
 
-  it('permits the reviewed Core and themed Additional Practice overlaps', () => {
+  it('permits the reviewed Core and themed Themed Spelling Practice overlaps', () => {
     const hfw = new Set(allFrozenWords.map((word) => normalizeWord(word, { lowercase: true })));
-    const overlaps = { core: new Set<string>(), additional: new Set<string>() };
+    const overlaps = { core: new Set<string>(), themed: new Set<string>() };
     const classificationById = new Map(canonicalGradeRoutes.map((route) => [route.id, route.classification]));
     for (const path of contentFiles(contentRoot)) {
       const source = frontmatter(path);
       const classification = classificationById.get(field(source, 'id') ?? '');
-      if (classification !== 'core-spelling' && classification !== 'additional-practice') continue;
+      if (classification !== 'core-spelling' && classification !== 'themed-spelling-practice') continue;
       for (const word of wordsIn(source)) {
         const normalized = normalizeWord(word, { lowercase: true });
         if (hfw.has(normalized)) overlaps[classification === 'core-spelling' ? 'core' : 'additional'].add(normalized);
       }
     }
     expect(overlaps.core.size).toBe(75);
-    expect([...overlaps.additional].sort()).toEqual(['family', 'interest', 'one', 'three', 'two', 'white']);
+    expect([...overlaps.themed].sort()).toEqual(['family', 'interest', 'one', 'three', 'two', 'white']);
     for (const word of ['big', "don't", "i'm", "it's", 'information']) expect(overlaps.core).toContain(word);
   });
 });

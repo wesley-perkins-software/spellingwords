@@ -38,7 +38,7 @@ export const GRADE_2_COMMON_WORD_IDS: readonly string[] = [
 ];
 
 /**
- * Grade 2 Additional Practice. Documentation only — `vocabulary-theme` is not
+ * Grade 2 Themed Spelling Practice. Documentation only — `vocabulary-theme` is not
  * a `grade-unit`, so these ids never enter `buildGradeUnitSequence()` either.
  */
 export const GRADE_2_VOCABULARY_IDS: readonly string[] = [

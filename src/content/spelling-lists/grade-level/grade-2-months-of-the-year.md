@@ -9,7 +9,7 @@ category: grade-level
 grade: "2"
 difficulty: developing
 skillTags: ["grade-2", "calendar", "vocabulary"]
-tags: ["grade-2", "calendar", "vocabulary", "additional-practice"]
+tags: ["grade-2", "calendar", "vocabulary", "themed-spelling-practice"]
 order: 12
 estimatedDurationMinutes: 8
 status: published

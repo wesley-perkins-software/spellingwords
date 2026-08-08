@@ -9,7 +9,7 @@ category: grade-level
 grade: "3"
 difficulty: intermediate
 skillTags: ["grade-3", "life-cycles", "science", "vocabulary"]
-tags: ["grade-3", "life-cycles", "science", "vocabulary", "additional-practice"]
+tags: ["grade-3", "life-cycles", "science", "vocabulary", "themed-spelling-practice"]
 order: 9
 estimatedDurationMinutes: 8
 status: published

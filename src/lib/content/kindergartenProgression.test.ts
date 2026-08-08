@@ -226,7 +226,7 @@ describe('Kindergarten roadmap architecture', () => {
     }
   });
 
-  it('keeps Sight Word Sets and Vocabulary or Theme Lists in Additional Practice', () => {
+  it('keeps Sight Word Sets and Vocabulary or Theme Lists in Themed Spelling Practice', () => {
     for (const id of [...KINDERGARTEN_SIGHT_WORD_SET_IDS, ...KINDERGARTEN_VOCABULARY_THEME_IDS]) {
       expect(KINDERGARTEN_ADDITIONAL_IDS).toContain(id);
       expect(KINDERGARTEN_CORE_IDS).not.toContain(id);

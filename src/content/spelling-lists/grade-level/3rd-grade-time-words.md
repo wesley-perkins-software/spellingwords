@@ -9,7 +9,7 @@ category: grade-level
 grade: "3"
 difficulty: intermediate
 skillTags: ["grade-3", "time", "vocabulary"]
-tags: ["grade-3", "time", "vocabulary", "additional-practice"]
+tags: ["grade-3", "time", "vocabulary", "themed-spelling-practice"]
 order: 10
 estimatedDurationMinutes: 8
 status: published

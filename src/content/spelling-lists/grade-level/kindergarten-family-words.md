@@ -29,8 +29,8 @@ faq:
     answer: "They give children useful words for labels, drawings, simple sentences, and personal stories. A child who can spell mom, dad, or sister can write about real experiences sooner."
   - question: "What should adults be sensitive to with this topic?"
     answer: "Family structures vary. Use the words as vocabulary, but invite children to choose the terms that match their own lives and writing."
-  - question: "Why does this list come last in Additional Practice?"
-    answer: "A few of these words — grandma, grandpa, brother, sister — are longer and less predictable than the other kindergarten Additional Practice words, so this page is a good place to finish."
+  - question: "Why does this list come last in Themed Spelling Practice?"
+    answer: "A few of these words — grandma, grandpa, brother, sister — are longer and less predictable than the other kindergarten Themed Spelling Practice words, so this page is a good place to finish."
 words:
   - mom
   - dad
@@ -44,4 +44,4 @@ words:
 
 The people closest to a kindergartener are often the very first words they want to write — *mom*, *dad*, *grandma*, *grandpa* — the family members who tuck them in and pick them up from school.
 
-These eight words are warm and familiar, which makes them a gentle, motivating place to practice spelling. A few, like *grandma* and *grandpa*, are longer than the other kindergarten Additional Practice words — a natural, calm way to close out this section.
+These eight words are warm and familiar, which makes them a gentle, motivating place to practice spelling. A few, like *grandma* and *grandpa*, are longer than the other kindergarten Themed Spelling Practice words — a natural, calm way to close out this section.

@@ -9,7 +9,7 @@
 - Lists and sections follow the current public grade-hub ordering.
 - “Page title” is the canonical published `title` from each list’s frontmatter; “internal ID” is its stable `id`.
 - Word counts count list entries as published. The grand total deduplicates exact words case-insensitively across all inventoried lists.
-- A repeated word in different Core or Additional Practice lists is recorded as an intentional curricular reuse/review overlap; this label identifies architecture-valid duplication and does not evaluate instruction.
+- A repeated word in different Core or Themed Spelling Practice lists is recorded as an intentional curricular reuse/review overlap; this label identifies architecture-valid duplication and does not evaluate instruction.
 - A repeated word within one list, or across numbered Common Words sets owned by the same grade, is treated as an architecture violation.
 
 ## Kindergarten
@@ -90,7 +90,7 @@
 - **Word count:** 10
 - **Words (published order):** this, that, with, they, one, two, three, where, little, play
 
-### Additional Practice
+### Themed Spelling Practice
 
 #### Kindergarten Number Words
 
@@ -224,7 +224,7 @@
 - **Word count:** 12
 - **Words (published order):** or, so, just, us, may, make, many, very, people, know, would, should
 
-### Additional Practice
+### Themed Spelling Practice
 
 #### Grade 1 Number Words 11–20
 
@@ -364,7 +364,7 @@
 - **Word count:** 12
 - **Words (published order):** which, these, those, its, own, off, only, other, use, work, thought, read
 
-### Additional Practice
+### Themed Spelling Practice
 
 #### Grade 2 Months of the Year
 
@@ -462,7 +462,7 @@
 - **Word count:** 12
 - **Words (published order):** finally, probably, actually, immediately, eventually, meanwhile, instead, otherwise, therefore, certainly, definitely, recently
 
-### Additional Practice
+### Themed Spelling Practice
 
 _No published lists are owned by this section._
 
@@ -532,7 +532,7 @@ _No published lists are owned by this section._
 - **Word count:** 12
 - **Words (published order):** however, furthermore, regardless, although, though, thorough, weather, whether, altogether, persuade, reason, sincerely
 
-### Additional Practice
+### Themed Spelling Practice
 
 #### 4th Grade Measurement Words
 
@@ -600,7 +600,7 @@ _No published lists are owned by this section._
 - **Word count:** 12
 - **Words (published order):** consequently, particularly, specifically, essentially, ultimately, despite, punctuation, apostrophe, vocabulary, reference, quotation, thesaurus
 
-### Additional Practice
+### Themed Spelling Practice
 
 #### 5th Grade Civics and Government Words
 
@@ -616,7 +616,7 @@ _No published lists are owned by this section._
 
 ## Totals
 
-| Grade          | Core Spelling | Common Words | Additional Practice | All list entries |
+| Grade          | Core Spelling | Common Words | Themed Spelling Practice | All list entries |
 | -------------- | ------------: | -----------: | ------------------: | ---------------: |
 | Kindergarten   |            67 |           40 |                  26 |              133 |
 | Grade 1        |           142 |           72 |                  27 |              241 |
@@ -634,7 +634,7 @@ _No published lists are owned by this section._
 
 ### Intentional duplicates
 
-The following 98 words recur across architecture-valid Core Spelling and/or Additional Practice contexts. Occurrences are shown as `Grade / section / internal ID (position)`.
+The following 98 words recur across architecture-valid Core Spelling and/or Themed Spelling Practice contexts. Occurrences are shown as `Grade / section / internal ID (position)`.
 
 - **affect:** Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (10); Grade 5 / Core Spelling / `grade-5-commonly-confused-words` (3)
 - **author:** Grade 2 / Core Spelling / `grade-2-au-aw-words` (8); Grade 3 / High-Frequency Words / `grade-3-common-words-3` (6)
@@ -644,41 +644,41 @@ The following 98 words recur across architecture-valid Core Spelling and/or Addi
 - **because:** Grade 1 / High-Frequency Words / `grade-1-common-words-4` (12); Grade 2 / Core Spelling / `grade-2-au-aw-words` (6); Grade 3 / Core Spelling / `grade-3-multisyllabic-words` (2)
 - **bed:** Kindergarten / Core Spelling / `kindergarten-first-words` (1); Kindergarten / Core Spelling / `kindergarten-short-e-words` (1)
 - **birthday:** Grade 2 / Core Spelling / `grade-2-list-02` (4); Grade 3 / Core Spelling / `grade-3-multisyllabic-words` (12)
-- **black:** Kindergarten / Additional Practice / `kindergarten-color-words` (5); Grade 1 / Core Spelling / `grade-1-beginning-consonant-blends` (1)
+- **black:** Kindergarten / Themed Spelling Practice / `kindergarten-color-words` (5); Grade 1 / Core Spelling / `grade-1-beginning-consonant-blends` (1)
 - **book:** Grade 2 / Core Spelling / `grade-2-oo-two-sounds` (8); Grade 2 / High-Frequency Words / `grade-2-common-words-3` (2)
-- **brown:** Kindergarten / Additional Practice / `kindergarten-color-words` (7); Grade 2 / Core Spelling / `vowel-teams-ou-ow` (1)
-- **bug:** Kindergarten / Core Spelling / `kindergarten-first-words` (2); Kindergarten / Core Spelling / `kindergarten-short-u-words` (1); Kindergarten / Additional Practice / `kindergarten-animal-words` (1)
+- **brown:** Kindergarten / Themed Spelling Practice / `kindergarten-color-words` (7); Grade 2 / Core Spelling / `vowel-teams-ou-ow` (1)
+- **bug:** Kindergarten / Core Spelling / `kindergarten-first-words` (2); Kindergarten / Core Spelling / `kindergarten-short-u-words` (1); Kindergarten / Themed Spelling Practice / `kindergarten-animal-words` (1)
 - **by:** Grade 1 / Core Spelling / `grade-1-open-syllables-final-y` (10); Grade 1 / High-Frequency Words / `grade-1-common-words-2` (5)
 - **can:** Kindergarten / Core Spelling / `kindergarten-short-a-words` (5); Kindergarten / High-Frequency Words / `kindergarten-common-words-1` (5)
 - **cap:** Kindergarten / Core Spelling / `kindergarten-short-a-words` (7); Grade 1 / Core Spelling / `grade-1-cvc-short-vowels-c-k-rule` (6)
-- **cat:** Kindergarten / Core Spelling / `kindergarten-first-words` (3); Kindergarten / Additional Practice / `kindergarten-animal-words` (2); Grade 1 / Core Spelling / `grade-1-cvc-short-vowels-c-k-rule` (1)
-- **change:** Grade 2 / Core Spelling / `grade-2-soft-c-soft-g` (12); Grade 2 / Additional Practice / `grade-2-money-words` (8)
+- **cat:** Kindergarten / Core Spelling / `kindergarten-first-words` (3); Kindergarten / Themed Spelling Practice / `kindergarten-animal-words` (2); Grade 1 / Core Spelling / `grade-1-cvc-short-vowels-c-k-rule` (1)
+- **change:** Grade 2 / Core Spelling / `grade-2-soft-c-soft-g` (12); Grade 2 / Themed Spelling Practice / `grade-2-money-words` (8)
 - **chat:** Kindergarten / Core Spelling / `kindergarten-consonant-digraphs` (5); Grade 1 / Core Spelling / `grade-1-consonant-digraphs-final-ck` (4)
 - **chin:** Kindergarten / Core Spelling / `kindergarten-consonant-digraphs` (6); Grade 1 / Core Spelling / `grade-1-consonant-digraphs-final-ck` (3)
-- **coin:** Grade 2 / Core Spelling / `vowel-teams-oi-oy` (2); Grade 2 / Additional Practice / `grade-2-money-words` (7)
+- **coin:** Grade 2 / Core Spelling / `vowel-teams-oi-oy` (2); Grade 2 / Themed Spelling Practice / `grade-2-money-words` (7)
 - **cold:** Grade 1 / Core Spelling / `grade-1-ending-consonant-blends` (10); Grade 2 / High-Frequency Words / `grade-2-common-words-5` (10)
 - **conclusion:** Grade 4 / Core Spelling / `grade-4-advanced-suffixes` (11); Grade 5 / Core Spelling / `grade-5-multisyllabic-academic-words` (11)
 - **connection:** Grade 3 / Core Spelling / `grade-3-multisyllabic-words` (15); Grade 4 / Core Spelling / `grade-4-advanced-suffixes` (8)
 - **creative:** Grade 4 / Core Spelling / `grade-4-advanced-suffixes` (4); Grade 5 / Core Spelling / `grade-5-prefix-suffix-words` (8)
-- **cup:** Kindergarten / Core Spelling / `kindergarten-first-words` (4); Kindergarten / Core Spelling / `kindergarten-short-u-words` (7); Grade 1 / Core Spelling / `grade-1-cvc-short-vowels-c-k-rule` (3); Grade 4 / Additional Practice / `grade-4-measurement-words` (8)
+- **cup:** Kindergarten / Core Spelling / `kindergarten-first-words` (4); Kindergarten / Core Spelling / `kindergarten-short-u-words` (7); Grade 1 / Core Spelling / `grade-1-cvc-short-vowels-c-k-rule` (3); Grade 4 / Themed Spelling Practice / `grade-4-measurement-words` (8)
 - **different:** Grade 2 / High-Frequency Words / `grade-2-common-words-5` (3); Grade 3 / Core Spelling / `grade-3-multisyllabic-words` (4)
-- **dog:** Kindergarten / Core Spelling / `kindergarten-first-words` (5); Kindergarten / Core Spelling / `kindergarten-short-o-words` (1); Kindergarten / Core Spelling / `kindergarten-mixed-vowel-review` (3); Kindergarten / Additional Practice / `kindergarten-animal-words` (3)
+- **dog:** Kindergarten / Core Spelling / `kindergarten-first-words` (5); Kindergarten / Core Spelling / `kindergarten-short-o-words` (1); Kindergarten / Core Spelling / `kindergarten-mixed-vowel-review` (3); Kindergarten / Themed Spelling Practice / `kindergarten-animal-words` (3)
 - **down:** Grade 1 / High-Frequency Words / `grade-1-common-words-5` (2); Grade 2 / Core Spelling / `vowel-teams-ou-ow` (3)
-- **duck:** Kindergarten / Additional Practice / `kindergarten-animal-words` (4); Grade 1 / Core Spelling / `grade-1-cvc-short-vowels-c-k-rule` (11); Grade 1 / Core Spelling / `grade-1-consonant-digraphs-final-ck` (10)
+- **duck:** Kindergarten / Themed Spelling Practice / `kindergarten-animal-words` (4); Grade 1 / Core Spelling / `grade-1-cvc-short-vowels-c-k-rule` (11); Grade 1 / Core Spelling / `grade-1-consonant-digraphs-final-ck` (10)
 - **effect:** Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (11); Grade 5 / Core Spelling / `grade-5-commonly-confused-words` (4)
 - **environment:** Grade 4 / High-Frequency Words / `grade-4-common-words-1` (2); Grade 5 / Core Spelling / `grade-5-multisyllabic-academic-words` (8)
-- **fish:** Kindergarten / Core Spelling / `kindergarten-consonant-digraphs` (3); Kindergarten / Additional Practice / `kindergarten-animal-words` (5)
+- **fish:** Kindergarten / Core Spelling / `kindergarten-consonant-digraphs` (3); Kindergarten / Themed Spelling Practice / `kindergarten-animal-words` (5)
 - **fly:** Grade 1 / Core Spelling / `grade-1-open-syllables-final-y` (11); Grade 1 / High-Frequency Words / `grade-1-common-words-2` (8)
-- **foot:** Grade 2 / Core Spelling / `grade-2-oo-two-sounds` (12); Grade 4 / Additional Practice / `grade-4-measurement-words` (2)
+- **foot:** Grade 2 / Core Spelling / `grade-2-oo-two-sounds` (12); Grade 4 / Themed Spelling Practice / `grade-4-measurement-words` (2)
 - **form:** Grade 1 / Core Spelling / `grade-1-r-controlled-ar-or` (12); Grade 3 / Core Spelling / `grade-3-root-word-families` (5)
 - **found:** Grade 2 / Core Spelling / `vowel-teams-ou-ow` (4); Grade 2 / High-Frequency Words / `grade-2-common-words-2` (6)
-- **frog:** Kindergarten / Additional Practice / `kindergarten-animal-words` (6); Grade 1 / Core Spelling / `grade-1-beginning-consonant-blends` (3)
+- **frog:** Kindergarten / Themed Spelling Practice / `kindergarten-animal-words` (6); Grade 1 / Core Spelling / `grade-1-beginning-consonant-blends` (3)
 - **get:** Kindergarten / Core Spelling / `kindergarten-mixed-vowel-review` (5); Grade 1 / High-Frequency Words / `grade-1-common-words-1` (5)
 - **go:** Kindergarten / High-Frequency Words / `kindergarten-common-words-2` (6); Grade 1 / Core Spelling / `grade-1-open-syllables-final-y` (5)
 - **good:** Grade 1 / High-Frequency Words / `grade-1-common-words-1` (6); Grade 2 / Core Spelling / `grade-2-oo-two-sounds` (11)
 - **he:** Kindergarten / High-Frequency Words / `kindergarten-common-words-2` (1); Grade 1 / Core Spelling / `grade-1-open-syllables-final-y` (2)
 - **heard:** Grade 3 / Core Spelling / `grade-3-homophones` (14); Grade 3 / High-Frequency Words / `grade-3-common-words-2` (8)
-- **hen:** Kindergarten / Core Spelling / `kindergarten-first-words` (6); Kindergarten / Core Spelling / `kindergarten-short-e-words` (3); Kindergarten / Additional Practice / `kindergarten-animal-words` (7)
+- **hen:** Kindergarten / Core Spelling / `kindergarten-first-words` (6); Kindergarten / Core Spelling / `kindergarten-short-e-words` (3); Kindergarten / Themed Spelling Practice / `kindergarten-animal-words` (7)
 - **home:** Grade 1 / Core Spelling / `grade-1-long-vowels-silent-e` (6); Grade 1 / High-Frequency Words / `grade-1-common-words-5` (7)
 - **hop:** Kindergarten / Core Spelling / `kindergarten-short-o-words` (6); Kindergarten / Core Spelling / `kindergarten-mixed-vowel-review` (10)
 - **important:** Grade 2 / High-Frequency Words / `grade-2-common-words-5` (4); Grade 3 / Core Spelling / `grade-3-multisyllabic-words` (16)
@@ -692,7 +692,7 @@ The following 98 words recur across architecture-valid Core Spelling and/or Addi
 - **little:** Kindergarten / High-Frequency Words / `kindergarten-common-words-4` (9); Grade 2 / Core Spelling / `grade-2-final-stable-le` (1)
 - **look:** Kindergarten / High-Frequency Words / `kindergarten-common-words-3` (9); Grade 2 / Core Spelling / `grade-2-oo-two-sounds` (9)
 - **make:** Grade 1 / Core Spelling / `grade-1-long-vowels-silent-e` (2); Grade 1 / High-Frequency Words / `grade-1-common-words-6` (6)
-- **may:** Grade 1 / High-Frequency Words / `grade-1-common-words-6` (5); Grade 2 / Additional Practice / `grade-2-months-of-the-year` (5)
+- **may:** Grade 1 / High-Frequency Words / `grade-1-common-words-6` (5); Grade 2 / Themed Spelling Practice / `grade-2-months-of-the-year` (5)
 - **me:** Kindergarten / High-Frequency Words / `kindergarten-common-words-2` (4); Grade 1 / Core Spelling / `grade-1-open-syllables-final-y` (1)
 - **music:** Grade 2 / Core Spelling / `grade-2-two-syllable-words` (11); Grade 5 / Core Spelling / `grade-5-spelling-changes-related-words` (9)
 - **my:** Kindergarten / High-Frequency Words / `kindergarten-common-words-2` (5); Grade 1 / Core Spelling / `grade-1-open-syllables-final-y` (9)
@@ -700,18 +700,18 @@ The following 98 words recur across architecture-valid Core Spelling and/or Addi
 - **no:** Grade 1 / Core Spelling / `grade-1-open-syllables-final-y` (6); Grade 1 / High-Frequency Words / `grade-1-common-words-1` (4)
 - **now:** Grade 1 / High-Frequency Words / `grade-1-common-words-1` (8); Grade 2 / Core Spelling / `vowel-teams-ou-ow` (9)
 - **off:** Grade 1 / Core Spelling / `grade-1-floss-rule` (7); Grade 2 / High-Frequency Words / `grade-2-common-words-6` (6)
-- **one:** Kindergarten / High-Frequency Words / `kindergarten-common-words-4` (5); Kindergarten / Additional Practice / `kindergarten-number-words` (1)
+- **one:** Kindergarten / High-Frequency Words / `kindergarten-common-words-4` (5); Kindergarten / Themed Spelling Practice / `kindergarten-number-words` (1)
 - **out:** Grade 1 / High-Frequency Words / `grade-1-common-words-1` (10); Grade 2 / Core Spelling / `vowel-teams-ou-ow` (10)
 - **page:** Grade 2 / Core Spelling / `grade-2-soft-c-soft-g` (9); Grade 2 / High-Frequency Words / `grade-2-common-words-3` (3)
 - **people:** Grade 1 / High-Frequency Words / `grade-1-common-words-6` (9); Grade 2 / Core Spelling / `grade-2-final-stable-le` (10)
-- **pig:** Kindergarten / Core Spelling / `kindergarten-first-words` (7); Kindergarten / Core Spelling / `kindergarten-short-i-words` (1); Kindergarten / Additional Practice / `kindergarten-animal-words` (8)
+- **pig:** Kindergarten / Core Spelling / `kindergarten-first-words` (7); Kindergarten / Core Spelling / `kindergarten-short-i-words` (1); Kindergarten / Themed Spelling Practice / `kindergarten-animal-words` (8)
 - **play:** Kindergarten / High-Frequency Words / `kindergarten-common-words-4` (10); Grade 1 / Core Spelling / `grade-1-long-a-long-o-vowel-teams` (6)
 - **predict:** Grade 3 / Core Spelling / `grade-3-prefix-words` (11); Grade 4 / Core Spelling / `tier-1-roots-and-patterns` (4)
 - **principal:** Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (12); Grade 5 / Core Spelling / `grade-5-commonly-confused-words` (5)
 - **principle:** Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (13); Grade 5 / Core Spelling / `grade-5-commonly-confused-words` (6)
-- **red:** Kindergarten / Core Spelling / `kindergarten-short-e-words` (2); Kindergarten / Additional Practice / `kindergarten-color-words` (1)
+- **red:** Kindergarten / Core Spelling / `kindergarten-short-e-words` (2); Kindergarten / Themed Spelling Practice / `kindergarten-color-words` (1)
 - **right:** Grade 2 / High-Frequency Words / `grade-2-common-words-5` (12); Grade 3 / Core Spelling / `grade-3-homophones` (8)
-- **see:** Kindergarten / High-Frequency Words / `kindergarten-common-words-3` (10); Grade 1 / Additional Practice / `grade-1-five-senses-words` (1)
+- **see:** Kindergarten / High-Frequency Words / `kindergarten-common-words-3` (10); Grade 1 / Themed Spelling Practice / `grade-1-five-senses-words` (1)
 - **she:** Kindergarten / High-Frequency Words / `kindergarten-common-words-2` (2); Grade 1 / Core Spelling / `grade-1-open-syllables-final-y` (3)
 - **ship:** Kindergarten / Core Spelling / `kindergarten-consonant-digraphs` (1); Grade 1 / Core Spelling / `grade-1-consonant-digraphs-final-ck` (1)
 - **shop:** Kindergarten / Core Spelling / `kindergarten-consonant-digraphs` (2); Grade 1 / Core Spelling / `grade-1-consonant-digraphs-final-ck` (2)
@@ -723,12 +723,12 @@ The following 98 words recur across architecture-valid Core Spelling and/or Addi
 - **then:** Grade 1 / High-Frequency Words / `grade-1-common-words-5` (12); Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (7)
 - **there:** Grade 1 / High-Frequency Words / `grade-1-common-words-4` (6); Grade 3 / Core Spelling / `grade-3-homophones` (1); Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (1)
 - **they're:** Grade 3 / Core Spelling / `grade-3-homophones` (3); Grade 4 / Core Spelling / `grade-4-commonly-confused-words` (3)
-- **three:** Kindergarten / High-Frequency Words / `kindergarten-common-words-4` (7); Kindergarten / Additional Practice / `kindergarten-number-words` (3)
+- **three:** Kindergarten / High-Frequency Words / `kindergarten-common-words-4` (7); Kindergarten / Themed Spelling Practice / `kindergarten-number-words` (3)
 - **time:** Grade 1 / Core Spelling / `grade-1-long-vowels-silent-e` (10); Grade 1 / High-Frequency Words / `grade-1-common-words-5` (9)
 - **took:** Grade 2 / Core Spelling / `grade-2-oo-two-sounds` (10); Grade 2 / High-Frequency Words / `grade-2-common-words-2` (9)
 - **train:** Grade 1 / Core Spelling / `grade-1-beginning-consonant-blends` (10); Grade 1 / Core Spelling / `grade-1-long-a-long-o-vowel-teams` (2)
 - **transport:** Grade 4 / Core Spelling / `grade-4-advanced-prefixes` (10); Grade 4 / Core Spelling / `tier-1-roots-and-patterns` (2); Grade 5 / Core Spelling / `grade-5-prefix-suffix-words` (4)
-- **two:** Kindergarten / High-Frequency Words / `kindergarten-common-words-4` (6); Kindergarten / Additional Practice / `kindergarten-number-words` (2)
+- **two:** Kindergarten / High-Frequency Words / `kindergarten-common-words-4` (6); Kindergarten / Themed Spelling Practice / `kindergarten-number-words` (2)
 - **we:** Kindergarten / High-Frequency Words / `kindergarten-common-words-2` (3); Grade 1 / Core Spelling / `grade-1-open-syllables-final-y` (4)
 - **when:** Grade 1 / Core Spelling / `grade-1-consonant-digraphs-final-ck` (7); Grade 1 / High-Frequency Words / `grade-1-common-words-4` (2)
 - **where:** Kindergarten / High-Frequency Words / `kindergarten-common-words-4` (8); Grade 3 / Core Spelling / `grade-3-homophones` (12)

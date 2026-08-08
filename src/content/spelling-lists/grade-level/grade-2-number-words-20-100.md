@@ -9,7 +9,7 @@ category: grade-level
 grade: "2"
 difficulty: developing
 skillTags: ["grade-2", "numbers", "vocabulary"]
-tags: ["grade-2", "numbers", "vocabulary", "additional-practice"]
+tags: ["grade-2", "numbers", "vocabulary", "themed-spelling-practice"]
 order: 14
 estimatedDurationMinutes: 7
 status: published

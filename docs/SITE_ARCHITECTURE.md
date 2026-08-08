@@ -229,3 +229,15 @@ Teaching Guides and (eventually) Word Pages are the primary AEO targets. The Abo
 The four content categories — **Grade-Level, Phonics, Sight Words, Challenge** — are educationally meaningful, stable, and durable. Grade Hub and Category Hub pages map cleanly to these categories. A fifth future category (Morphology, Academic Vocabulary) can be added without restructuring anything.
 
 The taxonomy should not be expanded without a dedicated strategy document (equivalent to the existing PHONICS_STRATEGY.md and GRADE_LEVEL_STRATEGY.md) and a clear rationale for why the new category cannot be served by the existing four.
+
+## Canonical grade-strand routes (August 2026)
+
+Every grade now has one coherent three-strand public taxonomy: **Core Spelling**, **High-Frequency Words**, and **Themed Spelling Practice**. Canonical routes express `Grade → Strand → Resource`:
+
+- `/{grade}/core-spelling/{resource}`
+- `/{grade}/high-frequency-words/set-{n}`
+- `/{grade}/themed-spelling-practice/{resource}`
+
+Each grade also publishes a gateway at the corresponding strand path. Across six grades this creates 18 gateways while preserving 105 resources (51 Core, 27 High-Frequency Words, and 27 Themed Spelling Practice). Stable content IDs, source filenames, and `contentRole: vocabulary-theme` remain unchanged; the role describes the content form rather than its public strand.
+
+Because the site remains pre-launch, superseded flat child routes are removed without redirects. The sitemap contains 173 URLs: 2 general pages + 1 Skills index + 6 Grade Hubs + 18 strand gateways + 105 grade resources + 41 Skills. The former 157-URL test assertion was inconsistent with the authoritative collections: its actual baseline arithmetic was 155, before adding the 18 gateways.

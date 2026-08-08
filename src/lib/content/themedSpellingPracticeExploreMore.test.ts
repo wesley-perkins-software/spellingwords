@@ -1,21 +1,21 @@
 import { describe, expect, it } from 'vitest';
 import {
-  ADDITIONAL_PRACTICE_EXPLORE_MORE,
-  getAdditionalPracticeExploreMore,
-} from './additionalPracticeExploreMore';
+  THEMED_SPELLING_PRACTICE_EXPLORE_MORE,
+  getThemedSpellingPracticeExploreMore,
+} from './themedSpellingPracticeExploreMore';
 import { getCanonicalGradeRouteById, getCanonicalGradeRoutes } from './canonicalGradeRoutes';
 import { getHighFrequencyNeighbors } from './hfWordsSequence';
 import { getNonCoreNavigationModel } from './nonCoreNavigation';
 
 const additionalRoutes = getCanonicalGradeRoutes().filter(
-  (route) => route.classification === 'additional-practice',
+  (route) => route.classification === 'themed-spelling-practice',
 );
 
-describe('Additional Practice Explore More', () => {
+describe('Themed Spelling Practice Explore More', () => {
   it('covers the exact canonical 5+5+5+4+4+4 inventory once', () => {
     expect(additionalRoutes).toHaveLength(27);
     expect(new Set(additionalRoutes.map(({ id }) => id)).size).toBe(27);
-    expect(ADDITIONAL_PRACTICE_EXPLORE_MORE.map(({ sourceId }) => sourceId).sort()).toEqual(
+    expect(THEMED_SPELLING_PRACTICE_EXPLORE_MORE.map(({ sourceId }) => sourceId).sort()).toEqual(
       additionalRoutes.map(({ id }) => id).sort(),
     );
     expect(
@@ -28,19 +28,19 @@ describe('Additional Practice Explore More', () => {
     ).toEqual({ K: 5, '1': 5, '2': 5, '3': 4, '4': 4, '5': 4 });
   });
 
-  it('gives every source exactly three unique, canonical, same-grade Additional Practice peers', () => {
-    for (const { sourceId, targetIds, rationale } of ADDITIONAL_PRACTICE_EXPLORE_MORE) {
+  it('gives every source exactly three unique, canonical, same-grade Themed Spelling Practice peers', () => {
+    for (const { sourceId, targetIds, rationale } of THEMED_SPELLING_PRACTICE_EXPLORE_MORE) {
       const source = getCanonicalGradeRouteById(sourceId);
-      expect(source?.classification, sourceId).toBe('additional-practice');
+      expect(source?.classification, sourceId).toBe('themed-spelling-practice');
       expect(targetIds).toHaveLength(3);
       expect(new Set(targetIds).size, sourceId).toBe(3);
       expect(targetIds, sourceId).not.toContain(sourceId);
       expect(rationale.length, sourceId).toBeGreaterThan(20);
-      expect(getAdditionalPracticeExploreMore(sourceId), sourceId).toEqual(targetIds);
+      expect(getThemedSpellingPracticeExploreMore(sourceId), sourceId).toEqual(targetIds);
 
       for (const targetId of targetIds) {
         expect(getCanonicalGradeRouteById(targetId), `${sourceId} -> ${targetId}`).toMatchObject({
-          classification: 'additional-practice',
+          classification: 'themed-spelling-practice',
           grade: source?.grade,
           canonicalPath: expect.stringMatching(/^\/(kindergarten|grade-[1-5])\//),
         });
@@ -54,7 +54,7 @@ describe('Additional Practice Explore More', () => {
         .filter((route) => route.grade === grade)
         .map(({ id }) => id);
       for (const sourceId of gradeIds) {
-        expect([...getAdditionalPracticeExploreMore(sourceId)].sort()).toEqual(
+        expect([...getThemedSpellingPracticeExploreMore(sourceId)].sort()).toEqual(
           gradeIds.filter((id) => id !== sourceId).sort(),
         );
       }
@@ -68,7 +68,7 @@ describe('Additional Practice Explore More', () => {
         .map(({ id }) => id);
       const inboundCounts = gradeIds.map(
         (id) =>
-          gradeIds.filter((sourceId) => getAdditionalPracticeExploreMore(sourceId).includes(id))
+          gradeIds.filter((sourceId) => getThemedSpellingPracticeExploreMore(sourceId).includes(id))
             .length,
       );
       expect(Math.min(...inboundCounts), grade).toBeGreaterThan(0);
@@ -77,10 +77,10 @@ describe('Additional Practice Explore More', () => {
   });
 
   it('returns no recommendations for Core, HFW, Skill, or unknown ids', () => {
-    expect(getAdditionalPracticeExploreMore('kindergarten-first-words')).toEqual([]);
-    expect(getAdditionalPracticeExploreMore('kindergarten-common-words-1')).toEqual([]);
-    expect(getAdditionalPracticeExploreMore('short-a-words')).toEqual([]);
-    expect(getAdditionalPracticeExploreMore('not-real')).toEqual([]);
+    expect(getThemedSpellingPracticeExploreMore('kindergarten-first-words')).toEqual([]);
+    expect(getThemedSpellingPracticeExploreMore('kindergarten-common-words-1')).toEqual([]);
+    expect(getThemedSpellingPracticeExploreMore('short-a-words')).toEqual([]);
+    expect(getThemedSpellingPracticeExploreMore('not-real')).toEqual([]);
   });
 
   it('resolves Explore more only in the complete non-Core navigation model', () => {
@@ -93,7 +93,7 @@ describe('Additional Practice Explore More', () => {
       expect(model?.reviewIds, route.id).toEqual([]);
       expect(model?.nextIds, route.id).toEqual([]);
       expect(model?.exploreIds, route.id).toHaveLength(
-        route.classification === 'additional-practice'
+        route.classification === 'themed-spelling-practice'
           ? 3
           : getHighFrequencyNeighbors(route.id).previousId &&
               getHighFrequencyNeighbors(route.id).nextId

@@ -21,7 +21,7 @@ Grade hubs are roadmaps, not pacing guides. A grade hub should show the major sp
 Each grade hub has:
 
 1. **Core Spelling Progression** — the main roadmap for the grade.
-2. **Additional Practice** — optional support pages, targeted skill pages, and vocabulary pages.
+2. **Themed Spelling Practice** — optional support pages, targeted skill pages, and vocabulary pages.
 
 ### Level 2: Core instructional concept pages
 
@@ -75,4 +75,4 @@ Grade hubs should remain clean and should not list every targeted practice page 
 
 ## Canonical implementation model
 
-Kindergarten is the canonical model: a curated Core Spelling Progression plus Additional Practice. Future grade redesigns should follow the same philosophy and use hand-maintained progression data instead of relying only on broad content categories.
+Kindergarten is the canonical model: a curated Core Spelling Progression plus Themed Spelling Practice. Future grade redesigns should follow the same philosophy and use hand-maintained progression data instead of relying only on broad content categories.

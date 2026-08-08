@@ -9,7 +9,7 @@ category: grade-level
 grade: "2"
 difficulty: developing
 skillTags: ["grade-2", "money", "vocabulary"]
-tags: ["grade-2", "money", "vocabulary", "additional-practice"]
+tags: ["grade-2", "money", "vocabulary", "themed-spelling-practice"]
 order: 13
 estimatedDurationMinutes: 7
 status: published

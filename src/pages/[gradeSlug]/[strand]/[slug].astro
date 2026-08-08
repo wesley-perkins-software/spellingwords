@@ -28,7 +28,7 @@ export async function getStaticPaths() {
     const entry = entriesById.get(route.id);
     if (!entry) throw new Error(`Canonical grade route ${route.id} does not resolve to a published spelling list.`);
     return {
-      params: { gradeSlug: route.gradeSlug, slug: route.finalSlug },
+      params: { gradeSlug: route.gradeSlug, strand: route.classification, slug: route.finalSlug },
       props: { entry, allEntries: entries },
     };
   });
@@ -37,14 +37,14 @@ export async function getStaticPaths() {
 const { entry, allEntries } = Astro.props;
 const { data } = entry;
 
-const route = getCanonicalGradeRouteByPath(Astro.params.gradeSlug!, Astro.params.slug!);
-if (!route) throw new Error(`No canonical grade route for ${Astro.params.gradeSlug}/${Astro.params.slug}`);
+const route = getCanonicalGradeRouteByPath(Astro.params.gradeSlug!, Astro.params.strand!, Astro.params.slug!);
+if (!route) throw new Error(`No canonical grade route for ${Astro.params.gradeSlug}/${Astro.params.strand}/${Astro.params.slug}`);
 const isCoreSpelling = route.classification === 'core-spelling';
 
 const { Content } = await entry.render();
 
 // Classification comes from the canonical route manifest. High-Frequency
-// Words use grade-contained adjacency; Additional Practice uses an explicit
+// Words use grade-contained adjacency; Themed Spelling Practice uses an explicit
 // editorial map. Neither non-Core model reads scattered relatedLists metadata.
 const nonCoreNavigation = getNonCoreNavigationModel(route.classification, data.id);
 const related = resolveListRefs(nonCoreNavigation?.exploreIds ?? [], allEntries);
@@ -62,7 +62,8 @@ if (!gradeHubForBreadcrumb) throw new Error(`No grade hub for grade ${route.grad
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: gradeHubForBreadcrumb.label, href: getGradeHubPath(route.grade) },
-  { label: data.title },
+  { label: route.section, href: `/${route.gradeSlug}/${route.classification}` },
+  { label: data.contentRole === 'sight-word-set' ? `Set ${route.finalSlug.replace('set-', '')}` : data.title },
 ];
 
 const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);

@@ -38,11 +38,11 @@ export const GRADE_4_COMMON_WORD_IDS: readonly string[] = [
 ];
 
 /**
- * Grade 4 Additional Practice, published. Documentation only —
+ * Grade 4 Themed Spelling Practice, published. Documentation only —
  * `vocabulary-theme` is not a `grade-unit`, so this id never enters
  * `buildGradeUnitSequence()` either.
  */
-export const GRADE_4_ADDITIONAL_PRACTICE_IDS: readonly string[] = ['grade-4-measurement-words'];
+export const GRADE_4_THEMED_SPELLING_PRACTICE_IDS: readonly string[] = ['grade-4-measurement-words'];
 
 /**
  * Card badge label, independent of `category` — matches the convention in

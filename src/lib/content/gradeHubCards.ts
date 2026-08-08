@@ -142,7 +142,7 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
     ],
   },
   {
-    title: "Additional Practice",
+    title: "Themed Spelling Practice",
     cards: [
       {
         id: "kindergarten-animal-words",
@@ -346,7 +346,7 @@ export const GRADE_1_HUB_SECTIONS: readonly {
     ],
   },
   {
-    title: "Additional Practice",
+    title: "Themed Spelling Practice",
     cards: [
       { id: "grade-1-weather-words", title: "Weather Words", description: "Practice spelling everyday weather words like sunny, rainy, and cloudy.", badge: "Vocabulary", kind: "list" },
       { id: "grade-1-clothing-words", title: "Clothing Words", description: "Practice spelling everyday clothing words like shirt, pants, and jacket.", badge: "Vocabulary", kind: "list" },
@@ -522,7 +522,7 @@ export const GRADE_2_HUB_SECTIONS: readonly {
     ],
   },
   {
-    title: "Additional Practice",
+    title: "Themed Spelling Practice",
     cards: [
       {
         id: "grade-2-transportation-words",
@@ -568,10 +568,10 @@ export const GRADE_2_HUB_SECTIONS: readonly {
 ];
 
 /**
- * Grade 3 hub — Core Spelling, High-Frequency Words, and Additional Practice.
+ * Grade 3 hub — Core Spelling, High-Frequency Words, and Themed Spelling Practice.
  * An earlier pass rejected Calendar Words, Clothing Words, and Transportation
  * Words for Grade 3 specifically (see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`
- * Section 7) and shipped with no Additional Practice section. A later editorial
+ * Section 7) and shipped with no Themed Spelling Practice section. A later editorial
  * pass revisited the bar — a topic no longer needs to trace to a named academic
  * standard, only to be a recognizable, bounded, non-duplicative theme — and
  * approved four new Grade 3 topics under that revised philosophy: Map & Globe
@@ -684,7 +684,7 @@ export const GRADE_3_HUB_SECTIONS: readonly {
     ],
   },
   {
-    title: "Additional Practice",
+    title: "Themed Spelling Practice",
     cards: [
       {
         id: "grade-3-map-globe-words",
@@ -723,7 +723,7 @@ export const GRADE_3_HUB_SECTIONS: readonly {
 ];
 
 /**
- * Grade 4 hub — Core Spelling, High-Frequency Words, and Additional Practice
+ * Grade 4 hub — Core Spelling, High-Frequency Words, and Themed Spelling Practice
  * (see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 8).
  */
 export const GRADE_4_HUB_SECTIONS: readonly {
@@ -802,7 +802,7 @@ export const GRADE_4_HUB_SECTIONS: readonly {
     ],
   },
   {
-    title: "Additional Practice",
+    title: "Themed Spelling Practice",
     cards: [
       {
         id: "grade-4-measurement-words",
@@ -841,7 +841,7 @@ export const GRADE_4_HUB_SECTIONS: readonly {
 ];
 
 /**
- * Grade 5 hub — Core Spelling, High-Frequency Words, and Additional Practice
+ * Grade 5 hub — Core Spelling, High-Frequency Words, and Themed Spelling Practice
  * (see `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` Section 16). Civics
  * and Government Words and Money Management Words shipped first, after an
  * audit of five candidates; `grade-5-science-nature-words` and
@@ -924,7 +924,7 @@ export const GRADE_5_HUB_SECTIONS: readonly {
     ],
   },
   {
-    title: "Additional Practice",
+    title: "Themed Spelling Practice",
     cards: [
       {
         id: "grade-5-money-management-words",

@@ -19,6 +19,7 @@ import {
 import { gradeConfig, getAdjacentGrades } from '@/lib/content/gradeConfig';
 import { gradeHubCopy } from '@/lib/content/gradeHubCopy';
 import type { GradeCode, GradeConfigEntry } from '@/lib/content/gradeConfig';
+import { getGradeStrandPath, type GradeRouteClassification } from '@/lib/content/canonicalGradeRoutes';
 
 export async function getStaticPaths() {
   return gradeConfig.map((gradeEntry) => ({
@@ -27,7 +28,7 @@ export async function getStaticPaths() {
   }));
 }
 
-/** Every grade has a hand-curated hub progression (Core Spelling / High-Frequency Words / Additional Practice). */
+/** Every grade has a hand-curated hub progression (Core Spelling / High-Frequency Words / Themed Spelling Practice). */
 const CURATED_HUB_SECTIONS: Record<GradeCode, typeof KINDERGARTEN_HUB_SECTIONS> = {
   K: KINDERGARTEN_HUB_SECTIONS,
   '1': GRADE_1_HUB_SECTIONS,
@@ -45,6 +46,11 @@ const { prev, next } = getAdjacentGrades(grade);
 const entries = (await getCollection('spelling-lists')).filter(isPublished);
 
 const curatedSections = buildGradeHubCards(CURATED_HUB_SECTIONS[grade], entries);
+const strandByTitle: Record<string, GradeRouteClassification> = {
+  'Core Spelling': 'core-spelling',
+  'High-Frequency Words': 'high-frequency-words',
+  'Themed Spelling Practice': 'themed-spelling-practice',
+};
 const displayedItemCount = curatedSections.reduce((count, section) => count + section.cards.length, 0);
 
 const breadcrumbItems = [
@@ -122,7 +128,7 @@ const itemListJsonLd = {
                   id={`grade-section-${section.title.toLowerCase().replaceAll(' ', '-')}`}
                   class="font-display text-lg font-semibold text-ink"
                 >
-                  {section.title}
+                  <a href={getGradeStrandPath(grade, strandByTitle[section.title])} class="hover:underline">{section.title}</a>
                 </h2>
                 {section.summary ? (
                   <p class="max-w-2xl text-sm leading-relaxed text-ink-faint">{section.summary}</p>

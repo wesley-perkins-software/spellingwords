@@ -1,14 +1,14 @@
 
 
 > **August 2026 HFW supersession:** The executable HFW navigation now contains 27 grade-contained pages in a 4/7/7/5/2/2 distribution. `src/lib/content/hfWordsCurriculum.ts` owns set membership and `hfWordsSequence.ts` derives navigation order. Older 29-page endpoint tables below are historical.
-> **Non-Core navigation finalized (August 2026).** The live canonical route manifest and Grade Hub membership classify pages. Core Spelling remains the continuous 51-page Review first / Next step sequence with no Explore more. The 27 High-Frequency Words pages use `HF_WORDS_SEQUENCES`: six independent grade-contained collections whose Explore more cards are previous set then next set (one card at grade endpoints, two in the middle). The 27 Additional Practice pages use the explicit, rationale-bearing `ADDITIONAL_PRACTICE_EXPLORE_MORE` matrix and show exactly three ordered, same-grade Additional Practice peers. Neither non-Core model reads `relatedLists`; legacy values on those 56 entries were emptied.
+> **Non-Core navigation finalized (August 2026).** The live canonical route manifest and Grade Hub membership classify pages. Core Spelling remains the continuous 51-page Review first / Next step sequence with no Explore more. The 27 High-Frequency Words pages use `HF_WORDS_SEQUENCES`: six independent grade-contained collections whose Explore more cards are previous set then next set (one card at grade endpoints, two in the middle). The 27 Themed Spelling Practice pages use the explicit, rationale-bearing `ADDITIONAL_PRACTICE_EXPLORE_MORE` matrix and show exactly three ordered, same-grade Themed Spelling Practice peers. Neither non-Core model reads `relatedLists`; legacy values on those 56 entries were emptied.
 >
 > All three types use **Where to go from here**. Non-Core pages use **Explore more** only—never Review first or Next step. This section contains no Grade Hub card and no cross-type or cross-grade recommendation. Relationship cards use the destination's exact canonical title, with grade and word count as separate metadata. A future **Continue exploring** grade-orientation section is separate and deferred. Historical audit tables below record prior state and are superseded where they conflict with this final rule.
-> **Implementation status: Core Spelling navigation finalized.** Core Spelling uses one continuous 51-page K–5 chain. Its bottom navigation is derived only from `CORE_SPELLING_SEQUENCE`: the previous item is **Review first**, the next item is **Next step**, and **Explore more is never rendered**. Only `kindergarten-first-words` lacks Review first; only `grade-5-spelling-changes-related-words` lacks Next step. High-Frequency Words and Additional Practice now use the finalized non-Core models summarized above.
+> **Implementation status: Core Spelling navigation finalized.** Core Spelling uses one continuous 51-page K–5 chain. Its bottom navigation is derived only from `CORE_SPELLING_SEQUENCE`: the previous item is **Review first**, the next item is **Next step**, and **Explore more is never rendered**. Only `kindergarten-first-words` lacks Review first; only `grade-5-spelling-changes-related-words` lacks Next step. High-Frequency Words and Themed Spelling Practice now use the finalized non-Core models summarized above.
 >
 > Three corrections were made during implementation that this document's body does not yet reflect inline (kept here rather than silently rewriting the historical record above):
 >
-> 1. **Additional Practice matrix was significantly incomplete.** §2's Additional Practice tables below were built from `K5_FINAL_CONTENT_ARCHITECTURE.md`'s stated page lists, which turned out to be stale against `src/lib/content/gradeHubCards.ts` (the live hub registration) for every grade except Grade 3 — the same class of doc/code drift as Blocker 3. The live hub has 27 Additional Practice pages across K–5, not the 16 originally evaluated below (missing, per grade: K — `kindergarten-body-words`, `kindergarten-family-words`; Grade 1 — `grade-1-weather-words`, `grade-1-clothing-words`, `grade-1-shape-words` (and `grade-1-five-senses-words`, referenced below, is **not** actually hub-registered); Grade 2 — `grade-2-transportation-words`, `grade-2-community-helpers`; Grade 4 — `grade-4-solar-system-words`, `grade-4-career-occupation-words`, `grade-4-geometry-words`; Grade 5 — `grade-5-ecosystem-environment-words`, `grade-5-fraction-decimal-words`). This historical audit was superseded by the explicit 27-row `ADDITIONAL_PRACTICE_EXPLORE_MORE` model; canonical-route classification and that reviewed map are now authoritative, while non-Core `relatedLists` values are empty.
+> 1. **Themed Spelling Practice matrix was significantly incomplete.** §2's Themed Spelling Practice tables below were built from `K5_FINAL_CONTENT_ARCHITECTURE.md`'s stated page lists, which turned out to be stale against `src/lib/content/gradeHubCards.ts` (the live hub registration) for every grade except Grade 3 — the same class of doc/code drift as Blocker 3. The live hub has 27 Themed Spelling Practice pages across K–5, not the 16 originally evaluated below (missing, per grade: K — `kindergarten-body-words`, `kindergarten-family-words`; Grade 1 — `grade-1-weather-words`, `grade-1-clothing-words`, `grade-1-shape-words` (and `grade-1-five-senses-words`, referenced below, is **not** actually hub-registered); Grade 2 — `grade-2-transportation-words`, `grade-2-community-helpers`; Grade 4 — `grade-4-solar-system-words`, `grade-4-career-occupation-words`, `grade-4-geometry-words`; Grade 5 — `grade-5-ecosystem-environment-words`, `grade-5-fraction-decimal-words`). This historical audit was superseded by the explicit 27-row `ADDITIONAL_PRACTICE_EXPLORE_MORE` model; canonical-route classification and that reviewed map are now authoritative, while non-Core `relatedLists` values are empty.
 > 2. **`KINDERGARTEN_CORE_IDS` was trimmed in place, not removed.** §3a-arch and §3b item 6 below assumed this array could be fully superseded by `coreSpellingSequence.ts`. It can't be removed: it also drives an unrelated, pre-existing "Kindergarten spelling · Step N of M" badge feature (`getKindergartenRoadmapPosition`) that this review does not own. The array was trimmed from 10 to 8 entries (dropping `kindergarten-ck-ending-words` and `kindergarten-double-consonants`, the resolved part of Blocker 5) and left in place, now numerically identical to `coreSpellingSequence.ts`'s Kindergarten portion.
 > 3. **Two pre-existing broken links were fixed as part of this implementation**, discovered via the new deprecated-id validation test: `kindergarten-ck-ending-words` and `kindergarten-double-consonants` had `relatedLists` pointing into the deprecated/legacy bucket (`c-k-ck-words`, `kindergarten-heart-words`). Both were cleared to `[]`.
 >
@@ -32,7 +32,7 @@ Questions 1 and 2 form a single **continuous K–5 instructional journey**, not 
 
 ### Navigation heading rename: "More Practice" → "Explore More"
 
-The site has three curriculum *sections* — Core Spelling, High-Frequency Words, **Additional Practice** — and had a fourth navigation *heading* that collided with one of them in name only: "More Practice." That's a naming conflict, not a design conflict: the `relatedLists` heading sometimes points to an Additional Practice page, sometimes to another Core unit, sometimes to an HF set. Its job was never "practice," specifically — it's "here's something else worth your time." Renamed to **"Explore More."** This affects UI copy (`GradeUnitWorldPage.astro`, `[category]/[slug].astro`, and the heading-order test) but not the underlying field name — `relatedLists` is unchanged.
+The site has three curriculum *sections* — Core Spelling, High-Frequency Words, **Themed Spelling Practice** — and had a fourth navigation *heading* that collided with one of them in name only: "More Practice." That's a naming conflict, not a design conflict: the `relatedLists` heading sometimes points to an Themed Spelling Practice page, sometimes to another Core unit, sometimes to an HF set. Its job was never "practice," specifically — it's "here's something else worth your time." Renamed to **"Explore More."** This affects UI copy (`GradeUnitWorldPage.astro`, `[category]/[slug].astro`, and the heading-order test) but not the underlying field name — `relatedLists` is unchanged.
 
 - **`prerequisiteLists` ("Review First") / `nextLists` ("Next Step")** form one directional chain answering "where am I in the K–5 journey, and what's immediately before/after this page." Must never be dangling or circular.
 - **`relatedLists` ("Explore More")** answers "what else is worth doing." Every relationship must have a genuine educational rationale (see relaxed-prose rule below) — never asserted automatically from shared category, grade, or family.
@@ -58,7 +58,7 @@ The relationship must be understandable from the page titles, descriptions, and 
 - A clear continuation or extension of the same spelling, morphological, or usage concept (not merely a shared vocabulary word).
 - A naturally useful prior-grade or later-grade version of the same concept.
 - A High-Frequency Words set deliberately organized around the same spelling feature as a Core unit.
-- Two Additional Practice topics that are naturally related from a parent/child exploration perspective.
+- Two Themed Spelling Practice topics that are naturally related from a parent/child exploration perspective.
 
 **Moderate evidence** (sufficient when it clearly clears the reasonable-parent bar on its own merits):
 - A vocabulary page that prominently and repeatedly reinforces a relevant concept in a way a parent would recognize on sight.
@@ -83,13 +83,13 @@ Shared words may be *recorded* as supporting evidence once a broader relationshi
 - **Review First** = the immediately preceding HF set. None only for `kindergarten-common-words-1`.
 - **Next Step** = the immediately following HF set. None only for `grade-5-common-words-4`.
 
-### Additional Practice philosophy — exploratory, not pattern reinforcement
+### Themed Spelling Practice philosophy — exploratory, not pattern reinforcement
 
-Additional Practice pages are fun, curious, bounded vocabulary pages for parents and children to explore — not a disguised extension of the Core Spelling sequence.
+Themed Spelling Practice pages are fun, curious, bounded vocabulary pages for parents and children to explore — not a disguised extension of the Core Spelling sequence.
 
 - Never has Review First / Next Step, no exceptions.
 - Never recommended merely for shared words with a Core page.
-- May recommend another Additional Practice page when genuinely curious/useful (cross-grade is fine).
+- May recommend another Themed Spelling Practice page when genuinely curious/useful (cross-grade is fine).
 - A Core/HF page may link to an AP page only when it independently passes the reasonable-parent test.
 
 ### Grade-boundary transitions (Core Spelling chain)
@@ -125,7 +125,7 @@ Additional Practice pages are fun, curious, bounded vocabulary pages for parents
 
 ## 2. Architecture Decision: Derive Core Review First / Next Step and Suppress Explore More
 
-**Decision for Core Spelling: Review first / Next step are computed from `coreSpellingSequence.ts` via `getSequenceNeighbors(id)` in `navigationSequence.ts`, rather than hand-authored per-page frontmatter. The Core renderer never resolves or renders Explore more from `relatedLists`.** High-Frequency Words and Additional Practice retain their current behavior pending their own navigation passes.
+**Decision for Core Spelling: Review first / Next step are computed from `coreSpellingSequence.ts` via `getSequenceNeighbors(id)` in `navigationSequence.ts`, rather than hand-authored per-page frontmatter. The Core renderer never resolves or renders Explore more from `relatedLists`.** High-Frequency Words and Themed Spelling Practice retain their current behavior pending their own navigation passes.
 
 Rationale: a flat ordered array makes competing predecessors and cycles structurally difficult and has exactly one first and last element. Chain integrity therefore reduces to verifying that all 51 unique IDs resolve to published canonical Core routes and that each adjacent pair resolves in both directions. Suppressing Core Explore more keeps optional, cross-section relationships out of the ordered curriculum without deleting metadata that may still be relevant outside this finalized renderer rule.
 
@@ -135,7 +135,7 @@ Implementation: `src/lib/content/coreSpellingSequence.ts`, `src/lib/content/hfWo
 
 Canonical, hub-visible pages per `K5_FINAL_CONTENT_ARCHITECTURE.md` and `src/lib/content/gradeHubCards.ts`. Combined-entry sibling pages and reusable Skill pages are not given independent chain rows but do appear as Explore More targets where relevant. "—" = intentionally empty.
 
-**Review First / Next Step columns reflect `coreSpellingSequence.ts`/`hfWordsSequence.ts` exactly.** Explore More columns reflect what shipped in frontmatter at implementation time — see the Additional Practice correction noted in the status block at the top of this document for the fuller AP page set added during implementation beyond what's tabulated below.
+**Review First / Next Step columns reflect `coreSpellingSequence.ts`/`hfWordsSequence.ts` exactly.** Explore More columns reflect what shipped in frontmatter at implementation time — see the Themed Spelling Practice correction noted in the status block at the top of this document for the fuller AP page set added during implementation beyond what's tabulated below.
 
 ### Kindergarten
 
@@ -154,7 +154,7 @@ Canonical, hub-visible pages per `K5_FINAL_CONTENT_ARCHITECTURE.md` and `src/lib
 
 **High-Frequency Words**: `kindergarten-common-words-1..4`, chained in order, all Explore More: None.
 
-**Additional Practice**: `kindergarten-number-words` → `grade-1-number-words-11-20`; `kindergarten-color-words` ↔ `kindergarten-animal-words`; `kindergarten-animal-words` → `kindergarten-first-words`, `kindergarten-color-words`; `kindergarten-body-words`, `kindergarten-family-words`: None.
+**Themed Spelling Practice**: `kindergarten-number-words` → `grade-1-number-words-11-20`; `kindergarten-color-words` ↔ `kindergarten-animal-words`; `kindergarten-animal-words` → `kindergarten-first-words`, `kindergarten-color-words`; `kindergarten-body-words`, `kindergarten-family-words`: None.
 
 ### Grade 1
 
@@ -177,7 +177,7 @@ Canonical, hub-visible pages per `K5_FINAL_CONTENT_ARCHITECTURE.md` and `src/lib
 
 **High-Frequency Words**: `grade-1-common-words-1..6`, chained; `common-words-3` → `grade-1-r-controlled-ar-or`; all others None.
 
-**Additional Practice**: `grade-1-weather-words` ↔ `grade-1-clothing-words`; `grade-1-shape-words`: None; `grade-1-number-words-11-20` ↔ `kindergarten-number-words`, `grade-2-number-words-20-100`; `grade-1-days-of-the-week` ↔ `grade-2-months-of-the-year`.
+**Themed Spelling Practice**: `grade-1-weather-words` ↔ `grade-1-clothing-words`; `grade-1-shape-words`: None; `grade-1-number-words-11-20` ↔ `kindergarten-number-words`, `grade-2-number-words-20-100`; `grade-1-days-of-the-week` ↔ `grade-2-months-of-the-year`.
 
 ### Grade 2
 
@@ -198,7 +198,7 @@ Canonical, hub-visible pages per `K5_FINAL_CONTENT_ARCHITECTURE.md` and `src/lib
 
 **High-Frequency Words**: `grade-2-common-words-1` → `grade-2-oo-two-sounds`, `grade-2-au-aw-words`; `-2` → `grade-1-ending-consonant-blends`; `-3` → `grade-2-soft-c-soft-g`, `grade-2-oo-two-sounds`; `-4`: None; `-5`, `-6` → `grade-2-au-aw-words`.
 
-**Additional Practice**: `grade-2-transportation-words`, `grade-2-community-helpers`: None; `grade-2-money-words` ↔ `grade-2-number-words-20-100` (also ↔ `grade-1-number-words-11-20`); `grade-2-months-of-the-year` ↔ `grade-1-days-of-the-week`.
+**Themed Spelling Practice**: `grade-2-transportation-words`, `grade-2-community-helpers`: None; `grade-2-money-words` ↔ `grade-2-number-words-20-100` (also ↔ `grade-1-number-words-11-20`); `grade-2-months-of-the-year` ↔ `grade-1-days-of-the-week`.
 
 ### Grade 3
 
@@ -216,7 +216,7 @@ Canonical, hub-visible pages per `K5_FINAL_CONTENT_ARCHITECTURE.md` and `src/lib
 
 **High-Frequency Words**: `grade-3-common-words-1..5`, chained, all Explore More: None.
 
-**Additional Practice** (ratified canonical, four live pages): `grade-3-map-globe-words`, `grade-3-life-cycle-words`, `grade-3-time-words`, `grade-3-multiplication-division-words` — all Explore More: None.
+**Themed Spelling Practice** (ratified canonical, four live pages): `grade-3-map-globe-words`, `grade-3-life-cycle-words`, `grade-3-time-words`, `grade-3-multiplication-division-words` — all Explore More: None.
 
 ### Grade 4
 
@@ -235,7 +235,7 @@ The executable `CORE_SPELLING_SEQUENCE` is authoritative. Core pages render Revi
 
 **High-Frequency Words**: `-1` → `grade-2-silent-letter-words`; `-2` → `grade-3-doubling-final-consonants`; `-3`: None; `-4` → `grade-4-commonly-confused-words`.
 
-**Additional Practice**: `grade-4-measurement-words` ↔ `grade-4-geometry-words`; `grade-4-solar-system-words`, `grade-4-career-occupation-words`: None.
+**Themed Spelling Practice**: `grade-4-measurement-words` ↔ `grade-4-geometry-words`; `grade-4-solar-system-words`, `grade-4-career-occupation-words`: None.
 
 ### Grade 5
 
@@ -253,7 +253,7 @@ The executable `CORE_SPELLING_SEQUENCE` is authoritative. Core pages render Revi
 
 **High-Frequency Words**: `-1` → `grade-2-silent-letter-words`; `-2` → `grade-3-doubling-final-consonants`; `-3`, `-4`: None.
 
-**Additional Practice**: `grade-5-money-management-words` ↔ `grade-5-community-civics-words`; `grade-5-ecosystem-environment-words`, `grade-5-fraction-decimal-words`: None.
+**Themed Spelling Practice**: `grade-5-money-management-words` ↔ `grade-5-community-civics-words`; `grade-5-ecosystem-environment-words`, `grade-5-fraction-decimal-words`: None.
 
 ## 4. Tests and Validation
 
@@ -264,4 +264,4 @@ The executable `CORE_SPELLING_SEQUENCE` is authoritative. Core pages render Revi
 
 ## 5. Open Follow-Up (not implemented here)
 
-**Decision B — deferred.** `KINDERGARTEN_ADDITIONAL_IDS` in `kindergartenProgression.ts` drives a live prev/next chain and "Step N of M" badge but doesn't match the Kindergarten hub's actual 5 Additional Practice cards, includes `kindergarten-heart-words` (arguably belongs with High-Frequency Words), and includes `kindergarten-number-color-words` (flagged elsewhere for removal). This is legacy cleanup unrelated to the Review First/Next Step/Explore More graph and should be scoped as its own task.
+**Decision B — deferred.** `KINDERGARTEN_ADDITIONAL_IDS` in `kindergartenProgression.ts` drives a live prev/next chain and "Step N of M" badge but doesn't match the Kindergarten hub's actual 5 Themed Spelling Practice cards, includes `kindergarten-heart-words` (arguably belongs with High-Frequency Words), and includes `kindergarten-number-color-words` (flagged elsewhere for removal). This is legacy cleanup unrelated to the Review First/Next Step/Explore More graph and should be scoped as its own task.

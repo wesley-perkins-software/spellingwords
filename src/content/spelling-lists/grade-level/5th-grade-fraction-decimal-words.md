@@ -9,7 +9,7 @@ category: grade-level
 grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "fractions", "decimals", "math", "vocabulary"]
-tags: ["grade-5", "fractions", "decimals", "math", "vocabulary", "additional-practice"]
+tags: ["grade-5", "fractions", "decimals", "math", "vocabulary", "themed-spelling-practice"]
 order: 16
 estimatedDurationMinutes: 9
 status: published

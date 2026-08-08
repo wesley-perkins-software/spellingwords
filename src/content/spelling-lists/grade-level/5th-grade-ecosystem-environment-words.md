@@ -9,7 +9,7 @@ category: grade-level
 grade: "5"
 difficulty: intermediate
 skillTags: ["grade-5", "ecosystems", "science", "vocabulary"]
-tags: ["grade-5", "ecosystems", "science", "vocabulary", "additional-practice"]
+tags: ["grade-5", "ecosystems", "science", "vocabulary", "themed-spelling-practice"]
 order: 15
 estimatedDurationMinutes: 9
 status: published

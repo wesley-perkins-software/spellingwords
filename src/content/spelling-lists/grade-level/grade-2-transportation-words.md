@@ -9,7 +9,7 @@ category: grade-level
 grade: "2"
 difficulty: developing
 skillTags: ["grade-2", "transportation", "vocabulary"]
-tags: ["grade-2", "transportation", "vocabulary", "additional-practice"]
+tags: ["grade-2", "transportation", "vocabulary", "themed-spelling-practice"]
 order: 11
 estimatedDurationMinutes: 7
 status: published

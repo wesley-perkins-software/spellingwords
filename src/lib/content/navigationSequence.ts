@@ -24,7 +24,7 @@ const CORE_SPELLING_INDEX: ReadonlyMap<string, number> = new Map(
  * for a page, derived from its position in whichever canonical sequence
  * (`CORE_SPELLING_SEQUENCE`) it belongs to.
  *
- * A page absent from both sequences — every Additional Practice page, every
+ * A page absent from both sequences — every Themed Spelling Practice page, every
  * combined-roadmap sibling, every reusable Skill page — returns `{}`, which
  * is exactly correct: those pages never have a Review First or Next Step.
  * High-Frequency Words use their separate, grade-contained Explore More

@@ -23,6 +23,16 @@ const wordEntry = z.union([
   }),
 ]);
 
+// High-Frequency Words editorial notes are deliberately selective. The word
+// inventory remains in `words`; this optional field only adds instruction when
+// a particular spelling benefits from it.
+const hfwWordNote = z.object({
+  word: z.string(),
+  note: z.string(),
+  contextExample: z.string().optional(),
+  pronunciationNote: z.string().optional(),
+});
+
 const spellingLists = defineCollection({
   type: 'content',
   schema: z.object({
@@ -71,6 +81,7 @@ const spellingLists = defineCollection({
     // specific list. Optional — pages render no "Is this the right list?"
     // section until a list has real, specific signals written for it.
     readinessSignals: z.array(z.string()).default([]),
+    hfwWordNotes: z.array(hfwWordNote).default([]),
     // Real parent/teacher questions specific to this list, for the FAQ
     // section and FAQPage structured data. Optional for the same reason.
     faq: z

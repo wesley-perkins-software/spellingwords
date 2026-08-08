@@ -1,7 +1,7 @@
 ---
 id: grade-4-common-words-1
 urlSlug: grade-4-common-words-1
-title: "Grade 4 Common Words 1"
+title: "Grade 4 High-Frequency Words — Set 1"
 description: "Practice 12 high-frequency words assigned to Grade 4 Set 1 for accurate and increasingly automatic spelling."
 shortAnswer: "Practice 12 high-frequency words assigned to Grade 4 Set 1 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set

@@ -1,7 +1,7 @@
 ---
 id: grade-1-common-words-2
 urlSlug: grade-1-common-words-2
-title: "Grade 1 Common Words 2"
+title: "Grade 1 High-Frequency Words — Set 2"
 description: "Practice 12 high-frequency words assigned to Grade 1 Set 2 for accurate and increasingly automatic spelling."
 shortAnswer: "Practice 12 high-frequency words assigned to Grade 1 Set 2 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set

@@ -1,7 +1,7 @@
 ---
 id: grade-5-common-words-2
 urlSlug: grade-5-common-words-2
-title: "Grade 5 Common Words 2"
+title: "Grade 5 High-Frequency Words — Set 2"
 description: "Practice 12 high-frequency words assigned to Grade 5 Set 2 for accurate and increasingly automatic spelling."
 shortAnswer: "Practice 12 high-frequency words assigned to Grade 5 Set 2 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set

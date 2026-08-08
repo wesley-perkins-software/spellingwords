@@ -40,6 +40,7 @@ const { data } = entry;
 const route = getCanonicalGradeRouteByPath(Astro.params.gradeSlug!, Astro.params.strand!, Astro.params.slug!);
 if (!route) throw new Error(`No canonical grade route for ${Astro.params.gradeSlug}/${Astro.params.strand}/${Astro.params.slug}`);
 const isCoreSpelling = route.classification === 'core-spelling';
+const isHighFrequencyWords = route.classification === 'high-frequency-words';
 
 const { Content } = await entry.render();
 
@@ -56,7 +57,9 @@ function listLink(e: (typeof allEntries)[number]) {
   return getCanonicalListPath(e.data);
 }
 
-const categoryLabel = categoryLabels[data.category] ?? data.category;
+const categoryLabel = isHighFrequencyWords
+  ? 'High-Frequency Words'
+  : categoryLabels[data.category] ?? data.category;
 const gradeHubForBreadcrumb = gradeConfig.find((g) => g.grade === route.grade);
 if (!gradeHubForBreadcrumb) throw new Error(`No grade hub for grade ${route.grade}`);
 const breadcrumbItems = [
@@ -149,12 +152,9 @@ const curriculumPlacements = isSkill
 
 const bodyHeading = isSkill
   ? 'Understanding the pattern'
-  : 'Why these words — and what they teach';
-
-const commonWordsSetTitle = data.contentRole === 'sight-word-set' &&
-  (data.id.startsWith('kindergarten-common-words-') || data.id.startsWith('grade-1-common-words-'))
-  ? `${data.grade === '1' ? data.title.replace('Grade 1', '1st Grade') : data.title} | Sight Words and Spelling`
-  : undefined;
+  : isHighFrequencyWords
+    ? 'What to notice when spelling these words'
+    : 'Why these words — and what they teach';
 
 ---
 
@@ -162,7 +162,7 @@ const commonWordsSetTitle = data.contentRole === 'sight-word-set' &&
 
 {!isCoreSpelling && (
 <Layout
-  title={commonWordsSetTitle ?? `${data.title} — spellingwords`}
+  title={`${data.title} — spellingwords`}
   description={data.description}
   ogType="article"
   jsonLd={jsonLdBlocks}
@@ -266,7 +266,7 @@ const commonWordsSetTitle = data.contentRole === 'sight-word-set' &&
 
     <!-- Is this the right list? -->
     {
-      data.readinessSignals.length > 0 && (
+      !isHighFrequencyWords && data.readinessSignals.length > 0 && (
         <section
           class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
           aria-labelledby="readiness-heading"
@@ -316,6 +316,55 @@ const commonWordsSetTitle = data.contentRole === 'sight-word-set' &&
         <WordListPreview words={playWords} accentClass={cardAccent.bg} showSentences={isContractUnit} />
       </div>
     </section>
+
+    {
+      isHighFrequencyWords && data.hfwWordNotes.length > 0 && (
+        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="word-notes-heading">
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
+            <h2 id="word-notes-heading" class="font-display text-lg font-semibold text-ink">
+              Notes for particular words
+            </h2>
+            <div class="mt-4 space-y-4">
+              {data.hfwWordNotes.map((item) => (
+                <article class="rounded-3xl border border-line bg-white px-6 py-5 shadow-card">
+                  <h3 class="font-word text-lg font-semibold text-ink">{item.word}</h3>
+                  <p class="mt-1 text-base leading-relaxed text-ink-soft">{item.note}</p>
+                  {item.contextExample && (
+                    <p class="mt-2 text-base leading-relaxed text-ink-soft">
+                      <strong class="font-semibold text-ink">In context:</strong> {item.contextExample}
+                    </p>
+                  )}
+                  {item.pronunciationNote && (
+                    <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+                      <strong class="font-semibold text-ink">Pronunciation note:</strong>{' '}
+                      {item.pronunciationNote}
+                    </p>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    {
+      isHighFrequencyWords && (
+        <section class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14" aria-labelledby="hfw-practice-heading">
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
+            <h2 id="hfw-practice-heading" class="font-display text-lg font-semibold text-ink">
+              Practice and review
+            </h2>
+            <p class="mt-3 max-w-2xl text-base leading-relaxed text-ink-soft">
+              Hear each word, notice and map its spelling, then spell it without seeing the word.
+              Check the spelling and retrieve it again later in mixed review. When most words are
+              becoming secure, begin the next set and carry one or two difficult words forward for
+              more review.
+            </p>
+          </div>
+        </section>
+      )
+    }
 
     <!-- Why these words were chosen / what children learn (markdown body) -->
     <section class="bg-cream-deep px-5 py-12 sm:px-6 md:py-16" aria-labelledby="why-heading">
@@ -427,7 +476,7 @@ const commonWordsSetTitle = data.contentRole === 'sight-word-set' &&
 
     <!-- Learning progression -->
     {
-      related.length > 0 && (
+      !isHighFrequencyWords && related.length > 0 && (
         <section
           class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
           aria-labelledby="progression-heading"
@@ -439,6 +488,32 @@ const commonWordsSetTitle = data.contentRole === 'sight-word-set' &&
             <RelatedListCards heading="Explore more" items={related} listLink={listLink} />
           </div>
         </section>
+      )
+    }
+
+    {
+      isHighFrequencyWords && (
+        <nav class="px-5 py-10 sm:px-6 md:py-14" aria-label="High-Frequency Words set navigation">
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
+            <h2 class="font-display text-lg font-semibold text-ink">Continue with this grade</h2>
+            <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              {related.map((item) => {
+                const targetRoute = getCanonicalGradeRoutes().find((candidate) => candidate.id === item.data.id);
+                const currentNumber = Number(route.finalSlug.replace('set-', ''));
+                const targetNumber = Number(targetRoute?.finalSlug.replace('set-', ''));
+                const direction = targetNumber < currentNumber ? 'Previous' : 'Next';
+                return (
+                  <a href={listLink(item)} class="rounded-3xl border border-line bg-white px-6 py-4 font-semibold text-brand-blue shadow-card hover:underline">
+                    {direction}: Set {targetNumber}
+                  </a>
+                );
+              })}
+              <a href={`/${route.gradeSlug}/high-frequency-words`} class="rounded-3xl border border-line bg-white px-6 py-4 font-semibold text-brand-blue shadow-card hover:underline">
+                All {gradeHubForBreadcrumb.label} High-Frequency Words
+              </a>
+            </div>
+          </div>
+        </nav>
       )
     }
 

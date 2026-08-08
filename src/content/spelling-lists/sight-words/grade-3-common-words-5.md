@@ -1,7 +1,7 @@
 ---
 id: grade-3-common-words-5
 urlSlug: grade-3-common-words-5
-title: "Grade 3 Common Words 5"
+title: "Grade 3 High-Frequency Words — Set 5"
 description: "Practice 12 high-frequency words assigned to Grade 3 Set 5 for accurate and increasingly automatic spelling."
 shortAnswer: "Practice 12 high-frequency words assigned to Grade 3 Set 5 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set

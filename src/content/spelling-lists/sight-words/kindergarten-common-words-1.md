@@ -1,8 +1,8 @@
 ---
 id: kindergarten-common-words-1
 urlSlug: kindergarten-common-words-1
-title: "Kindergarten Common Words 1"
-description: "Start with ten short words children use to label, answer, and make simple sentences. Sound out the parts that work as expected, then notice the small tricky parts in a, I, is, and the."
+title: "Kindergarten High-Frequency Words — Set 1"
+description: "Kindergarten High-Frequency Words — Set 1 includes ten short words children use to label, answer, and make simple sentences. Sound out the parts that work as expected, then notice the small tricky parts in a, I, is, and the."
 shortAnswer: "Start with ten short words children use to label, answer, and make simple sentences. Sound out the parts that work as expected, then notice the small tricky parts in a, I, is, and the."
 contentRole: sight-word-set
 category: sight-words

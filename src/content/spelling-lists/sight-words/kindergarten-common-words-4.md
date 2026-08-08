@@ -1,7 +1,7 @@
 ---
 id: kindergarten-common-words-4
 urlSlug: kindergarten-common-words-4
-title: "Kindergarten Common Words 4"
+title: "Kindergarten High-Frequency Words — Set 4"
 description: "Practice 10 high-frequency words assigned to Kindergarten Set 4 for accurate and increasingly automatic spelling."
 shortAnswer: "Practice 10 high-frequency words assigned to Kindergarten Set 4 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set

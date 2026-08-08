@@ -9,7 +9,7 @@ category: high-frequency-words
 grade: "1"
 difficulty: beginner
 skillTags: ["high-frequency-words", "high-frequency"]
-tags: ["high-frequency-words", "high-frequency", "heart-words"]
+tags: ["high-frequency-words", "high-frequency"]
 order: 102
 estimatedDurationMinutes: 7
 status: published

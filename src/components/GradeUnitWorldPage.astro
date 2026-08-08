@@ -279,7 +279,7 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
     }
 
     {
-      data.canonicalSource && (
+      data.canonicalSource?.publicAttribution && (
         <div class="mx-auto max-w-2xl px-5 py-8 sm:px-6 md:max-w-3xl">
           <SourceAttribution source={data.canonicalSource} />
         </div>

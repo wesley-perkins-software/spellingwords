@@ -16,6 +16,18 @@ const renderer = readFileSync(
   new URL('../../pages/[gradeSlug]/[strand]/[slug].astro', import.meta.url),
   'utf8',
 );
+const coreRenderer = readFileSync(
+  new URL('../../components/GradeUnitWorldPage.astro', import.meta.url),
+  'utf8',
+);
+const skillRenderer = readFileSync(
+  new URL('../../pages/skills/[slug].astro', import.meta.url),
+  'utf8',
+);
+const sourceAttribution = readFileSync(
+  new URL('../../components/SourceAttribution.astro', import.meta.url),
+  'utf8',
+);
 
 describe('Kindergarten High-Frequency Words Set 1 editorial pilot', () => {
   it('preserves the frozen word inventory and canonical route', () => {
@@ -34,6 +46,7 @@ describe('Kindergarten High-Frequency Words Set 1 editorial pilot', () => {
     expect(getCanonicalGradeRouteById(setId)?.canonicalPath).toBe(
       '/kindergarten/high-frequency-words/set-1',
     );
+    expect(getCanonicalGradeRouteById(setId)?.classification).toBe('high-frequency-words');
   });
 
   it('authors selective notes only for words that need an extra detail', () => {
@@ -44,9 +57,17 @@ describe('Kindergarten High-Frequency Words Set 1 editorial pilot', () => {
       'is',
       'the',
     ]);
-    expect(notesBlock).toContain('contextExample:');
-    expect(source).toContain('### Use the sounds that work as expected');
-    expect(source).toContain('### Notice one extra detail in four words');
+    expect(notesBlock).not.toContain('contextExample:');
+    expect(source).toContain('### Most of these words can be built from sounds');
+    expect(source).toContain('### Some words need one extra reminder');
+  });
+
+  it('keeps internal editorial provenance out of public renderers', () => {
+    expect(source).toContain('name: "Hybrid editorial"');
+    for (const publicRenderer of [renderer, coreRenderer, skillRenderer]) {
+      expect(publicRenderer).toContain('data.canonicalSource?.publicAttribution');
+    }
+    expect(sourceAttribution).toContain('source?.publicAttribution');
   });
 
   it('does not duplicate shared readiness, practice, or mastery guidance in Markdown', () => {

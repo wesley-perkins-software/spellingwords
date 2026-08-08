@@ -71,6 +71,9 @@ const spellingLists = defineCollection({
         name: z.string(),
         tier: z.string(),
         url: z.string().optional(),
+        // Internal provenance is retained by default. Set this only when the
+        // source name is genuinely useful attribution for a public reader.
+        publicAttribution: z.boolean().default(false),
       })
       .optional(),
     relatedLists: z.array(z.string()).default([]),

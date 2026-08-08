@@ -81,7 +81,7 @@ These are content elements, not a mandated visible heading sequence — recommen
 | Curriculum placement ("where this fits") | Required when applicable | Supported now — reverse `skillIds` lookup, template's "Where this fits in the curriculum" section |
 | Related canonical Skills | Required when applicable | Supported now — `relatedLists`/`prerequisiteLists`/`nextLists` |
 | Selective FAQs | Optional | Supported now — `faq` |
-| Source attribution | Required when applicable | Supported now — `canonicalSource` |
+| Source attribution | Required when applicable | Supported now — `canonicalSource.publicAttribution` |
 | Editorial reviewer and meaningful review date | Required when the real editorial process supports it | Future component opportunity — no dedicated reviewer or review-date field exists today (§14, §17) |
 | Metadata (title tag, description) | Required | Supported now — `Layout.astro`'s `title`/`description` props, sourced from `data.title`/`data.description` |
 | Structured data | Required when applicable | Partially supported — `BreadcrumbList` and `FAQPage` exist; `WebPage`/`Article`/`LearningResource` do not (§18) |

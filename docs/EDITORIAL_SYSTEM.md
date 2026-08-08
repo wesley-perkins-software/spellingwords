@@ -34,7 +34,7 @@ This order is fixed. New sections are not inserted into the middle of this seque
 | Why these words matter | Always rendered (markdown body is required) | — |
 | FAQ | **Temporarily conditional** — renders only when `faq` is populated | 100% of lists, via the archetypes below |
 | What's next | Renders when any of prerequisite/related/next lists exist (135/135 lists today) | Already effectively universal |
-| Source attribution | **Permanently conditional by design** | Renders only for lists with a real `canonicalSource` — this is correct, not a gap |
+| Source attribution | **Permanently conditional by design** | Renders only when `canonicalSource.publicAttribution` is true; internal provenance remains private by default |
 
 "Temporarily conditional" is a state, not a permanent architecture decision. The goal is for readiness and FAQ to eventually render on every page, the same way the word list does — reached by writing the content, not by changing the code to fill the gap with something else.
 

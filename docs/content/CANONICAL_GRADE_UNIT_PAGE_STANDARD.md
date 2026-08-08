@@ -151,7 +151,7 @@ For an **Additional Practice / vocabulary-theme page** (§3.1 only): positions 1
 | Review First | Conditional (`prerequisiteLists` populated) | Conditional | Not applicable by default |
 | Ready for Next | Conditional (genuine destination, §10) | Conditional | Not applicable |
 | Also Worth Practicing | Conditional (`relatedLists` populated) | Conditional | Conditional |
-| Source attribution | Conditional (`canonicalSource` set) | Conditional | Conditional |
+| Source attribution | Conditional (`canonicalSource.publicAttribution` set) | Conditional | Conditional |
 
 **Never include on any page this standard governs:**
 
@@ -194,7 +194,7 @@ Applies to Core Spelling / on-ramp-review units; Additional Practice pages use o
 | Go deeper on the pattern | Conditional | Where can I learn the general concept? | One line + link | The Skill page's explanation itself | `skillIds` |
 | FAQ | Conditional | Whatever genuine question remains unanswered | Zero to a small number; no floor, no ceiling target | Any section already answering the same question in the same form | `faq` |
 | Review First / Ready for Next / Also Worth Practicing | Sequence-critical (Review/Ready) + conditional (Also) | What came before, what's next, what else helps? | One line of framing per bucket + link cards | The Grade Hub's full roadmap | `prerequisiteLists`, `nextLists`, `relatedLists` |
-| Source attribution | Conditional | Where does this come from? | One line | — | `canonicalSource` |
+| Source attribution | Conditional | Where does this come from? | One line | — | `canonicalSource.publicAttribution` |
 
 **Note on move-on guidance:** define readiness-to-continue through qualitative, observable evidence only — increasing independence, reasonable accuracy across more than one attempt, strategy use, and transfer to an unfamiliar example where appropriate. Do **not** tie it to `masteryThreshold` or any hidden score/percentage, and never state a speed target. This guidance stays distinct in substance from the entry-readiness bullets even though both are qualitative and observable — one describes readiness to *start*, the other readiness to *continue* — and it must not be merged with them into one list.
 
@@ -273,7 +273,7 @@ Copyable into every future Grade Unit content task. **Start by identifying the p
 - [ ] Every FAQ answers something no other visible section already answers in the same form; zero FAQs is acceptable; none were added to hit a count.
 - [ ] FAQ structured data contains only questions also visible on the page.
 - [ ] **When a genuine forward curriculum step exists (Core Spelling / on-ramp-review units):** Ready for Next appears and is never invented. **When genuine prerequisite/related relationships exist:** Review First / Also Worth Practicing appear. When multiple are present, order is Review First → Ready for Next → Also Worth Practicing.
-- [ ] Source attribution appears only if `canonicalSource` is set.
+- [ ] Source attribution appears only if `canonicalSource.publicAttribution` is true.
 - [ ] No mastery claims, gamification language, comparisons, or hidden metrics anywhere on the page.
 
 ---

@@ -4,13 +4,14 @@ interface Props {
     name: string;
     tier?: string;
     url?: string;
+    publicAttribution?: boolean;
   };
 }
 
 const { source } = Astro.props;
 ---
 
-{source && (
+{source?.publicAttribution && (
   <p class="text-xs text-ink-soft">
     Based on {source.name}
     {source.tier && <> ({source.tier})</>}

@@ -317,6 +317,20 @@ const bodyHeading = isSkill
       </div>
     </section>
 
+    <!-- Authored explanatory Markdown body -->
+    <section class="bg-cream-deep px-5 py-12 sm:px-6 md:py-16" aria-labelledby="why-heading">
+      <div class="mx-auto max-w-2xl md:max-w-3xl">
+        <div class={`border-l-[3px] pl-5 sm:pl-6 ${cardAccent.border}`}>
+          <h2 id="why-heading" class="text-display-md">{bodyHeading}</h2>
+          <div
+            class="text-body-lg [&_strong]:font-semibold [&_strong]:text-ink mt-4 max-w-2xl space-y-5 text-ink-soft sm:space-y-6 [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto"
+          >
+            <Content />
+          </div>
+        </div>
+      </div>
+    </section>
+
     {
       isHighFrequencyWords && data.hfwWordNotes.length > 0 && (
         <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="word-notes-heading">
@@ -365,20 +379,6 @@ const bodyHeading = isSkill
         </section>
       )
     }
-
-    <!-- Why these words were chosen / what children learn (markdown body) -->
-    <section class="bg-cream-deep px-5 py-12 sm:px-6 md:py-16" aria-labelledby="why-heading">
-      <div class="mx-auto max-w-2xl md:max-w-3xl">
-        <div class={`border-l-[3px] pl-5 sm:pl-6 ${cardAccent.border}`}>
-          <h2 class="text-display-md">{bodyHeading}</h2>
-          <div
-            class="text-body-lg [&_strong]:font-semibold [&_strong]:text-ink mt-4 max-w-2xl space-y-5 text-ink-soft sm:space-y-6 [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto"
-          >
-            <Content />
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Grade Unit → canonical Skill(s): the "go deeper" recommendation(s) -->
     {
@@ -518,7 +518,7 @@ const bodyHeading = isSkill
     }
 
     {
-      data.canonicalSource && (
+      data.canonicalSource?.publicAttribution && (
         <div class="mx-auto max-w-2xl px-5 py-8 sm:px-6 md:max-w-3xl">
           <SourceAttribution source={data.canonicalSource} />
         </div>

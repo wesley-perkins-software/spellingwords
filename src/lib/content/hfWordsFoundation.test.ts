@@ -42,6 +42,8 @@ describe('High-Frequency Words editorial foundation', () => {
       expect(markdown).toContain('contentRole: high-frequency-word-set');
       expect(markdown).toContain('category: high-frequency-words');
       expect(markdown).not.toMatch(obsoleteHfwTerminology);
+      expect(markdown).not.toContain('heart-words');
+      expect(markdown).not.toContain('Heart part:');
     }
   });
 

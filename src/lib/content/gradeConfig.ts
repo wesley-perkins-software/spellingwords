@@ -37,7 +37,7 @@ export function getAdjacentGrades(grade: GradeCode): {
  * Given the (possibly undefined) `grade` values from a set of content
  * entries, returns the matching grade config entries — in canonical K-5
  * order — for whichever grades are actually present. Lets a topic hub page
- * (phonics, sight-words, challenge) render a "browse by grade" nav without
+ * (phonics, high-frequency-words, challenge) render a "browse by grade" nav without
  * hardcoding which grades currently have content in that category.
  */
 export function getGradesWithLists(grades: Iterable<string | undefined>): GradeConfigEntry[] {

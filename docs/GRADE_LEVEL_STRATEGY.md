@@ -26,7 +26,7 @@ Grade-level lists are not a phonics curriculum in disguise. They do not need to 
 
 **Why grade-level lists are the foundation of the curriculum:**
 
-Phonics lists serve teachers and tutors who know phonics terminology. Sight word lists serve parents who have been introduced to Dolch or Fry by their child's school. Grade-level lists serve everyone else — the majority of parents who simply want to help their child practice spelling without learning a new framework first.
+Phonics lists serve teachers and tutors who know phonics terminology. High-Frequency Words lists serve parents who have been introduced to Dolch or Fry by their child's school. Grade-level lists serve everyone else — the majority of parents who simply want to help their child practice spelling without learning a new framework first.
 
 This is why grade-level is the highest-priority family in the library. It is the most-searched, most-shared, and most-expected category of spelling content on the web.
 
@@ -222,7 +222,7 @@ Possible Grade 5 anchors when ready:
 
 ## 6. Relationship to Other Families
 
-Grade-level lists are not isolated from the rest of the library. They exist alongside phonics lists, sight word lists, and challenge lists — and they will share words with all of them.
+Grade-level lists are not isolated from the rest of the library. They exist alongside phonics lists, high-frequency word lists, and challenge lists — and they will share words with all of them.
 
 **This overlap is healthy. It is not a problem to fix.**
 
@@ -232,11 +232,11 @@ The architecture established in `LIST_ARCHITECTURE.md` §3 is explicit: *words e
 
 - **Grade-level and phonics:** A second-grade grade-level list about long vowel words will share many words with the silent-e and vowel team phonics lists. A third-grade grade-level list about compound words will share words with any future compound-words phonics list. This is expected and good. A parent who completes the "2nd Grade Long Vowel Words" list and then discovers the "Silent E: Long A Words" phonics list should feel like the site is coherent, not redundant.
 
-- **Grade-level and sight words:** Many sight words (from Dolch or Fry) will appear in grade-level everyday-words lists. *said*, *want*, *because*, *different* — these are both high-frequency sight words and legitimate candidates for grade-level everyday-words lists. The site does not need to exclude sight words from grade-level lists to avoid overlap. It may be worth noting in list descriptions when a word is a known sight word, but that is editorial polish, not an architectural constraint.
+- **Grade-level and high-frequency words:** Many high-frequency words (from Dolch or Fry) will appear in grade-level everyday-words lists. *said*, *want*, *because*, *different* — these are both high-frequency words and legitimate candidates for grade-level everyday-words lists. The site does not need to exclude high-frequency words from grade-level lists to avoid overlap. It may be worth noting in list descriptions when a word is a known high-frequency word, but that is editorial polish, not an architectural constraint.
 
 - **Grade-level and challenge:** The grade-level family ends at Grade 5. Challenge lists extend beyond that ceiling, serving stronger spellers and older students. A Grade 5 grade-level list and a Tier 1 challenge list may share some words. This is fine. The framing is different (grade-appropriate vs. competitive enrichment) and the audience need not be the same.
 
-**The practical implication:** When building a new grade-level list, do not filter out words simply because they also appear on a phonics list or a sight word list. Choose the best words for the grade-level purpose. Overlap is a feature of a coherent curriculum, not an editorial failure.
+**The practical implication:** When building a new grade-level list, do not filter out words simply because they also appear on a phonics list or a high-frequency word list. Choose the best words for the grade-level purpose. Overlap is a feature of a coherent curriculum, not an editorial failure.
 
 ---
 

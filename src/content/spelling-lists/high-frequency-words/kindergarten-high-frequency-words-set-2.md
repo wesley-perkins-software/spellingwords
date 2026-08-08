@@ -1,15 +1,15 @@
 ---
-id: kindergarten-common-words-2
-urlSlug: kindergarten-common-words-2
+id: kindergarten-high-frequency-words-set-2
+urlSlug: kindergarten-high-frequency-words-set-2
 title: "Kindergarten High-Frequency Words — Set 2"
 description: "Practice 10 high-frequency words assigned to Kindergarten Set 2 for accurate and increasingly automatic spelling."
 shortAnswer: "Practice 10 high-frequency words assigned to Kindergarten Set 2 for accurate and increasingly automatic spelling."
-contentRole: sight-word-set
-category: sight-words
+contentRole: high-frequency-word-set
+category: high-frequency-words
 grade: "K"
 difficulty: beginner
-skillTags: ["common-words", "high-frequency"]
-tags: ["common-words", "sight-words", "high-frequency", "heart-words"]
+skillTags: ["high-frequency-words", "high-frequency"]
+tags: ["high-frequency-words", "high-frequency", "heart-words"]
 order: 102
 estimatedDurationMinutes: 7
 status: published
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "K common words"
+  tier: "K high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

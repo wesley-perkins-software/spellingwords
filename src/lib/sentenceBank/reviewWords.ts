@@ -32,7 +32,7 @@ export const REVIEW_WORDS: ReviewWordEntry[] = [
     reason: 'Silent H: "aʊər" — children may misspell thinking it sounds like "our"',
     recommendation: 'Safe to add. Pronunciation is unambiguous; TTS handles it reliably.',
     status: 'safe-to-add',
-    notes: 'Common sight word, worth adding. Example: "We waited about an hour for the cookies to bake."',
+    notes: 'Common high-frequency word, worth adding. Example: "We waited about an hour for the cookies to bake."',
   },
   {
     word: 'eight',
@@ -43,7 +43,7 @@ export const REVIEW_WORDS: ReviewWordEntry[] = [
   },
   {
     word: 'people',
-    reason: 'Very common word, possibly missing from bank',
+    reason: 'Very high-frequency word, possibly missing from bank',
     recommendation: 'Safe to add if not present.',
     status: 'safe-to-add',
     notes: 'Example: "Many people gathered in the town square to watch the parade."',

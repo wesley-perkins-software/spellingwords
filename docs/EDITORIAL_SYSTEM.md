@@ -84,10 +84,10 @@ This is a decision rule, not a formula: it exists so every author reaches the sa
 - Readiness: can already spell the base words the rule modifies; recognizes the "before" pattern while reading; is starting to write words where the rule applies.
 - FAQ: What is this rule and why does English spelling work this way? When does the rule *not* apply (exceptions)? How is it different from [a similar/adjacent rule]? What comes after this list?
 
-### 5. Sight-word pages
+### 5. High-frequency-word pages
 *Dolch tiers (pre-primer, primer, first–third grade, nouns)*
 - Readiness: can recognize these words when reading, even without spelling them; has practiced the previous Dolch tier; is starting to write short sentences that need these high-frequency words.
-- FAQ: Why do sight words matter if they don't follow regular spelling rules? Should they be memorized rather than sounded out? What's the difference between this part and the next/previous part of the tier? What comes after this tier?
+- FAQ: Why do high-frequency words matter if they don't follow regular spelling rules? Should they be memorized rather than sounded out? What's the difference between this part and the next/previous part of the tier? What comes after this tier?
 
 ### 6. Prefix pages
 *un-, re-, and other prefix lists*

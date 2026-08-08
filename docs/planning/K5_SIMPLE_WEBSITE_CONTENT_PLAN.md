@@ -11,7 +11,7 @@
 Every grade page uses no more than these three headings:
 
 1. **Learn in Order** — the main, numbered route through the grade’s spelling instruction. This is the visually dominant section and the only section a parent needs to follow from start to finish.
-2. **Common Words to Spell** — a short, intentional sequence of common or tricky words when that is useful for the grade. It is prominent in K–1, smaller in Grade 2, briefly renamed in Grade 3, and omitted in Grades 4–5.
+2. **High-Frequency Words to Spell** — a short, intentional sequence of common or tricky words when that is useful for the grade. It is prominent in K–1, smaller in Grade 2, briefly renamed in Grade 3, and omitted in Grades 4–5.
 3. **More Practice** — optional topic, subject, seasonal, and challenge practice. It never contains a foundational spelling lesson.
 
 Not every grade shows every heading. Grades 4–5 show **Learn in Order** and **More Practice** only. Their commonly confused words are part of the main spelling work, not a separate parallel word-list section. A parent opening any page therefore sees one clear next step first, with optional material clearly below it.
@@ -30,7 +30,7 @@ Not every grade shows every heading. Grades 4–5 show **Learn in Order** and **
 6. Short U
 7. Mixed Short Vowels
 
-#### Common Words to Spell
+#### High-Frequency Words to Spell
 
 - Kindergarten Heart Words
 
@@ -56,7 +56,7 @@ Not every grade shows every heading. Grades 4–5 show **Learn in Order** and **
 9. Longer Words and Final Y
 10. -tch and -dge Endings
 
-#### Common Words to Spell
+#### High-Frequency Words to Spell
 
 - Grade 1 Heart Words
 
@@ -76,9 +76,9 @@ Not every grade shows every heading. Grades 4–5 show **Learn in Order** and **
 6. Soft C and Soft G
 7. Beginning Prefixes and Suffixes
 
-#### Common Words to Spell
+#### High-Frequency Words to Spell
 
-- Tricky Common Words
+- Tricky High-Frequency Words
 
 #### More Practice
 
@@ -96,9 +96,9 @@ Not every grade shows every heading. Grades 4–5 show **Learn in Order** and **
 5. Longer Words and Syllable Breaks
 6. Homophones and Tricky Choices
 
-#### Common Words to Spell
+#### High-Frequency Words to Spell
 
-- Common Words and Tricky Choices
+- High-Frequency Words and Tricky Choices
 
 #### More Practice
 
@@ -112,7 +112,7 @@ Not every grade shows every heading. Grades 4–5 show **Learn in Order** and **
 1. Greek and Latin Roots
 2. Prefixes and Suffixes
 3. Advanced Multisyllabic Words
-4. Common Word Endings
+4. High-Frequency Word Endings
 5. Related Words and Spelling Changes
 6. Homophones and Editing Choices
 
@@ -182,7 +182,7 @@ Not every grade shows every heading. Grades 4–5 show **Learn in Order** and **
 | 2 | Silent Letters and Spelling Patterns | Existing page, expanded/revised | No | Optional Silent Letters | Reuse `grade-2-silent-letter-words`; add conventional patterns in compatible revised content. |
 | 2 | Soft C and Soft G | New practice page | Yes | Later: Soft C and G | No suitable dedicated practice page exists. |
 | 2 | Beginning Prefixes and Suffixes | Grouped card linking to existing pages | No | Yes — Prefixes; Word Endings | Reuse UN/RE and FUL/LESS pages; use comparatives and regular plurals as supporting practices, not extra roadmap cards. |
-| 2 | Tricky Common Words | Existing collection, curated/reframed | No | No | Use the Dolch Second Grade collection plus a selected list of common confusing words; do not make two parallel routes. |
+| 2 | Tricky High-Frequency Words | Existing collection, curated/reframed | No | No | Use the Dolch Second Grade collection plus a selected list of common confusing words; do not make two parallel routes. |
 | 2 | Compound Words | Existing page | No | No | Reuse `2nd-grade-compound-words`. |
 | 2 | Classroom and Topic Words | Collection/secondary browse page | No | No | Curate existing Everyday, Action, and Describing Words; add subject-topic pages only as they are authored. |
 | 3 | Prefixes | Existing page | No | Yes — Prefixes | Reuse `3rd-grade-prefix-words`. |
@@ -191,13 +191,13 @@ Not every grade shows every heading. Grades 4–5 show **Learn in Order** and **
 | 3 | Plurals, Possessives, and Contractions | New practice page | Yes | No | Build one Grade 3 conventions practice page; existing Grade 2 plurals/contractions can be review links, but possessives are missing. |
 | 3 | Longer Words and Syllable Breaks | Existing page, revise title/copy | No | Later: Multisyllabic Words | Reuse `3rd-grade-multisyllabic-words`; add syllable-break framing. |
 | 3 | Homophones and Tricky Choices | Existing page | No | Yes — Homophones | Reuse `3rd-grade-homophones`. |
-| 3 | Common Words and Tricky Choices | Existing collection, curated/reframed | No | No | A small secondary collection drawing from Dolch Third Grade and selected common confusions; do not repeat the full Homophones card. |
+| 3 | High-Frequency Words and Tricky Choices | Existing collection, curated/reframed | No | No | A small secondary collection drawing from Dolch Third Grade and selected common confusions; do not repeat the full Homophones card. |
 | 3 | Writing and Topic Words | Collection/secondary browse page | No | No | Curate existing Reading & Writing, Everyday, and Describing Words. |
 | 3 | Challenge Words | New collection/secondary browse page | No | No | A small optional collection; author only after core Grade 3 work is complete. |
 | 4 | Greek and Latin Roots | Grouped card linking to existing pages | No | Yes — Greek/Latin Word Parts | Reuse `tier-1-roots-and-patterns` and `tier-2-greek-latin-roots`. |
 | 4 | Prefixes and Suffixes | Grouped card linking to existing pages | No | Yes — Prefixes; Word Endings | Reuse the existing advanced prefix and suffix pages. |
 | 4 | Advanced Multisyllabic Words | Existing page | No | Later: Multisyllabic Words | Reuse `4th-grade-multisyllabic-academic-words`. |
-| 4 | Common Word Endings | New practice page | Yes | Later: common endings | Needs focused work with stable endings such as -tion, -sion, and -ture. |
+| 4 | High-Frequency Word Endings | New practice page | Yes | Later: common endings | Needs focused work with stable endings such as -tion, -sion, and -ture. |
 | 4 | Related Words and Spelling Changes | New practice page | Yes | Later: related words | Needs a morphology-led practice set; do not substitute a themed vocabulary list. |
 | 4 | Homophones and Editing Choices | Existing page, revise title/copy | No | Yes — Homophones | Reuse `4th-grade-commonly-confused-words` with editing-transfer framing. |
 | 4 | Science and Social Studies Words | Collection/secondary browse page | No | No | Curate Community/Content Words and future science/civics lists. |
@@ -214,7 +214,7 @@ Not every grade shows every heading. Grades 4–5 show **Learn in Order** and **
 
 ### What actually needs authoring
 
-The only new core practice pages proposed by this plan are: **Grade 2 Longer Words and Syllables; Grade 2 Consonant-le and Common Endings; Grade 2 Soft C and Soft G; Grade 3 Plurals, Possessives, and Contractions; Grade 4 Common Word Endings; Grade 4 Related Words and Spelling Changes; and Grade 5 Spelling Strategies for Editing.** “Challenge Words” are explicitly deferred and never block the core route. All other gaps are card copy, a calm grouping page, or a compatible revision to existing content.
+The only new core practice pages proposed by this plan are: **Grade 2 Longer Words and Syllables; Grade 2 Consonant-le and Common Endings; Grade 2 Soft C and Soft G; Grade 3 Plurals, Possessives, and Contractions; Grade 4 High-Frequency Word Endings; Grade 4 Related Words and Spelling Changes; and Grade 5 Spelling Strategies for Editing.** “Challenge Words” are explicitly deferred and never block the core route. All other gaps are card copy, a calm grouping page, or a compatible revision to existing content.
 
 ## 4. Skills recommendation
 
@@ -227,7 +227,7 @@ The only new core practice pages proposed by this plan are: **Grade 2 Longer Wor
 - **When does a grade card open one practice page?** When the parent-sized concept and existing practice page match cleanly: Short A, Mixed Short Vowels, Silent E, FLOSS, or Homophones.
 - **When does a grade card open several smaller Skill pages?** When one parent-sized step is naturally made of a few choices: Vowel Teams, R-Controlled Vowels, Digraphs, Blends, or Grade 3 spelling changes. The grade card supplies the order; the smaller pages supply focused practice.
 - **How is duplicate content avoided?** The grade card links to the existing Skill/practice page. It does not copy its word list into a grade-only version. Retain stable pages and use compatible title/copy updates or a grouping page where needed.
-- **What belongs only in the grade journey?** First Words; the recommended order; Heart/Common-word sequences; grade-specific writing conventions; editing transfer; and themed/subject collections.
+- **What belongs only in the grade journey?** First Words; the recommended order; Heart/High-frequency-word sequences; grade-specific writing conventions; editing transfer; and themed/subject collections.
 - **What can remain a Skill without a prominent grade-roadmap card?** Individual blend pages, individual vowel-team pages, individual digraph pages, C/K/CK choices, and focused final-ck/FLOSS/TCH-DGE practice. They are useful when sought directly but would clutter the grade route.
 
 **Governing rule:** A Skill is reusable practice for a spelling pattern. A grade page places the most relevant practice in a recommended order.
@@ -242,7 +242,7 @@ Kindergarten has one unambiguous start-to-finish route: **First Words → Short 
 - **Digraphs:** Put them in **More Practice** as **Ready for More: Consonant Digraphs**. This honestly accommodates late-K exposure without presenting it as the next required lesson for every child.
 - **Final -ck:** Do not show it on the Kindergarten page. Preserve its existing stable page for direct practice and use it within Grade 1’s Digraphs and Final -ck work.
 - **FLOSS/double final consonants:** Do not show it on the Kindergarten page. Its primary instruction is Grade 1’s **Double Final Consonants** card. Preserve the existing K double-consonant page as non-roadmap supporting practice until its role is reviewed; do not delete it.
-- **Heart Words and Dolch Pre-Primer:** Show one card only: **Kindergarten Heart Words**. Its small sets are the intended order. Dolch Pre-Primer is a supporting collection linked from inside that experience or from a quiet “see more common words” link, never a second visible K pathway.
+- **Heart Words and Dolch Pre-Primer:** Show one card only: **Kindergarten Heart Words**. Its small sets are the intended order. Dolch Pre-Primer is a supporting collection linked from inside that experience or from a quiet “see more high-frequency words” link, never a second visible K pathway.
 - **Themes:** Show only Animal Words, Numbers and Colors, and one **More Kindergarten Topics** card. The latter contains shapes, family, food, school, body, feelings, and describing words so the grade page remains calm.
 
 ## 6. Grade 1 normalization
@@ -256,7 +256,7 @@ Keep the existing CVC/C-K review, FLOSS, Digraphs/Final CK, Beginning Blends, En
 - Combine the two existing inflectional-ending pages under **Word Endings: -s, -es, -ed, and -ing**.
 - Combine the two existing vowel-team pages under **Vowel Teams**.
 - Keep each broad Blend card as one visible step; individual BL/BR/… and final-blend pages stay targeted practice beneath it.
-- Keep Grade 1 Heart Words as the one common-word card; its part pages and Heart Word Practice page are supporting practice, not parallel pathways.
+- Keep Grade 1 Heart Words as the one high-frequency-word card; its part pages and Heart Word Practice page are supporting practice, not parallel pathways.
 
 ### Move, review, or remove from the numbered route
 

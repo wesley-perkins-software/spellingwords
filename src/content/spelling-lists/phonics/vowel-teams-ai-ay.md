@@ -71,7 +71,7 @@ This tendency describes the base word, not every letter string a longer word mig
 
 ### A Genuine Exception Worth Knowing
 
-The position tendency is strong but not exceptionless once a learner moves beyond the small set of common words this page teaches — a small number of English words, mostly borrowed from other languages (such as *chai*), end in *ai*. These are uncommon enough in early reading and writing that they don't need to be taught alongside the regular pattern; naming the tendency as "typical," not "always," is enough to keep it accurate without needing to list every exception.
+The position tendency is strong but not exceptionless once a learner moves beyond the small set of high-frequency words this page teaches — a small number of English words, mostly borrowed from other languages (such as *chai*), end in *ai*. These are uncommon enough in early reading and writing that they don't need to be taught alongside the regular pattern; naming the tendency as "typical," not "always," is enough to keep it accurate without needing to list every exception.
 
 ### How to Practice AI and AY Words
 

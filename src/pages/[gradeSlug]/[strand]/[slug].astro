@@ -66,7 +66,7 @@ const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: gradeHubForBreadcrumb.label, href: getGradeHubPath(route.grade) },
   { label: route.section, href: `/${route.gradeSlug}/${route.classification}` },
-  { label: data.contentRole === 'sight-word-set' ? `Set ${route.finalSlug.replace('set-', '')}` : data.title },
+  { label: data.contentRole === 'high-frequency-word-set' ? `Set ${route.finalSlug.replace('set-', '')}` : data.title },
 ];
 
 const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);

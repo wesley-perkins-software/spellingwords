@@ -23,18 +23,18 @@ export const GRADE_2_CORE_IDS: readonly string[] = [
 ];
 
 /**
- * Grade 2 Common Words sets. Documentation only — `sight-word-set` is not a
+ * Grade 2 High-Frequency Words sets. Documentation only — `high-frequency-word-set` is not a
  * `grade-unit`, so these ids never enter `buildGradeUnitSequence()`. Kept for
  * parity with the K/Grade 1 progression files and any future badge lookup.
  */
-export const GRADE_2_COMMON_WORD_IDS: readonly string[] = [
-  'grade-2-common-words-1',
-  'grade-2-common-words-2',
-  'grade-2-common-words-3',
-  'grade-2-common-words-4',
-  'grade-2-common-words-5',
-  'grade-2-common-words-6',
-  'grade-2-common-words-7',
+export const GRADE_2_HFW_SET_IDS: readonly string[] = [
+  'grade-2-high-frequency-words-set-1',
+  'grade-2-high-frequency-words-set-2',
+  'grade-2-high-frequency-words-set-3',
+  'grade-2-high-frequency-words-set-4',
+  'grade-2-high-frequency-words-set-5',
+  'grade-2-high-frequency-words-set-6',
+  'grade-2-high-frequency-words-set-7',
 ];
 
 /**
@@ -65,13 +65,13 @@ export const grade2Badges: Record<string, string> = {
   'grade-2-silent-letter-words': 'Core Unit',
   'grade-2-list-02': 'Core Unit',
   'grade-2-contractions': 'Core Unit',
-  'grade-2-common-words-1': 'Common Words',
-  'grade-2-common-words-2': 'Common Words',
-  'grade-2-common-words-3': 'Common Words',
-  'grade-2-common-words-4': 'Common Words',
-  'grade-2-common-words-5': 'Common Words',
-  'grade-2-common-words-6': 'Common Words',
-  'grade-2-common-words-7': 'Common Words',
+  'grade-2-high-frequency-words-set-1': 'High-Frequency Words',
+  'grade-2-high-frequency-words-set-2': 'High-Frequency Words',
+  'grade-2-high-frequency-words-set-3': 'High-Frequency Words',
+  'grade-2-high-frequency-words-set-4': 'High-Frequency Words',
+  'grade-2-high-frequency-words-set-5': 'High-Frequency Words',
+  'grade-2-high-frequency-words-set-6': 'High-Frequency Words',
+  'grade-2-high-frequency-words-set-7': 'High-Frequency Words',
   'grade-2-months-of-the-year': 'Vocabulary',
   'grade-2-money-words': 'Vocabulary',
   'grade-2-number-words-20-100': 'Vocabulary',

@@ -22,7 +22,7 @@ The product should feel simple, trustworthy, immediate, child-friendly, useful t
 
 SpellingWords.app is not a learning-management system, school administration platform, gradebook, broad vocabulary encyclopedia, gamified educational app, clone of a commercial curriculum, or content farm containing every technically possible word-list page.
 
-The practice experience is the center of the product. List Detail pages, Grade Units, Skill pages, sight-word sets, vocabulary lists, guides, and custom-word flows are ways of reaching or supplying useful spelling practice. They are not ends in themselves.
+The practice experience is the center of the product. List Detail pages, Grade Units, Skill pages, high-frequency-word sets, vocabulary lists, guides, and custom-word flows are ways of reaching or supplying useful spelling practice. They are not ends in themselves.
 
 ## 3. The Three Primary User Journeys
 
@@ -55,7 +55,7 @@ Expected experience:
 - The grade page acts as a roadmap, not an exhaustive directory.
 - Each core unit provides immediate useful practice.
 - The user can move to previous or next grade-level units.
-- Supporting skill, sight-word, or vocabulary practice may be recommended where appropriate.
+- Supporting skill, high-frequency-word, or vocabulary practice may be recommended where appropriate.
 
 Conceptual role: “Show me a sensible grade-level learning path.”
 
@@ -63,7 +63,7 @@ Conceptual role: “Show me a sensible grade-level learning path.”
 
 User intent: “I know what we need to practice.”
 
-Examples include spelling skills, sight words, focused practice needs, and named sets such as short vowels, blends, digraphs, silent e, vowel teams, r-controlled vowels, prefixes, suffixes, homophones, or Dolch words.
+Examples include spelling skills, high-frequency words, focused practice needs, and named sets such as short vowels, blends, digraphs, silent e, vowel teams, r-controlled vowels, prefixes, suffixes, homophones, or Dolch words.
 
 Expected experience:
 
@@ -86,7 +86,7 @@ The three product journeys are simple decisions users make:
 - I know the grade.
 - I know the skill or word type.
 
-Internal content systems support those journeys. They may include curriculum, skills, sight-word sets, vocabulary and themes, teaching guides, and collections.
+Internal content systems support those journeys. They may include curriculum, skills, high-frequency-word sets, vocabulary and themes, teaching guides, and collections.
 
 These systems must not automatically become top-level navigation. Parents and children should not need to understand taxonomy, metadata, curriculum data, or editorial workflow to start practicing.
 
@@ -98,7 +98,7 @@ These are conceptual content identities, not necessarily route names, Astro coll
 
 The Practice Tool accepts user-provided words, runs spelling practice, provides calm feedback, and supports both curated lists and custom lists.
 
-The interaction should remain familiar across custom words, Grade Units, Skill pages, Sight Word Sets, and Vocabulary or Theme Lists.
+The interaction should remain familiar across custom words, Grade Units, Skill pages, High-Frequency Word Sets, and Vocabulary or Theme Lists.
 
 ### 5.2 Grade Roadmap
 
@@ -134,11 +134,11 @@ Examples include Short A, Consonant Digraphs, Beginning Blends, Silent E, AI and
 
 A skill may be introduced in one grade and revisited in another. Current grade metadata must not automatically imply that a page is fundamentally a Grade Unit.
 
-### 5.5 Sight Word Set
+### 5.5 High-Frequency Word Set
 
-A Sight Word Set supports recognized high-frequency word systems and irregular-word practice. Examples may include Dolch, Fry, Heart Words, or other carefully defined sets.
+A High-Frequency Word Set supports recognized high-frequency word systems and irregular-word practice. Examples may include Dolch, Fry, Heart Words, or other carefully defined sets.
 
-Sight Words are conceptually distinct because user intent differs from both grade curriculum and phonics-pattern practice. Sight-word resources may be reached through Grade Roadmaps, skill or list browsing, contextual recommendations, direct search, or collections such as Dolch. Their future navigation treatment is intentionally undecided.
+High-Frequency Words are conceptually distinct because user intent differs from both grade curriculum and phonics-pattern practice. High-frequency-word resources may be reached through Grade Roadmaps, skill or list browsing, contextual recommendations, direct search, or collections such as Dolch. Their future navigation treatment is intentionally undecided.
 
 Important terms must not be collapsed:
 
@@ -306,7 +306,7 @@ Complexity may exist internally, but it should not be exposed unless it helps th
 
 ## 13. Practice Experience Principles
 
-The practice experience should remain consistent across custom words, Grade Units, Skill pages, Sight Word Sets, and Vocabulary or Theme Lists. The source and purpose of the words may differ, but the central interaction should feel familiar.
+The practice experience should remain consistent across custom words, Grade Units, Skill pages, High-Frequency Word Sets, and Vocabulary or Theme Lists. The source and purpose of the words may differ, but the central interaction should feel familiar.
 
 The project should favor calm feedback, clear instructions, minimal setup, and no mandatory account.
 
@@ -344,7 +344,7 @@ Different content identities answer different intents:
 
 - Grade Roadmaps answer grade-based curriculum intent.
 - Skill pages answer focused spelling-concept intent.
-- Sight Word Sets answer high-frequency, irregular-word, or named-set intent.
+- High-Frequency Word Sets answer high-frequency, irregular-word, or named-set intent.
 - Vocabulary or Theme Lists answer topic- or subject-based supplemental intent.
 - Teaching Guides answer explanatory intent.
 

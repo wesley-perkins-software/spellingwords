@@ -48,10 +48,10 @@ describe("frozen K–2 grade hub cards", () => {
       "kindergarten-short-e-words",
       "kindergarten-mixed-vowel-review",
       "kindergarten-consonant-digraphs",
-      "kindergarten-common-words-1",
-      "kindergarten-common-words-2",
-      "kindergarten-common-words-3",
-      "kindergarten-common-words-4",
+      "kindergarten-high-frequency-words-set-1",
+      "kindergarten-high-frequency-words-set-2",
+      "kindergarten-high-frequency-words-set-3",
+      "kindergarten-high-frequency-words-set-4",
       "kindergarten-animal-words",
       "kindergarten-body-words",
       "kindergarten-number-words",
@@ -83,13 +83,13 @@ describe("frozen K–2 grade hub cards", () => {
       "grade-1-inflectional-endings-ed-ing",
       "grade-1-r-controlled-ar-or",
       "grade-1-tch-dge-ending-rules",
-      "grade-1-common-words-1",
-      "grade-1-common-words-2",
-      "grade-1-common-words-3",
-      "grade-1-common-words-4",
-      "grade-1-common-words-5",
-      "grade-1-common-words-6",
-      "grade-1-common-words-7",
+      "grade-1-high-frequency-words-set-1",
+      "grade-1-high-frequency-words-set-2",
+      "grade-1-high-frequency-words-set-3",
+      "grade-1-high-frequency-words-set-4",
+      "grade-1-high-frequency-words-set-5",
+      "grade-1-high-frequency-words-set-6",
+      "grade-1-high-frequency-words-set-7",
       "grade-1-weather-words",
       "grade-1-clothing-words",
       "grade-1-shape-words",
@@ -98,7 +98,7 @@ describe("frozen K–2 grade hub cards", () => {
     ]);
     expect(GRADE_1_HUB_SECTIONS[1].summary).toContain("7 sets · 84 words");
     expect(GRADE_1_HUB_SECTIONS[1].cards.every((card) => card.kind === "list")).toBe(true);
-    expect(idsFor(GRADE_1_HUB_SECTIONS)).not.toContain("grade-1-common-words");
+    expect(idsFor(GRADE_1_HUB_SECTIONS)).not.toContain("grade-1-high-frequency-words");
   });
 
   it("renders the complete Grade 2 cards in the authoritative 24-card order", () => {
@@ -121,13 +121,13 @@ describe("frozen K–2 grade hub cards", () => {
       "grade-2-silent-letter-words",
       "grade-2-list-02",
       "grade-2-contractions",
-      "grade-2-common-words-1",
-      "grade-2-common-words-2",
-      "grade-2-common-words-3",
-      "grade-2-common-words-4",
-      "grade-2-common-words-5",
-      "grade-2-common-words-6",
-      "grade-2-common-words-7",
+      "grade-2-high-frequency-words-set-1",
+      "grade-2-high-frequency-words-set-2",
+      "grade-2-high-frequency-words-set-3",
+      "grade-2-high-frequency-words-set-4",
+      "grade-2-high-frequency-words-set-5",
+      "grade-2-high-frequency-words-set-6",
+      "grade-2-high-frequency-words-set-7",
       "grade-2-transportation-words",
       "grade-2-money-words",
       "grade-2-number-words-20-100",
@@ -141,7 +141,7 @@ describe("frozen K–2 grade hub cards", () => {
     expect(GRADE_2_HUB_SECTIONS[1].summary).toContain("7 sets · 84 words");
     expect(GRADE_2_HUB_SECTIONS[1].summary).toContain("Heart Word guidance");
     expect(GRADE_2_HUB_SECTIONS[1].cards.every((card) => card.kind === "list")).toBe(true);
-    expect(idsFor(GRADE_2_HUB_SECTIONS)).not.toContain("grade-2-common-words");
+    expect(idsFor(GRADE_2_HUB_SECTIONS)).not.toContain("grade-2-high-frequency-words");
   });
 
   it("renders the complete Grade 3 cards across all three sections", () => {
@@ -158,11 +158,11 @@ describe("frozen K–2 grade hub cards", () => {
       "grade-3-multisyllabic-words",
       "grade-3-homophones",
       "grade-3-root-word-families",
-      "grade-3-common-words-1",
-      "grade-3-common-words-2",
-      "grade-3-common-words-3",
-      "grade-3-common-words-4",
-      "grade-3-common-words-5",
+      "grade-3-high-frequency-words-set-1",
+      "grade-3-high-frequency-words-set-2",
+      "grade-3-high-frequency-words-set-3",
+      "grade-3-high-frequency-words-set-4",
+      "grade-3-high-frequency-words-set-5",
       "grade-3-map-globe-words",
       "grade-3-life-cycle-words",
       "grade-3-time-words",
@@ -199,8 +199,8 @@ describe("Grade 5 grade hub cards", () => {
       "grade-5-greek-latin-word-parts",
       "grade-5-commonly-confused-words",
       "grade-5-spelling-changes-related-words",
-      "grade-5-common-words-1",
-      "grade-5-common-words-2",
+      "grade-5-high-frequency-words-set-1",
+      "grade-5-high-frequency-words-set-2",
       "grade-5-money-management-words",
       "grade-5-ecosystem-environment-words",
       "grade-5-fraction-decimal-words",
@@ -220,14 +220,14 @@ describe("Grade 5 grade hub cards", () => {
 
 });
 
-describe("Common Words validation slice content", () => {
+describe("High-Frequency Words validation slice content", () => {
   it("keeps direct Kindergarten high-frequency cards on their canonical set destinations", () => {
     const highFrequencyCards = KINDERGARTEN_HUB_SECTIONS[1].cards;
     expect(highFrequencyCards.map((card) => card.id)).toEqual([
-      "kindergarten-common-words-1",
-      "kindergarten-common-words-2",
-      "kindergarten-common-words-3",
-      "kindergarten-common-words-4",
+      "kindergarten-high-frequency-words-set-1",
+      "kindergarten-high-frequency-words-set-2",
+      "kindergarten-high-frequency-words-set-3",
+      "kindergarten-high-frequency-words-set-4",
     ]);
     expect(highFrequencyCards.every((card) => card.kind === "list")).toBe(true);
   });

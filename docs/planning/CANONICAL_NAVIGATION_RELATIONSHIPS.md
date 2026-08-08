@@ -80,8 +80,8 @@ Shared words may be *recorded* as supporting evidence once a broader relationshi
 
 ### High-Frequency Words philosophy — also one continuous K–5 chain
 
-- **Review First** = the immediately preceding HF set. None only for `kindergarten-common-words-1`.
-- **Next Step** = the immediately following HF set. None only for `grade-5-common-words-4`.
+- **Review First** = the immediately preceding HF set. None only for `kindergarten-high-frequency-words-set-1`.
+- **Next Step** = the immediately following HF set. None only for `grade-5-high-frequency-words-set-4`.
 
 ### Themed Spelling Practice philosophy — exploratory, not pattern reinforcement
 
@@ -106,11 +106,11 @@ Themed Spelling Practice pages are fun, curious, bounded vocabulary pages for pa
 
 | Grade transition | Next Step link |
 |---|---|
-| K → 1 | `kindergarten-common-words-4` → `grade-1-common-words-1` |
-| 1 → 2 | `grade-1-common-words-6` → `grade-2-common-words-1` |
-| 2 → 3 | `grade-2-common-words-6` → `grade-3-common-words-1` |
-| 3 → 4 | `grade-3-common-words-5` → `grade-4-common-words-1` |
-| 4 → 5 | `grade-4-common-words-4` → `grade-5-common-words-1` |
+| K → 1 | `kindergarten-high-frequency-words-set-4` → `grade-1-high-frequency-words-set-1` |
+| 1 → 2 | `grade-1-high-frequency-words-set-6` → `grade-2-high-frequency-words-set-1` |
+| 2 → 3 | `grade-2-high-frequency-words-set-6` → `grade-3-high-frequency-words-set-1` |
+| 3 → 4 | `grade-3-high-frequency-words-set-5` → `grade-4-high-frequency-words-set-1` |
+| 4 → 5 | `grade-4-high-frequency-words-set-4` → `grade-5-high-frequency-words-set-1` |
 
 ### Relationship constraints — permanent architectural rules
 
@@ -152,7 +152,7 @@ Canonical, hub-visible pages per `K5_FINAL_CONTENT_ARCHITECTURE.md` and `src/lib
 | `kindergarten-mixed-vowel-review` | `kindergarten-short-e-words` | `kindergarten-consonant-digraphs` | `kindergarten-animal-words` |
 | `kindergarten-consonant-digraphs` | `kindergarten-mixed-vowel-review` | `grade-1-cvc-short-vowels-c-k-rule` | `kindergarten-ck-ending-words`, `kindergarten-double-consonants` |
 
-**High-Frequency Words**: `kindergarten-common-words-1..4`, chained in order, all Explore More: None.
+**High-Frequency Words**: `kindergarten-high-frequency-words-set-1..4`, chained in order, all Explore More: None.
 
 **Themed Spelling Practice**: `kindergarten-number-words` → `grade-1-number-words-11-20`; `kindergarten-color-words` ↔ `kindergarten-animal-words`; `kindergarten-animal-words` → `kindergarten-first-words`, `kindergarten-color-words`; `kindergarten-body-words`, `kindergarten-family-words`: None.
 
@@ -166,16 +166,16 @@ Canonical, hub-visible pages per `K5_FINAL_CONTENT_ARCHITECTURE.md` and `src/lib
 | `grade-1-floss-rule` | `grade-1-cvc-short-vowels-c-k-rule` | `grade-1-consonant-digraphs-final-ck` | None |
 | `grade-1-consonant-digraphs-final-ck` | `grade-1-floss-rule` | `grade-1-beginning-consonant-blends` | `kindergarten-ck-ending-words`, `grade-1-cvc-short-vowels-c-k-rule` |
 | `grade-1-beginning-consonant-blends` | `grade-1-consonant-digraphs-final-ck` | `grade-1-ending-consonant-blends` | None |
-| `grade-1-ending-consonant-blends` | `grade-1-beginning-consonant-blends` | `grade-1-long-vowels-silent-e` | `grade-2-common-words-2` |
+| `grade-1-ending-consonant-blends` | `grade-1-beginning-consonant-blends` | `grade-1-long-vowels-silent-e` | `grade-2-high-frequency-words-set-2` |
 | `grade-1-long-vowels-silent-e` | `grade-1-ending-consonant-blends` | `grade-1-open-syllables-final-y` | None |
 | `grade-1-open-syllables-final-y` | `grade-1-long-vowels-silent-e` | `grade-1-long-a-long-o-vowel-teams` | None |
 | `grade-1-long-a-long-o-vowel-teams` | `grade-1-open-syllables-final-y` | `grade-1-inflectional-endings-s-es` | `grade-1-long-e-vowel-teams` |
 | `grade-1-inflectional-endings-s-es` | `grade-1-long-a-long-o-vowel-teams` | `grade-1-inflectional-endings-ed-ing` | None |
 | `grade-1-inflectional-endings-ed-ing` | `grade-1-inflectional-endings-s-es` | `grade-1-r-controlled-ar-or` | None |
-| `grade-1-r-controlled-ar-or` | `grade-1-inflectional-endings-ed-ing` | `grade-1-tch-dge-ending-rules` | `grade-1-r-controlled-er-ir-ur`, `grade-1-common-words-3` |
+| `grade-1-r-controlled-ar-or` | `grade-1-inflectional-endings-ed-ing` | `grade-1-tch-dge-ending-rules` | `grade-1-r-controlled-er-ir-ur`, `grade-1-high-frequency-words-set-3` |
 | `grade-1-tch-dge-ending-rules` | `grade-1-r-controlled-ar-or` | `vowel-teams-oi-oy` | None |
 
-**High-Frequency Words**: `grade-1-common-words-1..6`, chained; `common-words-3` → `grade-1-r-controlled-ar-or`; all others None.
+**High-Frequency Words**: `grade-1-high-frequency-words-set-1..6`, chained; `high-frequency-words-3` → `grade-1-r-controlled-ar-or`; all others None.
 
 **Themed Spelling Practice**: `grade-1-weather-words` ↔ `grade-1-clothing-words`; `grade-1-shape-words`: None; `grade-1-number-words-11-20` ↔ `kindergarten-number-words`, `grade-2-number-words-20-100`; `grade-1-days-of-the-week` ↔ `grade-2-months-of-the-year`.
 
@@ -187,16 +187,16 @@ Canonical, hub-visible pages per `K5_FINAL_CONTENT_ARCHITECTURE.md` and `src/lib
 |---|---|---|---|
 | `vowel-teams-oi-oy` | `grade-1-tch-dge-ending-rules` | `vowel-teams-ou-ow` | None |
 | `vowel-teams-ou-ow` | `vowel-teams-oi-oy` | `grade-2-oo-two-sounds` | None |
-| `grade-2-oo-two-sounds` | `vowel-teams-ou-ow` | `grade-2-au-aw-words` | `grade-2-common-words-1`, `grade-2-common-words-3` |
-| `grade-2-au-aw-words` | `grade-2-oo-two-sounds` | `grade-2-soft-c-soft-g` | `grade-2-common-words-1`, `-5`, `-6` |
-| `grade-2-soft-c-soft-g` | `grade-2-au-aw-words` | `grade-2-two-syllable-words` | `grade-2-common-words-3` |
+| `grade-2-oo-two-sounds` | `vowel-teams-ou-ow` | `grade-2-au-aw-words` | `grade-2-high-frequency-words-set-1`, `grade-2-high-frequency-words-set-3` |
+| `grade-2-au-aw-words` | `grade-2-oo-two-sounds` | `grade-2-soft-c-soft-g` | `grade-2-high-frequency-words-set-1`, `-5`, `-6` |
+| `grade-2-soft-c-soft-g` | `grade-2-au-aw-words` | `grade-2-two-syllable-words` | `grade-2-high-frequency-words-set-3` |
 | `grade-2-two-syllable-words` | `grade-2-soft-c-soft-g` | `grade-2-final-stable-le` | None |
 | `grade-2-final-stable-le` | `grade-2-two-syllable-words` | `grade-2-silent-letter-words` | None |
-| `grade-2-silent-letter-words` | `grade-2-final-stable-le` | `grade-2-list-02` | `grade-4-common-words-1`, `grade-5-common-words-1` |
+| `grade-2-silent-letter-words` | `grade-2-final-stable-le` | `grade-2-list-02` | `grade-4-high-frequency-words-set-1`, `grade-5-high-frequency-words-set-1` |
 | `grade-2-list-02` (Compound Words) | `grade-2-silent-letter-words` | `grade-2-contractions` | None |
 | `grade-2-contractions` | `grade-2-list-02` | `grade-3-prefix-words` | `grade-3-homophones` |
 
-**High-Frequency Words**: `grade-2-common-words-1` → `grade-2-oo-two-sounds`, `grade-2-au-aw-words`; `-2` → `grade-1-ending-consonant-blends`; `-3` → `grade-2-soft-c-soft-g`, `grade-2-oo-two-sounds`; `-4`: None; `-5`, `-6` → `grade-2-au-aw-words`.
+**High-Frequency Words**: `grade-2-high-frequency-words-set-1` → `grade-2-oo-two-sounds`, `grade-2-au-aw-words`; `-2` → `grade-1-ending-consonant-blends`; `-3` → `grade-2-soft-c-soft-g`, `grade-2-oo-two-sounds`; `-4`: None; `-5`, `-6` → `grade-2-au-aw-words`.
 
 **Themed Spelling Practice**: `grade-2-transportation-words`, `grade-2-community-helpers`: None; `grade-2-money-words` ↔ `grade-2-number-words-20-100` (also ↔ `grade-1-number-words-11-20`); `grade-2-months-of-the-year` ↔ `grade-1-days-of-the-week`.
 
@@ -214,7 +214,7 @@ Canonical, hub-visible pages per `K5_FINAL_CONTENT_ARCHITECTURE.md` and `src/lib
 | `grade-3-homophones` | `grade-3-multisyllabic-words` | `grade-3-root-word-families` | `grade-3-possessives` |
 | `grade-3-root-word-families` | `grade-3-homophones` | `grade-4-multisyllabic-academic-words` | `tier-1-roots-and-patterns` |
 
-**High-Frequency Words**: `grade-3-common-words-1..5`, chained, all Explore More: None.
+**High-Frequency Words**: `grade-3-high-frequency-words-set-1..5`, chained, all Explore More: None.
 
 **Themed Spelling Practice** (ratified canonical, four live pages): `grade-3-map-globe-words`, `grade-3-life-cycle-words`, `grade-3-time-words`, `grade-3-multiplication-division-words` — all Explore More: None.
 

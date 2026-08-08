@@ -53,7 +53,7 @@ Read a row aloud and notice that the ar sound stays exactly the same, even thoug
 
 ### What Is the R-Controlled AR Sound?
 
-When the letter r follows a vowel, it takes over — the vowel no longer makes its usual sound. In *car*, the a doesn't say the short a sound heard in *cat*, and it doesn't say its own letter name either. Instead, a and r work together as one unit and make a new sound: the one heard in *car*, *farm*, and *yard*. This is called an r-controlled vowel, and AR is one of the most dependable examples of it in English — in nearly every common word where the letters a and r sit next to each other, they make this same sound.
+When the letter r follows a vowel, it takes over — the vowel no longer makes its usual sound. In *car*, the a doesn't say the short a sound heard in *cat*, and it doesn't say its own letter name either. Instead, a and r work together as one unit and make a new sound: the one heard in *car*, *farm*, and *yard*. This is called an r-controlled vowel, and AR is one of the most dependable examples of it in English — in nearly every high-frequency word where the letters a and r sit next to each other, they make this same sound.
 
 ### AR Compared With Short A
 

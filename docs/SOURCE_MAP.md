@@ -34,7 +34,7 @@ Proprietary commercial curricula may be referenced as research guides only. Thei
 | Source                      | Status       |
 |-----------------------------|--------------|
 | Reading Rockets             | In progress  |
-| Dolch Sight Words           | Complete     |
+| Dolch High-Frequency Words           | Complete     |
 | Existing Phonics Collections| Strong       |
 | Fry Words                   | Not started  |
 | UFLI                        | Not started  |
@@ -59,11 +59,11 @@ Known follow-up work:
 
 The full Reading Rockets list should be reviewed independently; it is not reproduced here.
 
-### Dolch Sight Words
+### Dolch High-Frequency Words
 
-**Status:** Complete — well represented through existing sight-word lists.
+**Status:** Complete — well represented through existing high-frequency-word lists.
 
-The Dolch list is a canonical source of high-frequency sight words across pre-K through grade 3. The app's existing sight-word curated lists draw directly from Dolch groupings. Coverage is considered strong at K–2; grade 3 Dolch words should be confirmed in the catalog.
+The Dolch list is a canonical source of high-frequency words across pre-K through grade 3. The app's existing high-frequency-word curated lists draw directly from Dolch groupings. Coverage is considered strong at K–2; grade 3 Dolch words should be confirmed in the catalog.
 
 The full Dolch list is not reproduced here.
 
@@ -159,7 +159,7 @@ Quality and traceability matter more than volume. Every word in the universe mus
 ## Source Priority
 
 1. **Reading Rockets** — primary grade-level vocabulary anchor; audit and expand
-2. **Dolch** — high-frequency sight words; largely complete, confirm grade 3
+2. **Dolch** — high-frequency words; largely complete, confirm grade 3
 3. **Existing Phonics Collections** — strong; audit for advanced-pattern gaps
 4. **Fry Words** — high-frequency extension; compare against catalog to find gaps
 5. **UFLI** — phonics scope/sequence reference; use to improve list structure

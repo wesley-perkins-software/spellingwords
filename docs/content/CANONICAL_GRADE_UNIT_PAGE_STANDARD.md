@@ -24,7 +24,7 @@ For traceability, this is the page set `docs/content/CONTENT_IMPROVEMENT_ROADMAP
 
 - **Skill pages** — `docs/content/CANONICAL_SKILL_PAGE_STANDARD.md`.
 - **Grade Hub pages** — `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`.
-- **Common Words (High-Frequency Words) gateways and member sets** — a distinct reference category with its own content model (`K5_FINAL_CONTENT_ARCHITECTURE.md` §9). Not altered or extended here.
+- **High-Frequency Words (High-Frequency Words) gateways and member sets** — a distinct reference category with its own content model (`K5_FINAL_CONTENT_ARCHITECTURE.md` §9). Not altered or extended here.
 - Renderer selection, `contentRole` assignment, template structure, CSS, visual design, curriculum sequencing, navigation architecture.
 
 **Frozen and out of scope for this document** (subordinate to these for any question of page existence, identity, URL, role, or placement):

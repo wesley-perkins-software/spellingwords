@@ -3,7 +3,7 @@ id: au-and-aw-words
 urlSlug: au-and-aw-words
 title: "AU and AW Words"
 description: "How AU and AW spell the same vowel sound heard in saw and cause — and the position tendency, and its genuine exceptions, behind the two spellings, for parents and teachers."
-shortAnswer: "AU and AW spell the same vowel sound — the sound heard in saw, draw, hawk, and cause. In the common words taught here, aw is typically found at the end of a word or right before n or l, while au is typically found in the middle. It's a genuinely useful tendency, not an absolute rule — a few common words, like haul, break it."
+shortAnswer: "AU and AW spell the same vowel sound — the sound heard in saw, draw, hawk, and cause. In the high-frequency words taught here, aw is typically found at the end of a word or right before n or l, while au is typically found in the middle. It's a genuinely useful tendency, not an absolute rule — a few high-frequency words, like haul, break it."
 contentRole: skill
 category: phonics
 grade: "2"
@@ -56,7 +56,7 @@ AU and AW are two-letter spellings for one vowel sound: the sound heard in *saw*
 
 ### Why AW Tends to Appear at the End (or Before N/L) and AU in the Middle
 
-In the common words taught here, *aw* is typically found at the very end of a word, as in *saw* and *draw*, or immediately before *n* or *l*, as in *lawn*, *crawl*, and *hawk*'s close relatives *dawn* and *shawl*. *Au* is typically found in the middle of a word followed by a consonant other than *n* or *l*, as in *cause* and *author*. This is a genuinely useful tendency for choosing a first guess — but it's a tendency, not an absolute rule, and it's worth naming the words that break it rather than pretending they don't exist.
+In the high-frequency words taught here, *aw* is typically found at the very end of a word, as in *saw* and *draw*, or immediately before *n* or *l*, as in *lawn*, *crawl*, and *hawk*'s close relatives *dawn* and *shawl*. *Au* is typically found in the middle of a word followed by a consonant other than *n* or *l*, as in *cause* and *author*. This is a genuinely useful tendency for choosing a first guess — but it's a tendency, not an absolute rule, and it's worth naming the words that break it rather than pretending they don't exist.
 
 ### A Genuine Exception Worth Knowing
 

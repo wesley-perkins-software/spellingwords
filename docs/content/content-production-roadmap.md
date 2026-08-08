@@ -15,7 +15,7 @@ Every row in the backlog below traces back to a specific finding in the Bible or
 | Category | List Count |
 |---|---|
 | `phonics/` | 50 |
-| `sight-words/` | 7 (full Dolch pre-primer → 3rd grade, all published) |
+| `high-frequency-words/` | 7 (full Dolch pre-primer → 3rd grade, all published) |
 | `grade-level/` — K | 7 |
 | `grade-level/` — 1st | 3 |
 | `grade-level/` — 2nd | 4 |
@@ -25,7 +25,7 @@ Every row in the backlog below traces back to a specific finding in the Bible or
 | `challenge/` | 1 |
 | **Total** | **86** |
 
-**Strengths:** 1st and 2nd grade phonics (short vowels, blends, digraphs, silent-e, vowel teams, r-controlled vowels) are comprehensively covered. The Dolch sight-word ladder is complete and fully published. 4th grade has dedicated Greek/Latin root lists (`tier-1-roots-and-patterns`, `tier-2-greek-latin-roots`), and 5th grade has the library's strongest thematic/academic-vocabulary spread.
+**Strengths:** 1st and 2nd grade phonics (short vowels, blends, digraphs, silent-e, vowel teams, r-controlled vowels) are comprehensively covered. The Dolch high-frequency-word ladder is complete and fully published. 4th grade has dedicated Greek/Latin root lists (`tier-1-roots-and-patterns`, `tier-2-greek-latin-roots`), and 5th grade has the library's strongest thematic/academic-vocabulary spread.
 
 **Largest remaining gaps:** Grade 3 has effectively zero morphology content (no prefixes, suffixes, multisyllabic words, or spelling-change rules) — the single largest structural hole in the library. Grade 2 word study beyond phonics is also empty (no contractions, homophones, plural rules, or basic affixes). Kindergarten thematic vocabulary (shapes, family, school, animals) is now filled (Phase D complete). Grades 4 and 5 are missing their next tier of advanced morphology and content-area vocabulary.
 
@@ -113,7 +113,7 @@ Future list creation must follow these existing project rules — this document 
 - **Use secondary/relationship tags sparingly and correctly.** Cross-grade relationships are expressed via `relatedLists` / `prerequisiteLists` / `nextLists`, not a secondary-grade field (`curriculum-bible.md` §12 Rule 3, Decision Rules §12 note under Running Progress Map). These fields resolve by `id`, not `urlSlug` — verify against `resolveListRefs()` behavior documented in the audit's Phase 4 Resolution before publishing.
 - **Follow the approved schema and tagging conventions** in `src/content/config.ts` (`skillTags`, `tags`, `category`, `difficulty`, `status`, `sourceType`, etc.) — no new top-level categories or schema migrations without explicit justification (`curriculum-bible.md` §4 Taxonomy Constraints, §12 Rule 7).
 - **Maintain the K–2 phonics / 3–5 morphology curriculum split.** Grade 3 in particular should receive morphology and academic vocabulary, not phonics review content (`curriculum-bible.md` §4, §7 3rd Grade Notes).
-- **Reuse the existing relationship graph** rather than inventing new sequencing patterns — follow the pattern established by `tier-1-roots-and-patterns` / `tier-2-greek-latin-roots` for root lists and the Dolch chain for sight words.
+- **Reuse the existing relationship graph** rather than inventing new sequencing patterns — follow the pattern established by `tier-1-roots-and-patterns` / `tier-2-greek-latin-roots` for root lists and the Dolch chain for high-frequency words.
 - **Avoid duplicate coverage unless it is an intentional ladder.** The audit confirmed the repeated "everyday words" lists per grade and the 5th-grade-academic-words/challenge/academic-vocabulary overlap are deliberate, verified to have no duplicate words across the ladder (`curriculum-audit-phase-2.md` §3). New lists should follow this same verified-no-overlap standard, not assume overlap is automatically acceptable.
 - **Follow editorial standards** in `docs/CONTENT_STANDARDS.md` (word selection, sentence guidelines, tone, "what we do not publish") and the per-list planning template in `docs/LIST_SPECIFICATIONS.md`.
 

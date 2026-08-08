@@ -4,10 +4,11 @@ import { canonicalGradeRoutes } from './canonicalGradeRoutes';
 import { FROZEN_HF_WORDS_CURRICULUM, HF_WORDS_SET_IDS_BY_GRADE } from './hfWordsCurriculum';
 import { getHighFrequencyNeighbors } from './hfWordsSequence';
 
-const contentDirectory = new URL('../../content/spelling-lists/sight-words/', import.meta.url);
+const contentDirectory = new URL('../../content/spelling-lists/high-frequency-words/', import.meta.url);
 const curriculumSets = Object.entries(FROZEN_HF_WORDS_CURRICULUM).flatMap(([grade, sets]) =>
   sets.map((set) => ({ ...set, grade })),
 );
+const obsoleteHfwTerminology = /(?:sight|common)[-_ ]words?/i;
 
 describe('High-Frequency Words editorial foundation', () => {
   it('keeps all canonical files and public routes aligned with the frozen curriculum', () => {
@@ -17,11 +18,18 @@ describe('High-Frequency Words editorial foundation', () => {
     );
 
     expect(files).toHaveLength(27);
+    expect(files).toEqual(curriculumSets.map((set) => `${set.id}.md`).sort());
     expect(routes).toHaveLength(27);
     expect(routes.map((route) => route.id).sort()).toEqual(
       curriculumSets.map((set) => set.id).sort(),
     );
-    expect(routes.every((route) => route.canonicalPath.endsWith(`/${route.finalSlug}`))).toBe(true);
+    for (const route of routes) {
+      expect(route.canonicalPath).toBe(
+        `/${route.gradeSlug}/high-frequency-words/set-${
+          curriculumSets.find((set) => set.id === route.id)?.setNumber
+        }`,
+      );
+    }
   });
 
   it('uses canonical public names and HFW descriptions in every file', () => {
@@ -31,6 +39,29 @@ describe('High-Frequency Words editorial foundation', () => {
       expect(markdown).toContain(`title: "${gradeLabel} High-Frequency Words — Set ${set.setNumber}"`);
       expect(markdown.toLowerCase()).toContain('description: "');
       expect(markdown.toLowerCase()).toContain('high-frequency words');
+      expect(markdown).toContain('contentRole: high-frequency-word-set');
+      expect(markdown).toContain('category: high-frequency-words');
+      expect(markdown).not.toMatch(obsoleteHfwTerminology);
+    }
+  });
+
+  it('has no obsolete HFW semantic identifiers in active manifests and helpers', () => {
+    const activeSemanticFiles = [
+      'canonicalGradeRoutes.ts',
+      'categoryMeta.ts',
+      'grade2Progression.ts',
+      'grade3Progression.ts',
+      'grade4Progression.ts',
+      'grade5Progression.ts',
+      'gradeHubCards.ts',
+      'hfWordsCurriculum.ts',
+      'hfWordsSequence.ts',
+      'nonCoreNavigation.ts',
+    ];
+    for (const file of activeSemanticFiles) {
+      expect(readFileSync(new URL(file, import.meta.url), 'utf8')).not.toMatch(
+        obsoleteHfwTerminology,
+      );
     }
   });
 

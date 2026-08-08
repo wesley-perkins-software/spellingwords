@@ -37,7 +37,7 @@ words:
 
 The short "i" sound is the vowel sound heard in the middle of *pig*, *sit*, and *win* — distinct from the short "a" sound just practiced. After Short A, this list gives a child a second single vowel sound to hear and spell with the same calm, steady approach.
 
-Every word here follows the same regular, one-sound-per-letter pattern as Short A Words, using common words a kindergartener already knows how to say.
+Every word here follows the same regular, one-sound-per-letter pattern as Short A Words, using high-frequency words a kindergartener already knows how to say.
 
 ### How to practice this list
 

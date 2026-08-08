@@ -3,7 +3,7 @@ id: grade-3-prefix-words
 urlSlug: 3rd-grade-prefix-words
 skillIds: ["un-and-re-prefixes", "common-prefixes"]
 title: "Prefix Words"
-description: "A Grade 3 prefix word list with un-, re-, pre-, dis-, and mis- — common word parts that help third graders spell longer words by meaning."
+description: "A Grade 3 prefix word list with un-, re-, pre-, dis-, and mis- — high-frequency word parts that help third graders spell longer words by meaning."
 shortAnswer: "Third graders practice prefixes like un-, re-, pre-, dis-, and mis- because these word parts come before a base word and change its meaning."
 contentRole: grade-unit
 category: grade-level

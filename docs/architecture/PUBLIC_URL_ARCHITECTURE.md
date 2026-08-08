@@ -55,7 +55,7 @@ They are not URL ancestors. Do not create canonical public routes such as:
 
 ## High-Frequency Words policy
 
-There is no standalone Common Words / High-Frequency Words gateway page under the canonical grade curriculum architecture. Each set is a direct child of its Grade Hub:
+There is no standalone High-Frequency Words / High-Frequency Words gateway page under the canonical grade curriculum architecture. Each set is a direct child of its Grade Hub:
 
 ```text
 /{grade}/high-frequency-words-1
@@ -63,7 +63,7 @@ There is no standalone Common Words / High-Frequency Words gateway page under th
 /{grade}/high-frequency-words-3
 ```
 
-The Grade Hub itself is the entry point for a grade's High-Frequency Words sets. The `spelling-collections` content type (the old Common Words gateway collections and the Dolch collections) has been removed entirely.
+The Grade Hub itself is the entry point for a grade's High-Frequency Words sets. The `spelling-collections` content type (the old High-Frequency Words gateway collections and the Dolch collections) has been removed entirely.
 
 ## Trailing slash convention
 

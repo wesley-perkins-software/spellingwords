@@ -3,7 +3,7 @@
 **Status:** Fact-finding only. This report does **not** alter `curriculum-bible.md` curriculum decisions (per explicit direction, fact-gathering and editorial decision-making are kept separate). The Bible's Running Progress Map is updated only to mark the audit task complete and link here.
 
 **Date:** 2026-06-29
-**Scope:** Every file under `src/content/spelling-lists/{challenge,grade-level,phonics,sight-words}/`, plus `src/data/fixtures/sampleLists.ts` and `src/content/spelling-collections/`. Frontmatter was read directly from source (not summarized secondhand) to guarantee accuracy.
+**Scope:** Every file under `src/content/spelling-lists/{challenge,grade-level,phonics,high-frequency-words}/`, plus `src/data/fixtures/sampleLists.ts` and `src/content/spelling-collections/`. Frontmatter was read directly from source (not summarized secondhand) to guarantee accuracy.
 
 ---
 
@@ -14,7 +14,7 @@ The Bible's §6 Current Library Snapshot states **76 total lists**. The verified
 | Category | Bible §6 Count | Verified Count | Delta |
 |---|---|---|---|
 | `phonics/` | 44 | **50** | +6 |
-| `sight-words/` | 7 | 7 | 0 |
+| `high-frequency-words/` | 7 | 7 | 0 |
 | `grade-level/` (all grades) | 22 | 22 | 0 |
 | `challenge/` | 3 | 3 | 0 |
 | **Total** | **76** | **82** | **+6** |
@@ -23,7 +23,7 @@ The Bible's §6 Current Library Snapshot states **76 total lists**. The verified
 
 The discrepancy is entirely in `phonics/`. The Bible's per-skill breakdown (digraphs, blends, etc.) was correct in substance but undercounted the **initial consonant blends** subgroup: the Bible's §7 1st-grade section says "18 lists" for initial blends and "11 lists" for final blends in its prose (18+11=29), which is consistent with what I verified — the §6 *table* total of 44 simply doesn't arithmetically match the Bible's own prose elsewhere. Likely an arithmetic slip when the snapshot table was hand-typed rather than a real data error.
 
-There is also a non-markdown fact worth flagging: `src/data/fixtures/sampleLists.ts` contains 4 additional sample `WordList` TS objects (`grade2Essentials`, `longVowelPatterns`, `sightWords`, `petNames`) that are **not** part of the Content Collection and are not counted anywhere in the Bible. They appear to be dev/demo fixtures, not live content — confirmed by their non-conforming `category` values (`'General'`, `'Phonics'` — capitalized, not matching the `config.ts` enum) and lack of most required schema fields (`id`/`urlSlug`/`difficulty`/`status`/etc. are partly missing or use a different shape entirely). **Confidence: High** that these are dev fixtures, not undercounted production content — no action recommended beyond noting they exist.
+There is also a non-markdown fact worth flagging: `src/data/fixtures/sampleLists.ts` contains 4 additional sample `WordList` TS objects (`grade2Essentials`, `longVowelPatterns`, `highFrequencyWords`, `petNames`) that are **not** part of the Content Collection and are not counted anywhere in the Bible. They appear to be dev/demo fixtures, not live content — confirmed by their non-conforming `category` values (`'General'`, `'Phonics'` — capitalized, not matching the `config.ts` enum) and lack of most required schema fields (`id`/`urlSlug`/`difficulty`/`status`/etc. are partly missing or use a different shape entirely). **Confidence: High** that these are dev fixtures, not undercounted production content — no action recommended beyond noting they exist.
 
 ---
 
@@ -125,19 +125,19 @@ All phonics placements were checked against Bible §12 Decision Rule "phonics be
 
 **Final-blend grade-split note (Confidence: Medium):** the 11 final-blend lists split 6-at-grade-1 (nd, ng, ld, st, nt, nk) vs. 5-at-grade-2 (lt, lk, mp, ft, sk) with no documented rationale in the Bible. This may be deliberate sequencing (simpler blends first) or an artifact of authoring order — flagged for editorial review in §6, not resolved here.
 
-### 1.4 Sight Words (7 files)
+### 1.4 High-Frequency Words (7 files)
 
 | File | Title | Grade | Status | Rec. Primary | Rec. Secondary | Skill | OK? | Confidence | Notes |
 |---|---|---|---|---|---|---|---|---|---|
-| sight-words/dolch-pre-primer.md | Dolch Pre-Primer Sight Words | K | **archived** | K | — | Dolch tier 1 | Flag (status) | High | Bible §7 Kindergarten "Current Coverage" table lists this as "✅ Covered" — but it's archived, so it is **not actually live** on the site. The Bible's coverage claim is inaccurate as written. |
-| sight-words/dolch-primer.md | Dolch Primer Sight Words | 1 | **archived** | 1 | K (review) | Dolch tier 2 | Flag (status) | High | Same issue — Bible §7 1st-grade narrative doesn't even mention this list, but it exists, archived. |
-| sight-words/dolch-first-grade-a.md | Dolch First Grade Sight Words — Part A | 1 | published | 1 | — | Dolch tier 3 (split A) | Yes | High | Belongs to the `dolch-first-grade` collection (see `spelling-collections/`). |
-| sight-words/dolch-first-grade-b.md | Dolch First Grade Sight Words — Part B | 1 | published | 1 | — | Dolch tier 3 (split B) | Yes | High | — |
-| sight-words/dolch-first-grade-c.md | Dolch First Grade Sight Words — Part C | 1 | published | 1 | — | Dolch tier 3 (split C) | Yes | High | — |
-| sight-words/dolch-second-grade.md | Dolch Second Grade Sight Words | 2 | **archived** | 2 | — | Dolch tier 4 | Flag (status) | High | Bible §7 2nd-grade table lists as "✅" without noting archived status. |
-| sight-words/dolch-third-grade.md | Dolch Third Grade Sight Words | 3 | **archived** | 3 | — | Dolch tier 5 | Flag (status) | High | Bible §7 3rd-grade table lists as "✅ Covered" — same inaccuracy. |
+| high-frequency-words/dolch-pre-primer.md | Dolch Pre-Primer High-Frequency Words | K | **archived** | K | — | Dolch tier 1 | Flag (status) | High | Bible §7 Kindergarten "Current Coverage" table lists this as "✅ Covered" — but it's archived, so it is **not actually live** on the site. The Bible's coverage claim is inaccurate as written. |
+| high-frequency-words/dolch-primer.md | Dolch Primer High-Frequency Words | 1 | **archived** | 1 | K (review) | Dolch tier 2 | Flag (status) | High | Same issue — Bible §7 1st-grade narrative doesn't even mention this list, but it exists, archived. |
+| high-frequency-words/dolch-first-grade-a.md | Dolch First Grade High-Frequency Words — Part A | 1 | published | 1 | — | Dolch tier 3 (split A) | Yes | High | Belongs to the `dolch-first-grade` collection (see `spelling-collections/`). |
+| high-frequency-words/dolch-first-grade-b.md | Dolch First Grade High-Frequency Words — Part B | 1 | published | 1 | — | Dolch tier 3 (split B) | Yes | High | — |
+| high-frequency-words/dolch-first-grade-c.md | Dolch First Grade High-Frequency Words — Part C | 1 | published | 1 | — | Dolch tier 3 (split C) | Yes | High | — |
+| high-frequency-words/dolch-second-grade.md | Dolch Second Grade High-Frequency Words | 2 | **archived** | 2 | — | Dolch tier 4 | Flag (status) | High | Bible §7 2nd-grade table lists as "✅" without noting archived status. |
+| high-frequency-words/dolch-third-grade.md | Dolch Third Grade High-Frequency Words | 3 | **archived** | 3 | — | Dolch tier 5 | Flag (status) | High | Bible §7 3rd-grade table lists as "✅ Covered" — same inaccuracy. |
 
-**Pattern (Confidence: High):** every Dolch list *except* the unsplit first-grade-a/b/c trio is `status: archived`. Only 3 of 7 sight-word lists are actually live/published. The Bible's grade-by-grade coverage tables treat archived and published lists identically — this is the single most consequential correction the audit surfaces, since "sight words: Strong ✅" coverage claims in the Bible's narrative sections are materially overstated for K, 2nd, and 3rd grade.
+**Pattern (Confidence: High):** every Dolch list *except* the unsplit first-grade-a/b/c trio is `status: archived`. Only 3 of 7 high-frequency-word lists are actually live/published. The Bible's grade-by-grade coverage tables treat archived and published lists identically — this is the single most consequential correction the audit surfaces, since "high-frequency words: Strong ✅" coverage claims in the Bible's narrative sections are materially overstated for K, 2nd, and 3rd grade.
 
 ---
 
@@ -188,28 +188,28 @@ One row per Bible §9 gap-matrix entry, cross-referenced against actual content.
 
 ## 4. Per-Grade (K–5) Coverage Rollup
 
-### Kindergarten — 5 lists (3 grade-level + 2 archived sight-words)
+### Kindergarten — 5 lists (3 grade-level + 2 archived high-frequency-words)
 - **Strengths:** Strong, well-targeted thematic vocabulary (first-words, numbers/colors, describing-words) for the small footprint that exists.
-- **Weaknesses:** Both Dolch K lists (pre-primer, primer is grade-1) are archived — meaning **K sight-word coverage is effectively zero live content**, worse than the Bible's narrative implies.
+- **Weaknesses:** Both Dolch K lists (pre-primer, primer is grade-1) are archived — meaning **K high-frequency-word coverage is effectively zero live content**, worse than the Bible's narrative implies.
 - **Missing concepts:** Shape words, family words, school words, animal words — confirmed genuinely missing, matching Bible exactly.
 - **Overlap:** None found.
 - **Surprising:** The Bible calls K "the most underbuilt grade" — confirmed and arguably understated once archived-status is accounted for.
 
-### 1st Grade — 35 lists (3 grade-level + 29 phonics + 3 sight-words [1 archived])
+### 1st Grade — 35 lists (3 grade-level + 29 phonics + 3 high-frequency-words [1 archived])
 - **Strengths:** By far the deepest grade in the library. All five short vowels, all 18 initial blends, all 11 final blends (6 of them), 4 digraphs, 3 silent-e patterns, full Dolch 1st-grade trio — genuinely comprehensive phonics coverage exactly matching Bible §7 claims.
 - **Weaknesses:** None structural; the "overbuilt" feel the Bible worries about is real in raw list count (35 lists at grade 1 vs. 3–6 at every other grade) but is justified content, not duplication.
 - **Missing concepts:** Silent-e long-u, inflectional endings (-s/-ed/-ing), two-syllable words — confirmed.
 - **Overlap:** None found.
 - **Surprising:** `dolch-primer.md` is tagged grade 1 but archived — Bible's 1st-grade section doesn't mention it at all, an unacknowledged gap between documentation and reality.
 
-### 2nd Grade — 17 lists (4 grade-level + 12 phonics + 1 sight-words [archived])
+### 2nd Grade — 17 lists (4 grade-level + 12 phonics + 1 high-frequency-words [archived])
 - **Strengths:** Vowel teams, r-controlled vowels, and compound words are genuinely well covered.
 - **Weaknesses:** Zero morphology content beyond the single compound-words list — contractions, homophones, plurals, prefixes, suffixes, silent letters are all completely absent, confirming the Bible's biggest 2nd-grade gap claim.
 - **Missing concepts:** Confirmed: contractions, homophones, plural rules, un-/re- prefixes, -ful/-less suffixes, silent letters.
 - **Overlap:** None found.
 - **Surprising:** `dolch-second-grade.md` is archived — the Bible's coverage table marks it "✅" without flagging this.
 
-### 3rd Grade — 6 lists (3 grade-level + 2 phonics [diphthongs tagged 3] + 1 sight-words [archived])
+### 3rd Grade — 6 lists (3 grade-level + 2 phonics [diphthongs tagged 3] + 1 high-frequency-words [archived])
 - **Strengths:** Reading/writing vocabulary and describing-words lists are solid for what they cover.
 - **Weaknesses:** This is the thinnest *instructionally critical* grade — confirmed worst-covered for morphology, exactly as the Bible states. Zero prefix/suffix/root/homophone/spelling-rule content.
 - **Missing concepts:** Confirmed: all major morphology categories.
@@ -237,7 +237,7 @@ One row per Bible §9 gap-matrix entry, cross-referenced against actual content.
 These need human sign-off before any change to the Bible or to list frontmatter:
 
 1. **All three `challenge/` lists have no `grade` field.** Recommend assigning: tier-1 → grade 4, tier-2 → grade 4 (secondary 5), academic-vocabulary → grade 5 (secondary 4). *Confidence: High that they should be tagged at all; Medium on exact grade split.*
-2. **Five of seven sight-word lists are archived** (pre-primer, primer, second-grade, third-grade) while the Bible's coverage tables present them as live ("✅ Covered"). Decide whether to (a) republish them, (b) update the Bible to reflect archived status honestly, or (c) confirm they were intentionally retired in favor of a future replacement strategy. *Confidence: High that this is a real discrepancy; no recommendation on which resolution is correct — that's a content-strategy call.*
+2. **Five of seven high-frequency-word lists are archived** (pre-primer, primer, second-grade, third-grade) while the Bible's coverage tables present them as live ("✅ Covered"). Decide whether to (a) republish them, (b) update the Bible to reflect archived status honestly, or (c) confirm they were intentionally retired in favor of a future replacement strategy. *Confidence: High that this is a real discrepancy; no recommendation on which resolution is correct — that's a content-strategy call.*
 3. **`phonics/short-vowels-cvc-words.md` is archived** but still referenced as a live prerequisite/related-list by `silent-e-long-a.md`. If it stays archived, that relationship link is broken/misleading. *Confidence: High this is an inconsistency; Medium on whether the fix is "unarchive" vs. "remove the stale reference" — a content decision either way.*
 4. **Diphthong lists (oi-oy, ou-ow) tagged grade 3** while structurally similar vowel-team lists are tagged grade 2. Decide whether this reflects a deliberate skill-sequencing choice (diphthongs are harder, taught later) or inconsistent tagging. *Confidence: Medium.*
 5. **Final-blend lists split 6×grade-1 / 5×grade-2** (lt/lk/mp/ft/sk at grade 2) with no documented rationale. Decide if this split is deliberate. *Confidence: Medium.*
@@ -262,15 +262,15 @@ These five items reduce the realistic "genuinely missing, must author new conten
 
 ## 7. Audit Summary
 
-**Total spelling lists:** 82 markdown lists (3 challenge + 22 grade-level + 50 phonics + 7 sight-words), plus 4 non-production TS fixtures in `src/data/fixtures/sampleLists.ts` and 1 collection grouping (`dolch-first-grade`) in `src/content/spelling-collections/`.
+**Total spelling lists:** 82 markdown lists (3 challenge + 22 grade-level + 50 phonics + 7 high-frequency-words), plus 4 non-production TS fixtures in `src/data/fixtures/sampleLists.ts` and 1 collection grouping (`dolch-first-grade`) in `src/content/spelling-collections/`.
 
-**Lists by category:** phonics 50 (61%), grade-level 22 (27%), sight-words 7 (9%), challenge 3 (4%).
+**Lists by category:** phonics 50 (61%), grade-level 22 (27%), high-frequency-words 7 (9%), challenge 3 (4%).
 
 **Lists by primary grade (recommended):**
-- K: 3 (+2 archived sight-words)
+- K: 3 (+2 archived high-frequency-words)
 - 1: 32 (29 phonics + 3 grade-level)
-- 2: 12 phonics + 4 grade-level (+1 archived sight-words) = 16
-- 3: 2 phonics (diphthongs, contested) + 3 grade-level (+1 archived sight-words) = 5–6
+- 2: 12 phonics + 4 grade-level (+1 archived high-frequency-words) = 16
+- 3: 2 phonics (diphthongs, contested) + 3 grade-level (+1 archived high-frequency-words) = 5–6
 - 4: 3 grade-level (+0–2 challenge lists pending grade-tag decision)
 - 5: 6 grade-level (+1–3 challenge lists pending grade-tag decision)
 
@@ -284,11 +284,11 @@ These five items reduce the realistic "genuinely missing, must author new conten
 
 **Largest curriculum strengths:** 1st-grade phonics (exhaustive — every standard blend, digraph, and silent-e pattern covered) and 5th-grade thematic vocabulary breadth (six non-overlapping subject-area lists).
 
-**Largest curriculum gaps:** 3rd-grade morphology is essentially zero (confirmed, matches Bible). 2nd-grade word-study beyond phonics (contractions, homophones, plurals, basic affixes) is zero. Kindergarten thematic vocabulary (shapes, family, school, animals) and kindergarten sight words (both lists archived) are both effectively absent.
+**Largest curriculum gaps:** 3rd-grade morphology is essentially zero (confirmed, matches Bible). 2nd-grade word-study beyond phonics (contractions, homophones, plurals, basic affixes) is zero. Kindergarten thematic vocabulary (shapes, family, school, animals) and kindergarten high-frequency words (both lists archived) are both effectively absent.
 
 **Anything unexpected:**
 1. The Bible's published list count (76) undercounts reality by 6, entirely within `phonics/`.
-2. 5 of 7 sight-word lists are archived, not published — the Bible's coverage tables treat them as live, materially overstating sight-word coverage at K, 2nd, and 3rd grade.
+2. 5 of 7 high-frequency-word lists are archived, not published — the Bible's coverage tables treat them as live, materially overstating high-frequency-word coverage at K, 2nd, and 3rd grade.
 3. All 3 challenge lists lack a `grade` field entirely, making them invisible to the grade-first navigation architecture the Bible mandates as the primary UX pattern — yet their content already targets exactly the 4th/5th-grade root and academic-vocabulary gaps the Bible flagged as missing.
 4. A stale prerequisite reference: `silent-e-long-a.md` lists an archived list (`short-vowels-cvc-words`) as a live prerequisite.
 
@@ -307,7 +307,7 @@ Review this report together and make deliberate decisions on the items in §5 (F
 
 The curriculum architecture decisions this audit's §5 called for have been made and applied to the repository. This section is append-only — it records the resolution against each §5 finding; the inventory tables, counts, and findings above remain an accurate point-in-time snapshot of the 2026-06-29 audit and are unchanged.
 
-1. **Archived Dolch sight-word lists (5 of 7 archived, not published):** Resolved — `dolch-pre-primer`, `dolch-primer`, `dolch-second-grade`, and `dolch-third-grade` are republished (`status: published`). All 7 Dolch tiers are now live. See Curriculum Bible §6 (Current Library Snapshot) and §7 Kindergarten/2nd/3rd Grade Current Coverage tables.
+1. **Archived Dolch high-frequency-word lists (5 of 7 archived, not published):** Resolved — `dolch-pre-primer`, `dolch-primer`, `dolch-second-grade`, and `dolch-third-grade` are republished (`status: published`). All 7 Dolch tiers are now live. See Curriculum Bible §6 (Current Library Snapshot) and §7 Kindergarten/2nd/3rd Grade Current Coverage tables.
 2. **Challenge root lists lacking a grade tag (`tier-1-roots-and-patterns`, `tier-2-greek-latin-roots`):** Resolved — both retagged `category: grade-level`, `grade: "4"`, with `order` renumbered to follow the existing Grade 4 lists. They are Grade 4's canonical morphology content; `tier-2-greek-latin-roots` also serves Grade 5 review/extension via its existing `relatedLists`/`prerequisiteLists` chain, with no duplicate grade tag added. See Curriculum Bible §7 4th Grade and §7 5th Grade.
 3. **Diphthong lists tagged grade 3, inconsistent with grade-2 vowel-team siblings (`vowel-teams-oi-oy`, `vowel-teams-ou-ow`):** Resolved — both retagged `grade: "2"`, matching `ai-ay`, `ee-ea`, and `oa-ow`. Grade 3 now carries zero primary phonics content by design. See Curriculum Bible §7 2nd Grade and §7 3rd Grade.
 4. **Final-blend grade-1/grade-2 split (`nd/ng/ld/st/nt/nk` at grade 1 vs. `ft/lk/lt/mp/sk` at grade 2):** Kept as-is — confirmed intentional, not a mis-tag. Documented explicitly in Curriculum Bible §7 1st Grade Notes so a future audit doesn't re-flag it.
@@ -325,14 +325,14 @@ This phase's task named a `docs/content/curriculum-architecture.md` as a source-
 
 With the Phase 3 items already live, this pass focused on library-wide metadata consistency and — the most consequential finding — relationship-graph integrity:
 
-1. **`relatedLists`/`prerequisiteLists`/`nextLists` resolve by `id`, not `urlSlug`, but ~20 lists referenced the urlSlug form.** `resolveListRefs()` (`src/lib/content/spellingLists.ts:45-51`) matches only against each entry's `id` field. Wherever a list's `id` differs from its `urlSlug` — every numbered `grade-level/` list for grades 1–5 (e.g. `1st-grade-action-words.md` has `id: grade-1-list-02`) and the `sight-words/dolch-*` chain for grades 1–3 — relationship arrays had been written using the urlSlug-style string instead of the real id. Those references silently resolved to nothing at build time, so the related/prerequisite/next-list sections on those pages were dropping links that were clearly intended. Fixed all ~20 references across every `grade-level/` grade (K–5) and the Dolch sight-word chain to use the correct `id`. Confirmed post-fix by rebuilding the site and checking rendered pages (e.g. `2nd-grade-action-words`, `kindergarten-number-color-words`, `silent-e-long-a`) now show the intended links.
+1. **`relatedLists`/`prerequisiteLists`/`nextLists` resolve by `id`, not `urlSlug`, but ~20 lists referenced the urlSlug form.** `resolveListRefs()` (`src/lib/content/spellingLists.ts:45-51`) matches only against each entry's `id` field. Wherever a list's `id` differs from its `urlSlug` — every numbered `grade-level/` list for grades 1–5 (e.g. `1st-grade-action-words.md` has `id: grade-1-list-02`) and the `high-frequency-words/dolch-*` chain for grades 1–3 — relationship arrays had been written using the urlSlug-style string instead of the real id. Those references silently resolved to nothing at build time, so the related/prerequisite/next-list sections on those pages were dropping links that were clearly intended. Fixed all ~20 references across every `grade-level/` grade (K–5) and the Dolch high-frequency-word chain to use the correct `id`. Confirmed post-fix by rebuilding the site and checking rendered pages (e.g. `2nd-grade-action-words`, `kindergarten-number-color-words`, `silent-e-long-a`) now show the intended links.
 2. **Two dangling references to non-existent ids**, unrelated to the urlSlug bug: `dolch-primer.nextLists` and `dolch-second-grade.relatedLists`/`prerequisiteLists` pointed at `dolch-first-grade`, which is the id of the `spelling-collections` grouping entry, not a `spelling-lists` id — repointed to `dolch-first-grade-a` and `dolch-first-grade-c` respectively (the actual first/last parts of that split tier). `kindergarten-number-color-words` referenced `kindergarten-list-03`, which matches no id or urlSlug in the library — repointed to `kindergarten-describing-words`, the actual next list in the K sequence by `order`.
 3. **Audit §5 Finding 3 (never resolved in Phase 3): `silent-e-long-a.md` still listed the archived `short-vowels-cvc-words` as its prerequisite/related list.** Resolved non-speculatively — `short-a-words.md` already declares `nextLists: [silent-e-long-a]`, so the correct prerequisite already existed from the other side. `silent-e-long-a` now points to `short-a-words` instead of the dead archived list.
 4. **Two obvious gaps filled in already-established chains**, not new relationships: `2nd-grade-action-words` (`grade-2-list-03`) had `nextLists: []` even though `2nd-grade-describing-words` already declared `prerequisiteLists: ["grade-2-list-03"]`; and `3rd-grade-describing-words` (`grade-3-list-02`) had `nextLists: []` even though `3rd-grade-reading-writing-words` already declared `prerequisiteLists: ["grade-3-list-02"]`. Both now complete the reverse direction of a link the sibling file had already declared.
 5. **skillTag gaps in the Dolch chain:** every Dolch tier except `dolch-pre-primer` and `dolch-primer` carried a matching grade-name skillTag (`first-grade`, `second-grade`, `third-grade`). Added `kindergarten` to `dolch-pre-primer` and `first-grade` to `dolch-primer` to match the established pattern.
 6. **Reading-level tag out of sequence:** the library's existing reading-level tag scale across Dolch tiers is `beginning-readers` (pre-primer/primer/1st grade) → `early-readers` (2nd grade) → `fluent-readers` (3rd grade). `grade-level/kindergarten-first-words.md` — a Kindergarten list — was tagged `early-readers`, out of step with that established scale. Changed to `beginning-readers`.
 7. **Cosmetic YAML consistency:** `dolch-pre-primer.md` had `grade: K` (unquoted) while every other list in the library quotes its `grade` value (`grade: "K"`, `grade: "1"`, etc.). Quoted for consistency; the parsed value is unchanged.
-8. **No other terminology conflicts found.** Checked category/grade/difficulty/status combinations, `grade-N` (grade-level) vs. `Nth-grade` (sight-words) skillTag conventions, action/verb tags, community/civics tags, and vowel-related tags across all 82 lists — the only real gaps were items 5–7 above. The `grade-N`/`Nth-grade` split between categories is an intentional, consistently-applied convention within each category, not a bug.
+8. **No other terminology conflicts found.** Checked category/grade/difficulty/status combinations, `grade-N` (grade-level) vs. `Nth-grade` (high-frequency-words) skillTag conventions, action/verb tags, community/civics tags, and vowel-related tags across all 82 lists — the only real gaps were items 5–7 above. The `grade-N`/`Nth-grade` split between categories is an intentional, consistently-applied convention within each category, not a bug.
 9. **Not touched, and why:** the 38 parallel single-skill phonics lists (initial blends, final blends, digraphs) have all-empty relationship fields. There is no established sequencing among them — they were authored as coequal batches (per git history) rather than a dependency chain — so adding relatedLists/prerequisiteLists/nextLists there would be inventing curriculum structure, not fixing a bug. This remains a legitimate opportunity for a future, deliberate content-architecture decision, not a metadata-normalization fix.
 
 No word content, schema fields, routes, categories, grades, or difficulty values changed in this pass — only relationship-array values, two skillTags, one tag, and one YAML quoting style.

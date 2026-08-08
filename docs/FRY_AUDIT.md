@@ -111,7 +111,7 @@ with only incidental absences.
 
 **Coverage status: Partial.**
 
-**Observations.** This is where the first real gaps emerge. Common words are
+**Observations.** This is where the first real gaps emerge. Frequently used words are
 still well covered, but a distinct cluster of school/academic vocabulary is
 missing: *area*, *complete*, *measure*, *pattern*, *vowel*, *numeral*, *unit*,
 *figure*, *certain*, *notice*, *travel*. These are content-area and instructional
@@ -157,7 +157,7 @@ blocks but not yet sparse.
 
 **Coverage status: Weak.**
 
-**Observations.** The balance tips. While some common words remain (*catch*,
+**Observations.** The balance tips. While some high-frequency words remain (*catch*,
 *wrote*, *grass*, *brown*, *party*, *clean*, *shoes*, *afraid*, *office*), the
 majority of this block is upper-elementary, instructional, or abstract:
 *continued*, *design*, *experiment*, *engine*, *information*, *express*,

@@ -78,7 +78,7 @@ describe('Themed Spelling Practice Explore More', () => {
 
   it('returns no recommendations for Core, HFW, Skill, or unknown ids', () => {
     expect(getThemedSpellingPracticeExploreMore('kindergarten-first-words')).toEqual([]);
-    expect(getThemedSpellingPracticeExploreMore('kindergarten-common-words-1')).toEqual([]);
+    expect(getThemedSpellingPracticeExploreMore('kindergarten-high-frequency-words-set-1')).toEqual([]);
     expect(getThemedSpellingPracticeExploreMore('short-a-words')).toEqual([]);
     expect(getThemedSpellingPracticeExploreMore('not-real')).toEqual([]);
   });

@@ -6,7 +6,7 @@ import { KINDERGARTEN_CORE_IDS } from './kindergartenProgression';
 const CONTENT_ROLE_VALUES = [
   'grade-unit',
   'skill',
-  'sight-word-set',
+  'high-frequency-word-set',
   'vocabulary-theme',
   'teaching-guide',
 ] as const;

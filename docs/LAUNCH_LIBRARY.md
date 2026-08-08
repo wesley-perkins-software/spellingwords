@@ -16,7 +16,7 @@ There are three risks to launching large:
 
 **Quality collapse.** Padding a family to hit a number forces word choices that are arbitrary or underpowered. The CONTENT_STANDARDS.md prohibition on "random word lists" exists precisely because it's easy to generate volume and hard to generate coherence.
 
-**Chain breakage.** Lists in the phonics and sight-word families depend on sequencing (`prerequisiteLists`, `nextLists`). A half-authored chain misleads users about what comes next and silently breaks the "Continue Learning" flow designed in `CONTENT_ARCHITECTURE.md`.
+**Chain breakage.** Lists in the phonics and high-frequency-word families depend on sequencing (`prerequisiteLists`, `nextLists`). A half-authored chain misleads users about what comes next and silently breaks the "Continue Learning" flow designed in `CONTENT_ARCHITECTURE.md`.
 
 **Perception of breadth masking depth.** Forty thin lists look like a resource. Thirty-six solid lists *are* a resource. The editorial bar is what makes this app credible to parents and teachers; volume does not.
 
@@ -64,7 +64,7 @@ Recommended list size per list: 12–15 words. Lists in the 10–12 range are ac
 | Grade | Lists | Notes |
 |---|---|---|
 | Kindergarten | 3 | Core everyday words; firm cap of 10–12 words per list |
-| Grade 1 | 3 | Common words from early readers |
+| Grade 1 | 3 | High-frequency words from early readers |
 | Grade 2 | 4 | Deepest coverage at launch; includes contractions and long-vowel words |
 | Grade 3 | 3 | Solid entry point; signals the family continues upward |
 | Grade 4 | 2 | e.g. "4th Grade Reading & Writing Words", "4th Grade Everyday Words" |
@@ -107,11 +107,11 @@ All phonics lists must follow the sequence metadata design (`prerequisiteLists`,
 
 ---
 
-## 6. Sight Words
+## 6. High-Frequency Words
 
 **Target: 6 lists**
 
-The Dolch word list is the established canonical source for high-frequency sight words in K–3 instruction. It ships in full at launch. The Fry word list is **not added** at launch.
+The Dolch word list is the established canonical source for high-frequency words in K–3 instruction. It ships in full at launch. The Fry word list is **not added** at launch.
 
 | List | Source |
 |---|---|
@@ -123,7 +123,7 @@ The Dolch word list is the established canonical source for high-frequency sight
 | Dolch Nouns | Canonical Dolch |
 | **Total** | **6** |
 
-The Dolch ladder must be complete before any expansion. Adding Fry words before the Dolch lists are fully authored, sequenced, and linked creates a disjointed sight-word experience. The `FRY_AUDIT.md` exists for future reference; it does not authorize launch inclusion.
+The Dolch ladder must be complete before any expansion. Adding Fry words before the Dolch lists are fully authored, sequenced, and linked creates a disjointed high-frequency-word experience. The `FRY_AUDIT.md` exists for future reference; it does not authorize launch inclusion.
 
 ---
 
@@ -150,7 +150,7 @@ The following families are **not launched** and should not be stubbed, previewed
 
 **Seasonal lists.** Explicitly excluded by multiple architecture documents. Seasonal content is low-value, creates maintenance pressure, and does not serve the app's core use case of year-round curriculum-aligned practice.
 
-**Fry sight words.** Deferred until the full Dolch ladder is authored, stable, and linked. Adding a competing sight-word system before the primary one is complete creates confusion for parents and teachers.
+**Fry high-frequency words.** Deferred until the full Dolch ladder is authored, stable, and linked. Adding a competing high-frequency-word system before the primary one is complete creates confusion for parents and teachers.
 
 **Phonics Phase 2.** Digraphs, consonant blends, diphthongs, and remaining r-controlled vowels are not launched until Phase 1 is complete and sequenced. A broken chain is worse than a shorter chain.
 
@@ -166,7 +166,7 @@ The following families are **not launched** and should not be stubbed, previewed
 |---|---|
 | Grade-Level | 16 |
 | Phonics | 12 |
-| Sight Words | 6 |
+| High-Frequency Words | 6 |
 | Challenge | 2 |
 | Theme / Seasonal | 0 |
 | **Total** | **36** |

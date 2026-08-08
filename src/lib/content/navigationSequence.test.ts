@@ -178,25 +178,25 @@ describe('HF_WORDS_SEQUENCE', () => {
   });
 
   it.each([
-    ['kindergarten-common-words-1', undefined, 'kindergarten-common-words-2'],
-    ['kindergarten-common-words-4', 'kindergarten-common-words-3', undefined],
-    ['grade-1-common-words-3', 'grade-1-common-words-2', 'grade-1-common-words-4'],
-    ['grade-1-common-words-7', 'grade-1-common-words-6', undefined],
-    ['grade-2-common-words-7', 'grade-2-common-words-6', undefined],
-    ['grade-3-common-words-3', 'grade-3-common-words-2', 'grade-3-common-words-4'],
-    ['grade-4-common-words-2', 'grade-4-common-words-1', undefined],
-    ['grade-5-common-words-2', 'grade-5-common-words-1', undefined],
+    ['kindergarten-high-frequency-words-set-1', undefined, 'kindergarten-high-frequency-words-set-2'],
+    ['kindergarten-high-frequency-words-set-4', 'kindergarten-high-frequency-words-set-3', undefined],
+    ['grade-1-high-frequency-words-set-3', 'grade-1-high-frequency-words-set-2', 'grade-1-high-frequency-words-set-4'],
+    ['grade-1-high-frequency-words-set-7', 'grade-1-high-frequency-words-set-6', undefined],
+    ['grade-2-high-frequency-words-set-7', 'grade-2-high-frequency-words-set-6', undefined],
+    ['grade-3-high-frequency-words-set-3', 'grade-3-high-frequency-words-set-2', 'grade-3-high-frequency-words-set-4'],
+    ['grade-4-high-frequency-words-set-2', 'grade-4-high-frequency-words-set-1', undefined],
+    ['grade-5-high-frequency-words-set-2', 'grade-5-high-frequency-words-set-1', undefined],
   ])('resolves representative HFW neighbors for %s', (id, previousId, nextId) => {
     expect(getHighFrequencyNeighbors(id)).toEqual({ previousId, nextId });
   });
 
-  it('includes every published Common Words set found in content (completeness check)', () => {
-    const commonWordsIds = allContent()
-      .filter((entry) => entry.status === 'published' && /-common-words-\d+$/.test(entry.id))
+  it('includes every published High-Frequency Words set found in content (completeness check)', () => {
+    const highFrequencyWordsIds = allContent()
+      .filter((entry) => entry.status === 'published' && /-high-frequency-words-\d+$/.test(entry.id))
       .map((entry) => entry.id);
 
-    expect(commonWordsIds.length).toBeGreaterThan(0);
-    for (const id of commonWordsIds) {
+    expect(highFrequencyWordsIds.length).toBeGreaterThan(0);
+    for (const id of highFrequencyWordsIds) {
       expect(HF_WORDS_SEQUENCE, id).toContain(id);
     }
   });
@@ -240,8 +240,8 @@ describe('getSequenceNeighbors', () => {
   });
 
   it('keeps High-Frequency Words out of the Core prerequisite/next-step model', () => {
-    expect(getSequenceNeighbors('kindergarten-common-words-4')).toEqual({});
-    expect(getSequenceNeighbors('grade-1-common-words-1')).toEqual({});
+    expect(getSequenceNeighbors('kindergarten-high-frequency-words-set-4')).toEqual({});
+    expect(getSequenceNeighbors('grade-1-high-frequency-words-set-1')).toEqual({});
   });
 
   it('returns {} for a page outside both sequences (Themed Spelling Practice, combined-roadmap sibling)', () => {
@@ -301,12 +301,12 @@ describe('Core rendered relationship model', () => {
       'kindergarten-animal-words',
     ]);
     expect(byId.get('grade-2-au-aw-words')?.relatedLists).toEqual([
-      'grade-2-common-words-1',
-      'grade-2-common-words-5',
-      'grade-2-common-words-6',
+      'grade-2-high-frequency-words-set-1',
+      'grade-2-high-frequency-words-set-5',
+      'grade-2-high-frequency-words-set-6',
     ]);
     expect(byId.get('grade-1-weather-words')?.relatedLists).toEqual([]);
-    expect(byId.get('grade-2-common-words-1')?.relatedLists).toEqual([]);
+    expect(byId.get('grade-2-high-frequency-words-set-1')?.relatedLists).toEqual([]);
   });
 });
 

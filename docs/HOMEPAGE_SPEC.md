@@ -338,7 +338,7 @@ The absence of ads on the homepage is itself a trust signal. A parent who arrive
 
 ### A landing page full of SEO text
 
-Long explanatory paragraphs about the benefits of spelling practice, the importance of phonics, or the history of sight words have no place on the homepage. That content belongs in Teaching Guides, where it serves visitors who searched for it. On the homepage, it is noise that delays the only thing the visitor actually needs: a way to begin.
+Long explanatory paragraphs about the benefits of spelling practice, the importance of phonics, or the history of high-frequency words have no place on the homepage. That content belongs in Teaching Guides, where it serves visitors who searched for it. On the homepage, it is noise that delays the only thing the visitor actually needs: a way to begin.
 
 ### A feature dump
 

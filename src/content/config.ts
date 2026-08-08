@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 
 const category = z.enum([
   'grade-level',
-  'sight-words',
+  'high-frequency-words',
   'phonics',
   'theme',
   'seasonal',
@@ -45,7 +45,7 @@ const spellingLists = defineCollection({
       .enum([
         'grade-unit',
         'skill',
-        'sight-word-set',
+        'high-frequency-word-set',
         'vocabulary-theme',
         'teaching-guide',
       ])

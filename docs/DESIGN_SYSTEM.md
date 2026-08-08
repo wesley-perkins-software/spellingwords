@@ -353,7 +353,7 @@ Grade Hubs orient users who browse by grade. The design should convey the scope 
 
 ### Category Hub
 
-Category Hubs serve parents and teachers understanding a specific skill type (phonics, sight words, challenge). The design should explain what the category is briefly, then get out of the way and show the lists. A small amount of editorial context is appropriate. Advertising in footer.
+Category Hubs serve parents and teachers understanding a specific skill type (phonics, high-frequency words, challenge). The design should explain what the category is briefly, then get out of the way and show the lists. A small amount of editorial context is appropriate. Advertising in footer.
 
 ### Teaching Guide
 

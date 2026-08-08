@@ -14,10 +14,10 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
       "Free kindergarten spelling word lists with a core phonics route, four high-frequency-word sets, and optional number, color, and animal word practice.",
     heroParagraphs: [
       "Start with Core Spelling for a short kindergarten route from first words through short vowels, mixed CVC review, and a digraph preview. All lists include audio support — a child can hear each word read aloud before typing it.",
-      "Kindergarten spelling practice should feel simple, encouraging, and concrete. High-Frequency Words offers four small cumulative sets of common sight and writing words with phonics-first Heart Word guidance, while Themed Spelling Practice offers number, color, and animal words.",
+      "Kindergarten spelling practice should feel simple, encouraging, and concrete. High-Frequency Words offers four small cumulative sets of frequently encountered reading and writing words with phonics-first Heart Word guidance, while Themed Spelling Practice offers number, color, and animal words.",
     ],
     guidanceBody:
-      "Start with First Words and work through Core Spelling when possible. Use the Kindergarten High-Frequency Words sets for everyday sight and writing words with Heart Word guidance, and choose Number Words, Color Words, or Animal Words whenever a child wants additional practice.",
+      "Start with First Words and work through Core Spelling when possible. Use the Kindergarten High-Frequency Words sets for everyday reading and writing words with Heart Word guidance, and choose Number Words, Color Words, or Animal Words whenever a child wants additional practice.",
     emptyStateLabel: "Kindergarten",
   },
   "1": {
@@ -58,7 +58,7 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
       "Free 4th grade spelling word lists with a six-step Core Spelling route through advanced multisyllabic words, advanced prefixes, advanced suffixes and final stable syllables, Greek and Latin roots, commonly confused words, and derived words and word meaning, plus two high-frequency-word sets and customary measurement words.",
     heroParagraphs: [
       "Use Core Spelling for the Grade 4 route: advanced multisyllabic words, advanced prefixes, advanced suffixes and final stable syllables, Greek and Latin roots, commonly confused words, and derived words and word meaning. All lists include audio support so students can hear each word before typing it.",
-      "Fourth grade spelling is the expansion year after introductory morphology. Students move from basic prefixes, suffixes, and root families into longer academic words, advanced affixes, the final stable syllables that complete common word endings, formal Greek and Latin root study, and the derived-word families that connect spelling and meaning across a base word. High-Frequency Words adds two focused sets from the remaining frequent lexical core, while Themed Spelling Practice offers customary measurement words.",
+      "Fourth grade spelling is the expansion year after introductory morphology. Students move from basic prefixes, suffixes, and root families into longer academic words, advanced affixes, the final stable syllables that complete high-frequency word endings, formal Greek and Latin root study, and the derived-word families that connect spelling and meaning across a base word. High-Frequency Words adds two focused sets from the remaining frequent lexical core, while Themed Spelling Practice offers customary measurement words.",
     ],
     guidanceBody:
       "Start with Core Spelling and move through the six steps in order — Advanced Multisyllabic Words and Advanced Prefixes come first because the suffix, root, and confusable-word lessons that follow all build on them. Advanced Suffixes and Final Stable Syllables leads into Greek and Latin Roots, since recognizing a stable ending is part of the same skill as recognizing a root inside a longer word. Derived Words and Word Meaning closes the sequence and previews the related-word study that continues in Grade 5. Use the Grade 4 High-Frequency Words sets alongside the route for words your child still needs to nail down, and reach for Measurement Words whenever measurement vocabulary comes up in math.",

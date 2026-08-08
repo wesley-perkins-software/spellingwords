@@ -13,7 +13,7 @@ This document governs **editorial content** for the 41 canonical Skill pages def
 - `docs/architecture/SKILLS_ARCHITECTURE.md` — the 12-family, 41-slot taxonomy, titles, slugs, family membership.
 - `docs/architecture/PUBLIC_URL_ARCHITECTURE.md` — routes and canonical URLs.
 - `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` — the Grade Hub architecture and K–5 curriculum.
-- `docs/architecture/CONTENT_MODEL.md` — content identity (Skill vs. Grade Unit vs. Sight Word Set, etc.) and the Skill/Grade Unit relationship model.
+- `docs/architecture/CONTENT_MODEL.md` — content identity (Skill vs. Grade Unit vs. High-Frequency Word Set, etc.) and the Skill/Grade Unit relationship model.
 
 If applying this standard ever seems to require a new page, a slug change, a taxonomy change, or a Grade Unit rewrite, that is a signal the standard is being misapplied — stop and flag it rather than making the change.
 

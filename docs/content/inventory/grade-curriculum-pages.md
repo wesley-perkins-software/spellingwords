@@ -1,6 +1,6 @@
 # Inventory: Grade Curriculum Pages (Canonical Active)
 
-**Canonical totals:** 51 Core Spelling pages · 29 High-Frequency Words pages · 27 Additional Practice pages · 107 Grade curriculum pages.
+**Canonical totals:** 51 Core Spelling pages · 27 High-Frequency Words pages · 27 Additional Practice pages · 105 Grade curriculum pages.
 
 > URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs now use the flat no-trailing-slash `/{grade}/{page-slug}` structure. The runtime source of truth is `src/lib/content/canonicalGradeRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the generated migration map. The legacy `/spelling-lists/...` route has been removed entirely; historical repository-shaped URLs are not generated and are not redirected (pre-launch, no traffic to preserve).
 

@@ -47,10 +47,10 @@ describe('canonical grade routes', () => {
     expect(new Set(canonicalGradeRoutes.map((route) => route.canonicalPath)).size).toBe(canonicalGradeRoutes.length);
   });
 
-  it('keeps the approved 107-page classification totals', () => {
-    expect(canonicalGradeRoutes).toHaveLength(107);
+  it('keeps the approved 105-page classification totals', () => {
+    expect(canonicalGradeRoutes).toHaveLength(105);
     expect(canonicalGradeRoutes.filter((route) => route.classification === 'core-spelling')).toHaveLength(51);
-    expect(canonicalGradeRoutes.filter((route) => route.classification === 'high-frequency-words')).toHaveLength(29);
+    expect(canonicalGradeRoutes.filter((route) => route.classification === 'high-frequency-words')).toHaveLength(27);
     expect(canonicalGradeRoutes.filter((route) => route.classification === 'additional-practice')).toHaveLength(27);
   });
 

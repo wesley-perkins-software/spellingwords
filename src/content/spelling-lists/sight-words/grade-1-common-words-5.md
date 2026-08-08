@@ -2,8 +2,8 @@
 id: grade-1-common-words-5
 urlSlug: grade-1-common-words-5
 title: 'Grade 1 Common Words 5'
-description: 'Use common place, movement, time, and sequence words to tell what happened and where.'
-shortAnswer: 'Practice common words for place, movement, time, and sequence in first-grade stories and explanations.'
+description: "Practice 12 high-frequency words assigned to Grade 1 Set 5 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 12 high-frequency words assigned to Grade 1 Set 5 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: '1'
@@ -23,21 +23,20 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
-  - 'up'
-  - word: 'down'
-    hint: 'Temporary Heart Word: ow is a vowel pattern taught later.'
-  - 'back'
-  - 'over'
-  - word: 'into'
-    hint: 'Heart part: o.'
-  - word: 'about'
-    hint: 'Heart part: a.'
-  - 'home'
-  - 'way'
-  - 'time'
-  - 'first'
-  - 'next'
-  - 'then'
+  - "out"
+  - "up"
+  - "were"
+  - "next"
+  - "want"
+  - "had"
+  - "so"
+  - "some"
+  - "then"
+  - "day"
+  - "find"
+  - "well"
 ---
 
-Use common place, time, and sequence words to tell what happened and where. Many connect directly to Grade 1 phonics. In _down_, _into_, and _about_, use the sounds and familiar word parts that help, then remember only the part that is not yet predictable.
+Practice 12 high-frequency words assigned to Grade 1 Set 5 for accurate and increasingly automatic spelling.
+
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

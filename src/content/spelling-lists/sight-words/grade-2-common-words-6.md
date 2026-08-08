@@ -2,8 +2,8 @@
 id: grade-2-common-words-6
 urlSlug: grade-2-common-words-6
 title: "Grade 2 Common Words 6"
-description: "Finish Grade 2 with the words that let a child choose, compare, and explain. Its has no apostrophe — compare it with it's on the Contractions page. Read is the one word here that changes its sound depending on the sentence."
-shortAnswer: "Twelve choosing and explaining words for second graders, including which, own, other, and thought."
+description: "Practice 12 high-frequency words assigned to Grade 2 Set 6 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 12 high-frequency words assigned to Grade 2 Set 6 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: "2"
@@ -23,24 +23,20 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
-  - "which"
-  - "these"
-  - "those"
-  - "its"
-  - word: "own"
-    hint: "Heart part: ow says long o here, not the /ow/ sound from cow and now."
-  - "off"
-  - "only"
-  - word: "other"
-    hint: "Heart part: o says /uh/, the same family as mother and brother."
+  - "away"
+  - "right"
+  - "must"
   - "use"
-  - word: "work"
-    hint: "Heart part: or says /er/ here, like word."
-  - word: "thought"
-    hint: "Heart part: ough says the same sound taught in the au/aw lesson."
-  - "read"
+  - "work"
+  - "went"
+  - "done"
+  - "think"
+  - "take"
+  - "too"
+  - "much"
+  - "each"
 ---
 
-Finish Grade 2 with the words that let a child choose, compare, and explain. *Its* has no apostrophe — compare it with *it's* on the Contractions page. *Read* is the one word here that changes its sound depending on the sentence.
+Practice 12 high-frequency words assigned to Grade 2 Set 6 for accurate and increasingly automatic spelling.
 
-This phonics-aware set uses regular sound-spelling patterns where they help. When a small part is not yet predictable, use the Heart Word hint as a reminder to learn that part by heart.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

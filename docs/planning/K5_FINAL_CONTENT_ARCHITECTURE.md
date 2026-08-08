@@ -1,4 +1,6 @@
 
+
+> **August 2026 HFW supersession:** The frozen High-Frequency Words curriculum is now 27 sets / 316 unique words in a 4/7/7/5/2/2 grade distribution. Its exact inventory and ownership/overlap principles are governed by [`FROZEN_HIGH_FREQUENCY_WORDS_CURRICULUM.md`](../curriculum/FROZEN_HIGH_FREQUENCY_WORDS_CURRICULUM.md) and `src/lib/content/hfWordsCurriculum.ts`. All older 29-set/340-word Common Words tables and zero-overlap rationales below are retained only as implementation history and are not current curriculum authority. Current Grade-curriculum totals are 51 Core + 27 HFW + 27 Additional Practice = 105 pages.
 > **Final three-type bottom navigation:** Core Spelling keeps Review first / Next step and no Explore more. High-Frequency Words shows one or two same-grade adjacent sets under Explore more, derived from six grade-contained sequences. Additional Practice shows exactly three curated same-grade Additional Practice peers under Explore more and has no sequence implication. The shared outer heading is “Where to go from here.” Cards use exact canonical titles with grade metadata separate; no Grade Hub card appears in this section. A separate future “Continue exploring” grade-orientation section is deferred.
 # Authoritative K–5 Content Architecture
 
@@ -9,7 +11,7 @@
 
 > **Status: authoritative, frozen at the architecture level.** This document is the single implementation reference for K–5 grade hubs and their curriculum-facing content. Kindergarten, Grade 1, Grade 2, Grade 3, Grade 4, and Grade 5 are all implementation-complete across all three public sections. It replaces the broad architecture recommendations in [K5_FINAL_CONTENT_PLAN.md](./K5_FINAL_CONTENT_PLAN.md), [K5_SIMPLE_WEBSITE_CONTENT_PLAN.md](./K5_SIMPLE_WEBSITE_CONTENT_PLAN.md), and [CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md](./CANONICAL_CURRICULUM_IMPLEMENTATION_PLAN.md). Historical research remains useful evidence; it is not an implementation specification.
 
-**Canonical totals:** 51 Core Spelling pages + 29 High-Frequency Words pages + 27 Additional Practice pages = 107 Grade curriculum pages. The separate Skills taxonomy remains frozen at 41 pages, and the complete sitemap contains 157 URLs.
+**Canonical totals:** 51 Core Spelling pages + 27 High-Frequency Words pages + 27 Additional Practice pages = 105 Grade curriculum pages. The separate Skills taxonomy remains frozen at 41 pages, and the complete sitemap contains 155 URLs.
 
 ### Implementation status
 

@@ -2,8 +2,8 @@
 id: grade-1-common-words-3
 urlSlug: grade-1-common-words-3
 title: 'Grade 1 Common Words 3'
-description: 'Build longer sentences with common joining, pronoun, and action words. Notice how familiar spelling patterns support most of these useful Grade 1 words.'
-shortAnswer: 'Practice sentence-building words, pronouns, and helping words that expand beyond simple noun-verb sentences.'
+description: "Practice 12 high-frequency words assigned to Grade 1 Set 3 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 12 high-frequency words assigned to Grade 1 Set 3 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: '1'
@@ -23,22 +23,20 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
-  - 'on'
-  - 'not'
-  - 'an'
-  - 'as'
-  - 'if'
-  - 'has'
-  - 'his'
-  - word: 'her'
-    hint: 'Temporary Heart Word: er will connect to later r-controlled vowel instruction.'
-  - 'him'
-  - 'them'
-  - word: 'be'
-    hint: 'Temporary Heart Word: connect this open-syllable spelling to later instruction.'
-  - 'will'
+  - "why"
+  - "into"
+  - "make"
+  - "get"
+  - "by"
+  - "his"
+  - "how"
+  - "about"
+  - "good"
+  - "her"
+  - "home"
+  - "very"
 ---
 
-Build longer sentences with common joining, pronoun, and action words. Most of these words follow Grade 1 spelling patterns. Notice that **s** can make the /z/ sound in _as_, _has_, and _his_, and connect _be_ and _her_ to the vowel patterns your child learns later in the Grade 1 sequence.
+Practice 12 high-frequency words assigned to Grade 1 Set 3 for accurate and increasingly automatic spelling.
 
-Sound out the regular words first. For _her_ and _be_, learn the spelling for now and return to the vowel pattern when it is taught. No word in this set has a fully irregular spelling.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

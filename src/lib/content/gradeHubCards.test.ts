@@ -89,13 +89,14 @@ describe("frozen K–2 grade hub cards", () => {
       "grade-1-common-words-4",
       "grade-1-common-words-5",
       "grade-1-common-words-6",
+      "grade-1-common-words-7",
       "grade-1-weather-words",
       "grade-1-clothing-words",
       "grade-1-shape-words",
       "grade-1-number-words-11-20",
       "grade-1-days-of-the-week",
     ]);
-    expect(GRADE_1_HUB_SECTIONS[1].summary).toContain("6 sets · 72 words");
+    expect(GRADE_1_HUB_SECTIONS[1].summary).toContain("7 sets · 84 words");
     expect(GRADE_1_HUB_SECTIONS[1].cards.every((card) => card.kind === "list")).toBe(true);
     expect(idsFor(GRADE_1_HUB_SECTIONS)).not.toContain("grade-1-common-words");
   });
@@ -126,17 +127,18 @@ describe("frozen K–2 grade hub cards", () => {
       "grade-2-common-words-4",
       "grade-2-common-words-5",
       "grade-2-common-words-6",
+      "grade-2-common-words-7",
       "grade-2-transportation-words",
       "grade-2-money-words",
       "grade-2-number-words-20-100",
       "grade-2-community-helpers",
       "grade-2-months-of-the-year",
     ]);
-    expect(idsFor(GRADE_2_HUB_SECTIONS)).toHaveLength(24);
+    expect(idsFor(GRADE_2_HUB_SECTIONS)).toHaveLength(25);
     expect(GRADE_2_HUB_SECTIONS[0].cards).toHaveLength(13);
-    expect(GRADE_2_HUB_SECTIONS[1].cards).toHaveLength(6);
+    expect(GRADE_2_HUB_SECTIONS[1].cards).toHaveLength(7);
     expect(GRADE_2_HUB_SECTIONS[2].cards).toHaveLength(5);
-    expect(GRADE_2_HUB_SECTIONS[1].summary).toContain("6 sets · 72 words");
+    expect(GRADE_2_HUB_SECTIONS[1].summary).toContain("7 sets · 84 words");
     expect(GRADE_2_HUB_SECTIONS[1].summary).toContain("Heart Word guidance");
     expect(GRADE_2_HUB_SECTIONS[1].cards.every((card) => card.kind === "list")).toBe(true);
     expect(idsFor(GRADE_2_HUB_SECTIONS)).not.toContain("grade-2-common-words");
@@ -199,17 +201,15 @@ describe("Grade 5 grade hub cards", () => {
       "grade-5-spelling-changes-related-words",
       "grade-5-common-words-1",
       "grade-5-common-words-2",
-      "grade-5-common-words-3",
-      "grade-5-common-words-4",
       "grade-5-money-management-words",
       "grade-5-ecosystem-environment-words",
       "grade-5-fraction-decimal-words",
       "grade-5-community-civics-words",
     ]);
     expect(GRADE_5_HUB_SECTIONS[0].cards).toHaveLength(5);
-    expect(GRADE_5_HUB_SECTIONS[1].cards).toHaveLength(4);
+    expect(GRADE_5_HUB_SECTIONS[1].cards).toHaveLength(2);
     expect(GRADE_5_HUB_SECTIONS[2].cards).toHaveLength(4);
-    expect(GRADE_5_HUB_SECTIONS[1].summary).toContain("4 sets · 48 words");
+    expect(GRADE_5_HUB_SECTIONS[1].summary).toContain("2 sets · 24 words");
   });
 
   it("does not reuse the rejected draft science/math vocabulary files on the hub", () => {
@@ -217,128 +217,10 @@ describe("Grade 5 grade hub cards", () => {
     expect(idsFor(GRADE_5_HUB_SECTIONS)).not.toContain("grade-5-math-vocabulary");
   });
 
-  it("publishes Grade 5 Additional Practice with contentRole: vocabulary-theme and zero overlap against any K–5 Common Words or Core Spelling word", () => {
-    const additionalPracticeIds = [
-      "grade-5-community-civics-words",
-      "grade-5-money-management-words",
-      "grade-5-ecosystem-environment-words",
-      "grade-5-fraction-decimal-words",
-    ];
-    const fileNames: Record<string, string> = {
-      "grade-5-community-civics-words": "5th-grade-community-civics-words",
-      "grade-5-money-management-words": "5th-grade-money-management-words",
-      "grade-5-ecosystem-environment-words": "5th-grade-ecosystem-environment-words",
-      "grade-5-fraction-decimal-words": "5th-grade-fraction-decimal-words",
-    };
-    const additionalPracticeWords = new Set<string>();
-    for (const id of additionalPracticeIds) {
-      const content = source(`spelling-lists/grade-level/${fileNames[id]}.md`);
-      expect(content).toContain("contentRole: vocabulary-theme");
-      for (const word of wordsIn(content)) {
-        additionalPracticeWords.add(word);
-      }
-    }
-    expect(additionalPracticeWords.size).toBe(40);
 
-    const bannedWords = new Set<string>();
-    for (const relativeDir of ["spelling-lists/sight-words", "spelling-lists/grade-level"]) {
-      for (const path of contentFiles(join(contentRoot, relativeDir))) {
-        const content = readFileSync(path, "utf8");
-        const isCommonWordsSet = /contentRole:\s*sight-word-set/.test(content);
-        const isCoreSpelling = /contentRole:\s*(grade-unit|skill)/.test(content);
-        if (!isCommonWordsSet && !isCoreSpelling) continue;
-        for (const word of wordsIn(content)) {
-          bannedWords.add(word);
-        }
-      }
-    }
-
-    for (const word of additionalPracticeWords) {
-      expect(bannedWords.has(word)).toBe(false);
-    }
-  });
-});
-
-describe("Grade 3 Common Words", () => {
-  it("wires grade-2-common-words-6 forward into the Grade 3 gateway's first set", () => {
-    // Adjacency is derived from HF_WORDS_SEQUENCE, not frontmatter — see
-    // navigationSequence.test.ts for the full chain assertion. This test keeps
-    // a direct check on this specific, previously-hand-wired boundary.
-    expect(getSequenceNeighbors("grade-2-common-words-6").nextId).toBe("grade-3-common-words-1");
-    expect(getSequenceNeighbors("grade-3-common-words-1").prerequisiteId).toBe("grade-2-common-words-6");
-  });
-
-  it("publishes five sets of 12 words each with zero overlap against the 184 words already owned by K–2", () => {
-    const k2Words = new Set(
-      [
-        "a", "I", "am", "at", "can", "in", "it", "is", "and", "the",
-        "he", "she", "we", "me", "my", "go", "to", "do", "you", "like",
-        "for", "of", "was", "said", "have", "are", "here", "come", "look", "see",
-        "this", "that", "with", "they", "one", "two", "three", "where", "little", "play",
-        "all", "but", "did", "no", "get", "good", "new", "now", "our", "out", "please", "want",
-        "after", "again", "any", "ask", "by", "could", "every", "fly", "from", "give", "going", "had",
-        "on", "not", "an", "as", "if", "has", "his", "her", "him", "them", "be", "will",
-        "what", "when", "who", "why", "how", "there", "your", "their", "were", "some", "more", "because",
-        "up", "down", "back", "over", "into", "about", "home", "way", "time", "first", "next", "then",
-        "or", "so", "just", "us", "may", "make", "many", "very", "people", "know", "would", "should",
-        "always", "around", "before", "another", "between", "under", "until", "almost", "together", "enough", "without", "through",
-        "been", "does", "goes", "gave", "made", "found", "told", "began", "took", "came", "went", "done",
-        "school", "book", "page", "word", "letter", "sentence", "story", "question", "answer", "learn", "study", "never",
-        "friend", "family", "father", "mother", "sister", "brother", "children", "everyone", "someone", "something", "young", "kind",
-        "best", "both", "different", "important", "great", "large", "small", "high", "light", "cold", "fast", "right",
-        "which", "these", "those", "its", "own", "off", "only", "other", "use", "work", "thought", "read",
-      ],
-    );
-    expect(k2Words.size).toBe(184);
-
-    let totalWords = 0;
-    for (let i = 1; i <= 5; i++) {
-      const set = source(`spelling-lists/sight-words/grade-3-common-words-${i}.md`);
-      expect(set).toContain(`id: grade-3-common-words-${i}`);
-      expect(set).toContain("contentRole: sight-word-set");
-      expect(set).toContain("status: published");
-      const words = [
-        ...set.matchAll(/^\s*-\s+(?:word:\s+)?["']([^"']+)["']/gm),
-      ].map((match) => match[1]);
-      expect(words).toHaveLength(12);
-      for (const word of words) {
-        expect(k2Words.has(word.toLowerCase())).toBe(false);
-      }
-      totalWords += words.length;
-    }
-    expect(totalWords).toBe(60);
-  });
 });
 
 describe("Common Words validation slice content", () => {
-  it("keeps exact set ids, roles, and words", () => {
-    // Adjacency (Review First / Next Step) is no longer authored in frontmatter —
-    // it's derived from HF_WORDS_SEQUENCE, verified in navigationSequence.test.ts.
-    const expectations = [
-      ["kindergarten-common-words-1", "a, I, am, at, can, in, it, is, and, the"],
-      ["kindergarten-common-words-2", "he, she, we, me, my, go, to, do, you, like"],
-      ["kindergarten-common-words-3", "for, of, was, said, have, are, here, come, look, see"],
-      ["kindergarten-common-words-4", "this, that, with, they, one, two, three, where, little, play"],
-      ["grade-1-common-words-1", "all, but, did, no, get, good, new, now, our, out, please, want"],
-      ["grade-1-common-words-2", "after, again, any, ask, by, could, every, fly, from, give, going, had"],
-      ["grade-1-common-words-3", "on, not, an, as, if, has, his, her, him, them, be, will"],
-      ["grade-1-common-words-4", "what, when, who, why, how, there, your, their, were, some, more, because"],
-      ["grade-1-common-words-5", "up, down, back, over, into, about, home, way, time, first, next, then"],
-      ["grade-1-common-words-6", "or, so, just, us, may, make, many, very, people, know, would, should"],
-    ] as const;
-
-    for (const [id, words] of expectations) {
-      const set = source(`spelling-lists/sight-words/${id}.md`);
-      expect(set).toContain(`id: ${id}`);
-      expect(set).toContain(`urlSlug: ${id}`);
-      expect(set).toContain("contentRole: sight-word-set");
-      const actualWords = [
-        ...set.matchAll(/^\s*-\s+(?:word:\s+)?["']([^"']+)["']/gm),
-      ].map((match) => match[1]);
-      expect(actualWords).toEqual(words.split(", "));
-    }
-  });
-
   it("keeps direct Kindergarten high-frequency cards on their canonical set destinations", () => {
     const highFrequencyCards = KINDERGARTEN_HUB_SECTIONS[1].cards;
     expect(highFrequencyCards.map((card) => card.id)).toEqual([

@@ -34,6 +34,7 @@ export const GRADE_2_COMMON_WORD_IDS: readonly string[] = [
   'grade-2-common-words-4',
   'grade-2-common-words-5',
   'grade-2-common-words-6',
+  'grade-2-common-words-7',
 ];
 
 /**
@@ -70,6 +71,7 @@ export const grade2Badges: Record<string, string> = {
   'grade-2-common-words-4': 'Common Words',
   'grade-2-common-words-5': 'Common Words',
   'grade-2-common-words-6': 'Common Words',
+  'grade-2-common-words-7': 'Common Words',
   'grade-2-months-of-the-year': 'Vocabulary',
   'grade-2-money-words': 'Vocabulary',
   'grade-2-number-words-20-100': 'Vocabulary',

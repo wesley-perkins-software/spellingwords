@@ -2,8 +2,8 @@
 id: grade-3-common-words-3
 urlSlug: grade-3-common-words-3
 title: "Grade 3 Common Words 3"
-description: "Grade 3 common words for reading and writing, including library, paragraph, author, and nonfiction."
-shortAnswer: "Twelve reading and writing words for third graders, including library, dictionary, paragraph, and nonfiction."
+description: "Practice 12 high-frequency words assigned to Grade 3 Set 3 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 12 high-frequency words assigned to Grade 3 Set 3 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: "3"
@@ -23,22 +23,20 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
-  - word: "library"
-    hint: "Heart part: the middle -brar- is easy to drop when speaking quickly — say all four syllables while spelling."
-  - "dictionary"
-  - "paragraph"
-  - "subject"
-  - "chapter"
-  - word: "author"
-    hint: "Heart part: au says /aw/, the same sound taught in Grade 2's au/aw lesson."
-  - "title"
-  - "describe"
-  - "explain"
   - "practice"
-  - "opinion"
-  - "nonfiction"
+  - "early"
+  - "against"
+  - "built"
+  - "even"
+  - "able"
+  - "heard"
+  - "difficult"
+  - "ever"
+  - "become"
+  - "especially"
+  - "later"
 ---
 
-These twelve words describe the books, parts, and purposes third graders read and write about every day, from a *paragraph* to a *chapter* to the difference between an *opinion* and *nonfiction*.
+Practice 12 high-frequency words assigned to Grade 3 Set 3 for accurate and increasingly automatic spelling.
 
-This phonics-aware set uses regular sound-spelling patterns where they help. When a small part is not yet predictable, use the Heart Word hint as a reminder to learn that part by heart.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

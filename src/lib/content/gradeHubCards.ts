@@ -105,13 +105,13 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
   {
     title: "High-Frequency Words",
     summary:
-      "4 sets · 40 words · Common kindergarten sight words taught with phonics and Heart Word guidance for unexpected spelling parts.",
+      "4 sets · 40 words · High-frequency words for accurate and increasingly automatic spelling.",
     cards: [
       {
         id: "kindergarten-common-words-1",
         title: "Kindergarten High-Frequency Words 1",
         description:
-          "Start with common kindergarten sight words and use the sounds that work before learning small unexpected parts by heart.",
+          "Practice the frozen Kindergarten Set 1 high-frequency words for accurate and increasingly automatic spelling.",
         badge: "High-Frequency Words",
         kind: "list",
       },
@@ -119,7 +119,7 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
         id: "kindergarten-common-words-2",
         title: "Kindergarten High-Frequency Words 2",
         description:
-          "Continue with useful writing words, using phonics first and Heart Word guidance for the tricky parts.",
+          "Practice the frozen Kindergarten Set 2 high-frequency words for accurate and increasingly automatic spelling.",
         badge: "High-Frequency Words",
         kind: "list",
       },
@@ -127,7 +127,7 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
         id: "kindergarten-common-words-3",
         title: "Kindergarten High-Frequency Words 3",
         description:
-          "Practice high-use words for early sentences, stories, and classroom writing.",
+          "Practice the frozen Kindergarten Set 3 high-frequency words for accurate and increasingly automatic spelling.",
         badge: "High-Frequency Words",
         kind: "list",
       },
@@ -135,7 +135,7 @@ export const KINDERGARTEN_HUB_SECTIONS: readonly {
         id: "kindergarten-common-words-4",
         title: "Kindergarten High-Frequency Words 4",
         description:
-          "Finish the sequence with common words for questions, counting, and simple stories.",
+          "Practice the frozen Kindergarten Set 4 high-frequency words for accurate and increasingly automatic spelling.",
         badge: "High-Frequency Words",
         kind: "list",
       },
@@ -285,54 +285,62 @@ export const GRADE_1_HUB_SECTIONS: readonly {
   {
     title: "High-Frequency Words",
     summary:
-      "6 sets · 72 words · Common Grade 1 writing words taught with phonics and Heart Word guidance for unexpected spelling parts.",
+      "7 sets · 84 words · High-frequency words for accurate and increasingly automatic spelling.",
     cards: [
       {
         id: "grade-1-common-words-1",
-        title: "Grade 1 Common Words 1",
+        title: "Grade 1 High-Frequency Words 1",
         description:
-          "Begin with useful words for sentences, directions, and everyday writing.",
-        badge: "Common Words",
+          "Practice the frozen Grade 1 Set 1 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-1-common-words-2",
-        title: "Grade 1 Common Words 2",
+        title: "Grade 1 High-Frequency Words 2",
         description:
-          "Continue with words for stories, questions, and classroom writing.",
-        badge: "Common Words",
+          "Practice the frozen Grade 1 Set 2 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-1-common-words-3",
-        title: "Grade 1 Common Words 3",
+        title: "Grade 1 High-Frequency Words 3",
         description:
-          "Build longer sentences with joining words, pronouns, and helping words.",
-        badge: "Common Words",
+          "Practice the frozen Grade 1 Set 3 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-1-common-words-4",
-        title: "Grade 1 Common Words 4",
+        title: "Grade 1 High-Frequency Words 4",
         description:
-          "Practice words for questions, comparisons, explanations, and reasons.",
-        badge: "Common Words",
+          "Practice the frozen Grade 1 Set 4 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-1-common-words-5",
-        title: "Grade 1 Common Words 5",
+        title: "Grade 1 High-Frequency Words 5",
         description:
-          "Use common place, movement, time, and sequence words in writing.",
-        badge: "Common Words",
+          "Practice the frozen Grade 1 Set 5 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-1-common-words-6",
-        title: "Grade 1 Common Words 6",
+        title: "Grade 1 High-Frequency Words 6",
         description:
-          "Finish with flexible words for choices, explanations, opinions, and stories.",
-        badge: "Common Words",
+          "Practice the frozen Grade 1 Set 6 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
+        kind: "list",
+      },
+      {
+        id: "grade-1-common-words-7",
+        title: "Grade 1 High-Frequency Words 7",
+        description:
+          "Practice the frozen Grade 1 Set 7 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
     ],
@@ -453,54 +461,62 @@ export const GRADE_2_HUB_SECTIONS: readonly {
   {
     title: "High-Frequency Words",
     summary:
-      "6 sets · 72 words · Common Grade 2 writing words taught with phonics and Heart Word guidance for unexpected spelling parts.",
+      "7 sets · 84 words · High-frequency words for accurate and increasingly automatic spelling.",
     cards: [
       {
         id: "grade-2-common-words-1",
-        title: "Grade 2 Common Words 1",
+        title: "Grade 2 High-Frequency Words 1",
         description:
-          "Begin with the words that hold second-grade sentences together.",
-        badge: "Common Words",
+          "Practice the frozen Grade 2 Set 1 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-2-common-words-2",
-        title: "Grade 2 Common Words 2",
+        title: "Grade 2 High-Frequency Words 2",
         description:
-          "Practice the verbs children need to write about what already happened.",
-        badge: "Common Words",
+          "Practice the frozen Grade 2 Set 2 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-2-common-words-3",
-        title: "Grade 2 Common Words 3",
+        title: "Grade 2 High-Frequency Words 3",
         description:
-          "Spell the school and reading words used in everyday classroom writing.",
-        badge: "Common Words",
+          "Practice the frozen Grade 2 Set 3 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-2-common-words-4",
-        title: "Grade 2 Common Words 4",
+        title: "Grade 2 High-Frequency Words 4",
         description:
-          "Practice words for family, friends, and the people in a child's stories.",
-        badge: "Common Words",
+          "Practice the frozen Grade 2 Set 4 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-2-common-words-5",
-        title: "Grade 2 Common Words 5",
+        title: "Grade 2 High-Frequency Words 5",
         description:
-          "Use describing and comparing words that go beyond big and good.",
-        badge: "Common Words",
+          "Practice the frozen Grade 2 Set 5 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-2-common-words-6",
-        title: "Grade 2 Common Words 6",
+        title: "Grade 2 High-Frequency Words 6",
         description:
-          "Finish with the words children use to choose, compare, and explain.",
-        badge: "Common Words",
+          "Practice the frozen Grade 2 Set 6 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
+        kind: "list",
+      },
+      {
+        id: "grade-2-common-words-7",
+        title: "Grade 2 High-Frequency Words 7",
+        description:
+          "Practice the frozen Grade 2 Set 7 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
     ],
@@ -623,46 +639,46 @@ export const GRADE_3_HUB_SECTIONS: readonly {
   {
     title: "High-Frequency Words",
     summary:
-      "5 sets · 60 words · Common Grade 3 writing words taught with phonics and Heart Word guidance for unexpected spelling parts.",
+      "5 sets · 60 words · High-frequency words for accurate and increasingly automatic spelling.",
     cards: [
       {
         id: "grade-3-common-words-1",
-        title: "Grade 3 Common Words 1",
+        title: "Grade 3 High-Frequency Words 1",
         description:
-          "Begin with words that show where something is or connect one idea to another.",
-        badge: "Common Words",
+          "Practice the frozen Grade 3 Set 1 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-3-common-words-2",
-        title: "Grade 3 Common Words 2",
+        title: "Grade 3 High-Frequency Words 2",
         description:
-          "Practice irregular past-tense verbs, including the shared brought/bought/caught/taught/fought/sought family.",
-        badge: "Common Words",
+          "Practice the frozen Grade 3 Set 2 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-3-common-words-3",
-        title: "Grade 3 Common Words 3",
+        title: "Grade 3 High-Frequency Words 3",
         description:
-          "Spell the reading and writing words third graders use to talk about books and their own writing.",
-        badge: "Common Words",
+          "Practice the frozen Grade 3 Set 3 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-3-common-words-4",
-        title: "Grade 3 Common Words 4",
+        title: "Grade 3 High-Frequency Words 4",
         description:
-          "Describe feelings and characters with more precision than happy or sad.",
-        badge: "Common Words",
+          "Practice the frozen Grade 3 Set 4 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-3-common-words-5",
-        title: "Grade 3 Common Words 5",
+        title: "Grade 3 High-Frequency Words 5",
         description:
-          "Finish with time and transition words that sequence ideas and connect sentences in writing.",
-        badge: "Common Words",
+          "Practice the frozen Grade 3 Set 5 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
     ],
@@ -765,38 +781,22 @@ export const GRADE_4_HUB_SECTIONS: readonly {
   {
     title: "High-Frequency Words",
     summary:
-      "4 sets · 48 words · Narrow, corrective Grade 4 writing words taught with Heart Word guidance for silent letters, doubled consonants, unstressed vowels, and confusable connecting words.",
+      "2 sets · 24 words · High-frequency words for accurate and increasingly automatic spelling.",
     cards: [
       {
         id: "grade-4-common-words-1",
-        title: "Grade 4 Common Words 1",
+        title: "Grade 4 High-Frequency Words 1",
         description:
-          "Practice words with a silent or unexpected letter, such as environment and receipt.",
-        badge: "Common Words",
+          "Practice the frozen Grade 4 Set 1 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-4-common-words-2",
-        title: "Grade 4 Common Words 2",
+        title: "Grade 4 High-Frequency Words 2",
         description:
-          "Practice words with a doubled consonant that has to be remembered, such as necessary and embarrass.",
-        badge: "Common Words",
-        kind: "list",
-      },
-      {
-        id: "grade-4-common-words-3",
-        title: "Grade 4 Common Words 3",
-        description:
-          "Practice words with an unstressed vowel, such as separate and particular.",
-        badge: "Common Words",
-        kind: "list",
-      },
-      {
-        id: "grade-4-common-words-4",
-        title: "Grade 4 Common Words 4",
-        description:
-          "Finish with connecting and confusable words for longer writing, such as however, weather, and whether.",
-        badge: "Common Words",
+          "Practice the frozen Grade 4 Set 2 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
     ],
@@ -903,38 +903,22 @@ export const GRADE_5_HUB_SECTIONS: readonly {
   {
     title: "High-Frequency Words",
     summary:
-      "4 sets · 48 words · Narrow, corrective Grade 5 writing words taught with Heart Word guidance for silent letters, doubled letters, unstressed vowels, and editing and connecting words.",
+      "2 sets · 24 words · High-frequency words for accurate and increasingly automatic spelling.",
     cards: [
       {
         id: "grade-5-common-words-1",
-        title: "Grade 5 Common Words 1",
+        title: "Grade 5 High-Frequency Words 1",
         description:
-          "Practice words with a silent or hidden letter, such as foreign and conscience.",
-        badge: "Common Words",
+          "Practice the frozen Grade 5 Set 1 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
       {
         id: "grade-5-common-words-2",
-        title: "Grade 5 Common Words 2",
+        title: "Grade 5 High-Frequency Words 2",
         description:
-          "Practice words with doubled letters in longer academic words, such as accommodate and committee.",
-        badge: "Common Words",
-        kind: "list",
-      },
-      {
-        id: "grade-5-common-words-3",
-        title: "Grade 5 Common Words 3",
-        description:
-          "Practice words with an unstressed vowel, such as temperature and experience.",
-        badge: "Common Words",
-        kind: "list",
-      },
-      {
-        id: "grade-5-common-words-4",
-        title: "Grade 5 Common Words 4",
-        description:
-          "Finish with connecting and editing words for longer writing, such as consequently, punctuation, and vocabulary.",
-        badge: "Common Words",
+          "Practice the frozen Grade 5 Set 2 high-frequency words for accurate and increasingly automatic spelling.",
+        badge: "High-Frequency Words",
         kind: "list",
       },
     ],
@@ -979,7 +963,7 @@ export const GRADE_5_HUB_SECTIONS: readonly {
 ];
 
 export function buildGradeHubCards(
-  definitions: readonly { title: string; cards: readonly CardDefinition[] }[],
+  definitions: readonly { title: string; summary?: string; cards: readonly CardDefinition[] }[],
   entries: SpellingListEntry[],
 ): GradeHubSection[] {
   const listsById = new Map(entries.map((entry) => [entry.data.id, entry]));

@@ -2,8 +2,8 @@
 id: grade-1-common-words-4
 urlSlug: grade-1-common-words-4
 title: 'Grade 1 Common Words 4'
-description: 'Practice question, explanation, comparison, and reason words that help first graders ask questions and write fuller ideas.'
-shortAnswer: 'Practice common words for asking questions, referring to people and things, comparing ideas, and giving a reason.'
+description: "Practice 12 high-frequency words assigned to Grade 1 Set 4 for accurate and increasingly automatic spelling."
+shortAnswer: "Practice 12 high-frequency words assigned to Grade 1 Set 4 for accurate and increasingly automatic spelling."
 contentRole: sight-word-set
 category: sight-words
 grade: '1'
@@ -23,31 +23,20 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 words:
-  - word: 'what'
-    hint: 'Heart part: wh spells /w/.'
-  - 'when'
-  - word: 'who'
-    hint: 'Heart part: wh spells /h/.'
-  - word: 'why'
-    hint: 'Temporary Heart Word: final y spelling becomes more familiar with later vowel work.'
-  - word: 'how'
-    hint: 'Temporary Heart Word: ow is a vowel pattern taught later.'
-  - word: 'there'
-    hint: 'Heart part: ere.'
-  - word: 'your'
-    hint: 'Heart part: ou.'
-  - word: 'their'
-    hint: 'Heart part: ei.'
-  - word: 'were'
-    hint: 'Heart part: ere.'
-  - word: 'some'
-    hint: 'Heart part: o.'
-  - word: 'more'
-    hint: 'Temporary Heart Word: connect ore to later r-controlled vowel instruction.'
-  - word: 'because'
-    hint: 'Heart parts: au and se.'
+  - "new"
+  - "him"
+  - "where"
+  - "way"
+  - "now"
+  - "from"
+  - "them"
+  - "your"
+  - "time"
+  - "our"
+  - "give"
+  - "will"
 ---
 
-Practice words children need to ask questions, refer to people and things, compare ideas, and give a reason. Sound out every part that follows a familiar pattern, then learn only the unexpected letters in words such as _what_, _who_, _their_, _were_, _some_, and _because_.
+Practice 12 high-frequency words assigned to Grade 1 Set 4 for accurate and increasingly automatic spelling.
 
-Always map the predictable portions first. Then identify only the unexpected spelling part to remember by heart.
+This set follows the frozen K–5 High-Frequency Words curriculum. Use it alongside Core Spelling; the two strands have different, complementary purposes.

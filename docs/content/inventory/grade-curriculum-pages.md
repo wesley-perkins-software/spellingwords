@@ -7,7 +7,7 @@
 
 Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling (Grade Unit) and Additional Practice (vocabulary-theme) pages that `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` defines for each grade and that `src/lib/content/gradeHubCards.ts` confirms are wired into that grade's live hub. High-Frequency Words (High-Frequency Words) pages are inventoried separately in `high-frequency-words.md`. Canonical Grade Unit names below are copied verbatim from `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`.
 
-The 27 rows classified by canonical routes as **Themed Spelling Practice** are governed by `docs/content/CANONICAL_THEMED_SPELLING_PRACTICE_PAGE_STANDARD.md`. Research and the Weather pilot are complete; Weather is the reference implementation, while the other 26 members remain pending. Historical “Additional Practice” wording in this inventory describes the frozen hub-card grouping, not a competing public strand taxonomy.
+The 27 rows classified by canonical routes as **Themed Spelling Practice** are governed by `docs/content/CANONICAL_THEMED_SPELLING_PRACTICE_PAGE_STANDARD.md`. The Kindergarten and Grade 1 members are complete; Weather remains the reference implementation, while the 17 members in Grades 2–5 remain pending. Historical “Additional Practice” wording in this inventory describes the frozen hub-card grouping, not a competing public strand taxonomy.
 
 ## Kindergarten
 
@@ -47,11 +47,11 @@ The 27 rows classified by canonical routes as **Themed Spelling Practice** are g
 
 | Title | id | urlSlug | Role | Status | Source file | Editorial status |
 |---|---|---|---|---|---|---|
-| Grade 1 Number Words 11–20 | grade-1-number-words-11-20 | grade-1-number-words-11-20 | vocabulary-theme | published | `src/content/1st-grade/number-words-11-20.md` | Not audited |
-| Grade 1 Days of the Week | grade-1-days-of-the-week | grade-1-days-of-the-week | vocabulary-theme | published | `src/content/1st-grade/days-of-the-week.md` | Not audited |
+| 1st Grade Number Spelling Words 11–20 | grade-1-number-words-11-20 | grade-1-number-words-11-20 | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-1-number-words-11-20.md` | Complete — Grade 1 Themed Spelling Practice member batch |
+| 1st Grade Days of the Week Spelling Words | grade-1-days-of-the-week | grade-1-days-of-the-week | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-1-days-of-the-week.md` | Complete — Grade 1 Themed Spelling Practice member batch |
 | 1st Grade Weather Spelling Words | grade-1-weather-words | grade-1-weather-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-1-weather-words.md` | Complete — canonical Themed Spelling Practice reference implementation |
-| Grade 1 Clothing Words | grade-1-clothing-words | grade-1-clothing-words | vocabulary-theme | published | `src/content/1st-grade/clothing-words.md` | Not audited |
-| Grade 1 Shape Words | grade-1-shape-words | grade-1-shape-words | vocabulary-theme | published | `src/content/1st-grade/shape-words.md` | Not audited |
+| 1st Grade Clothing Spelling Words | grade-1-clothing-words | grade-1-clothing-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-1-clothing-words.md` | Complete — Grade 1 Themed Spelling Practice member batch |
+| 1st Grade Shape Spelling Words | grade-1-shape-words | grade-1-shape-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-1-shape-words.md` | Complete — Grade 1 Themed Spelling Practice member batch |
 | CVC Short Vowel Review & The C/K Rule | grade-1-cvc-short-vowels-c-k-rule | 1st-grade-cvc-short-vowels-c-k-rule | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-cvc-short-vowels-c-k-rule.md` | Not audited |
 | The Floss Rule | grade-1-floss-rule | 1st-grade-floss-rule | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/phonics/grade-1-floss-rule.md` | Not audited |
 | Consonant Digraphs & Final -ck | grade-1-consonant-digraphs-final-ck | 1st-grade-consonant-digraphs-final-ck | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-consonant-digraphs-final-ck.md` | Not audited |

@@ -1,36 +1,24 @@
 ---
 id: kindergarten-animal-words
 urlSlug: kindergarten-animal-words
-title: "Kindergarten Animal Words"
-description: "Eight familiar animal names — cat, dog, pig, bug, hen, duck, fish, and frog — friendly additional vocabulary practice for a young speller."
-shortAnswer: "Eight kindergarten animal words — cat, dog, pig, bug, hen, duck, fish, and frog — friendly, familiar animal names every young speller loves."
+title: 'Kindergarten Animal Spelling Words'
+description: 'Children meet animal names in books, conversations, and the world around them. These eight words build spelling practice with short vowels, the endings ck and sh, and the beginning blend fr.'
+shortAnswer: 'Five animal names use simple three-letter spellings; duck, fish, and frog add a consonant team or blend to listen for.'
+contentRole: vocabulary-theme
 category: grade-level
-grade: "K"
+grade: 'K'
 difficulty: beginner
-skillTags: ["grade-K", "animals", "vocabulary"]
-tags: ["kindergarten", "beginner", "animals", "vocabulary"]
+skillTags: ['grade-K', 'animals', 'vocabulary']
+tags: ['kindergarten', 'beginner', 'animals', 'vocabulary', 'themed-spelling-practice']
 order: 5
 estimatedDurationMinutes: 6
 status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: []
-prerequisiteLists: ["kindergarten-first-words"]
-nextLists: ["kindergarten-body-words"]
+prerequisiteLists: []
+nextLists: ['kindergarten-body-words']
 featured: false
-readinessSignals:
-  - "Can name common animals in pictures, books, or real life"
-  - "Can hear the first sound in a spoken animal word"
-  - "Are ready to connect familiar spoken words to simple printed spellings"
-faq:
-  - question: "Why are animal words useful for beginning spellers?"
-    answer: "Animal words are concrete and familiar, so children usually know the meaning before they study the spelling. That lets them focus on matching sounds to letters."
-  - question: "Are these vocabulary words or spelling words?"
-    answer: "They are both. A kindergartener may already say the words, but spelling them builds alphabet knowledge, sound awareness, and confidence with print."
-  - question: "What should adults listen for during practice?"
-    answer: "Listen for whether the child can say the word slowly and notice beginning and ending sounds. That skill matters more than reciting the list quickly."
-  - question: "Is this list required before moving on in the spelling progression?"
-    answer: "No. This is optional additional practice, not a required step. Children can revisit it anytime alongside the core spelling progression, starting with First Words."
 words:
   - bug
   - cat
@@ -42,6 +30,14 @@ words:
   - pig
 ---
 
-Cats, dogs, and ducks are often a kindergartener's first favorite words — familiar, easy to picture, and fun to talk about. This list gathers eight common animal names that most children already recognize by sight and sound.
+### Five short words use one letter for each sound
 
-These words are simple, concrete, and rewarding to spell correctly — a great match for a young speller building confidence one short word at a time.
+In *bug*, *cat*, *dog*, *hen*, and *pig*, listen for a beginning sound, a short vowel, and an ending sound. Say the word slowly and write the three letters in the same order as the sounds.
+
+### Two endings use a pair of letters
+
+The ending sound in *duck* is written *ck*. The ending sound in *fish* is written *sh*. Keep each pair together when spelling the word.
+
+### Listen for both sounds at the start of *frog*
+
+The word *frog* begins with the blend *fr*. Stretch the beginning so you can hear *f* and *r*, then spell the rest with short *o* and final *g*.

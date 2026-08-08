@@ -1,36 +1,24 @@
 ---
 id: kindergarten-family-words
 urlSlug: kindergarten-family-words
-title: "Kindergarten Family Words"
-description: "Ten warm, familiar words for the people closest to a kindergartener — mom, dad, grandma, grandpa, and more — the family vocabulary every child already knows by heart."
-shortAnswer: "Ten kindergarten family words — mom, dad, sister, brother, grandma, grandpa, and more — the people words every young speller already knows."
+title: 'Kindergarten Family Spelling Words'
+description: 'Family words can appear when children talk, read, or write about people and relationships. These eight spellings move from short-vowel words to longer words that can be remembered in clear spoken and written parts.'
+shortAnswer: 'This eight-word family set begins with the short spellings mom and dad, compares sister with brother, and finds shared parts in grandma, grandpa, baby, and family.'
+contentRole: vocabulary-theme
 category: grade-level
-grade: "K"
+grade: 'K'
 difficulty: beginner
-skillTags: ["grade-K", "family", "vocabulary"]
-tags: ["kindergarten", "beginner", "family", "vocabulary"]
+skillTags: ['grade-K', 'family', 'vocabulary']
+tags: ['kindergarten', 'beginner', 'family', 'vocabulary', 'themed-spelling-practice']
 order: 9
 estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: []
-prerequisiteLists: ["kindergarten-color-words"]
+prerequisiteLists: []
 nextLists: []
 featured: false
-readinessSignals:
-  - "Can name familiar family roles in speech or pictures"
-  - "Understand that words can label people and relationships"
-  - "Are ready to spell meaningful personal vocabulary from home and classroom conversation"
-faq:
-  - question: "Why are family words important for kindergarten?"
-    answer: "Family words are emotionally meaningful and frequently used. They help children see that spelling is connected to the people and stories they care about."
-  - question: "How can these words support early writing?"
-    answer: "They give children useful words for labels, drawings, simple sentences, and personal stories. A child who can spell mom, dad, or sister can write about real experiences sooner."
-  - question: "What should adults be sensitive to with this topic?"
-    answer: "Family structures vary. Use the words as vocabulary, but invite children to choose the terms that match their own lives and writing."
-  - question: "Why does this list come last in Themed Spelling Practice?"
-    answer: "A few of these words — grandma, grandpa, brother, sister — are longer and less predictable than the other kindergarten Themed Spelling Practice words, so this page is a good place to finish."
 words:
   - mom
   - dad
@@ -42,6 +30,14 @@ words:
   - family
 ---
 
-The people closest to a kindergartener are often the very first words they want to write — *mom*, *dad*, *grandma*, *grandpa* — the family members who tuck them in and pick them up from school.
+### Begin with two short words
 
-These eight words are warm and familiar, which makes them a gentle, motivating place to practice spelling. A few, like *grandma* and *grandpa*, are longer than the other kindergarten Themed Spelling Practice words — a natural, calm way to close out this section.
+*Mom* and *dad* each have three sounds and three letters. Listen for the short vowel in the middle, then check that the first and last letters match the beginning and ending sounds.
+
+### Compare *sister* and *brother*
+
+Both words end with the letters *er*. Say each in two parts—*sis-ter* and *broth-er*—and keep the ending the same. At the start of *brother*, write *br*, then use *th* in the middle.
+
+### Build longer words from familiar parts
+
+*Grandma* and *grandpa* share the complete written part *grand*. Add *ma* or *pa* to finish the intended word. *Baby* and *family* both finish with *y* spelling the long *e* sound; in *baby*, say *ba-by* to hear the two parts.

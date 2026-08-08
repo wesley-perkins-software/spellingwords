@@ -1,36 +1,27 @@
 ---
 id: kindergarten-body-words
 urlSlug: kindergarten-body-words
-title: "Kindergarten Body Words"
-description: "Eight familiar body-part words — eyes, ears, nose, hand, foot, arm, leg, and head — the vocabulary a kindergartener uses to talk about themselves every day."
-shortAnswer: "Eight kindergarten body words — eyes, ears, nose, hand, foot, arm, leg, and head — the body-part vocabulary every young speller already knows by heart."
+title: 'Kindergarten Body Spelling Words'
+description: 'Body words help children name familiar parts of a person in conversation, books, and writing. These eight words build spelling practice with short vowels, ending consonants, and a few less predictable vowel spellings.'
+shortAnswer: 'This eight-word body set compares short spellings such as arm and leg with useful letter patterns in eyes, ears, nose, hand, foot, and head.'
+contentRole: vocabulary-theme
 category: grade-level
-grade: "K"
+grade: 'K'
 difficulty: beginner
-skillTags: ["grade-K", "body", "vocabulary"]
-tags: ["kindergarten", "beginner", "body", "body-parts"]
+skillTags: ['grade-K', 'body', 'vocabulary']
+tags: ['kindergarten', 'beginner', 'body', 'body-parts', 'themed-spelling-practice']
 order: 8
 estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: []
-prerequisiteLists: ["kindergarten-animal-words"]
-nextLists: ["kindergarten-number-words"]
+prerequisiteLists: []
+nextLists: ['kindergarten-number-words']
 featured: false
-readinessSignals:
-  - "Can point to and name common body parts"
-  - "Can match a spoken word to a picture or real object"
-  - "Are beginning to notice first and last sounds in short familiar words"
-faq:
-  - question: "Why teach body words in kindergarten?"
-    answer: "Body words are part of a child's daily language. Because the meanings are already secure, students can focus on hearing sounds and learning the printed form."
-  - question: "How do body words support early reading?"
-    answer: "They connect print to something immediately understandable. A child who reads or spells hand, leg, or nose can attach the word to a real referent instead of treating it as an abstract string of letters."
-  - question: "What mistakes are common with these words?"
-    answer: "Children may rely on memory of the whole word and skip sound-by-sound work. Ask them to stretch the word aloud and point to the letters that represent the sounds they hear."
-  - question: "Which early vocabulary fits after body words?"
-    answer: "This is the last of the kindergarten Themed Spelling Practice pages, so there is no set next step — families are welcome to revisit any of the earlier pages."
+wordNotes:
+  - word: 'eyes'
+    note: 'Start with the singular word eye: e-y-e. Add s to spell the plural eyes without dropping the final e.'
 words:
   - eyes
   - ears
@@ -42,6 +33,10 @@ words:
   - head
 ---
 
-From the very first days of kindergarten, children talk about their bodies constantly — a bumped *arm*, a tickle on the *nose*, hands that need washing before lunch. These eight words are the parts of the body a kindergartener already points to and names out loud, now paired with the spelling to match.
+### Listen through the short words
 
-Learning to spell *hand*, *foot*, and *head* alongside *eyes* and *ears* gives a young speller a complete, practical vocabulary — one they will use in stories, songs, and everyday conversation for years to come.
+In *arm*, the letters *ar* work together before final *m*. *Leg* has a short *e* between *l* and *g*. In *hand*, listen for both consonants in the ending *nd*.
+
+### Compare the vowel spellings
+
+*Nose* uses a final *e* to help spell its long *o* sound. The middle vowel sound in *foot* is written *oo*. *Head* sounds as though it has a short *e*, but its middle is written *ea*, while *ears* begins with *ear*. These letter pairs are useful parts to notice and remember.

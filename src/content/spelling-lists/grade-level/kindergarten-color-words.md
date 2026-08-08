@@ -21,7 +21,7 @@ nextLists: ['kindergarten-family-words']
 featured: false
 wordNotes:
   - word: 'yellow'
-    note: 'Say yellow in two parts: yel-low. The word has two l letters in the middle, so keep the written chunk llow together.'
+    note: 'Say yellow in two parts: yel-low. Remember the two l letters in the middle, then finish with ow: y-e-l-l-o-w.'
 words:
   - red
   - blue

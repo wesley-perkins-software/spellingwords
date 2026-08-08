@@ -9,6 +9,7 @@ type BatchPage = {
   path: string;
   words: readonly string[];
   source: string;
+  noteWords: readonly string[];
 };
 
 function sourceFor(id: string): string {
@@ -33,6 +34,7 @@ const pages: readonly BatchPage[] = [
     path: '/kindergarten/themed-spelling-practice/animal-words',
     words: ['bug', 'cat', 'dog', 'duck', 'fish', 'frog', 'hen', 'pig'],
     source: sourceFor('kindergarten-animal-words'),
+    noteWords: [],
   },
   {
     id: 'kindergarten-color-words',
@@ -40,6 +42,42 @@ const pages: readonly BatchPage[] = [
     path: '/kindergarten/themed-spelling-practice/color-words',
     words: ['red', 'blue', 'green', 'yellow', 'black', 'white', 'brown', 'pink'],
     source: sourceFor('kindergarten-color-words'),
+    noteWords: ['yellow'],
+  },
+  {
+    id: 'kindergarten-body-words',
+    title: 'Kindergarten Body Spelling Words',
+    path: '/kindergarten/themed-spelling-practice/body-words',
+    words: ['eyes', 'ears', 'nose', 'hand', 'foot', 'arm', 'leg', 'head'],
+    source: sourceFor('kindergarten-body-words'),
+    noteWords: ['eyes'],
+  },
+  {
+    id: 'kindergarten-number-words',
+    title: 'Kindergarten Number Spelling Words',
+    path: '/kindergarten/themed-spelling-practice/number-words',
+    words: [
+      'one',
+      'two',
+      'three',
+      'four',
+      'five',
+      'six',
+      'seven',
+      'eight',
+      'nine',
+      'ten',
+    ],
+    source: sourceFor('kindergarten-number-words'),
+    noteWords: ['one', 'two'],
+  },
+  {
+    id: 'kindergarten-family-words',
+    title: 'Kindergarten Family Spelling Words',
+    path: '/kindergarten/themed-spelling-practice/family-words',
+    words: ['mom', 'dad', 'sister', 'brother', 'baby', 'grandma', 'grandpa', 'family'],
+    source: sourceFor('kindergarten-family-words'),
+    noteWords: [],
   },
 ];
 
@@ -60,8 +98,12 @@ describe('Kindergarten Themed Spelling Practice production batch', () => {
 
   it.each(pages)('keeps notes selective and limited to words in $id', (page) => {
     const noteWords = listItems(page.source, 'wordNotes', 'words');
+    expect(noteWords).toEqual(page.noteWords);
     expect(noteWords.length).toBeLessThan(page.words.length);
     expect(noteWords.every((word) => page.words.includes(word))).toBe(true);
+    const noteBlock = page.source.match(/^wordNotes:\n([\s\S]*?)^words:/m)?.[1] ?? '';
+    expect(noteBlock).not.toContain('contextExample:');
+    expect(noteBlock).not.toContain('pronunciationNote:');
   });
 
   it.each(pages)('leaves renderer-owned regions out of $id', (page) => {
@@ -71,6 +113,8 @@ describe('Kindergarten Themed Spelling Practice production batch', () => {
     expect(page.source).not.toContain('Hear or say each word, notice a useful part');
     expect(page.source).not.toMatch(/Additional Practice/i);
     expect(page.source).not.toContain('In a sentence:');
+    expect(page.source).not.toMatch(/^#{1,2} /m);
+    expect(page.source).not.toMatch(/^faq:|^readinessSignals:/m);
   });
 
   it.each(pages)('retains same-grade exploration and its owning gateway for $id', (page) => {

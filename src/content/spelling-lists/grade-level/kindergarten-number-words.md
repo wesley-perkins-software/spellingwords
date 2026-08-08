@@ -1,35 +1,29 @@
 ---
 id: kindergarten-number-words
 urlSlug: kindergarten-number-words
-title: "Kindergarten Number Words"
-description: "Number words one through ten — focused kindergarten spelling practice for counting, math talk, and classroom routines."
-shortAnswer: "Practice the kindergarten number words one through ten with familiar counting words that children use in math, books, games, and daily routines."
+title: 'Kindergarten Number Spelling Words'
+description: 'Children see and use number words in books, games, classroom talk, and early writing. This set turns the familiar words one through ten into spelling practice with consonant teams, long-vowel spellings, and memorable letter sequences.'
+shortAnswer: 'These ten number words include straightforward spellings such as six and ten, shared patterns in three, five, and nine, and less predictable spellings to remember in one, two, four, and eight.'
 contentRole: vocabulary-theme
 category: grade-level
-grade: "K"
+grade: 'K'
 difficulty: beginner
-skillTags: ["grade-K", "beginner", "numbers", "vocabulary"]
-tags: ["kindergarten", "beginner", "numbers", "vocabulary"]
+skillTags: ['grade-K', 'beginner', 'numbers', 'vocabulary']
+tags: ['kindergarten', 'beginner', 'numbers', 'vocabulary', 'themed-spelling-practice']
 order: 2
 estimatedDurationMinutes: 7
 status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: []
-prerequisiteLists: ["kindergarten-body-words"]
-nextLists: ["kindergarten-color-words"]
+prerequisiteLists: []
+nextLists: ['kindergarten-color-words']
 featured: false
-readinessSignals:
-  - "Can count small sets and name numerals from one through ten"
-  - "Recognize number words in classroom routines, games, or picture books"
-  - "Are ready to connect familiar counting words to printed spellings"
-faq:
-  - question: "Which number words are included?"
-    answer: "This kindergarten list includes one, two, three, four, five, six, seven, eight, nine, and ten."
-  - question: "Why are number words useful for early spelling?"
-    answer: "Children use number words in counting, math talk, games, books, and classroom directions. Familiar meanings help them focus on the spelling."
-  - question: "Are number words part of the core spelling route?"
-    answer: "No. These are optional additional practice words. The Core Spelling route beginning with First Words remains the recommended sequence."
+wordNotes:
+  - word: 'one'
+    note: 'The beginning sound in one is not spelled with w. Remember that this word begins with o: o-n-e.'
+  - word: 'two'
+    note: 'The word two begins with a silent t. Hold on to t-w at the start, then finish with o.'
 words:
   - one
   - two
@@ -43,6 +37,14 @@ words:
   - ten
 ---
 
-Number words are useful well beyond a counting page. Kindergarteners meet them in books, games, calendar routines, and early math talk. Some, such as *three*, *seven*, and *eight*, have spelling parts that need extra attention even when the child knows exactly what the number means.
+### Use sounds in the shorter spellings
 
-This is optional additional practice, not the core phonics path. Use familiar sounds where they help, then slow down and notice the parts that are less predictable.
+*Six* and *ten* can be stretched into three sounds and spelled in that order. *Three* begins with *th* and ends with *ee*. Both letter pairs stay together as you spell the word.
+
+### Compare long-vowel spellings
+
+*Five* and *nine* both end in silent *e*, which helps the *i* spell its long sound. *Four* uses *ou* before *r*. In *eight*, the long *a* sound is followed by final *t*, but the complete spelling to remember is *e-i-g-h-t*.
+
+### Say longer words in spoken parts
+
+Say *seven* as *sev-en* and listen for the *v* in the middle. Keeping the two spoken parts in order can help you retrieve all five letters.

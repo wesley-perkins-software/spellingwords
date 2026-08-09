@@ -35,6 +35,8 @@ words:
   - chef
 ---
 
+Students encounter occupation words when they read about people's work, discuss their communities, or imagine future careers. This set uses that recognizable context to practice bases and suffixes, unexpected sounds for *ch*, and letter sequences that can disappear in speech.
+
 ### Build words from recognizable bases
 
 *Journalist* is *journal + ist*, and *photographer* is *photograph + er*. Both bases remain complete when the suffix is added. *Scientist* changes at the join: adding *ist* to *science* drops the final *e*. Checking the base first secures most of each longer spelling.

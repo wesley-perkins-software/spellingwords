@@ -37,6 +37,8 @@ words:
   - meteor
 ---
 
+The solar system is a memorable setting for words students see in science reading, notes, and reports. Here the topic provides a meaningful group for spelling longer words by syllable, vowel sequence, and stable written chunk—not a separate astronomy lesson.
+
 ### Organize the longest words
 
 Use syllables to hold *astronaut* as *as-tro-naut* and *satellite* as *sat-el-lite*. The shorter *asteroid* can be organized as *as-ter-oid*. These divisions keep the letter order visible, especially where *astronaut* ends in *naut*, *satellite* has doubled *l*, and *asteroid* ends in *oid*.

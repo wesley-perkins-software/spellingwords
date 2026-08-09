@@ -37,6 +37,8 @@ words:
   - polygon
 ---
 
+Geometry gives students a real reason to write words such as *angle, area,* and *perimeter* while describing shapes and measurements. The spelling challenge grows with *symmetry, quadrilateral,* and *perpendicular*, so this set shows how to keep their letters organized without turning the page into a math lesson.
+
 ### Hold long spellings in syllables
 
 The five-syllable words can be organized as *quad-ri-lat-er-al* and *per-pen-dic-u-lar*. Both end with *al*, but their earlier letter sequences differ. *Perimeter* is shorter: *per-im-e-ter*. Keeping each sequence in order is more reliable than trying to recover every vowel from casual speech.

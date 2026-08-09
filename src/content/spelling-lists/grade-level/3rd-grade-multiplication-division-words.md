@@ -35,6 +35,8 @@ words:
   - equation
 ---
 
+These words become familiar as students explain multiplication and division strategies in math class. Practicing them as spellings helps a child write those explanations confidently while noticing shared letter sequences, syllables, and distinctive endings.
+
 ### Connect *multiply* and *multiple*
 
 *Multiply* and *multiple* share the stable opening *multip*. Their endings separate them: *multiply* finishes with *ly*, while *multiple* finishes with the written chunk *le*. Using the shared letters first reduces how much of each spelling must be remembered separately.

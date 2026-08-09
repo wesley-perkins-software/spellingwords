@@ -35,6 +35,8 @@ words:
   - legend
 ---
 
+Maps and globes give students a way to describe where places are and how they relate to one another. These words are likely to appear in classroom directions, geography reading, and written explanations; the spelling work below helps students hold their longer and less predictable letter sequences in memory.
+
 ### Hold the longer words in parts
 
 The spelling *continent* can be held in three written chunks: *con-ti-nent*. In *direction*, begin with the complete word *direct* before adding *ion*. *Region* is shorter, but its ending is also worth holding intact: *re-gion*. These divisions help keep every letter in sequence without pretending that all three words share the same structure.

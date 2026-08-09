@@ -1,15 +1,15 @@
 ---
 id: grade-5-money-management-words
 urlSlug: 5th-grade-money-management-words
-title: "5th Grade Money Management Words"
-description: "Twelve fifth-grade words for budgeting, saving, and understanding how a bank account works."
-shortAnswer: "Twelve fifth-grade money-management words — budget, income, savings, interest, deposit, and more."
+title: '5th Grade Money Management Spelling Words'
+description: 'Money-management words can appear in math problems, schoolwork, and everyday communication. This twelve-word set develops spelling through meaningful word parts, shared endings, doubled consonants, and careful vowel contrasts.'
+shortAnswer: 'This money-management spelling set connects income with withdraw, expense with deposit, and saving with savings while comparing credit and debit and preserving the doubled r in borrow.'
 contentRole: vocabulary-theme
 category: grade-level
-grade: "5"
+grade: '5'
 difficulty: intermediate
-skillTags: ["grade-5", "financial-literacy", "vocabulary"]
-tags: ["grade-5", "financial-literacy", "money", "vocabulary", "themed-spelling-practice"]
+skillTags: ['grade-5', 'financial-literacy', 'vocabulary']
+tags: ['grade-5', 'financial-literacy', 'money', 'vocabulary', 'themed-spelling-practice']
 order: 14
 estimatedDurationMinutes: 10
 status: published
@@ -17,21 +17,13 @@ masteryThreshold: 90
 sourceType: curated
 relatedLists: []
 prerequisiteLists: []
-nextLists: ["grade-5-ecosystem-environment-words"]
+nextLists: ['grade-5-ecosystem-environment-words']
 featured: false
-readinessSignals:
-  - "Can explain the difference between spending, saving, and borrowing money"
-  - "Are starting to see how a family budget or bank account works"
-  - "Are ready for more grown-up money vocabulary beyond coin and dollar names"
-faq:
-  - question: "How is this different from Grade 2's Money Words?"
-    answer: "Grade 2's Money Words practices the names of coins and bills — penny, nickel, dime, dollar. This fifth-grade list is about what people do with money: budgeting, saving, and using a bank account."
-  - question: "Why teach money-management vocabulary in fifth grade?"
-    answer: "Fifth graders are old enough to start understanding budgets, savings, and simple banking, and these are exactly the words a personal-financial-literacy unit uses."
-  - question: "What mistakes are common with these words?"
-    answer: "Credit and debit are easy to confuse, and deposit and withdraw are opposites students sometimes swap. Practice should connect each word's spelling to its meaning."
-  - question: "What can students study after this list?"
-    answer: "This is optional practice and does not lead into another required list — return to it whenever budgeting or banking vocabulary comes up in math or at home."
+wordNotes:
+  - word: 'savings'
+    note: 'Savings can be built from save + ing + s. The final e in save is dropped before ing is added, and the plural s completes the spelling.'
+  - word: 'borrow'
+    note: 'Borrow has doubled r between its two vowel spellings. Keep the written parts bor and row in order, then check the rr in the middle.'
 words:
   - budget
   - income
@@ -47,6 +39,14 @@ words:
   - tax
 ---
 
-Fifth graders are old enough to start learning how a budget or a bank account works. This list moves beyond coin and dollar names into the vocabulary of managing money: *income* coming in, *expenses* going out, and the difference between a *deposit* and a *withdraw*, or a *credit* and a *debit*.
+### Use meaningful parts where they help
 
-This is additional practice, not part of the Core Spelling route — a natural next step after Grade 2's Money Words, useful whenever budgeting or saving comes up in math or at home.
+*Income* can be organized as *in + come*, and *withdraw* as *with + draw*. Each word preserves two recognizable written parts. *Savings* has a different structure: *save + ing + s*, with the final *e* in *save* dropped before the suffixes are added.
+
+### Compare related spelling frames
+
+*Credit* and *debit* both have two syllables and end in *it*, but their openings and middle consonants differ: *cred-it* and *deb-it*. *Expense* and *balance* share the final spelling *nce*, although *expense* begins with *ex* and *balance* ends with the larger written chunk *ance*.
+
+### Hold the remaining letter sequences
+
+*Budget* keeps *dg* together before *e*, while *borrow* has doubled *r* in the middle. The three-syllable words *interest* and *deposit* can be organized as *in-ter-est* and *de-pos-it* to protect their internal vowels. The compact word *tax* finishes with *x*, which represents the final consonant sequence.

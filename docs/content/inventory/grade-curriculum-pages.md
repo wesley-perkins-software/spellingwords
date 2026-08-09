@@ -7,7 +7,7 @@
 
 Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling (Grade Unit) and Additional Practice (vocabulary-theme) pages that `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` defines for each grade and that `src/lib/content/gradeHubCards.ts` confirms are wired into that grade's live hub. High-Frequency Words (High-Frequency Words) pages are inventoried separately in `high-frequency-words.md`. Canonical Grade Unit names below are copied verbatim from `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`.
 
-The 27 rows classified by canonical routes as **Themed Spelling Practice** are governed by `docs/content/CANONICAL_THEMED_SPELLING_PRACTICE_PAGE_STANDARD.md`. The Kindergarten and Grade 1 members are complete; Weather remains the reference implementation, while the 17 members in Grades 2–5 remain pending. Historical “Additional Practice” wording in this inventory describes the frozen hub-card grouping, not a competing public strand taxonomy.
+The 27 rows classified by canonical routes as **Themed Spelling Practice** are governed by `docs/content/CANONICAL_THEMED_SPELLING_PRACTICE_PAGE_STANDARD.md`. The Kindergarten, Grade 1, and Grade 2 member batches are complete; Weather remains the reference implementation, while the 12 members in Grades 3–5 remain pending. The themed grade gateways remain separate, pending work. Historical “Additional Practice” wording in this inventory describes the frozen hub-card grouping, not a competing public strand taxonomy.
 
 ## Kindergarten
 
@@ -84,11 +84,11 @@ The 27 rows classified by canonical routes as **Themed Spelling Practice** are g
 | Long I Patterns: IE and IGH | grade-2-long-i-ie-igh | grade-2-long-i-ie-igh | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-long-i-ie-igh.md` | Implementation complete |
 | OI and OY Words | vowel-teams-oi-oy | vowel-teams-oi-oy | grade-unit | published | `src/content/2nd-grade/vowel-teams-oi-oy.md` | Not audited |
 | OU and OW Words | vowel-teams-ou-ow | vowel-teams-ou-ow | grade-unit | published | `src/content/2nd-grade/vowel-teams-ou-ow.md` | Not audited |
-| Grade 2 Transportation Words | grade-2-transportation-words | grade-2-transportation-words | vocabulary-theme | published | `src/content/2nd-grade/transportation-words.md` | Not audited |
-| Grade 2 Months of the Year | grade-2-months-of-the-year | grade-2-months-of-the-year | vocabulary-theme | published | `src/content/2nd-grade/months-of-the-year.md` | Not audited |
-| Grade 2 Money Words | grade-2-money-words | grade-2-money-words | vocabulary-theme | published | `src/content/2nd-grade/money-words.md` | Not audited |
-| Grade 2 Number Words 20–100 | grade-2-number-words-20-100 | grade-2-number-words-20-100 | vocabulary-theme | published | `src/content/2nd-grade/number-words-20-100.md` | Not audited |
-| Grade 2 Community Helpers | grade-2-community-helpers | grade-2-community-helpers | vocabulary-theme | published | `src/content/2nd-grade/community-helpers.md` | Not audited |
+| 2nd Grade Transportation Spelling Words | grade-2-transportation-words | grade-2-transportation-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-2-transportation-words.md` | Complete — Grade 2 Themed Spelling Practice member batch |
+| 2nd Grade Months of the Year Spelling Words | grade-2-months-of-the-year | grade-2-months-of-the-year | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-2-months-of-the-year.md` | Complete — Grade 2 Themed Spelling Practice member batch |
+| 2nd Grade Money Spelling Words | grade-2-money-words | grade-2-money-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-2-money-words.md` | Complete — Grade 2 Themed Spelling Practice member batch |
+| 2nd Grade Number Spelling Words 20–100 | grade-2-number-words-20-100 | grade-2-number-words-20-100 | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-2-number-words-20-100.md` | Complete — Grade 2 Themed Spelling Practice member batch |
+| 2nd Grade Community Helpers Spelling Words | grade-2-community-helpers | grade-2-community-helpers | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-2-community-helpers.md` | Complete — Grade 2 Themed Spelling Practice member batch |
 | Two Sounds of oo | grade-2-oo-two-sounds | grade-2-oo-two-sounds | grade-unit | published | `src/content/2nd-grade/oo-two-sounds.md` | Not audited |
 | Vowel Patterns: au and aw | grade-2-au-aw-words | grade-2-au-aw-words | grade-unit | published | `src/content/2nd-grade/au-aw-words.md` | Not audited |
 | R-Controlled Vowels: ER, IR, and UR | grade-2-r-controlled-er-ir-ur | grade-2-r-controlled-er-ir-ur | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-r-controlled-er-ir-ur.md` | Implementation complete |

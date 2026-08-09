@@ -12,9 +12,11 @@ interface Props {
   wordCount?: number;
   /** Overrides the category-derived badge label when set (e.g. "Spelling Rules"). */
   badge?: string;
+  /** Hides the category badge when the parent context already supplies the useful public classification. */
+  showCategoryBadge?: boolean;
 }
 
-const { href, category, title, description, difficulty, durationMinutes, wordCount, badge } = Astro.props;
+const { href, category, title, description, difficulty, durationMinutes, wordCount, badge, showCategoryBadge = true } = Astro.props;
 const categoryLabel = badge ?? (categoryLabels[category as keyof typeof categoryLabels] ?? category);
 ---
 
@@ -23,11 +25,11 @@ const categoryLabel = badge ?? (categoryLabels[category as keyof typeof category
   class="flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
 >
   <div class="flex flex-col gap-1">
-    <div class="flex items-center gap-2">
+    {showCategoryBadge && <div class="flex items-center gap-2">
       <span class="rounded-md bg-app-cloud px-2 py-0.5 text-xs font-medium text-ink-soft">
         {categoryLabel}
       </span>
-    </div>
+    </div>}
     <h3 class="mt-1 font-display text-base font-semibold text-ink">{title}</h3>
     <p class="text-sm leading-relaxed text-ink-soft">{description}</p>
   </div>

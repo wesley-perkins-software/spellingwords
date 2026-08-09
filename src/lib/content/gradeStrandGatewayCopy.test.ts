@@ -12,6 +12,7 @@ import { getGradeStrandGatewayCopy } from './gradeStrandGatewayCopy';
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const gatewayRenderer = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug]/[strand].astro'), 'utf8');
+const spellingListCard = readFileSync(join(process.cwd(), 'src/components/SpellingListCard.astro'), 'utf8');
 
 function contentById(): Map<string, string> {
   const sources = new Map<string, string>();
@@ -109,6 +110,14 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     expect(getGradeStrandPath('K', 'themed-spelling-practice')).toBe('/kindergarten/themed-spelling-practice');
     expect(gatewayRenderer).toContain("const ListElement = strand === 'themed-spelling-practice' ? 'ul' : 'ol'");
     expect(gatewayRenderer).toContain('getGradeStrandPath(gradeEntry.grade, relatedStrand)');
+    expect(gatewayRenderer).toContain("index === wayfindingStrands.length - 1 ? '.' : ''");
+    expect(gatewayRenderer).not.toMatch(/<\/a>\s*\.\s*\n/);
+  });
+
+  it('does not expose the internal grade-level category on themed gateway cards', () => {
+    expect(gatewayRenderer).toContain("showCategoryBadge={strand !== 'themed-spelling-practice'}");
+    expect(spellingListCard).toContain('showCategoryBadge = true');
+    expect(spellingListCard).toContain('{showCategoryBadge &&');
   });
 
   it('keeps authored copy independent of positional presentation instructions', () => {

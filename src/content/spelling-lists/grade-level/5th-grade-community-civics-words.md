@@ -43,6 +43,8 @@ words:
   - capital
 ---
 
+Civics words become relevant when students read about government, discuss how communities make decisions, or write social studies responses. This list keeps that context brief and practical, then focuses on the bases, suffixes, recurring endings, and meaning-dependent spellings within the words themselves.
+
 ### Build with bases and suffixes
 
 *Amendment* is *amend + ment*, and *representative* is *represent + ative*. Both keep the complete base when the suffix is added. *Rights* also preserves its base, *right*, including the silent *gh*, before the plural *s*.

@@ -44,7 +44,7 @@ words:
   - funniest
 ---
 
-The list gives equal practice to three base-word changes. _Making, writing, hoped,_ and _smiled_ drop final silent _e_. _Running, stopped, sitting,_ and _planned_ double one final consonant after a short vowel. _Carried, cried, happier,_ and _funniest_ change consonant-plus-_y_ to _i_ before the suffix.
+Adding an ending becomes easier when a child learns to pause and inspect the base word first. This list gives equal practice to three base-word changes. _Making, writing, hoped,_ and _smiled_ drop final silent _e_. _Running, stopped, sitting,_ and _planned_ double one final consonant after a short vowel. _Carried, cried, happier,_ and _funniest_ change consonant-plus-_y_ to _i_ before the suffix.
 
 This unit follows the Grade 3 Suffixes list, which introduces what common suffixes mean and do. Here the focus shifts to the spelling at the join between a familiar base and its suffix. Keeping all three decisions together helps a learner inspect the base first instead of applying one change to every word.
 

@@ -1,37 +1,33 @@
 ---
 id: grade-5-community-civics-words
 urlSlug: 5th-grade-community-civics-words
-title: "5th Grade Civics and Government Words"
-description: "Twelve fifth-grade civics words for reading, writing, and talking about the Constitution, government, and citizenship."
-shortAnswer: "Twelve fifth-grade civics words — citizen, justice, constitution, congress, election, and more."
+title: '5th Grade Civics and Government Spelling Words'
+description: 'Civics and government words may appear in social studies reading, notes, and written responses. This twelve-word set develops spelling through genuine bases and suffixes, repeated endings, long-word organization, and meaning-dependent contrasts.'
+shortAnswer: 'This civics and government spelling set connects amend with amendment, groups constitution with election, and gives special attention to rights, representative, and capital.'
 contentRole: vocabulary-theme
 category: grade-level
-grade: "5"
+grade: '5'
 difficulty: intermediate
-skillTags: ["grade-5", "civics", "government", "vocabulary"]
-tags: ["grade-5", "civics", "government", "vocabulary", "themed-spelling-practice"]
+skillTags: ['grade-5', 'civics', 'government', 'vocabulary']
+tags: ['grade-5', 'civics', 'government', 'vocabulary', 'themed-spelling-practice']
 order: 12
 estimatedDurationMinutes: 10
 status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: []
-prerequisiteLists: ["grade-5-fraction-decimal-words"]
+prerequisiteLists: ['grade-5-fraction-decimal-words']
 nextLists: []
 featured: false
-readinessSignals:
-  - "Can explain basic community roles, rules, rights, and responsibilities"
-  - "Read social studies passages that include government or civic vocabulary"
-  - "Are ready to use formal civics words in discussion, notes, and written responses"
-faq:
-  - question: "Why teach civics vocabulary in fifth grade?"
-    answer: "Fifth graders are ready for more formal language about government, citizenship, public decisions, and shared responsibilities. These words support social studies reading and classroom discussion."
-  - question: "How do these words help with informational writing?"
-    answer: "Civics words let students write clearly about people, systems, and responsibilities. Instead of vague phrases such as the people in charge, they can use more accurate vocabulary."
-  - question: "What mistakes are common with civics words?"
-    answer: "Students may confuse related terms or know a word only from conversation. Practice should connect spelling with meaning, examples, and nonexamples so terms do not become empty labels."
-  - question: "What can students study after this list?"
-    answer: "Fifth-grade academic words and opinion-and-argument words pair well because civics topics often require students to explain a position and support it with reasons."
+wordNotes:
+  - word: 'rights'
+    note: 'Rights preserves the silent gh in right before the plural s. Its meaning distinguishes it from the homophone rites.'
+    contextExample: 'The class read about citizens’ rights.'
+  - word: 'representative'
+    note: 'Build representative from represent + ative. Keeping the complete base represent secures the first nine letters before the suffix is added.'
+  - word: 'capital'
+    note: 'Capital ends in al when it names an important city or another form of capital. Capitol ends in ol when it names a particular government building.'
+    contextExample: 'The state capital is marked on the map.'
 words:
   - citizen
   - law
@@ -47,6 +43,14 @@ words:
   - capital
 ---
 
-By fifth grade, students read and write about how communities, governments, and people shape history. These words help them discuss what it means to be a *citizen*, why *justice* and *liberty* matter, why an *election* matters, how an *amendment* changes the *constitution*, and why *rights* and *independence* matter in civic life.
+### Build with bases and suffixes
 
-This is additional practice, not part of the Core Spelling route — spelling these words without hesitation lets a fifth grader focus on the ideas behind social studies and civics.
+*Amendment* is *amend + ment*, and *representative* is *represent + ative*. Both keep the complete base when the suffix is added. *Rights* also preserves its base, *right*, including the silent *gh*, before the plural *s*.
+
+### Compare recurring endings
+
+*Constitution* and *election* share the ending *tion*. Organize them as *con-sti-tu-tion* and *e-lec-tion* so their different earlier sequences remain clear. *Justice* ends in *tice*, not *tion*, while *independence* ends in the larger written sequence *dence*.
+
+### Hold distinctive internal spellings
+
+*Citizen* begins with soft *c* and keeps *z* in its final syllable. *Congress* has doubled *s* at the end, and *liberty* finishes with *ty*. The short spelling *law* ends in *aw*. In *capital*, keep the middle *it* and the ending *al* to distinguish it from the government-building spelling *capitol*.

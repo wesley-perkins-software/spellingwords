@@ -1,31 +1,30 @@
 ---
 id: grade-5-ecosystem-environment-words
 urlSlug: 5th-grade-ecosystem-environment-words
-title: "5th Grade Ecosystem & Environment Words"
-description: "Practice spelling ecosystem words like habitat, adaptation, and predator."
-shortAnswer: "Practice Grade 5 ecosystem and environment words such as habitat, ecosystem, organism, adaptation, population, predator, prey, and extinct."
+title: '5th Grade Ecosystem & Environment Spelling Words'
+description: 'Children may encounter these ecosystem and environment words in science reading, notes, and reports. This eight-word set builds spelling practice with multisyllabic organization, repeated endings, and distinctive vowel and consonant sequences.'
+shortAnswer: 'This ecosystem and environment spelling set groups adaptation with population, organizes ecosystem and organism into stable parts, and highlights the unusual ey spelling in prey.'
 contentRole: vocabulary-theme
 category: grade-level
-grade: "5"
+grade: '5'
 difficulty: intermediate
-skillTags: ["grade-5", "ecosystems", "science", "vocabulary"]
-tags: ["grade-5", "ecosystems", "science", "vocabulary", "themed-spelling-practice"]
+skillTags: ['grade-5', 'ecosystems', 'science', 'vocabulary']
+tags: ['grade-5', 'ecosystems', 'science', 'vocabulary', 'themed-spelling-practice']
 order: 15
 estimatedDurationMinutes: 9
 status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: []
-prerequisiteLists: ["grade-5-money-management-words"]
-nextLists: ["grade-5-fraction-decimal-words"]
+prerequisiteLists: ['grade-5-money-management-words']
+nextLists: ['grade-5-fraction-decimal-words']
 featured: false
-readinessSignals:
-  - "Has studied how living things interact with their environment in science class"
-faq:
-  - question: "Which ecosystem words are included?"
-    answer: "This list includes habitat, ecosystem, organism, adaptation, population, predator, prey, and extinct."
-  - question: "How is this different from Grade 3's Life Cycle Words?"
-    answer: "Grade 3's page tracks one organism through its own life stages, such as egg to caterpillar to butterfly. This page covers how organisms interact with a shared environment — a genuine conceptual step up, with no words in common."
+wordNotes:
+  - word: 'prey'
+    note: 'Prey ends with ey. Keep that vowel spelling attached to this meaning rather than substituting the ay in its homophone, pray.'
+    contextExample: 'The owl searched for prey.'
+  - word: 'extinct'
+    note: 'Extinct begins with ex and ends with the consonant sequence nct. Organize it as ex-tinct so none of the final letters are omitted.'
 words:
   - habitat
   - ecosystem
@@ -37,6 +36,14 @@ words:
   - extinct
 ---
 
-By Grade 5, science moves from studying a single organism's life cycle to studying how many organisms share a *habitat* and depend on each other — an *ecosystem* where every *predator* and *prey* relationship, and every helpful *adaptation*, matters.
+### Organize the longer words
 
-This is optional additional practice, not part of the Grade 5 Core Spelling route.
+*Ecosystem* can be held as *e-co-sys-tem*, preserving *system* as a recognizable written part. *Organism* can be organized as *or-gan-ism*, with the stable ending *ism*. The three syllables in *hab-i-tat* and *pred-a-tor* provide separate checks for the internal vowels in *habitat* and *predator*.
+
+### Compare the shared ending
+
+*Adaptation* and *population* both end in the written sequence *ation*. Their earlier parts distinguish them: *ad-ap-ta-tion* contains *adapt*, while *pop-u-la-tion* begins with *pop*. Keeping the shared ending stable reduces each long word to a shorter letter-order check.
+
+### Mark two compact spellings
+
+The single-syllable words *prey* and *extinct* need different anchors. *Prey* uses final *ey* for the vowel sound, while *extinct* packs the final consonants into *nct*. Neither pattern should be replaced by a more familiar-looking spelling.

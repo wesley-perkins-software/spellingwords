@@ -24,7 +24,6 @@ wordNotes:
     note: 'After ni, spell the middle sound with ck. Finish with the written ending el, in that order.'
   - word: 'change'
     note: 'The final ge keeps the soft g sound at the end of change. Keep the silent e when writing the word.'
-    contextExample: 'I received change after paying for the snack.'
 words:
   - penny
   - nickel

@@ -48,4 +48,4 @@ words:
 
 ### Group the shorter month names
 
-*March* ends with the consonant team *ch*. *April* and *August* each have two syllables; *August* begins with the vowel team *Au*. *May*, *June*, and *July* each end with a long vowel sound, but the spellings differ: *ay*, silent-e *u_e*, and final *y*.
+*March* ends with the consonant team *ch*. *April* and *August* each have two syllables; *August* begins with the vowel team *Au*. *May*, *June*, and *July* use three different ways to spell their main vowel sounds: *ay* in *May*, final *e* helping *u* in *June*, and final *y* in *July*.

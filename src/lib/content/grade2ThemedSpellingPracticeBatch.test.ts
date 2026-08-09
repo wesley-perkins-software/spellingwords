@@ -55,7 +55,7 @@ const pages: readonly BatchPage[] = [
     path: '/2nd-grade/themed-spelling-practice/money-words',
     words: ['penny', 'nickel', 'dime', 'quarter', 'dollar', 'cent', 'coin', 'change'],
     noteWords: ['nickel', 'change'],
-    contextCount: 1,
+    contextCount: 0,
     pronunciationCount: 0,
   },
   {
@@ -137,6 +137,14 @@ describe('Grade 2 Themed Spelling Practice production batch', () => {
     expect(source).not.toMatch(/Additional Practice/i);
     expect(source).not.toMatch(/^#{1,2} /m);
     expect(source).not.toMatch(/^faq:|^readinessSignals:/m);
+  });
+
+  it('keeps the refined Money and Months guidance semantically accurate', () => {
+    const money = sourceFor('grade-2-money-words');
+    const months = sourceFor('grade-2-months-of-the-year');
+    expect(money).toContain("- word: 'change'");
+    expect(money).not.toContain('contextExample:');
+    expect(months).not.toMatch(/May[^\n]*June[^\n]*July[^\n]*each end with a long vowel sound/i);
   });
 
   it.each(pages)('retains deterministic same-grade peers and the owning gateway for $id', (page) => {

@@ -36,6 +36,8 @@ words:
   - extinct
 ---
 
+These words often appear when students read and write about plants, animals, and the environments they share. Grouping them by that familiar science context gives a purpose for practice, while the spelling work concentrates on long-word organization, shared endings, and two compact but demanding spellings.
+
 ### Organize the longer words
 
 *Ecosystem* can be held as *e-co-sys-tem*, preserving *system* as a recognizable written part. *Organism* can be organized as *or-gan-ism*, with the stable ending *ism*. The three syllables in *hab-i-tat* and *pred-a-tor* provide separate checks for the internal vowels in *habitat* and *predator*.

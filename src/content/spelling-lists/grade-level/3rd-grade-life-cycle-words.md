@@ -35,6 +35,8 @@ words:
   - cycle
 ---
 
+Students meet life-cycle words when they read, talk, and write about how animals grow and change. This small set turns that familiar science context into focused spelling practice with doubled consonants, useful word parts, and contrasting sounds for *c*.
+
 ### Notice doubled consonants
 
 *Egg* ends with two *g*s, while the middle of *caterpillar* has two *l*s. The doubled letters occur in different places, so it helps to hold each one with its word rather than treating them as one spelling rule.

@@ -39,6 +39,8 @@ words:
   - tax
 ---
 
+Fifth graders may meet these words in math problems, classroom projects, or conversations about earning, saving, and spending. The familiar context makes the list useful, while the practice stays centered on meaningful word parts, internal vowels, and easily confused spelling frames.
+
 ### Use meaningful parts where they help
 
 *Income* can be organized as *in + come*, and *withdraw* as *with + draw*. Each word preserves two recognizable written parts. *Savings* has a different structure: *save + ing + s*, with the final *e* in *save* dropped before the suffixes are added.

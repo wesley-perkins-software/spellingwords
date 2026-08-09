@@ -35,6 +35,8 @@ words:
   - hundredths
 ---
 
+Students use fraction and decimal words when they explain calculations, label work, and write solutions in math. This set helps them spell those explanations clearly by comparing long word structures, recurring endings, and dense consonant sequences.
+
 ### Compare two long spellings
 
 *Numerator* and *denominator* share the final written sequence *ator*. Organize them as *nu-mer-a-tor* and *de-nom-i-na-tor*. The different openings—*numer* and *denomin*—carry most of the letter-order work, while the ending stays stable.

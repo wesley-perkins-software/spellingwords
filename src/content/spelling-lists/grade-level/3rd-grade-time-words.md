@@ -35,6 +35,8 @@ words:
   - elapsed
 ---
 
+Children use time words when they read schedules, describe when something happened, or explain how long an activity took. This set focuses on the spelling details inside those useful words, from the apostrophe in *o'clock* to the silent letters and endings that sound alone may not reveal.
+
 ### Connect *clock* and *o'clock*
 
 The complete spelling *clock* appears inside *o'clock*. In both words, the final sound is spelled *ck*. The longer form adds *o* and an apostrophe before *clock*, so remembering the smaller word secures most of the spelling and leaves the punctuation as the new detail.

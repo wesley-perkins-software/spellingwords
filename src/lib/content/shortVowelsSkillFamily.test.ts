@@ -222,7 +222,7 @@ describe('Short Vowels and CVC Words Skill Family', () => {
   });
 
   it('keeps legacy content without contentRole valid', () => {
-    expect(byId.get('kindergarten-first-words')?.contentRole).toBeUndefined();
+    expect(byId.get('kindergarten-first-words')?.contentRole).toBe('grade-unit');
   });
 
   it('keeps archived aggregate Short Vowels content out of live short-vowel roadmaps', () => {

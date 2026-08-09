@@ -36,6 +36,8 @@ words:
   - gallon
 ---
 
+Measurement words appear whenever students compare length, weight, capacity, or distance in math and everyday life. Because several of these short, familiar words have vowel spellings that are easy to confuse, this set makes their written differences the focus.
+
 ### Compare vowel spellings
 
 *Ounce* and *pound* begin with the same vowel team, *ou*, but the rest of each spelling must be held separately: *ounce* ends in *nce*, while *pound* ends in *nd*. *Foot* uses *oo*, and *mile* has a vowel-consonant-silent-*e* spelling. These contrasts make the written vowel in each short word easier to check.

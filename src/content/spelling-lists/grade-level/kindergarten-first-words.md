@@ -4,6 +4,7 @@ urlSlug: kindergarten-first-words
 title: 'First Words'
 description: 'Eight short, familiar words — bed, bug, cat, cup, dog, hen, pig, and sun — for a gentle first step in hearing a word, separating its sounds, and writing letters for those sounds.'
 shortAnswer: 'First Words gives kindergarten children eight familiar words for beginning sound-based spelling: hear the word, separate its sounds, and write a letter for each sound.'
+contentRole: grade-unit
 category: grade-level
 grade: 'K'
 difficulty: beginner

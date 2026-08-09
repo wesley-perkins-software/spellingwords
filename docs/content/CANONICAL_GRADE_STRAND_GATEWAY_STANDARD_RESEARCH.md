@@ -16,7 +16,9 @@ This research concludes that the three strand gateways should **not** share one 
 - **HFW gateway** — explains what "high-frequency word spelling" means at this grade and orients across the *sets*, owning cumulative/aggregate HFW intent ("how many high-frequency words does [grade] learn," "[grade] sight words list") that no single set page can honestly answer.
 - **Themed gateway** — explains the *purpose* of themed practice (context and retrieval cues, not a curriculum) and helps a parent or teacher *choose* a theme; it owns "extra/fun/themed spelling practice for [grade]" intent, deliberately not competing with Core for "curriculum" framing.
 
-All three gateways should add genuine information gain over their member pages — synthesis across units/sets/themes, not a copy-paste of child-page descriptions — while staying substantially shorter than a member page and keeping the practice destinations (the child links) visually and structurally dominant. The research recommends a **shared four-part skeleton** (orientation/answer, synthesis, complete crawlable navigation, cross-strand/grade wayfinding) with strand-specific content inside each part, rejects FAQ quotas and AI-specific gimmicks as unsupported by evidence, and recommends **Kindergarten Core Spelling** as the pilot, implemented alongside (not instead of) the other two Kindergarten gateways so the differentiated model can be validated across all three strands in one grade before scaling to Grades 1–5.
+All three gateways should add genuine information gain over their member pages — synthesis across units/sets/themes, not a copy-paste of child-page descriptions — while staying substantially shorter than a member page and keeping the practice destinations (the child links) visually and structurally dominant. The research recommends a **shared four-part skeleton** (orientation/answer, synthesis, complete crawlable navigation, cross-strand/grade wayfinding) with strand-specific content inside each part, rejects FAQ quotas and AI-specific gimmicks as unsupported by evidence, and recommends piloting **all three Kindergarten gateways together** so the differentiated model can be validated across all three strands in one grade before scaling to Grades 1–5.
+
+**A central output of this research is the three-layer responsibility matrix in §11** — Grade Hub vs. Strand Gateway vs. Member Page. The single biggest risk in this project is not "the gateway is too thin," it's **cannibalization/duplication across the three layers that already exist and are already frozen** (Grade Hub) or already governed by their own standards (member pages). Every component proposed anywhere in this document (§12–§18, §27) was tested against that matrix before being classified as gateway-owned; §7 and §8 apply the same matrix to the UX and SEO questions specifically.
 
 No schema changes are required to implement the proposed standard — `src/content/spelling-lists/**` frontmatter already carries everything the synthesis content needs to reference, and the gateway's own orientation prose can live as new authored fields on the existing grade/strand data model (see §19) or, more simply, as new small TypeScript copy modules parallel to `gradeHubCopy.ts`. This document recommends the latter as the smaller viable change.
 
@@ -150,11 +152,32 @@ Instead, each audience's need maps to a specific *component* of the shared skele
 
 This confirms the task brief's premise: a well-structured *single* page, ordered orientation → synthesis → navigation, serves all three without fragmenting into separate audience pages.
 
+**Grade Hub vs. Strand Gateway vs. Member Page, from the reader's perspective:** the same three-audience table above only works because each layer answers a genuinely different grain of the same underlying questions — a parent's "what should we practice, where do we begin" is answered at *increasing* specificity as they move Hub → gateway → member:
+
+| Reader question | Grade Hub | Strand Gateway | Member page |
+|---|---|---|---|
+| "What's available for my child this year?" | ✅ answers this, across all three strands | ❌ (too narrow — only one strand) | ❌ (too narrow — only one unit) |
+| "OK, within [strand], what's the shape of it and where do we start?" | ❌ (Hub doesn't go this deep, by design) | ✅ answers this | ❌ |
+| "What exactly will my child practice on this one page?" | ❌ | ❌ | ✅ answers this |
+
+A reader who lands directly on a gateway from search (skipping the Hub) still needs the first question answered *briefly* — this is why the gateway's required orientation sentence (§12, §18) exists: not to re-do the Hub's job, but to give a skipped-the-Hub reader just enough grounding before the gateway does its own, narrower job. See §11 for the full component-by-component version of this same analysis.
+
 ---
 
 ## 8. Search-intent and SEO analysis — intent ownership
 
-The central risk is cannibalization between Grade Hub, gateway, and member pages, all of which can plausibly rank for overlapping "[grade] spelling" queries. Ownership must be assigned deliberately, per strand, based on what each layer's copy can *honestly and uniquely* answer.
+The central risk is cannibalization between Grade Hub, gateway, and member pages, all of which can plausibly rank for overlapping "[grade] spelling" queries. Ownership must be assigned deliberately, per strand, based on what each layer's copy can *honestly and uniquely* answer. **This is the same three-layer boundary problem as §11, applied to search demand rather than reader navigation** — every ownership call below is a direct consequence of the responsibility matrix in §11, not a separate SEO-only judgment.
+
+### 8.1 Grade Hub vs. Strand Gateway vs. Member Page — search-intent ownership matrix
+
+| Layer | Owns this class of query | Does NOT own | Why |
+|---|---|---|---|
+| **Grade Hub** (`/{grade}`) | Broadest, strand-ambiguous grade queries ("kindergarten spelling," "kindergarten spelling words" with no strand signal) | Any query specific enough to name a strand, a pattern, or a single list | Per §11.1, the Hub is the only layer that legitimately spans all three strands at once — a query that doesn't specify which strand the searcher wants should land on the one page built to orient across all three |
+| **Strand Gateway** (`/{grade}/{strand}`) | Strand-scoped aggregate queries ("kindergarten spelling curriculum/sequence" → Core; "kindergarten high-frequency words / sight words list" → HFW; "kindergarten themed/fun spelling practice" → Themed) | Broad strand-ambiguous queries (Hub's job); narrow single-unit queries (member's job); pattern-only queries with no grade (Skill page's job) | Per §11.2, the gateway is the only layer that can honestly answer "give me the whole picture of this one strand at this one grade" — neither the Hub (too broad) nor a member page (too narrow) can do this without either diluting or overreaching their own scope |
+| **Member page** | Narrow, fully specific queries ("[grade] short a words," "[grade] high-frequency words set 3," "[grade] weather spelling words") | Anything aggregate or cross-member | Already the member standards' own job (HFW §2, Themed §3); unaffected by gateway design |
+| **Skill page** (Layer 1, out of this document's scope) | Pattern-only queries with no grade signal ("short a words," "consonant digraph words") | Anything grade-specific | Existing roadmap boundary (§2, "The Skill-page vs. Grade-unit distinction"); gateways must not compete here either |
+
+**Query families and recommended ownership (detailed):**
 
 **Query families and recommended ownership:**
 
@@ -243,16 +266,37 @@ Spelling (site root)
 
 ---
 
-## 11. Gateway / member / Grade Hub responsibility boundaries (summary table)
+## 11. The central responsibility matrix — Grade Hub vs. Strand Gateway vs. Member Page
 
-| Responsibility | Grade Hub | Strand gateway | Member page |
-|---|---|---|---|
-| "What are the three strands at this grade?" | ✅ owns this | ❌ assumes reader knows or briefly reorients in one sentence | ❌ |
-| "What is the order/organization within this one strand?" | ❌ (too deep for Hub) | ✅ owns this | ❌ (a member only knows its own position, via Review First/Next Step) |
-| "What does this one specific unit/set/theme teach?" | ❌ | ❌ (would duplicate) | ✅ owns this |
-| Complete crawlable list of this strand's children | Partially (Hub already lists direct cards per grade) | ✅ (authoritative, complete, strand-scoped) | ❌ |
-| Word-level spelling notes | ❌ | ❌ | ✅ owns this |
-| "Where should we start?" (Core) | ❌ | ✅ owns this | ❌ (implicitly, via Review First chain, but doesn't state it as guidance) |
+This is the load-bearing analysis of the whole document. The Grade Hub is not a passive neighbor to design around — it is a **first-class, already-frozen page family** (`CONTENT_IMPROVEMENT_ROADMAP.md` Layer 3, `K5_FINAL_CONTENT_ARCHITECTURE.md`) with its own defined job, and the single greatest risk in defining a gateway standard is quietly re-deriving content the Hub already owns, or content a member page already owns, rather than filling the one genuine gap between them. Every component considered anywhere in this document was run through the question this table answers: **Hub, Gateway, or Member — and why not the other two?**
+
+### 11.1 Full three-layer matrix
+
+| Candidate content/responsibility | Grade Hub (`/{grade}`) | Strand Gateway (`/{grade}/{strand}`) | Member page | Why not the other two layers |
+|---|---|---|---|---|
+| "What are this grade's three strands (Core/HFW/Themed) and what does each cover, briefly?" | ✅ **Owns this** | ❌ | ❌ | This is literally the Hub's Layer-3 job (`CONTENT_IMPROVEMENT_ROADMAP.md`: "short orienting copy, a scannable map of the grade's three sections"). A gateway re-explaining "what is Core Spelling" from scratch would duplicate the Hub for every reader who arrived via the Hub, and a member page has no reason to explain sibling strands at all. |
+| Direct links into each strand's gateway | ✅ **Owns this** (already implemented via `gradeHubCards.ts` section headings) | N/A (is the destination) | ❌ | Routing decision belongs one level up from where it routes to. |
+| Direct cards for *some* strand members shown right on the Hub (current K–3 HFW convention: "show all direct set cards rather than only the gateway") | ⚠️ **Partial, by explicit historical decision** — `K5_FINAL_CONTENT_ARCHITECTURE.md` §4–§7 chose to expose HFW set cards directly on K–3 Hubs "so families can see the complete sequence" | Still **owns the authoritative complete list** for the strand regardless of what the Hub also surfaces | ❌ | This is the one place today where Hub and gateway *already* both link to the same members — an existing, frozen, non-duplicative pattern (the Hub's cards are a convenience shortcut; the gateway remains the canonical, complete, orientable list). The proposed standard does not change this Hub behavior; it only means the gateway must still justify its own existence alongside it, which §11.2 addresses directly. |
+| Grade-level "what's the order/organization *within* this one strand" (Core's sequence logic; HFW's cumulative set structure; Themed's "these are peers, here's how to pick one") | ❌ (too deep for the Hub's Layer-3 mandate — this is exactly the "full progression narrative" the Hub is *not* supposed to become) | ✅ **Owns this** | ❌ (a member only knows its own position via Review First/Next Step; it cannot speak for the whole strand without repeating itself on every sibling) | This is the one genuine gap in the current architecture — see §11.2. |
+| "Where should we start?" (Core only) | ❌ | ✅ **Owns this** | ⚠️ Implicit only, via the Review-First chain — never stated as reader-facing guidance | A member page's Review First/Next Step tells a reader already *on* a unit what's adjacent; it never tells a reader who hasn't picked a unit yet where to begin. Only the gateway sees the whole strand at once. |
+| Complete, authoritative, crawlable list of every member in this grade+strand | ⚠️ Partial (K–3 HFW convenience cards, see row above; Core/Themed are not similarly duplicated on the Hub today) | ✅ **Owns this, unconditionally** | ❌ | Regardless of what the Hub also shows, the gateway is the one page whose entire job is being complete and authoritative for *this* strand — it is the page a crawler or reader should trust as canonical, even where the Hub offers a shortcut. |
+| What one specific unit/set/theme actually teaches; its word list; word-level notes; practice mechanics | ❌ | ❌ (would duplicate) | ✅ **Owns this** | Both frozen member standards (HFW §3, Themed §3) already reserve this exclusively for the member page; nothing in this document changes that. |
+| Cumulative grade-level HFW inventory ("this grade has 4 sets / 40 words total") | ❌ — the Hub's per-grade HFW copy is deliberately thin per Layer 3, and no Hub page currently states the aggregate word count | ✅ **Owns this** | ❌ (a set page only knows its own 10–12 words) | The Hub could theoretically state this number too, but doing so would either duplicate the gateway or force the Hub to carry strand-specific arithmetic that belongs to exactly one deeper layer — keeping it at the gateway avoids two sources of truth for the same number. |
+| "Why is this themed practice worth doing, and how do I pick a theme?" | ❌ (Hub copy is grade-wide, not strand-specific enough to justify this) | ✅ **Owns this** | ❌ (each theme page can only speak for itself, not the strand's purpose) | Matches the Themed standard's own §9 language almost verbatim: "The gateway owns broader grade/theme discovery intent." |
+| Breadcrumb navigation | ✅ (is the parent breadcrumb target) | ✅ (renders it, pointing up to Hub) | ✅ (renders it, pointing up to gateway) | Each layer's breadcrumb is mechanical and already correctly implemented at every layer; no duplication risk since breadcrumbs are structural, not editorial content. |
+| Cross-strand awareness ("this grade also has HFW and Themed practice") | ✅ Already the Hub's job, at the grade-overview level | ⚠️ **Conditional, narrow** — a same-grade link to a *sibling gateway*, not a re-explanation of what that sibling strand is | ❌ | The Hub's version is the *complete* three-way overview; a gateway's version, if present at all, is a single wayfinding link ("see this grade's High-Frequency Words") — not a second copy of the Hub's explanatory paragraph. See §21. |
+| Cross-grade awareness (what comes before/after this grade in the same strand) | ❌ (Hub is single-grade by design) | ⚠️ **Conditional, one sentence, Core only** (§13, §18) | ✅ Already exists as the real mechanism, via `prerequisiteLists`/`nextLists` chain adjacency at the *boundary* pages specifically | The actual K→1, 1→2, etc. transition already lives correctly at the member-page boundary (`CANONICAL_NAVIGATION_RELATIONSHIPS.md`); a gateway repeating it in prose would be a second, less precise copy of a fact the chain already encodes exactly. |
+| Grade-level spelling-pattern synthesis across Core units (e.g., naming which Skill families a grade's units draw on) | ❌ | ⚠️ **Conditional, Core only** (§18) | ✅ Each unit already carries its own `skillIds` back-link | The gateway's version, if used at all, is a light aggregate mention woven into the progression synthesis — never a restatement of any single unit's `skillIds` link, and never required. |
+
+### 11.2 Why the gap the gateway fills is real, not manufactured
+
+Before proposing any gateway content, the honest question is whether the Hub could simply absorb it instead — since the Hub already exists, is frozen, and already links to every strand's members (fully for Core/Themed today, and via convenience cards for HFW at K–3). Three facts settle this:
+
+1. **The Hub's own governing standard already caps its depth.** Layer 3's definition (`CONTENT_IMPROVEMENT_ROADMAP.md`) is explicitly "short orienting copy" spanning *three* strands at once. A progression narrative for Core alone, written well, is already close to that entire budget — asking the Hub to carry three such narratives (one per strand) would either blow past "short" or force each strand's synthesis to be so compressed it stops being genuine information gain.
+2. **The Hub's HFW convenience-card pattern proves the point rather than undermining it.** `K5_FINAL_CONTENT_ARCHITECTURE.md` explicitly chose to show K–3 HFW set cards directly on the Hub *while still keeping the collection/gateway as "the canonical explanatory landing page."* That is the architecture already deciding, independently of this research, that Hub-level linking and gateway-level explanation are different jobs — this document's proposed standard is simply the first time anyone has specified what the gateway's side of that split should actually contain.
+3. **No member page can honestly speak for its siblings as a group.** This is structural, not a design preference: a member page's frontmatter and standard are scoped to itself. Only a page positioned above all of a strand's members — but below the three-strand Hub — can state a real aggregate fact (a total word count, a real ordering rationale, a "themes are peers" framing) without either duplicating a sibling or exceeding its own scope.
+
+**Conclusion:** the gap is real. The Hub is correctly thin by design; individual member pages are correctly narrow by design; the strand gateway is the only layer structurally positioned to say anything true and useful at the "one grade, one strand, all its members considered together" level of granularity. This is the finding that justifies the entire standard proposed in §27 — and the reason every content element proposed in §12–§18 is scoped as narrowly as it is: each one exists specifically to fill this one gap, not to re-do work the Hub or a member page already does well.
 
 ---
 
@@ -333,20 +377,22 @@ Applying the same lesson the deepest-page audit already learned (per the task br
 
 ## 18. Content depth: required / conditional / shared / not-recommended component matrix
 
-| Component | Classification | Notes |
-|---|---|---|
-| One-to-two-sentence orientation ("what is this page") | **REQUIRED** | Must be freshly composed per grade+strand, not templated (§17) |
-| Progression/organization synthesis (Core: sequence; HFW: cumulative inventory; Themed: purpose+how-to-choose) | **REQUIRED** | This is the entire "information gain" case for the gateway existing — see §14 |
-| Explicit "where to begin" pointer | **CONDITIONAL** — Core only, required there; not applicable to HFW (sets already have inherent set-1-first framing at the member level) or Themed (explicitly non-sequential) | |
-| Complete crawlable list of member pages | **REQUIRED, SHARED/RENDERER-OWNED** | Already implemented via `SpellingListCard` loop; do not duplicate as prose |
-| Grade-level spelling observations (cross-unit pattern commentary) | **CONDITIONAL** — natural for Core, optional/light for HFW, not appropriate for Themed (would risk teaching subject matter across themes rather than spelling) | |
-| Relationship to other strands (cross-strand link) | **CONDITIONAL**, capped at 0–2 per gateway, same-grade only (§10, §21) | Never automatic/symmetric |
-| Related Skill-page links | **CONDITIONAL**, Core only, only when synthesis prose already names a skill family | Not required; avoid link-farming |
-| Previous/next grade progression note | **CONDITIONAL**, Core only, one sentence max | HFW/Themed lack a real cross-grade narrative to state honestly |
-| FAQ section | **NOT RECOMMENDED** by default | Only if a genuine, non-generic question survives the same bar member pages use (task explicitly rejects FAQ quotas); expected to apply to few if any of the 18 gateways at launch |
-| Teacher-specific / parent-specific subsections | **NOT RECOMMENDED** | Task explicitly asks to serve all three audiences without separate mini-sections (§7 above already resolves this via component-level mapping, not audience-labeled sections) |
-| Word-count/length quota | **NOT RECOMMENDED** | Task explicitly rejects quotas; depth should be judged by which of the above components are genuinely justified for that grade+strand, not a target word count |
-| Timeline/progress-indicator UI | **NOT RECOMMENDED as content, but flagged as future visual opportunity** | See §22 — semantic progression order should be preserved so a future visual redesign *could* render it as a timeline, but no such component is authored now |
+Every row was tested against §11 first: could the Grade Hub carry this instead, could a member page carry it instead, and if not, why does it belong at the gateway specifically? The "Rejected alternative layer" column makes that test explicit for each component, so this table doubles as a second, component-level pass through the same three-layer boundary question §11 answers structurally.
+
+| Component | Classification | Rejected alternative layer (and why) | Notes |
+|---|---|---|---|
+| One-to-two-sentence orientation ("what is this page") | **REQUIRED** | Not Hub-owned: the Hub's three-section overview is grade-wide, not strand-specific enough to replace a strand-scoped orientation for a reader who skipped the Hub (§7). Not member-owned: no single member can speak for the whole strand. | Must be freshly composed per grade+strand, not templated (§17) |
+| Progression/organization synthesis (Core: sequence; HFW: cumulative inventory; Themed: purpose+how-to-choose) | **REQUIRED** | Not Hub-owned: exceeds Layer 3's "short orienting copy" budget if attempted for all three strands at once (§11.2). Not member-owned: would require every sibling member to repeat the same synthesis, or none to state it at all. | This is the entire "information gain" case for the gateway existing — see §11.2, §14 |
+| Explicit "where to begin" pointer | **CONDITIONAL** — Core only, required there; not applicable to HFW (sets already have inherent set-1-first framing at the member level) or Themed (explicitly non-sequential) | Not Hub-owned (too deep for grade-wide copy); not member-owned (Review First/Next Step only orients a reader already on a unit, never a reader who hasn't chosen one, per §11.1) | |
+| Complete crawlable list of member pages | **REQUIRED, SHARED/RENDERER-OWNED** | Not exclusively Hub-owned even where the Hub also shows convenience cards (current K–3 HFW pattern, §11.1) — the gateway remains the one page whose list must be authoritative and complete regardless of what the Hub also surfaces. Not member-owned (a member cannot list its own siblings without duplicating itself on every sibling). | Already implemented via `SpellingListCard` loop; do not duplicate as prose |
+| Grade-level spelling observations (cross-unit pattern commentary) | **CONDITIONAL** — natural for Core, optional/light for HFW, not appropriate for Themed (would risk teaching subject matter across themes rather than spelling) | Not Hub-owned (too granular); not member-owned (cross-unit by definition) | |
+| Relationship to other strands (cross-strand link) | **CONDITIONAL**, capped at 0–2 per gateway, same-grade only (§10, §11.1, §21) | Not a Hub duplicate: the Hub's cross-strand awareness is a full explanatory overview; the gateway's version is a single wayfinding link only, never a second copy of the Hub's explanation (§11.1) | Never automatic/symmetric |
+| Related Skill-page links | **CONDITIONAL**, Core only, only when synthesis prose already names a skill family | Not member-owned exclusively: each unit already carries its own `skillIds` back-link; the gateway may name a family in aggregate but must never restate any single unit's link (§11.1) | Not required; avoid link-farming |
+| Previous/next grade progression note | **CONDITIONAL**, Core only, one sentence max | Not a substitute for the member-level chain: the real K→1 etc. transition already lives precisely at the boundary member pages (`CANONICAL_NAVIGATION_RELATIONSHIPS.md`); the gateway's note is a lighter pointer, not a second copy of that mechanism (§11.1) | HFW/Themed lack a real cross-grade narrative to state honestly |
+| FAQ section | **NOT RECOMMENDED** by default | N/A — rejected outright, not reassigned to another layer | Only if a genuine, non-generic question survives the same bar member pages use (task explicitly rejects FAQ quotas); expected to apply to few if any of the 18 gateways at launch |
+| Teacher-specific / parent-specific subsections | **NOT RECOMMENDED** | N/A | Task explicitly asks to serve all three audiences without separate mini-sections (§7 above already resolves this via component-level mapping, not audience-labeled sections) |
+| Word-count/length quota | **NOT RECOMMENDED** | N/A | Task explicitly rejects quotas; depth should be judged by which of the above components are genuinely justified for that grade+strand, not a target word count |
+| Timeline/progress-indicator UI | **NOT RECOMMENDED as content, but flagged as future visual opportunity** | N/A (presentation, not a layer-assignment question) | See §22 — semantic progression order should be preserved so a future visual redesign *could* render it as a timeline, but no such component is authored now |
 
 ---
 
@@ -536,7 +582,7 @@ Before a pilot implementation session begins, it should have:
 
 ## Direct answers to the required closing questions
 
-1. **What is the unique purpose of a grade-level strand gateway?** To orient a reader to one strand's organization at one grade — synthesizing how its member pages relate to each other as a group (sequence for Core, cumulative inventory for HFW, purpose/selection for Themed) — while providing complete, dominant navigation into every member page. It is not a lesson, not a second Grade Hub, and not a thin index.
+1. **What is the unique purpose of a grade-level strand gateway?** To fill the one genuine gap between the Grade Hub (correctly thin, three-strand-wide) and the member pages (correctly narrow, single-unit) — synthesizing how one strand's member pages relate to each other as a group (sequence for Core, cumulative inventory for HFW, purpose/selection for Themed) — while providing complete, dominant navigation into every member page. It is not a lesson, not a second Grade Hub, and not a thin index. See §11 for the full structural argument that this gap is real, not manufactured.
 
 2. **What should ALL such gateways contain?** A freshly composed 1–2 sentence orientation stating what the page is and its real counts; a short strand-specific synthesis paragraph providing genuine information gain; the complete, renderer-owned crawlable list of every member page; and the existing accurate Breadcrumb + ItemList structured data. See §12/§27.
 
@@ -550,9 +596,9 @@ Before a pilot implementation session begins, it should have:
 
 7. **How do we keep the actual practice destinations prominent?** The complete child list stays renderer-owned, unchanged in position and prominence, and every new authored component (§12 rule 5) must sit above or beside it, never push it down or replace its visual weight. No word-count or component addition may compromise this.
 
-8. **What information belongs at the Grade Hub instead?** The three-section overview explaining that Core/HFW/Themed exist and briefly what each is — the gateway should not re-derive this; it can assume either the reader arrived from the Hub (already oriented) or needs only a one-sentence refresher, not a restatement.
+8. **What information belongs at the Grade Hub instead?** The three-section overview explaining that Core/HFW/Themed exist and briefly what each is, plus (for K–3 HFW today) direct convenience cards into sets — the gateway should not re-derive the overview; it can assume either the reader arrived from the Hub (already oriented) or needs only a one-sentence refresher, not a restatement. The full component-by-component boundary is §11's central matrix (§11.1), with the structural reasoning for why this boundary is real in §11.2.
 
-9. **How should these pages target SEO without cannibalizing Grade Hubs or member pages?** By strict intent ownership per §8's table — gateways own "[grade] [strand] curriculum/list/inventory/practice" aggregate intent that neither the deliberately-thin Grade Hub nor any single narrow member page can honestly claim; they never compete for the narrowest ("[grade] [specific unit] words") or broadest ("[grade] spelling words," ambiguous strand) intent, which belong to member pages and the Grade Hub respectively.
+9. **How should these pages target SEO without cannibalizing Grade Hubs or member pages?** By strict intent ownership per §8.1's three-layer matrix (itself a direct application of §11's responsibility boundary to search demand) — gateways own "[grade] [strand] curriculum/list/inventory/practice" aggregate intent that neither the deliberately-thin Grade Hub nor any single narrow member page can honestly claim; they never compete for the narrowest ("[grade] [specific unit] words") or broadest ("[grade] spelling words," ambiguous strand) intent, which belong to member pages and the Grade Hub respectively.
 
 10. **What makes them strong for GEO/AEO without AI-specific gimmicks?** The same things that make them good for a human reader and traditional search: accurate, self-contained, well-structured prose; headings that describe real content; structured data that matches what's visible; no `llms.txt`-based decisions (rejected on first-party evidence, §9); no hidden or AI-only content, ever.
 

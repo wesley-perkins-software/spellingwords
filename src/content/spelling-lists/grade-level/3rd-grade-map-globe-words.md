@@ -1,15 +1,15 @@
 ---
 id: grade-3-map-globe-words
 urlSlug: 3rd-grade-map-globe-words
-title: "3rd Grade Map & Globe Words"
-description: "Practice spelling map-skills words like compass, continent, and legend."
-shortAnswer: "Practice Grade 3 map and globe words such as compass, continent, ocean, border, region, direction, scale, and legend for a classroom map-skills unit."
+title: '3rd Grade Map & Globe Spelling Words'
+description: 'Map reading and classroom geography work give children a reason to write these words. This eight-word set develops spelling through doubled consonants, longer written chunks, soft g spellings, and contrasting endings.'
+shortAnswer: 'This map and globe spelling set organizes continent and direction into manageable written chunks, compares the soft g in region and legend, and highlights the doubled s in compass and silent e in scale.'
 contentRole: vocabulary-theme
 category: grade-level
-grade: "3"
+grade: '3'
 difficulty: intermediate
-skillTags: ["grade-3", "map-skills", "vocabulary"]
-tags: ["grade-3", "map-skills", "vocabulary", "themed-spelling-practice"]
+skillTags: ['grade-3', 'map-skills', 'vocabulary']
+tags: ['grade-3', 'map-skills', 'vocabulary', 'themed-spelling-practice']
 order: 8
 estimatedDurationMinutes: 8
 status: published
@@ -17,15 +17,13 @@ masteryThreshold: 90
 sourceType: curated
 relatedLists: []
 prerequisiteLists: []
-nextLists: ["grade-3-life-cycle-words"]
+nextLists: ['grade-3-life-cycle-words']
 featured: false
-readinessSignals:
-  - "Can point out basic map features such as an ocean or a border on a classroom map"
-faq:
-  - question: "Which map and globe words are included?"
-    answer: "This list includes compass, continent, ocean, border, region, direction, scale, and legend."
-  - question: "Why practice map words specifically, rather than geography in general?"
-    answer: "This list is bounded to the specific vocabulary of a classroom map-skills unit — reading a compass, a legend, and a scale — rather than the open-ended subject of geography as a whole."
+wordNotes:
+  - word: 'ocean'
+    note: 'The middle of ocean uses the less-predictable letter sequence cea. Hold the written chunks o, cea, and n in order so the c is not lost.'
+  - word: 'direction'
+    note: 'Direction keeps every letter of direct and adds ion: direct + ion. Seeing the familiar base preserves the c before the ending.'
 words:
   - compass
   - continent
@@ -37,6 +35,14 @@ words:
   - legend
 ---
 
-Reading a map is one of Grade 3's classic social studies skills — finding a *continent*, checking the *legend* to see what a symbol means, or using a *compass* to figure out which *direction* is north. These eight words name the specific parts of a map and globe a third grader learns to use.
+### Hold the longer words in parts
 
-This is optional additional practice, not part of the Grade 3 Core Spelling route.
+The spelling *continent* can be held in three written chunks: *con-ti-nent*. In *direction*, begin with the complete word *direct* before adding *ion*. *Region* is shorter, but its ending is also worth holding intact: *re-gion*. These divisions help keep every letter in sequence without pretending that all three words share the same structure.
+
+### Compare consonants and endings
+
+The *g* in both *region* and *legend* has its soft sound before *i* or *e*. Their final letters differ: *region* ends in *ion*, while *legend* ends in *end*. *Direction* has the longer final sequence *tion*. Comparing the endings prevents three similar-looking longer words from blending together.
+
+### Anchor the shorter spellings
+
+*Compass* ends with doubled *s*. *Border* keeps the *or* spelling in its first syllable, and *scale* finishes with a silent *e*. In *ocean*, the familiar first and last letters surround the less-predictable sequence *cea*. Each feature gives a specific place to check after spelling the word from memory.

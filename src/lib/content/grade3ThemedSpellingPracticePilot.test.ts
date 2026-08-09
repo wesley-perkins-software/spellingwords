@@ -25,12 +25,28 @@ function sourceFor(id: string): string {
 function listItems(source: string, blockName: string, nextBlock?: string): string[] {
   const end = nextBlock ? `(?=^${nextBlock}:)` : '(?=^---$)';
   const block = source.match(new RegExp(`^${blockName}:\\n([\\s\\S]*?)${end}`, 'm'))?.[1] ?? '';
-  return [...block.matchAll(/^  - (?:word: )?['"]?([^'"\n]+)['"]?$/gm)].map(
-    (match) => match[1],
-  );
+  return [...block.matchAll(/^  - (?:word: )?(.+)$/gm)].map((match) => {
+    const value = match[1].trim();
+    const quote = value[0];
+    return (quote === "'" || quote === '"') && value.at(-1) === quote ? value.slice(1, -1) : value;
+  });
 }
 
-const pilots: readonly PilotPage[] = [
+const grade3Pages: readonly PilotPage[] = [
+  {
+    id: 'grade-3-map-globe-words',
+    title: '3rd Grade Map & Globe Spelling Words',
+    path: '/3rd-grade/themed-spelling-practice/map-globe-words',
+    words: ['compass', 'continent', 'ocean', 'border', 'region', 'direction', 'scale', 'legend'],
+    noteWords: ['ocean', 'direction'],
+  },
+  {
+    id: 'grade-3-time-words',
+    title: '3rd Grade Time Spelling Words',
+    path: '/3rd-grade/themed-spelling-practice/time-words',
+    words: ['hour', 'minute', 'second', "o'clock", 'digital', 'analog', 'clock', 'elapsed'],
+    noteWords: ['hour', "o'clock"],
+  },
   {
     id: 'grade-3-life-cycle-words',
     title: '3rd Grade Life Cycle Spelling Words',
@@ -47,7 +63,7 @@ const pilots: readonly PilotPage[] = [
   },
 ];
 
-describe('Grade 3 Themed Spelling Practice pilot batch', () => {
+describe('Grade 3 Themed Spelling Practice corpus', () => {
   it('retains the exact four-page canonical Grade 3 themed corpus', () => {
     const routes = getCanonicalGradeRoutes().filter(
       (route) => route.grade === '3' && route.classification === 'themed-spelling-practice',
@@ -60,7 +76,7 @@ describe('Grade 3 Themed Spelling Practice pilot batch', () => {
     ]);
   });
 
-  it.each(pilots)('preserves frozen identity, route, ownership, and inventory for $id', (page) => {
+  it.each(grade3Pages)('preserves frozen identity, route, ownership, and inventory for $id', (page) => {
     const source = sourceFor(page.id);
     expect(source).toContain(`id: ${page.id}`);
     expect(source).toContain(`urlSlug: ${page.id}`);
@@ -76,7 +92,7 @@ describe('Grade 3 Themed Spelling Practice pilot batch', () => {
     });
   });
 
-  it.each(pilots)('keeps exceptional support selective for $id', (page) => {
+  it.each(grade3Pages)('keeps exceptional support selective for $id', (page) => {
     const source = sourceFor(page.id);
     const noteWords = listItems(source, 'wordNotes', 'words');
     const noteBlock = source.match(/^wordNotes:\n([\s\S]*?)^words:/m)?.[1] ?? '';
@@ -87,7 +103,7 @@ describe('Grade 3 Themed Spelling Practice pilot batch', () => {
     expect(noteBlock).not.toContain('pronunciationNote:');
   });
 
-  it.each(pilots)('excludes obsolete and renderer-owned copy from $id', (page) => {
+  it.each(grade3Pages)('excludes obsolete and renderer-owned copy from $id', (page) => {
     const source = sourceFor(page.id);
     expect(source).not.toMatch(/Sight Words|Common Words|Heart Words|heart-words/i);
     expect(source).not.toContain('What to notice when spelling these words');
@@ -97,7 +113,7 @@ describe('Grade 3 Themed Spelling Practice pilot batch', () => {
     expect(source).not.toMatch(/^faq:|^readinessSignals:/m);
   });
 
-  it.each(pilots)('retains same-grade peers and the owning gateway for $id', (page) => {
+  it.each(grade3Pages)('retains same-grade peers and the owning gateway for $id', (page) => {
     const peers = getThemedSpellingPracticeExploreMore(page.id);
     expect(peers).toHaveLength(3);
     for (const peerId of peers) {
@@ -109,6 +125,17 @@ describe('Grade 3 Themed Spelling Practice pilot batch', () => {
     expect(page.path.split('/').slice(0, 3).join('/')).toBe(
       '/3rd-grade/themed-spelling-practice',
     );
+  });
+
+  it('protects spelling-critical facts on the completed pages', () => {
+    const mapSource = sourceFor('grade-3-map-globe-words');
+    expect(mapSource).toContain('The *g* in both *region* and *legend* has its soft sound');
+    expect(mapSource).toContain('*Compass* ends with doubled *s*');
+
+    const timeSource = sourceFor('grade-3-time-words');
+    expect(timeSource).toContain('The apostrophe belongs between o and clock');
+    expect(timeSource).toContain("*Elapsed* is built from *elapse + ed*");
+    expect(timeSource).toContain('opening *h* is written but silent');
   });
 
   it('retains the frozen themed corpus totals', () => {

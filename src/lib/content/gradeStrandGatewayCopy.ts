@@ -16,7 +16,7 @@ type GatewayCopyAuthor = (facts: GradeStrandGatewayFacts) => GradeStrandGatewayC
 
 const kindergartenGatewayCopy: Record<GradeRouteClassification, GatewayCopyAuthor> = {
   'core-spelling': ({ memberCount }) => ({
-    orientation: `Kindergarten Core Spelling is the systematic starting route: ${memberCount} units move from familiar first words through short-vowel spelling, mixed CVC review, and consonant digraphs.`,
+    orientation: `Kindergarten Core Spelling is the systematic starting sequence: ${memberCount} units move from familiar first words through short-vowel spelling, mixed CVC review, and consonant digraphs.`,
     synthesis:
       'The sequence first gives each short vowel its own focused practice, then asks children to distinguish those vowel sounds in fresh CVC words before introducing SH, CH, and TH.',
     guidance:
@@ -46,4 +46,22 @@ export function getGradeStrandGatewayCopy(
 ): GradeStrandGatewayCopy | undefined {
   if (grade !== 'K') return undefined;
   return kindergartenGatewayCopy[strand](facts);
+}
+
+/**
+ * Every HFW set's `description` opens by repeating its own title verbatim
+ * (`{title} contrasts…`) — useful as a member-page summary, redundant one
+ * line below the same title on a gateway card. Each set's `shortAnswer`
+ * states the same differentiating content without the repeated title, and
+ * is otherwise unused on HFW set pages (member pages only render
+ * `shortAnswer` for Skill pages), so it's the right existing field to reuse
+ * for the gateway card rather than transforming or duplicating `description`.
+ */
+export function getGatewayCardDescription(
+  strand: GradeRouteClassification,
+  description: string,
+  shortAnswer: string | undefined,
+): string {
+  if (strand === 'high-frequency-words' && shortAnswer) return shortAnswer;
+  return description;
 }

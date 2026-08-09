@@ -15,7 +15,7 @@ import {
   type GradeRouteClassification,
 } from '@/lib/content/canonicalGradeRoutes';
 import { getCanonicalUrl } from '@/lib/canonicalUrl';
-import { getGradeStrandGatewayCopy } from '@/lib/content/gradeStrandGatewayCopy';
+import { getGradeStrandGatewayCopy, getGatewayCardDescription } from '@/lib/content/gradeStrandGatewayCopy';
 
 export async function getStaticPaths() {
   return gradeConfig.flatMap((gradeEntry) =>
@@ -101,7 +101,7 @@ const itemListJsonLd = {
         {resources.map(({ route, entry }, index) => (
           <li class="flex items-start gap-3">
             {strand !== 'themed-spelling-practice' && <span aria-hidden="true" class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-sm font-semibold text-brand-blue">{index + 1}</span>}
-            <div class="flex-1"><SpellingListCard href={route.canonicalPath} category={entry.data.category} title={entry.data.title} description={entry.data.description} difficulty={entry.data.difficulty} durationMinutes={entry.data.durationMinutes} wordCount={entry.data.words.length} showCategoryBadge={strand !== 'themed-spelling-practice'} /></div>
+            <div class="flex-1"><SpellingListCard href={route.canonicalPath} category={entry.data.category} title={entry.data.title} description={getGatewayCardDescription(strand, entry.data.description, entry.data.shortAnswer)} difficulty={entry.data.difficulty} durationMinutes={entry.data.durationMinutes} wordCount={entry.data.words.length} showCategoryBadge={false} /></div>
           </li>
         ))}
       </ListElement>

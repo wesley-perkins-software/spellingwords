@@ -99,10 +99,10 @@ describe('Short A reference Skill content roles', () => {
     expect(config).toContain('.optional()');
   });
 
-  it('preserves legacy entries without requiring contentRole', () => {
+  it('marks the canonical Kindergarten on-ramp as a Grade Unit', () => {
     expect(
       readSummary(join(contentRoot, 'grade-level/kindergarten-first-words.md')).contentRole,
-    ).toBeUndefined();
+    ).toBe('grade-unit');
   });
 
   it('marks Kindergarten Short A as a Grade Unit and Short A Words as a Skill', () => {

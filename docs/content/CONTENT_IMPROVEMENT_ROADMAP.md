@@ -4,11 +4,13 @@
 
 > **Core navigation implementation is final:** all 51 Core Spelling Grade Units use the single continuous K–5 `CORE_SPELLING_SEQUENCE` for **Review first** and **Next step**, and render no **Explore more** group. The first Kindergarten unit has only Next step; the Grade 5 capstone has only Review first. High-Frequency Words and Additional Practice now follow the finalized non-Core rules above.
 
-> URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs use the flat no-trailing-slash `/{grade}/{page-slug}` structure, and canonical Skill pages use `/skills` + `/skills/{skill-slug}`. The runtime sources of truth are `src/lib/content/canonicalGradeRoutes.ts` and `src/lib/content/canonicalSkillRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the grade-curriculum reference. The site is pre-launch, so the old repository-shaped `/spelling-lists/...` paths for migrated grade-curriculum and Skill pages are simply not generated (404) rather than redirected — these are the site's original launch URLs, not a migration preserving an established public site.
+> URL architecture update: canonical K–5 Grade Hub card URLs use the no-trailing-slash `/{grade}/{strand}/{page-slug}` structure, while canonical Skill pages use `/skills/{skill-slug}`. The runtime sources of truth are `src/lib/content/canonicalGradeRoutes.ts` and `src/lib/content/canonicalSkillRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the grade-curriculum reference.
 
 
 **Status:** Living document. Operating plan for the editorial-improvement phase, now that curriculum, taxonomy, and page architecture are frozen.
 **Scope:** all pages included in the frozen canonical public architecture. See §1.
+
+**Deepest-page status (August 2026):** Production editorial implementation across Core, HFW, and Themed member pages is substantially complete, and the metadata/list-size governance cleanup is complete. A selective final human-voice and warmth pass for upper-grade Core and Themed pages remains pending. This layer is not yet frozen; visual redesign remains separate future work.
 
 This document is the operating plan for improving the written content of every canonical active page on spellingwords.app. It is both a strategy document and a checkbox-driven implementation checklist. A new contributor — human, Claude Code, or Codex — should be able to pick up work from this file alone, without reconstructing project history from chat logs or commit messages.
 
@@ -24,9 +26,9 @@ Keep this file and the inventory files synchronized: this file owns strategy, ph
 
 **Editorial content standard for the Skill layer:** `docs/content/CANONICAL_SKILL_PAGE_STANDARD.md` governs the detailed content structure, instructional variants, example selection, and editorial review for canonical Skill pages (Layer 1, §2). It is subordinate to this roadmap for scope, sequencing, priority, and definition of done, and subordinate to the frozen architecture docs for taxonomy and identity — see §5 and the Phase 1 entry in §3.
 
-**Editorial content standard for HFW member sets:** `docs/content/CANONICAL_HIGH_FREQUENCY_WORD_SET_PAGE_STANDARD.md` is final and governs all 27 individual set pages. Kindergarten Set 1 is the completed reference pilot; the remaining 26 member sets still require editorial transformation. The six HFW gateways are separate and deferred.
+**Editorial content standard for HFW member sets:** `docs/content/CANONICAL_HIGH_FREQUENCY_WORD_SET_PAGE_STANDARD.md` is final and governs all 27 individual set pages. Production editorial implementation is complete across the 27 frozen inventories. The six HFW gateways remain a separate layer.
 
-**Editorial content standard for Themed Spelling Practice members:** `docs/content/CANONICAL_THEMED_SPELLING_PRACTICE_PAGE_STANDARD.md` is frozen and governs all 27 individual member pages. The Kindergarten, Grade 1, and Grade 2 member batches are complete; `1st Grade Weather Spelling Words` remains the reference implementation. The remaining 12 members in Grades 3–5 await controlled editorial batches. The six grade gateways, including the Grade 2 gateway, and the coordinated cross-strand ordinal-grade-label migration remain separate work.
+**Editorial content standard for Themed Spelling Practice members:** `docs/content/CANONICAL_THEMED_SPELLING_PRACTICE_PAGE_STANDARD.md` is frozen and governs all 27 individual member pages. Production editorial implementation is complete; `1st Grade Weather Spelling Words` remains the reference implementation. A selective upper-grade human-voice pass remains pending, and the six grade gateways remain a separate layer.
 
 ---
 

@@ -4,6 +4,7 @@ urlSlug: 1st-grade-tch-dge-ending-rules
 title: "Short Vowel Ending Rules: -tch and -dge"
 description: 'Twelve Grade 1 words that practice final tch for /ch/ and dge for /j/ after a short vowel in many one-syllable words.'
 shortAnswer: 'This Grade 1 unit teaches a useful short-vowel ending generalization: final /ch/ is often spelled tch and final /j/ is often spelled dge in one-syllable words.'
+contentRole: grade-unit
 skillIds: ["ck-tch-dge-word-endings"]
 category: phonics
 grade: "1"

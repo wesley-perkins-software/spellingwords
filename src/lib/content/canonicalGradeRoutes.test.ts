@@ -1,3 +1,5 @@
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   TRAILING_SLASH,
@@ -25,6 +27,24 @@ const curatedSectionsByGrade = {
   '4': GRADE_4_HUB_SECTIONS,
   '5': GRADE_5_HUB_SECTIONS,
 } as const;
+
+const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
+
+function canonicalContentById(): Map<string, string> {
+  const sources = new Map<string, string>();
+  for (const relativePath of readdirSync(contentRoot, { recursive: true, encoding: 'utf8' })) {
+    if (!relativePath.endsWith('.md')) continue;
+    const source = readFileSync(join(contentRoot, relativePath), 'utf8');
+    const id = source.match(/^id:\s*['"]?([^'"\n]+)['"]?$/m)?.[1];
+    if (id) sources.set(id, source);
+  }
+  return sources;
+}
+
+function wordsIn(source: string): string[] {
+  const block = source.match(/^words:\n([\s\S]*?)\n---/m)?.[1] ?? '';
+  return [...block.matchAll(/^\s{2}-\s+['"]?([^'"\n]+?)['"]?\s*$/gm)].map((match) => match[1]);
+}
 
 describe('canonical grade routes', () => {
   it('freezes the no-trailing-slash convention for every manifest path', () => {
@@ -66,6 +86,40 @@ describe('canonical grade routes', () => {
     expect(canonicalGradeRoutes.filter((route) => route.classification === 'core-spelling')).toHaveLength(51);
     expect(canonicalGradeRoutes.filter((route) => route.classification === 'high-frequency-words')).toHaveLength(27);
     expect(canonicalGradeRoutes.filter((route) => route.classification === 'themed-spelling-practice')).toHaveLength(27);
+  });
+
+  it('requires every canonical Core Spelling resource to declare its Grade Unit role', () => {
+    const sources = canonicalContentById();
+    const coreRoutes = canonicalGradeRoutes.filter((route) => route.classification === 'core-spelling');
+
+    expect(coreRoutes).toHaveLength(51);
+    for (const route of coreRoutes) {
+      expect(sources.get(route.id), route.id).toBeDefined();
+      expect(sources.get(route.id), route.id).toMatch(/^contentRole: grade-unit$/m);
+    }
+  });
+
+  it('preserves the three frozen 18-word Grade 3 Core inventories exactly', () => {
+    const sources = canonicalContentById();
+    const expected = {
+      'grade-3-prefix-words': [
+        'unfair', 'unhappy', 'unkind', 'unsafe', 'unlock', 'redo', 'replay', 'reread', 'rewrite',
+        'preview', 'predict', 'disagree', 'dislike', 'discover', 'dishonest', 'misplace', 'misread', 'misspell',
+      ],
+      'grade-3-suffix-words': [
+        'bigger', 'biggest', 'faster', 'fastest', 'easier', 'easiest', 'slowly', 'nearly', 'really',
+        'careful', 'helpful', 'useful', 'careless', 'restless', 'happiness', 'kindness', 'movement', 'enjoyment',
+      ],
+      'grade-3-multisyllabic-words': [
+        'basket', 'because', 'umbrella', 'different', 'remember', 'suddenly', 'usually', 'afternoon', 'airplane',
+        'already', 'animal', 'birthday', 'building', 'attention', 'connection', 'important', 'information', 'solution',
+      ],
+    } as const;
+
+    for (const [id, inventory] of Object.entries(expected)) {
+      expect(wordsIn(sources.get(id) ?? ''), id).toEqual(inventory);
+      expect(inventory, id).toHaveLength(18);
+    }
   });
 
   it('has no duplicate final slug within a grade', () => {

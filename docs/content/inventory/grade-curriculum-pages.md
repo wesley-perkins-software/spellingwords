@@ -2,12 +2,12 @@
 
 **Canonical totals:** 51 Core Spelling pages · 27 High-Frequency Words pages · 27 Additional Practice pages · 105 Grade curriculum pages.
 
-> URL architecture update: canonical K–5 Grade Hub and Grade Hub card URLs now use the flat no-trailing-slash `/{grade}/{page-slug}` structure. The runtime source of truth is `src/lib/content/canonicalGradeRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the generated migration map. The legacy `/spelling-lists/...` route has been removed entirely; historical repository-shaped URLs are not generated and are not redirected (pre-launch, no traffic to preserve).
+> URL architecture update: canonical K–5 Grade Hub card URLs use the no-trailing-slash `/{grade}/{strand}/{page-slug}` structure. The runtime source of truth is `src/lib/content/canonicalGradeRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the generated reference.
 
 
 Linked from `docs/content/CONTENT_IMPROVEMENT_ROADMAP.md`. Scope: Core Spelling (Grade Unit) and Additional Practice (vocabulary-theme) pages that `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` defines for each grade and that `src/lib/content/gradeHubCards.ts` confirms are wired into that grade's live hub. High-Frequency Words (High-Frequency Words) pages are inventoried separately in `high-frequency-words.md`. Canonical Grade Unit names below are copied verbatim from `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`.
 
-The 27 rows classified by canonical routes as **Themed Spelling Practice** are governed by `docs/content/CANONICAL_THEMED_SPELLING_PRACTICE_PAGE_STANDARD.md`. The Kindergarten, Grade 1, and Grade 2 member batches are complete; Weather remains the reference implementation, while the 12 members in Grades 3–5 remain pending. The themed grade gateways remain separate, pending work. Historical “Additional Practice” wording in this inventory describes the frozen hub-card grouping, not a competing public strand taxonomy.
+The 27 rows classified by canonical routes as **Themed Spelling Practice** are governed by `docs/content/CANONICAL_THEMED_SPELLING_PRACTICE_PAGE_STANDARD.md`. Production editorial implementation is complete across all 27 members; Weather remains the reference implementation. A selective upper-grade human-voice pass remains pending, and the themed grade gateways remain a separate layer. Historical “Additional Practice” wording in this inventory describes the frozen hub-card grouping, not a competing public strand taxonomy.
 
 ## Kindergarten
 
@@ -21,12 +21,12 @@ The 27 rows classified by canonical routes as **Themed Spelling Practice** are g
 
 | Title | id | urlSlug | Role | Status | Source file | Editorial status |
 |---|---|---|---|---|---|---|
-| Kindergarten First Words | kindergarten-first-words | kindergarten-first-words | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/grade-level/kindergarten-first-words.md` | Complete (Kindergarten Core batch editorial audit; material factual and teaching-guidance improvements) |
-| Kindergarten Number Words | kindergarten-number-words | kindergarten-number-words | vocabulary-theme | published | `src/content/kindergarten/number-words.md` | Not audited |
-| Kindergarten Color Words | kindergarten-color-words | kindergarten-color-words | vocabulary-theme | published | `src/content/kindergarten/color-words.md` | Not audited |
-| Kindergarten Animal Words | kindergarten-animal-words | kindergarten-animal-words | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/kindergarten/animal-words.md` | Not audited |
-| Kindergarten Body Words | kindergarten-body-words | kindergarten-body-words | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/kindergarten/body-words.md` | Not audited |
-| Kindergarten Family Words | kindergarten-family-words | kindergarten-family-words | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/kindergarten/family-words.md` | Not audited |
+| Kindergarten First Words | kindergarten-first-words | kindergarten-first-words | grade-unit | published | `src/content/spelling-lists/grade-level/kindergarten-first-words.md` | Complete (Kindergarten Core batch editorial audit; material factual and teaching-guidance improvements) |
+| Kindergarten Number Words | kindergarten-number-words | kindergarten-number-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/kindergarten-number-words.md` | Not audited |
+| Kindergarten Color Words | kindergarten-color-words | kindergarten-color-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/kindergarten-color-words.md` | Not audited |
+| Kindergarten Animal Words | kindergarten-animal-words | kindergarten-animal-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/kindergarten-animal-words.md` | Not audited |
+| Kindergarten Body Words | kindergarten-body-words | kindergarten-body-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/kindergarten-body-words.md` | Not audited |
+| Kindergarten Family Words | kindergarten-family-words | kindergarten-family-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/kindergarten-family-words.md` | Not audited |
 | Kindergarten Short A Words | kindergarten-short-a-words | kindergarten-short-a-words | grade-unit | published | `src/content/spelling-lists/phonics/kindergarten-short-a-words.md` | Complete (Kindergarten Core batch editorial audit; material practice and error guidance improvements) |
 | Kindergarten Short I Words | kindergarten-short-i-words | kindergarten-short-i-words | grade-unit | published | `src/content/spelling-lists/phonics/kindergarten-short-i-words.md` | Complete (Kindergarten Core batch editorial audit; minor practice and diagnostic improvements) |
 | Kindergarten Short O Words | kindergarten-short-o-words | kindergarten-short-o-words | grade-unit | published | `src/content/spelling-lists/phonics/kindergarten-short-o-words.md` | Complete (Kindergarten Core batch editorial audit; minor dialect and diagnostic improvements) |
@@ -53,17 +53,17 @@ The 27 rows classified by canonical routes as **Themed Spelling Practice** are g
 | 1st Grade Clothing Spelling Words | grade-1-clothing-words | grade-1-clothing-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-1-clothing-words.md` | Complete — Grade 1 Themed Spelling Practice member batch |
 | 1st Grade Shape Spelling Words | grade-1-shape-words | grade-1-shape-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-1-shape-words.md` | Complete — Grade 1 Themed Spelling Practice member batch |
 | CVC Short Vowel Review & The C/K Rule | grade-1-cvc-short-vowels-c-k-rule | 1st-grade-cvc-short-vowels-c-k-rule | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-cvc-short-vowels-c-k-rule.md` | Not audited |
-| The Floss Rule | grade-1-floss-rule | 1st-grade-floss-rule | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/phonics/grade-1-floss-rule.md` | Not audited |
+| The Floss Rule | grade-1-floss-rule | 1st-grade-floss-rule | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-floss-rule.md` | Not audited |
 | Consonant Digraphs & Final -ck | grade-1-consonant-digraphs-final-ck | 1st-grade-consonant-digraphs-final-ck | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-consonant-digraphs-final-ck.md` | Not audited |
 | Beginning Consonant Blends | grade-1-beginning-consonant-blends | 1st-grade-beginning-consonant-blends | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-beginning-consonant-blends.md` | Not audited |
 | Ending Consonant Blends | grade-1-ending-consonant-blends | 1st-grade-ending-consonant-blends | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-ending-consonant-blends.md` | Not audited |
 | Long Vowels with Silent e (VCe) | grade-1-long-vowels-silent-e | 1st-grade-long-vowels-silent-e | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-long-vowels-silent-e.md` | Not audited |
-| Short Words with Long Vowels: Open Syllables & Final Y | grade-1-open-syllables-final-y | 1st-grade-open-syllables-final-y | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/phonics/grade-1-open-syllables-final-y.md` | Not audited |
-| Inflectional Endings: -s and -es | grade-1-inflectional-endings-s-es | 1st-grade-inflectional-endings-s-es | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/phonics/grade-1-inflectional-endings-s-es.md` | Not audited |
-| Inflectional Endings: -ed and -ing | grade-1-inflectional-endings-ed-ing | 1st-grade-inflectional-endings-ed-ing | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/phonics/grade-1-inflectional-endings-ed-ing.md` | Not audited |
-| R-Controlled Vowels: ar / or | grade-1-r-controlled-ar-or | 1st-grade-r-controlled-ar-or | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/phonics/grade-1-r-controlled-ar-or.md` | Not audited |
+| Short Words with Long Vowels: Open Syllables & Final Y | grade-1-open-syllables-final-y | 1st-grade-open-syllables-final-y | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-open-syllables-final-y.md` | Not audited |
+| Inflectional Endings: -s and -es | grade-1-inflectional-endings-s-es | 1st-grade-inflectional-endings-s-es | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-inflectional-endings-s-es.md` | Not audited |
+| Inflectional Endings: -ed and -ing | grade-1-inflectional-endings-ed-ing | 1st-grade-inflectional-endings-ed-ing | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-inflectional-endings-ed-ing.md` | Not audited |
+| R-Controlled Vowels: ar / or | grade-1-r-controlled-ar-or | 1st-grade-r-controlled-ar-or | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-r-controlled-ar-or.md` | Not audited |
 | Long A & Long O Vowel Teams | grade-1-long-a-long-o-vowel-teams | 1st-grade-long-a-long-o-vowel-teams | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-long-a-long-o-vowel-teams.md` | Not audited |
-| Short Vowel Ending Rules: -tch and -dge | grade-1-tch-dge-ending-rules | 1st-grade-tch-dge-ending-rules | (untagged — confirmed canonical active via Grade Hub card, see untagged-and-data-quality.md) | published | `src/content/spelling-lists/phonics/grade-1-tch-dge-ending-rules.md` | Not audited |
+| Short Vowel Ending Rules: -tch and -dge | grade-1-tch-dge-ending-rules | 1st-grade-tch-dge-ending-rules | grade-unit | published | `src/content/spelling-lists/phonics/grade-1-tch-dge-ending-rules.md` | Not audited |
 
 ## Grade 2
 
@@ -77,24 +77,24 @@ The 27 rows classified by canonical routes as **Themed Spelling Practice** are g
 
 | Title | id | urlSlug | Role | Status | Source file | Editorial status |
 |---|---|---|---|---|---|---|
-| 2nd Grade Compound Words | grade-2-list-02 | 2nd-grade-compound-words | grade-unit | published | `src/content/2nd-grade/compound-words.md` | Not audited |
-| 2nd Grade Contractions | grade-2-contractions | 2nd-grade-contractions | grade-unit | published | `src/content/2nd-grade/contractions.md` | Not audited |
-| 2nd Grade Silent Letter Words | grade-2-silent-letter-words | 2nd-grade-silent-letter-words | grade-unit | published | `src/content/2nd-grade/silent-letter-words.md` | Not audited |
+| 2nd Grade Compound Words | grade-2-list-02 | 2nd-grade-compound-words | grade-unit | published | `src/content/spelling-lists/grade-level/2nd-grade-compound-words.md` | Not audited |
+| 2nd Grade Contractions | grade-2-contractions | 2nd-grade-contractions | grade-unit | published | `src/content/spelling-lists/grade-level/2nd-grade-contractions.md` | Not audited |
+| 2nd Grade Silent Letter Words | grade-2-silent-letter-words | 2nd-grade-silent-letter-words | grade-unit | published | `src/content/spelling-lists/grade-level/2nd-grade-silent-letter-words.md` | Not audited |
 | Long E Vowel Teams: EE and EA | grade-2-long-e-ee-ea | grade-2-long-e-ee-ea | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-long-e-ee-ea.md` | Implementation complete |
 | Long I Patterns: IE and IGH | grade-2-long-i-ie-igh | grade-2-long-i-ie-igh | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-long-i-ie-igh.md` | Implementation complete |
-| OI and OY Words | vowel-teams-oi-oy | vowel-teams-oi-oy | grade-unit | published | `src/content/2nd-grade/vowel-teams-oi-oy.md` | Not audited |
-| OU and OW Words | vowel-teams-ou-ow | vowel-teams-ou-ow | grade-unit | published | `src/content/2nd-grade/vowel-teams-ou-ow.md` | Not audited |
+| OI and OY Words | vowel-teams-oi-oy | vowel-teams-oi-oy | grade-unit | published | `src/content/spelling-lists/phonics/vowel-teams-oi-oy.md` | Not audited |
+| OU and OW Words | vowel-teams-ou-ow | vowel-teams-ou-ow | grade-unit | published | `src/content/spelling-lists/phonics/vowel-teams-ou-ow.md` | Not audited |
 | 2nd Grade Transportation Spelling Words | grade-2-transportation-words | grade-2-transportation-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-2-transportation-words.md` | Complete — Grade 2 Themed Spelling Practice member batch |
 | 2nd Grade Months of the Year Spelling Words | grade-2-months-of-the-year | grade-2-months-of-the-year | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-2-months-of-the-year.md` | Complete — Grade 2 Themed Spelling Practice member batch |
 | 2nd Grade Money Spelling Words | grade-2-money-words | grade-2-money-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-2-money-words.md` | Complete — Grade 2 Themed Spelling Practice member batch |
 | 2nd Grade Number Spelling Words 20–100 | grade-2-number-words-20-100 | grade-2-number-words-20-100 | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-2-number-words-20-100.md` | Complete — Grade 2 Themed Spelling Practice member batch |
 | 2nd Grade Community Helpers Spelling Words | grade-2-community-helpers | grade-2-community-helpers | vocabulary-theme | published | `src/content/spelling-lists/grade-level/grade-2-community-helpers.md` | Complete — Grade 2 Themed Spelling Practice member batch |
-| Two Sounds of oo | grade-2-oo-two-sounds | grade-2-oo-two-sounds | grade-unit | published | `src/content/2nd-grade/oo-two-sounds.md` | Not audited |
-| Vowel Patterns: au and aw | grade-2-au-aw-words | grade-2-au-aw-words | grade-unit | published | `src/content/2nd-grade/au-aw-words.md` | Not audited |
+| Two Sounds of oo | grade-2-oo-two-sounds | grade-2-oo-two-sounds | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-oo-two-sounds.md` | Not audited |
+| Vowel Patterns: au and aw | grade-2-au-aw-words | grade-2-au-aw-words | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-au-aw-words.md` | Not audited |
 | R-Controlled Vowels: ER, IR, and UR | grade-2-r-controlled-er-ir-ur | grade-2-r-controlled-er-ir-ur | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-r-controlled-er-ir-ur.md` | Implementation complete |
-| Soft C and Soft G | grade-2-soft-c-soft-g | grade-2-soft-c-soft-g | grade-unit | published | `src/content/2nd-grade/soft-c-soft-g.md` | Not audited |
-| Two-Syllable Words | grade-2-two-syllable-words | grade-2-two-syllable-words | grade-unit | published | `src/content/2nd-grade/two-syllable-words.md` | Not audited |
-| Words Ending in -le | grade-2-final-stable-le | grade-2-final-stable-le | grade-unit | published | `src/content/2nd-grade/final-stable-le.md` | Not audited |
+| Soft C and Soft G | grade-2-soft-c-soft-g | grade-2-soft-c-soft-g | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-soft-c-soft-g.md` | Not audited |
+| Two-Syllable Words | grade-2-two-syllable-words | grade-2-two-syllable-words | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-two-syllable-words.md` | Not audited |
+| Words Ending in -le | grade-2-final-stable-le | grade-2-final-stable-le | grade-unit | published | `src/content/spelling-lists/phonics/grade-2-final-stable-le.md` | Not audited |
 
 ## Grade 3
 
@@ -164,10 +164,10 @@ For Grade 3, the table `Title` column records each page's canonical frontmatter 
 | Greek and Latin Word Parts | grade-5-greek-latin-word-parts | 5th-grade-greek-latin-word-parts | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-greek-latin-word-parts.md` | Complete (Grade 5 Core editorial pass) |
 | Commonly Confused Words | grade-5-commonly-confused-words | 5th-grade-commonly-confused-words | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-commonly-confused-words.md` | Complete (Grade 5 Core editorial pass) |
 | Spelling Changes in Related Words | grade-5-spelling-changes-related-words | 5th-grade-spelling-changes-in-related-words | grade-unit | published | `src/content/spelling-lists/grade-level/5th-grade-spelling-changes-related-words.md` | Complete (Grade 5 Core editorial pass) |
-| 5th Grade Civics and Government Words | grade-5-community-civics-words | 5th-grade-community-civics-words | vocabulary-theme | published | `src/content/5th-grade/community-civics-words.md` | Not audited |
-| 5th Grade Money Management Words | grade-5-money-management-words | 5th-grade-money-management-words | vocabulary-theme | published | `src/content/5th-grade/money-management-words.md` | Not audited |
-| 5th Grade Ecosystem & Environment Words | grade-5-ecosystem-environment-words | 5th-grade-ecosystem-environment-words | vocabulary-theme | published | `src/content/5th-grade/ecosystem-environment-words.md` | Not audited |
-| 5th Grade Fraction & Decimal Words | grade-5-fraction-decimal-words | 5th-grade-fraction-decimal-words | vocabulary-theme | published | `src/content/5th-grade/fraction-decimal-words.md` | Not audited |
+| 5th Grade Civics and Government Words | grade-5-community-civics-words | 5th-grade-community-civics-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/5th-grade-community-civics-words.md` | Not audited |
+| 5th Grade Money Management Words | grade-5-money-management-words | 5th-grade-money-management-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/5th-grade-money-management-words.md` | Not audited |
+| 5th Grade Ecosystem & Environment Words | grade-5-ecosystem-environment-words | 5th-grade-ecosystem-environment-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/5th-grade-ecosystem-environment-words.md` | Not audited |
+| 5th Grade Fraction & Decimal Words | grade-5-fraction-decimal-words | 5th-grade-fraction-decimal-words | vocabulary-theme | published | `src/content/spelling-lists/grade-level/5th-grade-fraction-decimal-words.md` | Not audited |
 
 **Removed (legacy-architecture-removal PR):** `grade-5-spelling-rules` (5th Grade Spelling Rules) taught suffix-ending spelling disambiguation (-tion/-sion, -able/-ible, -ance/-ence) as part of the combined "Advanced Roots, Affixes, and Academic Words" canonical unit, reached only through `grade-5-prefix-suffix-words`'s related-practice link. It was never a canonical Skill or a separate Grade Hub card. The standalone page has been deleted (no content migrated, per explicit product direction) and the anchor's `relatedLists` reference to it removed. See `docs/content/inventory/LEGACY_REMOVAL_DELETION_MANIFEST.md`. This does not change the Grade 5 Core Spelling card count (still 5) or the canonical-active page count above (still 9).
 

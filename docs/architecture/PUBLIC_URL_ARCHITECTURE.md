@@ -4,11 +4,13 @@
 
 ## Canonical K–5 grade curriculum rule
 
-Canonical Grade Hubs and all canonical Grade Hub card destinations use a flat, grade-first, no-trailing-slash URL structure:
+Canonical Grade Hubs and all canonical Grade Hub card destinations use a grade-first, strand-contained, no-trailing-slash URL structure:
 
 ```text
 /{grade}
-/{grade}/{page-slug}
+/{grade}/core-spelling/{page-slug}
+/{grade}/high-frequency-words/set-{n}
+/{grade}/themed-spelling-practice/{page-slug}
 ```
 
 Approved grade slugs are exactly:
@@ -45,25 +47,24 @@ Grade Hubs remain the only parent landing pages for a grade. These section names
 - High-Frequency Words
 - Additional Practice
 
-They are not URL ancestors. Do not create canonical public routes such as:
+Their public route segments are `core-spelling`, `high-frequency-words`, and `themed-spelling-practice`. Each is also a grade-contained gateway. Do not introduce competing aliases such as:
 
-- `/{grade}/core-spelling`
 - `/{grade}/core`
-- `/{grade}/high-frequency-words`
 - `/{grade}/additional-practice`
 - `/{grade}/practice`
 
 ## High-Frequency Words policy
 
-There is no standalone High-Frequency Words / High-Frequency Words gateway page under the canonical grade curriculum architecture. Each set is a direct child of its Grade Hub:
+Each grade has a High-Frequency Words gateway, and its sets are permanent children of that gateway:
 
 ```text
-/{grade}/high-frequency-words-1
-/{grade}/high-frequency-words-2
-/{grade}/high-frequency-words-3
+/{grade}/high-frequency-words
+/{grade}/high-frequency-words/set-1
+/{grade}/high-frequency-words/set-2
+/{grade}/high-frequency-words/set-3
 ```
 
-The Grade Hub itself is the entry point for a grade's High-Frequency Words sets. The `spelling-collections` content type (the old High-Frequency Words gateway collections and the Dolch collections) has been removed entirely.
+The Grade Hub and the grade-contained HFW gateway both orient readers to the sets. The removed `spelling-collections` content type and Dolch collections are not part of this architecture.
 
 ## Trailing slash convention
 
@@ -82,4 +83,4 @@ Because the site has never launched, old repository-shaped URLs for migrated gra
 
 ## August 2026 HFW curriculum migration
 
-The HFW curriculum now contains 27 canonical sets. Grade 1 and Grade 2 add `/high-frequency-words-7`; Grade 4 and Grade 5 each end at Set 2. The former Grade 4/5 Set 3 and Set 4 routes are not generated and return 404 under the verified pre-launch policy above. Repository deployment documentation, the empty redirect configuration, and absence of a configured deployment remote support that disposition; if the operational launch status changes, redirects require a separate explicit decision.
+The HFW curriculum now contains 27 canonical sets. Grade 1 and Grade 2 include `high-frequency-words/set-7`; Grade 4 and Grade 5 each end at Set 2. The former Grade 4/5 Set 3 and Set 4 routes are not generated and return 404 under the verified pre-launch policy above. Repository deployment documentation, the empty redirect configuration, and absence of a configured deployment remote support that disposition; if the operational launch status changes, redirects require a separate explicit decision.

@@ -8,11 +8,12 @@ import {
   type GradeRouteClassification,
 } from './canonicalGradeRoutes';
 import { gradeConfig } from './gradeConfig';
-import { getGradeStrandGatewayCopy } from './gradeStrandGatewayCopy';
+import { getGradeStrandGatewayCopy, getGatewayCardDescription } from './gradeStrandGatewayCopy';
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const gatewayRenderer = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug]/[strand].astro'), 'utf8');
 const spellingListCard = readFileSync(join(process.cwd(), 'src/components/SpellingListCard.astro'), 'utf8');
+const gradeHubRenderer = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug].astro'), 'utf8');
 
 function contentById(): Map<string, string> {
   const sources = new Map<string, string>();
@@ -76,7 +77,7 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     ]);
     const copy = getGradeStrandGatewayCopy('K', 'core-spelling', factsFor('core-spelling'))!;
     expect(routes).toHaveLength(8);
-    expect(`${copy.orientation} ${copy.synthesis}`).toMatch(/systematic|sequence/i);
+    expect(copy.orientation).toMatch(/systematic starting sequence/);
     expect(copy.guidance).toMatch(/Begin with First Words/);
   });
 
@@ -114,10 +115,56 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     expect(gatewayRenderer).not.toMatch(/<\/a>\s*\.\s*\n/);
   });
 
-  it('does not expose the internal grade-level category on themed gateway cards', () => {
-    expect(gatewayRenderer).toContain("showCategoryBadge={strand !== 'themed-spelling-practice'}");
+  it('never exposes raw category classification badges on any of the three gateway strands', () => {
+    // Regression guard: Core previously leaked "Grade-Level" (First Words) vs.
+    // "Phonics" (its 7 siblings) — a real internal-taxonomy split with no
+    // public comparison value — and HFW repeated "High-Frequency Words" on
+    // every card of a page already titled and sub-titled with those words.
+    // All three strands must suppress the category badge unconditionally, not
+    // strand-conditionally, so a future strand can't reintroduce this by omission.
+    expect(gatewayRenderer).toContain('showCategoryBadge={false}');
+    expect(gatewayRenderer).not.toMatch(/showCategoryBadge=\{strand/);
     expect(spellingListCard).toContain('showCategoryBadge = true');
     expect(spellingListCard).toContain('{showCategoryBadge &&');
+  });
+
+  it('leaves other SpellingListCard callers (the Grade Hub) on their existing badge behavior', () => {
+    // The Grade Hub authors its own explicit `badge` per card (e.g. "Grade
+    // Unit", "Vocabulary") and never opts into `showCategoryBadge` at all, so
+    // it keeps relying on the component's default (true) — the gateway-only
+    // suppression above must not have touched this caller.
+    expect(gradeHubRenderer).toContain('badge={card.badge}');
+    expect(gradeHubRenderer).not.toMatch(/showCategoryBadge/);
+  });
+
+  it("HFW gateway cards lead with differentiating content instead of repeating their own title", () => {
+    const hfwRoutes = routesFor('high-frequency-words');
+    expect(hfwRoutes).toHaveLength(4);
+    for (const route of hfwRoutes) {
+      const source = sources.get(route.id);
+      expect(source, `missing content source for ${route.id}`).toBeDefined();
+      const title = source!.match(/^title:\s*['"]?([^'"\n]+?)['"]?\s*$/m)![1];
+      const description = source!.match(/^description:\s*['"]([\s\S]*?)['"]\s*$/m)![1];
+      const shortAnswer = source!.match(/^shortAnswer:\s*['"]([\s\S]*?)['"]\s*$/m)![1];
+
+      // The frozen member-page description is expected to open with its own
+      // title (useful there); confirms the corpus assumption this fix relies on.
+      expect(description.startsWith(title)).toBe(true);
+
+      const cardDescription = getGatewayCardDescription(route.classification, description, shortAnswer);
+      expect(cardDescription).toBe(shortAnswer);
+      expect(cardDescription.startsWith(title)).toBe(false);
+      // The differentiating substance (word-level detail) must still be present.
+      expect(cardDescription.length).toBeGreaterThan(20);
+    }
+  });
+
+  it('falls back to the member description when a strand has no shortAnswer to prefer', () => {
+    expect(getGatewayCardDescription('core-spelling', 'A description.', undefined)).toBe('A description.');
+    expect(getGatewayCardDescription('themed-spelling-practice', 'A description.', 'A short answer.')).toBe(
+      'A description.',
+    );
+    expect(getGatewayCardDescription('high-frequency-words', 'A description.', undefined)).toBe('A description.');
   });
 
   it('keeps authored copy independent of positional presentation instructions', () => {

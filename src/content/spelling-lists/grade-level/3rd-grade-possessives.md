@@ -56,4 +56,6 @@ Use short phrases such as “one dog's leash” and “several dogs' leashes.”
 
 A learner may write *dogs* when ownership is intended, use *dog's* for several owners, or write *familys'* before placing the apostrophe correctly. Restate the intended meaning, repair the owner word first, and then place the apostrophe; do not ask them to memorize the entire phrase. A misspelling in the owned object does not show a misunderstanding of possessives.
 
+Apostrophe placement is one of the last punctuation details most children settle at this age, so a few uncertain tries here are expected, not a setback.
+
 Move on when your child can use sentence meaning to distinguish singular and plural owners, form the owner word correctly, and place the apostrophe independently in mixed practice with plurals and contractions.

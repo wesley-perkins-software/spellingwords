@@ -36,7 +36,7 @@ words:
   - extinct
 ---
 
-These words often appear when students read and write about plants, animals, and the environments they share. Grouping them by that familiar science context gives a purpose for practice, while the spelling work concentrates on long-word organization, shared endings, and two compact but demanding spellings.
+*Ecosystem* and *organism* both break into recognizable written parts once you look past their length, and that kind of long-word organization — plus two shorter, trickier spellings — runs through this eight-word set.
 
 ### Organize the longer words
 

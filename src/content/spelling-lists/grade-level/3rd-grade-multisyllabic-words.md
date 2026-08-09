@@ -57,4 +57,6 @@ Say the whole word naturally and use the division that is useful for that learne
 
 A learner may omit a less prominent vowel or syllable, reverse two parts, simplify a doubled consonant, or spell an unclear vowel only by sound. Treat these as reasonable attempts. Say the word naturally rather than exaggerating or correcting their pronunciation, identify the missing or uncertain written part, and have them repair just that part. Correct spelling of the target chunk still counts as useful evidence even if another chunk needs review.
 
+A word that takes two or three tries before it's secure is completely ordinary at this length — that's what the mixed review after this list is for.
+
 Move on when your child can break an unfamiliar longer word into useful parts, keep those parts in sequence during dictation, and locate and correct an omitted or uncertain part with only occasional help.

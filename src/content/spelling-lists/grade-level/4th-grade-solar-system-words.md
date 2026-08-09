@@ -37,7 +37,7 @@ words:
   - meteor
 ---
 
-The solar system is a memorable setting for words students see in science reading, notes, and reports. Here the topic provides a meaningful group for spelling longer words by syllable, vowel sequence, and stable written chunk—not a separate astronomy lesson.
+*Astronaut, asteroid, meteor* — three space words with three different vowel sequences to keep straight, which is the real work behind this ten-word set, not a lesson in astronomy.
 
 ### Organize the longest words
 

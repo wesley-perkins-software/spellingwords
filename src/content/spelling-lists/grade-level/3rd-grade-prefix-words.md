@@ -57,4 +57,6 @@ Say a word, ask your child to identify its prefix, and write the remaining base 
 
 A learner may omit a letter from the prefix, substitute a competing prefix, or change a base spelling that should stay stable. Treat attempts such as *uhappy* with a missing prefix letter or *disread* for *misread* as useful evidence about the uncertain part: uncover or rewrite only the prefix, compare its meaning, and let them preserve the part already spelled correctly. An error inside *write* or *honest* needs separate review and does not by itself show confusion about prefixes.
 
+A prefix that takes a few tries to settle usually means a child is weighing meaning rather than guessing — that's worth carrying into review, not worrying about.
+
 Move on when your child can identify the prefix and underlying word part, preserve familiar base spellings, and choose among these prefixes by meaning in mixed sentence dictation with only occasional prompting.

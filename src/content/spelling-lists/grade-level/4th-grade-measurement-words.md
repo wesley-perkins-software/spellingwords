@@ -36,7 +36,7 @@ words:
   - gallon
 ---
 
-Measurement words appear whenever students compare length, weight, capacity, or distance in math and everyday life. Because several of these short, familiar words have vowel spellings that are easy to confuse, this set makes their written differences the focus.
+*Ounce* and *pound* share the same *ou* spelling despite sounding nothing alike, and that kind of mismatch — along with a few doubled consonants — is what this eleven-word measurement set is really practicing.
 
 ### Compare vowel spellings
 

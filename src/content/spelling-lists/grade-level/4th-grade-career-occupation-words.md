@@ -35,7 +35,7 @@ words:
   - chef
 ---
 
-Students encounter occupation words when they read about people's work, discuss their communities, or imagine future careers. This set uses that recognizable context to practice bases and suffixes, unexpected sounds for *ch*, and letter sequences that can disappear in speech.
+Occupation names carry real spelling weight once a base word picks up a suffix — *scientist, photographer, journalist* — and this eight-word set uses that join, plus a few unexpected *ch* sounds, as its main practice.
 
 ### Build words from recognizable bases
 

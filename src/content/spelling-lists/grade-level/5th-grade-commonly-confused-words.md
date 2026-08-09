@@ -58,4 +58,6 @@ Read a short sentence that makes one member of a pair clear, but do not show the
 
 For a selection error, clarify the sentence meaning and have them choose again before discussing letters. For a spelling error, confirm that the intended word was correct and compare only the uncertain sequence, such as one or two *s* in *desert/dessert* or the endings in *principal/principle*. For mixed uncertainty, settle the word choice first and then repair its spelling. Preserve every correct decision and letter sequence rather than turning correction into repeated copying.
 
+A wrong choice between two real words is worth a quick meaning check, not a longer correction — the spelling itself was never the problem in that moment.
+
 The learner is ready to continue when they can choose and spell both members of all six pairs in mixed, previously unseen sentences and can tell whether a correction concerns the word choice, the spelling, or both.

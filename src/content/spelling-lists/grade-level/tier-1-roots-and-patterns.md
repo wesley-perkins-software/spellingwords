@@ -56,4 +56,6 @@ Work with one pair at a time. Locate and box the shared root, read both words, a
 
 If the root letters change, place the two family members side by side and repair only the shared spelling. If the root is correct but *trans-*, *pre-*, *in-*, *con-*, or an ending is wrong, leave the root untouched and correct the surrounding part. This shows your child exactly which unit is uncertain instead of requiring unnecessary whole-word copying.
 
+If a root takes a while to feel meaningful, that's fine — the spelling anchor is useful long before the connection feels obvious.
+
 Mix all five families for the final practice. The learner is ready to continue when they preserve *port*, *dict*, *spect*, *rupt*, and *struct* in an unfamiliar order and can tell whether they need to check the root or the letters around it. The Greek and Latin Roots Skill provides the broader reference when an adult wants to explore the concept beyond this set.

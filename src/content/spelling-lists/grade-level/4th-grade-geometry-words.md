@@ -41,7 +41,7 @@ Geometry gives students a real reason to write words such as *angle, area,* and 
 
 ### Hold long spellings in syllables
 
-The five-syllable words can be organized as *quad-ri-lat-er-al* and *per-pen-dic-u-lar*. Both end with *al*, but their earlier letter sequences differ. *Perimeter* is shorter: *per-im-e-ter*. Keeping each sequence in order is more reliable than trying to recover every vowel from casual speech.
+The five-syllable words can be organized as *quad-ri-lat-er-al* and *per-pen-dic-u-lar*. *Quadrilateral* ends with *al*, while *perpendicular* ends with *ar*, so each needs its own final check. *Perimeter* is shorter: *per-im-e-ter*. Keeping each sequence in order is more reliable than trying to recover every vowel from casual speech.
 
 ### Check repeated and less-predictable letters
 

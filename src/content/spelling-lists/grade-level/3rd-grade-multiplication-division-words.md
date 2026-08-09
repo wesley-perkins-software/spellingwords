@@ -35,7 +35,7 @@ words:
   - equation
 ---
 
-These words become familiar as students explain multiplication and division strategies in math class. Practicing them as spellings helps a child write those explanations confidently while noticing shared letter sequences, syllables, and distinctive endings.
+*Quotient* and *equation* can look intimidating on a math worksheet, but both break into manageable spelling chunks once a third grader slows down and checks their parts — the same approach that works for the rest of this eight-word set.
 
 ### Connect *multiply* and *multiple*
 

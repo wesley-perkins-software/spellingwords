@@ -35,7 +35,7 @@ words:
   - legend
 ---
 
-Maps and globes give students a way to describe where places are and how they relate to one another. These words are likely to appear in classroom directions, geography reading, and written explanations; the spelling work below helps students hold their longer and less predictable letter sequences in memory.
+Maps and globes give students a way to describe where places are and how they relate to one another. These words are likely to appear in classroom directions, geography reading, and written explanations, so this set focuses on holding their longer and less predictable letter sequences in memory.
 
 ### Hold the longer words in parts
 

@@ -35,7 +35,7 @@ words:
   - cycle
 ---
 
-Students meet life-cycle words when they read, talk, and write about how animals grow and change. This small set turns that familiar science context into focused spelling practice with doubled consonants, useful word parts, and contrasting sounds for *c*.
+*Egg, caterpillar, cocoon, tadpole* — this life-cycle sequence hands a third grader eight words with real spelling substance: two doubled-letter endings, several syllable chunks, and one hard/soft *c* contrast worth noticing along the way.
 
 ### Notice doubled consonants
 

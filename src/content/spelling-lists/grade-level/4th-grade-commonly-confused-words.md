@@ -59,4 +59,6 @@ Practice one contrast group with short oral sentences. Ask what the sentence mea
 
 When the wrong member is selected, do not mark it as a misspelling. Ask a short question that restores the intended meaning—place, belonging to them, or *they are*, for example—and let them replace the word. When the intended member is misspelled, keep the choice and correct only its uncertain letters or apostrophe. Retest the complete word later in a different sentence.
 
+Choosing the wrong member of a pair is a different kind of mistake from a true misspelling, and naming that difference out loud keeps it from feeling like a bigger error than it is.
+
 Mix all six groups once individual contrasts are secure. The learner is ready to continue when they can select and spell the intended member in new sentences, explain whether a mistake was a choice or a spelling error, and use the matching correction without prompting.

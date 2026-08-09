@@ -21,4 +21,4 @@ For exact ordered word arrays, routes, principles, and grade totals, see [`docs/
 
 ## Editorial status
 
-The final member-page standard and Kindergarten Set 1 reference pilot are complete. The other 26 member sets remain pending editorial transformation. Gateway editorial work is also deferred and is not governed by the member-page standard.
+The final member-page standard is complete, and production editorial implementation is complete across all 27 member sets (Kindergarten Set 1 remains the reference pilot). Gateway editorial work is deferred and is not governed by the member-page standard.

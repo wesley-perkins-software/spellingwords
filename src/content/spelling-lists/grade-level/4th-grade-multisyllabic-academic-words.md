@@ -58,4 +58,6 @@ Work with three or four words at a time. Say a word naturally, tap or mark any s
 
 Use the comparison to name the error precisely. If a less-prominent vowel was omitted, restore that vowel and rewrite only its chunk before trying the whole word later. If internal letters moved in *knowledge* or *strategy*, study and rebuild that section. If an ending was lost in *communicate* or *organize*, correct the ending while leaving the secure beginning alone.
 
+Losing a middle syllable in a long word is one of the most common, most fixable errors at this stage — it usually clears up with a little more repeated retrieval, not a new explanation.
+
 Mix the words after practicing them in small groups. The learner is ready to continue when they can spell the words in a new order, keep the written parts intact even when a vowel is less clear in speech, and independently point to the section they need to check.

@@ -35,7 +35,7 @@ words:
   - hundredths
 ---
 
-Students use fraction and decimal words when they explain calculations, label work, and write solutions in math. This set helps them spell those explanations clearly by comparing long word structures, recurring endings, and dense consonant sequences.
+*Numerator* and *denominator* share a stable ending even though their openings differ completely, and that kind of comparison — long word structures, recurring endings, dense consonant sequences — runs through this whole eight-word set.
 
 ### Compare two long spellings
 

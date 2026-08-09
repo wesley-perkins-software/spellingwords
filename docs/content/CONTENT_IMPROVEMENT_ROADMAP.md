@@ -1082,12 +1082,12 @@ Written implementation and adversarial self-review have been completed for all 4
 |---|---:|---:|---:|---:|---:|
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + classification decisions | 7 artifacts plus the `silent-e-long-e` decision and the `grade-4-final-stable-syllables`/`grade-5-spelling-rules` legacy-role-exception decision | 0 | 33 unresolved rows | 0 |
 | Phase 1 — Skill-page content | 41 live Skill pages | 0 fully Complete | 41 implementation-complete / `Needs review` across all 12 family batches | 0 to draft | 0 |
-| Phase 2 — Grade curriculum content | 78 canonical-active Core Spelling + Additional Practice pages with their own Grade Hub card | 8 Kindergarten Core pages | 0 | 70 | 0 |
+| Phase 2 — Grade curriculum content | 78 canonical-active Core Spelling + Additional Practice pages with their own Grade Hub card | 47 (all 27 Additional Practice pages, per the standard's completion banner above, plus 20 Core Spelling pages — the Kindergarten, Grade 3, and Grade 5 batches — checked complete in §6) | 0 | 31 (the Grade 1, Grade 2, and Grade 4 Core Spelling batches; §6 still shows these unchecked pending their own batch audit) | 0 |
 | Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 | 0 | 6 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |
 | Phase 5 — Main browse-page content | 1 page | 0 | 0 | 1 | 0 |
 | Phase 6 — Cross-site consistency and final audit | 1 site-wide pass | 0 | 0 | 1 | 0 |
-| *(Reference, not a phase)* High-Frequency Words gateway + member sets | 6 + 27 = 33 | 1 member set | Final standard + Kindergarten Set 1 pilot complete | 26 member sets + 6 gateways | 0 |
+| *(Reference, not a phase)* High-Frequency Words gateway + member sets | 6 + 27 = 33 | 27 member sets (all grades) | Final standard applied across all 27 frozen inventories | 6 gateways | 0 |
 
 **Excluded from every phase and total above — transparency only, not part of active scope:** deprecated/legacy and unresolved pages. Canonical-active editorial scope is **152 pages**; the deleted focused-component pages are recorded only in the legacy-removal manifest. Repository-wide historical file totals are not an authority for current canonical membership.
 

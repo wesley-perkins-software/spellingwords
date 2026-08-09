@@ -54,4 +54,6 @@ Dictate a complete sentence and ask your child to explain the intended word befo
 
 Writing *your* when the sentence means *you are* is a selection error: the child spelled a real homophone but chose the wrong meaning. Ask them to expand or restate the sentence, then replace only that word. By contrast, an attempt such as *wher* for intended *where* shows that the student selected the correct meaning but needs help with that word's internal spelling; compare it directly with the correct member instead of reteaching the whole concept.
 
+A selection error means the sentence was understood, just not yet matched to the right spelling — worth treating as a small, specific fix rather than a bigger misunderstanding.
+
 Move on when your child can choose and justify the intended spelling in unfamiliar sentences, expand the contractions as a check, and independently correct a meaning mismatch with only occasional prompting.

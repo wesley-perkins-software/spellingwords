@@ -39,7 +39,7 @@ words:
   - tax
 ---
 
-Fifth graders may meet these words in math problems, classroom projects, or conversations about earning, saving, and spending. The familiar context makes the list useful, while the practice stays centered on meaningful word parts, internal vowels, and easily confused spelling frames.
+*Credit* and *debit*, *expense* and *balance* — several of these money words sound like near-matches but are spelled differently underneath, which is exactly what this twelve-word set asks a fifth grader to notice.
 
 ### Use meaningful parts where they help
 
@@ -47,7 +47,7 @@ Fifth graders may meet these words in math problems, classroom projects, or conv
 
 ### Compare related spelling frames
 
-*Credit* and *debit* both have two syllables and end in *it*, but their openings and middle consonants differ: *cred-it* and *deb-it*. *Expense* and *balance* share the final spelling *nce*, although *expense* begins with *ex* and *balance* ends with the larger written chunk *ance*.
+*Credit* and *debit* both have two syllables and end in *it*, but their openings and middle consonants differ: *cred-it* and *deb-it*. *Expense* and *balance* sound alike near the end but are spelled differently: *expense* finishes with *nse*, while *balance* finishes with the larger written chunk *ance*.
 
 ### Hold the remaining letter sequences
 

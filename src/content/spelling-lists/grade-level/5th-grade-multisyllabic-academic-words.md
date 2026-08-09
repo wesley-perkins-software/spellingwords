@@ -58,4 +58,6 @@ Say or play the whole word naturally. Ask your child to identify a useful ending
 
 If internal material is omitted, keep the secure beginning and ending visible and restore only the missing section. If a weak or less-prominent vowel is uncertain, compare that small written chunk with the model. If the ending is wrong, preserve the correctly spelled earlier material and repair the ending; if a known part has been damaged, focus attention on that part before writing the complete word once more.
 
+At this length, a single missing or shifted syllable is a minor, easily targeted repair — not evidence that the whole word needs to be relearned.
+
 The learner is ready to continue when they can spell a mixed selection without losing internal material, use a known ending or written part to keep the word organized, and locate and repair an uncertain section with increasing independence.

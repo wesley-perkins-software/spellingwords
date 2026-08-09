@@ -43,7 +43,7 @@ words:
   - capital
 ---
 
-Civics words become relevant when students read about government, discuss how communities make decisions, or write social studies responses. This list keeps that context brief and practical, then focuses on the bases, suffixes, recurring endings, and meaning-dependent spellings within the words themselves.
+*Amendment* and *representative* share genuine bases and suffixes, and this twelve-word civics set uses connections like that — plus a few words that need attention for other reasons — as its spelling focus.
 
 ### Build with bases and suffixes
 

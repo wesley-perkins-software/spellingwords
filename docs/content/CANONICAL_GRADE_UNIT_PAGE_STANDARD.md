@@ -155,7 +155,7 @@ For an **Additional Practice / vocabulary-theme page** (§3.1 only): positions 1
 
 **Never include on any page this standard governs:**
 
-- A second/bonus word list beyond the one 8–16-word Practice Set.
+- A second/bonus word list beyond the one primary Practice Set. The primary set normally contains 8–16 words; a larger inventory is valid only when it is already defined by the frozen curriculum and preserved as one coherent unit.
 - A full concept explainer reproducing the Skill page's exception system, teaching routine, history, or comprehensive example set (§9).
 - A restatement of the whole grade's curriculum journey (the Grade Hub's job).
 - Mastery claims, gamification language, rankings, or curriculum comparisons.
@@ -188,7 +188,7 @@ Applies to Core Spelling / on-ramp-review units; Additional Practice pages use o
 |---|---|---|---|---|---|
 | Hero + practice action | Universal | What is this, how do I start? | Minimal — no paragraph copy | Rationale reasoning | `title`, `description`, `grade`, `category` |
 | "Good fit for students who…" | Conditional | Is my child ready to *start* this list? | 2–4 observable bullets | The move-on guidance at the end of "How to practice" (entry vs. exit — never merge) | `readinessSignals` |
-| Word list | Universal | What exactly will my child practice? | Complete, crawlable 8–16 words | Per-word practice instructions | `words` |
+| Word list | Universal | What exactly will my child practice? | Complete and crawlable; normally 8–16 words, except where the frozen curriculum defines a larger coherent inventory | Per-word practice instructions | `words` |
 | Why these words? | Universal + sequence-critical | Why these words, why this sequence point, what's being practiced? | Functional, not fixed-length: long enough to cover selection + sequence position + instructional purpose; short enough not to become a second Skill article. On-ramp/review units may need more; narrow, familiar-pattern units may need less. No padding for consistency. | The Skill page's full conceptual treatment (§9) | Markdown body |
 | How to practice this list (including move-on guidance at its end) | Universal (+ sequence-critical for the closing guidance) | What do we do in a session, and how do we know we're ready to continue? | Functional — as short as the guidance genuinely is. The section opens with session-level guidance (what the adult/child do) and closes with a few concise, qualitative sentences on observable readiness to move on. Both live under this one heading; do not split into two visible sections. | The rationale's "why"; the Skill page's general pedagogy; the entry-readiness bullets above | Markdown body |
 | Go deeper on the pattern | Conditional | Where can I learn the general concept? | One line + link | The Skill page's explanation itself | `skillIds` |
@@ -263,7 +263,7 @@ Copyable into every future Grade Unit content task. **Start by identifying the p
 
 - [ ] **Variant identified**, and only that variant's obligation set (§4, §6) applied below.
 - [ ] `title` / `description` / `shortAnswer` / body / word list / FAQ all describe the same actual page content — no field promises something the page doesn't have.
-- [ ] Word list is 8–16 words, complete, crawlable; example sentences present only where a word is genuinely ambiguous without one.
+- [ ] Word list is complete and crawlable; it normally contains 8–16 words, or exactly preserves a larger inventory already defined by the frozen curriculum. Example sentences are present only where a word is genuinely ambiguous without one.
 - [ ] "Why these words?" covers selection + what's practiced (all variants); for Core Spelling and on-ramp/review units, also covers sequence-position rationale (not unsupported developmental claims).
 - [ ] "Why these words?"'s pattern context is bounded — passes the local-context-vs-duplication test (§9.1); no reproduction of the Skill page's exception system, teaching routine, or full example set.
 - [ ] "How to practice this list" contains only session-level guidance, at a depth matching the variant; every sentence passes the session-vs-reasoning test (§9.6).

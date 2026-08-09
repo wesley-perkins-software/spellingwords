@@ -2,7 +2,7 @@
 id: grade-4-career-occupation-words
 urlSlug: 4th-grade-career-occupation-words
 title: '4th Grade Career & Occupation Spelling Words'
-description: 'Career names appear in biographies, interviews, community writing, and conversations about people's work. This eight-word set develops spelling through genuine base-and-suffix relationships, longer written parts, and contrasting ch sounds.'
+description: "Career names appear in biographies, interviews, community writing, and conversations about people's work. This eight-word set develops spelling through genuine base-and-suffix relationships, longer written parts, and contrasting ch sounds."
 shortAnswer: 'This career and occupation spelling set connects journal with journalist, science with scientist, and photograph with photographer while contrasting ch in architect, mechanic, and chef.'
 contentRole: vocabulary-theme
 category: grade-level

@@ -1,31 +1,29 @@
 ---
 id: grade-4-career-occupation-words
 urlSlug: 4th-grade-career-occupation-words
-title: "4th Grade Career & Occupation Words"
-description: "Practice spelling career words like engineer, journalist, and photographer."
-shortAnswer: "Practice Grade 4 career and occupation words such as engineer, journalist, architect, scientist, plumber, mechanic, photographer, and chef."
+title: '4th Grade Career & Occupation Spelling Words'
+description: 'Career names appear in biographies, interviews, community writing, and conversations about people's work. This eight-word set develops spelling through genuine base-and-suffix relationships, longer written parts, and contrasting ch sounds.'
+shortAnswer: 'This career and occupation spelling set connects journal with journalist, science with scientist, and photograph with photographer while contrasting ch in architect, mechanic, and chef.'
 contentRole: vocabulary-theme
 category: grade-level
-grade: "4"
+grade: '4'
 difficulty: intermediate
-skillTags: ["grade-4", "careers", "vocabulary"]
-tags: ["grade-4", "careers", "vocabulary", "themed-spelling-practice"]
+skillTags: ['grade-4', 'careers', 'vocabulary']
+tags: ['grade-4', 'careers', 'vocabulary', 'themed-spelling-practice']
 order: 14
 estimatedDurationMinutes: 8
 status: published
 masteryThreshold: 90
 sourceType: curated
 relatedLists: []
-prerequisiteLists: ["grade-4-solar-system-words"]
-nextLists: ["grade-4-geometry-words"]
+prerequisiteLists: ['grade-4-solar-system-words']
+nextLists: ['grade-4-geometry-words']
 featured: false
-readinessSignals:
-  - "Can name a range of adult careers and professions"
-faq:
-  - question: "Which career words are included?"
-    answer: "This list includes engineer, journalist, architect, scientist, plumber, mechanic, photographer, and chef."
-  - question: "How is this different from Grade 2's Community Helpers list?"
-    answer: "Community Helpers covers concrete, easily-drawn roles a young child names. This list covers longer, more specialized professional titles suited to a Grade 4 reader — a career-day vocabulary rather than a neighborhood-helpers vocabulary."
+wordNotes:
+  - word: 'scientist'
+    note: 'Scientist is built from science + ist. The final e in science is dropped before ist is added, but the spelling sci remains at the beginning.'
+  - word: 'plumber'
+    note: 'Plumber keeps the b in its base, plumb, even though the b is not usually heard. Hold plumb before adding er.'
 words:
   - engineer
   - journalist
@@ -37,6 +35,14 @@ words:
   - chef
 ---
 
-By Grade 4, "what do you want to be when you grow up" starts to include more specialized answers. These eight words name a range of careers, from an *engineer* who designs bridges to a *photographer* who captures a moment in time.
+### Build words from recognizable bases
 
-This is optional additional practice, not part of the Grade 4 Core Spelling route.
+*Journalist* is *journal + ist*, and *photographer* is *photograph + er*. Both bases remain complete when the suffix is added. *Scientist* changes at the join: adding *ist* to *science* drops the final *e*. Checking the base first secures most of each longer spelling.
+
+### Compare the spellings with *ch*
+
+The letters *ch* occur in *architect*, *mechanic*, and *chef*, but they do not represent the same sound in all three words. In *architect* and *mechanic*, *ch* represents the sound commonly spelled *k*; in *chef*, it represents the sound commonly spelled *sh*. The stable written pair *ch* must stay attached to each word despite that sound contrast.
+
+### Organize the remaining longer words
+
+Hold *engineer* as the written parts *en-gi-neer*, preserving the final *eer*. In *plumber*, begin with *plumb* and add *er* so the less-clearly-heard *b* remains visible. The written parts *ar-chi-tect* and *me-chan-ic* provide separate letter-order checks for two other multisyllabic words.

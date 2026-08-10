@@ -61,12 +61,36 @@ const grade1GatewayCopy: Record<GradeRouteClassification, GatewayCopyAuthor> = {
   }),
 };
 
+const grade2GatewayCopy: Record<GradeRouteClassification, GatewayCopyAuthor> = {
+  'core-spelling': ({ memberCount }) => ({
+    orientation: `2nd Grade Core Spelling continues the sequence with ${memberCount} units: vowel-team and diphthong spellings, r-controlled vowels, and soft c/soft g, followed by syllable-level and word-building patterns.`,
+    synthesis:
+      "The sequence opens with the vowel patterns that vary most in spelling — long e, long i, oi/oy, ou/ow, the two sounds of oo, au/aw, and r-controlled vowels — before moving into syllable structure: breaking two-syllable words into parts and recognizing the quiet final -le ending. It then turns to less predictable spellings, silent letters, and closes with words built from smaller words, compounds and contractions.",
+    guidance:
+      'Begin with Long E Vowel Teams if 2nd Grade Core Spelling is new. Comfort with one early vowel-team unit does not mean the later syllable, silent-letter, or word-building units can be skipped — each teaches a distinct spelling skill.',
+  }),
+  'high-frequency-words': ({ memberCount, wordCount }) => ({
+    orientation: `2nd Grade High-Frequency Words brings together ${wordCount} commonly used spellings in ${memberCount} sets of 12 words each.`,
+    synthesis:
+      'High-frequency describes how often a word is encountered or used, not that every word has an irregular spelling. Children can rely on sound–spelling knowledge for most of each word, while a handful of less-predictable letters — in words such as people, again, and could — get focused, explicit attention. The sets build cumulatively, moving from shared spelling chunks like any/many and could/would toward vowel teams, syllable patterns, and compounds in later sets.',
+    guidance: `The ${wordCount}-word inventory is divided into ${memberCount} sets of 12 so a child can work with one manageable group at a time.`,
+  }),
+  'themed-spelling-practice': ({ memberCount }) => ({
+    orientation: `These ${memberCount} optional 2nd Grade spelling-practice lists use familiar real-world themes and are not a sequence.`,
+    synthesis:
+      'Transportation, money, community helpers, number words to 100, and the months of the year each provide a recognizable context for additional spelling practice.',
+    guidance:
+      'Choose the theme that matches what a child is reading, doing, or curious about. Each theme stands on its own, so there is no required order.',
+  }),
+};
+
 const gatewayCopyByGrade: Partial<Record<GradeCode, Record<GradeRouteClassification, GatewayCopyAuthor>>> = {
   K: kindergartenGatewayCopy,
   '1': grade1GatewayCopy,
+  '2': grade2GatewayCopy,
 };
 
-/** Returns authored gateway copy where available; Grades 2–5 continue to use the renderer fallback. */
+/** Returns authored gateway copy where available; Grades 3–5 continue to use the renderer fallback. */
 export function getGradeStrandGatewayCopy(
   grade: GradeCode,
   strand: GradeRouteClassification,

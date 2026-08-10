@@ -1,5 +1,14 @@
 # Homepage Specification — spellingwords.app
 
+> **Superseded.** This document predates `docs/architecture/CONSTITUTION.md`'s three-journey
+> model and `docs/architecture/PUBLIC_URL_ARCHITECTURE.md`'s frozen routes. It references a
+> `/spelling-lists` "Spelling Library," `/about`, and `/guides` — none of which exist in the
+> current architecture; the legacy `/spelling-lists` route tree has been removed entirely. The
+> canonical, current authority for the homepage is `docs/content/CANONICAL_HOMEPAGE_STANDARD.md`
+> (backed by `docs/content/CANONICAL_HOMEPAGE_STANDARD_RESEARCH.md`). This document is retained
+> for historical context only; where it conflicts with the canonical standard, the standard
+> governs.
+
 ## What This Document Is
 
 This is the definitive product specification for the homepage of spellingwords.app. It defines what the homepage must accomplish, why each section exists, and how users should experience it.

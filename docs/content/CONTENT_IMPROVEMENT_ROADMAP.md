@@ -32,6 +32,8 @@ Keep this file and the inventory files synchronized: this file owns strategy, ph
 
 **Editorial content standard for the Grade-Strand Gateway layer:** `docs/content/CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md` is frozen and governs all 18 Grade-Strand Gateways (Core Spelling, High-Frequency Words, and Themed Spelling Practice gateways, ×6 grades) — a layer this roadmap and the individual member-page standards previously left undefined. All 18 gateway routes are live, and all 18 (Kindergarten, Grade 1, Grade 2, Grade 3, Grade 4, and Grade 5) now have authored orientation/synthesis copy per the frozen standard; the generic renderer fallback is no longer in use on any live gateway. Structural requirements shared by all 18 — including cross-strand wayfinding — apply regardless of authored-copy status; see that standard's §5 and §7.
 
+**Editorial content standard for the homepage (Layer 5):** `docs/content/CANONICAL_HOMEPAGE_STANDARD.md` is frozen and governs `/` (`src/pages/index.astro`), backed by `docs/content/CANONICAL_HOMEPAGE_STANDARD_RESEARCH.md`. Production conformance is pending. See the corrected Layer 5 description and Phase 5 entry below — earlier drafts of this document named this layer's implementation as the removed `/spelling-lists` route; it is the homepage.
+
 ---
 
 ## 1. Status and purpose
@@ -107,11 +109,11 @@ Five page layers exist within the canonical architecture. Each layer's page set 
 **Must not duplicate:** any single Skill page's explanation of its pattern.
 **Linking role:** routes down into every Skill page; sits alongside (not beneath) the Grade Hubs as a second, skill-first way to reach the same underlying content.
 
-### Layer 5 — Main spelling-list browse page
-**Purpose:** the top-level entry point where a user chooses Grade-based or Skill-based browsing (`src/pages/spelling-lists/index.astro`).
-**Belongs here:** a short explanation of the journeys — Grade-based, Skill-based, and "practice your own words," per `docs/architecture/CONSTITUTION.md`'s three user journeys — and links to the Grade Hubs and Skills Hub.
-**Must not duplicate:** hub-level or page-level content — this page should be the shortest, least detailed page in the whole hierarchy.
-**Note:** this page currently also links to legacy category pages (`/spelling-lists/high-frequency-words`, etc.) that are outside canonical scope — see §1 and `deprecated-and-legacy-pages.md`. That linkage is a fact about today's implementation, not something this roadmap resolves.
+### Layer 5 — Homepage
+**Purpose:** the top-level entry point where a user chooses Grade-based browsing, Skill-based browsing, or begins Practice Your Own Words directly. **Correction:** earlier drafts of this document named this layer's implementation as `src/pages/spelling-lists/index.astro`. That route was removed entirely (`docs/architecture/PUBLIC_URL_ARCHITECTURE.md`: "the legacy `/spelling-lists` and `/learning-paths` route trees have been removed entirely") and this layer's responsibility now belongs to the homepage, `src/pages/index.astro`, at `/`.
+**Belongs here:** per `docs/content/CANONICAL_HOMEPAGE_STANDARD.md`, the frozen editorial content standard for this layer — a product identity/scope statement, the directly-hosted Practice Your Own Words interaction, and coequal routing into all six Grade Hubs and the Skills Hub.
+**Must not duplicate:** hub-level or page-level content — this remains the shortest, least detailed page in the whole hierarchy, per the canonical standard's own restraint requirements.
+**Note:** the former legacy category pages (`/spelling-lists/high-frequency-words`, etc.) this roadmap entry previously described no longer exist; see `inventory/deprecated-and-legacy-pages.md` for the historical record.
 
 ### The Skill-page vs. Grade-unit distinction (the one most at risk of duplication)
 
@@ -163,10 +165,10 @@ later visual and cross-site work remains in Phases 5–6.
 **Outputs:** one polished Skills Hub page.
 **Must not do prematurely:** don't finalize family descriptions while a family's Skill pages are still mid-draft.
 
-### Phase 5 — Main browse-page content
+### Phase 5 — Homepage content
 **Position rationale:** the shortest, most derivative page — entirely dependent on the Grade Hubs and Skills Hub it links to being in good shape — so it's written last.
 **Dependencies:** Phases 3 and 4 complete.
-**Outputs:** one refined top-level browse page.
+**Outputs:** one refined homepage, conforming to `docs/content/CANONICAL_HOMEPAGE_STANDARD.md`.
 **Must not do prematurely:** don't reproduce hub content here (§2, Layer 5).
 
 ### Phase 6 — Cross-site consistency and final editorial audit

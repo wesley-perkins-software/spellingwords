@@ -12,7 +12,7 @@
  * and duplication of canonical truth is what caused the original
  * stale-reference bug this review fixes.
  *
- * Ids are the live Grade Hub `Core Spelling` card ids from `gradeHubCards.ts`
+ * Ids are the live Core Spelling ids from the canonical grade route manifest
  * for each grade, in hub card order. Combined-roadmap-entry sibling pages
  * (e.g. `grade-1-long-e-vowel-teams`, `grade-3-doubling-final-consonants`)
  * are intentionally excluded — they are not independent hub cards and never

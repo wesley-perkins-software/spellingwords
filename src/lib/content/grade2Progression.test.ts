@@ -128,7 +128,7 @@ describe('Grade 2 Core Spelling', () => {
   it('keeps the previous and next links coherent through the core progression, via the derived Core Spelling sequence', () => {
     // Adjacency is derived from CORE_SPELLING_SEQUENCE, not frontmatter. Grade 1's
     // actual last Core Spelling hub card is grade-1-tch-dge-ending-rules (verified
-    // against gradeHubCards.ts), and Grade 2's chain continues into Grade 3 rather
+    // against the canonical route manifest), and Grade 2's chain continues into Grade 3 rather
     // than dead-ending — both corrections from the Canonical Navigation
     // Relationships review.
     GRADE_2_CORE_IDS.forEach((id, index) => {

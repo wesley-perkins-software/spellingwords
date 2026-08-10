@@ -51,7 +51,7 @@ Keep this file and the inventory files synchronized: this file owns strategy, ph
 
 The repository contains more published content than the frozen architecture defines — most notably a legacy Dolch high-frequency-word system and a set of orphaned single-pattern phonics pages that predate the current Grade Hub/Skills design. Every page in this roadmap's active scope is classified using one test:
 
-**A page is canonical active if it is explicitly defined by `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` or `docs/architecture/SKILLS_ARCHITECTURE.md`, or it is a required implementation artifact of that architecture** (a Grade Hub, the Skills Hub, or the main browse page). Live code (`src/lib/content/gradeHubCards.ts`, `src/lib/content/spellingSkills.ts`) verifies the architecture is actually wired into navigation and surfaces drift — it does not redefine what's canonical.
+**A page is canonical active if it is explicitly defined by `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` or `docs/architecture/SKILLS_ARCHITECTURE.md`, or it is a required implementation artifact of that architecture** (a Grade Hub, the Skills Hub, or the main browse page). Live code (`src/lib/content/canonicalGradeRoutes.ts`, `src/lib/content/spellingSkills.ts`) verifies the architecture is actually wired into navigation and surfaces drift — it does not redefine what's canonical.
 
 Every content-collection page in the repository falls into exactly one of three buckets:
 
@@ -96,9 +96,8 @@ Five page layers exist within the canonical architecture. Each layer's page set 
 **Linking role:** links up to its canonical Skill page, sideways to `prerequisiteLists`/`nextLists`, and up to its Grade Hub.
 
 ### Layer 3 — Grade Hub pages
-**Purpose:** summarize and organize one grade's Core Spelling, High-Frequency Words, and any approved Additional Practice (e.g. "3rd Grade Spelling Words"). **Defined by:** `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`; implemented as code (`src/pages/spelling-lists/[gradeSlug].astro` + `src/lib/content/gradeHubCards.ts`/`gradeHubCopy.ts`), not a content file.
-**Belongs here:** short orienting copy, a scannable map of the grade's three sections, and links into every child page.
-**Core title contract:** each Core card defaults to the destination entry’s exact canonical title, matching its H1, breadcrumb, and relationship-card label. Grade is separate metadata. Any Hub-only title is an explicit reviewed exception with a documented usability rationale; shorter canonical URL slugs remain valid.
+**Purpose:** summarize and organize one grade's Core Spelling, High-Frequency Words, and any approved Additional Practice (e.g. "3rd Grade Spelling Words"). **Defined by:** `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md`; implemented as code (`src/pages/[gradeSlug].astro` + `src/lib/content/gradeHubModel.ts`/`gradeHubCopy.ts`), not a content file.
+**Belongs here:** short grade-wide orientation, concise summaries of the three strands, and canonical links to the three same-grade Gateways.
 **Must not duplicate:** lesson content from any child page.
 **Linking role:** routes down into every Grade Unit/High-Frequency Words/Additional Practice page for that grade, and up to the Skills Hub / main browse page.
 
@@ -629,7 +628,7 @@ The six pages' prose, word equations, comparison tables, and FAQs were re-read i
 
 ## 6. Grade curriculum checklist
 
-One section per grade, K–5, preserving canonical Grade Unit order from `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`. **Only canonical-active pages appear here** — pages confirmed by their presence in `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` and their Grade Hub card in `gradeHubCards.ts`. Per-page detail is in `inventory/grade-curriculum-pages.md`; unresolved grade-scoped pages are tracked separately in `inventory/untagged-and-data-quality.md` and are not part of this checklist until confirmed canonical-active.
+One section per grade, K–5, preserving canonical Grade Unit order from `docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md`. **Only canonical-active pages appear here** — pages confirmed by their presence in `docs/planning/K5_FINAL_CONTENT_ARCHITECTURE.md` and their canonical route in `canonicalGradeRoutes.ts`. Per-page detail is in `inventory/grade-curriculum-pages.md`; unresolved grade-scoped pages are tracked separately in `inventory/untagged-and-data-quality.md` and are not part of this checklist until confirmed canonical-active.
 
 
 ### Kindergarten
@@ -805,81 +804,81 @@ One section per grade, K–5, preserving canonical Grade Unit order from `docs/c
 
 Hub pages are code-driven, always canonical active, and have no frontmatter row in the inventory files. The same checkpoint list applies to every hub; **do not** let any hub page grow into a long educational article that competes with its child pages.
 
-**Grade Hub phase status (August 2026):** research is complete, the canonical architecture is
-frozen in `CANONICAL_GRADE_HUB_STANDARD.md`, and the Constitution has been reconciled with the
-existing Grade-Strand Gateway layer. Production Hub conformance is **not complete**. Implement and
-review **3rd Grade as the pilot next**; Kindergarten, Grades 1–2, and Grades 4–5 must not roll out
-until that pilot has been reviewed and validated.
+**Grade Hub phase status (August 2026): Complete.** Research and the canonical architecture are
+frozen in `CANONICAL_GRADE_HUB_STANDARD.md`, and the Constitution is reconciled with the existing
+Grade-Strand Gateway layer. The 3rd Grade reference pilot was validated, all six Grade Hubs now use
+the canonical three-Gateway model, and the flattened member-directory implementation has been
+retired. Visual redesign remains future work and was not part of this content phase.
 
 **Standard hub checkpoints** (apply to every hub below):
-- [ ] Introductory copy is short, accurate, and non-duplicative of child-page content
-- [ ] Clarity of user journey (a first-time visitor can tell what to click and why)
-- [ ] Section descriptions are accurate and scannable
-- [ ] Each strand routes clearly and crawlably to its canonical same-grade Gateway
-- [ ] No individual member inventory or direct member routing remains on the Hub
-- [ ] Terminology matches the child pages it summarizes
-- [ ] Primary search intent for the hub itself is addressed
-- [ ] No duplication with child-page content
-- [ ] Metadata (title/description) accurately reflects the hub's actual content
-- [ ] Structured data (if any) accurately reflects visible content
-- [ ] Summary text accurately reflects the current editorial state of child content
+- [x] Introductory copy is short, accurate, and non-duplicative of child-page content
+- [x] Clarity of user journey (a first-time visitor can tell what to click and why)
+- [x] Section descriptions are accurate and scannable
+- [x] Each strand routes clearly and crawlably to its canonical same-grade Gateway
+- [x] No individual member inventory or direct member routing remains on the Hub
+- [x] Terminology matches the child pages it summarizes
+- [x] Primary search intent for the hub itself is addressed
+- [x] No duplication with child-page content
+- [x] Metadata (title/description) accurately reflects the hub's actual content
+- [x] Structured data (if any) accurately reflects visible content
+- [x] Summary text accurately reflects the current editorial state of child content
 
 
 ### Kindergarten Hub
 
-- [ ] Introductory copy reviewed
-- [ ] User journey clarity reviewed
-- [ ] Section descriptions (Core Spelling / High-Frequency Words / Themed Spelling Practice) reviewed
-- [ ] Links to all three same-grade Gateways verified
-- [ ] Terminology consistency with child pages verified
-- [ ] Metadata and structured data reviewed
-- [ ] Summary accuracy re-checked against current child-page editorial status
+- [x] Introductory copy reviewed
+- [x] User journey clarity reviewed
+- [x] Section descriptions (Core Spelling / High-Frequency Words / Themed Spelling Practice) reviewed
+- [x] Links to all three same-grade Gateways verified
+- [x] Terminology consistency with child pages verified
+- [x] Metadata and structured data reviewed
+- [x] Summary accuracy re-checked against current child-page editorial status
 ### Grade 1 Hub
 
-- [ ] Introductory copy reviewed
-- [ ] User journey clarity reviewed
-- [ ] Section descriptions (Core Spelling / High-Frequency Words / Themed Spelling Practice) reviewed
-- [ ] Links to all three same-grade Gateways verified
-- [ ] Terminology consistency with child pages verified
-- [ ] Metadata and structured data reviewed
-- [ ] Summary accuracy re-checked against current child-page editorial status
+- [x] Introductory copy reviewed
+- [x] User journey clarity reviewed
+- [x] Section descriptions (Core Spelling / High-Frequency Words / Themed Spelling Practice) reviewed
+- [x] Links to all three same-grade Gateways verified
+- [x] Terminology consistency with child pages verified
+- [x] Metadata and structured data reviewed
+- [x] Summary accuracy re-checked against current child-page editorial status
 ### Grade 2 Hub
 
-- [ ] Introductory copy reviewed
-- [ ] User journey clarity reviewed
-- [ ] Section descriptions (Core Spelling / High-Frequency Words / Themed Spelling Practice) reviewed
-- [ ] Links to all three same-grade Gateways verified
-- [ ] Terminology consistency with child pages verified
-- [ ] Metadata and structured data reviewed
-- [ ] Summary accuracy re-checked against current child-page editorial status
+- [x] Introductory copy reviewed
+- [x] User journey clarity reviewed
+- [x] Section descriptions (Core Spelling / High-Frequency Words / Themed Spelling Practice) reviewed
+- [x] Links to all three same-grade Gateways verified
+- [x] Terminology consistency with child pages verified
+- [x] Metadata and structured data reviewed
+- [x] Summary accuracy re-checked against current child-page editorial status
 ### Grade 3 Hub
 
-- [ ] **Next implementation pilot; review and validate before any other Hub rollout**
-- [ ] Introductory copy reviewed
-- [ ] User journey clarity reviewed
-- [ ] Section descriptions (Core Spelling / High-Frequency Words / Themed Spelling Practice) reviewed
-- [ ] Links to all three same-grade Gateways verified
-- [ ] Terminology consistency with child pages verified
-- [ ] Metadata and structured data reviewed
-- [ ] Summary accuracy re-checked against current child-page editorial status
+- [x] **Reference implementation pilot reviewed and validated**
+- [x] Introductory copy reviewed
+- [x] User journey clarity reviewed
+- [x] Section descriptions (Core Spelling / High-Frequency Words / Themed Spelling Practice) reviewed
+- [x] Links to all three same-grade Gateways verified
+- [x] Terminology consistency with child pages verified
+- [x] Metadata and structured data reviewed
+- [x] Summary accuracy re-checked against current child-page editorial status
 ### Grade 4 Hub
 
-- [ ] Introductory copy reviewed
-- [ ] User journey clarity reviewed
-- [ ] Section descriptions (Core Spelling / High-Frequency Words / Themed Spelling Practice) reviewed
-- [ ] Links to all three same-grade Gateways verified
-- [ ] Terminology consistency with child pages verified
-- [ ] Metadata and structured data reviewed
-- [ ] Summary accuracy re-checked against current child-page editorial status
+- [x] Introductory copy reviewed
+- [x] User journey clarity reviewed
+- [x] Section descriptions (Core Spelling / High-Frequency Words / Themed Spelling Practice) reviewed
+- [x] Links to all three same-grade Gateways verified
+- [x] Terminology consistency with child pages verified
+- [x] Metadata and structured data reviewed
+- [x] Summary accuracy re-checked against current child-page editorial status
 ### Grade 5 Hub
 
-- [ ] Introductory copy reviewed
-- [ ] User journey clarity reviewed
-- [ ] Section descriptions (Core Spelling / High-Frequency Words / Themed Spelling Practice) reviewed
-- [ ] Links to all three same-grade Gateways verified
-- [ ] Terminology consistency with child pages verified
-- [ ] Metadata and structured data reviewed
-- [ ] Summary accuracy re-checked against current child-page editorial status
+- [x] Introductory copy reviewed
+- [x] User journey clarity reviewed
+- [x] Section descriptions (Core Spelling / High-Frequency Words / Themed Spelling Practice) reviewed
+- [x] Links to all three same-grade Gateways verified
+- [x] Terminology consistency with child pages verified
+- [x] Metadata and structured data reviewed
+- [x] Summary accuracy re-checked against current child-page editorial status
 
 ### Skills Hub
 
@@ -1043,7 +1042,7 @@ Initial assignment by grouping (refine per-family/per-grade as Phase 0 audits la
 | Grade 3–5 Grade Unit pages | P2 | Sequenced after earlier grades and their Skill-page dependencies |
 | High-Frequency Words member-set pages | P2 | Member standard complete across all 27 frozen inventories |
 | Grade-Strand Gateway editorial copy, all 18 gateways (Core, HFW, Themed × K–5) | P2 | Complete — standard frozen (`CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md`); all 18 gateways have authored copy |
-| Grade Hubs (K–5) | P2 | Research complete and standard frozen; production pending. Pilot 3rd Grade, review/validate, then roll out K/1/2/4/5 |
+| Grade Hubs (K–5) | Complete | All six use the frozen canonical three-Gateway model; flattened member directories retired; visual redesign deferred |
 | Skills Hub, main browse page | P2 | Depend on Phase 1/3–4 completion |
 | Additional Practice pages | P3 | Small, optional, bounded; lowest dependency weight |
 | `grade-4-final-stable-syllables`, `grade-5-spelling-rules` | Resolved (deleted) | Former focused-component pages; deleted without content migration and removed from their anchors. See the legacy-removal manifest. |
@@ -1099,7 +1098,7 @@ Written implementation and adversarial self-review have been completed for all 4
 | Phase 0 — Inventory and baseline | 1 roadmap + 5 inventory files + classification decisions | 7 artifacts plus the `silent-e-long-e` decision and the `grade-4-final-stable-syllables`/`grade-5-spelling-rules` legacy-role-exception decision | 0 | 33 unresolved rows | 0 |
 | Phase 1 — Skill-page content | 41 live Skill pages | 0 fully Complete | 41 implementation-complete / `Needs review` across all 12 family batches | 0 to draft | 0 |
 | Phase 2 — Grade curriculum content | 78 canonical-active Core Spelling + Additional Practice pages with their own Grade Hub card | 47 (all 27 Additional Practice pages, per the standard's completion banner above, plus 20 Core Spelling pages — the Kindergarten, Grade 3, and Grade 5 batches — checked complete in §6) | 0 | 31 (the Grade 1, Grade 2, and Grade 4 Core Spelling batches; §6 still shows these unchecked pending their own batch audit) | 0 |
-| Phase 3 — Grade Hub content | 6 hubs (K–5) | 0 production-complete (research complete; standard frozen; Constitution reconciled) | 0 | 6 — 3rd Grade pilot next, then K/1/2/4/5 after validation | 0 |
+| Phase 3 — Grade Hub content | 6 hubs (K–5) | 6 production-complete | 0 | 0 | 0 |
 | Phase 4 — Skills Hub content | 1 hub | 0 | 0 | 1 | 0 |
 | Phase 5 — Main browse-page content | 1 page | 0 | 0 | 1 | 0 |
 | Phase 6 — Cross-site consistency and final audit | 1 site-wide pass | 0 | 0 | 1 | 0 |

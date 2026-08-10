@@ -1,78 +1,80 @@
-import type { GradeCode } from "@/lib/content/gradeConfig";
+import type { GradeCode } from './gradeConfig';
 
-export interface GradeHubCopy {
+export interface GradeHubAuthoredCopy {
   metaDescription: string;
-  heroParagraphs: readonly [string, string];
-  guidanceBody: string;
-  /** Word-form grade name for the empty-state message, e.g. "First grade". */
-  emptyStateLabel: string;
+  orientation: readonly [string, string];
+  coreScope: string;
+  hfwRelationship: string;
+  themedFraming: string;
+  synthesis: string;
 }
 
-export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
+/** Authored, grade-specific language. Numerical facts are interpolated by the Hub model. */
+export const gradeHubCopy: Record<GradeCode, GradeHubAuthoredCopy> = {
   K: {
-    metaDescription:
-      "Free kindergarten spelling word lists with a core phonics route, four high-frequency-word sets, and optional number, color, and animal word practice.",
-    heroParagraphs: [
-      "Start with Core Spelling for a short kindergarten route from first words through short vowels, mixed CVC review, and a digraph preview. All lists include audio support — a child can hear each word read aloud before typing it.",
-      "Kindergarten spelling practice should feel simple, encouraging, and concrete. High-Frequency Words offers four small cumulative sets of frequently encountered reading and writing words with phonics-first Heart Word guidance, while Themed Spelling Practice offers number, color, and animal words.",
+    metaDescription: 'Explore kindergarten spelling foundations with systematic Core Spelling, High-Frequency Words, and optional Themed Spelling Practice.',
+    orientation: [
+      'Kindergarten spelling begins with hearing sounds in familiar words and connecting those sounds to letters. Short-vowel words and early consonant patterns give children a manageable foundation for putting spoken words on the page.',
+      'This early work builds on children’s growing awareness of sounds while moving toward greater spelling independence. The goal is not to master every pattern at once, but to begin using sound and letter knowledge with confidence.',
     ],
-    guidanceBody:
-      "Start with First Words and work through Core Spelling when possible. Use the Kindergarten High-Frequency Words sets for everyday reading and writing words with Heart Word guidance, and choose Number Words, Color Words, or Animal Words whenever a child wants additional practice.",
-    emptyStateLabel: "Kindergarten",
+    coreScope: 'cover connections between sounds and letters through first words, short-vowel spelling, mixed-vowel review, and an early look at consonant digraphs.',
+    hfwRelationship: 'High-Frequency Words are practiced alongside Core Spelling, giving children focused practice with words they often need in reading and writing.',
+    themedFraming: 'Themed Spelling Practice provides {count} optional lists for additional practice. These lists are not required or sequential.',
+    synthesis: 'Begin with Core Spelling. Practice High-Frequency Words alongside it, and use Themed Spelling Practice as optional additional practice when it is useful.',
   },
-  "1": {
-    metaDescription:
-      "Free 1st grade spelling curriculum with a core route through phonics and spelling patterns plus seven cumulative high-frequency-word sets.",
-    heroParagraphs: [
-      "Use Core Spelling for the Grade 1 route: short-vowel review, spelling rules, digraphs, blends, long vowels, endings, r-controlled vowels, and final -tch and -dge. All lists include audio support so children can hear each word before typing it.",
-      "First grade spelling is about learning how words work, not memorizing giant vocabulary lists. High-Frequency Words adds small cumulative writing-word sets with Heart Word support for unexpected parts.",
+  '1': {
+    metaDescription: 'Explore 1st grade spelling patterns with systematic Core Spelling, High-Frequency Words, and optional Themed Spelling Practice.',
+    orientation: [
+      'In 1st Grade, students strengthen the sound-to-letter knowledge established in kindergarten and apply it across a wider range of one-syllable words. Consonant patterns, long-vowel spellings, and common endings become more important.',
+      'Students learn that the same sound can be represented in different ways and that word endings can carry meaning. This broader pattern knowledge prepares them to work with more vowel spellings and longer words in 2nd Grade.',
     ],
-    guidanceBody:
-      "Start with Core Spelling and move through the twelve major spelling concepts when possible. Use Grade 1 High-Frequency Words alongside the route for useful writing words; focused Skills remain available elsewhere when a child needs extra practice with one pattern.",
-    emptyStateLabel: "First grade",
+    coreScope: 'cover short-vowel accuracy, consonant patterns, long-vowel spellings, inflectional endings, and additional one-syllable spelling conventions.',
+    hfwRelationship: 'High-Frequency Words are practiced alongside Core Spelling so students can build accuracy with words they regularly use in reading and writing.',
+    themedFraming: 'Themed Spelling Practice offers {count} optional lists for additional practice. The lists are not required and do not form a sequence.',
+    synthesis: 'Start with Core Spelling. Keep High-Frequency Words in regular practice alongside it, and add Themed Spelling Practice when optional extra practice would be helpful.',
   },
-  "2": {
-    metaDescription:
-      "Free 2nd grade spelling curriculum with a ten-step Core Spelling route through vowel patterns, soft c and g, syllables, and word endings, plus seven cumulative high-frequency-word sets.",
-    heroParagraphs: [
-      "Use Core Spelling for the Grade 2 route: the vowel patterns that finish the basic code — oi/oy, ou/ow, oo, au/aw — then soft c and g, two-syllable words, the quiet -le ending, silent letters, compound words, and contractions. All lists include audio support so children can hear each word before typing it.",
-      "Second grade is the year spelling stops being one syllable at a time. Children learn to break longer words into beats and to notice which letters do something unexpected. High-Frequency Words adds seven cumulative sets of common writing words with Heart Word support for the parts that still need to be remembered.",
+  '2': {
+    metaDescription: 'Explore 2nd grade spelling development with systematic Core Spelling, High-Frequency Words, and optional Themed Spelling Practice.',
+    orientation: [
+      'In 2nd Grade, students extend their knowledge beyond the most familiar vowel and consonant patterns. They work with a wider range of vowel spellings, r-controlled vowels, soft consonants, silent letters, and the structure of longer words.',
+      'Earlier sound and pattern knowledge still matters, but students increasingly learn to divide words into syllables and notice meaningful word combinations. This prepares them for the prefixes, suffixes, and multisyllabic spelling emphasized in 3rd Grade.',
     ],
-    guidanceBody:
-      "Start with Core Spelling and work through the ten steps in order — each one builds on the last, and the vowel patterns come first because everything longer depends on them. Use Grade 2 High-Frequency Words alongside the route rather than after it; the seven sets are the words your child needs for everyday writing right now. Themed Spelling Practice is optional and can be used whenever a child wants something familiar.",
-    emptyStateLabel: "Second grade",
+    coreScope: 'cover broader vowel-pattern knowledge and spelling with soft consonants, syllable structures, silent letters, compound words, and contractions.',
+    hfwRelationship: 'High-Frequency Words are practiced alongside Core Spelling, supporting accurate spelling of words students frequently need for everyday reading and writing.',
+    themedFraming: 'Themed Spelling Practice offers {count} optional lists for additional practice. The lists are neither required nor sequential.',
+    synthesis: 'Use Core Spelling as the starting point. Practice High-Frequency Words alongside it, with Themed Spelling Practice available as optional additional practice when useful.',
   },
-  "3": {
-    metaDescription:
-      "Explore 3rd grade spelling and choose among Core Spelling, High-Frequency Words, and optional Themed Spelling Practice.",
-    heroParagraphs: [
-      "Use Core Spelling for the Grade 3 route: prefixes, suffixes, the spelling changes suffixes trigger, possessives, longer multisyllabic words, and homophones and commonly confused words. All lists include audio support so students can hear each word before typing it.",
-      "Third grade spelling is the bridge from phonics into morphology. Students build on the word-part knowledge from Grade 1 and Grade 2 to study prefixes, suffixes, suffix spelling changes, apostrophe conventions, longer words, and meaning-based spelling choices. High-Frequency Words adds five cumulative sets of everyday writing words and persistent trouble words with Heart Word support for unexpected parts.",
+  '3': {
+    metaDescription: 'Explore 3rd grade spelling and choose among Core Spelling, High-Frequency Words, and optional Themed Spelling Practice.',
+    orientation: [
+      'In 3rd Grade, spelling begins to move beyond a mainly phonics-based focus. Students still use sound and pattern knowledge from earlier grades, while paying more attention to prefixes, suffixes, and the structure of longer words.',
+      'They also learn how word parts can affect spelling and meaning, and how meaning can distinguish words that sound alike. This work builds toward using roots, word families, and other meaningful parts to spell more complex words in later grades.',
     ],
-    guidanceBody:
-      "Start with Core Spelling and move through the seven steps in order — Prefixes and Suffixes come first because the spelling-change, possessive, and multisyllabic-word lessons that follow all depend on them. Root Word Families closes the sequence and previews the Greek and Latin root study that begins in Grade 4. Use the Grade 3 High-Frequency Words sets alongside the route for the writing words your child needs right now.",
-    emptyStateLabel: "Third grade",
+    coreScope: 'build from prefixes and suffixes into spelling changes, possessives, multisyllabic spelling, homophones, and word families.',
+    hfwRelationship: 'High-Frequency Words are practiced alongside Core Spelling, not instead of it.',
+    themedFraming: 'Themed Spelling Practice offers {count} optional lists for additional practice. The lists are not required or sequential and can be explored when useful.',
+    synthesis: 'Start with Core Spelling. Practice High-Frequency Words alongside it, and use Themed Spelling Practice for optional additional practice when useful.',
   },
-  "4": {
-    metaDescription:
-      "Free 4th grade spelling word lists with a six-step Core Spelling route through advanced multisyllabic words, advanced prefixes, advanced suffixes and final stable syllables, Greek and Latin roots, commonly confused words, and derived words and word meaning, plus two high-frequency-word sets and customary measurement words.",
-    heroParagraphs: [
-      "Use Core Spelling for the Grade 4 route: advanced multisyllabic words, advanced prefixes, advanced suffixes and final stable syllables, Greek and Latin roots, commonly confused words, and derived words and word meaning. All lists include audio support so students can hear each word before typing it.",
-      "Fourth grade spelling is the expansion year after introductory morphology. Students move from basic prefixes, suffixes, and root families into longer academic words, advanced affixes, the final stable syllables that complete high-frequency word endings, formal Greek and Latin root study, and the derived-word families that connect spelling and meaning across a base word. High-Frequency Words adds two focused sets from the remaining frequent lexical core, while Themed Spelling Practice offers customary measurement words.",
+  '4': {
+    metaDescription: 'Explore 4th grade spelling with systematic Core Spelling, High-Frequency Words, and optional Themed Spelling Practice.',
+    orientation: [
+      'In 4th Grade, students deepen their understanding of how spelling, word structure, and meaning work together. Longer academic words, advanced prefixes and suffixes, Latin roots, and relationships among derived words become more prominent.',
+      'Sound and syllable knowledge from earlier grades remains useful, but students rely more often on recognizable word parts and meaning when spelling complex words. This prepares them to integrate those strategies across an even wider academic vocabulary in 5th Grade.',
     ],
-    guidanceBody:
-      "Start with Core Spelling and move through the six steps in order — Advanced Multisyllabic Words and Advanced Prefixes come first because the suffix, root, and confusable-word lessons that follow all build on them. Advanced Suffixes and Final Stable Syllables leads into Greek and Latin Roots, since recognizing a stable ending is part of the same skill as recognizing a root inside a longer word. Derived Words and Word Meaning closes the sequence and previews the related-word study that continues in Grade 5. Use the Grade 4 High-Frequency Words sets alongside the route for words your child still needs to nail down, and reach for Measurement Words whenever measurement vocabulary comes up in math.",
-    emptyStateLabel: "Fourth grade",
+    coreScope: 'cover advanced multisyllabic spelling and affixes, Latin roots, derived-word relationships, and careful distinctions between commonly confused words.',
+    hfwRelationship: 'High-Frequency Words are practiced alongside Core Spelling, providing focused work with frequently used words that still merit attention.',
+    themedFraming: 'Themed Spelling Practice supplies {count} optional lists for additional practice. These lists are not required or sequential.',
+    synthesis: 'Start with Core Spelling as the systematic path. Practice High-Frequency Words alongside it, and choose Themed Spelling Practice only when optional additional practice is useful.',
   },
-  "5": {
-    metaDescription:
-      "Free 5th grade spelling word lists with a five-step Core Spelling route through advanced multisyllabic academic words, advanced prefixes and suffixes, Greek and Latin word parts, commonly confused words, and spelling changes in related words, plus two high-frequency-word sets and civics and money-management words.",
-    heroParagraphs: [
-      "Use Core Spelling for the Grade 5 route: advanced multisyllabic academic words, advanced prefixes and suffixes, Greek and Latin word parts, commonly confused words, and spelling changes in related words. All lists include audio support so students can hear each word before typing it.",
-      "Fifth grade is the capstone of elementary spelling. Students bring together the roots, affixes, syllables, and careful word choice built up since Grade 3, then use meaning and word-family knowledge — not sound alone — to spell longer, more academic words with confidence before middle school. High-Frequency Words adds two focused sets from the remaining frequent lexical core, while Themed Spelling Practice offers civics and government words and money-management words.",
+  '5': {
+    metaDescription: 'Explore 5th grade spelling integration with systematic Core Spelling, High-Frequency Words, and optional Themed Spelling Practice.',
+    orientation: [
+      'In 5th Grade, students bring together the sound, syllable, pattern, and word-part knowledge developed across elementary spelling. Advanced morphology, Greek and Latin word parts, and multisyllabic academic spelling help them approach unfamiliar words strategically.',
+      'Students also pay closer attention to spelling changes across related words and to meaning when words are easily confused. This integrated work builds the independence needed for the broader vocabulary and writing demands of middle school.',
     ],
-    guidanceBody:
-      "Start with Core Spelling and move through the five steps in order — Advanced Multisyllabic Academic Words comes first because the prefix, suffix, and root lessons that follow all build on it. Advanced Prefixes and Suffixes leads into Greek and Latin Word Parts, since recognizing a stable suffix ending is part of the same skill as recognizing a word part inside a longer word. Commonly Confused Words checks accuracy before Spelling Changes in Related Words closes the sequence, bringing every earlier skill together into one integrated capstone for middle school. Use the Grade 5 High-Frequency Words sets alongside the route for words your child still needs to nail down before middle school, and reach for Civics and Government Words or Money Management Words whenever those topics come up in class or at home.",
-    emptyStateLabel: "Fifth grade",
+    coreScope: 'cover advanced multisyllabic spelling, prefixes and suffixes, Greek and Latin word parts, meaning-based distinctions, and spelling changes across related words.',
+    hfwRelationship: 'High-Frequency Words are practiced alongside Core Spelling to strengthen accuracy with frequently used words that remain important in independent writing.',
+    themedFraming: 'Themed Spelling Practice offers {count} optional lists for additional practice. They are not required or sequential.',
+    synthesis: 'Make Core Spelling the starting point. Practice High-Frequency Words alongside it, and use Themed Spelling Practice as optional additional practice when it serves a useful purpose.',
   },
 };

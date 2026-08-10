@@ -4,7 +4,7 @@
  * only export consumed outside this file today — it feeds `CURATED_GRADE_ORDER`
  * in `gradeUnitSequence.ts`, which powers the cross-grade K-5 Grade Unit
  * sequence (world-kit assignment). The Grade 2 hub itself is driven directly
- * by `GRADE_2_HUB_SECTIONS` in `gradeHubCards.ts`, independent of this file.
+ * by the canonical grade route manifest, independent of this file.
  */
 export const GRADE_2_CORE_IDS: readonly string[] = [
   'grade-2-long-e-ee-ea',

@@ -4,7 +4,7 @@
  * only export consumed outside this file today — it feeds `CURATED_GRADE_ORDER`
  * in `gradeUnitSequence.ts`, which powers the cross-grade K-5 Grade Unit
  * sequence (world-kit assignment). The Grade 3 hub itself is driven directly
- * by `GRADE_3_HUB_SECTIONS` in `gradeHubCards.ts`, independent of this file.
+ * by the canonical grade route manifest, independent of this file.
  *
  * The Suffix Spelling Changes unit is a single roadmap entry
  * (`grade-3-suffix-spelling-changes`, contentRole: grade-unit).
@@ -23,7 +23,7 @@ export const GRADE_3_CORE_IDS: readonly string[] = [
  * Grade 3 High-Frequency Words, published. Documentation only — `high-frequency-word-set` is
  * not a `grade-unit`, so these ids never enter `buildGradeUnitSequence()`.
  * The Grade 3 hub's High-Frequency Words section is driven directly by
- * `GRADE_3_HUB_SECTIONS` in `gradeHubCards.ts`, independent of this file.
+ * the canonical grade route manifest, independent of this file.
  */
 export const GRADE_3_HFW_SET_IDS: readonly string[] = [
   'grade-3-high-frequency-words-set-1',

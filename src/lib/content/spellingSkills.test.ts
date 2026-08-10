@@ -14,7 +14,6 @@ import {
   SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
   SILENT_E_FAMILY_ANCHOR_ID,
   SILENT_E_FAMILY_URL,
-  SILENT_E_LONG_E_EXAMPLES,
   SILENT_E_SKILL_FAMILY,
   SPELLING_SKILL_FAMILIES,
   SKILLS_INDEX_PATH,
@@ -27,6 +26,7 @@ import {
 import { getCanonicalSkillPathById } from './canonicalSkillRoutes';
 
 const netlifyTomlPath = join(process.cwd(), 'netlify.toml');
+const skillsHubPath = join(process.cwd(), 'src/pages/skills/index.astro');
 
 function findNetlifyRedirect(from: string): { to: string; status: string } | undefined {
   const source = readFileSync(netlifyTomlPath, 'utf8');
@@ -139,6 +139,48 @@ const summaries = allSummaries();
 const byId = new Map(summaries.map((entry) => [entry.data.id, entry]));
 
 describe('curated spelling Skills browse index', () => {
+  it('frames the Hub around known skills and concepts and routes sequence-seeking readers to grades', () => {
+    const source = readFileSync(skillsHubPath, 'utf8');
+
+    expect(source).toMatch(/Browse by skill/);
+    expect(source).toMatch(/spelling concept/);
+    expect(source).toContain('href="/#grades"');
+    expect(source).toMatch(/sequenced grade-level path/);
+    expect(source).not.toMatch(/Start with short vowels/i);
+    expect(source).not.toMatch(/Choose a specific spelling sound or pattern/i);
+  });
+
+  it('gives every family authored orientation without the legacy Mad-Libs template', () => {
+    expect(SPELLING_SKILL_FAMILIES).toHaveLength(12);
+    for (const family of SPELLING_SKILL_FAMILIES) {
+      expect(family.description.trim(), family.title).not.toBe('');
+      expect(family.guidance.trim(), family.title).not.toBe('');
+      expect(family.description, family.title).not.toMatch(/^Practice /);
+      expect(family.guidance, family.title).not.toMatch(/^Choose the .* your child needs to practice\.$/);
+    }
+
+    expect(MULTISYLLABIC_WORDS_SKILL_FAMILY.guidance).not.toMatch(/choose/i);
+    expect(GREEK_AND_LATIN_ROOTS_SKILL_FAMILY.guidance).not.toMatch(/choose/i);
+  });
+
+  it('uses canonical entry descriptions and introduces no Hub-only or grade metadata', () => {
+    const source = readFileSync(skillsHubPath, 'utf8');
+
+    expect(source).toContain('{entry.data.description}');
+    expect(source).not.toMatch(/hubDescription|skillDescription|gradeBadge|gradeRange/);
+  });
+
+  it('retains a BreadcrumbList and one flat canonical 41-Skill ItemList', () => {
+    const source = readFileSync(skillsHubPath, 'utf8');
+
+    expect(source).toContain("'@type': 'BreadcrumbList'");
+    expect(source).toContain("'@type': 'ItemList'");
+    expect(source.match(/'@type': 'ItemList'/g)).toHaveLength(1);
+    expect(source).toContain('itemListElement: skillFamilies.flatMap((family) =>');
+    expect(source).toContain('getSpellingSkillPath(entry)');
+    expect(CURATED_SPELLING_SKILL_IDS).toHaveLength(41);
+  });
+
   it('uses /skills as the top-level public Skills Hub route, not a child of /spelling-lists', () => {
     expect(SKILLS_INDEX_PATH).toBe('/skills');
   });
@@ -361,31 +403,12 @@ describe('curated spelling Skills browse index', () => {
       expect(SILENT_E_FAMILY_URL).toBe('/skills#silent-e-family');
     });
 
-    it('keeps the Long E treatment to one concise sentence in the family guidance, not a separate block', () => {
+    it('keeps retired Long E out of Hub teaching copy as well as the canonical inventory', () => {
       expect(SILENT_E_SKILL_FAMILY.anchorId).toBe(SILENT_E_FAMILY_ANCHOR_ID);
       expect(SILENT_E_SKILL_FAMILY).not.toHaveProperty('longEOverviewNote');
-
-      expect(SILENT_E_SKILL_FAMILY.guidance).toMatch(/long e/i);
-      // Exactly two sentences: the normal per-family instruction, plus the
-      // one-sentence Long E clarification — no separate paragraph/block.
-      expect(SILENT_E_SKILL_FAMILY.guidance.split('. ')).toHaveLength(2);
-
-      // Kept intentionally small — a curated subset of the retired page's
-      // word list, not a copy of the whole thing.
-      expect(SILENT_E_LONG_E_EXAMPLES.length).toBeGreaterThan(0);
-      expect(SILENT_E_LONG_E_EXAMPLES.length).toBeLessThanOrEqual(4);
-
-      // Every example must be a real, one-syllable word the retired page
-      // actually taught, so the guidance sentence can't drift from audited
-      // content — and must never include a multisyllabic word like
-      // "complete", since the thin one-syllable word bank is the entire
-      // rationale for not having a standalone page.
-      const retiredWords = byId.get('silent-e-long-e')!.data.words;
-      for (const example of SILENT_E_LONG_E_EXAMPLES) {
-        expect(retiredWords, example).toContain(example);
-        expect(SILENT_E_SKILL_FAMILY.guidance, example).toContain(example);
-      }
-      expect(SILENT_E_LONG_E_EXAMPLES).not.toContain('complete');
+      expect(`${SILENT_E_SKILL_FAMILY.description} ${SILENT_E_SKILL_FAMILY.guidance}`).not.toMatch(
+        /long e|eve|these|theme/i,
+      );
     });
   });
 });

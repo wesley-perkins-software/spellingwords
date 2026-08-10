@@ -156,6 +156,8 @@ Editorial order: **Skill pages → Grade curriculum pages → Grade Hub pages �
 **Must not do prematurely:** don't let hub copy expand into full lessons (§7).
 
 ### Phase 4 — Skills Hub content
+**Status:** Complete — `/skills` conforms to the frozen `CANONICAL_SKILLS_HUB_STANDARD.md`;
+later visual and cross-site work remains in Phases 5–6.
 **Position rationale:** the Skills Hub's family summaries only make sense once the Skill pages they point to are finished and consistent within each family.
 **Dependencies:** Phase 1 substantially complete across all 12 families.
 **Outputs:** one polished Skills Hub page.
@@ -882,12 +884,12 @@ retired. Visual redesign remains future work and was not part of this content ph
 
 ### Skills Hub
 
-- [ ] Introductory copy reviewed
-- [ ] All 12 family summaries reviewed for brevity and accuracy
-- [ ] Internal links to all 41 live Skill pages verified
-- [ ] Terminology consistency with Skill pages verified
-- [ ] Metadata and structured data reviewed
-- [ ] Does not duplicate any individual Skill page's explanation
+- [x] Introductory copy reviewed
+- [x] All 12 family summaries reviewed for brevity and accuracy
+- [x] Internal links to all 41 live Skill pages verified
+- [x] Terminology consistency with Skill pages verified
+- [x] Metadata and structured data reviewed
+- [x] Does not duplicate any individual Skill page's explanation
 
 ### Main spelling-list browse page
 

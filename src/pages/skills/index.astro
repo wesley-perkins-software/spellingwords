@@ -54,7 +54,7 @@ const itemListJsonLd = {
 
 <Layout
   title="Spelling Practice by Skill | spellingwords.app"
-  description="Choose a focused spelling sound or pattern for spelling practice, starting with short vowels and simple CVC words."
+  description="Browse the complete collection of spelling skills and concepts for focused, grade-independent spelling practice."
   jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
 >
   <SiteHeader variant="discovery" currentPath="/skills" />
@@ -70,7 +70,12 @@ const itemListJsonLd = {
           Spelling Practice by Skill
         </h1>
         <p class="max-w-2xl text-base leading-relaxed text-ink-soft">
-          Choose a specific spelling sound or pattern for focused practice. Start with short vowels and simple CVC words.
+          Browse by skill when you already know or recognize the spelling concept your child needs,
+          from sound-spelling patterns and conventions to word parts and meaning-based choices. If
+          you want a sequenced grade-level path,{' '}
+          <a href="/#grades" class="font-semibold text-brand-blue hover:underline"
+            >browse by grade</a
+          >.
         </p>
       </section>
 
@@ -105,13 +110,6 @@ const itemListJsonLd = {
           </section>
         );
       })}
-
-      <p class="text-sm leading-relaxed text-ink-soft">
-        Not sure what to choose?{' '}
-        <a href="/#grades" class="font-semibold text-brand-blue hover:underline">
-          Browse by grade
-        </a>.
-      </p>
     </div>
   </main>
 

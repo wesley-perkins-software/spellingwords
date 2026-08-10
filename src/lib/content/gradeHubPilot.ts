@@ -43,11 +43,11 @@ export function buildGrade3HubPilot(entries: SpellingListEntry[]): GradeHubPilot
     const wordCount = members.reduce((total, entry) => total + entry.data.words.length, 0);
     const content = {
       'core-spelling': {
-        summary: `Core Spelling is the main systematic path. Its ${memberCount} ordered units develop from prefixes and suffixes into spelling changes, possessives, multisyllabic spelling, homophones, and word families. Start with Core if you are unsure where to begin.`,
+        summary: `Core Spelling is the main systematic path. Its ${memberCount} ordered units build from prefixes and suffixes into spelling changes, possessives, multisyllabic spelling, homophones, and word families.`,
         linkLabel: 'Explore 3rd Grade Core Spelling',
       },
       'high-frequency-words': {
-        summary: `High-Frequency Words is a separate strand practiced alongside Core, not a replacement for it. Its ${memberCount} sets provide practice with ${wordCount} grade-level words.`,
+        summary: `High-Frequency Words are practiced alongside Core Spelling, not instead of it. These ${memberCount} sets provide practice with ${wordCount} grade-level words.`,
         linkLabel: 'Explore 3rd Grade High-Frequency Words',
       },
       'themed-spelling-practice': {
@@ -65,6 +65,6 @@ export function buildGrade3HubPilot(entries: SpellingListEntry[]): GradeHubPilot
       'They also learn how word parts can affect spelling and meaning, and how meaning can distinguish words that sound alike. This work builds toward using roots, word families, and other meaningful parts to spell more complex words in later grades.',
     ],
     strands,
-    synthesis: 'Start with Core Spelling as the main systematic path. Practice High-Frequency Words alongside Core, and use Themed Spelling Practice as optional additional practice when it is useful.',
+    synthesis: 'Start with Core Spelling. Practice High-Frequency Words alongside it, and use Themed Spelling Practice for optional additional practice when useful.',
   };
 }

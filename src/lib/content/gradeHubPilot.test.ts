@@ -38,10 +38,16 @@ describe('3rd Grade Hub pilot', () => {
   });
 
   it('keeps cross-strand guidance at Hub level and begins with Core', () => {
+    const coreSummary = pilot.strands.find(({ strand }) => strand === 'core-spelling')?.summary ?? '';
+    const hfwSummary = pilot.strands.find(({ strand }) => strand === 'high-frequency-words')?.summary ?? '';
+
     expect(pilot.synthesis).toMatch(/^Start with Core Spelling/);
-    expect(pilot.synthesis).toMatch(/High-Frequency Words alongside Core/);
-    expect(pilot.synthesis).toMatch(/Themed Spelling Practice as optional additional practice/);
-    expect(pilot.strands.find(({ strand }) => strand === 'core-spelling')?.summary).toMatch(/main systematic path/);
+    expect(pilot.synthesis).toMatch(/High-Frequency Words alongside it/);
+    expect(pilot.synthesis).toMatch(/Themed Spelling Practice for optional additional practice/);
+    expect(coreSummary).toMatch(/main systematic path/);
+    expect(coreSummary).not.toMatch(/start with Core|where to begin/i);
+    expect(hfwSummary).toMatch(/alongside Core Spelling, not instead of it/);
+    expect(hfwSummary).not.toMatch(/separate strand|sight words|heart words|common words/i);
   });
 
   it('renders the pilot conditionally while preserving the five legacy Hub models', () => {

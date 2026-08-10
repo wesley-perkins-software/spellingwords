@@ -154,8 +154,8 @@ because it is a genuine sequence, HFW because sets build cumulatively and are pr
 Themed Spelling Practice renders as an unordered list (`<ul>`), since its members are nonsequential
 peers. Preserve this mapping.
 
-**Cross-strand wayfinding.** See §5 — the responsibility and the specific asymmetry validated by
-the pilot are both frozen; the visual treatment of the wayfinding link is not.
+**Cross-strand wayfinding.** See §5 — the responsibility and the full same-grade symmetry are both
+frozen; the visual treatment of the wayfinding link is not.
 
 ## 5. Cross-strand wayfinding
 
@@ -164,21 +164,23 @@ a short, factual label only (e.g., "this grade's High-Frequency Words"), never a
 what the sibling strand is or why it matters. That fuller explanation stays the Grade Hub's job;
 duplicating it at the gateway would re-derive content the Hub already owns.
 
-The asymmetry validated by the Kindergarten pilot, frozen here as the standard (resolving the
-prior open question in the research document): **Core links to both its grade's High-Frequency
-Words and Themed Spelling Practice gateways; High-Frequency Words and Themed Spelling Practice
-each link back to Core only.** Core is the grade's default, systematic path, so a reader on Core
-naturally benefits from being pointed at the two supplementary strands; a reader already on a
-supplementary strand benefits most from a pointer back to the main sequence, not necessarily to
-the other supplementary strand.
+**Every grade-strand gateway links to the other two same-grade strand gateways.** Core links to
+its grade's High-Frequency Words and Themed Spelling Practice gateways; High-Frequency Words links
+to its grade's Core Spelling and Themed Spelling Practice gateways; Themed Spelling Practice links
+to its grade's Core Spelling and High-Frequency Words gateways. This supersedes the asymmetric
+Core-hub model from the Kindergarten pilot: reviewing the rendered Kindergarten and Grade 1
+gateways showed the asymmetry to be unnecessarily restrictive — a reader on High-Frequency Words
+or Themed Spelling Practice benefits from a direct path to the other supplementary strand just as
+much as a path back to Core, and nothing about the gateway's role argues for withholding it.
 
 This link's destination and label must be **generated** from the existing canonical route data
-(`GRADE_STRANDS` and `getGradeStrandPath` in `src/lib/content/canonicalGradeRoutes.ts`), never
-hand-authored per gateway. This is a structural navigation requirement, independent of whether a
-grade+strand has authored orientation/synthesis copy yet — **it must render on all 18 gateways
-today, including the 15 that still use the generic renderer fallback for their orientation
-sentence.** Gating this navigation on the presence of authored editorial copy is an
-implementation defect, not a valid interim state; see §7.
+(`GRADE_STRANDS` and `getGradeStrandPath` in `src/lib/content/canonicalGradeRoutes.ts`) — computed
+as "every strand in `GRADE_STRANDS` other than the current one," never a hand-authored per-gateway
+list and never a hardcoded 18-link matrix. This is a structural navigation requirement, independent
+of whether a grade+strand has authored orientation/synthesis copy yet — **it must render on all 18
+gateways today, including any that still use the generic renderer fallback for their orientation
+sentence.** Gating this navigation on the presence of authored editorial copy is an implementation
+defect, not a valid interim state; see §7.
 
 ## 6. Public grade-label convention
 
@@ -273,7 +275,8 @@ For every future grade+strand editorial batch (Grades 1–5):
    structure/theme titles.
 4. Verify terminology compliance (§3 HFW prohibition) and no overclaiming (§3 Themed prohibition).
 5. Verify presentation independence (§8) — no layout-referencing language.
-6. Verify the cross-strand wayfinding link (§5) renders correctly and uses the frozen asymmetry.
+6. Verify the cross-strand wayfinding links (§5) render correctly and link to both same-grade
+   sibling gateways.
 7. Verify the complete member list remains unabbreviated and unmodified by the editorial pass.
 8. Run the gateway content-shape tests and confirm no regression to the 18-gateway route
    inventory, the per-grade 3-gateway structure, or any frozen member-page standard.

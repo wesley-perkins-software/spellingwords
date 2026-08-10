@@ -52,9 +52,9 @@ const pilotCopy = getGradeStrandGatewayCopy(gradeEntry.grade, strand, {
   wordCount,
 });
 const description = pilotCopy?.orientation ?? fallbackDescription;
-const wayfindingStrands: GradeRouteClassification[] = strand === 'core-spelling'
-  ? ['high-frequency-words', 'themed-spelling-practice']
-  : ['core-spelling'];
+const wayfindingStrands = (Object.keys(GRADE_STRANDS) as GradeRouteClassification[]).filter(
+  (candidate) => candidate !== strand,
+);
 const ListElement = strand === 'themed-spelling-practice' ? 'ul' : 'ol';
 const gatewayPath = `${getGradeHubPath(gradeEntry.grade)}/${descriptor.routeSegment}`;
 const canonicalURL = getCanonicalUrl(gatewayPath, Astro.site);

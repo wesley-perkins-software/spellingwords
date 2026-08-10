@@ -595,7 +595,7 @@ Before a pilot implementation session begins, it should have:
 
 ## 30. Open questions
 
-- Whether cross-strand gateway links (§21) should be mutual/symmetric within a grade, or intentionally asymmetric (e.g., Core → HFW/Themed but not the reverse) — this document recommends deciding per-gateway using the reasonable-parent test rather than a blanket rule, but a human editorial call is needed before the pilot ships all three Kindergarten gateways with any cross-links.
+- ~~Whether cross-strand gateway links (§21) should be mutual/symmetric within a grade, or intentionally asymmetric~~ — **resolved.** The Kindergarten pilot initially shipped the asymmetric model this document leaned toward (Core → HFW/Themed; HFW/Themed → Core only). Reviewing the rendered Kindergarten and Grade 1 gateways during the Grade 1 rollout showed that asymmetry to be unnecessarily restrictive, and `CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md` §5 now freezes full same-grade symmetry instead: every gateway links to both of its same-grade sibling gateways.
 - Whether the future "Continue exploring" grade-orientation feature (flagged as deferred in `CANONICAL_NAVIGATION_RELATIONSHIPS.md`) should eventually subsume any gateway-level cross-grade linking, or remain a separate, later feature — flagged for whoever owns that deferred item, not resolved here.
 - Exact wording/voice calibration for the 3 Kindergarten pilot pages is unwritten — intentionally, since this document is architecture/standard, not the editorial draft itself.
 

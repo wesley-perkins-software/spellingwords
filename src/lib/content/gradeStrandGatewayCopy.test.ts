@@ -5,6 +5,7 @@ import {
   canonicalGradeRoutes,
   getGradeStrandPath,
   gradeStrandGatewayPaths,
+  GRADE_STRANDS,
   type GradeRouteClassification,
 } from './canonicalGradeRoutes';
 import { gradeConfig } from './gradeConfig';
@@ -124,6 +125,31 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     expect(gatewayRenderer).toContain('getGradeStrandPath(gradeEntry.grade, relatedStrand)');
     expect(gatewayRenderer).toContain("index === wayfindingStrands.length - 1 ? '.' : ''");
     expect(gatewayRenderer).not.toMatch(/<\/a>\s*\.\s*\n/);
+  });
+
+  it('links every gateway to both same-grade sibling gateways, generated (not a hardcoded matrix)', () => {
+    // Regression guard: the wayfinding standard now requires full same-grade symmetry
+    // (Core<->HFW<->Themed<->Core), superseding the Kindergarten pilot's Core-hub asymmetry.
+    // The computation must stay derived from GRADE_STRANDS, not per-strand hand authoring.
+    expect(gatewayRenderer).toContain(
+      "const wayfindingStrands = (Object.keys(GRADE_STRANDS) as GradeRouteClassification[]).filter(",
+    );
+    expect(gatewayRenderer).not.toMatch(/wayfindingStrands:.*strand === 'core-spelling'/s);
+    expect(gatewayRenderer).not.toContain("? ['high-frequency-words', 'themed-spelling-practice']");
+
+    const allStrands = Object.keys(GRADE_STRANDS) as GradeRouteClassification[];
+    expect(allStrands).toHaveLength(3);
+    for (const gradeEntry of gradeConfig) {
+      for (const strand of allStrands) {
+        const siblingStrands = allStrands.filter((candidate) => candidate !== strand);
+        expect(siblingStrands).toHaveLength(2);
+        for (const sibling of siblingStrands) {
+          expect(getGradeStrandPath(gradeEntry.grade, sibling)).toBe(
+            `${gradeEntry.hubHref}/${GRADE_STRANDS[sibling].routeSegment}`,
+          );
+        }
+      }
+    }
   });
 
   it('renders cross-strand wayfinding unconditionally, not gated on authored pilot copy', () => {

@@ -43,6 +43,17 @@ const factsFor = (strand: GradeRouteClassification) => {
   };
 };
 
+const grade1Routes = canonicalGradeRoutes.filter((route) => route.grade === '1');
+const grade1RoutesFor = (strand: GradeRouteClassification) =>
+  grade1Routes.filter((route) => route.classification === strand);
+const grade1FactsFor = (strand: GradeRouteClassification) => {
+  const routes = grade1RoutesFor(strand);
+  return {
+    memberCount: routes.length,
+    wordCount: routes.reduce((total, route) => total + wordsIn(sources.get(route.id) ?? '').length, 0),
+  };
+};
+
 describe('Kindergarten grade-strand gateway pilot', () => {
   it('retains exactly 18 canonical gateways, three per grade, including all Kindergarten strands', () => {
     expect(gradeStrandGatewayPaths).toHaveLength(18);
@@ -56,10 +67,10 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     ]);
   });
 
-  it('authors all three Kindergarten gateways without requiring Grades 1–5 copy', () => {
+  it('authors all three Kindergarten gateways without requiring Grades 2–5 copy', () => {
     for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const) {
       expect(getGradeStrandGatewayCopy('K', strand, factsFor(strand))).toBeDefined();
-      expect(getGradeStrandGatewayCopy('1', strand, factsFor(strand))).toBeUndefined();
+      expect(getGradeStrandGatewayCopy('2', strand, factsFor(strand))).toBeUndefined();
     }
   });
 
@@ -188,6 +199,82 @@ describe('Kindergarten grade-strand gateway pilot', () => {
   it('keeps authored copy independent of positional presentation instructions', () => {
     const prose = (['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const)
       .flatMap((strand) => Object.values(getGradeStrandGatewayCopy('K', strand, factsFor(strand))!))
+      .join(' ');
+    expect(prose).not.toMatch(/\b(?:above|below|card|box|column|scroll)\b/i);
+  });
+});
+
+describe('Grade 1 grade-strand gateway rollout', () => {
+  it('authors all three Grade 1 gateways without requiring Grades 2–5 copy', () => {
+    for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const) {
+      expect(getGradeStrandGatewayCopy('1', strand, grade1FactsFor(strand))).toBeDefined();
+      expect(getGradeStrandGatewayCopy('2', strand, grade1FactsFor(strand))).toBeUndefined();
+    }
+  });
+
+  it('keeps Core sequential, complete, and in the frozen canonical order', () => {
+    const routes = grade1RoutesFor('core-spelling');
+    expect(routes.map((route) => route.id)).toEqual([
+      'grade-1-cvc-short-vowels-c-k-rule',
+      'grade-1-floss-rule',
+      'grade-1-consonant-digraphs-final-ck',
+      'grade-1-beginning-consonant-blends',
+      'grade-1-ending-consonant-blends',
+      'grade-1-long-vowels-silent-e',
+      'grade-1-open-syllables-final-y',
+      'grade-1-long-a-long-o-vowel-teams',
+      'grade-1-inflectional-endings-s-es',
+      'grade-1-inflectional-endings-ed-ing',
+      'grade-1-r-controlled-ar-or',
+      'grade-1-tch-dge-ending-rules',
+    ]);
+    expect(routes).toHaveLength(12);
+    const copy = getGradeStrandGatewayCopy('1', 'core-spelling', grade1FactsFor('core-spelling'))!;
+    expect(copy.orientation).toMatch(/12 ordered units/);
+    expect(copy.orientation).toMatch(/silent e/i);
+    expect(copy.guidance).toMatch(/CVC Short Vowel Review and the C\/K Rule/);
+    // Conservative "where to begin": strong short-vowel CVC spelling alone must not
+    // imply skipping the FLOSS, digraph/final-ck, or blend units.
+    expect(copy.guidance).toMatch(/FLOSS Rule|Consonant Digraphs and Final -ck/);
+    expect(copy.guidance).not.toMatch(/skip ahead to|jump ahead to|can skip/i);
+  });
+
+  it('derives the HFW aggregate from the frozen 7-set/84-word inventory and preserves approved terminology', () => {
+    const facts = grade1FactsFor('high-frequency-words');
+    expect(facts).toEqual({ memberCount: 7, wordCount: 84 });
+    const copy = getGradeStrandGatewayCopy('1', 'high-frequency-words', facts)!;
+    expect(`${copy.orientation} ${copy.synthesis} ${copy.guidance}`).toMatch(/84 spellings into 7 sets/);
+    expect(copy.synthesis).toMatch(/does not|not whether/i);
+    expect(copy.synthesis).toMatch(/cumulative/i);
+    expect(Object.values(copy).join(' ')).not.toMatch(/sight words|common words|heart words|visual.shape/i);
+  });
+
+  it('keeps all five themed peers complete and explicitly non-sequential', () => {
+    const routes = grade1RoutesFor('themed-spelling-practice');
+    expect(routes).toHaveLength(5);
+    expect(new Set(routes.map((route) => route.id))).toEqual(
+      new Set([
+        'grade-1-weather-words',
+        'grade-1-clothing-words',
+        'grade-1-shape-words',
+        'grade-1-number-words-11-20',
+        'grade-1-days-of-the-week',
+      ]),
+    );
+    const copy = getGradeStrandGatewayCopy('1', 'themed-spelling-practice', grade1FactsFor('themed-spelling-practice'))!;
+    expect(`${copy.orientation} ${copy.guidance}`).toMatch(/not a sequence|no required order/i);
+    expect(copy.synthesis).not.toMatch(/progress|curriculum|required lesson|retriev|retent|memory/i);
+  });
+
+  it('generates same-grade wayfinding for Grade 1 and uses unordered semantics for themed peers', () => {
+    expect(getGradeStrandPath('1', 'core-spelling')).toBe('/1st-grade/core-spelling');
+    expect(getGradeStrandPath('1', 'high-frequency-words')).toBe('/1st-grade/high-frequency-words');
+    expect(getGradeStrandPath('1', 'themed-spelling-practice')).toBe('/1st-grade/themed-spelling-practice');
+  });
+
+  it('keeps Grade 1 authored copy independent of positional presentation instructions', () => {
+    const prose = (['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const)
+      .flatMap((strand) => Object.values(getGradeStrandGatewayCopy('1', strand, grade1FactsFor(strand))!))
       .join(' ');
     expect(prose).not.toMatch(/\b(?:above|below|card|box|column|scroll)\b/i);
   });

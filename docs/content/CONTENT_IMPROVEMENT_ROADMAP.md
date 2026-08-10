@@ -30,7 +30,7 @@ Keep this file and the inventory files synchronized: this file owns strategy, ph
 
 **Editorial content standard for Themed Spelling Practice members:** `docs/content/CANONICAL_THEMED_SPELLING_PRACTICE_PAGE_STANDARD.md` is frozen and governs all 27 individual member pages. Production editorial implementation is complete; `1st Grade Weather Spelling Words` remains the reference implementation. A selective upper-grade human-voice pass remains pending. The six Themed gateways are now governed by the gateway standard below, not by this document.
 
-**Editorial content standard for the Grade-Strand Gateway layer:** `docs/content/CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md` is frozen and governs all 18 Grade-Strand Gateways (Core Spelling, High-Frequency Words, and Themed Spelling Practice gateways, ×6 grades) — a layer this roadmap and the individual member-page standards previously left undefined. All 18 gateway routes are live; the three Kindergarten gateways have authored orientation/synthesis copy per the frozen standard, and the 15 Grade 1–5 gateways still render the generic renderer fallback pending their own editorial pass (not yet scheduled as a roadmap phase). Structural requirements shared by all 18 — including cross-strand wayfinding — apply today regardless of authored-copy status; see that standard's §5 and §7.
+**Editorial content standard for the Grade-Strand Gateway layer:** `docs/content/CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md` is frozen and governs all 18 Grade-Strand Gateways (Core Spelling, High-Frequency Words, and Themed Spelling Practice gateways, ×6 grades) — a layer this roadmap and the individual member-page standards previously left undefined. All 18 gateway routes are live, and all 18 (Kindergarten, Grade 1, Grade 2, Grade 3, Grade 4, and Grade 5) now have authored orientation/synthesis copy per the frozen standard; the generic renderer fallback is no longer in use on any live gateway. Structural requirements shared by all 18 — including cross-strand wayfinding — apply regardless of authored-copy status; see that standard's §5 and §7.
 
 ---
 
@@ -983,7 +983,7 @@ Explicit rules to prevent duplication, validated against the frozen architecture
 
 **Skill page vs. Skills Hub.** The Skills Hub explains families briefly and helps users choose a destination; it must not contain any family's actual pattern explanation — that stays on the Skill page.
 
-**Grade-Strand Gateway vs. individual member page (Core, HFW, or Themed).** The gateway owns broad grade-strand orientation, progression/inventory synthesis, and complete navigation across its members; a member page owns its own inventory-specific spelling analysis and must never repeat generic HFW, sight-word, or Heart Word essays. This boundary — and the full gateway content model — is frozen in `CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md`, not "future" work as earlier drafts of this document described it; only the Grades 1–5 authored gateway copy remains unscheduled.
+**Grade-Strand Gateway vs. individual member page (Core, HFW, or Themed).** The gateway owns broad grade-strand orientation, progression/inventory synthesis, and complete navigation across its members; a member page owns its own inventory-specific spelling analysis and must never repeat generic HFW, sight-word, or Heart Word essays. This boundary — and the full gateway content model — is frozen in `CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md`; authored gateway copy is now complete for all 18 gateways (K–5).
 
 **Core Spelling vs. Additional Practice.** Core Spelling is the recommended encoding/spelling route for the grade — the default path. Additional Practice is small, optional, bounded vocabulary content; its pages should be shorter and lighter than Core Spelling pages by design, not through neglect.
 
@@ -1031,7 +1031,7 @@ Initial assignment by grouping (refine per-family/per-grade as Phase 0 audits la
 | Grade K–2 Grade Unit pages | P1 | High-traffic early grades, dependent on the P0/P1 Skill pages already prioritized |
 | Grade 3–5 Grade Unit pages | P2 | Sequenced after earlier grades and their Skill-page dependencies |
 | High-Frequency Words member-set pages | P2 | Member standard complete across all 27 frozen inventories |
-| Grade-Strand Gateway editorial copy, Grades 1–5 (Core, HFW, Themed) | P2 | Standard frozen (`CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md`); Kindergarten's 3 gateways complete; 15 Grades 1–5 gateway copy transformations remain, not yet scheduled |
+| Grade-Strand Gateway editorial copy, all 18 gateways (Core, HFW, Themed × K–5) | P2 | Complete — standard frozen (`CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md`); all 18 gateways have authored copy |
 | Grade Hubs (K–5) | P2 | Depend on Phase 1–2 completion before final copy is accurate |
 | Skills Hub, main browse page | P2 | Depend on Phase 1/3–4 completion |
 | Additional Practice pages | P3 | Small, optional, bounded; lowest dependency weight |
@@ -1093,7 +1093,7 @@ Written implementation and adversarial self-review have been completed for all 4
 | Phase 5 — Main browse-page content | 1 page | 0 | 0 | 1 | 0 |
 | Phase 6 — Cross-site consistency and final audit | 1 site-wide pass | 0 | 0 | 1 | 0 |
 | *(Reference, not a phase)* High-Frequency Words member sets | 27 | 27 (all grades) | Final standard applied across all 27 frozen inventories | 0 | 0 |
-| *(Reference, not a phase)* Grade-Strand Gateways (Core + HFW + Themed, ×6 grades) | 18 | 3 (Kindergarten, all three strands) | Standard frozen (`CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md`); Grades 1–5 gateway copy not yet scheduled as a phase | 15 (Grades 1–5) | 0 |
+| *(Reference, not a phase)* Grade-Strand Gateways (Core + HFW + Themed, ×6 grades) | 18 | 18 (all six grades, all three strands) | Standard frozen (`CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md`); rollout complete | 0 | 0 |
 
 **Excluded from every phase and total above — transparency only, not part of active scope:** deprecated/legacy and unresolved pages. Canonical-active editorial scope is **152 pages**; the deleted focused-component pages are recorded only in the legacy-removal manifest. Repository-wide historical file totals are not an authority for current canonical membership.
 

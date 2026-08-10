@@ -7,7 +7,6 @@ import {
   GRADE_5_THEMED_SPELLING_PRACTICE_IDS,
   GRADE_5_CORE_IDS,
 } from './grade5Progression';
-import { GRADE_5_HUB_SECTIONS } from './gradeHubCards';
 import { getCoreNavigationModel } from './navigationSequence';
 
 const CONTENT_ROOT = join(
@@ -245,7 +244,6 @@ describe('Grade 5 Core editorial invariants', () => {
         )
         .map(({ id }) => id),
     ).toEqual(ids);
-    expect(GRADE_5_HUB_SECTIONS[0].cards.map(({ id }) => id)).toEqual(ids);
     expect(getCoreNavigationModel(ids.at(-1)!)).toEqual({
       reviewIds: ['grade-5-commonly-confused-words'],
       nextIds: [],
@@ -261,7 +259,7 @@ describe('Grade 5 Core editorial invariants', () => {
 
   it('mirrors the authoritative four-card Themed Spelling Practice order in the secondary manifest', () => {
     expect(GRADE_5_THEMED_SPELLING_PRACTICE_IDS).toEqual(
-      GRADE_5_HUB_SECTIONS[2].cards.map(({ id }) => id),
+      canonicalGradeRoutes.filter(({ grade, classification }) => grade === '5' && classification === 'themed-spelling-practice').map(({ id }) => id),
     );
   });
 });

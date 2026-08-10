@@ -10,24 +10,6 @@ import {
   gradeStrandGatewayPaths,
 } from './canonicalGradeRoutes';
 import { gradeConfig } from './gradeConfig';
-import {
-  GRADE_1_HUB_SECTIONS,
-  GRADE_2_HUB_SECTIONS,
-  GRADE_3_HUB_SECTIONS,
-  GRADE_4_HUB_SECTIONS,
-  GRADE_5_HUB_SECTIONS,
-  KINDERGARTEN_HUB_SECTIONS,
-} from './gradeHubCards';
-
-const curatedSectionsByGrade = {
-  K: KINDERGARTEN_HUB_SECTIONS,
-  '1': GRADE_1_HUB_SECTIONS,
-  '2': GRADE_2_HUB_SECTIONS,
-  '3': GRADE_3_HUB_SECTIONS,
-  '4': GRADE_4_HUB_SECTIONS,
-  '5': GRADE_5_HUB_SECTIONS,
-} as const;
-
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 
 function canonicalContentById(): Map<string, string> {
@@ -72,12 +54,7 @@ describe('canonical grade routes', () => {
     expect(canonicalGradeRoutes.some((route) => route.canonicalPath === '/kindergarten/high-frequency-words-1')).toBe(false);
   });
 
-  it('contains every canonical K-5 grade hub card and no duplicate canonical URL', () => {
-    const manifestIds = new Set(canonicalGradeRoutes.map((route) => route.id));
-    const cardIds = Object.values(curatedSectionsByGrade).flatMap((sections) =>
-      sections.flatMap((section) => section.cards.filter((card) => card.kind === 'list').map((card) => card.id)),
-    );
-    expect([...manifestIds].sort()).toEqual([...cardIds].sort());
+  it('contains no duplicate canonical member URL', () => {
     expect(new Set(canonicalGradeRoutes.map((route) => route.canonicalPath)).size).toBe(canonicalGradeRoutes.length);
   });
 

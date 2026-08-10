@@ -4,7 +4,7 @@
  * only export consumed outside this file today — it feeds `CURATED_GRADE_ORDER`
  * in `gradeUnitSequence.ts`, which powers the cross-grade K-5 Grade Unit
  * sequence (world-kit assignment). The Grade 5 hub itself is driven directly
- * by `GRADE_5_HUB_SECTIONS` in `gradeHubCards.ts`, independent of this file.
+ * by the canonical grade route manifest, independent of this file.
  *
  * One canonical Grade 5 unit ("Advanced Roots, Affixes, and Academic Words")
  * is `grade-5-prefix-suffix-words` (contentRole: grade-unit).
@@ -41,7 +41,7 @@ export const GRADE_5_VOCABULARY_IDS: readonly string[] = [];
  * Grade 5 High-Frequency Words sets, published. Documentation only —
  * `high-frequency-word-set` is not a `grade-unit`, so these ids never enter
  * `buildGradeUnitSequence()`. The Grade 5 hub's High-Frequency Words section
- * is driven directly by `GRADE_5_HUB_SECTIONS` in `gradeHubCards.ts`,
+ * is driven directly by the canonical grade route manifest,
  * independent of this file.
  */
 export const GRADE_5_HFW_SET_IDS: readonly string[] = [

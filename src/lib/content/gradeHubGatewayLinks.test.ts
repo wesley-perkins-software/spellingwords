@@ -29,9 +29,9 @@ describe('Grade Hub gateway links', () => {
   });
 
   it('renders section-heading anchors from the canonical gateway-link helper', () => {
-    expect(gradeHubRenderer).toContain('getGradeHubGatewayLinks(grade)');
-    expect(gradeHubRenderer).toContain('href={section.gatewayHref}');
-    expect(gradeHubRenderer).toContain('{section.title}</a>');
+    expect(gradeHubRenderer).toContain('buildGradeHubModel(grade, entries)');
+    expect(gradeHubRenderer).toContain('href={strand.href}');
+    expect(gradeHubRenderer).toContain('{strand.linkLabel}');
     expect(gradeHubRenderer).not.toMatch(
       /href=["']\/(?:kindergarten|[1-5](?:st|nd|rd|th)-grade)\/(?:core-spelling|high-frequency-words|themed-spelling-practice)/,
     );

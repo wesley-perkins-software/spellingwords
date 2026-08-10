@@ -2,7 +2,6 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { SpellingListEntry } from './spellingLists';
-import { buildGradeHubCards, GRADE_5_HUB_SECTIONS } from './gradeHubCards';
 import { getRelationshipCardModel } from './relationshipCard';
 
 function canonicalEntry(relativePath: string): SpellingListEntry {
@@ -34,19 +33,5 @@ describe('Core relationship-card labels', () => {
     const kindergarten = canonicalEntry('phonics/kindergarten-short-a-words.md');
     expect(getRelationshipCardModel(kindergarten).canonicalTitle).toBe('Short A Words');
     expect(getRelationshipCardModel(kindergarten).gradeLabel).toBe('Kindergarten');
-  });
-
-  it('uses the same canonical title on the Grade Hub while keeping relationship grade separate', () => {
-    const multisyllabic = canonicalEntry('grade-level/5th-grade-multisyllabic-academic-words.md');
-    multisyllabic.data.id = 'grade-5-multisyllabic-academic-words';
-    multisyllabic.data.category = 'grade-level';
-    multisyllabic.data.urlSlug = 'multisyllabic-academic-words';
-    const hubCard = buildGradeHubCards(GRADE_5_HUB_SECTIONS, [multisyllabic])[0].cards[0];
-    const relationshipCard = getRelationshipCardModel(multisyllabic);
-
-    expect(hubCard.title).toBe(multisyllabic.data.title);
-    expect(relationshipCard.canonicalTitle).toBe(multisyllabic.data.title);
-    expect(relationshipCard.gradeLabel).toBe('Grade 5');
-    expect(hubCard.title).not.toContain('Grade 5');
   });
 });

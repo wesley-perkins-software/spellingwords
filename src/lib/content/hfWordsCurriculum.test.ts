@@ -10,14 +10,6 @@ import {
   HF_WORDS_TOTAL_WORD_COUNT,
 } from './hfWordsCurriculum';
 import { canonicalGradeRoutes } from './canonicalGradeRoutes';
-import {
-  GRADE_1_HUB_SECTIONS,
-  GRADE_2_HUB_SECTIONS,
-  GRADE_3_HUB_SECTIONS,
-  GRADE_4_HUB_SECTIONS,
-  GRADE_5_HUB_SECTIONS,
-  KINDERGARTEN_HUB_SECTIONS,
-} from './gradeHubCards';
 import { HF_WORDS_SEQUENCES } from './hfWordsSequence';
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
@@ -43,15 +35,6 @@ function wordsIn(source: string): string[] {
     (match) => (match[1] ?? match[2] ?? match[3]).trim(),
   );
 }
-
-const hubsByGrade = {
-  K: KINDERGARTEN_HUB_SECTIONS,
-  '1': GRADE_1_HUB_SECTIONS,
-  '2': GRADE_2_HUB_SECTIONS,
-  '3': GRADE_3_HUB_SECTIONS,
-  '4': GRADE_4_HUB_SECTIONS,
-  '5': GRADE_5_HUB_SECTIONS,
-} as const;
 
 const expectedSetCounts = { K: 4, '1': 7, '2': 7, '3': 5, '4': 2, '5': 2 };
 const expectedWordCounts = { K: 40, '1': 84, '2': 84, '3': 60, '4': 24, '5': 24 };
@@ -120,10 +103,13 @@ describe('frozen High-Frequency Words curriculum', () => {
     expect(HF_WORDS_SEQUENCES).toEqual(HF_WORDS_SET_IDS_BY_GRADE);
 
     for (const [grade, expectedIds] of Object.entries(HF_WORDS_SET_IDS_BY_GRADE)) {
-      const section = hubsByGrade[grade as keyof typeof hubsByGrade].find(({ title }) => title === 'High-Frequency Words');
-      expect(section?.cards.map((card) => card.id)).toEqual(expectedIds);
-      expect(section?.summary).toContain(`${expectedSetCounts[grade as keyof typeof expectedSetCounts]} sets`);
-      expect(section?.summary).toContain(`${expectedWordCounts[grade as keyof typeof expectedWordCounts]} words`);
+      const gradeRouteIds = canonicalGradeRoutes
+        .filter((route) => route.grade === grade && route.classification === 'high-frequency-words')
+        .map(({ id }) => id);
+      expect(gradeRouteIds).toEqual(expectedIds);
+      expect(expectedIds).toHaveLength(expectedSetCounts[grade as keyof typeof expectedSetCounts]);
+      expect(FROZEN_HF_WORDS_CURRICULUM[grade as keyof typeof FROZEN_HF_WORDS_CURRICULUM]
+        .reduce((total, set) => total + set.words.length, 0)).toBe(expectedWordCounts[grade as keyof typeof expectedWordCounts]);
     }
   });
 

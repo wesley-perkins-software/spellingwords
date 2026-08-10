@@ -232,14 +232,7 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     expect(spellingListCard).toContain('{showCategoryBadge &&');
   });
 
-  it('leaves other SpellingListCard callers (the Grade Hub) on their existing badge behavior', () => {
-    // The Grade Hub authors its own explicit `badge` per card (e.g. "Grade
-    // Unit", "Vocabulary") and never opts into `showCategoryBadge` at all, so
-    // it keeps relying on the component's default (true) — the gateway-only
-    // suppression above must not have touched this caller.
-    expect(gradeHubRenderer).toContain('badge={card.badge}');
-    expect(gradeHubRenderer).not.toMatch(/showCategoryBadge/);
-  });
+
 
   it("HFW gateway cards lead with differentiating content instead of repeating their own title", () => {
     const hfwRoutes = routesFor('high-frequency-words');

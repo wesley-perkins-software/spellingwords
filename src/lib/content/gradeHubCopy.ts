@@ -44,7 +44,7 @@ export const gradeHubCopy: Record<GradeCode, GradeHubCopy> = {
   },
   "3": {
     metaDescription:
-      "Free 3rd grade spelling word lists with a seven-step Core Spelling route through prefixes, suffixes, suffix spelling changes, possessives, multisyllabic words, homophones, and root word families, plus five cumulative high-frequency-word sets.",
+      "Explore 3rd grade spelling and choose among Core Spelling, High-Frequency Words, and optional Themed Spelling Practice.",
     heroParagraphs: [
       "Use Core Spelling for the Grade 3 route: prefixes, suffixes, the spelling changes suffixes trigger, possessives, longer multisyllabic words, and homophones and commonly confused words. All lists include audio support so students can hear each word before typing it.",
       "Third grade spelling is the bridge from phonics into morphology. Students build on the word-part knowledge from Grade 1 and Grade 2 to study prefixes, suffixes, suffix spelling changes, apostrophe conventions, longer words, and meaning-based spelling choices. High-Frequency Words adds five cumulative sets of everyday writing words and persistent trouble words with Heart Word support for unexpected parts.",

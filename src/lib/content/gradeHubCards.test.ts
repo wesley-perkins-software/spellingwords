@@ -242,13 +242,13 @@ describe("High-Frequency Words validation slice content", () => {
     expect(colorWords).toMatch(/words:\n {2}- red\n {2}- blue\n {2}- green\n {2}- yellow\n {2}- black\n {2}- white\n {2}- brown\n {2}- pink/);
   });
 
-  it("builds grade-hub ItemList JSON-LD from the visible curated cards", () => {
+  it("builds legacy grade-hub ItemList JSON-LD from the visible curated cards", () => {
     const gradeHubPage = readFileSync(
       join(process.cwd(), "src/pages/[gradeSlug].astro"),
       "utf8",
     );
-    expect(gradeHubPage).toContain("numberOfItems: displayedItemCount");
-    expect(gradeHubPage).toContain("curatedSections.flatMap(({ cards }) => cards.map((card) => ({");
+    expect(gradeHubPage).toContain("numberOfItems: grade3Pilot?.strands.length ?? displayedItemCount");
+    expect(gradeHubPage).toContain("const legacyItems = curatedSections.flatMap(({ cards }) => cards)");
     expect(gradeHubPage).toContain("url: new URL(card.href, canonicalURL.origin).toString()");
   });
 

@@ -49,7 +49,7 @@ The independent review was explicit that it had no keyword-volume or Search Cons
 
 12 families, confirmed final — the independent review explicitly endorsed keeping 12 and rejected inventing a 13th solely to fix a naming problem, and nothing in the critical evaluation above changes that count.
 
-1. **Short Vowels and CVC Words** — *already live, no change.* Skills: Short A Words, Short E Words, Short I Words, Short O Words, Short U Words.
+1. **Short Vowels** — *already live, no change.* Skills: Short A Words, Short E Words, Short I Words, Short O Words, Short U Words.
 2. **Consonant Digraphs** — *already live, no change.* Skills: SH Digraph Words, CH Digraph Words, TH Digraph Words, WH Digraph Words.
 3. **Consonant Blends** — purpose: adjacent consonants where both sounds are heard, at the beginning or end of a word. Skills: Beginning Blends, Ending Blends.
 4. **Common Spelling Patterns** *(editorial name: One-Syllable Spelling Patterns)* — purpose: common single-syllable spelling conventions beyond basic vowels, blends, and digraphs. Skills, in order: CK, Double Letters, and TCH/DGE Word Endings; Silent Letters; **Soft C and Soft G**.
@@ -72,7 +72,7 @@ The independent review was explicit that it had no keyword-volume or Search Cons
 
 | Final Title | URL slug (canonical public path segment) | Skill Family | Educational Justification |
 |---|---|---|---|
-| Short A Words / Short E Words / Short I Words / Short O Words / Short U Words | `short-a-words` etc. | Short Vowels and CVC Words | Already live; titles verified against actual frontmatter, unchanged |
+| Short A Words / Short E Words / Short I Words / Short O Words / Short U Words | `short-a-words` etc. | Short Vowels | Already live; titles verified against actual frontmatter, unchanged |
 | SH Digraph Words / CH Digraph Words / TH Digraph Words / WH Digraph Words | `sh-digraph-words` / `ch-digraph-words` / `th-digraph-words` / `wh-digraph-words` | Consonant Digraphs | Titles unchanged (rejecting the reviewer's proposed "SH Words" simplification — see §1). Public slug reordered pattern-first (from frontmatter `digraph-sh-words` etc.) for scanability, per the pre-launch URL hardening PR |
 | Beginning Blends | `beginning-blends` | Consonant Blends | 18 individual blend word lists exist in `phonics/`; standard classroom and search language |
 | Ending Blends | `ending-blends` | Consonant Blends | 11 individual ending-blend files exist |
@@ -116,7 +116,7 @@ The independent review was explicit that it had no keyword-volume or Search Cons
 
 **41 live, content-backed skills across 12 families:**
 
-1. **Short Vowels and CVC Words** — Short A Words · Short E Words · Short I Words · Short O Words · Short U Words
+1. **Short Vowels** — Short A Words · Short E Words · Short I Words · Short O Words · Short U Words
 2. **Consonant Digraphs** — SH Digraph Words · CH Digraph Words · TH Digraph Words · WH Digraph Words
 3. **Consonant Blends** — Beginning Blends · Ending Blends
 4. **Common Spelling Patterns** — CK, Double Letters, and TCH/DGE Word Endings · Silent Letters · Soft C and Soft G

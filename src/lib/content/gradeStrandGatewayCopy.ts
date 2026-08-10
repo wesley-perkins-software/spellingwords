@@ -38,14 +38,43 @@ const kindergartenGatewayCopy: Record<GradeRouteClassification, GatewayCopyAutho
   }),
 };
 
-/** Returns authored pilot copy only; Grades 1–5 continue to use the renderer fallback. */
+const grade1GatewayCopy: Record<GradeRouteClassification, GatewayCopyAuthor> = {
+  'core-spelling': ({ memberCount }) => ({
+    orientation: `Grade 1 Core Spelling covers ${memberCount} ordered units: it consolidates one-syllable short-vowel and consonant spelling, moves into long-vowel spelling with silent e, open syllables, and vowel teams, adds the inflectional endings -s/-es and -ed/-ing, and closes with r-controlled vowels and the tch/dge ending rule.`,
+    synthesis:
+      'Early units stay with familiar short-vowel words while adding the c/k choice, the FLOSS rule, consonant digraphs, and beginning and ending blends. The sequence then pivots to long vowels — silent e, short open-syllable words and final y, then the ai/ay and oa/ow vowel teams — before returning to word endings and, finally, r-controlled vowels and the tch/dge rule.',
+    guidance:
+      'Begin at CVC Short Vowel Review and the C/K Rule. If that opening review is already secure, the FLOSS Rule or the Consonant Digraphs and Final -ck unit is a reasonable place to start — the blend, long-vowel, and ending units that follow still build on those, so continue in order from there rather than skipping ahead.',
+  }),
+  'high-frequency-words': ({ memberCount, wordCount }) => ({
+    orientation: `Grade 1 High-Frequency Words organizes ${wordCount} spellings into ${memberCount} sets.`,
+    synthesis:
+      'High-frequency describes how often a word appears in reading and writing, not whether its spelling is irregular — many Grade 1 high-frequency words follow familiar sound-spelling patterns, while a smaller number have a specific detail worth extra attention. The sets build cumulatively, with the later sets introducing more of that less-predictable spelling detail than the earlier ones.',
+    guidance: `Working through the ${memberCount} sets in order keeps the word count in each session manageable and matches the gradual rise in spelling difficulty across the inventory.`,
+  }),
+  'themed-spelling-practice': ({ memberCount }) => ({
+    orientation: `These ${memberCount} optional Grade 1 spelling-practice lists use familiar themes and are not a sequence.`,
+    synthesis:
+      'Weather, clothing, shape, number, and day-of-the-week words each give a recognizable, real-world context for additional spelling practice alongside Core Spelling and High-Frequency Words.',
+    guidance:
+      'Choose the theme that matches what a child is currently talking about, reading, or encountering at school — the weather this week, getting dressed, a shape lesson, or the calendar. Each list stands on its own, so there is no required order.',
+  }),
+};
+
+const gatewayCopyByGrade: Partial<Record<GradeCode, Record<GradeRouteClassification, GatewayCopyAuthor>>> = {
+  K: kindergartenGatewayCopy,
+  '1': grade1GatewayCopy,
+};
+
+/** Returns authored gateway copy where available; Grades 2–5 continue to use the renderer fallback. */
 export function getGradeStrandGatewayCopy(
   grade: GradeCode,
   strand: GradeRouteClassification,
   facts: GradeStrandGatewayFacts,
 ): GradeStrandGatewayCopy | undefined {
-  if (grade !== 'K') return undefined;
-  return kindergartenGatewayCopy[strand](facts);
+  const copyForGrade = gatewayCopyByGrade[grade];
+  if (!copyForGrade) return undefined;
+  return copyForGrade[strand](facts);
 }
 
 /**

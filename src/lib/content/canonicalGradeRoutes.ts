@@ -180,6 +180,13 @@ export function getGradeStrandPath(grade: GradeCode, strand: GradeRouteClassific
   return `${getGradeHubPath(grade)}/${GRADE_STRANDS[strand].routeSegment}`;
 }
 
+/** Canonical same-grade gateway links for the three Grade Hub strand sections. */
+export function getGradeHubGatewayLinks(grade: GradeCode) {
+  return (Object.entries(GRADE_STRANDS) as [GradeRouteClassification, (typeof GRADE_STRANDS)[GradeRouteClassification]][]).map(
+    ([strand, { label }]) => ({ strand, label, href: getGradeStrandPath(grade, strand) }),
+  );
+}
+
 export const gradeStrandGatewayPaths = gradeConfig.flatMap((grade) =>
   (Object.keys(GRADE_STRANDS) as GradeRouteClassification[]).map((strand) => getGradeStrandPath(grade.grade, strand)),
 );

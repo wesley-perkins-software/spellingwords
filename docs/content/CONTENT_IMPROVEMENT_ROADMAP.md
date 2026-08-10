@@ -32,7 +32,7 @@ Keep this file and the inventory files synchronized: this file owns strategy, ph
 
 **Editorial content standard for the Grade-Strand Gateway layer:** `docs/content/CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md` is frozen and governs all 18 Grade-Strand Gateways (Core Spelling, High-Frequency Words, and Themed Spelling Practice gateways, ×6 grades) — a layer this roadmap and the individual member-page standards previously left undefined. All 18 gateway routes are live, and all 18 (Kindergarten, Grade 1, Grade 2, Grade 3, Grade 4, and Grade 5) now have authored orientation/synthesis copy per the frozen standard; the generic renderer fallback is no longer in use on any live gateway. Structural requirements shared by all 18 — including cross-strand wayfinding — apply regardless of authored-copy status; see that standard's §5 and §7.
 
-**Editorial content standard for the homepage (Layer 5):** `docs/content/CANONICAL_HOMEPAGE_STANDARD.md` is frozen and governs `/` (`src/pages/index.astro`), backed by `docs/content/CANONICAL_HOMEPAGE_STANDARD_RESEARCH.md`. Production conformance is pending. See the corrected Layer 5 description and Phase 5 entry below — earlier drafts of this document named this layer's implementation as the removed `/spelling-lists` route; it is the homepage.
+**Editorial content standard for the homepage (Layer 5):** `docs/content/CANONICAL_HOMEPAGE_STANDARD.md` is frozen and governs `/` (`src/pages/index.astro`), backed by `docs/content/CANONICAL_HOMEPAGE_STANDARD_RESEARCH.md`. Production conformance is complete. See the corrected Layer 5 description and Phase 5 entry below — earlier drafts of this document named this layer's implementation as the removed `/spelling-lists` route; it is the homepage.
 
 ---
 
@@ -166,6 +166,7 @@ later visual and cross-site work remains in Phases 5–6.
 **Must not do prematurely:** don't finalize family descriptions while a family's Skill pages are still mid-draft.
 
 ### Phase 5 — Homepage content
+**Status:** Complete — `/` conforms to the frozen `CANONICAL_HOMEPAGE_STANDARD.md`; future visual redesign remains separate.
 **Position rationale:** the shortest, most derivative page — entirely dependent on the Grade Hubs and Skills Hub it links to being in good shape — so it's written last.
 **Dependencies:** Phases 3 and 4 complete.
 **Outputs:** one refined homepage, conforming to `docs/content/CANONICAL_HOMEPAGE_STANDARD.md`.

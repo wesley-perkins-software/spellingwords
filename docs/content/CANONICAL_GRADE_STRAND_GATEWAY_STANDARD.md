@@ -49,7 +49,7 @@ The canonical hierarchy is:
 | "This grade has three strands; here's what each covers" | Grade Hub | Gateway (gateway may assume the reader is either already oriented or needs only a one-sentence refresher, not a re-explanation) |
 | Strand-wide synthesis (progression order, cumulative inventory, theme purpose/selection) | Gateway | Grade Hub (too deep for its thin, three-strand-wide mandate); member page (would require every sibling to repeat it, or none to state it) |
 | Word lists, word-level notes, practice mechanics | Member page | Gateway (a gateway lists members via `SpellingListCard`; it never inlines a member's instructional content) |
-| Complete, authoritative list of every member in one grade+strand | Gateway, unconditionally | The Grade Hub may additionally surface convenience cards for some strands (the existing K–3 HFW pattern) without this becoming the canonical list — the gateway remains the page a reader or crawler should trust as complete for that strand |
+| Complete, authoritative list of every member in one grade+strand | Gateway, unconditionally | Grade Hub (the Hub routes to the Gateway and does not list or directly route to individual members) |
 
 ## 2. Shared gateway architecture (all 18 pages)
 

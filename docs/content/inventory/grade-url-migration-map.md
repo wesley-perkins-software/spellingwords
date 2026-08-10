@@ -1,5 +1,12 @@
 # Canonical Grade URL Reference
 
+> **Grade Hub architecture supersession (August 2026):** this file remains the member-URL
+> cross-reference, not a Hub navigation specification. Any historical statement that a member
+> renders directly on a Grade Hub or that no standalone Gateway exists is superseded by
+> `docs/content/CANONICAL_GRADE_HUB_STANDARD.md` and
+> `docs/content/CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md`. All 18 Gateways exist, and each owns
+> its complete grade-and-strand member inventory.
+
 > **August 2026 HFW update:** Canonical Grade routes now total 105, including 27 HFW sets. Grade 1/2 Set 7 routes are active; Grade 4/5 Sets 3–4 are retired under the pre-launch 404 policy. The executable route manifest is authoritative.
 
 

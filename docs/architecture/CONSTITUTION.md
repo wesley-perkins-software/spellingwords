@@ -51,7 +51,8 @@ User intent: “My child is in Kindergarten, Grade 1, Grade 2, Grade 3, Grade 4,
 Expected experience:
 
 - The user chooses a grade.
-- The grade page presents a curated spelling progression.
+- The Grade Hub orients the user to the grade-wide curriculum and its three practice strands.
+- The user chooses a substantive Grade-Strand Gateway, then a member page within that strand.
 - The grade page acts as a roadmap, not an exhaustive directory.
 - Each core unit provides immediate useful practice.
 - The user can move to previous or next grade-level units.
@@ -120,11 +121,13 @@ A Grade Unit should generally provide:
 - limited optional links to focused practice
 - accurate terminology explained in plain language
 
-A Grade Unit experience should not primarily be a gateway to other pages. The normal journey should be:
+A Grade Unit experience should not primarily be a gateway to other pages. In the current grade-first architecture, the normal journey should be:
 
-> Grade Roadmap → Grade Unit → Practice
+> Grade Hub → Grade-Strand Gateway → Member Page → Practice
 
-Optional focused practice is secondary.
+The Grade-Strand Gateway is permitted at this point only because it independently provides
+substantive strand orientation or synthesis and a complete, legitimate browse experience for the
+grade-and-strand's member pages. Optional focused practice is secondary.
 
 ### 5.4 Skill
 
@@ -257,13 +260,22 @@ The site must not create destinations simply because a route can generate them. 
 
 A page should not be inserted into the normal learning or practice path merely to expose another directory of links.
 
-Undesirable:
+An empty or pass-through gateway is undesirable:
 
 > Grade Roadmap → Practice Gateway → More choices → Actual practice
 
-Preferred:
+Such a page is one inserted merely to expose another directory of links or add another click before
+the user reaches useful content. It remains prohibited.
 
-> Grade Roadmap → Grade Unit → Immediate practice → Optional focused practice
+The canonical grade-first journey is:
+
+> Grade Hub → Grade-Strand Gateway → Member Page → Practice
+
+The existing Grade-Strand Gateway layer is permitted because each page independently provides both
+substantive orientation or synthesis appropriate to its strand and a complete, legitimate browse
+experience for that grade-and-strand's member pages. Each such page must still satisfy the real-value
+test below. This is not a blanket exemption for future pages named "gateway," and it does not
+authorize another gateway layer elsewhere.
 
 Every indexable destination should provide value appropriate to its primary user intent through at least one of:
 

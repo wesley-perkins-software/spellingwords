@@ -1,5 +1,12 @@
 # Inventory: Grade Curriculum Pages (Canonical Active)
 
+> **Grade Hub architecture supersession (August 2026):** references below to a "Grade Hub card,"
+> "frozen hub structure," or direct Hub membership record the current pre-pilot renderer and the
+> historical classification mechanism only. They do not prescribe the frozen target Hub
+> architecture. Under `docs/content/CANONICAL_GRADE_HUB_STANDARD.md`, each Hub routes to three
+> same-grade Gateways and does not list or directly route to these members; the Gateways own the
+> complete inventories. Production Hub conformance remains pending.
+
 **Canonical totals:** 51 Core Spelling pages · 27 High-Frequency Words pages · 27 Additional Practice pages · 105 Grade curriculum pages.
 
 > URL architecture update: canonical K–5 Grade Hub card URLs use the no-trailing-slash `/{grade}/{strand}/{page-slug}` structure. The runtime source of truth is `src/lib/content/canonicalGradeRoutes.ts`; see `docs/content/inventory/grade-url-migration-map.md` for the generated reference.

@@ -55,6 +55,17 @@ const grade1FactsFor = (strand: GradeRouteClassification) => {
   };
 };
 
+const grade2Routes = canonicalGradeRoutes.filter((route) => route.grade === '2');
+const grade2RoutesFor = (strand: GradeRouteClassification) =>
+  grade2Routes.filter((route) => route.classification === strand);
+const grade2FactsFor = (strand: GradeRouteClassification) => {
+  const routes = grade2RoutesFor(strand);
+  return {
+    memberCount: routes.length,
+    wordCount: routes.reduce((total, route) => total + wordsIn(sources.get(route.id) ?? '').length, 0),
+  };
+};
+
 describe('Kindergarten grade-strand gateway pilot', () => {
   it('retains exactly 18 canonical gateways, three per grade, including all Kindergarten strands', () => {
     expect(gradeStrandGatewayPaths).toHaveLength(18);
@@ -68,10 +79,10 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     ]);
   });
 
-  it('authors all three Kindergarten gateways without requiring Grades 2–5 copy', () => {
+  it('authors all three Kindergarten gateways without requiring Grades 3–5 copy', () => {
     for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const) {
       expect(getGradeStrandGatewayCopy('K', strand, factsFor(strand))).toBeDefined();
-      expect(getGradeStrandGatewayCopy('2', strand, factsFor(strand))).toBeUndefined();
+      expect(getGradeStrandGatewayCopy('3', strand, factsFor(strand))).toBeUndefined();
     }
   });
 
@@ -231,10 +242,10 @@ describe('Kindergarten grade-strand gateway pilot', () => {
 });
 
 describe('Grade 1 grade-strand gateway rollout', () => {
-  it('authors all three Grade 1 gateways without requiring Grades 2–5 copy', () => {
+  it('authors all three Grade 1 gateways without requiring Grades 3–5 copy', () => {
     for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const) {
       expect(getGradeStrandGatewayCopy('1', strand, grade1FactsFor(strand))).toBeDefined();
-      expect(getGradeStrandGatewayCopy('2', strand, grade1FactsFor(strand))).toBeUndefined();
+      expect(getGradeStrandGatewayCopy('3', strand, grade1FactsFor(strand))).toBeUndefined();
     }
   });
 
@@ -301,6 +312,83 @@ describe('Grade 1 grade-strand gateway rollout', () => {
   it('keeps Grade 1 authored copy independent of positional presentation instructions', () => {
     const prose = (['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const)
       .flatMap((strand) => Object.values(getGradeStrandGatewayCopy('1', strand, grade1FactsFor(strand))!))
+      .join(' ');
+    expect(prose).not.toMatch(/\b(?:above|below|card|box|column|scroll)\b/i);
+  });
+});
+
+describe('2nd Grade strand gateways', () => {
+  it('authors all three 2nd Grade gateways, leaving other non-K, non-1, non-2 grades on the fallback', () => {
+    for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const) {
+      expect(getGradeStrandGatewayCopy('2', strand, grade2FactsFor(strand))).toBeDefined();
+      expect(getGradeStrandGatewayCopy('3', strand, grade2FactsFor(strand))).toBeUndefined();
+    }
+  });
+
+  it('keeps Core sequential, 2nd-Grade-specific, and complete in canonical order', () => {
+    const routes = grade2RoutesFor('core-spelling');
+    expect(routes.map((route) => route.id)).toEqual([
+      'grade-2-long-e-ee-ea',
+      'grade-2-long-i-ie-igh',
+      'vowel-teams-oi-oy',
+      'vowel-teams-ou-ow',
+      'grade-2-oo-two-sounds',
+      'grade-2-au-aw-words',
+      'grade-2-r-controlled-er-ir-ur',
+      'grade-2-soft-c-soft-g',
+      'grade-2-two-syllable-words',
+      'grade-2-final-stable-le',
+      'grade-2-silent-letter-words',
+      'grade-2-list-02',
+      'grade-2-contractions',
+    ]);
+    expect(routes).toHaveLength(13);
+    const copy = getGradeStrandGatewayCopy('2', 'core-spelling', grade2FactsFor('core-spelling'))!;
+    expect(copy.orientation).toMatch(/13 units/);
+    expect(copy.guidance).toMatch(/Begin with Long E Vowel Teams/);
+    // Conservative skipping guidance: an early unit must not license skipping unrelated later units.
+    expect(copy.guidance).toMatch(/does not mean.*can be skipped/i);
+  });
+
+  it('derives the HFW aggregate and preserves approved terminology', () => {
+    const facts = grade2FactsFor('high-frequency-words');
+    const copy = getGradeStrandGatewayCopy('2', 'high-frequency-words', facts)!;
+    expect(facts).toEqual({ memberCount: 7, wordCount: 84 });
+    expect(`${copy.orientation} ${copy.synthesis}`).toMatch(/84 commonly used spellings in 7 sets/);
+    expect(copy.synthesis).toMatch(/sound.spelling knowledge/i);
+    expect(copy.synthesis).toMatch(/cumulatively/i);
+    expect(Object.values(copy).join(' ')).not.toMatch(/sight words|common words|heart words|visual.shape/i);
+  });
+
+  it('keeps all five themed peers complete and explicitly non-sequential', () => {
+    const routes = grade2RoutesFor('themed-spelling-practice');
+    expect(routes.map((route) => route.id)).toEqual([
+      'grade-2-transportation-words',
+      'grade-2-money-words',
+      'grade-2-number-words-20-100',
+      'grade-2-community-helpers',
+      'grade-2-months-of-the-year',
+    ]);
+    const copy = getGradeStrandGatewayCopy('2', 'themed-spelling-practice', grade2FactsFor('themed-spelling-practice'))!;
+    expect(routes).toHaveLength(5);
+    expect(`${copy.orientation} ${copy.guidance}`).toMatch(/not a sequence|no required order/i);
+    expect(copy.synthesis).not.toMatch(/retention|retrieval|progress|curriculum|required lesson/i);
+  });
+
+  it('generates same-grade wayfinding for 2nd Grade from canonical route data', () => {
+    expect(getGradeStrandPath('2', 'core-spelling')).toBe('/2nd-grade/core-spelling');
+    expect(getGradeStrandPath('2', 'high-frequency-words')).toBe('/2nd-grade/high-frequency-words');
+    expect(getGradeStrandPath('2', 'themed-spelling-practice')).toBe('/2nd-grade/themed-spelling-practice');
+    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/2nd-grade/'))).toEqual([
+      '/2nd-grade/core-spelling',
+      '/2nd-grade/high-frequency-words',
+      '/2nd-grade/themed-spelling-practice',
+    ]);
+  });
+
+  it('keeps 2nd Grade authored copy independent of positional presentation instructions', () => {
+    const prose = (['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const)
+      .flatMap((strand) => Object.values(getGradeStrandGatewayCopy('2', strand, grade2FactsFor(strand))!))
       .join(' ');
     expect(prose).not.toMatch(/\b(?:above|below|card|box|column|scroll)\b/i);
   });

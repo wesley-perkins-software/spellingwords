@@ -153,12 +153,11 @@ describe('Consonant Digraphs Skill Family', () => {
     ).toEqual(CONSONANT_DIGRAPH_SKILL_IDS);
   });
 
-  it('keeps family guidance specific while preserving Short Vowels guidance', () => {
-    expect(SHORT_VOWELS_AND_CVC_SKILL_FAMILY.guidance).toBe(
-      'Choose the vowel sound your child needs to practice.',
-    );
-    expect(CONSONANT_DIGRAPHS_SKILL_FAMILY.guidance).toBe(
-      'Choose the letter pair your child needs to practice.',
+  it('keeps family guidance specific without the legacy repeated template', () => {
+    expect(SHORT_VOWELS_AND_CVC_SKILL_FAMILY.guidance).toMatch(/short A, E, I, O, or U/);
+    expect(CONSONANT_DIGRAPHS_SKILL_FAMILY.description).toMatch(/SH, CH, TH, and WH/);
+    expect(CONSONANT_DIGRAPHS_SKILL_FAMILY.guidance).not.toMatch(
+      /^Choose the .* your child needs to practice\.$/,
     );
 
     const route = readFileSync(skillsIndexRoutePath, 'utf8');

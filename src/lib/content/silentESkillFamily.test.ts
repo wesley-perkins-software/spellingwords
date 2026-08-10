@@ -13,7 +13,6 @@ import {
   CURATED_SPELLING_SKILL_IDS,
   SHORT_VOWELS_AND_CVC_SKILL_FAMILY,
   SILENT_E_FAMILY_ANCHOR_ID,
-  SILENT_E_LONG_E_EXAMPLES,
   SILENT_E_SKILL_FAMILY,
   SPELLING_SKILL_FAMILIES,
   VOWEL_TEAMS_SKILL_FAMILY,
@@ -145,28 +144,21 @@ describe('Silent E Skill Family', () => {
     expect(SPELLING_SKILL_FAMILIES[5]).toBe(VOWEL_TEAMS_SKILL_FAMILY);
   });
 
-  it('uses exactly four curated Silent E Skill IDs (Long E folded into guidance copy, not a peer page or separate block)', () => {
+  it('uses exactly four curated Silent E Skill IDs without turning the Hub into a Long E lesson', () => {
     expect(SILENT_E_SKILL_FAMILY.skillIds).toEqual(SILENT_E_SKILL_IDS);
     expect(SILENT_E_SKILL_FAMILY.skillIds).not.toContain('silent-e-long-e');
     expect(CURATED_SPELLING_SKILL_IDS).not.toContain('silent-e-long-e');
     expect(SILENT_E_SKILL_FAMILY.anchorId).toBe(SILENT_E_FAMILY_ANCHOR_ID);
     expect(SILENT_E_SKILL_FAMILY).not.toHaveProperty('longEOverviewNote');
-    expect(SILENT_E_SKILL_FAMILY.guidance).toContain('Long E Silent E');
-    for (const example of SILENT_E_LONG_E_EXAMPLES) {
-      expect(SILENT_E_SKILL_FAMILY.guidance, example).toContain(example);
-    }
+    expect(
+      `${SILENT_E_SKILL_FAMILY.description} ${SILENT_E_SKILL_FAMILY.guidance}`,
+    ).not.toMatch(/long e/i);
   });
 
-  it('keeps family guidance specific while preserving earlier family guidance', () => {
-    expect(SHORT_VOWELS_AND_CVC_SKILL_FAMILY.guidance).toBe(
-      'Choose the vowel sound your child needs to practice.',
-    );
-    expect(CONSONANT_DIGRAPHS_SKILL_FAMILY.guidance).toBe(
-      'Choose the letter pair your child needs to practice.',
-    );
-    expect(SILENT_E_SKILL_FAMILY.guidance).toContain(
-      'Choose the vowel sound your child needs to practice.',
-    );
+  it('keeps family guidance specific while rejecting the legacy repeated template', () => {
+    expect(SHORT_VOWELS_AND_CVC_SKILL_FAMILY.guidance).toMatch(/short A, E, I, O, or U/);
+    expect(CONSONANT_DIGRAPHS_SKILL_FAMILY.description).toMatch(/SH, CH, TH, and WH/);
+    expect(SILENT_E_SKILL_FAMILY.guidance).toMatch(/long A, I, O, or U/);
 
     const route = readFileSync(skillsIndexRoutePath, 'utf8');
     expect(route).toContain('{family.description} {family.guidance}');

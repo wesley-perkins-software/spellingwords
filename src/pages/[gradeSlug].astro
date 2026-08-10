@@ -74,22 +74,26 @@ const breadcrumbJsonLd = {
   })),
 };
 
+const itemListElements = grade3Pilot
+  ? grade3Pilot.strands.map((strand, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(strand.href, canonicalURL.origin).toString(),
+      name: `${label} ${strand.label}`,
+    }))
+  : legacyItems.map((card, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(card.href, canonicalURL.origin).toString(),
+      name: card.title,
+    }));
+
 const itemListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: `${label} Spelling Word Lists`,
   numberOfItems: grade3Pilot?.strands.length ?? displayedItemCount,
-  itemListElement: grade3Pilot ? grade3Pilot.strands.map((strand, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    url: new URL(strand.href, canonicalURL.origin).toString(),
-    name: `${label} ${strand.label}`,
-  })) : legacyItems.map((card, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    url: new URL(card.href, canonicalURL.origin).toString(),
-    name: card.title,
-  }))),
+  itemListElement: itemListElements,
 };
 ---
 

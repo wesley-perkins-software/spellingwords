@@ -53,9 +53,10 @@ describe('3rd Grade Hub pilot', () => {
 
   it('builds Grade 3 ItemList schema from Gateways rather than member cards', () => {
     expect(renderer).toContain('numberOfItems: grade3Pilot?.strands.length ?? displayedItemCount');
-    expect(renderer).toContain('grade3Pilot.strands.map((strand, index) => ({');
+    expect(renderer).toContain('? grade3Pilot.strands.map((strand, index) => ({');
     expect(renderer).toContain('url: new URL(strand.href, canonicalURL.origin).toString()');
     expect(renderer).toContain('name: `${label} ${strand.label}`');
+    expect(renderer).toContain('itemListElement: itemListElements');
   });
 
   it('retains adjacent-grade and all-grades navigation without cross-grade Gateways', () => {

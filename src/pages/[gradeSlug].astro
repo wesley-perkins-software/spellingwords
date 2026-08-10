@@ -20,6 +20,7 @@ import { gradeConfig, getAdjacentGrades } from '@/lib/content/gradeConfig';
 import { gradeHubCopy } from '@/lib/content/gradeHubCopy';
 import type { GradeCode, GradeConfigEntry } from '@/lib/content/gradeConfig';
 import { getGradeHubGatewayLinks } from '@/lib/content/canonicalGradeRoutes';
+import { buildGrade3HubPilot } from '@/lib/content/gradeHubPilot';
 
 export async function getStaticPaths() {
   return gradeConfig.map((gradeEntry) => ({
@@ -52,6 +53,7 @@ const curatedSections = buildGradeHubCards(CURATED_HUB_SECTIONS[grade], entries)
   return { ...section, gatewayHref: gateway.href };
 });
 const displayedItemCount = curatedSections.reduce((count, section) => count + section.cards.length, 0);
+const grade3Pilot = grade === '3' ? buildGrade3HubPilot(entries) : undefined;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -59,6 +61,7 @@ const breadcrumbItems = [
 ];
 
 const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
+const legacyItems = curatedSections.flatMap(({ cards }) => cards);
 
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
@@ -71,18 +74,26 @@ const breadcrumbJsonLd = {
   })),
 };
 
-let position = 0;
+const itemListElements = grade3Pilot
+  ? grade3Pilot.strands.map((strand, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(strand.href, canonicalURL.origin).toString(),
+      name: `${label} ${strand.label}`,
+    }))
+  : legacyItems.map((card, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(card.href, canonicalURL.origin).toString(),
+      name: card.title,
+    }));
+
 const itemListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: `${label} Spelling Word Lists`,
-  numberOfItems: displayedItemCount,
-  itemListElement: curatedSections.flatMap(({ cards }) => cards.map((card) => ({
-    '@type': 'ListItem',
-    position: ++position,
-    url: new URL(card.href, canonicalURL.origin).toString(),
-    name: card.title,
-  }))),
+  numberOfItems: grade3Pilot?.strands.length ?? displayedItemCount,
+  itemListElement: itemListElements,
 };
 ---
 
@@ -104,12 +115,29 @@ const itemListJsonLd = {
         <h1 class="font-display text-2xl font-semibold text-ink md:text-3xl">
           {label} Spelling Words
         </h1>
-        <p class="max-w-2xl text-base leading-relaxed text-ink-soft">{copy.heroParagraphs[0]}</p>
-        <p class="max-w-2xl text-base leading-relaxed text-ink-soft">{copy.heroParagraphs[1]}</p>
+        {(grade3Pilot?.orientation ?? copy.heroParagraphs).map((paragraph) => (
+          <p class="max-w-2xl text-base leading-relaxed text-ink-soft">{paragraph}</p>
+        ))}
       </div>
 
-      <!-- Lists: every grade renders a curated curriculum progression. -->
-      {displayedItemCount === 0 ? (
+      <!-- Grade 3 pilot renders strand orientation; other grades retain their curated member progression. -->
+      {grade3Pilot ? (
+        <div class="mb-12 flex flex-col gap-10">
+          {grade3Pilot.strands.map((strand) => (
+            <section class="flex flex-col gap-3" aria-labelledby={`grade-section-${strand.strand}`}>
+              <h2 id={`grade-section-${strand.strand}`} class="font-display text-lg font-semibold text-ink">
+                {strand.label}
+              </h2>
+              <p class="max-w-2xl text-sm leading-relaxed text-ink-soft">{strand.summary}</p>
+              <p>
+                <a href={strand.href} class="text-sm font-semibold text-brand-blue hover:underline">
+                  {strand.linkLabel} →
+                </a>
+              </p>
+            </section>
+          ))}
+        </div>
+      ) : displayedItemCount === 0 ? (
         <div class="rounded-2xl border border-line bg-app-cloud p-8 text-center">
           <p class="text-base text-ink-soft">
             {copy.emptyStateLabel} lists are being prepared. Check back soon, or{' '}
@@ -168,7 +196,14 @@ const itemListJsonLd = {
       )}
 
       <!-- Choosing guidance -->
-      {displayedItemCount > 1 && (
+      {grade3Pilot ? (
+        <section aria-labelledby="guidance-heading" class="mb-12 rounded-2xl border border-line bg-app-cloud p-6">
+          <h2 id="guidance-heading" class="mb-2 font-display text-base font-semibold text-ink">
+            Where to begin
+          </h2>
+          <p class="text-sm leading-relaxed text-ink-soft">{grade3Pilot.synthesis}</p>
+        </section>
+      ) : displayedItemCount > 1 && (
         <section aria-labelledby="guidance-heading" class="mb-12 rounded-2xl border border-line bg-app-cloud p-6">
           <h2 id="guidance-heading" class="mb-2 font-display text-base font-semibold text-ink">
             How to choose a list

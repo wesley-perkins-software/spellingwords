@@ -1,6 +1,6 @@
 # Homepage Content Standard — Research V2 (Reopening Pass)
 
-**Status:** Research and recommendation only. Does not freeze a production standard and does not modify `CANONICAL_HOMEPAGE_STANDARD.md`. Written to be read alongside that document and its own research predecessor, `CANONICAL_HOMEPAGE_STANDARD_RESEARCH.md` ("v1/v2" below).
+**Status:** Research and recommendation — **approved following human review.** This document's conclusions have been incorporated into `CANONICAL_HOMEPAGE_STANDARD.md`, which is now the frozen production authority; this document remains as the retained rationale/research record behind that amendment, in the same relationship the original `CANONICAL_HOMEPAGE_STANDARD_RESEARCH.md` ("v1/v2") holds to the standard's earlier sections. Where this document and the standard could ever be read as disagreeing, the standard governs.
 
 **Trigger:** The homepage was implemented to conform to the frozen standard. Seeing it rendered exposed a real problem: the page reads as too sparse, too generic, and too much like a custom-word practice widget to communicate that SpellingWords.app is also a structured K–5 curriculum and a 41-skill reference library. This document reopens the homepage's editorial decisions — including decisions the prior research treated as settled — evaluates them from first principles against the current implementation as new evidence, and proposes a complete replacement homepage narrative and copy.
 
@@ -153,9 +153,9 @@ This is the single place on the page where the three strand names appear (see §
 **Recommended Browse by Skill section copy:**
 
 > ## Browse by Skill
-> Already know what to work on? SpellingWords.app's skill library covers 41 spelling skills — from short vowels and silent e to prefixes, suffixes, Greek and Latin roots, and homophones — organized independently of grade level, so any student can find the right practice at any grade.
+> Already know what to work on? SpellingWords.app's skill library covers 41 spelling skills — from short vowels and silent e to prefixes, suffixes, Greek and Latin roots, and homophones — organized independently of grade level so students can practice the specific spelling skill they need.
 
-The closing clause ("so any student can find the right practice at any grade") is tightened from the earlier draft's "whether it's this year's lesson or something from a grade behind or ahead," but keeps the same job: it is the one sentence on the whole page that explains *why* a grade-independent system is useful, which the original implementation's paragraph never stated. The 41-skill count appears here and only here on the page — the hero no longer states it (see §5).
+The closing clause ("organized independently of grade level so students can practice the specific spelling skill they need") was adjusted during final human review from an earlier "so any student can find the right practice at any grade" — the revised wording states the same grade-independence rationale more directly, naming the actual unit of practice ("the specific spelling skill") rather than the more abstract "the right practice." It keeps the same job: it is the one sentence on the whole page that explains *why* a grade-independent system is useful, which the original implementation's paragraph never stated. The 41-skill count appears here and only here on the page — the hero no longer states it (see §5).
 
 ---
 
@@ -259,7 +259,7 @@ No new sections beyond a reordering/rewriting of the four that already exist. No
 ---
 
 **Browse by Skill — H2:** Browse by Skill
-**Browse by Skill — body:** Already know what to work on? SpellingWords.app's skill library covers 41 spelling skills — from short vowels and silent e to prefixes, suffixes, Greek and Latin roots, and homophones — organized independently of grade level, so any student can find the right practice at any grade.
+**Browse by Skill — body:** Already know what to work on? SpellingWords.app's skill library covers 41 spelling skills — from short vowels and silent e to prefixes, suffixes, Greek and Latin roots, and homophones — organized independently of grade level so students can practice the specific spelling skill they need.
 **CTA:** Browse Spelling Skills →
 
 ---
@@ -349,6 +349,7 @@ This document requires human review and an explicit decision on the §4/§9 reve
 5. **Fixed a meta-description defect.** The prior draft's proposed meta description paraphrased "grade or spelling skill" into a non-contiguous phrase that would have failed the existing test suite's literal-substring requirement. Corrected in §12.
 6. **Tightened Browse by Grade's body copy.** Dropped the earlier per-strand descriptive clause ("a main sequence of spelling patterns, the everyday words students need most, and optional themed lists to explore") in favor of naming the three strands alone — the descriptive clause edged toward the per-strand explanation this section's own guardrails already say belongs to the Grade Hub, not the homepage (§6).
 7. **"Students" retained throughout,** consistent with §3's original recommendation — no proposed copy in this document uses "children."
+8. **Final human-review wording adjustment (post-approval):** the Browse by Skill body's closing clause was changed from "so any student can find the right practice at any grade" to "so students can practice the specific spelling skill they need." Applied at §7 and §12 for consistency. This is a same-meaning wording refinement, not a substantive change to the section's information ownership (the 41-skill count and grade-independence rationale are unchanged).
 
 ### Final section-by-section information hierarchy
 
@@ -374,4 +375,4 @@ Free/no-account is the one fact stated twice by design — once as an opening re
 
 ---
 
-**HOMEPAGE CONTENT RESEARCH V2 COMPLETE — READY FOR REVIEW**
+**HOMEPAGE CONTENT RESEARCH V2 COMPLETE — APPROVED AND INCORPORATED INTO `CANONICAL_HOMEPAGE_STANDARD.md`**

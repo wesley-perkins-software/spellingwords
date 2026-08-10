@@ -105,21 +105,19 @@ const itemListJsonLd = {
           </li>
         ))}
       </ListElement>
-      {pilotCopy && (
-        <nav aria-label={`More ${gradeEntry.label} spelling practice`} class="mt-10 border-t border-line pt-6">
-          <p class="text-sm text-ink-soft">
-            Explore{' '}
-            {wayfindingStrands.map((relatedStrand, index) => (
-              <>
-                {index > 0 && (index === wayfindingStrands.length - 1 ? ' or ' : ', ')}
-                <a class="font-semibold text-brand-blue hover:underline" href={getGradeStrandPath(gradeEntry.grade, relatedStrand)}>
-                  {gradeEntry.label} {GRADE_STRANDS[relatedStrand].label}{index === wayfindingStrands.length - 1 ? '.' : ''}
-                </a>
-              </>
-            ))}
-          </p>
-        </nav>
-      )}
+      <nav aria-label={`More ${gradeEntry.label} spelling practice`} class="mt-10 border-t border-line pt-6">
+        <p class="text-sm text-ink-soft">
+          Explore{' '}
+          {wayfindingStrands.map((relatedStrand, index) => (
+            <>
+              {index > 0 && (index === wayfindingStrands.length - 1 ? ' or ' : ', ')}
+              <a class="font-semibold text-brand-blue hover:underline" href={getGradeStrandPath(gradeEntry.grade, relatedStrand)}>
+                {gradeEntry.label} {GRADE_STRANDS[relatedStrand].label}{index === wayfindingStrands.length - 1 ? '.' : ''}
+              </a>
+            </>
+          ))}
+        </p>
+      </nav>
     </div>
   </main>
   <SiteFooter />

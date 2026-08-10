@@ -47,7 +47,7 @@ Grade Hubs remain the only parent landing pages for a grade. These section names
 - High-Frequency Words
 - Additional Practice
 
-Their public route segments are `core-spelling`, `high-frequency-words`, and `themed-spelling-practice`. Each is also a grade-contained gateway. Do not introduce competing aliases such as:
+Their public route segments are `core-spelling`, `high-frequency-words`, and `themed-spelling-practice`. Each is also a grade-contained gateway. This document governs routing and URL shape only; the editorial/content authority for what each gateway page contains is `docs/content/CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md`. Do not introduce competing aliases such as:
 
 - `/{grade}/core`
 - `/{grade}/additional-practice`

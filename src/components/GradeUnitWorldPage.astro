@@ -27,7 +27,13 @@ import { categoryLabels } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { buildGradeUnitSequence } from '@/lib/content/gradeUnitSequence';
 import { gradeConfig } from '@/lib/content/gradeConfig';
-import { getCanonicalGradeRouteById, getCanonicalListPath, getGradeHubPath } from '@/lib/content/canonicalGradeRoutes';
+import {
+  getCanonicalGradeRouteById,
+  getCanonicalListPath,
+  getGradeHubPath,
+  getGradeStrandPath,
+  GRADE_STRANDS,
+} from '@/lib/content/canonicalGradeRoutes';
 import { assignWorldKitsInSequence, pickWorldKit } from '@/lib/theme/worldKits';
 
 interface Props {
@@ -100,6 +106,10 @@ if (!canonicalGradeRoute || !gradeHub) {
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: gradeHub.label, href: getGradeHubPath(canonicalGradeRoute.grade) },
+  {
+    label: GRADE_STRANDS['core-spelling'].label,
+    href: getGradeStrandPath(canonicalGradeRoute.grade, 'core-spelling'),
+  },
   { label: data.title },
 ];
 

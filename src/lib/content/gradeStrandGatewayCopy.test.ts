@@ -115,6 +115,24 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     expect(gatewayRenderer).not.toMatch(/<\/a>\s*\.\s*\n/);
   });
 
+  it('renders cross-strand wayfinding unconditionally, not gated on authored pilot copy', () => {
+    // Regression guard: wayfinding is structural navigation computed from GRADE_STRANDS /
+    // getGradeStrandPath, independent of whether a grade+strand has authored orientation copy
+    // yet. Only the synthesis/guidance prose block may depend on `pilotCopy` — the <nav> itself
+    // must render for all 18 gateways, including the 15 that still use the renderer fallback.
+    expect(gatewayRenderer).not.toMatch(/\{pilotCopy && \(\s*<nav/);
+    const navIndex = gatewayRenderer.indexOf('<nav aria-label={`More');
+    const listElementCloseIndex = gatewayRenderer.indexOf('</ListElement>');
+    expect(navIndex).toBeGreaterThan(-1);
+    expect(navIndex).toBeGreaterThan(listElementCloseIndex);
+    // The synthesis/guidance block, not the nav, is the part still allowed to depend on pilotCopy.
+    const synthesisBlock = gatewayRenderer.slice(
+      gatewayRenderer.indexOf('{pilotCopy && ('),
+      gatewayRenderer.indexOf('</header>'),
+    );
+    expect(synthesisBlock).toContain('pilotCopy.synthesis');
+  });
+
   it('never exposes raw category classification badges on any of the three gateway strands', () => {
     // Regression guard: Core previously leaked "Grade-Level" (First Words) vs.
     // "Phonics" (its 7 siblings) — a real internal-taxonomy split with no

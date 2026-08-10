@@ -2,9 +2,8 @@
 import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
-import { CURATED_SPELLING_SKILL_IDS } from '@/lib/content/spellingSkills';
 import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
-import { gradeConfig } from '@/lib/content/gradeConfig';
+import { homepageGradeHubs, homepageJsonLd } from '@/lib/content/homepage';
 
 const sampleWords = [
   'friend',
@@ -27,36 +26,12 @@ const gradeAccents: Record<string, string> = {
   '5': 'bg-chip-grass',
 };
 
-const gradeDescriptions: Record<string, string> = {
-  K: 'First sounds, first words, first steps',
-  '1': 'High-frequency words for early readers',
-  '2': 'Building blocks for confident spellers',
-  '3': 'Compound words, prefixes, and more',
-  '4': 'Suffixes, roots, and multisyllabic words',
-  '5': 'Academic vocabulary and advanced patterns',
-};
-
-const categories = [
-  ...gradeConfig.map((g) => ({
-    href:        g.hubHref,
-    count:       g.shortLabel,
-    name:        g.label,
-    desc:        gradeDescriptions[g.grade],
-    accentClass: gradeAccents[g.grade],
-  })),
-  {
-    href:        SKILLS_INDEX_PATH,
-    count:       `${CURATED_SPELLING_SKILL_IDS.length} skills`,
-    name:        'Practice by Skill',
-    desc:        'Choose focused sounds and spelling patterns',
-    accentClass: 'bg-brand-red',
-  },
-];
 ---
 
 <Layout
-  title="spellingwords — Practice spelling words"
-  description="Practice spelling with your own words or choose from hundreds of curated spelling lists. Free, no account needed."
+  title="Free Spelling Practice by Grade or Skill—No Account | SpellingWords.app"
+  description="Free spelling practice for children with no account required. Practice your own words or find structured Kindergarten–5th Grade practice by grade or spelling skill."
+  jsonLd={homepageJsonLd}
 >
 
   <style>
@@ -151,8 +126,13 @@ const categories = [
           Practice <span class="text-brand-red">spelling</span>,<br>starting now.
         </h1>
 
+        <p class="anim-2 mx-auto mb-7 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
+          Free spelling practice for children, with no account required. Use your own words or find
+          structured practice from Kindergarten through 5th Grade by grade or spelling skill.
+        </p>
+
         <!-- Word input card -->
-        <div class="anim-2 input-card mx-auto mb-5 max-w-content-sm overflow-hidden rounded-[22px] border border-line bg-app-paper shadow-card-md transition-shadow">
+        <div class="anim-3 input-card mx-auto mb-5 max-w-content-sm overflow-hidden rounded-[22px] border border-line bg-app-paper shadow-card-md transition-shadow">
 
           <div class="flex items-center justify-between border-b border-line bg-app-cloud px-[18px] py-2.5">
             <label for="word-input" class="text-[13px] font-bold text-ink-soft tracking-[0.01em]">
@@ -190,7 +170,7 @@ const categories = [
         </div>
 
         <!-- Primary CTA -->
-        <div class="anim-3">
+        <div class="anim-4">
           <button
             id="btn-start"
             type="button"
@@ -201,11 +181,11 @@ const categories = [
           </button>
         </div>
 
-        <span class="anim-4 mt-5 block text-sm font-semibold text-ink-faint">
+        <span class="mt-5 block text-sm font-semibold text-ink-faint">
           or <a
-            href="#curated-lists"
+            href="#grades"
             class="font-bold text-brand-sky border-b border-brand-sky/35 pb-px transition hover:text-brand-blue hover:border-brand-blue"
-          >choose from our spelling lists</a>
+          >browse structured spelling practice</a>
         </span>
 
       </div>
@@ -213,55 +193,62 @@ const categories = [
 
     <hr class="h-px border-none bg-line mx-6" />
 
-    <!-- ═══ CURATED LISTS ════════════════════════════════════════ -->
+    <!-- ═══ BROWSE BY GRADE ══════════════════════════════════════ -->
     <section
       id="grades"
       class="mx-auto max-w-content-xl px-6 py-16 scroll-mt-[72px]"
-      aria-labelledby="curated-heading"
+      aria-labelledby="grade-heading"
     >
       <div class="mb-9">
-        <p class="mb-2.5 text-[11px] font-extrabold uppercase tracking-[0.14em] text-brand-sky">
-          Ready-Made Lists
-        </p>
         <h2
-          id="curated-heading"
+          id="grade-heading"
           class="text-display-lg mb-2"
         >
-          Hundreds of spelling lists,<br>ready to use.
+          Browse by Grade
         </h2>
         <p class="max-w-content-sm text-[15px] font-medium text-ink-soft leading-[1.55]">
-          Choose by grade level or practice by phonics skill —
-          all free, no account needed.
+          Follow a grade-level path from Kindergarten through 5th Grade.
         </p>
       </div>
 
       <div
         class="mb-8 grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3"
         role="list"
-        aria-label="Spelling list categories"
+        aria-label="Grade levels"
       >
-        {categories.map(({ href, count, name, desc, accentClass }) => (
+        {homepageGradeHubs.map(({ href, label }, index) => (
           <a
             href={href}
             class="cat-card flex flex-col overflow-hidden rounded-2xl border border-line bg-app-paper shadow-card"
             role="listitem"
           >
-            <div class={`h-1 flex-shrink-0 ${accentClass}`}></div>
+            <div class={`h-1 flex-shrink-0 ${gradeAccents[index === 0 ? 'K' : String(index)]}`}></div>
             <div class="flex flex-col gap-1 p-[18px] pb-4">
               <span class="text-caption">
-                {count}
+                {index === 0 ? 'Kindergarten' : `Grade ${index}`}
               </span>
               <span class="font-display text-[21px] font-semibold text-ink leading-[1.1] tracking-[-0.01em]">
-                {name}
-              </span>
-              <span class="mt-0.5 text-[13px] font-medium text-ink-soft leading-[1.45]">
-                {desc}
+                {label}
               </span>
             </div>
           </a>
         ))}
       </div>
 
+    </section>
+
+    <!-- ═══ BROWSE BY SKILL ══════════════════════════════════════ -->
+    <section
+      id="skills"
+      class="mx-auto max-w-content-xl px-6 pb-16"
+      aria-labelledby="skill-heading"
+    >
+      <h2 id="skill-heading" class="text-display-lg mb-2">Browse by Skill</h2>
+      <p class="mb-5 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
+        Go directly to a known spelling sound, pattern, convention, or word-building concept—such
+        as short vowels, prefixes, or homophones.
+      </p>
+      <a href={SKILLS_INDEX_PATH} class="btn-action">Browse Spelling Skills <span aria-hidden="true">→</span></a>
     </section>
 
     <!-- ═══ TRUST ════════════════════════════════════════════════ -->
@@ -271,22 +258,27 @@ const categories = [
       aria-labelledby="trust-heading"
     >
       <div class="mx-auto max-w-content-xl px-6">
-        <h2 id="trust-heading" class="sr-only">Why families and teachers choose spellingwords</h2>
-        <ul class="grid grid-cols-1 gap-3.5 list-none sm:grid-cols-3" role="list">
+        <h2 id="trust-heading" class="text-display-lg mb-6">Simple, focused spelling practice</h2>
+        <ul class="grid grid-cols-1 gap-3.5 list-none sm:grid-cols-2 lg:grid-cols-4" role="list">
           <li class="trust-item rounded-2xl bg-app-cloud px-5 py-5">
             <span class="mb-2.5 block text-[22px]" aria-hidden="true">📖</span>
-            <p class="mb-1 font-display text-[18px] font-semibold text-ink tracking-[-0.01em]">No account needed</p>
-            <p class="text-sm font-medium text-ink-soft leading-[1.45]">Jump straight in — no login, no email, no setup.</p>
+            <p class="mb-1 font-display text-[18px] font-semibold text-ink tracking-[-0.01em]">Free to use</p>
+            <p class="text-sm font-medium text-ink-soft leading-[1.45]">Practice is available free of charge.</p>
           </li>
           <li class="trust-item rounded-2xl bg-app-cloud px-5 py-5">
-            <span class="mb-2.5 block text-[22px]" aria-hidden="true">🎧</span>
-            <p class="mb-1 font-display text-[18px] font-semibold text-ink tracking-[-0.01em]">Hear every word</p>
-            <p class="text-sm font-medium text-ink-soft leading-[1.45]">Text-to-speech reads each word aloud, just like a real test.</p>
+            <span class="mb-2.5 block text-[22px]" aria-hidden="true">🔒</span>
+            <p class="mb-1 font-display text-[18px] font-semibold text-ink tracking-[-0.01em]">No account required</p>
+            <p class="text-sm font-medium text-ink-soft leading-[1.45]">No login, email, or personal data is required to practice.</p>
           </li>
           <li class="trust-item rounded-2xl bg-app-cloud px-5 py-5">
-            <span class="mb-2.5 block text-[22px]" aria-hidden="true">💻</span>
-            <p class="mb-1 font-display text-[18px] font-semibold text-ink tracking-[-0.01em]">Works everywhere</p>
-            <p class="text-sm font-medium text-ink-soft leading-[1.45]">Chromebook, iPad, phone, or desktop — it just works.</p>
+            <span class="mb-2.5 block text-[22px]" aria-hidden="true">◯</span>
+            <p class="mb-1 font-display text-[18px] font-semibold text-ink tracking-[-0.01em]">No competitive gamification</p>
+            <p class="text-sm font-medium text-ink-soft leading-[1.45]">There are no timers, points, streaks, or competitions.</p>
+          </li>
+          <li class="trust-item rounded-2xl bg-app-cloud px-5 py-5">
+            <span class="mb-2.5 block text-[22px]" aria-hidden="true">✓</span>
+            <p class="mb-1 font-display text-[18px] font-semibold text-ink tracking-[-0.01em]">Curated and structured</p>
+            <p class="text-sm font-medium text-ink-soft leading-[1.45]">Spelling content is editorially curated and organized for focused practice.</p>
           </li>
         </ul>
       </div>

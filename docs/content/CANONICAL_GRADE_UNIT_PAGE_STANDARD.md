@@ -1,4 +1,10 @@
 
+> **Grade Hub boundary update (August 2026):** historical references in this member-page standard
+> to a member's "Grade Hub card" describe the pre-pilot renderer or title provenance only. They do
+> not authorize direct Hub membership. `CANONICAL_GRADE_HUB_STANDARD.md` now requires Hubs to route
+> to the three Gateways and prohibits Hub-level member inventories; this standard continues to
+> govern member-page content and member-to-member navigation only.
+>
 > **Final three-type navigation rule:** Core Spelling uses Review first and Next step only, with no Explore more. High-Frequency Words uses Explore more only, showing the previous and/or next set inside the same grade (one or two cards; no cross-grade continuation). Additional Practice uses Explore more only, showing exactly three editorially curated same-grade Additional Practice peers without sequence implication. Every outer section says **“Where to go from here”**; cards use exact canonical destination titles with grade metadata separate. No model places a Grade Hub card in this section. A future **Continue exploring** orientation section is separate and deferred. Canonical route classification—not folder, filename, role, title, or URL inference—is authoritative.
 # Canonical Grade Unit Page Standard — spellingwords.app
 

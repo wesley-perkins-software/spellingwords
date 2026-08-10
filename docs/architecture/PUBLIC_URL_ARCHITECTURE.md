@@ -4,12 +4,15 @@
 
 ## Canonical K–5 grade curriculum rule
 
-Canonical Grade Hubs and all canonical Grade Hub card destinations use a grade-first, strand-contained, no-trailing-slash URL structure:
+Canonical Grade Hubs, Grade-Strand Gateways, and member pages use a grade-first, strand-contained, no-trailing-slash URL structure:
 
 ```text
 /{grade}
+/{grade}/core-spelling
 /{grade}/core-spelling/{page-slug}
+/{grade}/high-frequency-words
 /{grade}/high-frequency-words/set-{n}
+/{grade}/themed-spelling-practice
 /{grade}/themed-spelling-practice/{page-slug}
 ```
 
@@ -41,11 +44,13 @@ The legacy `/spelling-lists` and `/learning-paths` route trees have been removed
 
 ## Section policy
 
-Grade Hubs remain the only parent landing pages for a grade. These section names remain visible on the Grade Hub:
+Grade Hubs remain the only grade-wide parent landing pages. Each Hub routes through these three
+same-grade Gateway destinations, which own the member inventories; Hubs do not list or directly
+route to individual members. These section names remain visible on the Grade Hub:
 
 - Core Spelling
 - High-Frequency Words
-- Additional Practice
+- Themed Spelling Practice
 
 Their public route segments are `core-spelling`, `high-frequency-words`, and `themed-spelling-practice`. Each is also a grade-contained gateway. This document governs routing and URL shape only; the editorial/content authority for what each gateway page contains is `docs/content/CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md`. Do not introduce competing aliases such as:
 
@@ -64,7 +69,9 @@ Each grade has a High-Frequency Words gateway, and its sets are permanent childr
 /{grade}/high-frequency-words/set-3
 ```
 
-The Grade Hub and the grade-contained HFW gateway both orient readers to the sets. The removed `spelling-collections` content type and Dolch collections are not part of this architecture.
+The Grade Hub briefly explains the role of HFW practice and routes to the grade-contained HFW
+Gateway; the Gateway owns the complete set inventory and strand-level synthesis. The removed
+`spelling-collections` content type and Dolch collections are not part of this architecture.
 
 ## Trailing slash convention
 

@@ -29,7 +29,12 @@ function contentById(): Map<string, string> {
 
 function wordsIn(source: string): string[] {
   const block = source.match(/^words:\n([\s\S]*?)\n---/m)?.[1] ?? '';
-  return [...block.matchAll(/^\s{2}-\s+['"]?([^'"\n]+?)['"]?\s*$/gm)].map((match) => match[1]);
+  // Quoted entries may contain an apostrophe (contractions like "I'm", "it's", "don't";
+  // possessive-styled themed words like "o'clock"), so quote-stripping must not use a character
+  // class that also excludes the apostrophe inside the quotes — match the quoted span instead.
+  return [
+    ...block.matchAll(/^\s{2}-\s+(?:"([^"\n]*)"|'([^'\n]*)'|([^\s'"][^\n]*?))\s*$/gm),
+  ].map((match) => match[1] ?? match[2] ?? match[3]);
 }
 
 const kindergartenRoutes = canonicalGradeRoutes.filter((route) => route.grade === 'K');
@@ -66,6 +71,39 @@ const grade2FactsFor = (strand: GradeRouteClassification) => {
   };
 };
 
+const grade3Routes = canonicalGradeRoutes.filter((route) => route.grade === '3');
+const grade3RoutesFor = (strand: GradeRouteClassification) =>
+  grade3Routes.filter((route) => route.classification === strand);
+const grade3FactsFor = (strand: GradeRouteClassification) => {
+  const routes = grade3RoutesFor(strand);
+  return {
+    memberCount: routes.length,
+    wordCount: routes.reduce((total, route) => total + wordsIn(sources.get(route.id) ?? '').length, 0),
+  };
+};
+
+const grade4Routes = canonicalGradeRoutes.filter((route) => route.grade === '4');
+const grade4RoutesFor = (strand: GradeRouteClassification) =>
+  grade4Routes.filter((route) => route.classification === strand);
+const grade4FactsFor = (strand: GradeRouteClassification) => {
+  const routes = grade4RoutesFor(strand);
+  return {
+    memberCount: routes.length,
+    wordCount: routes.reduce((total, route) => total + wordsIn(sources.get(route.id) ?? '').length, 0),
+  };
+};
+
+const grade5Routes = canonicalGradeRoutes.filter((route) => route.grade === '5');
+const grade5RoutesFor = (strand: GradeRouteClassification) =>
+  grade5Routes.filter((route) => route.classification === strand);
+const grade5FactsFor = (strand: GradeRouteClassification) => {
+  const routes = grade5RoutesFor(strand);
+  return {
+    memberCount: routes.length,
+    wordCount: routes.reduce((total, route) => total + wordsIn(sources.get(route.id) ?? '').length, 0),
+  };
+};
+
 describe('Kindergarten grade-strand gateway pilot', () => {
   it('retains exactly 18 canonical gateways, three per grade, including all Kindergarten strands', () => {
     expect(gradeStrandGatewayPaths).toHaveLength(18);
@@ -79,10 +117,10 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     ]);
   });
 
-  it('authors all three Kindergarten gateways without requiring Grades 3–5 copy', () => {
+  it('authors all three Kindergarten gateways, now that Grades 3–5 are also authored', () => {
     for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const) {
       expect(getGradeStrandGatewayCopy('K', strand, factsFor(strand))).toBeDefined();
-      expect(getGradeStrandGatewayCopy('3', strand, factsFor(strand))).toBeUndefined();
+      expect(getGradeStrandGatewayCopy('3', strand, factsFor(strand))).toBeDefined();
     }
   });
 
@@ -242,10 +280,12 @@ describe('Kindergarten grade-strand gateway pilot', () => {
 });
 
 describe('Grade 1 grade-strand gateway rollout', () => {
-  it('authors all three Grade 1 gateways without requiring Grades 3–5 copy', () => {
+  it('authors all three Grade 1 gateways, distinct from the Grade 3 copy for the same strand', () => {
     for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const) {
       expect(getGradeStrandGatewayCopy('1', strand, grade1FactsFor(strand))).toBeDefined();
-      expect(getGradeStrandGatewayCopy('3', strand, grade1FactsFor(strand))).toBeUndefined();
+      expect(getGradeStrandGatewayCopy('1', strand, grade1FactsFor(strand))).not.toEqual(
+        getGradeStrandGatewayCopy('3', strand, grade1FactsFor(strand)),
+      );
     }
   });
 
@@ -318,10 +358,12 @@ describe('Grade 1 grade-strand gateway rollout', () => {
 });
 
 describe('2nd Grade strand gateways', () => {
-  it('authors all three 2nd Grade gateways, leaving other non-K, non-1, non-2 grades on the fallback', () => {
+  it('authors all three 2nd Grade gateways, distinct from the Grade 3 copy for the same strand', () => {
     for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const) {
       expect(getGradeStrandGatewayCopy('2', strand, grade2FactsFor(strand))).toBeDefined();
-      expect(getGradeStrandGatewayCopy('3', strand, grade2FactsFor(strand))).toBeUndefined();
+      expect(getGradeStrandGatewayCopy('2', strand, grade2FactsFor(strand))).not.toEqual(
+        getGradeStrandGatewayCopy('3', strand, grade2FactsFor(strand)),
+      );
     }
   });
 
@@ -391,5 +433,253 @@ describe('2nd Grade strand gateways', () => {
       .flatMap((strand) => Object.values(getGradeStrandGatewayCopy('2', strand, grade2FactsFor(strand))!))
       .join(' ');
     expect(prose).not.toMatch(/\b(?:above|below|card|box|column|scroll)\b/i);
+  });
+});
+
+describe('3rd Grade strand gateways', () => {
+  it('authors all three 3rd Grade gateways', () => {
+    for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const) {
+      expect(getGradeStrandGatewayCopy('3', strand, grade3FactsFor(strand))).toBeDefined();
+    }
+  });
+
+  it('keeps Core sequential, 3rd-Grade-specific, and complete in canonical order', () => {
+    const routes = grade3RoutesFor('core-spelling');
+    expect(routes.map((route) => route.id)).toEqual([
+      'grade-3-prefix-words',
+      'grade-3-suffix-words',
+      'grade-3-suffix-spelling-changes',
+      'grade-3-possessives',
+      'grade-3-multisyllabic-words',
+      'grade-3-homophones',
+      'grade-3-root-word-families',
+    ]);
+    expect(routes).toHaveLength(7);
+    const copy = getGradeStrandGatewayCopy('3', 'core-spelling', grade3FactsFor('core-spelling'))!;
+    expect(copy.orientation).toMatch(/7 ordered units/);
+    expect(copy.orientation).toMatch(/3rd Grade/);
+    expect(copy.guidance).toMatch(/Begin with Prefix Words/);
+    expect(copy.guidance).not.toMatch(/skip ahead to|jump ahead to|can skip/i);
+  });
+
+  it('derives the HFW aggregate from the frozen 5-set/60-word inventory and preserves approved terminology', () => {
+    const facts = grade3FactsFor('high-frequency-words');
+    expect(facts).toEqual({ memberCount: 5, wordCount: 60 });
+    const copy = getGradeStrandGatewayCopy('3', 'high-frequency-words', facts)!;
+    expect(`${copy.orientation} ${copy.synthesis} ${copy.guidance}`).toMatch(/60 spellings into 5 sets/);
+    expect(copy.synthesis).toMatch(/not that its spelling is irregular/i);
+    expect(copy.synthesis).toMatch(/cumulatively/i);
+    expect(Object.values(copy).join(' ')).not.toMatch(/sight words|common words|heart words|visual.shape/i);
+  });
+
+  it('keeps all four themed peers complete and explicitly non-sequential', () => {
+    const routes = grade3RoutesFor('themed-spelling-practice');
+    expect(routes.map((route) => route.id)).toEqual([
+      'grade-3-map-globe-words',
+      'grade-3-life-cycle-words',
+      'grade-3-time-words',
+      'grade-3-multiplication-division-words',
+    ]);
+    const copy = getGradeStrandGatewayCopy('3', 'themed-spelling-practice', grade3FactsFor('themed-spelling-practice'))!;
+    expect(routes).toHaveLength(4);
+    expect(`${copy.orientation} ${copy.guidance}`).toMatch(/not a sequence|no required order/i);
+    expect(copy.synthesis).not.toMatch(/retention|retrieval|progress|curriculum|required lesson/i);
+  });
+
+  it('generates same-grade wayfinding for 3rd Grade from canonical route data', () => {
+    expect(getGradeStrandPath('3', 'core-spelling')).toBe('/3rd-grade/core-spelling');
+    expect(getGradeStrandPath('3', 'high-frequency-words')).toBe('/3rd-grade/high-frequency-words');
+    expect(getGradeStrandPath('3', 'themed-spelling-practice')).toBe('/3rd-grade/themed-spelling-practice');
+    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/3rd-grade/'))).toEqual([
+      '/3rd-grade/core-spelling',
+      '/3rd-grade/high-frequency-words',
+      '/3rd-grade/themed-spelling-practice',
+    ]);
+  });
+
+  it('keeps 3rd Grade authored copy independent of positional presentation instructions', () => {
+    const prose = (['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const)
+      .flatMap((strand) => Object.values(getGradeStrandGatewayCopy('3', strand, grade3FactsFor(strand))!))
+      .join(' ');
+    expect(prose).not.toMatch(/\b(?:above|below|card|box|column|scroll)\b/i);
+  });
+});
+
+describe('4th Grade strand gateways', () => {
+  it('authors all three 4th Grade gateways', () => {
+    for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const) {
+      expect(getGradeStrandGatewayCopy('4', strand, grade4FactsFor(strand))).toBeDefined();
+    }
+  });
+
+  it('keeps Core sequential, 4th-Grade-specific, and complete in canonical order', () => {
+    const routes = grade4RoutesFor('core-spelling');
+    expect(routes.map((route) => route.id)).toEqual([
+      'grade-4-multisyllabic-academic-words',
+      'grade-4-advanced-prefixes',
+      'grade-4-advanced-suffixes',
+      'tier-1-roots-and-patterns',
+      'grade-4-commonly-confused-words',
+      'grade-4-derived-words',
+    ]);
+    expect(routes).toHaveLength(6);
+    const copy = getGradeStrandGatewayCopy('4', 'core-spelling', grade4FactsFor('core-spelling'))!;
+    expect(copy.orientation).toMatch(/6 ordered units/);
+    expect(copy.orientation).toMatch(/4th Grade/);
+    expect(copy.guidance).toMatch(/Begin with Multisyllabic Academic Words/);
+    expect(copy.guidance).not.toMatch(/skip ahead to|jump ahead to|can skip/i);
+  });
+
+  it('derives the HFW aggregate from the frozen 2-set/24-word inventory without apologizing for its size', () => {
+    const facts = grade4FactsFor('high-frequency-words');
+    expect(facts).toEqual({ memberCount: 2, wordCount: 24 });
+    const copy = getGradeStrandGatewayCopy('4', 'high-frequency-words', facts)!;
+    expect(`${copy.orientation} ${copy.synthesis} ${copy.guidance}`).toMatch(/24 spellings into 2 sets/);
+    expect(copy.synthesis).toMatch(/not that its spelling is irregular/i);
+    expect(Object.values(copy).join(' ')).not.toMatch(/sight words|common words|heart words|visual.shape/i);
+    expect(Object.values(copy).join(' ')).not.toMatch(/only|just|smaller|sorry|unfortunately/i);
+  });
+
+  it('keeps all four themed peers complete and explicitly non-sequential', () => {
+    const routes = grade4RoutesFor('themed-spelling-practice');
+    expect(routes.map((route) => route.id)).toEqual([
+      'grade-4-measurement-words',
+      'grade-4-solar-system-words',
+      'grade-4-career-occupation-words',
+      'grade-4-geometry-words',
+    ]);
+    const copy = getGradeStrandGatewayCopy('4', 'themed-spelling-practice', grade4FactsFor('themed-spelling-practice'))!;
+    expect(routes).toHaveLength(4);
+    expect(`${copy.orientation} ${copy.guidance}`).toMatch(/not a sequence|no required order/i);
+    expect(copy.synthesis).not.toMatch(/retention|retrieval|progress|curriculum|required lesson/i);
+  });
+
+  it('generates same-grade wayfinding for 4th Grade from canonical route data', () => {
+    expect(getGradeStrandPath('4', 'core-spelling')).toBe('/4th-grade/core-spelling');
+    expect(getGradeStrandPath('4', 'high-frequency-words')).toBe('/4th-grade/high-frequency-words');
+    expect(getGradeStrandPath('4', 'themed-spelling-practice')).toBe('/4th-grade/themed-spelling-practice');
+    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/4th-grade/'))).toEqual([
+      '/4th-grade/core-spelling',
+      '/4th-grade/high-frequency-words',
+      '/4th-grade/themed-spelling-practice',
+    ]);
+  });
+
+  it('keeps 4th Grade authored copy independent of positional presentation instructions', () => {
+    const prose = (['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const)
+      .flatMap((strand) => Object.values(getGradeStrandGatewayCopy('4', strand, grade4FactsFor(strand))!))
+      .join(' ');
+    expect(prose).not.toMatch(/\b(?:above|below|card|box|column|scroll)\b/i);
+  });
+});
+
+describe('5th Grade strand gateways', () => {
+  it('authors all three 5th Grade gateways', () => {
+    for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const) {
+      expect(getGradeStrandGatewayCopy('5', strand, grade5FactsFor(strand))).toBeDefined();
+    }
+  });
+
+  it('keeps Core sequential, 5th-Grade-specific, and complete in canonical order', () => {
+    const routes = grade5RoutesFor('core-spelling');
+    expect(routes.map((route) => route.id)).toEqual([
+      'grade-5-multisyllabic-academic-words',
+      'grade-5-prefix-suffix-words',
+      'grade-5-greek-latin-word-parts',
+      'grade-5-commonly-confused-words',
+      'grade-5-spelling-changes-related-words',
+    ]);
+    expect(routes).toHaveLength(5);
+    const copy = getGradeStrandGatewayCopy('5', 'core-spelling', grade5FactsFor('core-spelling'))!;
+    expect(copy.orientation).toMatch(/5 ordered units/);
+    expect(copy.orientation).toMatch(/5th Grade/);
+    expect(copy.guidance).toMatch(/Begin with Multisyllabic Academic Words/);
+    expect(copy.guidance).not.toMatch(/skip ahead to|jump ahead to|can skip/i);
+  });
+
+  it('derives the HFW aggregate from the frozen 2-set/24-word inventory and preserves approved terminology', () => {
+    const facts = grade5FactsFor('high-frequency-words');
+    expect(facts).toEqual({ memberCount: 2, wordCount: 24 });
+    const copy = getGradeStrandGatewayCopy('5', 'high-frequency-words', facts)!;
+    expect(`${copy.orientation} ${copy.synthesis} ${copy.guidance}`).toMatch(/24 spellings into 2 sets/);
+    expect(copy.synthesis).toMatch(/not that its spelling is irregular/i);
+    expect(Object.values(copy).join(' ')).not.toMatch(/sight words|common words|heart words|visual.shape/i);
+  });
+
+  it('keeps all four themed peers complete and explicitly non-sequential', () => {
+    const routes = grade5RoutesFor('themed-spelling-practice');
+    expect(routes.map((route) => route.id)).toEqual([
+      'grade-5-money-management-words',
+      'grade-5-ecosystem-environment-words',
+      'grade-5-fraction-decimal-words',
+      'grade-5-community-civics-words',
+    ]);
+    const copy = getGradeStrandGatewayCopy('5', 'themed-spelling-practice', grade5FactsFor('themed-spelling-practice'))!;
+    expect(routes).toHaveLength(4);
+    expect(`${copy.orientation} ${copy.guidance}`).toMatch(/not a sequence|no required order/i);
+    expect(copy.synthesis).not.toMatch(/retention|retrieval|progress|required lesson/i);
+  });
+
+  it('generates same-grade wayfinding for 5th Grade from canonical route data', () => {
+    expect(getGradeStrandPath('5', 'core-spelling')).toBe('/5th-grade/core-spelling');
+    expect(getGradeStrandPath('5', 'high-frequency-words')).toBe('/5th-grade/high-frequency-words');
+    expect(getGradeStrandPath('5', 'themed-spelling-practice')).toBe('/5th-grade/themed-spelling-practice');
+    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/5th-grade/'))).toEqual([
+      '/5th-grade/core-spelling',
+      '/5th-grade/high-frequency-words',
+      '/5th-grade/themed-spelling-practice',
+    ]);
+  });
+
+  it('keeps 5th Grade authored copy independent of positional presentation instructions', () => {
+    const prose = (['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const)
+      .flatMap((strand) => Object.values(getGradeStrandGatewayCopy('5', strand, grade5FactsFor(strand))!))
+      .join(' ');
+    expect(prose).not.toMatch(/\b(?:above|below|card|box|column|scroll)\b/i);
+  });
+});
+
+describe('Full K–5 grade-strand gateway corpus', () => {
+  it('authors copy for all 18 canonical gateways now that Grades 3–5 are complete', () => {
+    for (const grade of gradeConfig) {
+      for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice'] as const) {
+        const routes = canonicalGradeRoutes.filter(
+          (route) => route.grade === grade.grade && route.classification === strand,
+        );
+        const facts = {
+          memberCount: routes.length,
+          wordCount: routes.reduce((total, route) => total + wordsIn(sources.get(route.id) ?? '').length, 0),
+        };
+        const copy = getGradeStrandGatewayCopy(grade.grade, strand, facts);
+        expect(copy, `missing authored copy for ${grade.grade} ${strand}`).toBeDefined();
+        expect(copy!.orientation.length).toBeGreaterThan(0);
+        expect(copy!.synthesis.length).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it('matches the frozen deepest-member-page corpus totals (51 Core / 27 HFW / 27 Themed / 105 total)', () => {
+    const byStrand = (strand: GradeRouteClassification) =>
+      canonicalGradeRoutes.filter((route) => route.classification === strand).length;
+    expect(byStrand('core-spelling')).toBe(51);
+    expect(byStrand('high-frequency-words')).toBe(27);
+    expect(byStrand('themed-spelling-practice')).toBe(27);
+    expect(canonicalGradeRoutes.length).toBe(105);
+  });
+
+  it('matches the frozen HFW corpus totals (27 sets / 316 assignments)', () => {
+    const hfwRoutes = canonicalGradeRoutes.filter((route) => route.classification === 'high-frequency-words');
+    expect(hfwRoutes).toHaveLength(27);
+    const totalWords = hfwRoutes.reduce((total, route) => total + wordsIn(sources.get(route.id) ?? '').length, 0);
+    expect(totalWords).toBe(316);
+  });
+
+  it('matches the frozen Themed corpus totals (27 pages / 237 entries)', () => {
+    const themedRoutes = canonicalGradeRoutes.filter(
+      (route) => route.classification === 'themed-spelling-practice',
+    );
+    expect(themedRoutes).toHaveLength(27);
+    const totalWords = themedRoutes.reduce((total, route) => total + wordsIn(sources.get(route.id) ?? '').length, 0);
+    expect(totalWords).toBe(237);
   });
 });

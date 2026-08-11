@@ -3,7 +3,13 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { SKILLS_INDEX_PATH, getCanonicalSkillRoutes } from './canonicalSkillRoutes';
 import { gradeConfig } from './gradeConfig';
-import { HOMEPAGE_URL, homepageGradeHubs, homepageJsonLd } from './homepage';
+import {
+  HOMEPAGE_URL,
+  HOMEPAGE_SKILL_COUNT,
+  HOMEPAGE_REPRESENTATIVE_SKILLS,
+  homepageGradeHubs,
+  homepageJsonLd,
+} from './homepage';
 import { gradeStrandGatewayPaths, getCanonicalGradeRoutes } from './canonicalGradeRoutes';
 
 const homepageSource = readFileSync(join(process.cwd(), 'src/pages/index.astro'), 'utf8');
@@ -11,19 +17,52 @@ const homepageSource = readFileSync(join(process.cwd(), 'src/pages/index.astro')
 describe('canonical homepage', () => {
   it('has one immediate page heading and complete, accurate metadata', () => {
     expect(homepageSource.match(/<h1\b/g)).toHaveLength(1);
-    expect(homepageSource).toContain('Practice <span class="text-brand-red">spelling</span>');
     expect(homepageSource).toContain(
-      'title="Free Spelling Practice by Grade or Skill—No Account | SpellingWords.app"',
+      'Practice <span class="text-brand-red">spelling</span> — your words, or ours.',
     );
-    expect(homepageSource).toMatch(/description="[^"]*Free[^"]*no account required[^"]*grade or spelling skill[^"]*"/);
+    expect(homepageSource).toContain(
+      'title="Free K–5 Spelling Practice by Grade or Skill—No Account | SpellingWords.app"',
+    );
+    expect(homepageSource).toMatch(
+      /description="[^"]*Free[^"]*K–5 students[^"]*no account required[^"]*grade or spelling skill[^"]*"/,
+    );
   });
 
-  it('derives exactly the six visible Grade Hub destinations from canonical grade data', () => {
-    expect(homepageGradeHubs).toEqual(
+  it('refers to the audience as students, not children', () => {
+    expect(homepageSource.toLowerCase()).not.toMatch(/\bchildren\b/);
+  });
+
+  it('derives exactly the six visible Grade Hub destinations from canonical grade data, each with its approved teaser', () => {
+    expect(homepageGradeHubs).toHaveLength(6);
+    expect(homepageGradeHubs.map(({ label, href }) => ({ label, href }))).toEqual(
       gradeConfig.map(({ label, hubHref }) => ({ label, href: hubHref })),
     );
-    expect(homepageGradeHubs).toHaveLength(6);
+    expect(homepageGradeHubs).toEqual([
+      expect.objectContaining({ label: 'Kindergarten', teaser: 'Letters, sounds, and first words' }),
+      expect.objectContaining({ label: '1st Grade', teaser: 'Blends, silent e, and vowel teams' }),
+      expect.objectContaining({
+        label: '2nd Grade',
+        teaser: 'R-controlled vowels and multisyllabic words',
+      }),
+      expect.objectContaining({ label: '3rd Grade', teaser: 'Prefixes, suffixes, and homophones' }),
+      expect.objectContaining({
+        label: '4th Grade',
+        teaser: 'Greek and Latin roots and derived words',
+      }),
+      expect.objectContaining({
+        label: '5th Grade',
+        teaser: 'Advanced roots, affixes, and academic words',
+      }),
+    ]);
     expect(homepageSource).toContain('homepageGradeHubs.map');
+    expect(homepageSource).toContain('{teaser}');
+  });
+
+  it('names the three canonical curriculum strands exactly once, in Browse by Grade', () => {
+    const strandNames = ['Core Spelling', 'High-Frequency Words', 'Themed Spelling Practice'];
+    for (const strand of strandNames) {
+      expect(homepageSource.split(strand)).toHaveLength(2);
+    }
   });
 
   it('presents grade and skill browsing as coequal semantic sections', () => {
@@ -31,6 +70,33 @@ describe('canonical homepage', () => {
     expect(homepageSource).toMatch(/<h2[^>]*id="skill-heading"[^>]*>Browse by Skill<\/h2>/);
     expect(homepageSource).toContain('href={SKILLS_INDEX_PATH}');
     expect(SKILLS_INDEX_PATH).toBe('/skills');
+  });
+
+  it('states the real Skill count exactly once, in Browse by Skill, with plain-text representative examples', () => {
+    expect(HOMEPAGE_SKILL_COUNT).toBe(getCanonicalSkillRoutes().length);
+    expect(HOMEPAGE_SKILL_COUNT).toBe(41);
+    // "HOMEPAGE_SKILL_COUNT" appears twice in source: once in the import, once
+    // where it is rendered — the count itself is stated exactly once on the page.
+    expect(homepageSource.match(/HOMEPAGE_SKILL_COUNT/g)).toHaveLength(2);
+    expect(homepageSource).toContain('{HOMEPAGE_SKILL_COUNT}');
+
+    expect(HOMEPAGE_REPRESENTATIVE_SKILLS).toEqual([
+      'short vowels',
+      'silent e',
+      'prefixes',
+      'suffixes',
+      'Greek and Latin roots',
+      'homophones',
+    ]);
+
+    // Each representative example is rendered from the shared array by index,
+    // as plain text, and never as an individual Skill-page hyperlink.
+    for (let i = 0; i < HOMEPAGE_REPRESENTATIVE_SKILLS.length; i++) {
+      expect(homepageSource).toContain(`HOMEPAGE_REPRESENTATIVE_SKILLS[${i}]`);
+    }
+    for (const skillLink of getCanonicalSkillRoutes()) {
+      expect(homepageSource).not.toContain(`href="${skillLink.canonicalPath}"`);
+    }
   });
 
   it('does not flatten primary navigation into deeper canonical routes', () => {
@@ -45,6 +111,17 @@ describe('canonical homepage', () => {
 
   it('does not prescribe a sequential starting Skill', () => {
     expect(homepageSource.toLowerCase()).not.toMatch(/start (?:with|at) short vowels/);
+  });
+
+  it('replaces the old four-item equal-weight trust section with the approved closing content', () => {
+    expect(homepageSource).not.toContain('Simple, focused spelling practice');
+    expect(homepageSource).not.toContain('No competitive gamification');
+    expect(homepageSource).not.toContain('Curated and structured');
+    expect(homepageSource).toContain('More than a list of spelling words');
+    expect(homepageSource).toContain(
+      'SpellingWords.app is organized around real spelling knowledge',
+    );
+    expect(homepageSource.toLowerCase()).not.toMatch(/actually learned/);
   });
 
   it('emits only the required homepage structured-data types', () => {

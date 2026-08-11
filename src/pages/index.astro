@@ -132,8 +132,9 @@ const gradeAccents: Record<string, string> = {
         </h1>
 
         <p class="anim-2 mx-auto mb-7 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
-          Type or paste any list and start practicing in seconds — free, with no account. Or
-          explore a structured K–5 spelling curriculum and a full library of spelling skills.
+          Type or paste any list and start practicing in seconds — free, no account needed. Or
+          explore spelling practice organized by grade and by skill, from Kindergarten through
+          5th grade.
         </p>
 
         <!-- Word input card -->
@@ -198,68 +199,64 @@ const gradeAccents: Record<string, string> = {
 
     <hr class="h-px border-none bg-line mx-6" />
 
-    <!-- ═══ BROWSE BY GRADE ══════════════════════════════════════ -->
-    <section
-      id="grades"
-      class="mx-auto max-w-content-xl px-6 py-16 scroll-mt-[72px]"
-      aria-labelledby="grade-heading"
-    >
-      <div class="mb-9">
-        <h2
-          id="grade-heading"
-          class="text-display-lg mb-2"
-        >
-          Browse by Grade
-        </h2>
-        <p class="max-w-content-sm text-[15px] font-medium text-ink-soft leading-[1.55]">
-          Follow a Kindergarten–5th Grade spelling curriculum built around Core Spelling,
-          High-Frequency Words, and Themed Spelling Practice.
-        </p>
-      </div>
+    <!-- ═══ BROWSE BY GRADE / BROWSE BY SKILL ══════════════════════ -->
+    <div class="mx-auto max-w-content-xl px-6 py-16">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:items-start">
 
-      <div
-        class="mb-8 grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3"
-        role="list"
-        aria-label="Grade levels"
-      >
-        {homepageGradeHubs.map(({ href, label, teaser }, index) => (
-          <a
-            href={href}
-            class="cat-card flex flex-col overflow-hidden rounded-2xl border border-line bg-app-paper shadow-card"
-            role="listitem"
+        <section id="grades" class="scroll-mt-[72px]" aria-labelledby="grade-heading">
+          <div class="mb-9">
+            <h2
+              id="grade-heading"
+              class="text-display-lg mb-2"
+            >
+              Browse by Grade
+            </h2>
+            <p class="max-w-content-sm text-[15px] font-medium text-ink-soft leading-[1.55]">
+              Six grade levels, each built around Core Spelling, High-Frequency Words, and Themed
+              Spelling Practice.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 gap-3.5 sm:grid-cols-2"
+            role="list"
+            aria-label="Grade levels"
           >
-            <div class={`h-1 flex-shrink-0 ${gradeAccents[index === 0 ? 'K' : String(index)]}`}></div>
-            <div class="flex flex-col gap-1 p-[18px] pb-4">
-              <span class="text-caption">
-                {index === 0 ? 'Kindergarten' : `Grade ${index}`}
-              </span>
-              <span class="font-display text-[21px] font-semibold text-ink leading-[1.1] tracking-[-0.01em]">
-                {label}
-              </span>
-              <span class="text-sm font-medium text-ink-soft leading-[1.4]">
-                {teaser}
-              </span>
-            </div>
-          </a>
-        ))}
+            {homepageGradeHubs.map(({ href, label, teaser }, index) => (
+              <a
+                href={href}
+                class="cat-card flex flex-col overflow-hidden rounded-2xl border border-line bg-app-paper shadow-card"
+                role="listitem"
+              >
+                <div class={`h-1 flex-shrink-0 ${gradeAccents[index === 0 ? 'K' : String(index)]}`}></div>
+                <div class="flex flex-col gap-1 p-[18px] pb-4">
+                  <span class="text-caption">
+                    {index === 0 ? 'Kindergarten' : `Grade ${index}`}
+                  </span>
+                  <span class="font-display text-[21px] font-semibold text-ink leading-[1.1] tracking-[-0.01em]">
+                    {label}
+                  </span>
+                  <span class="text-sm font-medium text-ink-soft leading-[1.4]">
+                    {teaser}
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section id="skills" class="scroll-mt-[72px]" aria-labelledby="skill-heading">
+          <h2 id="skill-heading" class="text-display-lg mb-2">Browse by Skill</h2>
+          <p class="mb-5 text-[15px] font-medium leading-[1.55] text-ink-soft">
+            Already know what to work on? Browse {HOMEPAGE_SKILL_COUNT} spelling skills —
+            from {HOMEPAGE_REPRESENTATIVE_SKILLS[0]} and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[3]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]} —
+            organized independently of grade so students can go straight to the pattern they need.
+          </p>
+          <a href={SKILLS_INDEX_PATH} class="btn-action">Browse Spelling Skills <span aria-hidden="true">→</span></a>
+        </section>
+
       </div>
-
-    </section>
-
-    <!-- ═══ BROWSE BY SKILL ══════════════════════════════════════ -->
-    <section
-      id="skills"
-      class="mx-auto max-w-content-xl px-6 pb-16"
-      aria-labelledby="skill-heading"
-    >
-      <h2 id="skill-heading" class="text-display-lg mb-2">Browse by Skill</h2>
-      <p class="mb-5 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
-        Already know what to work on? SpellingWords.app's skill library covers {HOMEPAGE_SKILL_COUNT} spelling
-        skills — from {HOMEPAGE_REPRESENTATIVE_SKILLS[0]} and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[3]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]} — organized independently
-        of grade level so students can practice the specific spelling skill they need.
-      </p>
-      <a href={SKILLS_INDEX_PATH} class="btn-action">Browse Spelling Skills <span aria-hidden="true">→</span></a>
-    </section>
+    </div>
 
     <!-- ═══ CLOSING ══════════════════════════════════════════════ -->
     <section
@@ -271,9 +268,8 @@ const gradeAccents: Record<string, string> = {
         <h2 id="trust-heading" class="text-display-lg mb-4">More than a list of spelling words</h2>
         <p class="text-[15px] font-medium leading-[1.6] text-ink-soft">
           SpellingWords.app is organized around real spelling knowledge — sound-spelling patterns,
-          spelling conventions, word structure, and the high-frequency words students see every
-          day — not just a random list to memorize. It's free, with no account, and has no timers,
-          points, or competitions: just focused, structured practice.
+          word structure, and the high-frequency words students see every day — not just a random
+          list to memorize. Free, no account, no timers or points: just focused practice.
         </p>
       </div>
     </section>

@@ -457,38 +457,38 @@ outside this standard's scope and are not restated here.
 **Meta description:** Free spelling practice for K–5 students, with no account required. Practice
 your own words, or find structured curriculum practice by grade or spelling skill.
 
-**H1:** Practice spelling — your words, or ours.
+**H1:** Practice spelling your way.
 
-**Hero paragraph:** Type or paste any list and start practicing in seconds — free, with no
-account. Or explore a structured K–5 spelling curriculum and a full library of spelling skills.
+**Hero paragraph:** Use your own words, follow a structured K–5 spelling curriculum, or explore a
+library of focused spelling skills. Free to use, with no account or login required.
 
 **Primary CTA:** Start Practicing →
 **Secondary link:** or browse structured spelling practice ↓
 
 **Browse by Grade — heading:** Browse by Grade
-**Browse by Grade — body:** Follow a Kindergarten–5th Grade spelling curriculum built around Core
-Spelling, High-Frequency Words, and Themed Spelling Practice.
+**Browse by Grade — body:** Follow an organized Kindergarten–5th Grade spelling path built around
+Core Spelling, High-Frequency Words, and Themed Spelling Practice.
 
 **Grade cards (label / teaser):**
-- Kindergarten / Letters, sounds, and first words
-- 1st Grade / Blends, silent e, and vowel teams
-- 2nd Grade / R-controlled vowels and multisyllabic words
-- 3rd Grade / Prefixes, suffixes, and homophones
-- 4th Grade / Greek and Latin roots and derived words
-- 5th Grade / Advanced roots, affixes, and academic words
+- Kindergarten / Builds the foundations with letters, sounds, first words, and short-vowel spelling.
+- 1st Grade / Strengthens early spelling with consonant blends and digraphs, silent e, vowel teams, and word endings.
+- 2nd Grade / Expands into r-controlled vowels, more vowel patterns, syllable structure, silent letters, and multisyllabic words.
+- 3rd Grade / Introduces prefixes, suffixes, spelling changes, homophones, possessives, and word families.
+- 4th Grade / Develops advanced word knowledge through roots, morphology, multisyllabic spelling, and commonly confused words.
+- 5th Grade / Brings it together with advanced roots and affixes, academic words, and spelling changes across related words.
 
 **Browse by Skill — heading:** Browse by Skill
-**Browse by Skill — body:** Already know what to work on? SpellingWords.app's skill library covers
-41 spelling skills — from short vowels and silent e to prefixes, suffixes, Greek and Latin roots,
-and homophones — organized independently of grade level so students can practice the specific
-spelling skill they need.
+**Browse by Skill — body:** Already know what to work on? Explore 41 spelling skills, from short
+vowels and silent e to prefixes, suffixes, Greek and Latin roots, and homophones — go straight to
+the specific spelling skill your student needs.
 **CTA:** Browse Spelling Skills →
 
 **Closing section — heading:** More than a list of spelling words
-**Closing section — body:** SpellingWords.app is organized around real spelling knowledge —
-sound-spelling patterns, spelling conventions, word structure, and the high-frequency words
-students see every day — not just a random list to memorize. It's free, with no account, and has
-no timers, points, or competitions: just focused, structured practice.
+**Closing section — body:** SpellingWords.app brings a structured K–5 spelling curriculum, a
+library of focused spelling skills, and space to practice a student's own words together in one
+place — organized by spelling patterns and high-frequency words, not a random list to memorize.
+Parents and teachers get an organized path to follow, and students get calm, focused practice.
+It's free, with no account required, and there are no timers, points, or competitions.
 
 ---
 

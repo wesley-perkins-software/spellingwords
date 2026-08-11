@@ -20,6 +20,7 @@ import { getSequenceNeighbors } from '@/lib/content/navigationSequence';
 import { cardAccent } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { gradeConfig } from '@/lib/content/gradeConfig';
+import { getSkillPracticeBank, toPlayableSkillPracticeWords } from '@/lib/content/skillPracticeBanks';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('spelling-lists')).filter(isPublished);
@@ -50,6 +51,10 @@ const next = resolveListRefs(nextId ? [nextId] : [], allEntries);
 const related = dedupeRelatedLists(prerequisites, resolveListRefs(data.relatedLists, allEntries), next);
 
 const playWords = toPlayableWords(entry);
+
+const practiceBank = getSkillPracticeBank(data.id);
+const practiceBankWords = practiceBank ? toPlayableSkillPracticeWords(practiceBank) : null;
+const practiceBankWordsJson = practiceBankWords ? JSON.stringify(practiceBankWords) : null;
 
 function listLink(e: (typeof allEntries)[number]) {
   return getCanonicalListPath(e.data);
@@ -236,6 +241,45 @@ const curriculumPlacements = allEntries
       </div>
     </section>
 
+    <!-- Practice CTA: sourced from the Skill's own practice bank, distinct
+         from the demonstration set above and from any Grade Unit's Practice
+         Set below. Only rendered when a bank exists for this Skill — see
+         src/lib/content/skillPracticeBanks.ts. -->
+    {
+      practiceBank && practiceBankWords && (
+        <section class="px-5 pb-10 sm:px-6 md:pb-14" aria-labelledby="practice-heading">
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
+            <div
+              class={`rounded-3xl border border-line bg-white px-6 py-7 shadow-card sm:px-8 border-l-[3px] ${cardAccent.border}`}
+            >
+              <h2 id="practice-heading" class="font-display text-lg font-semibold text-ink">
+                Practice this Skill
+              </h2>
+              <p class="mt-2 max-w-2xl text-base leading-relaxed text-ink-soft">
+                Start a spelling practice session drawn from this Skill's own practice bank of{' '}
+                {practiceBankWords.length} words — independent of any grade.
+              </p>
+              <button
+                type="button"
+                id={`btn-practice-skill-${data.id}`}
+                data-words={practiceBankWordsJson}
+                data-skill-title={data.title}
+                class="btn-primary mt-5"
+              >
+                Practice this Skill
+              </button>
+              <p
+                id={`practice-status-${data.id}`}
+                class="sr-only"
+                role="status"
+                aria-live="polite"
+              />
+            </div>
+          </div>
+        </section>
+      )
+    }
+
     <!-- Why these words / how the concept works (markdown body) -->
     <section class="bg-cream-deep px-5 py-12 sm:px-6 md:py-16" aria-labelledby="why-heading">
       <div class="mx-auto max-w-2xl md:max-w-3xl">
@@ -355,3 +399,60 @@ const curriculumPlacements = allEntries
 
   <SiteFooter />
 </Layout>
+
+<script>
+  import { encodeWordList } from '@/lib/words';
+  import { selectSkillPracticeSession } from '@/lib/content/skillPracticeBanks';
+
+  const SESSION_SIZE = 10;
+
+  interface SpellingWordData {
+    word: string;
+    exampleSentence?: string;
+  }
+
+  function getBankWords(button: HTMLButtonElement): SpellingWordData[] {
+    try {
+      const parsed: unknown = JSON.parse(button.dataset.words ?? '[]');
+      if (!Array.isArray(parsed)) return [];
+      return parsed.filter(
+        (e): e is SpellingWordData =>
+          typeof e === 'object' && e !== null && typeof (e as SpellingWordData).word === 'string',
+      );
+    } catch {
+      return [];
+    }
+  }
+
+  function handlePracticeClick(event: Event): void {
+    const button = event.currentTarget as HTMLButtonElement;
+    const statusEl = document.getElementById(
+      button.id.replace('btn-practice-skill-', 'practice-status-'),
+    );
+    const bank = getBankWords(button);
+    if (bank.length === 0) return;
+
+    const session = selectSkillPracticeSession(bank, SESSION_SIZE);
+    const result = encodeWordList(session.map((w) => w.word));
+    if (!result.ok) {
+      if (statusEl) {
+        statusEl.textContent = 'Could not start this practice session. Please try again.';
+      }
+      return;
+    }
+
+    const skillTitle = button.dataset.skillTitle ?? '';
+    try {
+      sessionStorage.setItem(`sw:words:${result.payload}`, JSON.stringify(session));
+      if (skillTitle) sessionStorage.setItem(`sw:title:${result.payload}`, skillTitle);
+    } catch {
+      /* quota exceeded or private browsing — non-fatal */
+    }
+
+    window.location.href = `/play?list=${result.payload}`;
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[id^="btn-practice-skill-"]').forEach((btn) => {
+    btn.addEventListener('click', handlePracticeClick);
+  });
+</script>

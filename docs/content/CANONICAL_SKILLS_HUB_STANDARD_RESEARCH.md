@@ -132,7 +132,7 @@ It is a **browse/discovery interface functioning as a canonical directory**, wit
 **Must not own:**
 - Any individual pattern's mechanics, examples, exceptions, or teaching routine — that is exclusively the canonical Skill page's job (`CANONICAL_SKILL_PAGE_STANDARD.md` §2).
 - A grade-by-grade curriculum sequence — that is the Grade Hub/Grade-Strand Gateway/Grade Unit layers' job; the Skills Hub is explicitly grade-neutral (`CONTENT_MODEL.md` §3: "A Skill must not be owned by one grade").
-- Practice itself — no word list, no practice CTA, matching the frozen rule that only a Grade Unit's Practice Set launches `/play` (`CONTENT_MODEL.md` §4).
+- Practice itself — no word list, no practice CTA. The Hub stays a pure browse/taxonomy surface even though individual Skill pages now launch practice from their own canonical practice bank (`CONTENT_MODEL.md` §3–§4); that capability belongs to the Skill page, not the Hub card.
 
 ---
 
@@ -349,7 +349,7 @@ Reasoning, addressing Schema.org `ItemList` semantics directly (general type-sem
 | Common mistakes | ❌ | ❌ | ✅ owns exclusively |
 | Teaching guidance (routine, diagnostic response) | ❌ | ❌ | ✅ owns exclusively |
 | Grade relevance | ❌ (Skills are grade-neutral at every layer) | ❌ | ✅ owns, via the reverse `skillIds` "Where this fits in the curriculum" lookup only — never a claimed single grade |
-| Practice links | ❌ (no practice CTA anywhere in the skill-first hierarchy) | ❌ | ❌ — a Skill page routes to the Grade Unit(s) that assign practice; it does not launch practice itself (`CONTENT_MODEL.md` §4) |
+| Practice links | ❌ (Hub index stays a browse surface, no per-card CTA) | ❌ | ✅ — an individual Skill page offers direct practice from its own canonical practice bank, in addition to routing to the Grade Unit(s) that also teach the concept (`CONTENT_MODEL.md` §3–§4) |
 | Related Skills | ❌ | ❌ (differentiation among its own members only, not cross-family relationships) | ✅ owns, via `relatedLists`/`prerequisiteLists`/`nextLists` |
 | Taxonomy/browse relationships (which family this Skill belongs to; which Skills are siblings) | ✅ owns — the only page that presents the full taxonomy as a browsable structure | ✅ (locally, for its own members) | ⚠️ may mention its own family in prose (per `CANONICAL_SKILL_PAGE_STANDARD.md` §12: "Parent Skill family → contextual mention in prose; the Skills Hub... is the actual family-navigation surface, not a per-page field") but does not own the family's definition |
 

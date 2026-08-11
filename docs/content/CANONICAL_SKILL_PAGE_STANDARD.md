@@ -47,7 +47,7 @@ A **Skill page** is the canonical, grade-independent explanation of one spelling
 - How does the concept fit the grade sequence?
 - What curricular practice should the learner complete?
 
-**Prohibited:** a Skill page must not become a grade-specific lesson, must not adopt one grade's framing as if it were universal, and must not duplicate a Grade Unit's full practice treatment (§5). Per `CONTENT_MODEL.md` §3, a Skill's word set is a *demonstration*, not a *Practice Set* — it does not launch the practice experience and must never read as a second assignment. Where a Skill page and a Grade Unit page cover the same pattern, they must read as complements (roadmap §2's "one most at risk of duplication" rule): the Skill page is the durable "what and why," the Grade Unit is "what for this grade, right now."
+**Prohibited:** a Skill page must not become a grade-specific lesson, must not adopt one grade's framing as if it were universal, and must not duplicate a Grade Unit's full practice treatment (§5). Per `CONTENT_MODEL.md` §3, a Skill's word set is a *demonstration*, not a *Practice Set* and not the Skill's practice bank — the demonstration itself never launches practice and must never read as a second assignment. The Skill's separate practice bank (§5) may launch practice directly. Where a Skill page and a Grade Unit page cover the same pattern, they must read as complements (roadmap §2's "one most at risk of duplication" rule): the Skill page is the durable "what and why," the Grade Unit is "what for this grade, right now."
 
 ---
 
@@ -214,7 +214,7 @@ Three distinct kinds of word content exist across the site. They are easy to con
 - The Skill page must **not** duplicate a Grade Unit's complete practice treatment — that violates the Skill/Grade Unit boundary in §2.
 - The Skill page must still provide enough examples, via its instructional example system, to satisfy the topic's full informational intent — the demonstration set alone is not sufficient content.
 - Giant, unstructured word dumps are never acceptable, in the demonstration set or the instructional example system. Every list must be curated and grouped instructionally (§8).
-- Not every Skill page launches practice — per `CONTENT_MODEL.md` §4, the practice experience is reached only through a Grade Unit's Practice Set; a Skill routes there via its curriculum-placement links. Do not add or imply a direct "practice these words" action for a Skill page's demonstration set — the current template correctly omits the practice CTA on Skill pages, and content must not work around that.
+- The demonstration set never launches practice — do not add or imply a direct "practice these words" action attached to the demonstration set itself. Per `CONTENT_MODEL.md` §3–§4, every canonical Skill page instead offers a separate "Practice this Skill" action sourced from the Skill's own practice bank (a fourth kind of word content, distinct from all three listed above), alongside its existing curriculum-placement links to the Grade Unit(s) where the concept is also taught. The practice bank's authoring standard, size, and item structure are defined in implementation-level documentation, not this standard.
 
 ---
 

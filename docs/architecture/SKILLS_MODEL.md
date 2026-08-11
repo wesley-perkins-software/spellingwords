@@ -492,7 +492,7 @@ Good Teaching Guide topics include:
 - What are heart words?
 - How should students practice homophones?
 
-A Skill page is concept-first: its job is to teach the pattern clearly, demonstrate it, and route the user to the Grade Unit(s) where it is actually practiced — it does not launch a practice session of its own. A Teaching Guide can carry deeper explanation, terminology, parent guidance, and curriculum context beyond what a Skill's own concise explanation covers.
+A Skill page is concept-first: its job is to teach the pattern clearly, demonstrate it, and offer direct practice from its own canonical practice bank, while continuing to route users who want grade-sequenced context to the Grade Unit(s) where it is also taught. A Teaching Guide can carry deeper explanation, terminology, parent guidance, and curriculum context beyond what a Skill's own concise explanation covers.
 
 ## 16. Gateway-page principles
 

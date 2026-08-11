@@ -3,7 +3,12 @@ import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
-import { homepageGradeHubs, homepageJsonLd } from '@/lib/content/homepage';
+import {
+  homepageGradeHubs,
+  homepageJsonLd,
+  HOMEPAGE_SKILL_COUNT,
+  HOMEPAGE_REPRESENTATIVE_SKILLS,
+} from '@/lib/content/homepage';
 
 const sampleWords = [
   'friend',
@@ -29,8 +34,8 @@ const gradeAccents: Record<string, string> = {
 ---
 
 <Layout
-  title="Free Spelling Practice by Grade or Skill—No Account | SpellingWords.app"
-  description="Free spelling practice for children with no account required. Practice your own words or find structured Kindergarten–5th Grade practice by grade or spelling skill."
+  title="Free K–5 Spelling Practice by Grade or Skill—No Account | SpellingWords.app"
+  description="Free spelling practice for K–5 students, with no account required. Practice your own words, or find structured curriculum practice by grade or spelling skill."
   jsonLd={homepageJsonLd}
 >
 
@@ -123,12 +128,12 @@ const gradeAccents: Record<string, string> = {
           id="hero-heading"
           class="anim-1 text-display-xl mb-9"
         >
-          Practice <span class="text-brand-red">spelling</span>,<br>starting now.
+          Practice <span class="text-brand-red">spelling</span> — your words, or ours.
         </h1>
 
         <p class="anim-2 mx-auto mb-7 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
-          Free spelling practice for children, with no account required. Use your own words or find
-          structured practice from Kindergarten through 5th Grade by grade or spelling skill.
+          Type or paste any list and start practicing in seconds — free, with no account. Or
+          explore a structured K–5 spelling curriculum and a full library of spelling skills.
         </p>
 
         <!-- Word input card -->
@@ -207,7 +212,8 @@ const gradeAccents: Record<string, string> = {
           Browse by Grade
         </h2>
         <p class="max-w-content-sm text-[15px] font-medium text-ink-soft leading-[1.55]">
-          Follow a grade-level path from Kindergarten through 5th Grade.
+          Follow a Kindergarten–5th Grade spelling curriculum built around Core Spelling,
+          High-Frequency Words, and Themed Spelling Practice.
         </p>
       </div>
 
@@ -216,7 +222,7 @@ const gradeAccents: Record<string, string> = {
         role="list"
         aria-label="Grade levels"
       >
-        {homepageGradeHubs.map(({ href, label }, index) => (
+        {homepageGradeHubs.map(({ href, label, teaser }, index) => (
           <a
             href={href}
             class="cat-card flex flex-col overflow-hidden rounded-2xl border border-line bg-app-paper shadow-card"
@@ -229,6 +235,9 @@ const gradeAccents: Record<string, string> = {
               </span>
               <span class="font-display text-[21px] font-semibold text-ink leading-[1.1] tracking-[-0.01em]">
                 {label}
+              </span>
+              <span class="text-sm font-medium text-ink-soft leading-[1.4]">
+                {teaser}
               </span>
             </div>
           </a>
@@ -245,42 +254,27 @@ const gradeAccents: Record<string, string> = {
     >
       <h2 id="skill-heading" class="text-display-lg mb-2">Browse by Skill</h2>
       <p class="mb-5 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
-        Go directly to a known spelling sound, pattern, convention, or word-building concept—such
-        as short vowels, prefixes, or homophones.
+        Already know what to work on? SpellingWords.app's skill library covers {HOMEPAGE_SKILL_COUNT} spelling
+        skills — from {HOMEPAGE_REPRESENTATIVE_SKILLS[0]} and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[3]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]} — organized independently
+        of grade level so students can practice the specific spelling skill they need.
       </p>
       <a href={SKILLS_INDEX_PATH} class="btn-action">Browse Spelling Skills <span aria-hidden="true">→</span></a>
     </section>
 
-    <!-- ═══ TRUST ════════════════════════════════════════════════ -->
+    <!-- ═══ CLOSING ══════════════════════════════════════════════ -->
     <section
       id="how-it-works"
       class="border-t border-line py-12 md:py-14"
       aria-labelledby="trust-heading"
     >
-      <div class="mx-auto max-w-content-xl px-6">
-        <h2 id="trust-heading" class="text-display-lg mb-6">Simple, focused spelling practice</h2>
-        <ul class="grid grid-cols-1 gap-3.5 list-none sm:grid-cols-2 lg:grid-cols-4" role="list">
-          <li class="trust-item rounded-2xl bg-app-cloud px-5 py-5">
-            <span class="mb-2.5 block text-[22px]" aria-hidden="true">📖</span>
-            <p class="mb-1 font-display text-[18px] font-semibold text-ink tracking-[-0.01em]">Free to use</p>
-            <p class="text-sm font-medium text-ink-soft leading-[1.45]">Practice is available free of charge.</p>
-          </li>
-          <li class="trust-item rounded-2xl bg-app-cloud px-5 py-5">
-            <span class="mb-2.5 block text-[22px]" aria-hidden="true">🔒</span>
-            <p class="mb-1 font-display text-[18px] font-semibold text-ink tracking-[-0.01em]">No account required</p>
-            <p class="text-sm font-medium text-ink-soft leading-[1.45]">No login, email, or personal data is required to practice.</p>
-          </li>
-          <li class="trust-item rounded-2xl bg-app-cloud px-5 py-5">
-            <span class="mb-2.5 block text-[22px]" aria-hidden="true">◯</span>
-            <p class="mb-1 font-display text-[18px] font-semibold text-ink tracking-[-0.01em]">No competitive gamification</p>
-            <p class="text-sm font-medium text-ink-soft leading-[1.45]">There are no timers, points, streaks, or competitions.</p>
-          </li>
-          <li class="trust-item rounded-2xl bg-app-cloud px-5 py-5">
-            <span class="mb-2.5 block text-[22px]" aria-hidden="true">✓</span>
-            <p class="mb-1 font-display text-[18px] font-semibold text-ink tracking-[-0.01em]">Curated and structured</p>
-            <p class="text-sm font-medium text-ink-soft leading-[1.45]">Spelling content is editorially curated and organized for focused practice.</p>
-          </li>
-        </ul>
+      <div class="trust-item mx-auto max-w-content-sm px-6 text-center">
+        <h2 id="trust-heading" class="text-display-lg mb-4">More than a list of spelling words</h2>
+        <p class="text-[15px] font-medium leading-[1.6] text-ink-soft">
+          SpellingWords.app is organized around real spelling knowledge — sound-spelling patterns,
+          spelling conventions, word structure, and the high-frequency words students see every
+          day — not just a random list to memorize. It's free, with no account, and has no timers,
+          points, or competitions: just focused, structured practice.
+        </p>
       </div>
     </section>
 

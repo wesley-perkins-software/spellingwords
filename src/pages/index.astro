@@ -34,7 +34,7 @@ const gradeAccents: Record<string, string> = {
 ---
 
 <Layout
-  title="Free K–5 Spelling Practice by Grade or Skill—No Account | SpellingWords.app"
+  title="Free K–5 Spelling Practice by Grade or Skill, No Account | SpellingWords.app"
   description="Free spelling practice for K–5 students, with no account required. Practice your own words, or find structured curriculum practice by grade or spelling skill."
   jsonLd={homepageJsonLd}
 >
@@ -128,12 +128,14 @@ const gradeAccents: Record<string, string> = {
           id="hero-heading"
           class="anim-1 text-display-xl mb-9"
         >
-          Practice <span class="text-brand-red">spelling</span> — your words, or ours.
+          Practice <span class="text-brand-red">spelling</span>: your own words, or a full K–5
+          curriculum and skill library.
         </h1>
 
         <p class="anim-2 mx-auto mb-7 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
-          Type or paste any list and start practicing in seconds — free, with no account. Or
-          explore a structured K–5 spelling curriculum and a full library of spelling skills.
+          Type or paste any list and start practicing in seconds. Free, no account needed. Or
+          explore spelling practice organized by grade and by skill, from Kindergarten through
+          5th grade.
         </p>
 
         <!-- Word input card -->
@@ -186,24 +188,13 @@ const gradeAccents: Record<string, string> = {
           </button>
         </div>
 
-        <span class="mt-5 block text-sm font-semibold text-ink-faint">
-          or <a
-            href="#grades"
-            class="font-bold text-brand-sky border-b border-brand-sky/35 pb-px transition hover:text-brand-blue hover:border-brand-blue"
-          >browse structured spelling practice</a>
-        </span>
-
       </div>
     </section>
 
     <hr class="h-px border-none bg-line mx-6" />
 
-    <!-- ═══ BROWSE BY GRADE ══════════════════════════════════════ -->
-    <section
-      id="grades"
-      class="mx-auto max-w-content-xl px-6 py-16 scroll-mt-[72px]"
-      aria-labelledby="grade-heading"
-    >
+    <!-- ═══ BROWSE BY GRADE / BROWSE BY SKILL ══════════════════════ -->
+    <section id="grades" class="mx-auto max-w-content-xl px-6 py-16 scroll-mt-[72px]" aria-labelledby="grade-heading">
       <div class="mb-9">
         <h2
           id="grade-heading"
@@ -212,13 +203,13 @@ const gradeAccents: Record<string, string> = {
           Browse by Grade
         </h2>
         <p class="max-w-content-sm text-[15px] font-medium text-ink-soft leading-[1.55]">
-          Follow a Kindergarten–5th Grade spelling curriculum built around Core Spelling,
-          High-Frequency Words, and Themed Spelling Practice.
+          Six grade levels, each built around Core Spelling, High-Frequency Words, and
+          Themed Spelling Practice.
         </p>
       </div>
 
       <div
-        class="mb-8 grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3"
+        class="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3"
         role="list"
         aria-label="Grade levels"
       >
@@ -243,20 +234,14 @@ const gradeAccents: Record<string, string> = {
           </a>
         ))}
       </div>
-
     </section>
 
-    <!-- ═══ BROWSE BY SKILL ══════════════════════════════════════ -->
-    <section
-      id="skills"
-      class="mx-auto max-w-content-xl px-6 pb-16"
-      aria-labelledby="skill-heading"
-    >
+    <section id="skills" class="mx-auto max-w-content-xl px-6 pb-16 scroll-mt-[72px]" aria-labelledby="skill-heading">
       <h2 id="skill-heading" class="text-display-lg mb-2">Browse by Skill</h2>
       <p class="mb-5 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
-        Already know what to work on? SpellingWords.app's skill library covers {HOMEPAGE_SKILL_COUNT} spelling
-        skills — from {HOMEPAGE_REPRESENTATIVE_SKILLS[0]} and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[3]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]} — organized independently
-        of grade level so students can practice the specific spelling skill they need.
+        Already know what to work on? Browse {HOMEPAGE_SKILL_COUNT} spelling skills,
+        from {HOMEPAGE_REPRESENTATIVE_SKILLS[0]} and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[3]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]},
+        organized independently of grade so students can go straight to the pattern they need.
       </p>
       <a href={SKILLS_INDEX_PATH} class="btn-action">Browse Spelling Skills <span aria-hidden="true">→</span></a>
     </section>
@@ -270,10 +255,9 @@ const gradeAccents: Record<string, string> = {
       <div class="trust-item mx-auto max-w-content-sm px-6 text-center">
         <h2 id="trust-heading" class="text-display-lg mb-4">More than a list of spelling words</h2>
         <p class="text-[15px] font-medium leading-[1.6] text-ink-soft">
-          SpellingWords.app is organized around real spelling knowledge — sound-spelling patterns,
-          spelling conventions, word structure, and the high-frequency words students see every
-          day — not just a random list to memorize. It's free, with no account, and has no timers,
-          points, or competitions: just focused, structured practice.
+          SpellingWords.app is organized around real spelling knowledge: sound-spelling patterns,
+          word structure, and the high-frequency words students see every day, not just a random
+          list to memorize. Free, with no account needed.
         </p>
       </div>
     </section>

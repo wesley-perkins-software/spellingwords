@@ -1,0 +1,120 @@
+import type { SpellingWord } from '@/types/spelling';
+import { getSentenceBankEntry } from '@/lib/sentenceBank/lookup';
+import { shuffleWords } from '@/modules/spellingTest/order';
+import type { CuratedSpellingSkillId } from './spellingSkills';
+
+/**
+ * A Skill practice bank: the canonical, grade-independent pool of practice
+ * words for one Skill, distinct from that Skill's (smaller) demonstration
+ * set in the Skill's own content frontmatter. See
+ * docs/architecture/CONTENT_MODEL.md §3/§4.
+ *
+ * Items are plain strings for this pilot. That is sufficient for the
+ * single-pattern, multi-pattern, and morphological Skills piloted here, but
+ * it is not meant as a frozen shape for all 41 Skills — a meaning-dependent
+ * Skill (Homophones, Commonly Confused Words) will need a richer item shape
+ * (at minimum, a disambiguating context sentence) before it can ship a bank,
+ * which is deliberately left undesigned until that work is taken on.
+ */
+export interface SkillPracticeBank {
+  skillId: CuratedSpellingSkillId;
+  words: string[];
+}
+
+/**
+ * Pilot banks only. A Skill with no entry here simply has no practice CTA —
+ * that's the whole rollout mechanism for the remaining Skills, not a state
+ * that needs to be checked for or handled specially by callers.
+ */
+export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillPracticeBank>> = {
+  'short-a-words': {
+    skillId: 'short-a-words',
+    words: [
+      'cat', 'hat', 'mat', 'sat',
+      'pan', 'can', 'fan', 'ran',
+      'cap', 'map', 'tap',
+      'bad', 'dad', 'sad',
+      'bag', 'tag',
+      'hand', 'stamp',
+    ],
+  },
+  'digraph-sh-words': {
+    skillId: 'digraph-sh-words',
+    words: [
+      'ship', 'shop', 'shut', 'shin', 'shell',
+      'wish', 'brush', 'dish', 'fish', 'wash', 'mush',
+      'fishing', 'washing',
+    ],
+  },
+  'silent-e-long-a': {
+    skillId: 'silent-e-long-a',
+    words: [
+      'cake', 'bake', 'lake', 'make', 'take', 'wake',
+      'gate', 'late', 'date', 'plate', 'skate',
+      'flame', 'game', 'name', 'same', 'tame',
+      'cape', 'grape', 'shape', 'tape',
+      'brave', 'cave', 'gave', 'save', 'wave',
+    ],
+  },
+  'ck-tch-dge-word-endings': {
+    skillId: 'ck-tch-dge-word-endings',
+    words: [
+      'back', 'duck', 'rock', 'pick',
+      'staff', 'bell', 'moss', 'cliff', 'buzz', 'fuzz', 'jazz',
+      'catch', 'pitch', 'notch', 'hutch',
+      'badge', 'bridge', 'lodge', 'fudge',
+    ],
+  },
+  'common-suffixes': {
+    skillId: 'common-suffixes',
+    words: [
+      'helpful', 'hopeful', 'careful', 'thoughtful',
+      'careless', 'hopeless',
+      'kindness', 'darkness',
+      'enjoyment', 'movement',
+      'faster', 'fastest', 'slower', 'slowest', 'smaller', 'smallest',
+    ],
+  },
+  'multisyllabic-words': {
+    skillId: 'multisyllabic-words',
+    words: [
+      'rabbit', 'basket', 'kitten', 'chicken', 'pencil', 'garden',
+      'robot', 'paper', 'music', 'baby',
+      'table', 'little', 'apple', 'simple', 'gentle', 'circle', 'turtle',
+      'sunset',
+      'winter', 'number',
+    ],
+  },
+};
+
+/** Looks up a Skill's practice bank, or `undefined` if it doesn't have one yet. */
+export function getSkillPracticeBank(skillId: string): SkillPracticeBank | undefined {
+  return SKILL_PRACTICE_BANKS[skillId as CuratedSpellingSkillId];
+}
+
+/**
+ * Maps a bank's plain-string words to playable `SpellingWord`s, attaching
+ * an example sentence from the shared sentence bank where one exists —
+ * mirrors `spellingLists.ts`'s `toPlayableWords`, which does the same for a
+ * content-collection entry's demonstration words.
+ */
+export function toPlayableSkillPracticeWords(bank: SkillPracticeBank): SpellingWord[] {
+  return bank.words.map((word) => ({
+    word,
+    exampleSentence: getSentenceBankEntry(word)?.exampleSentence,
+  }));
+}
+
+/**
+ * Selects a bounded, shuffled practice session from a Skill's bank. Default
+ * session size of 10 matches the curated-collection default already decided
+ * in docs/LEARNING_MODEL.md; a bank smaller than that simply yields the
+ * whole (shuffled) bank.
+ */
+export function selectSkillPracticeSession<T>(
+  words: readonly T[],
+  sessionSize = 10,
+  rng: () => number = Math.random,
+): T[] {
+  return shuffleWords(words, rng).slice(0, sessionSize);
+}

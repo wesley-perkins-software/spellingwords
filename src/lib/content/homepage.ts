@@ -4,18 +4,19 @@ import { getCanonicalSkillRoutes } from './canonicalSkillRoutes';
 export const HOMEPAGE_URL = 'https://spellingwords.app/';
 
 /**
- * Approved editorial teaser per grade, traceable to the canonical K–5 Grade
- * Unit curriculum (docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md).
- * Frozen copy from docs/content/CANONICAL_HOMEPAGE_STANDARD.md's Appendix —
- * not derived algorithmically.
+ * Editorial description per grade, one sentence each, verified against the
+ * canonical K–5 Grade Unit curriculum
+ * (docs/curriculum/CANONICAL_K5_GRADE_UNIT_CURRICULUM.md). Not derived
+ * algorithmically; see docs/content/CANONICAL_HOMEPAGE_STANDARD.md's
+ * Appendix for the reference copy this is kept in sync with.
  */
 const HOMEPAGE_GRADE_TEASERS: Record<GradeCode, string> = {
-  K: 'Letters, sounds, and first words',
-  '1': 'Blends, silent e, and vowel teams',
-  '2': 'R-controlled vowels and multisyllabic words',
-  '3': 'Prefixes, suffixes, and homophones',
-  '4': 'Greek and Latin roots and derived words',
-  '5': 'Advanced roots, affixes, and academic words',
+  K: 'Builds the foundations with letters, sounds, first words, and short-vowel spelling.',
+  '1': 'Strengthens early spelling with consonant blends and digraphs, silent e, vowel teams, and word endings.',
+  '2': 'Expands into r-controlled vowels, more vowel patterns, syllable structure, silent letters, and multisyllabic words.',
+  '3': 'Introduces prefixes, suffixes, spelling changes, homophones, possessives, and word families.',
+  '4': 'Develops advanced word knowledge through roots, morphology, multisyllabic spelling, and commonly confused words.',
+  '5': 'Brings it together with advanced roots and affixes, academic words, and spelling changes across related words.',
 };
 
 export const homepageGradeHubs = gradeConfig.map(({ grade, label, hubHref }) => ({

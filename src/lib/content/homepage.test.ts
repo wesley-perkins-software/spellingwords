@@ -18,7 +18,7 @@ describe('canonical homepage', () => {
   it('has one immediate page heading and complete, accurate metadata', () => {
     expect(homepageSource.match(/<h1\b/g)).toHaveLength(1);
     expect(homepageSource).toContain(
-      'Practice <span class="text-brand-red">spelling</span>: your own words, or a full K–5',
+      'Practice <span class="text-brand-red">spelling</span> your way.',
     );
     expect(homepageSource).toContain(
       'title="Free K–5 Spelling Practice by Grade or Skill, No Account | SpellingWords.app"',
@@ -38,20 +38,35 @@ describe('canonical homepage', () => {
       gradeConfig.map(({ label, hubHref }) => ({ label, href: hubHref })),
     );
     expect(homepageGradeHubs).toEqual([
-      expect.objectContaining({ label: 'Kindergarten', teaser: 'Letters, sounds, and first words' }),
-      expect.objectContaining({ label: '1st Grade', teaser: 'Blends, silent e, and vowel teams' }),
+      expect.objectContaining({
+        label: 'Kindergarten',
+        teaser:
+          'Builds the foundations with letters, sounds, first words, and short-vowel spelling.',
+      }),
+      expect.objectContaining({
+        label: '1st Grade',
+        teaser:
+          'Strengthens early spelling with consonant blends and digraphs, silent e, vowel teams, and word endings.',
+      }),
       expect.objectContaining({
         label: '2nd Grade',
-        teaser: 'R-controlled vowels and multisyllabic words',
+        teaser:
+          'Expands into r-controlled vowels, more vowel patterns, syllable structure, silent letters, and multisyllabic words.',
       }),
-      expect.objectContaining({ label: '3rd Grade', teaser: 'Prefixes, suffixes, and homophones' }),
+      expect.objectContaining({
+        label: '3rd Grade',
+        teaser:
+          'Introduces prefixes, suffixes, spelling changes, homophones, possessives, and word families.',
+      }),
       expect.objectContaining({
         label: '4th Grade',
-        teaser: 'Greek and Latin roots and derived words',
+        teaser:
+          'Develops advanced word knowledge through roots, morphology, multisyllabic spelling, and commonly confused words.',
       }),
       expect.objectContaining({
         label: '5th Grade',
-        teaser: 'Advanced roots, affixes, and academic words',
+        teaser:
+          'Brings it together with advanced roots and affixes, academic words, and spelling changes across related words.',
       }),
     ]);
     expect(homepageSource).toContain('homepageGradeHubs.map');
@@ -119,9 +134,16 @@ describe('canonical homepage', () => {
     expect(homepageSource).not.toContain('Curated and structured');
     expect(homepageSource).toContain('More than a list of spelling words');
     expect(homepageSource).toContain(
-      'SpellingWords.app is organized around real spelling knowledge',
+      'SpellingWords.app brings a structured K–5 spelling curriculum',
     );
     expect(homepageSource.toLowerCase()).not.toMatch(/actually learned/);
+    expect(homepageSource.toLowerCase()).not.toMatch(/real spelling knowledge/);
+  });
+
+  it('keeps the Practice Your Own Words interaction hosted directly on the page', () => {
+    expect(homepageSource).toContain('id="word-input"');
+    expect(homepageSource).toContain('id="btn-start"');
+    expect(homepageSource).toContain("window.location.href = `/play?list=");
   });
 
   it('emits only the required homepage structured-data types', () => {

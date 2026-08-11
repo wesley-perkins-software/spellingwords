@@ -128,14 +128,12 @@ const gradeAccents: Record<string, string> = {
           id="hero-heading"
           class="anim-1 text-display-xl mb-9"
         >
-          Practice <span class="text-brand-red">spelling</span>: your own words, or a full K–5
-          curriculum and skill library.
+          Practice <span class="text-brand-red">spelling</span> your way.
         </h1>
 
         <p class="anim-2 mx-auto mb-7 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
-          Type or paste any list and start practicing in seconds. Free, no account needed. Or
-          explore spelling practice organized by grade and by skill, from Kindergarten through
-          5th grade.
+          Use your own words, follow a structured K–5 spelling curriculum, or explore a library
+          of focused spelling skills. Free to use, with no account or login required.
         </p>
 
         <!-- Word input card -->
@@ -203,8 +201,8 @@ const gradeAccents: Record<string, string> = {
           Browse by Grade
         </h2>
         <p class="max-w-content-sm text-[15px] font-medium text-ink-soft leading-[1.55]">
-          Six grade levels, each built around Core Spelling, High-Frequency Words, and
-          Themed Spelling Practice.
+          Follow an organized Kindergarten–5th Grade spelling path built around Core Spelling,
+          High-Frequency Words, and Themed Spelling Practice.
         </p>
       </div>
 
@@ -221,9 +219,6 @@ const gradeAccents: Record<string, string> = {
           >
             <div class={`h-1 flex-shrink-0 ${gradeAccents[index === 0 ? 'K' : String(index)]}`}></div>
             <div class="flex flex-col gap-1 p-[18px] pb-4">
-              <span class="text-caption">
-                {index === 0 ? 'Kindergarten' : `Grade ${index}`}
-              </span>
               <span class="font-display text-[21px] font-semibold text-ink leading-[1.1] tracking-[-0.01em]">
                 {label}
               </span>
@@ -239,9 +234,9 @@ const gradeAccents: Record<string, string> = {
     <section id="skills" class="mx-auto max-w-content-xl px-6 pb-16 scroll-mt-[72px]" aria-labelledby="skill-heading">
       <h2 id="skill-heading" class="text-display-lg mb-2">Browse by Skill</h2>
       <p class="mb-5 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
-        Already know what to work on? Browse {HOMEPAGE_SKILL_COUNT} spelling skills,
-        from {HOMEPAGE_REPRESENTATIVE_SKILLS[0]} and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[3]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]},
-        organized independently of grade so students can go straight to the pattern they need.
+        Already know what to work on? Explore {HOMEPAGE_SKILL_COUNT} spelling skills,
+        from {HOMEPAGE_REPRESENTATIVE_SKILLS[0]} and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[3]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]}
+        — go straight to the specific spelling skill your student needs.
       </p>
       <a href={SKILLS_INDEX_PATH} class="btn-action">Browse Spelling Skills <span aria-hidden="true">→</span></a>
     </section>
@@ -255,9 +250,12 @@ const gradeAccents: Record<string, string> = {
       <div class="trust-item mx-auto max-w-content-sm px-6 text-center">
         <h2 id="trust-heading" class="text-display-lg mb-4">More than a list of spelling words</h2>
         <p class="text-[15px] font-medium leading-[1.6] text-ink-soft">
-          SpellingWords.app is organized around real spelling knowledge: sound-spelling patterns,
-          word structure, and the high-frequency words students see every day, not just a random
-          list to memorize. Free, with no account needed.
+          SpellingWords.app brings a structured K–5 spelling curriculum, a library of focused
+          spelling skills, and space to practice a student's own words together in one place —
+          organized by spelling patterns and high-frequency words, not a random list to memorize.
+          Parents and teachers get an organized path to follow, and students get calm, focused
+          practice. It's free, with no account required, and there are no timers, points, or
+          competitions.
         </p>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { comparisonKey } from '@/lib/words';
+import { getSentenceBankEntry } from '@/lib/sentenceBank/lookup';
 import { isCuratedSpellingSkillId } from './spellingSkills';
 import {
   SKILL_PRACTICE_BANKS,
@@ -11,7 +12,7 @@ import {
 describe('SKILL_PRACTICE_BANKS', () => {
   const banks = Object.values(SKILL_PRACTICE_BANKS);
 
-  it('has exactly the six piloted Skills', () => {
+  it('has exactly the piloted and expansion-batch Skills', () => {
     expect(Object.keys(SKILL_PRACTICE_BANKS).sort()).toEqual(
       [
         'ck-tch-dge-word-endings',
@@ -20,6 +21,19 @@ describe('SKILL_PRACTICE_BANKS', () => {
         'multisyllabic-words',
         'short-a-words',
         'silent-e-long-a',
+        'short-e-words',
+        'short-i-words',
+        'short-o-words',
+        'short-u-words',
+        'digraph-ch-words',
+        'digraph-th-words',
+        'digraph-wh-words',
+        'silent-e-long-i',
+        'silent-e-long-o',
+        'silent-e-long-u',
+        'r-controlled-ar',
+        'r-controlled-or',
+        'r-controlled-er-ir-ur',
       ].sort(),
     );
   });
@@ -46,6 +60,17 @@ describe('SKILL_PRACTICE_BANKS', () => {
     for (const bank of banks) {
       const keys = bank!.words.map((w) => comparisonKey(w));
       expect(new Set(keys).size).toBe(keys.length);
+    }
+  });
+
+  it('has an example sentence for every word in every bank', () => {
+    for (const bank of banks) {
+      for (const word of bank!.words) {
+        expect(
+          getSentenceBankEntry(word)?.exampleSentence,
+          `expected a sentence-bank example sentence for "${word}" (Skill: ${bank!.skillId})`,
+        ).toBeTruthy();
+      }
     }
   });
 });

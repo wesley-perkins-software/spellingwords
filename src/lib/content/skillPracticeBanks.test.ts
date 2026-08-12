@@ -108,24 +108,24 @@ describe('getSkillPracticeBank', () => {
   });
 
   it('returns the bank for the meaning-dependent Skills, using the ordinary bank shape', () => {
-    expect(getSkillPracticeBank('homophones')?.words).toEqual([
-      'to',
-      'too',
-      'two',
-      'there',
-      'their',
-      "they're",
-    ]);
-    expect(getSkillPracticeBank('commonly-confused-words')?.words).toEqual([
-      'affect',
-      'effect',
-      'principal',
-      'principle',
-      'advice',
-      'advise',
-      'than',
-      'then',
-    ]);
+    const homophones = getSkillPracticeBank('homophones')?.words ?? [];
+    expect(homophones).toEqual(expect.arrayContaining(['to', 'too', 'two', 'there', 'their', "they're"]));
+    expect(homophones.length).toBeGreaterThan(6);
+
+    const confusedWords = getSkillPracticeBank('commonly-confused-words')?.words ?? [];
+    expect(confusedWords).toEqual(
+      expect.arrayContaining([
+        'affect',
+        'effect',
+        'principal',
+        'principle',
+        'advice',
+        'advise',
+        'than',
+        'then',
+      ]),
+    );
+    expect(confusedWords.length).toBeGreaterThan(8);
   });
 
   it('returns undefined for an unrecognized id', () => {

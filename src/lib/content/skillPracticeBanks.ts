@@ -127,22 +127,22 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
   'digraph-ch-words': {
     skillId: 'digraph-ch-words',
     words: [
-      'chin', 'chip', 'chop', 'chest',
-      'lunch', 'much', 'rich', 'such',
+      'chin', 'chip', 'chop', 'chest', 'chick', 'cheese', 'chair', 'church',
+      'lunch', 'much', 'rich', 'such', 'bunch', 'punch', 'teach', 'reach',
     ],
   },
   'digraph-th-words': {
     skillId: 'digraph-th-words',
     words: [
-      'that', 'this', 'them',
-      'think', 'math', 'bath', 'path',
+      'that', 'this', 'them', 'thin', 'three', 'thing',
+      'think', 'math', 'bath', 'path', 'teeth', 'tooth', 'cloth', 'both', 'with',
     ],
   },
   'digraph-wh-words': {
     skillId: 'digraph-wh-words',
     words: [
       'what', 'when', 'where', 'whip', 'while', 'why', 'wheel', 'white',
-      'who', 'whom', 'whose', 'whole',
+      'who', 'whom', 'whose', 'whole', 'whale', 'wheat',
     ],
   },
   'silent-e-long-i': {
@@ -165,8 +165,8 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
   'silent-e-long-u': {
     skillId: 'silent-e-long-u',
     words: [
-      'cube', 'cute', 'huge', 'mule', 'fuse',
-      'rule', 'flute', 'prune', 'tune', 'tube',
+      'cube', 'cute', 'huge', 'mule', 'fuse', 'use',
+      'rule', 'flute', 'prune', 'tune', 'tube', 'cure', 'pure', 'dune',
     ],
   },
   'r-controlled-ar': {
@@ -186,17 +186,17 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
   'r-controlled-er-ir-ur': {
     skillId: 'r-controlled-er-ir-ur',
     words: [
-      'her', 'fern', 'term',
-      'bird', 'first', 'girl',
-      'turn', 'hurt', 'turtle',
+      'her', 'fern', 'term', 'after', 'never',
+      'bird', 'first', 'girl', 'third', 'shirt', 'stir',
+      'turn', 'hurt', 'turtle', 'burn', 'curl',
       'sister', 'winter', 'under',
     ],
   },
   'vowel-teams-ai-ay': {
     skillId: 'vowel-teams-ai-ay',
     words: [
-      'chain', 'mail', 'nail', 'paint', 'rain', 'snail', 'train', 'wait',
-      'day', 'play', 'stay', 'way',
+      'chain', 'mail', 'nail', 'paint', 'rain', 'snail', 'train', 'wait', 'brain', 'tail', 'main',
+      'day', 'play', 'stay', 'way', 'say', 'may', 'gray',
     ],
   },
   'vowel-teams-ee-ea': {
@@ -209,8 +209,8 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
   'vowel-teams-oa-ow': {
     skillId: 'vowel-teams-oa-ow',
     words: [
-      'boat', 'coat', 'goat', 'road', 'soap',
-      'blow', 'crow', 'flow', 'grow', 'know', 'snow',
+      'boat', 'coat', 'goat', 'road', 'soap', 'toast', 'roast', 'coach',
+      'blow', 'crow', 'flow', 'grow', 'know', 'snow', 'low', 'slow', 'show', 'glow', 'throw',
     ],
   },
   'oi-and-oy-words': {
@@ -244,8 +244,8 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
   'au-and-aw-words': {
     skillId: 'au-and-aw-words',
     words: [
-      'saw', 'draw', 'lawn', 'crawl', 'hawk',
-      'cause', 'author', 'haul', 'because', 'fault', 'vault',
+      'saw', 'draw', 'lawn', 'crawl', 'hawk', 'paw', 'jaw', 'straw', 'yawn', 'dawn',
+      'cause', 'author', 'haul', 'because', 'fault', 'vault', 'launch', 'sauce',
     ],
   },
   'beginning-blends': {
@@ -299,6 +299,7 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
     words: [
       'jumped', 'jumping', 'helped', 'helping', 'played', 'playing',
       'rested', 'resting', 'looked', 'looking', 'called', 'calling',
+      'wanted', 'wanting', 'cooked', 'cooking',
     ],
   },
   'suffix-spelling-changes': {
@@ -315,6 +316,7 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
     words: [
       'sunshine', 'backpack', 'notebook', 'snowman', 'sunset', 'toothbrush',
       'rainbow', 'weekend', 'bedroom', 'football', 'birthday', 'cupcake',
+      'bathtub', 'playground', 'sandbox', 'mailbox', 'doghouse', 'popcorn',
     ],
   },
   contractions: {
@@ -328,8 +330,8 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
   'un-and-re-prefixes': {
     skillId: 'un-and-re-prefixes',
     words: [
-      'unfair', 'unhappy', 'unkind', 'unsafe', 'unlock',
-      'redo', 'replay', 'reread', 'rewrite', 'retell',
+      'unfair', 'unhappy', 'unkind', 'unsafe', 'unlock', 'unable', 'undo', 'unwrap', 'unpack',
+      'redo', 'replay', 'reread', 'rewrite', 'retell', 'refill', 'rebuild', 'reuse', 'recycle',
     ],
   },
   'common-prefixes': {
@@ -357,11 +359,45 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
   },
   homophones: {
     skillId: 'homophones',
-    words: ['to', 'too', 'two', 'there', 'their', "they're"],
+    words: [
+      'to', 'too', 'two',
+      'there', 'their', "they're",
+      'your', "you're",
+      'here', 'hear',
+      'right', 'write',
+      'brake', 'break',
+      'son', 'sun',
+      'one', 'won',
+      'no', 'know',
+      'new', 'knew',
+      'see', 'sea',
+      'week', 'weak',
+      'meet', 'meat',
+      'pair', 'pear',
+      'hole', 'whole',
+      'flower', 'flour',
+      'blue', 'blew',
+      'mail', 'male',
+      'piece', 'peace',
+    ],
   },
   'commonly-confused-words': {
     skillId: 'commonly-confused-words',
-    words: ['affect', 'effect', 'principal', 'principle', 'advice', 'advise', 'than', 'then'],
+    words: [
+      'affect', 'effect',
+      'principal', 'principle',
+      'advice', 'advise',
+      'than', 'then',
+      'accept', 'except',
+      'lose', 'loose',
+      'chose', 'choose',
+      'quiet', 'quite',
+      'weather', 'whether',
+      'past', 'passed',
+      'breath', 'breathe',
+      'whose', "who's",
+      'its', "it's",
+    ],
   },
 };
 

@@ -46,8 +46,21 @@ describe('SKILL_PRACTICE_BANKS', () => {
         'ending-blends',
         'silent-letters',
         'soft-c-soft-g',
+        'plurals',
+        'ed-and-ing',
+        'suffix-spelling-changes',
+        'compound-words',
+        'contractions',
+        'un-and-re-prefixes',
+        'common-prefixes',
+        'greek-and-latin-roots',
       ].sort(),
     );
+  });
+
+  it('does not yet have banks for the meaning-dependent Skills', () => {
+    expect(SKILL_PRACTICE_BANKS['homophones']).toBeUndefined();
+    expect(SKILL_PRACTICE_BANKS['commonly-confused-words']).toBeUndefined();
   });
 
   it('keys every bank under a real curated Skill id, matching its own skillId', () => {

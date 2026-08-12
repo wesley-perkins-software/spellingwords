@@ -9,12 +9,10 @@ import type { CuratedSpellingSkillId } from './spellingSkills';
  * set in the Skill's own content frontmatter. See
  * docs/architecture/CONTENT_MODEL.md §3/§4.
  *
- * Items are plain strings for this pilot. That is sufficient for the
- * single-pattern, multi-pattern, and morphological Skills piloted here, but
- * it is not meant as a frozen shape for all 41 Skills — a meaning-dependent
- * Skill (Homophones, Commonly Confused Words) will need a richer item shape
- * (at minimum, a disambiguating context sentence) before it can ship a bank,
- * which is deliberately left undesigned until that work is taken on.
+ * Items are plain strings, resolved against the shared sentence bank like
+ * any other curated word — including Homophones and Commonly Confused
+ * Words, whose disambiguation comes from an ordinary, carefully chosen
+ * example sentence rather than a separate item shape or practice mode.
  */
 export interface SkillPracticeBank {
   skillId: CuratedSpellingSkillId;
@@ -357,6 +355,14 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
       'national', 'critical',
     ],
   },
+  homophones: {
+    skillId: 'homophones',
+    words: ['to', 'too', 'two', 'there', 'their', "they're"],
+  },
+  'commonly-confused-words': {
+    skillId: 'commonly-confused-words',
+    words: ['affect', 'effect', 'principal', 'principle', 'advice', 'advise', 'than', 'then'],
+  },
 };
 
 /** Looks up a Skill's practice bank, or `undefined` if it doesn't have one yet. */
@@ -377,16 +383,35 @@ export function toPlayableSkillPracticeWords(bank: SkillPracticeBank): SpellingW
   }));
 }
 
+/** Default Skill practice session size, matching the curated-collection default in docs/LEARNING_MODEL.md. */
+const DEFAULT_SESSION_SIZE = 10;
+
 /**
- * Selects a bounded, shuffled practice session from a Skill's bank. Default
- * session size of 10 matches the curated-collection default already decided
- * in docs/LEARNING_MODEL.md; a bank smaller than that simply yields the
- * whole (shuffled) bank.
+ * Selects a bounded, shuffled practice session from a Skill's bank. A bank
+ * smaller than the session size simply yields the whole (shuffled) bank.
  */
 export function selectSkillPracticeSession<T>(
   words: readonly T[],
-  sessionSize = 10,
+  sessionSize = DEFAULT_SESSION_SIZE,
   rng: () => number = Math.random,
 ): T[] {
   return shuffleWords(words, rng).slice(0, sessionSize);
+}
+
+/**
+ * Skill-page practice CTA copy, derived from the actual bank size so it
+ * never claims a session size the bank can't back. A bank larger than the
+ * session size gets the "random words, different mix" framing; a bank at
+ * or under the session size practices every word every time, so the copy
+ * says so plainly instead of claiming randomness that isn't there.
+ */
+export function skillPracticeDescription(
+  wordCount: number,
+  sessionSize = DEFAULT_SESSION_SIZE,
+): string {
+  if (wordCount > sessionSize) {
+    return `Practice ${sessionSize} random words from the list above. Start another session anytime for a different mix.`;
+  }
+  const wordLabel = wordCount === 1 ? 'word' : 'words';
+  return `Practice all ${wordCount} ${wordLabel} from the list above.`;
 }

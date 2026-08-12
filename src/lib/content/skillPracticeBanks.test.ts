@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { comparisonKey } from '@/lib/words';
 import { getSentenceBankEntry } from '@/lib/sentenceBank/lookup';
-import { isCuratedSpellingSkillId } from './spellingSkills';
+import { CURATED_SPELLING_SKILL_IDS, isCuratedSpellingSkillId } from './spellingSkills';
 import {
   SKILL_PRACTICE_BANKS,
   getSkillPracticeBank,
@@ -12,7 +12,12 @@ import {
 describe('SKILL_PRACTICE_BANKS', () => {
   const banks = Object.values(SKILL_PRACTICE_BANKS);
 
-  it('has exactly the piloted and expansion-batch Skills', () => {
+  it('has a bank for every one of the 41 canonical Skills', () => {
+    expect(CURATED_SPELLING_SKILL_IDS.length).toBe(41);
+    expect(Object.keys(SKILL_PRACTICE_BANKS).sort()).toEqual([...CURATED_SPELLING_SKILL_IDS].sort());
+  });
+
+  it('has exactly the piloted, expansion-batch, and meaning-dependent Skills', () => {
     expect(Object.keys(SKILL_PRACTICE_BANKS).sort()).toEqual(
       [
         'ck-tch-dge-word-endings',
@@ -54,13 +59,10 @@ describe('SKILL_PRACTICE_BANKS', () => {
         'un-and-re-prefixes',
         'common-prefixes',
         'greek-and-latin-roots',
+        'homophones',
+        'commonly-confused-words',
       ].sort(),
     );
-  });
-
-  it('does not yet have banks for the meaning-dependent Skills', () => {
-    expect(SKILL_PRACTICE_BANKS['homophones']).toBeUndefined();
-    expect(SKILL_PRACTICE_BANKS['commonly-confused-words']).toBeUndefined();
   });
 
   it('keys every bank under a real curated Skill id, matching its own skillId', () => {
@@ -105,8 +107,25 @@ describe('getSkillPracticeBank', () => {
     expect(getSkillPracticeBank('short-a-words')?.words.length).toBeGreaterThan(0);
   });
 
-  it('returns undefined for a Skill with no bank yet', () => {
-    expect(getSkillPracticeBank('homophones')).toBeUndefined();
+  it('returns the bank for the meaning-dependent Skills, using the ordinary bank shape', () => {
+    expect(getSkillPracticeBank('homophones')?.words).toEqual([
+      'to',
+      'too',
+      'two',
+      'there',
+      'their',
+      "they're",
+    ]);
+    expect(getSkillPracticeBank('commonly-confused-words')?.words).toEqual([
+      'affect',
+      'effect',
+      'principal',
+      'principle',
+      'advice',
+      'advise',
+      'than',
+      'then',
+    ]);
   });
 
   it('returns undefined for an unrecognized id', () => {

@@ -34,6 +34,8 @@ export const GRADE45_ENTRIES: SentenceBankEntry[] = [
   { word: 'biology', exampleSentence: 'Biology helps students learn how living things grow and survive.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'breakable', exampleSentence: 'The glass ornament is breakable, so handle it carefully.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'breakfast', exampleSentence: 'We ate warm oatmeal and fruit for breakfast this morning.', gradeBand: '4-5', sourceType: 'curated' },
+  { word: 'breath', exampleSentence: 'She took a deep breath before diving in.', gradeBand: '4-5', sourceType: 'curated' },
+  { word: 'breathe', exampleSentence: 'Remember to breathe slowly when you feel nervous.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'business', exampleSentence: 'The family opened a small business that sells fresh bread.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'capital', exampleSentence: 'The capital city is where many state leaders work.', gradeBand: '4-5', sourceType: 'curated' },
   { word: 'captain', exampleSentence: 'The captain steered the boat gently across the calm lake.', gradeBand: '4-5', sourceType: 'curated' },

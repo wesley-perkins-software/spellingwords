@@ -250,6 +250,45 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
       'cause', 'author', 'haul', 'because', 'fault', 'vault',
     ],
   },
+  'beginning-blends': {
+    skillId: 'beginning-blends',
+    words: [
+      'black', 'blob', 'clap', 'clip', 'flag', 'flat', 'glad', 'glow', 'plum', 'plan', 'slip', 'sled',
+      'brag', 'bring', 'crab', 'cry', 'drum', 'drip', 'frog', 'free', 'grab', 'green', 'prize', 'print', 'train', 'trip',
+      'smile', 'small', 'snack', 'snap', 'spin', 'spot', 'stop', 'star', 'swim', 'swing',
+      'scrub', 'sprint', 'strap', 'splat',
+    ],
+  },
+  'ending-blends': {
+    skillId: 'ending-blends',
+    words: [
+      'jump', 'lamp', 'camp',
+      'hand', 'sand', 'land',
+      'sink', 'pink', 'junk',
+      'tent', 'hunt', 'mint',
+      'gift', 'lift', 'raft',
+      'milk', 'silk', 'elk',
+      'belt', 'melt', 'salt',
+      'desk', 'mask', 'task',
+      'cold', 'gold',
+      'help', 'yelp',
+    ],
+  },
+  'silent-letters': {
+    skillId: 'silent-letters',
+    words: [
+      'write', 'wrap', 'wrist', 'wrote', 'wrong', 'wreck',
+      'know', 'knee', 'knot', 'knew', 'knock', 'knife',
+      'thumb', 'lamb', 'crumb', 'comb', 'climb', 'numb',
+    ],
+  },
+  'soft-c-soft-g': {
+    skillId: 'soft-c-soft-g',
+    words: [
+      'city', 'ice', 'icy', 'circus', 'place', 'face', 'race', 'nice',
+      'giant', 'page', 'gym', 'cage', 'large', 'change',
+    ],
+  },
 };
 
 /** Looks up a Skill's practice bank, or `undefined` if it doesn't have one yet. */

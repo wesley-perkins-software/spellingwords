@@ -289,6 +289,74 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
       'giant', 'page', 'gym', 'cage', 'large', 'change',
     ],
   },
+  plurals: {
+    skillId: 'plurals',
+    words: [
+      'cats', 'dogs', 'cups', 'beds', 'books', 'trees',
+      'buses', 'boxes', 'dishes', 'wishes', 'brushes', 'fixes', 'buzzes', 'passes', 'lunches', 'foxes',
+    ],
+  },
+  'ed-and-ing': {
+    skillId: 'ed-and-ing',
+    words: [
+      'jumped', 'jumping', 'helped', 'helping', 'played', 'playing',
+      'rested', 'resting', 'looked', 'looking', 'called', 'calling',
+    ],
+  },
+  'suffix-spelling-changes': {
+    skillId: 'suffix-spelling-changes',
+    words: [
+      'running', 'stopped', 'bigger', 'sitting', 'planned',
+      'making', 'hoped', 'safer', 'smiled',
+      'carried', 'cried', 'happier', 'funniest', 'happiness', 'cities',
+      'hopeful', 'careless', 'carrying',
+    ],
+  },
+  'compound-words': {
+    skillId: 'compound-words',
+    words: [
+      'sunshine', 'backpack', 'notebook', 'snowman', 'sunset', 'toothbrush',
+      'rainbow', 'weekend', 'bedroom', 'football', 'birthday', 'cupcake',
+    ],
+  },
+  contractions: {
+    skillId: 'contractions',
+    words: [
+      "can't", "don't", "didn't", "isn't", "wasn't", "won't",
+      "I'm", "she's", "we're", "they're", "he's", "it's", "that's",
+      "I'll", "she'll", "they'll",
+    ],
+  },
+  'un-and-re-prefixes': {
+    skillId: 'un-and-re-prefixes',
+    words: [
+      'unfair', 'unhappy', 'unkind', 'unsafe', 'unlock',
+      'redo', 'replay', 'reread', 'rewrite', 'retell',
+    ],
+  },
+  'common-prefixes': {
+    skillId: 'common-prefixes',
+    words: [
+      'disagree', 'dislike', 'discover', 'dishonest',
+      'misread', 'misplace', 'misspell',
+      'predict', 'preview',
+      'interact', 'interfere', 'intermission', 'international',
+      'submarine', 'subway', 'substitute',
+      'superstar', 'supervise',
+      'transport', 'transplant', 'transform', 'transfer',
+      'antifreeze', 'antibiotic',
+    ],
+  },
+  'greek-and-latin-roots': {
+    skillId: 'greek-and-latin-roots',
+    words: [
+      'transport', 'portable', 'transportation',
+      'predict', 'dictate', 'prediction',
+      'inspect', 'spectator', 'inspection',
+      'telephone', 'telescope', 'microscope', 'biography',
+      'national', 'critical',
+    ],
+  },
 };
 
 /** Looks up a Skill's practice bank, or `undefined` if it doesn't have one yet. */

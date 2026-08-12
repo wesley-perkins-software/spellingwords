@@ -10,7 +10,7 @@ import {
   HOMEPAGE_REPRESENTATIVE_SKILLS,
 } from '@/lib/content/homepage';
 
-const placeholderText = 'cat\nbecause\nplayground';
+const placeholderText = 'Type or paste your words here, one per line';
 
 const gradeAccents: Record<string, string> = {
   K: 'bg-chip-berry',
@@ -275,7 +275,7 @@ const gradeAccents: Record<string, string> = {
       pill.classList.toggle('has-words', count > 0);
 
       if (count === 0) {
-        status.textContent = 'Enter your words above, then press Start.';
+        status.textContent = 'Add at least 1 word to start practicing.';
         btn.disabled = true;
       } else if (count > 200) {
         status.textContent = 'Maximum 200 words. Please remove some words.';

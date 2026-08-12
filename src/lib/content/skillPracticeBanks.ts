@@ -85,6 +85,115 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
       'winter', 'number',
     ],
   },
+  'short-e-words': {
+    skillId: 'short-e-words',
+    words: [
+      'bed', 'fed', 'led', 'red', 'wed',
+      'hen', 'ten', 'men', 'pen', 'den',
+      'bet', 'get', 'net', 'pet',
+      'leg', 'beg', 'peg',
+      'tent', 'step', 'nest',
+    ],
+  },
+  'short-i-words': {
+    skillId: 'short-i-words',
+    words: [
+      'bit', 'fit', 'hit', 'kit', 'sit',
+      'big', 'dig', 'fig', 'pig', 'wig',
+      'bin', 'fin', 'pin', 'tin', 'win',
+      'dip', 'hip', 'lip', 'rip', 'tip',
+      'dish', 'fish', 'wish',
+      'hill',
+    ],
+  },
+  'short-o-words': {
+    skillId: 'short-o-words',
+    words: [
+      'cot', 'dot', 'got', 'hot', 'not', 'pot',
+      'hop', 'mop', 'pop', 'top',
+      'dog', 'fog', 'jog', 'log',
+      'dock', 'lock', 'rock', 'sock',
+      'pond', 'moth',
+    ],
+  },
+  'short-u-words': {
+    skillId: 'short-u-words',
+    words: [
+      'bug', 'hug', 'jug', 'mug', 'rug',
+      'bun', 'fun', 'run', 'sun',
+      'cub', 'rub', 'tub',
+      'dust', 'just', 'must', 'trust',
+      'cup', 'drum',
+    ],
+  },
+  'digraph-ch-words': {
+    skillId: 'digraph-ch-words',
+    words: [
+      'chin', 'chip', 'chop', 'chest',
+      'lunch', 'much', 'rich', 'such',
+    ],
+  },
+  'digraph-th-words': {
+    skillId: 'digraph-th-words',
+    words: [
+      'that', 'this', 'them',
+      'think', 'math', 'bath', 'path',
+    ],
+  },
+  'digraph-wh-words': {
+    skillId: 'digraph-wh-words',
+    words: [
+      'what', 'when', 'where', 'whip', 'while', 'why', 'wheel', 'white',
+      'who', 'whom', 'whose', 'whole',
+    ],
+  },
+  'silent-e-long-i': {
+    skillId: 'silent-e-long-i',
+    words: [
+      'bike', 'hike', 'like', 'spike',
+      'fine', 'line', 'mine', 'nine', 'pine', 'shine',
+      'hide', 'ride', 'side', 'slide', 'wide',
+      'chime', 'dime', 'lime', 'time',
+    ],
+  },
+  'silent-e-long-o': {
+    skillId: 'silent-e-long-o',
+    words: [
+      'home', 'hope', 'note', 'stone', 'chose',
+      'bone', 'cone', 'rope', 'slope', 'vote',
+      'broke', 'joke', 'poke', 'smoke',
+    ],
+  },
+  'silent-e-long-u': {
+    skillId: 'silent-e-long-u',
+    words: [
+      'cube', 'cute', 'huge', 'mule', 'fuse',
+      'rule', 'flute', 'prune', 'tune', 'tube',
+    ],
+  },
+  'r-controlled-ar': {
+    skillId: 'r-controlled-ar',
+    words: [
+      'art', 'car', 'dark', 'farm', 'hard', 'park', 'sharp', 'yard',
+      'far', 'star', 'cart', 'start', 'shark', 'arm',
+    ],
+  },
+  'r-controlled-or': {
+    skillId: 'r-controlled-or',
+    words: [
+      'corn', 'for', 'form', 'horse', 'morning', 'north', 'short', 'story',
+      'born', 'torn', 'sort', 'storm', 'glory', 'worn',
+    ],
+  },
+  'r-controlled-er-ir-ur': {
+    skillId: 'r-controlled-er-ir-ur',
+    words: [
+      'her', 'fern', 'term',
+      'bird', 'first', 'girl',
+      'turn', 'hurt', 'turtle',
+      'sister', 'winter', 'under',
+    ],
+  },
 };
 
 /** Looks up a Skill's practice bank, or `undefined` if it doesn't have one yet. */

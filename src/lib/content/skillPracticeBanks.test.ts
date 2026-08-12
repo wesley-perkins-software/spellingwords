@@ -34,6 +34,14 @@ describe('SKILL_PRACTICE_BANKS', () => {
         'r-controlled-ar',
         'r-controlled-or',
         'r-controlled-er-ir-ur',
+        'vowel-teams-ai-ay',
+        'vowel-teams-ee-ea',
+        'vowel-teams-oa-ow',
+        'oi-and-oy-words',
+        'ou-and-ow-words',
+        'ie-and-igh-words',
+        'oo-words',
+        'au-and-aw-words',
       ].sort(),
     );
   });

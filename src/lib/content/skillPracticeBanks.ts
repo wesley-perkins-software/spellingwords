@@ -194,6 +194,62 @@ export const SKILL_PRACTICE_BANKS: Partial<Record<CuratedSpellingSkillId, SkillP
       'sister', 'winter', 'under',
     ],
   },
+  'vowel-teams-ai-ay': {
+    skillId: 'vowel-teams-ai-ay',
+    words: [
+      'chain', 'mail', 'nail', 'paint', 'rain', 'snail', 'train', 'wait',
+      'day', 'play', 'stay', 'way',
+    ],
+  },
+  'vowel-teams-ee-ea': {
+    skillId: 'vowel-teams-ee-ea',
+    words: [
+      'bee', 'feel', 'feet', 'free', 'keep', 'need', 'sleep', 'tree', 'week',
+      'beach', 'clean', 'dream', 'eat', 'heat', 'speak', 'team',
+    ],
+  },
+  'vowel-teams-oa-ow': {
+    skillId: 'vowel-teams-oa-ow',
+    words: [
+      'boat', 'coat', 'goat', 'road', 'soap',
+      'blow', 'crow', 'flow', 'grow', 'know', 'snow',
+    ],
+  },
+  'oi-and-oy-words': {
+    skillId: 'oi-and-oy-words',
+    words: [
+      'oil', 'coin', 'point', 'voice', 'noise', 'soil',
+      'boy', 'joy', 'enjoy', 'royal', 'loyal', 'toy',
+    ],
+  },
+  'ou-and-ow-words': {
+    skillId: 'ou-and-ow-words',
+    words: [
+      'out', 'loud', 'found', 'round', 'sound', 'ground', 'mouse', 'mouth',
+      'cow', 'brown', 'down', 'now', 'town', 'clown', 'crown', 'howl',
+    ],
+  },
+  'ie-and-igh-words': {
+    skillId: 'ie-and-igh-words',
+    words: [
+      'pie', 'tie', 'lie', 'die',
+      'high', 'sigh', 'night', 'light', 'right', 'might', 'sight', 'bright', 'flight',
+    ],
+  },
+  'oo-words': {
+    skillId: 'oo-words',
+    words: [
+      'moon', 'food', 'zoo', 'spoon', 'soon', 'room', 'smooth',
+      'book', 'look', 'foot', 'good', 'took', 'wood', 'hood',
+    ],
+  },
+  'au-and-aw-words': {
+    skillId: 'au-and-aw-words',
+    words: [
+      'saw', 'draw', 'lawn', 'crawl', 'hawk',
+      'cause', 'author', 'haul', 'because', 'fault', 'vault',
+    ],
+  },
 };
 
 /** Looks up a Skill's practice bank, or `undefined` if it doesn't have one yet. */

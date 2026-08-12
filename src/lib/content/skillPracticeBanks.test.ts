@@ -42,6 +42,10 @@ describe('SKILL_PRACTICE_BANKS', () => {
         'ie-and-igh-words',
         'oo-words',
         'au-and-aw-words',
+        'beginning-blends',
+        'ending-blends',
+        'silent-letters',
+        'soft-c-soft-g',
       ].sort(),
     );
   });

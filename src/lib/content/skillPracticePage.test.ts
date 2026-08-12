@@ -28,4 +28,17 @@ describe('Skill page practice CTA', () => {
   it('has at least one piloted Skill so the CTA branch is exercised at build time', () => {
     expect(Object.keys(SKILL_PRACTICE_BANKS).length).toBeGreaterThan(0);
   });
+
+  it('derives the heading and CTA copy from the Skill title and bank size, not hardcoded prose', () => {
+    expect(source).toContain('Practice {data.title}');
+    expect(source).toContain('{practiceBankWords.length} practice words');
+
+    // The user-facing copy itself (not code comments) should stay free of
+    // internal architecture terminology.
+    const practiceSectionStart = source.indexOf('aria-labelledby="practice-heading"');
+    const practiceSectionEnd = source.indexOf('<!-- Why these words', practiceSectionStart);
+    const practiceSectionMarkup = source.slice(practiceSectionStart, practiceSectionEnd);
+    expect(practiceSectionMarkup).not.toMatch(/practice bank/i);
+    expect(practiceSectionMarkup).not.toContain('independent of any grade');
+  });
 });

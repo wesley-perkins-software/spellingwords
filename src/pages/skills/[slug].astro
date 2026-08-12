@@ -253,11 +253,11 @@ const curriculumPlacements = allEntries
               class={`rounded-3xl border border-line bg-white px-6 py-7 shadow-card sm:px-8 border-l-[3px] ${cardAccent.border}`}
             >
               <h2 id="practice-heading" class="font-display text-lg font-semibold text-ink">
-                Practice this Skill
+                Practice {data.title}
               </h2>
               <p class="mt-2 max-w-2xl text-base leading-relaxed text-ink-soft">
-                Start a spelling practice session drawn from this Skill's own practice bank of{' '}
-                {practiceBankWords.length} words — independent of any grade.
+                This session uses 10 words picked from {practiceBankWords.length} practice words
+                for this Skill. Start another session for a different mix.
               </p>
               <button
                 type="button"
@@ -266,7 +266,7 @@ const curriculumPlacements = allEntries
                 data-skill-title={data.title}
                 class="btn-primary mt-5"
               >
-                Practice this Skill
+                Practice {data.title}
               </button>
               <p
                 id={`practice-status-${data.id}`}

@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { SKILL_PRACTICE_BANKS } from './skillPracticeBanks';
+import { SKILL_PRACTICE_BANKS, skillPracticeDescription } from './skillPracticeBanks';
 
 // Source-level checks on the Skill page template, matching this repo's
 // existing convention (see shortAReferenceSkill.test.ts) of asserting on
@@ -19,9 +19,10 @@ function sectionMarkup(labelledBy: string, until: string): string {
 
 describe('Skill page practice inventory', () => {
   it('imports the practice-bank lookup and gates every practice section on a bank existing', () => {
-    expect(source).toContain(
-      "import { getSkillPracticeBank, toPlayableSkillPracticeWords } from '@/lib/content/skillPracticeBanks';",
-    );
+    expect(source).toContain("from '@/lib/content/skillPracticeBanks';");
+    expect(source).toContain('getSkillPracticeBank');
+    expect(source).toContain('skillPracticeDescription');
+    expect(source).toContain('toPlayableSkillPracticeWords');
     expect(source).toContain('const practiceBank = getSkillPracticeBank(data.id);');
     expect(source).toContain('practiceBank && practiceBankWords && (');
   });
@@ -51,11 +52,27 @@ describe('Skill page practice inventory', () => {
     expect(source).toContain('Practice {data.title}');
 
     const practiceSectionMarkup = sectionMarkup('practice-heading', '<!-- Why these words');
-    expect(practiceSectionMarkup).toContain('list above');
+    // The description text itself is computed (skillPracticeDescription), not
+    // authored inline — see the dedicated tests on that function below for
+    // the exact wording per bank-size band.
+    expect(practiceSectionMarkup).toContain('{practiceDescription}');
+    expect(source).toContain('skillPracticeDescription(practiceBankWords.length)');
 
     // No internal architecture terminology leaking into user-facing copy.
     expect(practiceSectionMarkup).not.toMatch(/practice bank/i);
     expect(practiceSectionMarkup).not.toContain('independent of any grade');
+  });
+
+  it('gives truthful practice-session copy for every bank-size band', () => {
+    // A bank larger than the session size gets the random-mix framing.
+    expect(skillPracticeDescription(18, 10)).toBe(
+      'Practice 10 random words from the list above. Start another session anytime for a different mix.',
+    );
+    // A bank at the session size, or smaller, practices every word every time.
+    expect(skillPracticeDescription(10, 10)).toBe('Practice all 10 words from the list above.');
+    expect(skillPracticeDescription(8, 10)).toBe('Practice all 8 words from the list above.');
+    expect(skillPracticeDescription(6, 10)).toBe('Practice all 6 words from the list above.');
+    expect(skillPracticeDescription(1, 10)).toBe('Practice all 1 word from the list above.');
   });
 
   it('launches /play through the existing encode + sessionStorage transport, not a new one', () => {

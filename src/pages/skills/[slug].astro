@@ -20,7 +20,11 @@ import { getSequenceNeighbors } from '@/lib/content/navigationSequence';
 import { cardAccent } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { gradeConfig } from '@/lib/content/gradeConfig';
-import { getSkillPracticeBank, toPlayableSkillPracticeWords } from '@/lib/content/skillPracticeBanks';
+import {
+  getSkillPracticeBank,
+  skillPracticeDescription,
+  toPlayableSkillPracticeWords,
+} from '@/lib/content/skillPracticeBanks';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('spelling-lists')).filter(isPublished);
@@ -55,6 +59,9 @@ const playWords = toPlayableWords(entry);
 const practiceBank = getSkillPracticeBank(data.id);
 const practiceBankWords = practiceBank ? toPlayableSkillPracticeWords(practiceBank) : null;
 const practiceBankWordsJson = practiceBankWords ? JSON.stringify(practiceBankWords) : null;
+const practiceDescription = practiceBankWords
+  ? skillPracticeDescription(practiceBankWords.length)
+  : null;
 
 function listLink(e: (typeof allEntries)[number]) {
   return getCanonicalListPath(e.data);
@@ -289,8 +296,7 @@ const curriculumPlacements = allEntries
                 Practice {data.title}
               </h2>
               <p class="mt-2 max-w-2xl text-base leading-relaxed text-ink-soft">
-                Practice 10 random words from the list above. Start another session anytime for a
-                different mix.
+                {practiceDescription}
               </p>
               <button
                 type="button"

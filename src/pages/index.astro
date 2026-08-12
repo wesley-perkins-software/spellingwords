@@ -10,17 +10,7 @@ import {
   HOMEPAGE_REPRESENTATIVE_SKILLS,
 } from '@/lib/content/homepage';
 
-const sampleWords = [
-  'friend',
-  'because',
-  'different',
-  'people',
-  'every',
-  'school',
-  'always',
-];
-
-const placeholderText = sampleWords.join('\n');
+const placeholderText = 'cat\nbecause\nplayground';
 
 const gradeAccents: Record<string, string> = {
   K: 'bg-chip-berry',
@@ -141,7 +131,7 @@ const gradeAccents: Record<string, string> = {
 
           <div class="flex items-center justify-between border-b border-line bg-app-cloud px-[18px] py-2.5">
             <label for="word-input" class="text-[13px] font-bold text-ink-soft tracking-[0.01em]">
-              Enter one word per line
+              Enter your spelling words
             </label>
             <span
               id="word-count-pill"
@@ -149,18 +139,19 @@ const gradeAccents: Record<string, string> = {
               aria-live="polite"
               aria-atomic="true"
             >
-              {sampleWords.length} words
+              0 words
             </span>
           </div>
 
           <textarea
             id="word-input"
-            rows="7"
+            rows="4"
             class="w-full resize-none bg-app-paper px-5 py-4 font-word text-[19px] leading-[1.85] text-ink tracking-[0.015em] placeholder:text-ink-faint focus:outline-none"
             spellcheck="false"
             autocomplete="off"
-            aria-label="Spelling words, one per line"
-          >{placeholderText}</textarea>
+            aria-label="Your spelling words, one per line"
+            placeholder={placeholderText}
+          ></textarea>
 
           <div class="border-t border-line bg-app-cloud px-[18px] py-2">
             <p
@@ -169,7 +160,7 @@ const gradeAccents: Record<string, string> = {
               aria-live="polite"
               aria-atomic="true"
             >
-              {sampleWords.length} words ready to practice.
+              Add at least 1 word to start practicing.
             </p>
           </div>
         </div>

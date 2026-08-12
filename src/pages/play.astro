@@ -161,6 +161,17 @@ import SiteHeader from '@/components/SiteHeader.astro';
             <h1 id="question-heading" class="sr-only">Type the word you hear</h1>
             <p id="question-instruction" class="text-base font-medium text-ink leading-relaxed"></p>
 
+            <!-- Shown only for context-dependent words (e.g. homophones) — the
+                 disambiguating sentence with the target word blanked out, so
+                 meaning is available before the answer is typed without
+                 revealing the spelling. -->
+            <p
+              id="question-context"
+              class="hidden font-word text-xl leading-relaxed text-ink"
+              aria-live="polite"
+            >
+            </p>
+
             <!-- Answer input -->
             <div class="flex flex-col gap-2">
               <input
@@ -422,6 +433,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
     resetTest,
   } from '@/modules/spellingTest/stateMachine';
   import type { TestState } from '@/modules/spellingTest/types';
+  import type { SpellingWord } from '@/types/spelling';
 
   // --- DOM refs ---
   const $ = (id: string) => document.getElementById(id)!;
@@ -446,6 +458,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const beginWordCount = $('begin-word-count');
   const progressEl = $('progress');
   const questionInstruction = $('question-instruction');
+  const questionContext = $('question-context');
   const answerInput = $('answer-input') as HTMLInputElement;
   const answerError = $('answer-error');
   const feedbackHeading = $('feedback-heading');
@@ -480,7 +493,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
   const speech = createSpeechController();
   let state: TestState = createInitialState();
   let originalWords: string[] = [];
-  let originalRichWords: { word: string; exampleSentence?: string }[] = [];
+  let originalRichWords: SpellingWord[] = [];
 
   let selectedVoice: SpeechSynthesisVoiceAdapter | null = null;
   const currentRate = 1.0;
@@ -544,6 +557,13 @@ import SiteHeader from '@/components/SiteHeader.astro';
     return 'Listen, then type the word.';
   }
 
+  // Context-dependent words (e.g. homophones) can't be identified from
+  // pronunciation alone, so they get their own instruction pointing at the
+  // sentence rather than the isolated word.
+  function contextInstructionForIndex(): string {
+    return 'Listen to the sentence, then type the missing word.';
+  }
+
   // --- Screen management ---
   const siteFooter = document.getElementById('site-footer');
   const immersiveScreens = [screenQuestion, screenFeedback, screenResults];
@@ -597,13 +617,13 @@ import SiteHeader from '@/components/SiteHeader.astro';
     originalWords = decoded.words;
 
     // Try to recover rich SpellingWord data (with exampleSentence) stored by curated list pages.
-    let richWords: { word: string; exampleSentence?: string }[] | null = null;
+    let richWords: SpellingWord[] | null = null;
     try {
       const stored = sessionStorage.getItem(`sw:words:${payload}`);
       if (stored) {
         const parsed: unknown = JSON.parse(stored);
         if (Array.isArray(parsed) && parsed.every((e) => typeof e?.word === 'string')) {
-          richWords = parsed as { word: string; exampleSentence?: string }[];
+          richWords = parsed as SpellingWord[];
         }
       }
     } catch {
@@ -653,7 +673,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
 
     progressEl.textContent = `Word ${pos} of ${total}`;
     progressBar.style.width = `${(pos / total) * 100}%`;
-    questionInstruction.textContent = instructionForIndex();
     answerInput.value = '';
     answerError.textContent = '';
 
@@ -663,13 +682,43 @@ import SiteHeader from '@/components/SiteHeader.astro';
     btnSentence.classList.toggle('inline-flex', hasSentence);
     noSentenceNote.classList.toggle('hidden', hasSentence);
 
+    // Context-dependent words (e.g. homophones): show the blanked sentence
+    // so meaning is available before the answer is typed, without revealing
+    // the spelling.
+    if (current.contextRequired && current.contextSentence) {
+      questionInstruction.textContent = contextInstructionForIndex();
+      questionContext.textContent = current.contextSentence;
+      questionContext.classList.remove('hidden');
+    } else {
+      questionInstruction.textContent = instructionForIndex();
+      questionContext.textContent = '';
+      questionContext.classList.add('hidden');
+    }
+
     showScreen(screenQuestion);
     requestAnimationFrame(() => answerInput.focus());
 
-    // Cancel any pending sentence from the previous word, then speak this word.
-    // After a short natural pause, auto-speak the sentence if one exists.
+    // Cancel any pending audio from the previous word.
     cancelPendingSentence();
     speech.cancelSpeech();
+
+    if (current.contextRequired && hasSentence) {
+      // Isolated pronunciation can't identify the intended spelling, so the
+      // sentence is spoken first to establish meaning. After a pause, the
+      // isolated word is spoken so the student still hears exactly what to
+      // spell.
+      const result = speech.speakWord(current.exampleSentence!, speechOptions());
+      if (!result.ok) {
+        answerError.textContent =
+          'Audio is not available right now. Try "Hear sentence again", or check your device sound.';
+      } else {
+        sentenceTimeout = setTimeout(() => {
+          sentenceTimeout = null;
+          speech.speakWord(current.word, speechOptions());
+        }, 1200);
+      }
+      return;
+    }
 
     const result = speech.speakWord(current.word, speechOptions());
     if (!result.ok) {

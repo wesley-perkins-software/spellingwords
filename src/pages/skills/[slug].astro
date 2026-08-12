@@ -231,20 +231,53 @@ const curriculumPlacements = allEntries
       )
     }
 
-    <!-- Word list -->
-    <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="word-list-heading">
-      <div class="mx-auto max-w-2xl md:max-w-3xl">
-        <h2 id="word-list-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-          Hear the pattern in these words
-        </h2>
-        <WordListPreview words={playWords} accentClass={cardAccent.bg} showSentences={false} />
-      </div>
-    </section>
+    <!-- Demonstration preview: only shown when this Skill has no practice
+         bank yet. Once a Skill has a full practice inventory (below), that
+         supersedes the small demonstration teaser rather than sitting
+         alongside it — see docs note in the practice-inventory section. -->
+    {
+      !practiceBank && (
+        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="word-list-heading">
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
+            <h2 id="word-list-heading" class="mb-4 font-display text-lg font-semibold text-ink">
+              Hear the pattern in these words
+            </h2>
+            <WordListPreview words={playWords} accentClass={cardAccent.bg} showSentences={false} />
+          </div>
+        </section>
+      )
+    }
 
-    <!-- Practice CTA: sourced from the Skill's own practice bank, distinct
-         from the demonstration set above and from any Grade Unit's Practice
-         Set below. Only rendered when a bank exists for this Skill — see
-         src/lib/content/skillPracticeBanks.ts. -->
+    <!-- Full practice inventory: every word in this Skill's practice bank,
+         rendered directly from src/lib/content/skillPracticeBanks.ts (never
+         duplicated in page content). Replaces the small demonstration
+         preview above once a Skill has a bank, since showing 5-10 sample
+         words next to a CTA that draws from a larger, unseen collection was
+         confusing. Only rendered when a bank exists for this Skill. -->
+    {
+      practiceBank && practiceBankWords && (
+        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="practice-words-heading">
+          <div class="mx-auto max-w-2xl md:max-w-3xl">
+            <h2 id="practice-words-heading" class="font-display text-lg font-semibold text-ink">
+              {data.title} to Practice
+            </h2>
+            <p class="mt-1 text-sm font-semibold text-ink-soft">
+              {practiceBankWords.length} words
+            </p>
+            <div class="mt-4">
+              <WordListPreview
+                words={practiceBankWords}
+                accentClass={cardAccent.bg}
+                showSentences={false}
+              />
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <!-- Practice CTA: draws a random 10-word session from the full
+         inventory shown above. See src/lib/content/skillPracticeBanks.ts. -->
     {
       practiceBank && practiceBankWords && (
         <section class="px-5 pb-10 sm:px-6 md:pb-14" aria-labelledby="practice-heading">
@@ -256,8 +289,8 @@ const curriculumPlacements = allEntries
                 Practice {data.title}
               </h2>
               <p class="mt-2 max-w-2xl text-base leading-relaxed text-ink-soft">
-                This session uses 10 words picked from {practiceBankWords.length} practice words
-                for this Skill. Start another session for a different mix.
+                Practice 10 random words from the list above. Start another session anytime for a
+                different mix.
               </p>
               <button
                 type="button"

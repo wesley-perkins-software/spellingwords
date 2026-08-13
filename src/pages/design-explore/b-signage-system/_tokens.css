@@ -168,6 +168,11 @@
   color: #fff;
 }
 
+.answer-input:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
 .explore-b__footer {
   border-top: 3px solid var(--rule);
   padding: 28px 0 40px;

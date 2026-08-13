@@ -206,6 +206,11 @@
   background: var(--accent-soft);
 }
 
+.answer-input:focus-visible {
+  outline: 2px solid var(--stage-accent);
+  outline-offset: 2px;
+}
+
 .explore-a__footer {
   border-top: 1px solid var(--border);
   padding: 28px 0 40px;

@@ -144,6 +144,11 @@
   border-color: var(--text-secondary);
 }
 
+.answer-input:focus-visible {
+  outline: 2px solid var(--rail-blue);
+  outline-offset: 2px;
+}
+
 .explore-c__footer {
   border-top: 1px solid var(--border);
   padding: 26px 0 40px;

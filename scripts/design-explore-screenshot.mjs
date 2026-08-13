@@ -5,7 +5,7 @@ import path from 'node:path';
 const BASE = 'http://localhost:4321';
 const OUT = '/tmp/claude-0/-home-user-spellingwords/85bfc4a1-6a72-56b9-8ac3-4dfa4a615113/scratchpad/design-explore-screenshots';
 
-const directions = ['b3-signal-garden-evolved', 'f-mosaic', 'g-spectrum'];
+const directions = ['b4-signal-garden-deep', 'f2-mosaic-deep', 'h-threshold'];
 const surfaces = ['home', 'skill', 'play-question', 'grade-hub'];
 const viewports = {
   desktop: { width: 1440, height: 900 },

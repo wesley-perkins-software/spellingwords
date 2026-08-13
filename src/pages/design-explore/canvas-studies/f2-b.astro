@@ -1,0 +1,66 @@
+---
+const grades = [
+  { g: 'K', color: '#ff6b4a' },
+  { g: '1', color: '#ffb238' },
+  { g: '2', color: '#34a884' },
+  { g: '3', color: '#3f7cc0' },
+  { g: '4', color: '#8c5fc7' },
+  { g: '5', color: '#ea5aa0' },
+];
+---
+<!-- CANVAS STUDY — throwaway. F2-B: full-bleed mosaic, no neutral gap — color regions ARE the canvas. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Canvas Study F2-B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Figtree:wght@700;800&display=swap" rel="stylesheet" />
+<style>
+  :root { --dominant: #8c5fc7; --ink: #1c1b1f; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--dominant); color: #fff; font-family: 'Work Sans', sans-serif; }
+  h1,h2 { font-family: 'Figtree', sans-serif; font-weight: 800; margin: 0; }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
+  nav { display: flex; gap: 16px; font-weight: 700; font-size: 14px; opacity: 0.85; }
+  .mosaic { display: grid; gap: 3px; }
+  .hero { grid-template-columns: 1.4fr 1fr; }
+  .tile { padding: 30px; }
+  .white-panel { background: #fff; color: var(--ink); }
+  section { padding: 3px 0; }
+  .grid6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3px; }
+  .g-tile { padding: 16px; min-height: 100px; color: #fff; }
+  .g-tile span { font-family: 'Figtree', sans-serif; font-weight: 800; font-size: 24px; }
+  .list-tile { background: #fff; color: var(--ink); padding: 24px; }
+  .row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; font-weight: 600; }
+</style>
+</head>
+<body>
+  <header><div style="font-family:'Figtree',sans-serif;font-weight:800;">spelling<span style="opacity:0.7;">words</span></div><nav><a href="#" style="color:#fff;">Grades</a><a href="#" style="color:#fff;">Skills</a></nav></header>
+  <div class="mosaic hero">
+    <div class="tile">
+      <span style="display:inline-block;background:rgba(255,255,255,0.2);padding:5px 12px;border-radius:999px;font-size:12px;font-weight:700;text-transform:uppercase;margin-bottom:16px;">Practice · Any List</span>
+      <h1 style="font-size: 34px; line-height: 1.1;">Color never stops. It IS the page.</h1>
+      <p style="opacity:0.9; max-width: 42ch; line-height: 1.6; margin-top: 12px;">Paste your own list or follow a grade path. No neutral ground to rest on — only color, edge to edge.</p>
+    </div>
+    <div class="tile white-panel">
+      <div style="font-size:12px; font-weight:700; text-transform:uppercase; margin-bottom: 10px;">Your Words</div>
+      <textarea rows="5" placeholder="Type or paste your words here" style="width:100%;border:none;font-family:inherit;font-size:16px;resize:none;padding:0;"></textarea>
+    </div>
+  </div>
+
+  <section>
+    <div class="grid6">
+      {grades.map(g => <div class="g-tile" style={`background:${g.color}`}><span>{g.g}</span></div>)}
+    </div>
+  </section>
+
+  <section>
+    <div class="list-tile">
+      <h2 style="font-size: 22px; margin-bottom: 16px;">Browse by Skill</h2>
+      {['Short A Words','Long A Silent E Words','Soft C and Soft G'].map((s,i,arr) => <div class="row" style={i===arr.length-1?'border-bottom:none':''}>{s} <span>→</span></div>)}
+    </div>
+  </section>
+</body>
+</html>

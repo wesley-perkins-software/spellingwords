@@ -1,0 +1,58 @@
+---
+import Layout from './_Layout.astro';
+
+const strands = [
+  { title: 'Core Spelling', items: ['Short A Words', 'Long A Silent E Words', 'Soft C and Soft G'] },
+  { title: 'High-Frequency Words', items: ['Set 1', 'Set 2', 'Set 3'] },
+  { title: 'Themed Spelling Practice', items: ['Animal Words', 'Weather Words'] },
+];
+---
+
+<Layout title="Grade 1">
+  <header class="explore-f2__header">
+    <div class="explore-f2__header-inner">
+      <span class="explore-f2__wordmark">spelling<span class="accent">words</span></span>
+      <nav class="explore-f2__nav">
+        <a href="#">Grades</a>
+        <a href="#">Skills</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" style="padding: 8px 24px 72px;">
+    <!-- Grade identity: larger, more confident dominant tile. Slight overlap with the
+         content below so the composition reads as assembled, not gridded. -->
+    <div class="tile" style="background: var(--grade-1); color: #241b02; padding: 40px 34px; margin-bottom: 0; position: relative; z-index: 1;">
+      <p style="font-size: 13px; opacity: 0.7; font-weight: 700; margin-bottom: 14px;">Home / Grade 1</p>
+      <span style="font-family: var(--font-display); font-weight: 800; font-size: 68px; line-height: 1;">1</span>
+      <h1 style="font-size: clamp(24px, 3vw, 30px); margin: 10px 0 12px;">Grade 1 Spelling Words</h1>
+      <p style="opacity: 0.85; font-size: 15px; line-height: 1.6; max-width: 62ch;">
+        A path through Core Spelling patterns, everyday High-Frequency Words, and Themed Practice —
+        arranged so the first steps build the skills later ones depend on.
+      </p>
+    </div>
+
+    <div class="wrap--narrow" style="margin: -8px 0 0; padding: 0; position: relative; z-index: 2;">
+      {strands.map((strand, si) => (
+        <section style="margin-bottom: 22px;">
+          <div style="display: flex; align-items: baseline; gap: 10px; margin: 20px 0 12px; padding-left: 4px;">
+            <h2 style="font-size: 17px;">{strand.title}</h2>
+            <span class="tag" style="background: var(--grade-1); color: #241b02;">{strand.items.length}</span>
+          </div>
+          <div class="panel">
+            {strand.items.map((item, i) => (
+              <a href="#" style={`display: flex; align-items: center; justify-content: space-between; padding: 15px 18px; text-decoration: none; color: inherit; ${i < strand.items.length - 1 ? 'border-bottom: 1px solid var(--border);' : ''}`}>
+                <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px;">{item}</span>
+                <span style="color: var(--grade-1); font-weight: 800;">→</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </main>
+
+  <footer class="explore-f2__footer">
+    <div class="wrap">← Kindergarten &nbsp;&nbsp;&nbsp; Grade 2 →</div>
+  </footer>
+</Layout>

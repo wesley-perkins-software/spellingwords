@@ -57,9 +57,9 @@ const skills = ['Short A Words', 'Long A Silent E Words', 'Soft C and Soft G', '
       <p style="color: var(--text-secondary); max-width: 60ch; margin-bottom: 24px; font-size: 15px;">
         A Kindergarten&ndash;5th grade path across Core Spelling, High-Frequency Words, and Themed Practice.
       </p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px;">
         {grades.map((item) => (
-          <a href="#" style={`background: var(--surface-raised); padding: 20px 22px; text-decoration: none; color: inherit; border-left: 3px solid ${item.rail};`}>
+          <a href="#" class="surface" style={`padding: 20px 22px; text-decoration: none; color: inherit; border-left: 3px solid ${item.rail};`}>
             <span style="font-size: 13px; font-weight: 650; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-secondary);">Grade {item.g}</span>
             <p style="margin-top: 10px; font-size: 14px; color: var(--text-secondary); line-height: 1.5;">{item.desc}</p>
           </a>

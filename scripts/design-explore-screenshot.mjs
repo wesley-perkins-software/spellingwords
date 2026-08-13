@@ -16,6 +16,10 @@ mkdirSync(OUT, { recursive: true });
 
 const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
 
+async function hideDevToolbar(page) {
+  await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
+}
+
 for (const direction of directions) {
   const dir = path.join(OUT, direction);
   mkdirSync(dir, { recursive: true });
@@ -23,6 +27,7 @@ for (const direction of directions) {
     for (const [vpName, vp] of Object.entries(viewports)) {
       const page = await browser.newPage({ viewport: vp });
       await page.goto(`${BASE}/design-explore/${direction}/${surface}`, { waitUntil: 'networkidle' });
+      await hideDevToolbar(page);
       await page.waitForTimeout(150);
       const file = path.join(dir, `${surface}-${vpName}.png`);
       await page.screenshot({ path: file, fullPage: true });
@@ -36,6 +41,7 @@ for (const direction of directions) {
 for (const direction of directions) {
   const page = await browser.newPage({ viewport: viewports.desktop });
   await page.goto(`${BASE}/design-explore/${direction}/play-question`, { waitUntil: 'networkidle' });
+  await hideDevToolbar(page);
   await page.keyboard.press('Tab');
   await page.keyboard.press('Tab');
   await page.waitForTimeout(100);

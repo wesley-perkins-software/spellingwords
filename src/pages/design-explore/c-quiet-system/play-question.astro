@@ -1,0 +1,53 @@
+---
+import Layout from './_Layout.astro';
+---
+
+<Layout title="Practice">
+  <header class="explore-c__header">
+    <div class="explore-c__header-inner">
+      <span class="explore-c__wordmark" style="font-size: 14px;">spellingwords</span>
+      <a href="#" style="font-size: 14px; font-weight: 500; color: var(--text-secondary); text-decoration: none;">← New list</a>
+    </div>
+  </header>
+
+  <main class="wrap wrap--narrow" style="padding: 30px 24px 60px; display: flex; flex-direction: column; gap: 32px;">
+    <section>
+      <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--text-tertiary); margin-bottom: 8px;">
+        <span>Word 3 of 10</span>
+      </div>
+      <div style="height: 3px; background: var(--border); border-radius: 999px; overflow: hidden;">
+        <div style="width: 30%; height: 100%; background: var(--rail-blue);"></div>
+      </div>
+    </section>
+
+    <!-- Surface-raised panel with a rail signaling session category -->
+    <section class="surface" style="border-left: 3px solid var(--rail-blue); padding: 36px 32px; display: flex; flex-direction: column; gap: 22px;">
+      <p style="color: var(--text-secondary); font-size: 15px;">Listen carefully and type what you hear.</p>
+
+      <input
+        type="text"
+        placeholder="Type the word"
+        style="width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; font-family: var(--font); font-size: 26px; font-weight: 600; color: var(--text-primary); outline: none;"
+      />
+
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <button type="button" class="btn btn--outline">🔊 Hear word again</button>
+        <button type="button" class="btn btn--outline">💬 Hear sentence again</button>
+      </div>
+    </section>
+
+    <button type="button" class="btn btn--primary" style="width: 100%; justify-content: center; padding: 16px;">
+      Submit Answer
+    </button>
+
+    <!-- Feedback state (correct) -->
+    <section>
+      <p style="font-size: 12px; font-weight: 650; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px;">Feedback state — correct</p>
+      <div class="surface" style="border-left: 3px solid var(--correct); padding: 36px 32px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <span style="width: 36px; height: 36px; border-radius: 50%; background: var(--correct); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 15px;">✓</span>
+        <span style="font-weight: 700; font-size: 34px; color: var(--text-primary);">cake</span>
+        <p style="color: var(--text-secondary); font-size: 14.5px;">Well spelled.</p>
+      </div>
+    </section>
+  </main>
+</Layout>

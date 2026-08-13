@@ -1,0 +1,62 @@
+---
+import Layout from './_Layout.astro';
+---
+
+<Layout title="Practice">
+  <header class="explore-a__header">
+    <div class="explore-a__header-inner">
+      <span class="explore-a__wordmark" style="font-size: 15px;">spelling<span class="accent">words</span></span>
+      <a href="#" style="font-size: 14px; font-weight: 600; color: var(--text-secondary); text-decoration: none;">← New list</a>
+    </div>
+  </header>
+
+  <main class="wrap wrap--narrow" style="padding: 32px 24px 64px; display: flex; flex-direction: column; gap: 40px;">
+    <section>
+      <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; color: var(--text-tertiary); margin-bottom: 8px;">
+        <span>Word 3 of 10</span>
+      </div>
+      <div style="height: 4px; background: var(--border); border-radius: 999px; overflow: hidden;">
+        <div style="width: 30%; height: 100%; background: var(--accent);"></div>
+      </div>
+    </section>
+
+    <!-- The Listening Stage: signature focus panel for active practice -->
+    <section style="background: var(--stage-bg); border-radius: var(--radius-lg); padding: 40px 36px; display: flex; flex-direction: column; gap: 26px;">
+      <p style="color: var(--stage-text-soft); font-size: 15px; font-weight: 500;">Listen carefully and type what you hear.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <input
+          type="text"
+          placeholder="Type the word"
+          style="width: 100%; background: var(--stage-bg-raised); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-md); padding: 18px 22px; font-family: var(--font-word); font-size: 28px; font-weight: 700; color: var(--stage-text); outline: none;"
+        />
+      </div>
+
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button type="button" class="btn btn--ghost" style="background: var(--stage-bg-raised); border-color: rgba(255,255,255,0.14); color: var(--stage-text);">
+          🔊 Hear word again
+        </button>
+        <button type="button" class="btn btn--ghost" style="background: var(--stage-bg-raised); border-color: rgba(255,255,255,0.14); color: var(--stage-text);">
+          💬 Hear sentence again
+        </button>
+      </div>
+    </section>
+
+    <button type="button" class="btn btn--primary" style="width: 100%; justify-content: center; padding: 18px;">
+      Submit Answer
+    </button>
+
+    <!-- Feedback state (correct), shown as a second reference panel -->
+    <section>
+      <p style="font-size: 13px; font-weight: 700; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 14px;">Feedback state — correct</p>
+      <div style="background: var(--stage-bg); border-radius: var(--radius-lg); padding: 40px 36px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+        <span style={`width: 44px; height: 44px; border-radius: 50%; background: var(--stage-accent); display: flex; align-items: center; justify-content: center; color: #0c1712; font-weight: 700;`}>✓</span>
+        <span class="spoken-word" style="color: var(--stage-text);">
+          <span class="spoken-word__text" style="font-size: 40px;">cake</span>
+          <span class="spoken-word__beats" style="color: var(--stage-accent);"><span class="beat"></span></span>
+        </span>
+        <p style="color: var(--stage-text-soft); font-size: 15px;">Well spelled.</p>
+      </div>
+    </section>
+  </main>
+</Layout>

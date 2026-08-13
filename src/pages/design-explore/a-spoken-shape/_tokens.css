@@ -1,0 +1,213 @@
+/* DESIGN EXPLORATION — Direction A: "Spoken Shape". Throwaway, scoped under .explore-a only. */
+.explore-a {
+  --surface-page: #f6f5f2;
+  --surface-card: #ffffff;
+  --border: #e2e0da;
+  --text-primary: #15171c;
+  --text-secondary: #565b66;
+  --text-tertiary: #8a8f99;
+
+  --accent: #1f6f64;
+  --accent-soft: #dcece8;
+  --accent-ink: #ffffff;
+
+  --stage-bg: #12181f;
+  --stage-bg-raised: #1b232c;
+  --stage-text: #f4f6f5;
+  --stage-text-soft: #aab4b8;
+  --stage-accent: #6be6c9;
+
+  --correct: #1f8f5f;
+  --incorrect: #d1533a;
+
+  --mark-a: #1f6f64;
+  --mark-b: #b8632c;
+  --mark-c: #6e5bb0;
+  --mark-d: #c23f5a;
+
+  --radius-lg: 28px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-word: 'Inter', system-ui, sans-serif;
+
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+.explore-a h1,
+.explore-a h2,
+.explore-a h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.explore-a p {
+  margin: 0;
+}
+
+.explore-a .wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.explore-a .wrap--narrow {
+  max-width: 760px;
+}
+
+/* Header */
+.explore-a__header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(246, 245, 242, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+}
+.explore-a__header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.explore-a__wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+}
+.explore-a__wordmark .accent {
+  color: var(--accent);
+}
+.explore-a__nav {
+  display: flex;
+  gap: 4px;
+}
+.explore-a__nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+.explore-a__nav a:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Sound mark: small dot cluster signaling syllable count / category, used everywhere pills used to be */
+.soundmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.soundmark .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.soundmark--label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Word with sound-mark underline */
+.spoken-word {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-word);
+}
+.spoken-word__text {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.spoken-word__beats {
+  display: flex;
+  gap: 5px;
+}
+.spoken-word__beats .beat {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+/* Cards */
+.card {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 15px 28px;
+  font-size: 17px;
+  box-shadow: 0 10px 24px -10px rgba(31, 111, 100, 0.55);
+}
+.btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px -8px rgba(31, 111, 100, 0.6);
+}
+.btn--on-stage {
+  background: var(--stage-accent);
+  color: #0c1712;
+  padding: 16px 30px;
+  font-size: 18px;
+}
+.btn--on-stage:hover {
+  transform: translateY(-1px);
+}
+.btn--ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 12px 20px;
+  font-size: 15px;
+}
+.btn--ghost:hover {
+  background: var(--accent-soft);
+}
+
+.explore-a__footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0 40px;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}

@@ -1,0 +1,61 @@
+---
+const directions = [
+  {
+    slug: 'a-spoken-shape',
+    name: 'A — Spoken Shape',
+    desc: 'Voice/sound-led. A "listening stage" isolates the active word; small sound marks replace chip pills.',
+  },
+  {
+    slug: 'b-signage-system',
+    name: 'B — Signage System',
+    desc: 'Wayfinding/institutional-signage-led. Bold flat color blocks per grade, confident numerals, no gradients.',
+  },
+  {
+    slug: 'c-quiet-system',
+    name: 'C — Quiet System',
+    desc: 'Restrained, tokenized. A single left-edge color rail replaces every pill/badge; near-no shadow.',
+  },
+];
+const surfaces = [
+  { slug: 'home', name: 'Homepage' },
+  { slug: 'skill', name: 'Skill / reference' },
+  { slug: 'play-question', name: 'Practice question' },
+  { slug: 'grade-hub', name: 'Grade hub' },
+];
+---
+
+<!-- DESIGN EXPLORATION PROTOTYPE — throwaway, not production code. Index of all direction/surface combinations. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Design Exploration Index</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 24px; color: #16171a; }
+      h1 { font-size: 22px; }
+      .note { color: #666; font-size: 14px; margin-bottom: 32px; }
+      section { margin-bottom: 32px; }
+      h2 { font-size: 17px; margin-bottom: 4px; }
+      p.desc { color: #555; font-size: 14px; margin: 0 0 12px; }
+      ul { list-style: none; padding: 0; display: flex; gap: 10px; flex-wrap: wrap; }
+      a { display: inline-block; padding: 8px 14px; border: 1px solid #ddd; border-radius: 6px; text-decoration: none; color: #16171a; font-size: 14px; }
+      a:hover { background: #f2f2f2; }
+    </style>
+  </head>
+  <body>
+    <h1>SpellingWords.app — Visual Direction Exploration</h1>
+    <p class="note">Throwaway prototypes, not production. Not linked from the real site nav; noindex on every page.</p>
+    {directions.map((d) => (
+      <section>
+        <h2>{d.name}</h2>
+        <p class="desc">{d.desc}</p>
+        <ul>
+          {surfaces.map((s) => (
+            <li><a href={`/design-explore/${d.slug}/${s.slug}`}>{s.name}</a></li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </body>
+</html>

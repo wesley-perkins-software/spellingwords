@@ -1,0 +1,176 @@
+/* DESIGN EXPLORATION — Direction B: "Signage System". Throwaway, scoped under .explore-b only. */
+.explore-b {
+  --surface-page: #faf9f6;
+  --surface-card: #ffffff;
+  --ink: #131417;
+  --ink-soft: #53565c;
+  --ink-faint: #8b8e94;
+  --rule: #131417;
+  --rule-soft: #d8d6cf;
+
+  /* Signage colors — one flat, saturated color per grade, used like transit line colors */
+  --grade-k: #2f6fed;
+  --grade-1: #1e8f5a;
+  --grade-2: #d6521f;
+  --grade-3: #6e4fd1;
+  --grade-4: #c99a1e;
+  --grade-5: #0e93a6;
+
+  --correct: #1e8f5a;
+  --incorrect: #c93b2e;
+
+  --radius: 4px;
+
+  --font-sign: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Public Sans', system-ui, sans-serif;
+  --font-word: 'Public Sans', system-ui, sans-serif;
+
+  background: var(--surface-page);
+  color: var(--ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+.explore-b h1,
+.explore-b h2,
+.explore-b h3 {
+  font-family: var(--font-sign);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-transform: none;
+}
+
+.explore-b p {
+  margin: 0;
+}
+
+.explore-b .wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.explore-b .wrap--narrow {
+  max-width: 760px;
+}
+
+/* Header: thick rule instead of soft shadow */
+.explore-b__header {
+  border-bottom: 3px solid var(--rule);
+  background: var(--surface-page);
+}
+.explore-b__header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.explore-b__wordmark {
+  font-family: var(--font-sign);
+  font-weight: 900;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+}
+.explore-b__wordmark .accent {
+  color: var(--grade-2);
+}
+.explore-b__nav {
+  display: flex;
+  gap: 22px;
+}
+.explore-b__nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+.explore-b__nav a:hover {
+  border-bottom-color: var(--ink);
+}
+
+/* Sign block: the core signature object — flat color rectangle with bold numeral/label */
+.sign {
+  border-radius: var(--radius);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sign--outline {
+  background: var(--surface-card);
+  color: var(--ink);
+  border: 2px solid var(--rule);
+}
+
+.sign-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sign);
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  color: #fff;
+}
+
+.card {
+  background: var(--surface-card);
+  border: 2px solid var(--rule);
+  border-radius: var(--radius);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius);
+  font-family: var(--font-sign);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+.btn:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+.btn--primary {
+  background: var(--ink);
+  color: #fff;
+  padding: 16px 28px;
+  font-size: 15px;
+}
+.btn--primary:hover {
+  transform: translateY(-1px);
+}
+.btn--outline {
+  background: transparent;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  padding: 14px 22px;
+  font-size: 14px;
+}
+.btn--outline:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+.explore-b__footer {
+  border-top: 3px solid var(--rule);
+  padding: 28px 0 40px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 600;
+}

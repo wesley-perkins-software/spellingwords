@@ -63,6 +63,7 @@ Where things go:
 - **UI components** → `src/components/` (PascalCase `.astro`), but only extract a component once it's actually reused — pages keep their own markup otherwise.
 - **Types** → colocated `types.ts` inside each module, or `src/types/spelling.ts` for shared domain types.
 - **Content** → Markdown in `src/content/spelling-lists/<category>/`; routes derive from frontmatter, not hardcoded lists. Read `docs/CONTENT_ARCHITECTURE.md` and `docs/CONTENT_STANDARDS.md` before adding lists.
+- **Visual/UI redesign work** → before touching visual design, use the `frontend-design` skill (`.claude/skills/frontend-design/SKILL.md`) and read `docs/SPELLINGWORDS_VISUAL_REDESIGN_BRIEF.md` for project-specific audience/tone/accessibility context.
 
 ---
 

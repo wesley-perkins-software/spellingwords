@@ -1,0 +1,165 @@
+/* DESIGN EXPLORATION — Direction D: "Word Atlas". Throwaway, scoped under .explore-d only. */
+.explore-d {
+  --bg: #f2f4f5;
+  --surface: #ffffff;
+  --border: #c7cdd0;
+  --border-strong: #1b1d1e;
+
+  --ink: #1b1d1e;
+  --ink-soft: #565b5e;
+  --ink-faint: #8b9195;
+
+  /* Classification colors — rich, saturated, used as full plate header bands and section washes */
+  --phonics: #1f6e4a;
+  --hfw: #c4451f;
+  --grade-core: #33408f;
+  --themed: #8e3568;
+
+  --accent: #c98a1e;
+  --accent-ink: #1b1d1e;
+
+  --correct: #1f7a4c;
+  --incorrect: #c4451f;
+
+  --radius: 3px;
+
+  --font-display: 'Source Serif 4', Georgia, serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-word: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+.explore-d h1, .explore-d h2, .explore-d h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+.explore-d p { margin: 0; }
+.explore-d .mono { font-family: var(--font-mono); }
+
+.explore-d .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.explore-d .wrap--narrow { max-width: 760px; }
+
+.explore-d__header {
+  border-bottom: 2px solid var(--border-strong);
+  background: var(--bg);
+}
+.explore-d__header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.explore-d__wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+}
+.explore-d__wordmark .accent { color: var(--accent); }
+.explore-d__nav { display: flex; gap: 18px; }
+.explore-d__nav a {
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.explore-d__nav a:hover { color: var(--ink); }
+
+/* The Plate: signature crisp double-rule container, with an optional classification band */
+.plate {
+  background: var(--surface);
+  border: 1.5px solid var(--border-strong);
+  position: relative;
+  border-radius: var(--radius);
+}
+.plate::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid var(--border);
+  pointer-events: none;
+  border-radius: 1px;
+}
+.plate-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1.5px solid var(--border-strong);
+}
+
+.classification {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent-ink);
+  background: var(--accent);
+  display: inline-block;
+  padding: 4px 10px;
+  letter-spacing: 0.03em;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-decoration: none;
+  border: 1.5px solid var(--border-strong);
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.btn--primary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+  padding: 15px 26px;
+  font-size: 16px;
+}
+.btn--primary:hover { transform: translateY(-1px); }
+.btn--outline {
+  background: var(--surface);
+  color: var(--ink);
+  padding: 12px 18px;
+  font-size: 14px;
+}
+.btn--outline:hover { background: var(--bg); }
+
+.answer-input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.explore-d__footer {
+  border-top: 2px solid var(--border-strong);
+  padding: 26px 0 40px;
+  color: var(--ink-faint);
+  font-size: 13px;
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 700px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+}

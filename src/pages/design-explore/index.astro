@@ -1,21 +1,41 @@
 ---
-const directions = [
+const round1 = [
   {
     slug: 'a-spoken-shape',
-    name: 'A — Spoken Shape',
+    name: 'A — Spoken Shape (round 1, rejected)',
     desc: 'Voice/sound-led. A "listening stage" isolates the active word; small sound marks replace chip pills.',
   },
   {
     slug: 'b-signage-system',
-    name: 'B — Signage System',
+    name: 'B — Signage System (round 1, superseded by B2)',
     desc: 'Wayfinding/institutional-signage-led. Bold flat color blocks per grade, confident numerals, no gradients.',
   },
   {
     slug: 'c-quiet-system',
-    name: 'C — Quiet System',
+    name: 'C — Quiet System (round 1, rejected)',
     desc: 'Restrained, tokenized. A single left-edge color rail replaces every pill/badge; near-no shadow.',
   },
 ];
+
+const round2 = [
+  {
+    slug: 'b2-signal-garden',
+    name: 'B2 — Signal Garden (round 2, evolved from B)',
+    desc: 'Warm full-bleed color fields per grade/category; a recurring "arch" panel shape; rounder confident type.',
+  },
+  {
+    slug: 'd-word-atlas',
+    name: 'D — Word Atlas (round 2, new)',
+    desc: 'Classification/field-guide plates with crisp double-rule borders, saturated category color bands, classic serif + mono taxonomy codes.',
+  },
+  {
+    slug: 'e-pattern-ink',
+    name: 'E — Pattern Ink (round 2, new)',
+    desc: 'Pattern-carrying letters get a gold mark added on top of full-strength ink — nothing dims. Deep ink ground, vivid color-block sections.',
+  },
+];
+
+const directions = [...round2, ...round1];
 const surfaces = [
   { slug: 'home', name: 'Homepage' },
   { slug: 'skill', name: 'Skill / reference' },

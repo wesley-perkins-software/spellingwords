@@ -1,0 +1,119 @@
+---
+import Layout from './_Layout.astro';
+
+const families = [
+  { family: '-ake', words: 'cake, bake, lake, make, take, wake' },
+  { family: '-ate', words: 'gate, late, date, plate, skate' },
+  { family: '-ame', words: 'flame, game, name, same, tame' },
+  { family: '-ape', words: 'cape, grape, shape, tape' },
+  { family: '-ave', words: 'brave, cave, gave, save, wave' },
+];
+
+const compare = [
+  ['cap', 'cape'],
+  ['tap', 'tape'],
+  ['plan', 'plane'],
+  ['past', 'paste'],
+];
+
+const words = ['cake', 'gate', 'name', 'plate', 'shape'];
+
+const faq = [
+  {
+    q: 'Does the silent e in cake do anything if it isn’t pronounced?',
+    a: 'Yes — it changes how the vowel before it sounds. Without the final e, cake would be spelled and read like cak, with the short a sound in cat.',
+  },
+  {
+    q: 'Is silent e the only way to spell the long a sound?',
+    a: 'No. Silent e is one common way to spell long a in one-syllable words, but English also spells it with letter pairs such as ai and ay, as in rain and day.',
+  },
+];
+---
+
+<Layout title="Long A Silent E Words">
+  <header class="explore-d__header">
+    <div class="explore-d__header-inner">
+      <span class="explore-d__wordmark">spelling<span class="accent">words</span></span>
+      <nav class="explore-d__nav">
+        <a href="#">Grades</a>
+        <a href="#">Skills</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap wrap--narrow" style="padding: 36px 24px 72px;">
+    <p class="mono" style="font-size: 12px; color: var(--ink-faint); margin-bottom: 18px;">HOME / SKILLS / LONG-A-SILENT-E</p>
+
+    <span class="classification" style="background: var(--phonics);">Specimen GR.01-PH-02 · Skill · Phonics</span>
+
+    <h1 style="font-size: clamp(27px, 3.8vw, 37px); margin: 16px 0 14px;">Long A Silent E Words</h1>
+    <p style="font-size: 16.5px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 26px; max-width: 62ch;">
+      How the silent-e pattern turns a short vowel into a long "a" sound, as in cake and gate — with word
+      families, the short-a-to-long-a contrast, common mistakes, and a teaching routine.
+    </p>
+
+    <div class="plate" style="margin-bottom: 30px;">
+      <div class="plate-band" style="background: var(--phonics);">
+        <span>Field Notes</span>
+        <span>What is this pattern?</span>
+      </div>
+      <p style="padding: 18px 20px; font-size: 15.5px; line-height: 1.65;">
+        A silent e sits at the end of a word without making its own sound, but it changes the vowel before it.
+        In words like <em>cake</em>, <em>gate</em>, and <em>plate</em>, that final silent e signals that the
+        earlier vowel says its own name — long a — instead of the short a sound in <em>cat</em>.
+      </p>
+    </div>
+
+    <a href="#" class="btn btn--primary" style="margin-bottom: 36px;">Practice these 5 words →</a>
+
+    <h2 style="font-size: 19px; margin-bottom: 14px;">This week's words</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px;">
+      {words.map((w) => (
+        <span class="plate" style="padding: 10px 18px; font-family: var(--font-word); font-weight: 600; font-size: 18px; display: inline-block;">{w}</span>
+      ))}
+    </div>
+
+    <h2 style="font-size: 19px; margin-bottom: 12px;">Long A Word Families</h2>
+    <div class="plate" style="margin-bottom: 32px; overflow: hidden;">
+      {families.map((row, i) => (
+        <div style={`display: flex; gap: 18px; padding: 13px 18px; ${i < families.length - 1 ? 'border-bottom: 1px solid var(--border);' : ''}`}>
+          <span class="mono" style="min-width: 52px; color: var(--phonics); font-weight: 600;">{row.family}</span>
+          <span style="color: var(--ink-soft); font-size: 15px;">{row.words}</span>
+        </div>
+      ))}
+    </div>
+
+    <h2 style="font-size: 19px; margin-bottom: 12px;">Long A Compared With Short A</h2>
+    <div class="plate" style="margin-bottom: 32px; overflow: hidden;">
+      <div class="plate-band" style="background: var(--ink);">
+        <span>Short A</span><span>Long A</span>
+      </div>
+      {compare.map(([short, long], i) => (
+        <div style={`display: flex; justify-content: space-between; padding: 12px 20px; ${i < compare.length - 1 ? 'border-bottom: 1px solid var(--border);' : ''}`}>
+          <span style="color: var(--ink-soft);">{short}</span>
+          <span style="color: var(--phonics); font-weight: 600;">{long}</span>
+        </div>
+      ))}
+    </div>
+
+    <h2 style="font-size: 19px; margin-bottom: 12px;">Common Long A Mistakes</h2>
+    <p style="font-size: 15.5px; line-height: 1.7; margin-bottom: 32px; color: var(--ink);">
+      The most common mistake is dropping the silent e when writing — a sign the learner has heard the long
+      vowel but hasn't yet connected it to the e that marks it, so <em>cake</em> comes out as <em>cak</em>.
+    </p>
+
+    <h2 style="font-size: 19px; margin-bottom: 14px;">Frequently asked questions</h2>
+    <div class="plate">
+      {faq.map((item, i) => (
+        <div style={`padding: 18px 20px; ${i < faq.length - 1 ? 'border-bottom: 1px solid var(--border);' : ''}`}>
+          <p style="font-weight: 700; margin-bottom: 6px; font-size: 15px;">{item.q}</p>
+          <p style="color: var(--ink-soft); line-height: 1.6; font-size: 14.5px;">{item.a}</p>
+        </div>
+      ))}
+    </div>
+  </main>
+
+  <footer class="explore-d__footer">
+    <div class="wrap">No accounts · No timers · Just spelling</div>
+  </footer>
+</Layout>

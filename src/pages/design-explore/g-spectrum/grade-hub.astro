@@ -1,0 +1,52 @@
+---
+import Layout from './_Layout.astro';
+
+const strands = [
+  { title: 'Core Spelling', items: ['Short A Words', 'Long A Silent E Words', 'Soft C and Soft G'] },
+  { title: 'High-Frequency Words', items: ['Set 1', 'Set 2', 'Set 3'] },
+  { title: 'Themed Spelling Practice', items: ['Animal Words', 'Weather Words'] },
+];
+---
+
+<Layout title="Grade 1">
+  <header class="explore-g__header">
+    <div class="explore-g__header-inner">
+      <span class="explore-g__wordmark">spelling<span class="accent">words</span></span>
+      <nav class="explore-g__nav">
+        <a href="#">Grades</a>
+        <a href="#">Skills</a>
+      </nav>
+    </div>
+    <div class="explore-g__spine"></div>
+  </header>
+
+  <main class="wrap wrap--narrow" style="padding: 36px 24px 72px;">
+    <p style="font-size: 13px; color: var(--ink-faint); margin-bottom: 18px;">Home / Grade 1</p>
+
+    <div class="slice" style="background: linear-gradient(135deg, var(--spec-1), var(--spec-2)); padding: 26px 28px; margin-bottom: 30px;">
+      <span style="font-family: var(--font-display); font-weight: 800; font-size: 48px; line-height: 1;">1</span>
+      <h1 style="font-size: clamp(24px, 3.2vw, 30px); margin: 10px 0 10px;">Grade 1 Spelling Words</h1>
+      <p style="opacity: 0.92; font-size: 15px; line-height: 1.6; max-width: 62ch;">
+        A path through Core Spelling patterns, everyday High-Frequency Words, and Themed Practice.
+      </p>
+    </div>
+
+    {strands.map((strand) => (
+      <section style="margin-bottom: 26px;">
+        <h2 style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; color: var(--ink-soft);">{strand.title}</h2>
+        <div class="panel">
+          {strand.items.map((item, i) => (
+            <a href="#" style={`display: flex; align-items: center; justify-content: space-between; padding: 15px 18px; text-decoration: none; color: inherit; ${i < strand.items.length - 1 ? 'border-bottom: 1px solid var(--border);' : ''}`}>
+              <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px;">{item}</span>
+              <span style="color: var(--spec-1); font-weight: 800;">→</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
+
+  <footer class="explore-g__footer">
+    <div class="wrap">← Kindergarten &nbsp;&nbsp;&nbsp; Grade 2 →</div>
+  </footer>
+</Layout>

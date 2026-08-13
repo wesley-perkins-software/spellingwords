@@ -1,0 +1,53 @@
+---
+import Layout from './_Layout.astro';
+---
+
+<Layout title="Practice">
+  <header class="explore-g__header">
+    <div class="explore-g__header-inner">
+      <span class="explore-g__wordmark" style="font-size: 15px;">spelling<span class="accent">words</span></span>
+      <a href="#" style="font-size: 14px; font-weight: 700; color: var(--ink-soft); text-decoration: none;">← New list</a>
+    </div>
+    <div class="explore-g__spine"></div>
+  </header>
+
+  <main class="wrap wrap--narrow" style="padding: 32px 24px 64px; display: flex; flex-direction: column; gap: 34px;">
+    <section style="display: flex; align-items: center; gap: 14px;">
+      <span class="badge" style="background: var(--ink);">Word 3 / 10</span>
+      <div style="flex: 1; height: 6px; background: var(--border); border-radius: 999px; overflow: hidden;">
+        <div style="width: 30%; height: 100%; background: var(--spec-1);"></div>
+      </div>
+    </section>
+
+    <!-- Practice tray: a slice of the spectrum tied to this session's grade -->
+    <section class="slice" style="background: linear-gradient(135deg, var(--spec-1), var(--spec-2)); padding: 38px 32px; display: flex; flex-direction: column; gap: 22px;">
+      <p style="opacity: 0.92; font-size: 15px; font-weight: 600;">Listen carefully and type what you hear.</p>
+
+      <input
+        type="text"
+        class="answer-input"
+        placeholder="Type the word"
+        style="width: 100%; background: #fff; border: none; border-radius: 14px; padding: 17px 20px; font-family: var(--font-word); font-size: 27px; font-weight: 700; color: var(--ink);"
+      />
+
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button type="button" class="btn btn--ghost">🔊 Hear word again</button>
+        <button type="button" class="btn btn--ghost">💬 Hear sentence again</button>
+      </div>
+    </section>
+
+    <button type="button" class="btn btn--primary" style="width: 100%; padding: 17px;">
+      Submit Answer
+    </button>
+
+    <!-- Feedback state (correct) -->
+    <section>
+      <p style="font-size: 12.5px; font-weight: 700; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 14px;">Feedback state — correct</p>
+      <div class="slice" style="background: var(--correct); padding: 38px 32px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px;">
+        <span style="width: 40px; height: 40px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; color: var(--correct); font-weight: 800;">✓</span>
+        <span style="font-family: var(--font-word); font-weight: 700; font-size: 38px;">cake</span>
+        <p style="opacity: 0.92; font-size: 14.5px;">Well spelled.</p>
+      </div>
+    </section>
+  </main>
+</Layout>

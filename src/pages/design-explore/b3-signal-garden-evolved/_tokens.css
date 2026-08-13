@@ -1,0 +1,164 @@
+/* DESIGN EXPLORATION — Direction B3: "Signal Garden Evolved" (round 3). Throwaway, scoped under .explore-b3. */
+.explore-b3 {
+  --surface: #ffffff;
+  --border: rgba(20, 15, 10, 0.1);
+
+  --ink: #1c1712;
+  --ink-soft: #5c5148;
+  --ink-faint: #8f8378;
+
+  /* Three environment classes, each page/section adopts exactly one as its identity color. */
+  --env-home: #e23b6b;
+  --env-skills: #6e4fd1;
+  --grade-k: #ef5a3c;
+  --grade-1: #f0a530;
+  --grade-2: #6fae3e;
+  --grade-3: #239e93;
+  --grade-4: #4f63d9;
+  --grade-5: #a34fc7;
+
+  /* The active environment for this page — overridden per page via inline style on body/main. */
+  --env: var(--env-home);
+  --env-tint: color-mix(in srgb, var(--env) 7%, #fffdfa);
+  --env-tint-deep: color-mix(in srgb, var(--env) 14%, #fffdfa);
+
+  --correct: #2f9e5e;
+  --incorrect: #e2583f;
+
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-word: 'Inter', system-ui, sans-serif;
+
+  background: var(--env-tint);
+  color: var(--ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+.explore-b3 h1, .explore-b3 h2, .explore-b3 h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.explore-b3 p { margin: 0; }
+
+.explore-b3 .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+.explore-b3 .wrap--narrow { max-width: 780px; }
+
+.explore-b3__header {
+  position: relative;
+  z-index: 5;
+}
+.explore-b3__header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.explore-b3__wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+}
+.explore-b3__wordmark .accent { color: var(--env); }
+.explore-b3__nav { display: flex; gap: 4px; flex-wrap: wrap; }
+.explore-b3__nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+.explore-b3__nav a:hover { background: var(--env-tint-deep); color: var(--env); }
+
+/* The Doorway: an environment band with a shallow architectural arc at its base — the
+   signature transition device between an expressive color environment and a calm reading zone. */
+.env-band {
+  background: var(--env);
+  color: #fff;
+  border-radius: 0 0 50% 50% / 0 0 46px 46px;
+  position: relative;
+}
+.env-band--tile {
+  border-radius: 0 0 50% 50% / 0 0 22px 22px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.btn--primary {
+  background: var(--ink);
+  color: #fff;
+  padding: 16px 28px;
+  font-size: 16.5px;
+}
+.btn--primary:hover { transform: translateY(-1px); }
+.btn--on-env {
+  background: #fff;
+  color: var(--env);
+  padding: 15px 26px;
+  font-size: 16px;
+}
+.btn--on-env:hover { transform: translateY(-1px); }
+.btn--ghost-on-env {
+  background: rgba(255,255,255,0.16);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 14.5px;
+}
+.btn--ghost-on-env:hover { background: rgba(255,255,255,0.26); }
+
+.answer-input:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.explore-b3__footer {
+  padding: 30px 0 44px;
+  color: var(--ink-faint);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+}

@@ -251,46 +251,39 @@
         margin: 0 0 10px 24px;
       }
 
-      /* The "stage": not a floating card, but a recessed alcove carved
-         into the environment. An arch-shaped opening (large radius top,
-         tight radius bottom), a dark bezel rim, and an INSET shadow (the
-         shadow falls inside the opening, as if light drops into a
-         cut-out) replace the drop-shadow-plus-rounded-rect vocabulary
-         used elsewhere. It bleeds full-width on narrow screens so the
-         enclosure reads as a room, not an object placed on wallpaper. */
+      /* The "stage" is deliberately NOT a card: no bounding rectangle,
+         no fill, no drop shadow around the content. Each state's content
+         sits directly on the ambient environment, centered inside a soft
+         atmospheric light pool (a blurred radial glow with no hard edge)
+         so the moment feels lit, not boxed. The only literal "surface" in
+         the whole screen is the answer input itself — a functional text
+         field earns a surface; the surrounding content does not. This is
+         the deliberate departure from the tinted-background + white-card
+         vocabulary used by the browsing/reading environments. */
       .stage {
         position: relative;
         margin: 0 auto;
-        max-width: 620px;
-        border-radius: 64px 64px 18px 18px;
-        background: linear-gradient(185deg, #2c2050 0%, #4a3a86 46%, #6b53b0 100%);
-        padding: 5px;
-        box-shadow:
-          0 30px 60px -28px rgba(29, 19, 61, 0.55),
-          0 0 0 1px rgba(255, 255, 255, 0.06);
+        max-width: 560px;
+        padding: clamp(28px, 6vw, 48px) clamp(16px, 4vw, 32px);
       }
       .stage-glow {
         position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        background: radial-gradient(60% 40% at 50% 0%, rgba(255, 255, 255, 0.22), transparent 70%);
+        inset: -10% -6%;
+        border-radius: 999px;
+        background: radial-gradient(closest-side, rgba(255, 255, 255, 0.55), transparent 72%);
+        filter: blur(2px);
         pointer-events: none;
+        z-index: 0;
       }
       .stage-glow-correct {
-        background: radial-gradient(60% 40% at 50% 0%, rgba(178, 255, 214, 0.22), transparent 70%);
+        background: radial-gradient(closest-side, rgba(178, 255, 214, 0.45), transparent 72%);
       }
       .stage-glow-incorrect {
-        background: radial-gradient(60% 40% at 50% 0%, rgba(255, 202, 168, 0.2), transparent 70%);
+        background: radial-gradient(closest-side, rgba(255, 202, 168, 0.4), transparent 72%);
       }
       .stage-inner {
         position: relative;
         z-index: 1;
-        border-radius: 60px 60px 14px 14px;
-        background: linear-gradient(180deg, #fbfaff 0%, #f2eefc 100%);
-        box-shadow:
-          0 1px 0 rgba(255, 255, 255, 0.9) inset,
-          0 14px 30px -16px rgba(29, 19, 61, 0.45) inset;
-        padding: clamp(40px, 8vw, 64px) clamp(24px, 6vw, 60px) clamp(32px, 6vw, 48px);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -438,22 +431,21 @@
         background: #f4f1fc;
       }
 
-      .stage-results .stage-inner {
-        text-align: left;
-        align-items: stretch;
-      }
       .results-summary {
         font-family: 'Fraunces', serif;
         font-weight: 560;
         font-size: clamp(22px, 3.6vw, 27px);
-        margin: 0 0 26px;
+        margin: 0 0 30px;
         text-align: center;
       }
+      /* No panel here either — a labeled row under a hairline rule,
+         directly on the environment, matching the rest of the state. */
       .results-missed {
-        background: rgba(90, 63, 166, 0.06);
-        border-radius: 18px;
-        padding: 18px 22px;
-        margin: 0 0 30px;
+        width: 100%;
+        max-width: 380px;
+        border-top: 1.5px solid rgba(90, 63, 166, 0.22);
+        padding-top: 18px;
+        margin: 0 0 34px;
       }
       .results-missed-label {
         margin: 0 0 10px;
@@ -470,6 +462,7 @@
         display: flex;
         gap: 14px;
         flex-wrap: wrap;
+        justify-content: center;
       }
       .results-missed li {
         font-family: 'Space Grotesk', sans-serif;
@@ -497,12 +490,6 @@
       }
 
       @media (max-width: 480px) {
-        .stage {
-          border-radius: 36px 36px 14px 14px;
-        }
-        .stage-inner {
-          border-radius: 33px 33px 11px 11px;
-        }
         .state-label {
           margin-left: 8px;
         }

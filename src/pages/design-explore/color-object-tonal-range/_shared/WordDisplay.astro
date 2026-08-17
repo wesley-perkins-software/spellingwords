@@ -1,0 +1,32 @@
+---
+// Functional, unambiguously-legible word treatment.
+// Used for: the practice word itself, and any word list a student must
+// read accurately. No color-fill, no overlap, no stroke tricks — plain
+// solid ink on a plain paper surface, in a typeface built to disambiguate
+// similar letterforms.
+interface Props {
+  word: string;
+  tone?: 'neutral' | 'correct' | 'incorrect';
+  size?: string;
+}
+const { word, tone = 'neutral', size = 'clamp(2rem, 6vw, 3.5rem)' } = Astro.props;
+---
+
+<span class={`word-display tone-${tone}`} style={`--wd-size: ${size};`}>{word}</span>
+
+<style>
+  .word-display {
+    display: inline-block;
+    font-family: var(--font-word);
+    font-weight: 700;
+    font-size: var(--wd-size);
+    letter-spacing: 0.02em;
+    color: var(--paper-ink);
+  }
+  .tone-correct {
+    color: var(--status-correct-ink);
+  }
+  .tone-incorrect {
+    color: var(--status-incorrect-ink);
+  }
+</style>

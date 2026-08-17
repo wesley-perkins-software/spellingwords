@@ -1,0 +1,70 @@
+---
+// Decorative "word as color object" typographic treatment.
+// FOR MARKETING / HEADLINE / BRAND CONTEXTS ONLY.
+// Never use this component for the practice word or any word a student
+// must read accurately — use WordDisplay.astro for that instead.
+// (Same grammar as the parent Word as Color Object direction — this
+// variation only changes the surrounding canvas, never the word treatment.)
+interface Props {
+  word: string;
+  fill?: 'coral' | 'sunflower' | 'periwinkle' | 'lime';
+  ghostFill?: 'coral' | 'sunflower' | 'periwinkle' | 'lime';
+  size?: string;
+  ghost?: boolean;
+  ghostOffset?: string;
+  rotate?: string;
+  as?: 'span' | 'div';
+}
+const {
+  word,
+  fill = 'sunflower',
+  ghostFill = 'periwinkle',
+  size = 'clamp(2.5rem, 9vw, 7rem)',
+  ghost = true,
+  ghostOffset = '0.09em',
+  rotate = '0deg',
+  as = 'span',
+} = Astro.props;
+const Tag = as;
+---
+
+<Tag
+  class="color-word"
+  data-text={word}
+  style={`--fill: var(--${fill}); --ghost-fill: var(--${ghostFill}); --size: ${size}; --ghost-x: ${ghostOffset}; --rotate: ${rotate};`}
+>
+  {ghost && <span class="cw-ghost" aria-hidden="true">{word}</span>}
+  <span class="cw-face">{word}</span>
+</Tag>
+
+<style>
+  .color-word {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--size);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    transform: rotate(var(--rotate));
+    isolation: isolate;
+  }
+
+  .cw-ghost {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    color: var(--ghost-fill);
+    opacity: 0.55;
+    transform: translate(var(--ghost-x), calc(var(--ghost-x) * 0.7)) scale(1.04);
+    pointer-events: none;
+  }
+
+  .cw-face {
+    position: relative;
+    display: inline-block;
+    color: var(--fill);
+    -webkit-text-stroke: max(2px, 0.018em) var(--canvas-deeper);
+    paint-order: stroke fill;
+  }
+</style>

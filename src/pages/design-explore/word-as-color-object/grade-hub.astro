@@ -1,0 +1,332 @@
+---
+import Proto from './_shared/Proto.astro';
+import ColorWord from './_shared/ColorWord.astro';
+
+const strands = [
+  {
+    label: 'Core Spelling',
+    fill: 'coral' as const,
+    unit: 'Compound Words',
+    summary:
+      'Weekly units built around one spelling pattern at a time. This grade opens with Compound Words: two small words joined into one, like sunlight and backyard.',
+    cta: 'Start Compound Words',
+  },
+  {
+    label: 'High-Frequency Words',
+    fill: 'sunflower' as const,
+    unit: 'Grade 1 High-Frequency Words, Set 1',
+    summary:
+      'The words that show up constantly in early reading and writing. Set 1 covers the most common ones your student is likely seeing every day.',
+    cta: 'Start Set 1',
+  },
+  {
+    label: 'Themed Spelling Practice',
+    fill: 'periwinkle' as const,
+    unit: 'Backyard Bugs',
+    summary:
+      'A short seasonal or topical list for extra practice outside the core sequence. Backyard Bugs pairs spelling with a bit of science vocabulary.',
+    cta: 'Start Backyard Bugs',
+  },
+];
+---
+
+<Proto
+  title="2nd Grade Spelling Words — Word as Color Object exploration"
+  description="Grade hub page mockup: 2nd grade spelling strands, core units, high-frequency words, and themed practice."
+>
+  <header class="site-head">
+    <div class="wrap site-head-row">
+      <a href="/design-explore/word-as-color-object" class="wordmark">
+        <ColorWord word="spelling" fill="sunflower" ghostFill="coral" size="1.5rem" ghost={false} as="span" />
+        <span class="wordmark-rest">words.app</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="/design-explore/word-as-color-object/grade-hub" aria-current="page">Grades</a>
+        <a href="/design-explore/word-as-color-object/skill">Skills</a>
+        <a href="/design-explore/word-as-color-object/practice">Practice</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb wrap" aria-label="Breadcrumb">
+      <a href="/design-explore/word-as-color-object">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="/design-explore/word-as-color-object/grade-hub">Grades</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">2nd Grade</span>
+    </nav>
+
+    <section class="hub-hero">
+      <div class="wrap">
+        <p class="eyebrow">Grade hub</p>
+        <h1 class="hub-head">
+          <ColorWord word="2nd" fill="lime" ghostFill="coral" size="clamp(2.6rem,9vw,5.5rem)" rotate="-2deg" />
+          <span class="hub-head-rest">Grade Spelling Words</span>
+        </h1>
+        <p class="hub-sub">
+          Everything a 2nd grader is likely practicing this year, organized into three strands: core weekly
+          patterns, the high-frequency words that turn up everywhere, and a themed list for extra variety.
+          Start with the strand that matches what&rsquo;s coming home in homework.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="callout">
+          <p class="callout-label">Where to begin</p>
+          <p class="callout-body">
+            New here? Start with <strong>Core Spelling</strong>. It follows the sequence most 2nd grade
+            classrooms teach in, one pattern per week. Use High-Frequency Words alongside it for extra
+            reinforcement, and save Themed Practice for a change of pace.
+          </p>
+        </div>
+
+        <ul class="strand-list" role="list">
+          {
+            strands.map((s) => (
+              <li class="strand-card">
+                <div class="strand-top">
+                  <span class="strand-label" style={`color: var(--${s.fill});`}>{s.label}</span>
+                </div>
+                <h2 class="strand-unit">{s.unit}</h2>
+                <p class="strand-summary">{s.summary}</p>
+                <a class="btn btn-strand" style={`background: var(--${s.fill});`} href="/design-explore/word-as-color-object/skill">
+                  {s.cta}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <nav class="grade-pager wrap" aria-label="Adjacent grades">
+      <a class="pager-link" href="/design-explore/word-as-color-object/grade-hub">&larr; 1st Grade</a>
+      <a class="pager-link pager-current" href="/design-explore/word-as-color-object/grade-hub" aria-current="page">2nd Grade</a>
+      <a class="pager-link" href="/design-explore/word-as-color-object/grade-hub">3rd Grade &rarr;</a>
+    </nav>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>spellingwords.app &mdash; design exploration, not a live product.</p>
+    </div>
+  </footer>
+</Proto>
+
+<style>
+  .site-head {
+    background: var(--canvas-deeper);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-head-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .wordmark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    text-decoration: none;
+    font-family: var(--font-display);
+  }
+  .wordmark-rest {
+    color: var(--ink);
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .site-head nav {
+    display: flex;
+    gap: 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-right: 3.5rem;
+  }
+  .site-head nav a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.2rem;
+  }
+  .site-head nav a[aria-current='page'] {
+    color: var(--sunflower);
+    border-bottom-color: var(--sunflower);
+  }
+  .site-head nav a:hover {
+    color: var(--ink);
+  }
+
+  .breadcrumb {
+    padding-block: 1.25rem;
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+    display: flex;
+    gap: 0.5rem;
+  }
+  .breadcrumb a {
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover {
+    color: var(--sunflower);
+  }
+  .breadcrumb [aria-current='page'] {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .hub-hero {
+    padding-block: 1rem clamp(2rem, 5vw, 3rem);
+    background: radial-gradient(110% 130% at 10% 0%, var(--canvas-deep) 0%, var(--canvas) 60%);
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--ink-faint);
+    margin: 0 0 0.75rem;
+  }
+  .hub-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.8rem;
+    margin: 0 0 1.25rem;
+  }
+  .hub-head-rest {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .hub-sub {
+    max-width: 62ch;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  .section {
+    padding-block: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .callout {
+    background: var(--canvas-deeper);
+    border-left: 5px solid var(--sunflower);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .callout-label {
+    margin: 0 0 0.35rem;
+    font-weight: 700;
+    color: var(--sunflower);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .callout-body {
+    margin: 0;
+    color: var(--ink-soft);
+    max-width: 68ch;
+  }
+  .callout-body strong {
+    color: var(--ink);
+  }
+
+  .strand-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .strand-card {
+    background: var(--canvas-deep);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .strand-label {
+    font-weight: 800;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .strand-unit {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .strand-summary {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+    flex-grow: 1;
+  }
+  .btn-strand {
+    display: inline-flex;
+    align-self: flex-start;
+    color: var(--canvas-deeper);
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    margin-top: 0.4rem;
+  }
+
+  .grade-pager {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 2rem 3rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .pager-link {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-weight: 700;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+  }
+  .pager-link:hover {
+    border-color: var(--sunflower);
+    color: var(--sunflower);
+  }
+  .pager-current {
+    background: var(--canvas-deeper);
+    color: var(--ink);
+    border-color: var(--border-strong);
+  }
+
+  .site-foot {
+    background: var(--canvas-deeper);
+    padding-block: 1.5rem;
+    color: var(--ink-faint);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 860px) {
+    .strand-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

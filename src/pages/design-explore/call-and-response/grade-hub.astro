@@ -1,0 +1,564 @@
+---
+// Design exploration — Direction 2: "Call & Response" — Grade Hub
+const strands = [
+  {
+    tag: 'Core Spelling',
+    unit: 'Compound Words',
+    summary:
+      'The grade-level backbone: patterns build week over week, from short vowels to blended sounds.',
+    cta: 'Start Compound Words',
+  },
+  {
+    tag: 'High-Frequency Words',
+    unit: 'Grade 1 High-Frequency Words, Set 1',
+    summary: 'The words that show up everywhere — worth knowing by sight, not just by sound.',
+    cta: 'Practice Set 1',
+  },
+  {
+    tag: 'Themed Spelling Practice',
+    unit: 'Words About Weather',
+    summary: 'A themed list for extra practice — clouds, storms, and sunshine spelled out.',
+    cta: 'Try Weather Words',
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>2nd Grade Spelling Words — Call &amp; Response (Design Exploration)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="proto-badge">Design exploration — Call &amp; Response</div>
+
+    <div class="cr">
+      <header class="site-head">
+        <a class="wordmark" href="/design-explore/call-and-response/">
+          spelling<span>words</span>
+        </a>
+        <nav class="head-nav" aria-label="Primary">
+          <a href="/design-explore/call-and-response/grade-hub" aria-current="page">Grades</a>
+          <a href="/design-explore/call-and-response/skill">Skills</a>
+          <a href="/design-explore/call-and-response/practice">Practice</a>
+        </nav>
+      </header>
+
+      <main>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="/design-explore/call-and-response/">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="/design-explore/call-and-response/grade-hub">Grades</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">2nd Grade</span>
+        </nav>
+
+        <!-- HERO -->
+        <section class="pair pair--hero" aria-labelledby="hub-heading">
+          <div class="zone zone--call">
+            <p class="tag tag--call">2nd Grade</p>
+            <h1 id="hub-heading">2nd Grade Spelling Words</h1>
+          </div>
+          <div class="connector" aria-hidden="true">
+            <span class="connector-dot"></span>
+            <span class="connector-line"></span>
+          </div>
+          <div class="zone zone--response">
+            <p class="orient">
+              Second grade is where spelling starts to click into patterns — compound words,
+              tricky vowel teams, and the high-frequency words that show up in almost every
+              sentence. Below are the three ways to practice this grade's words.
+            </p>
+          </div>
+        </section>
+
+        <!-- STRANDS -->
+        <section class="section" aria-label="Grade 2 strands">
+          <ul class="strand-list" role="list">
+            {
+              strands.map((s, i) => (
+                <li class="strand-pair" style={`--i:${i}`}>
+                  <div class="strand-call">
+                    <p class="tag tag--call">{s.tag}</p>
+                    <h2>{s.unit}</h2>
+                    <p>{s.summary}</p>
+                  </div>
+                  <div class="strand-connector" aria-hidden="true" />
+                  <a class="strand-response" href="/design-explore/call-and-response/skill">
+                    <span class="strand-cta-label">Begin</span>
+                    <span class="strand-cta">{s.cta} →</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <!-- WHERE TO BEGIN -->
+        <section class="pair pair--callout" aria-labelledby="begin-heading">
+          <div class="zone-mini zone-mini--call">
+            <p class="tag tag--response" style="background:var(--response);color:var(--response-ink)">
+              Not sure where to start?
+            </p>
+            <h3 id="begin-heading">Where to begin</h3>
+          </div>
+          <div class="zone-mini zone-mini--response callout-response">
+            <p>
+              New to 2nd grade lists? Start with <strong>Core Spelling → Compound Words</strong>.
+              It's the strand most 2nd grade classrooms cover first, and it builds directly on
+              1st grade blending skills.
+            </p>
+          </div>
+        </section>
+
+        <!-- PREV / NEXT GRADE NAV -->
+        <nav class="grade-nav" aria-label="Grade navigation">
+          <a class="grade-nav-link grade-nav-link--prev" href="/design-explore/call-and-response/grade-hub">
+            <span class="nav-tag">Previous</span>
+            <span class="nav-label">← 1st Grade</span>
+          </a>
+          <a class="grade-nav-link grade-nav-link--next" href="/design-explore/call-and-response/grade-hub">
+            <span class="nav-tag">Next</span>
+            <span class="nav-label">3rd Grade →</span>
+          </a>
+        </nav>
+      </main>
+
+      <footer class="site-foot">
+        <p>spellingwords.app · a calm place to practice</p>
+      </footer>
+    </div>
+
+    <style>
+      /* Shared design system — see index.astro for the canonical copy of these tokens. */
+      .cr {
+        --canvas: #16262c;
+        --canvas-raised: #1d323a;
+        --canvas-line: rgba(251, 246, 236, 0.14);
+        --ink-0: #fbf6ec;
+        --ink-100: #e4dfd2;
+        --ink-300: #93a6a4;
+        --call: #ff6b4a;
+        --call-deep: #d43f1f;
+        --call-ink: #2c1206;
+        --response: #ffc93c;
+        --response-deep: #c98a0a;
+        --response-ink: #2b2205;
+        --tertiary: #c9a6ff;
+        --tertiary-deep: #8c5ff0;
+        --tertiary-ink: #241238;
+        --focus: #ffe08a;
+        --radius-call: 28px 8px 28px 8px;
+        --radius-response: 8px 28px 8px 28px;
+        background: var(--canvas);
+        color: var(--ink-0);
+        font-family: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+        min-height: 100vh;
+        line-height: 1.5;
+      }
+      .cr * {
+        box-sizing: border-box;
+      }
+      .cr h1,
+      .cr h2,
+      .cr h3 {
+        font-family: 'Fraunces', ui-serif, Georgia, serif;
+        font-weight: 600;
+        line-height: 1.1;
+        margin: 0;
+        color: var(--ink-0);
+      }
+      .cr a {
+        color: inherit;
+      }
+      .cr :focus-visible {
+        outline: 3px solid var(--focus);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      .proto-badge {
+        position: fixed;
+        bottom: 14px;
+        right: 14px;
+        z-index: 999;
+        background: #0f1a1e;
+        color: #f2ead8;
+        font: 600 12px/1 'Figtree', sans-serif;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      }
+      .site-head {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 28px 24px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .wordmark {
+        font-family: 'Fraunces', serif;
+        font-weight: 600;
+        font-size: 1.35rem;
+        text-decoration: none;
+        color: var(--ink-0);
+      }
+      .wordmark span {
+        color: var(--response);
+      }
+      .head-nav {
+        display: flex;
+        gap: 22px;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+      .head-nav a {
+        text-decoration: none;
+        color: var(--ink-100);
+        padding-bottom: 3px;
+        border-bottom: 2px solid transparent;
+      }
+      .head-nav a:hover,
+      .head-nav a[aria-current='page'] {
+        border-bottom-color: var(--response);
+        color: var(--ink-0);
+      }
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 24px 96px;
+      }
+      .crumbs {
+        margin: 26px 0 0;
+        font-size: 0.85rem;
+        color: var(--ink-300);
+        display: flex;
+        gap: 8px;
+      }
+      .crumbs a {
+        text-decoration: none;
+        color: var(--ink-300);
+      }
+      .crumbs a:hover {
+        color: var(--response);
+      }
+      .crumbs [aria-current='page'] {
+        color: var(--ink-100);
+      }
+      .tag {
+        display: inline-block;
+        font: 700 0.72rem/1 'Figtree', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        padding: 6px 12px;
+        border-radius: 999px;
+        margin: 0 0 14px;
+      }
+      .tag--call {
+        background: var(--call);
+        color: var(--call-ink);
+      }
+      .tag--response {
+        background: var(--response);
+        color: var(--response-ink);
+      }
+      .pair {
+        display: grid;
+        position: relative;
+      }
+      .pair--hero {
+        grid-template-columns: minmax(0, 5fr) 64px minmax(0, 7fr);
+        align-items: start;
+        margin-top: 40px;
+      }
+      .zone {
+        padding: 40px 38px;
+        position: relative;
+      }
+      .zone--call {
+        background: var(--call);
+        color: var(--call-ink);
+        border-radius: var(--radius-call);
+        z-index: 2;
+        box-shadow: 0 22px 50px -18px rgba(212, 63, 31, 0.55);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .zone--call h1 {
+        color: var(--call-ink);
+        font-size: clamp(2rem, 3.4vw, 2.8rem);
+      }
+      .zone--response {
+        background: var(--canvas-raised);
+        border: 1px solid var(--canvas-line);
+        border-radius: var(--radius-response);
+        transform: translateY(56px);
+        z-index: 1;
+        display: flex;
+        align-items: center;
+      }
+      .orient {
+        margin: 0;
+        color: var(--ink-100);
+        font-size: 1.08rem;
+        max-width: 56ch;
+      }
+      .connector {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 80px;
+      }
+      .connector-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--response);
+        box-shadow: 0 0 0 6px rgba(255, 201, 60, 0.18);
+      }
+      .connector-line {
+        width: 2px;
+        flex: 1;
+        margin-top: 6px;
+        background: repeating-linear-gradient(
+          to bottom,
+          var(--response) 0 8px,
+          transparent 8px 16px
+        );
+      }
+
+      /* strands */
+      .section {
+        margin-top: 90px;
+      }
+      .strand-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+      }
+      .strand-pair {
+        display: grid;
+        grid-template-columns: minmax(0, 6fr) 48px minmax(0, 4fr);
+        align-items: center;
+      }
+      .strand-pair:nth-child(2) {
+        transform: translateX(40px);
+      }
+      .strand-pair:nth-child(3) {
+        transform: translateX(-16px);
+      }
+      .strand-call {
+        background: var(--canvas-raised);
+        border: 1px solid var(--canvas-line);
+        border-radius: 22px;
+        padding: 30px 32px;
+        z-index: 2;
+      }
+      .strand-call h2 {
+        font-size: 1.5rem;
+        margin: 4px 0 12px;
+      }
+      .strand-call p {
+        margin: 0;
+        color: var(--ink-100);
+        font-size: 0.98rem;
+        max-width: 48ch;
+      }
+      .strand-connector {
+        height: 2px;
+        background: repeating-linear-gradient(
+          to right,
+          var(--response) 0 8px,
+          transparent 8px 16px
+        );
+      }
+      .strand-response {
+        background: var(--response);
+        color: var(--response-ink);
+        border-radius: 22px;
+        padding: 26px 28px;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        transform: translateY(18px);
+        box-shadow: 0 16px 34px -16px rgba(201, 138, 10, 0.5);
+      }
+      .strand-cta-label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        opacity: 0.75;
+      }
+      .strand-cta {
+        font-weight: 700;
+        font-size: 1.05rem;
+      }
+      .strand-response:hover {
+        background: var(--response-deep);
+      }
+
+      /* where to begin callout */
+      .pair--callout {
+        margin-top: 100px;
+        grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+        align-items: stretch;
+      }
+      .zone-mini {
+        padding: 26px 28px;
+      }
+      .zone-mini--call {
+        background: transparent;
+        border: 2px dashed var(--canvas-line);
+        border-right: none;
+        border-radius: 18px 0 0 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .callout-response {
+        background: var(--tertiary);
+        color: var(--tertiary-ink);
+        border-radius: 0 18px 18px 0;
+        display: flex;
+        align-items: center;
+        margin-left: -2px;
+      }
+      .callout-response p {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .callout-response strong {
+        color: var(--tertiary-ink);
+      }
+
+      /* grade prev/next nav */
+      .grade-nav {
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .grade-nav-link {
+        text-decoration: none;
+        padding: 22px 26px;
+        border-radius: 18px;
+        border: 1px solid var(--canvas-line);
+        background: var(--canvas-raised);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .grade-nav-link--prev {
+        text-align: left;
+      }
+      .grade-nav-link--next {
+        text-align: right;
+        border-color: var(--response-deep);
+        background: rgba(255, 201, 60, 0.1);
+      }
+      .nav-tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--ink-300);
+      }
+      .nav-label {
+        font-family: 'Fraunces', serif;
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: var(--ink-0);
+      }
+      .grade-nav-link:hover .nav-label {
+        color: var(--response);
+      }
+
+      .site-foot {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 30px 24px 50px;
+        color: var(--ink-300);
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 900px) {
+        .pair--hero {
+          grid-template-columns: 1fr;
+        }
+        .connector {
+          flex-direction: row;
+          padding: 0;
+          margin: 14px 0 14px 30px;
+        }
+        .connector-line {
+          width: 40px;
+          height: 2px;
+          flex: none;
+          margin: 0 0 0 6px;
+          background: repeating-linear-gradient(
+            to right,
+            var(--response) 0 8px,
+            transparent 8px 16px
+          );
+        }
+        .zone--response {
+          transform: none;
+        }
+        .strand-pair {
+          grid-template-columns: 1fr;
+        }
+        .strand-pair:nth-child(2),
+        .strand-pair:nth-child(3) {
+          transform: none;
+        }
+        .strand-connector {
+          width: 2px;
+          height: 24px;
+          margin: 0 0 0 30px;
+          background: repeating-linear-gradient(
+            to bottom,
+            var(--response) 0 8px,
+            transparent 8px 16px
+          );
+        }
+        .strand-response {
+          transform: none;
+        }
+        .pair--callout {
+          grid-template-columns: 1fr;
+        }
+        .zone-mini--call {
+          border-radius: 18px 18px 0 0;
+          border-right: 2px dashed var(--canvas-line);
+          border-bottom: none;
+        }
+        .callout-response {
+          border-radius: 0 0 18px 18px;
+          margin-left: 0;
+        }
+        .grade-nav {
+          grid-template-columns: 1fr;
+        }
+        .grade-nav-link--next {
+          text-align: left;
+        }
+      }
+    </style>
+  </body>
+</html>

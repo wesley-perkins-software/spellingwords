@@ -1,0 +1,403 @@
+---
+// Design exploration — Direction 3: "Shifting Environments"
+// Grade Hub / curriculum-browsing environment.
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>2nd Grade Spelling Words (Design exploration)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,650&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="proto-badge" aria-hidden="true">Design exploration — Shifting Environments</div>
+
+    <div class="env-hub">
+      <header class="topline">
+        <a class="wordmark" href="/design-explore/shifting-environments/">
+          <span class="wordmark-mark">sw</span>spellingwords
+        </a>
+        <nav class="topnav" aria-label="Prototype navigation">
+          <a href="/design-explore/shifting-environments/">Home</a>
+          <a href="/design-explore/shifting-environments/skill">Skill page</a>
+          <a href="/design-explore/shifting-environments/practice">Practice</a>
+        </nav>
+      </header>
+
+      <main>
+        <p class="crumb"><a href="/design-explore/shifting-environments/">Grades</a> / 2nd Grade</p>
+        <h1>2nd Grade Spelling Words</h1>
+        <p class="lede">
+          Second grade spelling widens out from single-syllable basics into compound words,
+          longer high-frequency sight words, and the first themed units. Below, the words are
+          grouped the way a 2nd grade classroom actually teaches them &mdash; by pattern first, by
+          topic second.
+        </p>
+
+        <section class="strand" aria-labelledby="strand-1-h">
+          <div class="strand-tab" style="--tab: #1f5c4e;"><span>01</span></div>
+          <div class="strand-body">
+            <p class="strand-kicker">Core Spelling</p>
+            <h2 id="strand-1-h">Compound Words</h2>
+            <p>
+              Two small words joined into one, like <em>backpack</em> and <em>sunshine</em>.
+              This unit is where most 2nd graders start noticing spelling patterns instead of
+              memorizing words one at a time.
+            </p>
+            <a class="unit-link" href="/design-explore/shifting-environments/skill">Open unit &rarr;</a>
+          </div>
+        </section>
+
+        <section class="strand" aria-labelledby="strand-2-h">
+          <div class="strand-tab" style="--tab: #a9631f;"><span>02</span></div>
+          <div class="strand-body">
+            <p class="strand-kicker">High-Frequency Words</p>
+            <h2 id="strand-2-h">Grade 1 High-Frequency Words, Set 1</h2>
+            <p>
+              A review set carried forward from 1st grade &mdash; words like <em>because</em>,
+              <em>people</em>, and <em>friend</em> that show up constantly in reading but don&rsquo;t
+              follow tidy phonics rules.
+            </p>
+            <a class="unit-link" href="/design-explore/shifting-environments/skill">Open unit &rarr;</a>
+          </div>
+        </section>
+
+        <section class="strand" aria-labelledby="strand-3-h">
+          <div class="strand-tab" style="--tab: #395b8c;"><span>03</span></div>
+          <div class="strand-body">
+            <p class="strand-kicker">Themed Spelling Practice</p>
+            <h2 id="strand-3-h">Weather &amp; Seasons Words</h2>
+            <p>
+              A vocabulary-building unit that pairs spelling with science and seasons talk &mdash;
+              <em>cloudy</em>, <em>thunder</em>, <em>autumn</em>, <em>freezing</em> &mdash; useful
+              alongside a classroom weather unit.
+            </p>
+            <a class="unit-link" href="/design-explore/shifting-environments/skill">Open unit &rarr;</a>
+          </div>
+        </section>
+
+        <section class="callout" aria-labelledby="begin-h">
+          <p class="callout-eyebrow">New to this grade?</p>
+          <h2 id="begin-h">Where to begin</h2>
+          <p>
+            Start with <strong>Compound Words</strong> &mdash; it&rsquo;s the shortest unit, it
+            builds directly on 1st grade skills, and it gives kids an early, visible win before
+            moving into sight words.
+          </p>
+          <a class="callout-cta" href="/design-explore/shifting-environments/skill">Start with Compound Words &rarr;</a>
+        </section>
+
+        <nav class="grade-nav" aria-label="Other grades">
+          <a href="/design-explore/shifting-environments/grade-hub" class="grade-nav-prev">
+            <span class="grade-nav-dir">&larr; Previous</span>
+            <span class="grade-nav-name">1st Grade</span>
+          </a>
+          <a href="/design-explore/shifting-environments/grade-hub" class="grade-nav-next">
+            <span class="grade-nav-dir">Next &rarr;</span>
+            <span class="grade-nav-name">3rd Grade</span>
+          </a>
+        </nav>
+      </main>
+    </div>
+
+    <style>
+      :global(html, body) {
+        margin: 0;
+        padding: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      .proto-badge {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 50;
+        background: rgba(15, 32, 27, 0.82);
+        color: #eafdf5;
+        font: 500 11px/1.4 'Inter', sans-serif;
+        padding: 6px 10px;
+        border-radius: 6px;
+        pointer-events: none;
+      }
+
+      .env-hub {
+        --env-a: #dff0e8;
+        --env-b: #eef8f2;
+        --ink: #16302a;
+        --ink-soft: #3f6157;
+        --ink-faint: #6f8c83;
+        --accent: #1f5c4e;
+        --plate: #f6fcf9;
+        --focus-ring: #1c4f8c;
+
+        min-height: 100vh;
+        background: linear-gradient(180deg, var(--env-b) 0%, var(--env-a) 100%);
+        font-family: 'Inter', system-ui, sans-serif;
+        color: var(--ink);
+        padding: 0 clamp(20px, 5vw, 64px) 96px;
+      }
+      a {
+        color: inherit;
+      }
+      *:focus-visible {
+        outline: 3px solid var(--focus-ring);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      .topline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 28px 0 8px;
+        max-width: 880px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .wordmark {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Fraunces', serif;
+        font-weight: 650;
+        font-size: 20px;
+        text-decoration: none;
+        color: var(--ink);
+      }
+      .wordmark-mark {
+        display: grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 9px;
+        background: var(--accent);
+        color: #fff;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .topnav {
+        display: flex;
+        gap: 22px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .topnav a {
+        text-decoration: none;
+        color: var(--ink-soft);
+      }
+      .topnav a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        max-width: 880px;
+        margin: 0 auto;
+      }
+
+      .crumb {
+        font-size: 13px;
+        color: var(--ink-faint);
+        margin: 40px 0 10px;
+      }
+      .crumb a {
+        text-decoration: none;
+        color: var(--ink-faint);
+      }
+      .crumb a:hover {
+        text-decoration: underline;
+      }
+
+      h1 {
+        font-family: 'Fraunces', serif;
+        font-weight: 650;
+        font-size: clamp(30px, 4.4vw, 42px);
+        margin: 0 0 16px;
+        letter-spacing: -0.01em;
+      }
+      .lede {
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--ink-soft);
+        max-width: 68ch;
+        margin: 0 0 44px;
+      }
+
+      /* Curriculum "notebook spread": each strand is a nearly-flush panel
+         with a colored index tab, differentiated by a hairline top edge
+         rather than a drop shadow — deliberately low elevation, because
+         this is a browsing list, not a highlighted object. */
+      .strand {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        background: var(--plate);
+        border-radius: 4px;
+        margin-bottom: 14px;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+        border: 1px solid rgba(22, 48, 42, 0.08);
+        overflow: hidden;
+      }
+      .strand-tab {
+        background: var(--tab);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 22px;
+      }
+      .strand-tab span {
+        color: rgba(255, 255, 255, 0.85);
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        writing-mode: vertical-rl;
+        letter-spacing: 0.08em;
+      }
+      .strand-body {
+        padding: 22px 26px 24px;
+      }
+      .strand-kicker {
+        margin: 0 0 6px;
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+      }
+      .strand-body h2 {
+        font-family: 'Fraunces', serif;
+        font-weight: 560;
+        font-size: 21px;
+        margin: 0 0 8px;
+      }
+      .strand-body p:not(.strand-kicker) {
+        margin: 0 0 14px;
+        color: var(--ink-soft);
+        font-size: 15px;
+        line-height: 1.6;
+        max-width: 62ch;
+      }
+      .unit-link {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--accent);
+        border-bottom: 1.5px solid transparent;
+      }
+      .unit-link:hover {
+        border-color: var(--accent);
+      }
+
+      /* The one moment on this page that DOES lift decisively: an
+         attention callout, rendered like a clipped index card set at a
+         slight angle against the notebook spread. */
+      .callout {
+        position: relative;
+        background: #fff9ec;
+        border: 1px solid rgba(169, 99, 31, 0.28);
+        border-radius: 3px 16px 3px 16px;
+        padding: 26px 30px 28px;
+        margin: 40px 0 52px;
+        transform: rotate(-0.6deg);
+        box-shadow: 0 18px 34px -20px rgba(22, 48, 42, 0.35);
+        max-width: 620px;
+      }
+      .callout::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 26px;
+        height: 26px;
+        background: linear-gradient(135deg, transparent 50%, rgba(169, 99, 31, 0.18) 50%);
+        border-radius: 0 3px 0 0;
+      }
+      .callout-eyebrow {
+        margin: 0 0 4px;
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #a9631f;
+      }
+      .callout h2 {
+        font-family: 'Fraunces', serif;
+        font-weight: 560;
+        font-size: 20px;
+        margin: 0 0 10px;
+      }
+      .callout p {
+        margin: 0 0 16px;
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--ink-soft);
+      }
+      .callout-cta {
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        color: #fff;
+        background: #a9631f;
+        padding: 10px 18px;
+        border-radius: 999px;
+      }
+      .callout-cta:hover {
+        background: #874e18;
+      }
+
+      .grade-nav {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid rgba(22, 48, 42, 0.14);
+        padding-top: 22px;
+        gap: 12px;
+      }
+      .grade-nav a {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .grade-nav-next {
+        text-align: right;
+      }
+      .grade-nav-dir {
+        font-size: 12px;
+        color: var(--ink-faint);
+        font-weight: 500;
+      }
+      .grade-nav-name {
+        font-family: 'Fraunces', serif;
+        font-weight: 560;
+        font-size: 17px;
+        color: var(--ink);
+      }
+      .grade-nav a:hover .grade-nav-name {
+        color: var(--accent);
+      }
+
+      @media (max-width: 560px) {
+        .strand {
+          grid-template-columns: 40px 1fr;
+        }
+        .strand-body {
+          padding: 18px 18px 20px;
+        }
+        .callout {
+          transform: none;
+        }
+      }
+    </style>
+  </body>
+</html>

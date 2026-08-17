@@ -1,0 +1,521 @@
+---
+import Proto from './_shared/Proto.astro';
+import ColorWord from './_shared/ColorWord.astro';
+import WordDisplay from './_shared/WordDisplay.astro';
+
+const words = ['ship', 'shop', 'shut', 'wish', 'brush', 'dish'];
+
+const comparisonRows = [
+  { pattern1: 'ship', pattern2: 'chip' },
+  { pattern1: 'shop', pattern2: 'chop' },
+  { pattern1: 'wish', pattern2: 'witch' },
+  { pattern1: 'dish', pattern2: 'ditch' },
+];
+
+const faqs = [
+  {
+    q: 'Does every SH sound get spelled with the letters S and H?',
+    a: 'Usually, yes. In most words the /sh/ sound you hear is spelled with s and h together, as in ship or brush. There are a small number of exceptions, like sure and sugar, where the /sh/ sound is spelled differently — those are worth teaching separately once SH itself feels solid.',
+  },
+  {
+    q: 'Can SH appear anywhere in a word, or just at the start?',
+    a: 'Both. SH shows up at the start of words like ship and shop, and just as often at the end, as in wish, brush, and dish. Fewer words use it in the middle, but it does happen, as in washer.',
+  },
+];
+
+const related = [
+  { title: 'CH Digraph Words', kicker: 'Skill', fill: 'coral' as const },
+  { title: 'Double Consonants', kicker: 'Skill', fill: 'periwinkle' as const },
+  { title: '1st Grade Spelling Words', kicker: 'Grade', fill: 'lime' as const },
+];
+---
+
+<Proto
+  title="SH Digraph Words — Word as Color Object exploration"
+  description="Skill reference page mockup: SH digraph words, pattern explanation, comparison table, and FAQ."
+>
+  <header class="site-head">
+    <div class="wrap site-head-row">
+      <a href="/design-explore/word-as-color-object" class="wordmark">
+        <ColorWord word="spelling" fill="sunflower" ghostFill="coral" size="1.5rem" ghost={false} as="span" />
+        <span class="wordmark-rest">words.app</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="/design-explore/word-as-color-object/grade-hub">Grades</a>
+        <a href="/design-explore/word-as-color-object/skill" aria-current="page">Skills</a>
+        <a href="/design-explore/word-as-color-object/practice">Practice</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb wrap" aria-label="Breadcrumb">
+      <a href="/design-explore/word-as-color-object">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="/design-explore/word-as-color-object/skill">Skills</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">SH Digraph Words</span>
+    </nav>
+
+    <section class="skill-hero">
+      <div class="wrap">
+        <p class="eyebrow">Skill &middot; Consonant digraphs</p>
+        <h1 class="skill-head">
+          <ColorWord word="SH" fill="coral" ghostFill="sunflower" size="clamp(3rem,10vw,6rem)" rotate="-2deg" />
+          <span class="skill-head-rest">Digraph Words</span>
+        </h1>
+        <p class="skill-sub">
+          Words where the letters s and h team up to spell one single sound &mdash; not two sounds blended,
+          one new one. This page covers how the pattern works, where it shows up, and six words to practice.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap narrow">
+        <div class="answer-block">
+          <h2 class="answer-label">What are SH digraph words?</h2>
+          <p class="answer-body">
+            SH is a digraph: two letters, <strong>s</strong> and <strong>h</strong>, that together spell one
+            new sound &mdash; the sound you hear at the start of <em>ship</em> or the end of <em>wish</em>.
+            Neither letter keeps its usual sound on its own; combined, they make something new.
+          </p>
+        </div>
+
+        <div class="word-list-block">
+          <h2 class="word-list-label">Practice words</h2>
+          <ul class="word-list" role="list">
+            {
+              words.map((w) => (
+                <li class="word-chip">
+                  <WordDisplay word={w} size="clamp(1.35rem, 3vw, 1.75rem)" />
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section prose-section">
+      <div class="wrap narrow">
+        <h2 class="prose-head">Understanding the pattern</h2>
+        <div class="prose">
+          <p>
+            SH most often appears at the very start of a word, right where you&rsquo;d expect to hear it:
+            <em>ship</em>, <em>shop</em>, and <em>shut</em> all open with the digraph, and the sound is
+            usually the first thing a reader notices when sounding the word out.
+          </p>
+          <p>
+            Just as often, SH lands at the end of a word instead &mdash; <em>wish</em>, <em>brush</em>, and
+            <em>dish</em> all close with it. Ending SH words are a good next step once a student is
+            comfortable spotting the pattern up front, since the sound is easy to hear but the spelling
+            still needs to be remembered rather than guessed.
+          </p>
+          <p>
+            A smaller number of words use SH in the middle, such as <em>washer</em> or <em>fisherman</em>.
+            Those are worth introducing later, once the start- and end-of-word cases feel automatic.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section table-section">
+      <div class="wrap narrow">
+        <h2 class="prose-head">SH vs. CH</h2>
+        <p class="table-intro">
+          SH and CH are easy to mix up early on &mdash; both are digraphs, and both can open or close a
+          word. Hearing them side by side helps the distinction stick.
+        </p>
+        <div class="table-scroll">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th scope="col">SH words</th>
+                <th scope="col">CH words</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                comparisonRows.map((r) => (
+                  <tr>
+                    <td><WordDisplay word={r.pattern1} size="1.15rem" /></td>
+                    <td><WordDisplay word={r.pattern2} size="1.15rem" /></td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="wrap narrow">
+        <h2 class="prose-head">Frequently asked</h2>
+        <dl class="faq-list">
+          {
+            faqs.map((f) => (
+              <div class="faq-item">
+                <dt class="faq-q">{f.q}</dt>
+                <dd class="faq-a">{f.a}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="wrap narrow cta-row">
+        <div>
+          <h2 class="cta-head">Ready to practice?</h2>
+          <p class="cta-sub">Six words, read aloud one at a time, no timer running.</p>
+        </div>
+        <a class="btn btn-primary" href="/design-explore/word-as-color-object/practice">Practice these words</a>
+      </div>
+    </section>
+
+    <section class="section related-section">
+      <div class="wrap">
+        <h2 class="section-head">Related</h2>
+        <ul class="related-grid" role="list">
+          {
+            related.map((r) => (
+              <li>
+                <a class="related-card" href="/design-explore/word-as-color-object/skill">
+                  <span class="related-kicker" style={`color: var(--${r.fill});`}>{r.kicker}</span>
+                  <span class="related-title">{r.title}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>spellingwords.app &mdash; design exploration, not a live product.</p>
+    </div>
+  </footer>
+</Proto>
+
+<style>
+  .site-head {
+    background: var(--canvas-deeper);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-head-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .wordmark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    text-decoration: none;
+    font-family: var(--font-display);
+  }
+  .wordmark-rest {
+    color: var(--ink);
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .site-head nav {
+    display: flex;
+    gap: 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-right: 3.5rem;
+  }
+  .site-head nav a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.2rem;
+  }
+  .site-head nav a[aria-current='page'] {
+    color: var(--sunflower);
+    border-bottom-color: var(--sunflower);
+  }
+
+  .breadcrumb {
+    padding-block: 1.25rem;
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+    display: flex;
+    gap: 0.5rem;
+  }
+  .breadcrumb a {
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+  .breadcrumb [aria-current='page'] {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .skill-hero {
+    padding-block: 0.5rem clamp(2rem, 5vw, 3rem);
+    background: radial-gradient(110% 130% at 10% 0%, var(--canvas-deep) 0%, var(--canvas) 60%);
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--ink-faint);
+    margin: 0 0 0.75rem;
+  }
+  .skill-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.8rem;
+    margin: 0 0 1.1rem;
+  }
+  .skill-head-rest {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: var(--ink);
+  }
+  .skill-sub {
+    max-width: 66ch;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  .section {
+    padding-block: clamp(1.75rem, 4vw, 2.75rem);
+  }
+  .narrow {
+    max-width: 820px;
+  }
+
+  .answer-block {
+    background: var(--canvas-deeper);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  .answer-label {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--sunflower);
+  }
+  .answer-body {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+  }
+  .answer-body strong {
+    color: var(--ink);
+  }
+
+  .word-list-block {
+    margin-top: 2rem;
+  }
+  .word-list-label {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin: 0 0 0.9rem;
+  }
+  .word-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .word-chip {
+    background: var(--paper);
+    border: 1px solid var(--paper-border);
+    border-radius: var(--radius-md);
+    padding: 0.6rem 1.2rem;
+  }
+
+  .prose-head {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.35rem, 2.6vw, 1.7rem);
+    color: var(--ink);
+    margin: 0 0 1rem;
+  }
+  .prose p {
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    max-width: 72ch;
+    margin: 0 0 1rem;
+  }
+  .prose em {
+    color: var(--ink);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .table-intro {
+    color: var(--ink-soft);
+    max-width: 68ch;
+    margin: 0 0 1.25rem;
+  }
+  .table-scroll {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--paper-border);
+  }
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--paper);
+    min-width: 340px;
+  }
+  .compare-table th {
+    text-align: left;
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--paper-ink);
+    background: #f1e9d4;
+    padding: 0.8rem 1.1rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .compare-table td {
+    padding: 0.75rem 1.1rem;
+    border-top: 1px solid var(--paper-border);
+  }
+
+  .faq-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.25rem;
+  }
+  .faq-q {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 1.05rem;
+    margin: 0 0 0.5rem;
+  }
+  .faq-a {
+    margin: 0;
+    color: var(--ink-soft);
+    max-width: 70ch;
+  }
+
+  .cta-section {
+    background: var(--canvas-deep);
+    border-radius: var(--radius-lg);
+    margin-inline: clamp(1.25rem, 4vw, 3rem);
+    padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.5rem);
+    max-width: 1180px;
+    margin-inline: auto;
+  }
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    max-width: none;
+  }
+  .cta-head {
+    margin: 0 0 0.3rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+  }
+  .cta-sub {
+    margin: 0;
+    color: var(--ink-soft);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.85rem 1.6rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    min-height: 48px;
+  }
+  .btn-primary {
+    background: var(--sunflower);
+    color: var(--canvas-deeper);
+  }
+  .btn-primary:hover {
+    background: #ffd464;
+  }
+
+  .section-head {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+    margin: 0 0 1.5rem;
+  }
+  .related-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .related-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-decoration: none;
+    background: var(--canvas-deep);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.4rem;
+  }
+  .related-card:hover {
+    border-color: var(--sunflower);
+  }
+  .related-kicker {
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .related-title {
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  .site-foot {
+    background: var(--canvas-deeper);
+    padding-block: 1.5rem;
+    color: var(--ink-faint);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 860px) {
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+    .cta-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

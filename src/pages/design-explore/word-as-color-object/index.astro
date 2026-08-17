@@ -1,0 +1,482 @@
+---
+import Proto from './_shared/Proto.astro';
+import ColorWord from './_shared/ColorWord.astro';
+
+const grades = [
+  { id: 'k', label: 'Kindergarten', fill: 'coral' },
+  { id: '1', label: '1st Grade', fill: 'sunflower' },
+  { id: '2', label: '2nd Grade', fill: 'periwinkle' },
+  { id: '3', label: '3rd Grade', fill: 'lime' },
+  { id: '4', label: '4th Grade', fill: 'coral' },
+  { id: '5', label: '5th Grade', fill: 'sunflower' },
+] as const;
+
+const skills = [
+  'SH Digraph Words',
+  'Compound Words',
+  'Silent E Words',
+  'Double Consonants',
+];
+---
+
+<Proto
+  title="Word as Color Object — spellingwords.app design exploration"
+  description="A bold, typographic design direction for spellingwords.app, where words become color-filled graphic objects."
+>
+  <a href="#main" class="visually-hidden">Skip to content</a>
+
+  <header class="site-head">
+    <div class="wrap site-head-row">
+      <a href="/design-explore/word-as-color-object" class="wordmark" aria-label="spellingwords.app home">
+        <ColorWord word="spelling" fill="sunflower" ghostFill="coral" size="1.5rem" ghost={false} rotate="0deg" as="span" />
+        <span class="wordmark-rest">words.app</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="/design-explore/word-as-color-object/grade-hub">Grades</a>
+        <a href="/design-explore/word-as-color-object/skill">Skills</a>
+        <a href="/design-explore/word-as-color-object/practice">Practice</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Spelling practice for K&ndash;5</p>
+          <h1 class="hero-head">
+            <ColorWord word="Hear it." fill="sunflower" ghostFill="coral" ghostOffset="0.07em" rotate="-1.5deg" />
+            <ColorWord word="Spell it." fill="periwinkle" ghostFill="lime" ghostOffset="-0.06em" rotate="1deg" />
+          </h1>
+          <p class="hero-sub">
+            Every word is read aloud, then typed &mdash; slowly, calmly, as many times as it takes.
+            Use one of our structured lists, or bring your own.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#custom-words">Start Practicing</a>
+            <a class="btn btn-ghost" href="/design-explore/word-as-color-object/grade-hub">Browse grade lists</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <span class="art-word art-word-1"><ColorWord word="ocean" fill="lime" ghostFill="periwinkle" size="clamp(2rem,7vw,4.5rem)" rotate="-4deg" /></span>
+          <span class="art-word art-word-2"><ColorWord word="friend" fill="coral" ghostFill="sunflower" size="clamp(2.25rem,8vw,5rem)" rotate="3deg" /></span>
+          <span class="art-word art-word-3"><ColorWord word="jump" fill="sunflower" ghostFill="coral" size="clamp(1.75rem,6vw,3.75rem)" rotate="-2deg" /></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOM WORDS -->
+    <section class="section custom-section" id="custom-words">
+      <div class="wrap custom-grid">
+        <div class="custom-intro">
+          <h2 class="section-head">Practice your own list</h2>
+          <p class="section-sub">
+            Spelling homework, a tricky topic, next week&rsquo;s test &mdash; paste any list and we&rsquo;ll turn
+            it into a read-aloud practice session in seconds.
+          </p>
+        </div>
+        <form class="custom-form" aria-label="Enter your own spelling words">
+          <label class="field-label" for="custom-words-input">Enter your spelling words</label>
+          <textarea
+            id="custom-words-input"
+            name="words"
+            class="custom-textarea"
+            rows="6"
+            placeholder="Type or paste your words here, one per line"></textarea>
+          <div class="custom-form-foot">
+            <p class="field-hint">One word per line. Ten words make a typical session.</p>
+            <button class="btn btn-primary" type="submit">Start Practicing</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- BROWSE BY GRADE -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head-row">
+          <h2 class="section-head">Browse by grade</h2>
+          <p class="section-sub">Structured lists aligned to what&rsquo;s taught in the classroom, K&ndash;5.</p>
+        </div>
+        <ul class="grade-grid" role="list">
+          {
+            grades.map((g) => (
+              <li>
+                <a class="grade-tile" href="/design-explore/word-as-color-object/grade-hub">
+                  <span class="grade-num" style={`color: var(--${g.fill});`} aria-hidden="true">
+                    {g.id.toUpperCase()}
+                  </span>
+                  <span class="grade-label">{g.label}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <!-- BROWSE BY SKILL -->
+    <section class="section skill-section">
+      <div class="wrap">
+        <div class="section-head-row">
+          <h2 class="section-head">Browse by skill</h2>
+          <p class="section-sub">
+            Every pattern gets its own page: how it sounds, how it&rsquo;s built, and a set of words to practice.
+          </p>
+        </div>
+        <ul class="skill-list" role="list">
+          {
+            skills.map((s) => (
+              <li>
+                <a class="skill-pill" href="/design-explore/word-as-color-object/skill">
+                  {s}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <a class="text-link" href="/design-explore/word-as-color-object/skill">Browse all skills &rarr;</a>
+      </div>
+    </section>
+
+    <!-- TRUST LINE -->
+    <section class="section trust-section">
+      <div class="wrap">
+        <p class="trust-line">No accounts to create. No clock running. Just the words, said out loud, and room to get them right.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>spellingwords.app &mdash; design exploration, not a live product.</p>
+    </div>
+  </footer>
+</Proto>
+
+<style>
+  .site-head {
+    background: var(--canvas-deeper);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-head-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .wordmark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+  .wordmark-rest {
+    color: var(--ink);
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+  }
+  .site-head nav {
+    display: flex;
+    gap: 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-right: 3.5rem;
+  }
+  .site-head nav a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    padding: 0.35rem 0.1rem;
+    border-bottom: 2px solid transparent;
+  }
+  .site-head nav a:hover {
+    color: var(--ink);
+    border-bottom-color: var(--sunflower);
+  }
+
+  .hero {
+    padding-block: clamp(3rem, 8vw, 6rem) clamp(2.5rem, 6vw, 4rem);
+    background: radial-gradient(120% 140% at 15% 0%, var(--canvas-deep) 0%, var(--canvas) 55%);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--ink-faint);
+    margin: 0 0 1rem;
+  }
+  .hero-head {
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+  }
+  .hero-sub {
+    max-width: 44ch;
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: var(--ink-soft);
+    margin: 0 0 2rem;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.85rem 1.6rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+    min-height: 48px;
+  }
+  .btn-primary {
+    background: var(--sunflower);
+    color: var(--canvas-deeper);
+  }
+  .btn-primary:hover {
+    background: #ffd464;
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--border-strong);
+  }
+  .btn-ghost:hover {
+    border-color: var(--sunflower);
+    color: var(--sunflower);
+  }
+
+  .hero-art {
+    position: relative;
+    height: clamp(220px, 32vw, 340px);
+  }
+  .art-word {
+    position: absolute;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.28));
+  }
+  .art-word-1 {
+    top: 4%;
+    right: 4%;
+  }
+  .art-word-2 {
+    top: 38%;
+    left: 0%;
+  }
+  .art-word-3 {
+    bottom: 2%;
+    right: 12%;
+  }
+
+  .section {
+    padding-block: clamp(3rem, 6vw, 4.5rem);
+  }
+  .section-head {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .section-sub {
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0;
+    font-size: 1.02rem;
+  }
+  .section-head-row {
+    margin-bottom: 2rem;
+  }
+
+  .custom-section {
+    background: var(--canvas-deep);
+    border-block: 1px solid var(--border);
+  }
+  .custom-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+  .custom-form {
+    background: var(--paper);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid var(--paper-border);
+  }
+  .field-label {
+    display: block;
+    font-weight: 700;
+    color: var(--paper-ink);
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+  }
+  .custom-textarea {
+    width: 100%;
+    font-family: var(--font-word);
+    font-size: 1.05rem;
+    color: var(--paper-ink);
+    background: #fff;
+    border: 2px solid var(--paper-border);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1rem;
+    resize: vertical;
+    min-height: 9rem;
+  }
+  .custom-textarea::placeholder {
+    color: var(--paper-ink-soft);
+  }
+  .custom-textarea:focus-visible {
+    outline: 3px solid var(--canvas-deep);
+    outline-offset: 2px;
+    border-color: var(--canvas-deep);
+  }
+  .custom-form-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .field-hint {
+    color: var(--paper-ink-soft);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .grade-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .grade-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    background: var(--canvas-deep);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 0.75rem 1.25rem;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .grade-tile:hover {
+    border-color: var(--sunflower);
+    transform: translateY(-3px);
+  }
+  .grade-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 2.5rem;
+    line-height: 1;
+    -webkit-text-stroke: 2px var(--canvas-deeper);
+    paint-order: stroke fill;
+  }
+  .grade-label {
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .skill-list {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .skill-pill {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--canvas-deeper);
+    background: var(--lime);
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+  }
+  .skill-pill:hover {
+    background: #d8ff8c;
+  }
+  .text-link {
+    color: var(--sunflower);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+  }
+  .text-link:hover {
+    border-bottom-color: var(--sunflower);
+  }
+
+  .trust-section {
+    padding-block: clamp(2.5rem, 5vw, 3.5rem);
+  }
+  .trust-line {
+    text-align: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+    color: var(--ink);
+    max-width: 40ch;
+    margin: 0 auto;
+    letter-spacing: -0.01em;
+  }
+
+  .site-foot {
+    background: var(--canvas-deeper);
+    padding-block: 1.5rem;
+    color: var(--ink-faint);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid,
+    .custom-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-art {
+      height: 220px;
+    }
+    .grade-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 480px) {
+    .grade-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .custom-form-foot {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .custom-form-foot .btn {
+      width: 100%;
+    }
+  }
+</style>

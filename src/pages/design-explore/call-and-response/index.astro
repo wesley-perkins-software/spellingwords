@@ -1,0 +1,714 @@
+---
+// Design exploration — Direction 2: "Call & Response"
+// Throwaway prototype. Self-contained: no production styles/tokens imported.
+
+const grades = [
+  { label: 'Kindergarten', short: 'K', blurb: 'First sounds and letters' },
+  { label: '1st Grade', short: '1', blurb: 'Short vowels, blends' },
+  { label: '2nd Grade', short: '2', blurb: 'Digraphs, compounds' },
+  { label: '3rd Grade', short: '3', blurb: 'Prefixes, suffixes' },
+  { label: '4th Grade', short: '4', blurb: 'Multisyllable words' },
+  { label: '5th Grade', short: '5', blurb: 'Roots, tricky spellings' },
+];
+
+const skills = [
+  { name: 'SH Digraph Words', example: 'ship · wish · brush' },
+  { name: 'Compound Words', example: 'backpack · sunshine' },
+  { name: 'Silent E Words', example: 'cake · smile · rope' },
+  { name: 'Double Consonants', example: 'happy · summer' },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Spelling Words — Call &amp; Response (Design Exploration)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="proto-badge">Design exploration — Call &amp; Response</div>
+
+    <div class="cr">
+      <!-- ============ HEADER ============ -->
+      <header class="site-head">
+        <a class="wordmark" href="/design-explore/call-and-response/">
+          spelling<span>words</span>
+        </a>
+        <nav class="head-nav" aria-label="Primary">
+          <a href="/design-explore/call-and-response/grade-hub">Grades</a>
+          <a href="/design-explore/call-and-response/skill">Skills</a>
+          <a href="/design-explore/call-and-response/practice">Practice</a>
+        </nav>
+      </header>
+
+      <main>
+        <!-- ============ HERO: CALL + RESPONSE ============ -->
+        <section class="pair pair--hero" aria-labelledby="hero-call-heading">
+          <div class="zone zone--call">
+            <p class="tag tag--call">The call</p>
+            <h1 id="hero-call-heading">
+              Say the word.<br />Hear it back.<br /><em>Spell it out.</em>
+            </h1>
+            <p class="lede">
+              A calm, paper-quiet way for kids to practice spelling — listen to a word, then type
+              what you hear. No timers. No points. Just the words.
+            </p>
+          </div>
+
+          <div class="connector" aria-hidden="true">
+            <span class="connector-dot"></span>
+            <span class="connector-line"></span>
+          </div>
+
+          <div class="zone zone--response">
+            <p class="tag tag--response">Your response</p>
+            <form class="word-form">
+              <label for="words">Enter your spelling words</label>
+              <textarea
+                id="words"
+                rows="5"
+                placeholder="Type or paste your words here, one per line"></textarea>
+              <button type="submit" class="btn btn-primary">Start Practicing →</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- ============ BROWSE BY GRADE ============ -->
+        <section class="section" aria-labelledby="grades-heading">
+          <div class="section-head">
+            <p class="tag tag--call">Browse a shelf</p>
+            <h2 id="grades-heading">Browse by Grade</h2>
+            <p class="section-sub">
+              Six grade shelves, each built from grade-appropriate patterns — from first sounds to
+              tricky roots.
+            </p>
+          </div>
+
+          <ul class="grade-rhythm" role="list">
+            {
+              grades.map((g, i) => (
+                <li class="grade-pair" style={`--i:${i}`}>
+                  <div class="grade-call">
+                    <span class="grade-letter" aria-hidden="true">
+                      {g.short}
+                    </span>
+                    <span class="grade-name">{g.label}</span>
+                  </div>
+                  <a class="grade-response" href="/design-explore/call-and-response/grade-hub">
+                    <span>{g.blurb}</span>
+                    <span class="go" aria-hidden="true">
+                      →
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <!-- ============ BROWSE BY SKILL ============ -->
+        <section class="section" aria-labelledby="skills-heading">
+          <div class="section-head section-head--right">
+            <p class="tag tag--response">Browse a pattern</p>
+            <h2 id="skills-heading">Browse by Skill</h2>
+            <p class="section-sub">
+              Reference pages for the spelling patterns kids actually get stuck on — digraphs,
+              compounds, silent letters, and more.
+            </p>
+          </div>
+
+          <ul class="skill-rhythm" role="list">
+            {
+              skills.map((s, i) => (
+                <li class="skill-pair" style={`--i:${i}`}>
+                  <a class="skill-call" href="/design-explore/call-and-response/skill">
+                    <span class="skill-name">{s.name}</span>
+                  </a>
+                  <div class="skill-response">
+                    <span class="skill-example">{s.example}</span>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+
+          <div class="skill-all-pair">
+            <div class="zone-mini zone-mini--call">
+              <p>Looking for something specific?</p>
+            </div>
+            <a class="zone-mini zone-mini--response" href="/design-explore/call-and-response/skill">
+              Browse all skills →
+            </a>
+          </div>
+        </section>
+
+        <!-- ============ TRUST LINE ============ -->
+        <section class="trust">
+          <p>
+            <strong>No accounts. No timers. No points.</strong> Just a word, read aloud, and a
+            quiet place to get it right — or try again.
+          </p>
+        </section>
+      </main>
+
+      <footer class="site-foot">
+        <p>spellingwords.app · a calm place to practice</p>
+      </footer>
+    </div>
+
+    <style>
+      /* ============================================================
+         DESIGN SYSTEM — "Call & Response"
+         Compositional grammar: every module is a paired, offset
+         call/response unit. Color marks the role (call vs response),
+         never decoration for its own sake.
+         ============================================================ */
+      .cr {
+        --canvas: #16262c;
+        --canvas-raised: #1d323a;
+        --canvas-line: rgba(251, 246, 236, 0.14);
+
+        --ink-0: #fbf6ec;
+        --ink-100: #e4dfd2;
+        --ink-300: #93a6a4;
+
+        --call: #ff6b4a;
+        --call-deep: #d43f1f;
+        --call-ink: #2c1206;
+
+        --response: #ffc93c;
+        --response-deep: #c98a0a;
+        --response-ink: #2b2205;
+
+        --tertiary: #c9a6ff;
+        --tertiary-deep: #8c5ff0;
+        --tertiary-ink: #241238;
+
+        --correct-surface: #26443b;
+        --correct-line: #5fae82;
+        --correct-text: #cdeedb;
+
+        --focus: #ffe08a;
+
+        --radius-call: 28px 8px 28px 8px;
+        --radius-response: 8px 28px 8px 28px;
+
+        background: var(--canvas);
+        color: var(--ink-0);
+        font-family: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+        min-height: 100vh;
+        display: block;
+        line-height: 1.5;
+      }
+
+      .cr * {
+        box-sizing: border-box;
+      }
+
+      .cr h1,
+      .cr h2,
+      .cr h3 {
+        font-family: 'Fraunces', ui-serif, Georgia, serif;
+        font-weight: 600;
+        line-height: 1.08;
+        margin: 0;
+        color: var(--ink-0);
+      }
+
+      .cr em {
+        font-style: italic;
+        color: var(--response);
+      }
+
+      .cr a {
+        color: inherit;
+      }
+
+      .cr :focus-visible {
+        outline: 3px solid var(--focus);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      /* ---------- prototype badge ---------- */
+      .proto-badge {
+        position: fixed;
+        bottom: 14px;
+        right: 14px;
+        z-index: 999;
+        background: #0f1a1e;
+        color: #f2ead8;
+        font: 600 12px/1 'Figtree', sans-serif;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        letter-spacing: 0.01em;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      }
+
+      /* ---------- header ---------- */
+      .site-head {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 28px 24px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .wordmark {
+        font-family: 'Fraunces', serif;
+        font-weight: 600;
+        font-size: 1.35rem;
+        text-decoration: none;
+        color: var(--ink-0);
+      }
+      .wordmark span {
+        color: var(--response);
+      }
+      .head-nav {
+        display: flex;
+        gap: 22px;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+      .head-nav a {
+        text-decoration: none;
+        color: var(--ink-100);
+        padding-bottom: 3px;
+        border-bottom: 2px solid transparent;
+      }
+      .head-nav a:hover {
+        border-bottom-color: var(--response);
+        color: var(--ink-0);
+      }
+
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 24px 96px;
+      }
+
+      /* ---------- tags ---------- */
+      .tag {
+        display: inline-block;
+        font: 700 0.72rem/1 'Figtree', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        padding: 6px 12px;
+        border-radius: 999px;
+        margin: 0 0 14px;
+      }
+      .tag--call {
+        background: var(--call);
+        color: var(--call-ink);
+      }
+      .tag--response {
+        background: var(--response);
+        color: var(--response-ink);
+      }
+
+      /* ============================================================
+         THE PAIR MODULE — reused everywhere: a "call" zone advanced
+         and elevated, a "response" zone offset beneath/beside it,
+         joined by a connector. This is the site's structural unit.
+         ============================================================ */
+      .pair {
+        display: grid;
+        grid-template-columns: 1fr;
+        position: relative;
+      }
+
+      .pair--hero {
+        grid-template-columns: minmax(0, 6fr) 64px minmax(0, 6fr);
+        align-items: start;
+        margin-top: 44px;
+      }
+
+      .zone {
+        padding: 40px 38px;
+        position: relative;
+      }
+
+      .zone--call {
+        background: var(--call);
+        color: var(--call-ink);
+        border-radius: var(--radius-call);
+        transform: translateY(0);
+        z-index: 2;
+        box-shadow: 0 22px 50px -18px rgba(212, 63, 31, 0.55);
+      }
+      .zone--call h1 {
+        color: var(--call-ink);
+        font-size: clamp(2.1rem, 3.6vw, 3.1rem);
+        margin-bottom: 18px;
+      }
+      .zone--call .lede {
+        font-size: 1.05rem;
+        max-width: 46ch;
+        color: #3a1c0d;
+      }
+
+      .zone--response {
+        background: var(--canvas-raised);
+        border: 1px solid var(--canvas-line);
+        border-radius: var(--radius-response);
+        transform: translateY(64px);
+        z-index: 1;
+      }
+
+      .connector {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 90px;
+      }
+      .connector-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--response);
+        flex-shrink: 0;
+        box-shadow: 0 0 0 6px rgba(255, 201, 60, 0.18);
+      }
+      .connector-line {
+        width: 2px;
+        flex: 1;
+        margin-top: 6px;
+        background: repeating-linear-gradient(
+          to bottom,
+          var(--response) 0 8px,
+          transparent 8px 16px
+        );
+      }
+
+      .word-form label {
+        display: block;
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--ink-0);
+        margin-bottom: 10px;
+      }
+      .word-form textarea {
+        width: 100%;
+        background: var(--canvas);
+        border: 1px solid var(--canvas-line);
+        border-radius: 12px;
+        color: var(--ink-0);
+        font: 500 1rem/1.5 'JetBrains Mono', ui-monospace, monospace;
+        padding: 16px;
+        resize: vertical;
+        margin-bottom: 18px;
+      }
+      .word-form textarea::placeholder {
+        color: var(--ink-300);
+        font-family: 'Figtree', sans-serif;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font: 700 1rem/1 'Figtree', sans-serif;
+        padding: 15px 26px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .btn-primary {
+        background: var(--response);
+        color: var(--response-ink);
+      }
+      .btn-primary:hover {
+        background: var(--response-deep);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--ink-0);
+        border: 2px solid var(--canvas-line);
+      }
+      .btn-secondary:hover {
+        border-color: var(--response);
+      }
+
+      /* ---------- generic section head ---------- */
+      .section {
+        margin-top: 110px;
+      }
+      .section-head {
+        max-width: 620px;
+        margin-bottom: 40px;
+      }
+      .section-head--right {
+        margin-left: auto;
+        text-align: right;
+      }
+      .section-head h2 {
+        font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+        margin-bottom: 10px;
+      }
+      .section-sub {
+        color: var(--ink-100);
+        font-size: 1.02rem;
+        margin: 0;
+      }
+
+      /* ---------- grade rhythm: staggered pair list ---------- */
+      .grade-rhythm {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .grade-pair {
+        display: grid;
+        grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+        align-items: stretch;
+        margin-left: calc(min(var(--i), 1) * 0px);
+      }
+      .grade-pair:nth-child(even) {
+        transform: translateX(48px);
+      }
+      .grade-call {
+        background: var(--call);
+        color: var(--call-ink);
+        border-radius: 20px 6px 6px 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 22px;
+        z-index: 2;
+        box-shadow: 4px 0 0 0 var(--canvas);
+      }
+      .grade-letter {
+        font-family: 'Fraunces', serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        background: var(--call-ink);
+        color: var(--call);
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .grade-name {
+        font-weight: 700;
+        font-size: 1.05rem;
+      }
+      .grade-response {
+        background: var(--canvas-raised);
+        border: 1px solid var(--canvas-line);
+        border-left: none;
+        border-radius: 6px 20px 20px 6px;
+        margin-left: -10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 26px;
+        text-decoration: none;
+        color: var(--ink-100);
+        transition: background 0.15s ease;
+      }
+      .grade-response:hover {
+        background: #24404a;
+        color: var(--ink-0);
+      }
+      .grade-response .go {
+        color: var(--response);
+        font-weight: 700;
+        margin-left: 12px;
+      }
+
+      /* ---------- skill rhythm: inverted pair (response leads text side but call marks name) ---------- */
+      .skill-rhythm {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .skill-pair {
+        display: grid;
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        align-items: stretch;
+      }
+      .skill-pair:nth-child(odd) {
+        transform: translateX(-36px);
+      }
+      .skill-call {
+        background: var(--canvas-raised);
+        border: 1px solid var(--canvas-line);
+        border-right: none;
+        border-radius: 16px 4px 4px 16px;
+        padding: 20px 24px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        z-index: 2;
+      }
+      .skill-name {
+        font-family: 'Fraunces', serif;
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: var(--ink-0);
+      }
+      .skill-call:hover .skill-name {
+        color: var(--response);
+      }
+      .skill-response {
+        background: var(--tertiary);
+        color: var(--tertiary-ink);
+        border-radius: 4px 16px 16px 4px;
+        margin-left: -8px;
+        display: flex;
+        align-items: center;
+        padding: 20px 24px;
+      }
+      .skill-example {
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 600;
+        font-size: 0.92rem;
+      }
+
+      .skill-all-pair {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        max-width: 620px;
+        margin-left: auto;
+      }
+      .zone-mini {
+        padding: 16px 22px;
+        font-weight: 600;
+      }
+      .zone-mini--call {
+        background: transparent;
+        border: 1px dashed var(--canvas-line);
+        border-radius: 14px 4px 4px 14px;
+        color: var(--ink-100);
+        display: flex;
+        align-items: center;
+      }
+      .zone-mini--response {
+        background: var(--response);
+        color: var(--response-ink);
+        border-radius: 4px 14px 14px 4px;
+        margin-left: -8px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .zone-mini--response:hover {
+        background: var(--response-deep);
+      }
+
+      /* ---------- trust line ---------- */
+      .trust {
+        margin-top: 120px;
+        padding: 30px 0 0;
+        border-top: 1px solid var(--canvas-line);
+        max-width: 62ch;
+      }
+      .trust p {
+        margin: 0;
+        color: var(--ink-100);
+        font-size: 1.05rem;
+      }
+      .trust strong {
+        color: var(--ink-0);
+      }
+
+      .site-foot {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 30px 24px 50px;
+        color: var(--ink-300);
+        font-size: 0.85rem;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 900px) {
+        .pair--hero {
+          grid-template-columns: 1fr;
+        }
+        .connector {
+          flex-direction: row;
+          padding: 0;
+          margin: 14px 0 14px 30px;
+        }
+        .connector-line {
+          width: auto;
+          height: 2px;
+          flex: none;
+          width: 40px;
+          margin: 0 0 0 6px;
+          background: repeating-linear-gradient(
+            to right,
+            var(--response) 0 8px,
+            transparent 8px 16px
+          );
+        }
+        .zone--response {
+          transform: translateY(0);
+          margin-top: 0;
+        }
+        .grade-pair,
+        .skill-pair {
+          grid-template-columns: 1fr;
+        }
+        .grade-pair:nth-child(even),
+        .skill-pair:nth-child(odd) {
+          transform: none;
+        }
+        .grade-call {
+          border-radius: 16px 16px 0 0;
+          box-shadow: none;
+        }
+        .grade-response {
+          border-radius: 0 0 16px 16px;
+          margin-left: 0;
+          border-left: 1px solid var(--canvas-line);
+          border-top: none;
+        }
+        .skill-call {
+          border-radius: 16px 16px 0 0;
+          border-right: 1px solid var(--canvas-line);
+        }
+        .skill-response {
+          border-radius: 0 0 16px 16px;
+          margin-left: 0;
+        }
+        .skill-all-pair {
+          grid-template-columns: 1fr;
+          margin-left: 0;
+        }
+        .zone-mini--call {
+          border-radius: 14px 14px 0 0;
+        }
+        .zone-mini--response {
+          border-radius: 0 0 14px 14px;
+          margin-left: 0;
+        }
+        .section-head--right {
+          text-align: left;
+          margin-left: 0;
+        }
+      }
+    </style>
+  </body>
+</html>

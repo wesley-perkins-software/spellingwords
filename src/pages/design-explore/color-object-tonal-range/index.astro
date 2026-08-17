@@ -131,6 +131,11 @@ const skills = ['SH Digraph Words', 'Compound Words', 'Silent E Words', 'Double 
           }
         </ul>
         <a class="text-link" href="/design-explore/color-object-tonal-range/skill">Browse all skills &rarr;</a>
+
+        <div class="value-preview" aria-hidden="true">
+          <span class="value-preview-label">Same hue, reading value</span>
+          <span class="value-preview-word">SH Digraph Words</span>
+        </div>
       </div>
     </section>
 
@@ -433,6 +438,35 @@ const skills = ['SH Digraph Words', 'Compound Words', 'Silent E Words', 'Double 
   }
   .text-link:hover {
     border-bottom-color: var(--sunflower);
+  }
+
+  /* A concrete preview of the reading environment's value, not just
+     copy describing it — the same hue (172°), lifted to its light
+     mineral value, dropped in as a self-contained card so the rest of
+     the dark discovery canvas keeps its own contrast intact. */
+  .value-preview {
+    margin-top: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.9rem;
+    background: #e7f1ee;
+    border: 1px solid #b3d0c8;
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1.25rem;
+  }
+  .value-preview-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #4b6f6a;
+  }
+  .value-preview-word {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: #17322d;
   }
 
   .trust-section {

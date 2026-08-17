@@ -87,7 +87,7 @@ const skills = ['SH Digraph Words', 'Compound Words', 'Silent E Words', 'Double 
       </div>
     </section>
 
-    <section class="section">
+    <section class="section grade-preview-section">
       <div class="wrap">
         <div class="section-head-row">
           <h2 class="section-head">Browse by grade</h2>
@@ -314,6 +314,21 @@ const skills = ['SH Digraph Words', 'Compound Words', 'Silent E Words', 'Double 
   .custom-section {
     background: var(--canvas-deep);
     border-block: 1px solid var(--border);
+  }
+
+  /* Section-level color previews: each browsing section leans a few
+     percent toward the canvas its own destination page actually uses,
+     so the contextual shift is visible on the homepage itself, not just
+     described in copy. Precomputed hex blends (not color-mix()) so the
+     effect renders identically regardless of browser support. */
+  .grade-preview-section {
+    background: linear-gradient(180deg, #2b7a72 0%, #296f77 100%);
+  }
+  .skill-section {
+    background: linear-gradient(180deg, #296f77 0%, #337a64 100%);
+  }
+  .trust-section {
+    background: #337a64;
   }
   .custom-grid {
     display: grid;

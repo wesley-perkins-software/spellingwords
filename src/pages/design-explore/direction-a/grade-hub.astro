@@ -1,0 +1,361 @@
+---
+import Proto from './_shared/Proto.astro';
+import Header from './_shared/Header.astro';
+import Footer from './_shared/Footer.astro';
+
+const strands = [
+  {
+    accent: 'coral',
+    name: 'Core Spelling',
+    icon: 'M4 12h16M4 6h16M4 18h10',
+    description:
+      'Grade 1 core spelling patterns build on phonics fundamentals — short vowels, consonant blends, and simple long-vowel patterns like silent e.',
+    href: '/design-explore/direction-a/skill',
+    label: 'Explore Grade 1 Core Spelling →',
+  },
+  {
+    accent: 'teal',
+    name: 'High-Frequency Words',
+    icon: 'M12 3l2.5 5.5L20 9l-4.5 3.8L17 19l-5-3-5 3 1.5-6.2L4 9l5.5-.5L12 3z',
+    description:
+      'The most common words Grade 1 readers and writers need to know by sight, organized into manageable practice sets.',
+    href: '#',
+    label: 'Explore Grade 1 High-Frequency Words →',
+  },
+  {
+    accent: 'periwinkle',
+    name: 'Themed Spelling Practice',
+    icon: 'M4 4h16v16H4V4zm4 0v16m8-16v16M4 12h16',
+    description:
+      'Grade-level word lists organized around themes and topics young learners are excited to write about.',
+    href: '#',
+    label: 'Explore Grade 1 Themed Spelling Practice →',
+  },
+];
+---
+
+<Proto
+  title="Grade 1 Spelling Words — Direction A prototype"
+  description="Grade 1 spelling practice: Core Spelling, High-Frequency Words, and Themed Spelling Practice."
+>
+  <Header currentPath="/design-explore/direction-a/grade-hub" />
+
+  <main id="main">
+    <div class="wrap page-shell">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <ol>
+          <li><a href="/design-explore/direction-a/">Home</a></li>
+          <li aria-current="page">Grade 1 Spelling Words</li>
+        </ol>
+      </nav>
+
+      <header class="page-header">
+        <h1>Grade 1 Spelling Words</h1>
+        <p class="page-lede">
+          Grade 1 spelling builds directly on phonics fundamentals — short vowels, consonant
+          blends, and the earliest long-vowel patterns like silent e — alongside the
+          high-frequency words first-grade readers and writers use every day.
+        </p>
+      </header>
+
+      <section class="strands" aria-label="Grade 1 spelling strands">
+        {
+          strands.map((strand) => (
+            <article class={`strand-card accent-${strand.accent}`}>
+              <span class="strand-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d={strand.icon} />
+                </svg>
+              </span>
+              <h2>{strand.name}</h2>
+              <p>{strand.description}</p>
+              <a class="strand-link" href={strand.href}>
+                {strand.label}
+              </a>
+            </article>
+          ))
+        }
+      </section>
+
+      <section class="begin-panel" aria-labelledby="begin-heading">
+        <span class="begin-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2L12 2z" />
+          </svg>
+        </span>
+        <div>
+          <h2 id="begin-heading">Where to begin</h2>
+          <p>
+            Most Grade 1 students are ready to start with Core Spelling, especially short-vowel
+            CVC words like the ones in <a href="/design-explore/direction-a/skill">Short Vowels: CVC Words</a>. If
+            your student already reads short-vowel words comfortably, High-Frequency Words is a
+            good next step.
+          </p>
+        </div>
+      </section>
+
+      <nav class="grade-nav" aria-label="Adjacent grades">
+        <a class="grade-nav-link" href="#">← Kindergarten Spelling Words</a>
+        <a class="grade-nav-link grade-nav-next" href="#">Grade 2 Spelling Words →</a>
+      </nav>
+
+      <a class="back-link" href="/design-explore/direction-a/">← Back to all grades</a>
+    </div>
+  </main>
+
+  <Footer />
+
+  <style>
+    .page-shell {
+      padding-block: clamp(2rem, 5vw, 3rem) clamp(3rem, 6vw, 4.5rem);
+    }
+
+    /* ============================= BREADCRUMB ============================= */
+    .breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0 0 1.5rem;
+      padding: 0;
+      font-size: 0.9rem;
+      color: var(--ink-faint);
+    }
+
+    .breadcrumb li:not(:last-child)::after {
+      content: '/';
+      margin-left: 0.5rem;
+      color: var(--border-strong);
+    }
+
+    .breadcrumb a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-weight: 600;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--brand);
+    }
+
+    .breadcrumb li[aria-current='page'] {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* ============================= PAGE HEADER ============================= */
+    .page-header {
+      max-width: 68ch;
+      margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 4.2vw, 2.75rem);
+      line-height: 1.1;
+    }
+
+    .page-lede {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+
+    /* ============================= STRANDS ============================= */
+    .strands {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    .strand-card {
+      background: var(--canvas-raised);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .strand-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.4rem;
+    }
+
+    .strand-icon svg {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+
+    .strand-card h2 {
+      font-size: 1.2rem;
+    }
+
+    .strand-card p {
+      color: var(--ink-soft);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .strand-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      margin-top: 0.5rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+
+    .accent-coral .strand-icon {
+      background: var(--coral-tint);
+      color: var(--coral-ink);
+    }
+    .accent-coral .strand-link {
+      color: var(--coral-strong);
+    }
+
+    .accent-teal .strand-icon {
+      background: var(--teal-tint);
+      color: var(--teal-ink);
+    }
+    .accent-teal .strand-link {
+      color: var(--teal-ink);
+    }
+
+    .accent-periwinkle .strand-icon {
+      background: var(--periwinkle-tint);
+      color: var(--periwinkle-ink);
+    }
+    .accent-periwinkle .strand-link {
+      color: var(--periwinkle-ink);
+    }
+
+    .strand-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ============================= BEGIN PANEL ============================= */
+    .begin-panel {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      background: var(--sun-tint);
+      border: 1px solid var(--sun);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    .begin-badge {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: var(--radius-sm);
+      background: var(--sun);
+      color: var(--sun-ink);
+    }
+
+    .begin-badge svg {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+
+    .begin-panel h2 {
+      font-size: 1.15rem;
+      color: var(--sun-ink);
+    }
+
+    .begin-panel p {
+      margin-top: 0.6rem;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .begin-panel a {
+      color: var(--brand-strong);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* ============================= GRADE NAV ============================= */
+    .grade-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding-block: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .grade-nav-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--brand-strong);
+      font-size: 0.98rem;
+    }
+
+    .grade-nav-link:hover {
+      color: var(--brand);
+      text-decoration: underline;
+    }
+
+    .grade-nav-next {
+      margin-left: auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--ink-faint);
+    }
+
+    .back-link:hover {
+      color: var(--ink-soft);
+    }
+
+    /* ============================= RESPONSIVE ============================= */
+    @media (max-width: 900px) {
+      .strands {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .begin-panel {
+        flex-direction: column;
+      }
+
+      .grade-nav {
+        flex-direction: column;
+      }
+
+      .grade-nav-next {
+        margin-left: 0;
+      }
+    }
+  </style>
+</Proto>

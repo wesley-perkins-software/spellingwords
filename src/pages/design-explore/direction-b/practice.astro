@@ -1,0 +1,620 @@
+---
+import Proto from './_shared/Proto.astro';
+import Header from './_shared/Header.astro';
+import Footer from './_shared/Footer.astro';
+
+const totalWords = 10;
+const currentWord = 3;
+const missedWords = ['pig', 'bug'];
+---
+
+<Proto
+  title="Practice — Short Vowels: CVC Words — Direction B prototype"
+  description="Design exploration: soft tinted surfaces, gentle shape, tactile warmth."
+>
+  <Header currentPath="/design-explore/direction-b/practice" />
+
+  <main id="main">
+    <div class="wrap practice-wrap">
+      <header class="practice-head">
+        <p class="eyebrow">Short Vowels: CVC Words</p>
+        <h1 class="visually-hidden">Practice spelling: Short Vowels: CVC Words</h1>
+      </header>
+
+      <!-- ============ QUESTION STATE ============ -->
+      <section class="state-block" aria-labelledby="question-heading">
+        <h2 id="question-heading" class="visually-hidden">Question state</h2>
+
+        <ol class="progress-track" aria-label={`Progress: word ${currentWord} of ${totalWords}`}>
+          {
+            Array.from({ length: totalWords }, (_, i) => i + 1).map((n) => (
+              <li
+                class={n === currentWord ? 'progress-dot is-current' : 'progress-dot'}
+                aria-current={n === currentWord ? 'step' : undefined}
+              >
+                <span class="visually-hidden">
+                  Word {n}
+                  {n === currentWord ? ' (current)' : ''}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+        <p class="progress-label">Word {currentWord} of {totalWords}</p>
+
+        <div class="question-card">
+          <div class="listen-row">
+            <button type="button" class="hear-word-btn" aria-label="Play the word">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="M4 9v6h4l5 5V4L8 9H4z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M16.5 8.5a5 5 0 0 1 0 7"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M18.8 6.2a8.5 8.5 0 0 1 0 11.6"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  fill="none"
+                  opacity="0.6"
+                />
+              </svg>
+            </button>
+            <p class="hear-word-caption">Tap to hear the word</p>
+
+            <button type="button" class="hear-sentence-btn">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <rect x="3.5" y="5" width="17" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <path d="M7 9.5h10M7 13h6.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              </svg>
+              Hear it in a sentence
+            </button>
+          </div>
+
+          <form class="answer-form">
+            <label for="spelling-input">Type the word you hear</label>
+            <input
+              id="spelling-input"
+              name="spelling"
+              type="text"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="Start typing..."
+            />
+            <button type="submit" class="check-btn">Check Spelling</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ============ CORRECT FEEDBACK STATE ============ -->
+      <section class="state-block" aria-labelledby="correct-heading">
+        <h2 id="correct-heading">Correct feedback</h2>
+
+        <div class="feedback-card feedback-correct">
+          <div class="feedback-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <circle cx="12" cy="12" r="11" fill="currentColor" opacity="0.16" />
+              <path
+                d="M7 12.5l3 3 7-7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="feedback-copy">
+            <p class="feedback-headline">Well spelled.</p>
+            <p class="feedback-detail">"bed" — spelled correctly.</p>
+          </div>
+          <button type="button" class="continue-btn">Continue</button>
+        </div>
+      </section>
+
+      <!-- ============ INCORRECT FEEDBACK STATE ============ -->
+      <section class="state-block" aria-labelledby="incorrect-heading">
+        <h2 id="incorrect-heading">Incorrect feedback</h2>
+
+        <div class="feedback-card feedback-incorrect">
+          <div class="feedback-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <circle cx="12" cy="12" r="11" fill="currentColor" opacity="0.16" />
+              <path
+                d="M9 9l6 6M15 9l-6 6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="feedback-copy">
+            <p class="feedback-headline">A good attempt.</p>
+            <dl class="compare-list">
+              <div class="compare-row">
+                <dt>You wrote:</dt>
+                <dd>kat</dd>
+              </div>
+              <div class="compare-row">
+                <dt>Correct spelling:</dt>
+                <dd>cat</dd>
+              </div>
+            </dl>
+            <p class="feedback-note">We'll come back to this one.</p>
+          </div>
+          <button type="button" class="continue-btn">Continue</button>
+        </div>
+      </section>
+
+      <!-- ============ RESULTS STATE ============ -->
+      <section class="state-block" aria-labelledby="results-heading">
+        <h2 id="results-heading">Results</h2>
+
+        <div class="results-card">
+          <p class="results-headline">Good practice today.</p>
+          <p class="results-summary">You spelled 8 of 10 words correctly.</p>
+
+          <div class="missed-block">
+            <p class="missed-label">Words to review</p>
+            <ul class="missed-chips">
+              {missedWords.map((word) => <li class="missed-chip">{word}</li>)}
+            </ul>
+          </div>
+
+          <div class="results-actions">
+            <button type="button" class="results-btn results-btn-primary">Practice Again</button>
+            <button type="button" class="results-btn results-btn-secondary">
+              Review Missed Words
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Proto>
+
+<style>
+  main {
+    padding-block: clamp(1.5rem, 4vw, 2.5rem) clamp(3rem, 6vw, 5rem);
+  }
+
+  .practice-wrap {
+    max-width: 780px;
+  }
+
+  .practice-head {
+    margin-bottom: 1.75rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--brand-strong);
+  }
+
+  .state-block {
+    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .state-block > h2 {
+    font-size: 1.05rem;
+    color: var(--ink-faint);
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px dashed var(--border-strong);
+  }
+
+  /* ---------- Progress ---------- */
+  .progress-track {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0 0 0.6rem;
+    padding: 0;
+  }
+
+  .progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border-strong);
+  }
+
+  .progress-dot.is-current {
+    width: 14px;
+    height: 14px;
+    background: var(--brand);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .progress-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+    margin-bottom: 1.25rem;
+  }
+
+  /* ---------- Question card ---------- */
+  .question-card {
+    background: var(--peach);
+    border: 1px solid var(--peach-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lift);
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  .listen-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .hear-word-btn {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: none;
+    background: var(--brand);
+    color: var(--ink-on-brand);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      background 0.15s ease,
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .hear-word-btn svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .hear-word-btn:hover {
+    background: var(--brand-strong);
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-2px);
+  }
+
+  .hear-word-caption {
+    font-size: 0.9rem;
+    color: var(--peach-ink);
+    font-weight: 600;
+  }
+
+  .hear-sentence-btn {
+    margin-top: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--ink-soft);
+    font-weight: 700;
+    font-size: 0.92rem;
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-sm);
+    min-height: 44px;
+  }
+
+  .hear-sentence-btn svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .hear-sentence-btn:hover {
+    color: var(--brand-strong);
+    background: var(--canvas-raised);
+  }
+
+  .answer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .answer-form label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--peach-ink);
+  }
+
+  #spelling-input {
+    width: 100%;
+    background: var(--canvas-raised);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 0.95rem 1.1rem;
+    font-family: var(--font-word, var(--font-body));
+    font-size: 1.2rem;
+    color: var(--ink);
+  }
+
+  #spelling-input::placeholder {
+    color: var(--ink-faint);
+    font-size: 1rem;
+  }
+
+  .check-btn {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    background: var(--brand);
+    color: var(--ink-on-brand);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    padding: 0.85rem 1.75rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    min-height: 44px;
+    transition:
+      background 0.15s ease,
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .check-btn:hover {
+    background: var(--brand-strong);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  /* ---------- Feedback cards ---------- */
+  .feedback-card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lift);
+    padding: clamp(1.5rem, 3.5vw, 2.25rem);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .feedback-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+  }
+
+  .feedback-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .feedback-copy {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .feedback-headline {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+
+  .feedback-detail {
+    margin-top: 0.4rem;
+    font-size: 1rem;
+  }
+
+  .feedback-correct {
+    background: var(--correct-bg);
+    border: 1px solid var(--correct-border);
+    color: var(--correct-ink);
+  }
+
+  .feedback-correct .feedback-icon {
+    color: var(--correct-ink);
+  }
+
+  .feedback-incorrect {
+    background: var(--incorrect-bg);
+    border: 1px solid var(--incorrect-border);
+    color: var(--incorrect-ink);
+  }
+
+  .feedback-incorrect .feedback-icon {
+    color: var(--incorrect-ink);
+  }
+
+  .compare-list {
+    margin: 0.85rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .compare-row {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .compare-row dt {
+    font-weight: 700;
+  }
+
+  .compare-row dd {
+    margin: 0;
+    font-family: var(--font-word, var(--font-body));
+    font-weight: 700;
+  }
+
+  .feedback-note {
+    margin-top: 0.6rem;
+    font-size: 0.92rem;
+    opacity: 0.85;
+  }
+
+  .continue-btn {
+    flex-shrink: 0;
+    background: var(--canvas-raised);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.98rem;
+    border: 1px solid var(--border-strong);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    min-height: 44px;
+    transition:
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .continue-btn:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  /* ---------- Results ---------- */
+  .results-card {
+    background: var(--sky);
+    border: 1px solid var(--sky-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lift);
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+    text-align: center;
+  }
+
+  .results-headline {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--sky-ink);
+  }
+
+  .results-summary {
+    margin-top: 0.6rem;
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+  }
+
+  .missed-block {
+    margin-top: 1.75rem;
+  }
+
+  .missed-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--ink-faint);
+    margin-bottom: 0.6rem;
+  }
+
+  .missed-chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .missed-chip {
+    background: var(--peach);
+    border: 1px solid var(--peach-border);
+    color: var(--peach-ink);
+    font-family: var(--font-word, var(--font-body));
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .results-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  .results-btn {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.98rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    min-height: 44px;
+    box-shadow: var(--shadow-sm);
+    transition:
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .results-btn:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .results-btn-primary {
+    background: var(--brand);
+    color: var(--ink-on-brand);
+    border: none;
+  }
+
+  .results-btn-primary:hover {
+    background: var(--brand-strong);
+  }
+
+  .results-btn-secondary {
+    background: var(--canvas-raised);
+    color: var(--sky-ink);
+    border: 1px solid var(--border-strong);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 560px) {
+    .feedback-card {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .continue-btn {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .check-btn {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .results-actions {
+      flex-direction: column;
+    }
+
+    .results-btn {
+      width: 100%;
+    }
+  }
+</style>

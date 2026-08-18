@@ -1,0 +1,224 @@
+---
+// Shared layout + design-token system for "Direction C" prototype.
+// Self-contained: does NOT import production global.css or tailwind.config tokens.
+// File is prefixed with an underscore so Astro excludes it from routing.
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style is:global>
+      /* ============================================================
+         DIRECTION C — design token system (prototype-only)
+         Thesis: crisp contemporary type, restrained accent, exceptional
+         controls. A clean light-cool-neutral canvas carries ONE confident,
+         warm-leaning accent (coral-violet) for CTAs / focus / active
+         states, plus a small set of semantic accents used only as small
+         marks — never as full surface fills. Warmth and personality come
+         from bold Space Grotesk at real scale and generous spacing, not
+         from a broad palette.
+         ============================================================ */
+      :root {
+        /* Canvas — clean, light, cool-neutral */
+        --canvas: #fafafc;
+        --canvas-raised: #ffffff;
+        --canvas-sunken: #f1f1f6;
+
+        /* Ink */
+        --ink: #16171f;
+        --ink-soft: #4b4d5c;
+        --ink-faint: #82859a;
+        --ink-on-accent: #ffffff;
+
+        /* Borders */
+        --border: #e4e4ec;
+        --border-strong: #cbcbda;
+
+        /* Primary accent — coral-violet. The one confident, warm-leaning
+           colour that carries CTAs, focus rings, and the headline
+           highlight. -strong is the text/button-safe shade (>=4.5:1 on
+           white); the base shade is reserved for large marks, borders,
+           and decorative use where only 3:1 is required. */
+        --accent: #7c5cfc;
+        --accent-strong: #6c4fe0;
+        --accent-tint: #f1edff;
+
+        /* Semantic marks — small doses only: icons, underlines, badges,
+           per-card details. Never used as a surface fill. */
+        --sun: #f5a623;
+        --sun-tint: #fdf1dc;
+        --coral: #ff6f5e;
+        --coral-tint: #ffe9e6;
+        --grass: #4fae6e;
+        --grass-tint: #e7f5ec;
+        --peri: #6e7fea;
+        --peri-tint: #ecedfc;
+
+        /* Feedback — calm, never the sole signal */
+        --correct-bg: #e7f5ec;
+        --correct-ink: #276b41;
+        --correct-border: #b6e0c4;
+        --incorrect-bg: #ffe9e6;
+        --incorrect-ink: #a3392a;
+        --incorrect-border: #f3bcb4;
+
+        --focus-ring: #6c4fe0;
+
+        --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+        --font-body: 'Work Sans', system-ui, -apple-system, sans-serif;
+        --font-word: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+
+        --radius-sm: 10px;
+        --radius-md: 12px;
+        --radius-lg: 18px;
+        --radius-pill: 999px;
+
+        --shadow-sm: 0 1px 2px rgba(22, 23, 31, 0.05), 0 1px 1px rgba(22, 23, 31, 0.04);
+        --shadow-md: 0 10px 24px rgba(22, 23, 31, 0.07), 0 2px 6px rgba(22, 23, 31, 0.05);
+
+        color-scheme: light;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--canvas);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-display);
+        margin: 0;
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      button {
+        font-family: inherit;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--focus-ring);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -3rem;
+        background: var(--accent-strong);
+        color: var(--ink-on-accent);
+        padding: 0.75rem 1.25rem;
+        border-radius: var(--radius-sm);
+        font-weight: 700;
+        z-index: 100;
+        transition: top 0.15s ease;
+      }
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      .wrap {
+        max-width: 1240px;
+        margin-inline: auto;
+        padding-inline: clamp(1.25rem, 4vw, 3rem);
+      }
+
+      /* Prototype corner badge — clearly marks this as design exploration */
+      .proto-badge {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 999;
+        background: rgba(22, 23, 31, 0.72);
+        backdrop-filter: blur(3px);
+        color: #fff;
+        font-family: var(--font-body);
+        font-size: 9.5px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        padding: 4px 9px;
+        border-radius: 999px;
+        opacity: 0.8;
+        pointer-events: none;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <span class="proto-badge" aria-hidden="true">Design exploration — Direction C</span>
+  </body>
+</html>

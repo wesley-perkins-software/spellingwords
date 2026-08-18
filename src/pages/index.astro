@@ -10,17 +10,16 @@ import {
   HOMEPAGE_REPRESENTATIVE_SKILLS,
 } from '@/lib/content/homepage';
 
-const placeholderText = 'Type or paste your words here, one per line';
+const placeholderText = 'lighthouse\nbeneath\nharvest';
 
-const gradeAccents: Record<string, string> = {
-  K: 'bg-chip-berry',
-  '1': 'bg-brand-sky',
-  '2': 'bg-chip-grass',
-  '3': 'bg-chip-sun',
-  '4': 'bg-brand-sky',
-  '5': 'bg-chip-grass',
-};
-
+// Rotating accent set — small, purposeful color, not a rainbow per-grade key.
+// Written as full literal class strings so Tailwind's JIT scanner detects them.
+const gradeAccentBorders = [
+  'border-t-accent-coral',
+  'border-t-accent-gold',
+  'border-t-accent-teal',
+  'border-t-accent-plum',
+];
 ---
 
 <Layout
@@ -28,114 +27,70 @@ const gradeAccents: Record<string, string> = {
   description="Free spelling practice for K–5 students, with no account required. Practice your own words, or find structured curriculum practice by grade or spelling skill."
   jsonLd={homepageJsonLd}
 >
-
-  <style>
-    /* ── Hero: very faint ruled-paper lines ─────────────────── */
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      transform: translateX(-50%);
-      width: 640px;
-      background-image: repeating-linear-gradient(
-        to bottom,
-        transparent 0px,
-        transparent 35px,
-        rgba(43, 35, 24, 0.042) 35px,
-        rgba(43, 35, 24, 0.042) 36px
-      );
-      pointer-events: none;
-    }
-
-    @media (max-width: 640px) {
-      .hero-section::before { width: 100%; }
-    }
-
-    /* ── Load animations ─────────────────────────────────────── */
-    .anim-1 { animation: fadeUp 0.55s 0.05s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .anim-2 { animation: fadeUp 0.55s 0.13s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .anim-3 { animation: fadeUp 0.55s 0.21s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .anim-4 { animation: fadeUp 0.55s 0.29s cubic-bezier(0.22, 1, 0.36, 1) both; }
-
-    /* ── Input card: focus-within ring ───────────────────────── */
-    .input-card:focus-within {
-      box-shadow:
-        0 6px 20px -6px rgba(43, 35, 24, 0.14),
-        0 0 0 3px rgba(201, 64, 48, 0.16);
-    }
-
-    /* ── Word count pill: active state ───────────────────────── */
-    #word-count-pill.has-words {
-      @apply bg-ink text-app-paper;
-    }
-
-    /* ── CTA button arrow nudge ───────────────────────────────── */
-    .btn-arrow { display: inline-block; transition: transform 0.15s; }
-    #btn-start:hover .btn-arrow { transform: translateX(4px); }
-
-    /* ── Category card scroll-reveal ─────────────────────────── */
-    .cat-card {
-      opacity: 0;
-      transform: translateY(14px);
-      transition:
-        opacity    0.4s ease,
-        transform  0.4s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.15s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .cat-card.visible { opacity: 1; transform: translateY(0); }
-    .cat-card:hover   { transform: translateY(-4px) !important; box-shadow: 0 12px 36px -8px rgba(43, 35, 24, 0.18) !important; }
-
-    /* ── Trust item scroll-reveal ────────────────────────────── */
-    .trust-item {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .trust-item.visible { opacity: 1; transform: translateY(0); }
-  </style>
-
   <SiteHeader currentPath="/" />
 
   <main id="main-content">
 
     <!-- ═══ HERO ════════════════════════════════════════════════ -->
-    <section
-      class="hero-section relative overflow-hidden py-20 text-center md:py-24"
-      aria-labelledby="hero-heading"
-    >
-      <!-- Ghost word — decorative background letterform -->
-      <span
-        class="pointer-events-none select-none absolute top-1/2 left-1/2 font-word font-bold leading-none tracking-[0.12em] whitespace-nowrap"
-        style="transform: translate(-50%, -52%); font-size: clamp(120px, 18vw, 220px); color: rgba(43, 35, 24, 0.032);"
-        aria-hidden="true"
-      >spelling</span>
+    <section class="mx-auto max-w-content-xl px-6 py-14 md:py-20" aria-labelledby="hero-heading">
+      <div class="grid items-center gap-10 md:grid-cols-[1.05fr_0.95fr] md:gap-16">
 
-      <div class="relative mx-auto max-w-content-xl px-6">
+        <div>
+          <p class="mb-4 text-xs font-bold uppercase tracking-[0.06em] text-brand">
+            Free · No account needed
+          </p>
+          <h1 id="hero-heading" class="text-display-xl mb-6">
+            Practice <span class="text-accent-coral">spelling</span> your way.
+          </h1>
+          <p class="mb-8 max-w-content-sm text-body-lg text-ink-soft">
+            Use your own words, follow a structured K–5 spelling curriculum, or explore a library
+            of focused spelling skills. Free to use, with no account or login required.
+          </p>
+          <div class="mb-8 flex flex-wrap gap-3">
+            <a href="/#grades" class="btn-primary">Browse by grade</a>
+            <a href="/skills" class="btn-secondary">Browse by skill</a>
+          </div>
+          <ul class="flex flex-col gap-2.5">
+            {['K–5 curriculum, built by grade', 'Works with your own word list', 'No login, no ads, no data games'].map((item) => (
+              <li class="flex items-center gap-2.5 text-sm font-medium text-ink-soft">
+                <span class="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-teal" aria-hidden="true"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <h1
-          id="hero-heading"
-          class="anim-1 text-display-xl mb-9"
-        >
-          Practice <span class="text-brand-red">spelling</span> your way.
-        </h1>
+        <!-- Word input panel — the practice stage, previewed on the homepage -->
+        <div class="rounded-3xl bg-stage p-7 shadow-stage md:p-8">
+          <p class="mb-1 text-xs font-bold uppercase tracking-[0.05em] text-accent-gold-on-stage">
+            Practice your own words
+          </p>
+          <label for="word-input" class="mb-3 block text-sm font-semibold text-ink-on-stage">
+            Type or paste a list — one word per line
+          </label>
 
-        <p class="anim-2 mx-auto mb-7 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
-          Use your own words, follow a structured K–5 spelling curriculum, or explore a library
-          of focused spelling skills. Free to use, with no account or login required.
-        </p>
+          <textarea
+            id="word-input"
+            rows="4"
+            class="w-full resize-none rounded-2xl border-2 border-white/20 bg-white/[0.07] px-4 py-3.5 font-word text-base leading-[1.7] text-ink-on-stage tracking-[0.01em] placeholder:text-ink-on-stage-soft focus:border-transparent focus:outline-none focus:ring-2 focus:ring-accent-gold-on-stage"
+            spellcheck="false"
+            autocomplete="off"
+            aria-label="Your spelling words, one per line"
+            placeholder={placeholderText}
+          ></textarea>
 
-        <!-- Word input card -->
-        <div class="anim-3 input-card mx-auto mb-5 max-w-content-sm overflow-hidden rounded-[22px] border border-line bg-app-paper shadow-card-md transition-shadow">
-
-          <div class="flex items-center justify-between border-b border-line bg-app-cloud px-[18px] py-2.5">
-            <label for="word-input" class="text-[13px] font-bold text-ink-soft tracking-[0.01em]">
-              Enter your spelling words
-            </label>
+          <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+            <button
+              id="btn-start"
+              type="button"
+              class="inline-flex items-center justify-center gap-2 rounded-pill bg-accent-gold-on-stage px-6 py-3 min-h-[44px] font-sans text-sm font-bold text-stage-deep transition hover:bg-accent-gold-on-stage-hover active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:cursor-not-allowed disabled:opacity-40"
+              aria-label="Start a spelling practice session"
+            >
+              Start this list <span aria-hidden="true">→</span>
+            </button>
             <span
               id="word-count-pill"
-              class="font-sans text-[11px] font-extrabold uppercase tracking-[0.04em] text-ink-soft bg-cream-deep px-3 py-1 rounded-full transition-colors duration-200"
+              class="text-xs font-bold text-ink-on-stage-soft"
               aria-live="polite"
               aria-atomic="true"
             >
@@ -143,77 +98,36 @@ const gradeAccents: Record<string, string> = {
             </span>
           </div>
 
-          <textarea
-            id="word-input"
-            rows="4"
-            class="w-full resize-none bg-app-paper px-5 py-4 font-word text-[19px] leading-[1.85] text-ink tracking-[0.015em] placeholder:text-ink-faint focus:outline-none"
-            spellcheck="false"
-            autocomplete="off"
-            aria-label="Your spelling words, one per line"
-            placeholder={placeholderText}
-          ></textarea>
-
-          <div class="border-t border-line bg-app-cloud px-[18px] py-2">
-            <p
-              id="input-status"
-              class="text-[13px] font-semibold text-ink-soft"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              Add at least 1 word to start practicing.
-            </p>
-          </div>
-        </div>
-
-        <!-- Primary CTA -->
-        <div class="anim-4">
-          <button
-            id="btn-start"
-            type="button"
-            class="btn-action"
-            aria-label="Start a spelling practice session"
-          >
-            Start Practicing <span class="btn-arrow" aria-hidden="true">→</span>
-          </button>
+          <p id="input-status" class="mt-2 text-xs font-medium text-ink-on-stage-soft" aria-live="polite" aria-atomic="true">
+            Add at least 1 word to start practicing.
+          </p>
         </div>
 
       </div>
     </section>
 
-    <hr class="h-px border-none bg-line mx-6" />
-
-    <!-- ═══ BROWSE BY GRADE / BROWSE BY SKILL ══════════════════════ -->
-    <section id="grades" class="mx-auto max-w-content-xl px-6 py-16 scroll-mt-[72px]" aria-labelledby="grade-heading">
-      <div class="mb-9">
-        <h2
-          id="grade-heading"
-          class="text-display-lg mb-2"
-        >
-          Browse by Grade
-        </h2>
-        <p class="max-w-content-sm text-[15px] font-medium text-ink-soft leading-[1.55]">
-          Follow an organized Kindergarten–5th Grade spelling path built around Core Spelling,
-          High-Frequency Words, and Themed Spelling Practice.
+    <!-- ═══ BROWSE BY GRADE ═════════════════════════════════════ -->
+    <section id="grades" class="mx-auto max-w-content-xl px-6 py-14 scroll-mt-[72px] md:py-16" aria-labelledby="grade-heading">
+      <div class="mb-8 max-w-content-md">
+        <h2 id="grade-heading" class="text-display-lg mb-2">Browse by Grade</h2>
+        <p class="text-body text-ink-soft">
+          Every grade combines Core Spelling, High-Frequency Words, and Themed Spelling Practice —
+          an organized Kindergarten–5th Grade path tied to what kids are learning in class.
         </p>
       </div>
 
-      <div
-        class="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3"
-        role="list"
-        aria-label="Grade levels"
-      >
+      <div class="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3" role="list" aria-label="Grade levels">
         {homepageGradeHubs.map(({ href, label, teaser }, index) => (
           <a
             href={href}
-            class="cat-card flex flex-col overflow-hidden rounded-2xl border border-line bg-app-paper shadow-card"
+            class={`reveal card-interactive flex flex-col overflow-hidden border-t-4 ${gradeAccentBorders[index % gradeAccentBorders.length]}`}
             role="listitem"
           >
-            <div class={`h-1 flex-shrink-0 ${gradeAccents[index === 0 ? 'K' : String(index)]}`}></div>
-            <div class="flex flex-col gap-1 p-[18px] pb-4">
-              <span class="font-display text-[21px] font-semibold text-ink leading-[1.1] tracking-[-0.01em]">
+            <div class="flex flex-col gap-1 p-5">
+              <span class="font-display text-xl font-semibold leading-tight tracking-tight text-ink">
                 {label}
               </span>
-              <span class="text-sm font-medium text-ink-soft leading-[1.4]">
+              <span class="text-sm font-medium leading-snug text-ink-soft">
                 {teaser}
               </span>
             </div>
@@ -222,25 +136,25 @@ const gradeAccents: Record<string, string> = {
       </div>
     </section>
 
-    <section id="skills" class="mx-auto max-w-content-xl px-6 pb-16 scroll-mt-[72px]" aria-labelledby="skill-heading">
-      <h2 id="skill-heading" class="text-display-lg mb-2">Browse by Skill</h2>
-      <p class="mb-5 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
-        Already know what to work on? Explore {HOMEPAGE_SKILL_COUNT} spelling skills,
-        from {HOMEPAGE_REPRESENTATIVE_SKILLS[0]} and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[3]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]}
-        — go straight to the specific spelling skill your student needs.
-      </p>
-      <a href={SKILLS_INDEX_PATH} class="btn-action">Browse Spelling Skills <span aria-hidden="true">→</span></a>
+    <!-- ═══ BROWSE BY SKILL ═════════════════════════════════════ -->
+    <section id="skills" class="bg-canvas-sunken py-14 scroll-mt-[72px] md:py-16" aria-labelledby="skill-heading">
+      <div class="mx-auto max-w-content-xl px-6">
+        <div class="mb-6 max-w-content-md">
+          <h2 id="skill-heading" class="text-display-lg mb-2">Browse by Skill</h2>
+          <p class="text-body text-ink-soft">
+            Prefer to practice a specific pattern instead of a full grade? Explore {HOMEPAGE_SKILL_COUNT} spelling
+            skills, from {HOMEPAGE_REPRESENTATIVE_SKILLS[0]} and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[3]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]}.
+          </p>
+        </div>
+        <a href={SKILLS_INDEX_PATH} class="btn-primary">See all spelling skills <span aria-hidden="true">→</span></a>
+      </div>
     </section>
 
     <!-- ═══ CLOSING ══════════════════════════════════════════════ -->
-    <section
-      id="how-it-works"
-      class="border-t border-line py-12 md:py-14"
-      aria-labelledby="trust-heading"
-    >
-      <div class="trust-item mx-auto max-w-content-sm px-6 text-center">
+    <section id="how-it-works" class="border-t border-border py-12 md:py-14" aria-labelledby="trust-heading">
+      <div class="reveal mx-auto max-w-content-sm px-6 text-center">
         <h2 id="trust-heading" class="text-display-lg mb-4">More than a list of spelling words</h2>
-        <p class="text-[15px] font-medium leading-[1.6] text-ink-soft">
+        <p class="text-body text-ink-soft">
           SpellingWords.app brings a structured K–5 spelling curriculum, a library of focused
           spelling skills, and space to practice a student's own words together in one place —
           organized by spelling patterns and high-frequency words, not a random list to memorize.
@@ -272,7 +186,6 @@ const gradeAccents: Record<string, string> = {
       const count = words.length;
 
       pill.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
-      pill.classList.toggle('has-words', count > 0);
 
       if (count === 0) {
         status.textContent = 'Add at least 1 word to start practicing.';
@@ -306,24 +219,19 @@ const gradeAccents: Record<string, string> = {
     btn.addEventListener('click', handleStart);
     updateStatus();
 
-    // Scroll-triggered reveal for category cards and trust items
+    // Scroll-triggered reveal, reusing the shared .reveal/.is-visible utility
     const io = new IntersectionObserver(
       (entries) => entries.forEach((e) => {
         if (e.isIntersecting) {
-          (e.target as HTMLElement).classList.add('visible');
+          (e.target as HTMLElement).classList.add('is-visible');
           io.unobserve(e.target);
         }
       }),
       { threshold: 0.1 }
     );
 
-    document.querySelectorAll('.cat-card').forEach((el, i) => {
-      (el as HTMLElement).style.transitionDelay = `${i * 0.045}s`;
-      io.observe(el);
-    });
-
-    document.querySelectorAll('.trust-item').forEach((el, i) => {
-      (el as HTMLElement).style.transitionDelay = `${i * 0.07}s`;
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      (el as HTMLElement).style.transitionDelay = `${(i % 6) * 0.05}s`;
       io.observe(el);
     });
   </script>

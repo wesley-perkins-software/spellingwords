@@ -45,9 +45,9 @@ export const categoryOrder = ['grade-level', 'high-frequency-words', 'phonics'] 
  * "same family" signal stays consistent across every page on the site.
  */
 export const cardAccent = {
-  bg: 'bg-brand-blue',
-  border: 'border-brand-blue/40',
-  glow: 'shadow-[0_4px_14px_-4px_rgba(47,111,237,0.55)]',
+  bg: 'bg-brand',
+  border: 'border-brand/40',
+  glow: 'shadow-btn-brand',
 } as const;
 
 /**
@@ -57,6 +57,6 @@ export const cardAccent = {
  * the progression path in the list-detail template.
  */
 export const journeyForwardAccent = {
-  bg: 'bg-chip-sun',
-  line: 'from-chip-sun/60',
+  bg: 'bg-accent-gold-on-stage',
+  line: 'from-accent-gold-on-stage/60',
 } as const;

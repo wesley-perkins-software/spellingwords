@@ -18,7 +18,7 @@ describe('canonical homepage', () => {
   it('has one immediate page heading and complete, accurate metadata', () => {
     expect(homepageSource.match(/<h1\b/g)).toHaveLength(1);
     expect(homepageSource).toContain(
-      'Practice <span class="text-brand-red">spelling</span> your way.',
+      'Practice <span class="text-accent-coral">spelling</span> your way.',
     );
     expect(homepageSource).toContain(
       'title="Free K–5 Spelling Practice by Grade or Skill, No Account | SpellingWords.app"',

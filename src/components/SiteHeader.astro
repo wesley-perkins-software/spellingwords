@@ -10,28 +10,44 @@ const isActive = (path: string) => currentPath.startsWith(path);
 ---
 
 {variant === 'discovery' ? (
-  <header class="sticky top-0 z-10 border-b border-line bg-app-paper/95 backdrop-blur-sm">
-    <div class="mx-auto flex max-w-content-xl items-center justify-between px-6 py-3.5">
+  <header class="sticky top-0 z-10 border-b border-border bg-canvas-raised/95 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-content-xl items-center justify-between gap-4 px-6 py-3.5">
 
       <a
         href="/"
-        class="flex items-center gap-1.5 font-display text-[21px] font-semibold text-ink tracking-tight transition-colors hover:text-ink"
+        class="flex items-center gap-2 font-display text-[21px] font-semibold text-ink tracking-tight transition-colors hover:text-brand"
         aria-label="spellingwords home"
       >
         <span
-          class="inline-block h-2 w-2 flex-shrink-0 rounded-full bg-brand-red"
-          style="position: relative; top: 1px;"
+          class="inline-flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-[8px] bg-stage text-[13px] font-bold text-ink-on-stage"
           aria-hidden="true"
-        ></span>
-        spelling<span class="text-brand-red">words</span>
+        >
+          Sw
+        </span>
+        spelling<span class="text-brand">words</span>
       </a>
 
-      <nav aria-label="Site navigation">
+      <button
+        type="button"
+        id="nav-toggle"
+        class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl text-ink-soft transition hover:bg-canvas-sunken hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus sm:hidden"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open menu"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav id="primary-nav" aria-label="Site navigation" class="hidden sm:block">
         <ul class="flex items-center gap-0.5 list-none m-0 p-0">
           <li>
             <a
               href="/#grades"
-              class="rounded-full px-4 py-2 text-sm font-bold text-ink-soft transition hover:bg-app-cloud hover:text-ink"
+              class="rounded-pill px-4 py-2 text-sm font-bold text-ink-soft transition hover:bg-canvas-sunken hover:text-ink"
             >
               Grades
             </a>
@@ -39,7 +55,7 @@ const isActive = (path: string) => currentPath.startsWith(path);
           <li>
             <a
               href="/skills"
-              class={`rounded-full px-4 py-2 text-sm font-bold transition hover:bg-app-cloud ${isActive('/skills') ? 'text-ink' : 'text-ink-soft hover:text-ink'}`}
+              class={`rounded-pill px-4 py-2 text-sm font-bold transition hover:bg-canvas-sunken ${isActive('/skills') ? 'text-brand' : 'text-ink-soft hover:text-ink'}`}
               aria-current={isActive('/skills') ? 'page' : undefined}
             >
               Skills
@@ -48,7 +64,7 @@ const isActive = (path: string) => currentPath.startsWith(path);
           <li>
             <a
               href="/#how-it-works"
-              class="rounded-full px-4 py-2 text-sm font-bold text-ink-soft transition hover:bg-app-cloud hover:text-ink"
+              class="rounded-pill px-4 py-2 text-sm font-bold text-ink-soft transition hover:bg-canvas-sunken hover:text-ink"
             >
               How it Works
             </a>
@@ -56,9 +72,18 @@ const isActive = (path: string) => currentPath.startsWith(path);
         </ul>
       </nav>
     </div>
+
+    <!-- Mobile nav panel — toggled by #nav-toggle, keeps primary nav reachable below the sm breakpoint -->
+    <nav id="mobile-nav" aria-label="Site navigation" class="hidden border-t border-border sm:hidden">
+      <ul class="flex flex-col gap-0.5 list-none m-0 px-4 py-3">
+        <li><a href="/#grades" class="block rounded-xl px-3 py-3 text-base font-bold text-ink-soft transition hover:bg-canvas-sunken hover:text-ink">Grades</a></li>
+        <li><a href="/skills" class="block rounded-xl px-3 py-3 text-base font-bold text-ink-soft transition hover:bg-canvas-sunken hover:text-ink" aria-current={isActive('/skills') ? 'page' : undefined}>Skills</a></li>
+        <li><a href="/#how-it-works" class="block rounded-xl px-3 py-3 text-base font-bold text-ink-soft transition hover:bg-canvas-sunken hover:text-ink">How it Works</a></li>
+      </ul>
+    </nav>
   </header>
 ) : (
-  <header class="sticky top-0 z-10 border-b border-line bg-app-paper/95 backdrop-blur-sm">
+  <header class="sticky top-0 z-10 border-b border-border bg-canvas-raised/95 backdrop-blur-sm">
     <div class="mx-auto flex max-w-content-lg items-center justify-between px-6 py-3">
       <a
         href="/"
@@ -66,17 +91,29 @@ const isActive = (path: string) => currentPath.startsWith(path);
         aria-label="spellingwords home"
       >
         <span
-          class="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-red opacity-60"
+          class="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand opacity-60"
           aria-hidden="true"
         ></span>
         spelling<span class="text-ink-faint">words</span>
       </a>
       <a
         href="/"
-        class="rounded-full px-3 py-2 text-xs font-semibold text-ink-soft/70 transition hover:bg-app-cloud hover:text-ink-soft min-h-[36px] flex items-center"
+        class="rounded-pill px-3 py-2 text-xs font-semibold text-ink-soft/70 transition hover:bg-canvas-sunken hover:text-ink-soft min-h-[36px] flex items-center"
       >
         ← New list
       </a>
     </div>
   </header>
+)}
+
+{variant === 'discovery' && (
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const panel = document.getElementById('mobile-nav');
+    toggle?.addEventListener('click', () => {
+      const isOpen = panel?.classList.toggle('hidden') === false;
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+  </script>
 )}

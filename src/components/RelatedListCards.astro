@@ -20,9 +20,9 @@ interface Props {
 const { heading, items, listLink, accent = 'neutral' } = Astro.props;
 const edgeClass =
   accent === 'forward'
-    ? 'before:bg-chip-sun'
+    ? 'before:bg-accent-gold-on-stage'
     : accent === 'previous'
-      ? 'before:bg-brand-blue'
+      ? 'before:bg-brand'
       : 'before:bg-transparent';
 ---
 
@@ -36,7 +36,7 @@ const edgeClass =
           return (
             <a
               href={listLink(linked)}
-              class={`relative flex-1 overflow-hidden rounded-3xl border border-line bg-white py-3 pl-5 pr-4 shadow-card text-sm transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:content-[''] ${edgeClass} hover:-translate-y-0.5 hover:shadow-card-md sm:flex-none sm:min-w-[14rem] sm:max-w-sm`}
+              class={`relative flex-1 overflow-hidden rounded-3xl border border-border bg-white py-3 pl-5 pr-4 shadow-card text-sm transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:content-[''] ${edgeClass} hover:-translate-y-0.5 hover:shadow-card-md sm:flex-none sm:min-w-[14rem] sm:max-w-sm`}
             >
               {card.gradeLabel && (
                 <span class="block text-xs font-bold uppercase tracking-wide text-ink-faint">

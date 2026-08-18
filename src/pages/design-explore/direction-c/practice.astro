@@ -1,0 +1,593 @@
+---
+import Proto from './_shared/Proto.astro';
+import Header from './_shared/Header.astro';
+import Footer from './_shared/Footer.astro';
+
+const missedWords = ['pig', 'bug'];
+---
+
+<Proto
+  title="Practice: Short Vowels: CVC Words — Direction C prototype"
+  description="Design exploration prototype: the four states of a spelling practice session."
+>
+  <Header currentPath="/design-explore/direction-c/practice" />
+
+  <main id="main">
+    <div class="wrap practice-wrap">
+      <h1 class="visually-hidden">Practice: Short Vowels: CVC Words</h1>
+
+      <!-- ============ QUESTION STATE ============ -->
+      <section class="state-block" aria-labelledby="question-heading">
+        <h2 id="question-heading" class="state-kicker">Question</h2>
+
+        <div class="practice-card">
+          <div class="progress-row">
+            <span class="progress-label">Word 3 of 10</span>
+            <div class="progress-track" role="progressbar" aria-valuenow={3} aria-valuemin={0} aria-valuemax={10} aria-label="Progress through word list">
+              <div class="progress-fill" style="width: 30%;"></div>
+            </div>
+          </div>
+
+          <div class="listen-row">
+            <button type="button" class="hear-word-button" aria-label="Play the word">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" aria-hidden="true">
+                <path
+                  d="M3 10v4h3.2L11 18V6L6.2 10H3Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M15 8.5c1 .9 1.6 2.1 1.6 3.5s-.6 2.6-1.6 3.5M17.8 6c1.7 1.5 2.7 3.6 2.7 6s-1 4.5-2.7 6"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  fill="none"
+                />
+              </svg>
+            </button>
+            <span class="hear-word-caption">Hear Word</span>
+
+            <button type="button" class="hear-sentence-button">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+                <path
+                  d="M4 6h16M4 12h16M4 18h10"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              Hear Sentence
+            </button>
+          </div>
+
+          <form class="answer-form">
+            <label for="spelling-input">Type the word you hear</label>
+            <input
+              type="text"
+              id="spelling-input"
+              name="spelling"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="Type the word here"
+            />
+            <button type="submit" class="check-button">Check Spelling</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ============ CORRECT FEEDBACK STATE ============ -->
+      <section class="state-block" aria-labelledby="correct-heading">
+        <h2 id="correct-heading" class="state-kicker">Correct feedback</h2>
+
+        <div class="practice-card feedback-card feedback-correct">
+          <div class="feedback-head">
+            <span class="feedback-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                <path
+                  d="M5 12.5 9.5 17 19 7"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            <p class="feedback-line">Well spelled.</p>
+          </div>
+          <button type="button" class="continue-button continue-correct">Continue</button>
+        </div>
+      </section>
+
+      <!-- ============ INCORRECT FEEDBACK STATE ============ -->
+      <section class="state-block" aria-labelledby="incorrect-heading">
+        <h2 id="incorrect-heading" class="state-kicker">Incorrect feedback</h2>
+
+        <div class="practice-card feedback-card feedback-incorrect">
+          <div class="feedback-head">
+            <span class="feedback-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                <circle cx="12" cy="12" r="8.4" stroke="currentColor" stroke-width="2" fill="none" />
+                <path d="M12 8v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                <circle cx="12" cy="15.8" r="1.05" fill="currentColor" />
+              </svg>
+            </span>
+            <p class="feedback-line">A good attempt.</p>
+          </div>
+
+          <dl class="answer-compare">
+            <div class="compare-row">
+              <dt>You wrote</dt>
+              <dd>kat</dd>
+            </div>
+            <div class="compare-row">
+              <dt>Correct spelling</dt>
+              <dd>cat</dd>
+            </div>
+          </dl>
+
+          <p class="feedback-note">We'll come back to this one.</p>
+
+          <button type="button" class="continue-button continue-incorrect">Continue</button>
+        </div>
+      </section>
+
+      <!-- ============ RESULTS STATE ============ -->
+      <section class="state-block" aria-labelledby="results-heading">
+        <h2 id="results-heading" class="state-kicker">Results</h2>
+
+        <div class="practice-card results-card">
+          <h3 class="results-headline">Good practice today.</h3>
+          <p class="results-summary">You spelled 8 of 10 words correctly.</p>
+
+          <div class="missed-block">
+            <h4 class="missed-label">Words to revisit</h4>
+            <ul class="missed-chips">
+              {missedWords.map((word) => <li class="missed-chip">{word}</li>)}
+            </ul>
+          </div>
+
+          <div class="results-actions">
+            <button type="button" class="results-button results-primary">Practice Again</button>
+            <button type="button" class="results-button results-secondary">Review Missed Words</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Proto>
+
+<style>
+  .practice-wrap {
+    padding-block: clamp(1.75rem, 4vw, 2.75rem) clamp(3.5rem, 7vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .state-kicker {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.9rem;
+  }
+
+  .practice-card {
+    background: var(--canvas-raised);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 3.5vw, 2.5rem);
+    box-shadow: var(--shadow-md);
+    max-width: 640px;
+  }
+
+  /* ---------- QUESTION STATE ---------- */
+  .progress-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .progress-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--accent-strong);
+    flex-shrink: 0;
+  }
+
+  .progress-track {
+    flex: 1;
+    height: 8px;
+    border-radius: var(--radius-pill);
+    background: var(--canvas-sunken);
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--accent-strong);
+    border-radius: var(--radius-pill);
+  }
+
+  .listen-row {
+    margin-top: clamp(1.75rem, 3.5vw, 2.5rem);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .hear-word-button {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent-strong);
+    color: var(--ink-on-accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .hear-word-button:hover {
+    background: var(--accent);
+    transform: scale(1.06);
+    box-shadow: var(--shadow-md);
+  }
+
+  .hear-word-button:active {
+    background: var(--accent-strong);
+    transform: scale(0.97);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .hear-word-caption {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ink);
+    margin-right: auto;
+  }
+
+  .hear-sentence-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: var(--canvas);
+    color: var(--ink-soft);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 0.65rem 1.1rem;
+    min-height: 44px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease, transform 0.12s ease;
+  }
+
+  .hear-sentence-button:hover {
+    border-color: var(--accent);
+    color: var(--accent-strong);
+    background: var(--accent-tint);
+  }
+
+  .hear-sentence-button:active {
+    transform: translateY(1px);
+  }
+
+  .answer-form {
+    margin-top: clamp(1.75rem, 3.5vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .answer-form label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: var(--ink);
+  }
+
+  #spelling-input {
+    width: 100%;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 0.95rem 1.1rem;
+    font-family: var(--font-word);
+    font-size: 1.3rem;
+    color: var(--ink);
+    background: var(--canvas);
+    min-height: 44px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  #spelling-input::placeholder {
+    color: var(--ink-faint);
+    font-family: var(--font-body);
+    font-size: 1rem;
+  }
+
+  #spelling-input:hover {
+    border-color: var(--border-strong);
+  }
+
+  #spelling-input:focus-visible {
+    border-color: var(--accent-strong);
+    box-shadow: 0 0 0 4px var(--accent-tint);
+    outline: none;
+  }
+
+  .check-button {
+    align-self: flex-start;
+    margin-top: 0.4rem;
+    background: var(--accent-strong);
+    color: var(--ink-on-accent);
+    border: none;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.85rem 1.9rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    min-height: 44px;
+    transition: background 0.15s ease, transform 0.12s ease;
+  }
+
+  .check-button:hover {
+    background: var(--accent);
+  }
+
+  .check-button:active {
+    transform: translateY(1px);
+  }
+
+  /* ---------- FEEDBACK STATES ---------- */
+  .feedback-card {
+    border-left-width: 4px;
+  }
+
+  .feedback-correct {
+    border-left-color: var(--grass);
+  }
+
+  .feedback-incorrect {
+    border-left-color: var(--sun);
+  }
+
+  .feedback-head {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .feedback-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feedback-correct .feedback-icon {
+    background: var(--grass-tint);
+    color: var(--correct-ink);
+  }
+
+  .feedback-incorrect .feedback-icon {
+    background: var(--sun-tint);
+    color: #935e0f;
+  }
+
+  .feedback-line {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--ink);
+  }
+
+  .answer-compare {
+    margin: 1.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: var(--canvas-sunken);
+    border-radius: var(--radius-md);
+    padding: 1.1rem 1.3rem;
+  }
+
+  .compare-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .compare-row dt {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink-faint);
+  }
+
+  .compare-row dd {
+    margin: 0;
+    font-family: var(--font-word);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--ink);
+  }
+
+  .feedback-note {
+    margin-top: 1.25rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .continue-button {
+    margin-top: 1.75rem;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.85rem 1.9rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    min-height: 44px;
+    color: var(--ink-on-accent);
+    transition: background 0.15s ease, transform 0.12s ease;
+  }
+
+  .continue-correct {
+    background: var(--accent-strong);
+  }
+
+  .continue-correct:hover {
+    background: var(--accent);
+  }
+
+  .continue-incorrect {
+    background: var(--accent-strong);
+  }
+
+  .continue-incorrect:hover {
+    background: var(--accent);
+  }
+
+  .continue-button:active {
+    transform: translateY(1px);
+  }
+
+  /* ---------- RESULTS STATE ---------- */
+  .results-headline {
+    font-size: clamp(1.7rem, 3vw, 2.1rem);
+  }
+
+  .results-summary {
+    margin-top: 0.75rem;
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+  }
+
+  .missed-block {
+    margin-top: 1.75rem;
+  }
+
+  .missed-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 0.75rem;
+  }
+
+  .missed-chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .missed-chip {
+    font-family: var(--font-word);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #935e0f;
+    background: var(--sun-tint);
+    border: 1.5px solid var(--sun);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 1rem;
+  }
+
+  .results-actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  .results-button {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.85rem 1.7rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    min-height: 44px;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.12s ease;
+  }
+
+  .results-primary {
+    border: none;
+    background: var(--accent-strong);
+    color: var(--ink-on-accent);
+  }
+
+  .results-primary:hover {
+    background: var(--accent);
+  }
+
+  .results-secondary {
+    border: 1.5px solid var(--border-strong);
+    background: var(--canvas-raised);
+    color: var(--ink);
+  }
+
+  .results-secondary:hover {
+    border-color: var(--accent-strong);
+    color: var(--accent-strong);
+  }
+
+  .results-button:active {
+    transform: translateY(1px);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 560px) {
+    .practice-card {
+      padding: 1.4rem;
+    }
+
+    .listen-row {
+      gap: 0.9rem;
+    }
+
+    .hear-word-caption {
+      width: 100%;
+      order: 3;
+      margin-right: 0;
+    }
+
+    .compare-row {
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .results-actions {
+      flex-direction: column;
+    }
+
+    .results-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

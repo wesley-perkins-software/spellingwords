@@ -1,0 +1,358 @@
+---
+import Proto from './_shared/Proto.astro';
+import Header from './_shared/Header.astro';
+import Footer from './_shared/Footer.astro';
+
+const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'run'];
+---
+
+<Proto
+  title="Short Vowels: CVC Words — Direction C prototype"
+  description="Design exploration prototype: Short Vowels: CVC Words skill page."
+>
+  <Header currentPath="/design-explore/direction-c/skill" />
+
+  <main id="main">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/design-explore/direction-c/">Home</a></li>
+          <li><a href="/design-explore/direction-c/grade-hub">Grade 1 Spelling Words</a></li>
+          <li><a href="/design-explore/direction-c/skill">Core Spelling</a></li>
+          <li aria-current="page">Short Vowels: CVC Words</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- HERO -->
+    <section class="skill-hero">
+      <div class="wrap">
+        <div class="hero-card">
+          <ul class="hero-chips">
+            <li class="chip chip-coral">Grade 1</li>
+            <li class="chip chip-peri">Phonics</li>
+            <li class="chip chip-grass">Beginner</li>
+          </ul>
+          <h1>Short Vowels: CVC Words</h1>
+          <a class="cta-button" href="/design-explore/direction-c/practice">Practice these words →</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap content-grid">
+      <div class="content-main">
+        <!-- WHAT ARE -->
+        <section class="content-section">
+          <h2>What are Short Vowels: CVC Words?</h2>
+          <p>
+            This list practices short-vowel CVC words such as cat, hot, and bug — a foundational
+            phonics pattern from the early-elementary curriculum.
+          </p>
+        </section>
+
+        <!-- READINESS -->
+        <section class="content-section">
+          <h2>These spelling words are a good fit for students who...</h2>
+          <p>
+            can identify beginning and ending consonant sounds, and are ready to blend a single
+            short-vowel sound in the middle of a three-letter word.
+          </p>
+        </section>
+
+        <!-- WORD LIST -->
+        <section class="content-section">
+          <h2>Word list</h2>
+          <ul class="word-list">
+            {words.map((word) => <li>{word}</li>)}
+          </ul>
+        </section>
+
+        <!-- DESCRIPTION -->
+        <section class="content-section">
+          <h2>About this pattern</h2>
+          <p>
+            Consonant-vowel-consonant (CVC) words are the first words most students decode and
+            spell independently. Practicing one short-vowel sound at a time — and then mixing them
+            — builds the pattern recognition that later phonics work depends on.
+          </p>
+        </section>
+
+        <!-- FAQ -->
+        <section class="content-section">
+          <h2>Frequently asked questions</h2>
+          <dl class="faq-list">
+            <div class="faq-item">
+              <dt>What are short-vowel CVC words?</dt>
+              <dd>
+                This list practices short-vowel CVC words such as cat, hot, and bug — a
+                foundational phonics pattern from the early-elementary curriculum.
+              </dd>
+            </div>
+          </dl>
+        </section>
+
+        <!-- GO DEEPER -->
+        <section class="content-section go-deeper">
+          <h2>Go deeper</h2>
+          <a class="deeper-card" href="#">
+            <span class="deeper-title">Silent E: Long A Words</span>
+            <span class="deeper-body">
+              The next step after short vowels: words where a silent e changes the vowel sound.
+            </span>
+          </a>
+        </section>
+
+        <p class="source-line">Curated by the SpellingWords.app editorial team.</p>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Proto>
+
+<style>
+  /* ---------- BREADCRUMB ---------- */
+  .breadcrumb {
+    padding-top: 1.75rem;
+  }
+
+  .breadcrumb ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: '/';
+    margin-left: 0.4rem;
+    color: var(--ink-faint);
+  }
+
+  .breadcrumb a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent-strong);
+  }
+
+  .breadcrumb li[aria-current='page'] {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---------- HERO ---------- */
+  .skill-hero {
+    padding-block: clamp(1.75rem, 4vw, 2.5rem) clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .hero-card {
+    background: var(--canvas-raised);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.75rem, 4vw, 2.75rem);
+    box-shadow: var(--shadow-md);
+  }
+
+  .hero-chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0 0 1.25rem;
+    padding: 0;
+  }
+
+  .chip {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--border);
+  }
+
+  .chip-coral {
+    color: #b0392a;
+    background: var(--coral-tint);
+    border-color: var(--coral);
+  }
+  .chip-peri {
+    color: #3d4bb8;
+    background: var(--peri-tint);
+    border-color: var(--peri);
+  }
+  .chip-grass {
+    color: var(--correct-ink);
+    background: var(--grass-tint);
+    border-color: var(--grass);
+  }
+
+  .hero-card h1 {
+    font-size: clamp(2.2rem, 4.6vw, 3.1rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-button {
+    margin-top: 1.75rem;
+    display: inline-flex;
+    align-items: center;
+    background: var(--accent-strong);
+    color: var(--ink-on-accent);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.02rem;
+    padding: 0.85rem 1.9rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    min-height: 44px;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+
+  .cta-button:hover {
+    background: var(--accent);
+  }
+
+  .cta-button:active {
+    transform: translateY(1px);
+  }
+
+  /* ---------- CONTENT ---------- */
+  .content-grid {
+    padding-block: clamp(1rem, 3vw, 2rem) clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .content-main {
+    max-width: 74ch;
+  }
+
+  .content-section {
+    padding-block: clamp(1.5rem, 3vw, 2.1rem);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .content-section:last-of-type {
+    border-bottom: none;
+  }
+
+  .content-section h2 {
+    font-size: clamp(1.4rem, 2.4vw, 1.7rem);
+    letter-spacing: -0.005em;
+  }
+
+  .content-section p {
+    margin-top: 0.9rem;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  /* ---------- WORD LIST ---------- */
+  .word-list {
+    margin: 1.1rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .word-list li {
+    background: var(--canvas-raised);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 0.9rem 0.5rem;
+    text-align: center;
+    font-family: var(--font-word);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--ink);
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list {
+    margin: 1.1rem 0 0;
+  }
+
+  .faq-item dt {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+
+  .faq-item dd {
+    margin: 0.5rem 0 0;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  /* ---------- GO DEEPER ---------- */
+  .go-deeper h2 {
+    margin-bottom: 1rem;
+  }
+
+  .deeper-card {
+    display: block;
+    background: var(--canvas-raised);
+    border: 1.5px solid var(--border);
+    border-left-width: 4px;
+    border-left-color: var(--peri);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.4rem;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .deeper-card:hover {
+    box-shadow: var(--shadow-sm);
+    border-color: var(--border-strong);
+    border-left-color: var(--peri);
+  }
+
+  .deeper-title {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent-strong);
+  }
+
+  .deeper-body {
+    display: block;
+    margin-top: 0.4rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  /* ---------- SOURCE ---------- */
+  .source-line {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 700px) {
+    .word-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 480px) {
+    .word-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

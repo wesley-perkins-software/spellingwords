@@ -137,31 +137,31 @@ import SiteHeader from '@/components/SiteHeader.astro';
         </p>
       </div>
 
-      <!-- Question screen — the dark practice stage, the one saturated surface
-           in the whole product. Uses CSS grid (1fr auto) with a shared
-           min-height so the primary action always occupies a consistent slot. -->
+      <!-- Question screen — a light, warm practice surface (not the dark
+           "stage" token — that stays reserved for small high-emphasis
+           accents). Uses CSS grid (1fr auto) with a shared min-height so
+           the primary action always occupies a consistent slot. -->
       <section
         id="screen-question"
         class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[440px]"
         aria-labelledby="question-heading"
       >
-        <div
-          class="rounded-3xl bg-stage shadow-stage px-7 py-9 md:px-10 md:py-11 flex flex-col gap-7 text-center"
-        >
+        <div class="practice-panel px-7 py-9 md:px-10 md:py-11 flex flex-col gap-7 text-center">
+          <span class="practice-panel-accent" aria-hidden="true"></span>
           <h1 id="question-heading" class="sr-only">Type the word you hear</h1>
-          <p id="question-instruction" class="text-sm font-semibold text-ink-on-stage-soft"></p>
+          <p id="question-instruction" class="text-sm font-semibold text-ink-soft"></p>
 
-          <!-- Audio controls — the visual anchor of the stage -->
-          <div class="flex flex-col items-center gap-3">
+          <!-- Audio controls — the visual anchor of the practice card -->
+          <div class="flex flex-col items-center gap-2.5">
             <button
               id="btn-repeat"
               type="button"
-              class="flex h-20 w-20 items-center justify-center rounded-full bg-accent-gold-on-stage text-stage-deep transition hover:bg-accent-gold-on-stage-hover hover:scale-[1.03] active:scale-[0.96] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
+              class="flex h-[4.75rem] w-[4.75rem] items-center justify-center rounded-full bg-accent-gold-on-stage text-stage-deep shadow-btn-amber transition hover:bg-accent-gold-on-stage-hover hover:scale-[1.05] active:scale-[0.94] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
               aria-label="Hear the word again"
             >
               <svg
-                width="30"
-                height="30"
+                width="28"
+                height="28"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -175,12 +175,13 @@ import SiteHeader from '@/components/SiteHeader.astro';
                 <path d="M19 6a8.5 8.5 0 0 1 0 12" opacity="0.6"></path>
               </svg>
             </button>
+            <p class="text-xs font-semibold text-ink-soft">Tap to hear it again</p>
 
             <!-- Hear sentence again — only shown when sentence exists -->
             <button
               id="btn-sentence"
               type="button"
-              class="hidden items-center gap-2 rounded-pill border border-white/25 bg-white/5 px-4 py-2.5 text-sm font-semibold text-ink-on-stage-soft transition hover:bg-white/10 hover:text-ink-on-stage active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+              class="hidden items-center gap-2 rounded-pill border border-border bg-canvas px-4 py-2.5 text-sm font-semibold text-ink-soft transition hover:bg-canvas-sunken hover:text-ink active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
               aria-label="Hear the word used in a sentence again"
             >
               <svg
@@ -200,12 +201,12 @@ import SiteHeader from '@/components/SiteHeader.astro';
             </button>
 
             <!-- Shown only when no example sentence exists for this word -->
-            <p id="no-sentence-note" class="hidden text-sm font-medium text-ink-on-stage-soft" aria-live="polite">
+            <p id="no-sentence-note" class="hidden text-sm font-medium text-ink-soft" aria-live="polite">
               No sentence available for this word.
             </p>
           </div>
 
-          <!-- Answer input -->
+          <!-- Answer input — the child's work area -->
           <div class="mx-auto flex w-full max-w-[420px] flex-col gap-2">
             <label class="sr-only" for="answer-input">Your answer</label>
             <input
@@ -216,11 +217,11 @@ import SiteHeader from '@/components/SiteHeader.astro';
               autocapitalize="off"
               spellcheck="false"
               placeholder="Type what you hear"
-              class="w-full rounded-2xl border-2 border-white/25 bg-white/[0.07] px-5 py-4 text-center font-word text-2xl md:text-3xl font-medium text-ink-on-stage tracking-wide placeholder:font-normal placeholder:text-ink-on-stage-soft transition focus:border-transparent focus:outline-none focus:ring-2 focus:ring-accent-gold-on-stage"
+              class="practice-input px-5 py-4 text-center text-2xl md:text-3xl font-medium tracking-wide placeholder:font-normal"
             />
             <p
               id="answer-error"
-              class="min-h-[1.25rem] px-1 text-sm text-accent-gold-on-stage"
+              class="min-h-[1.25rem] px-1 text-sm text-feedback-incorrect"
               aria-live="polite"
               role="alert"
             >
@@ -234,8 +235,9 @@ import SiteHeader from '@/components/SiteHeader.astro';
         </button>
       </section>
 
-      <!-- Feedback screen — same stage surface, mirrors question grid so
-           content centers between progress and the Continue action. -->
+      <!-- Feedback screen — the same light practice surface, mirrors the
+           question grid so content centers between progress and the
+           Continue action. -->
       <section
         id="screen-feedback"
         class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[440px] text-center"
@@ -244,50 +246,71 @@ import SiteHeader from '@/components/SiteHeader.astro';
       >
         <h1 id="feedback-heading" class="sr-only"></h1>
 
-        <div class="rounded-3xl bg-stage shadow-stage px-7 py-9 md:px-10 md:py-11 flex flex-col items-center justify-center gap-6">
-          <!-- Correct answer: checkmark + word, calm phrase below -->
+        <div class="practice-panel px-7 py-9 md:px-10 md:py-11 flex flex-col items-center justify-center gap-5">
+          <span class="practice-panel-accent" aria-hidden="true"></span>
+
+          <!-- Correct answer: badge, word, calm phrase below -->
           <div id="feedback-correct-layout" class="hidden flex-col items-center gap-4">
-            <div class="flex items-center justify-center gap-3">
-              <span class="flex-shrink-0 text-accent-gold-on-stage" aria-hidden="true">
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
-                >
-              </span>
-              <p
-                id="feedback-correct-word"
-                class="font-word text-5xl md:text-6xl font-semibold tracking-tight leading-none text-ink-on-stage"
+            <span
+              class="flex h-14 w-14 items-center justify-center rounded-full bg-feedback-correct-bg text-feedback-correct"
+              aria-hidden="true"
+            >
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg
               >
-              </p>
-            </div>
-            <p id="feedback-correct-phrase" class="font-display text-xl font-semibold text-ink-on-stage-soft">
+            </span>
+            <p
+              id="feedback-correct-word"
+              class="font-word text-5xl md:text-6xl font-semibold tracking-tight leading-none text-ink"
+            >
+            </p>
+            <p id="feedback-correct-phrase" class="font-sans text-lg font-semibold text-ink-soft">
             </p>
           </div>
 
-          <!-- Incorrect answer: phrase → attempt → correct word → closing note -->
+          <!-- Incorrect answer: badge, phrase → attempt → correct word → closing note -->
           <div id="feedback-incorrect-layout" class="hidden flex-col items-center gap-3">
+            <span
+              class="flex h-12 w-12 items-center justify-center rounded-full bg-accent-gold-tint text-accent-gold"
+              aria-hidden="true"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 12a9 9 0 1 1-3-6.7"></path>
+                <polyline points="21 3 21 9 15 9"></polyline>
+              </svg>
+            </span>
             <p
               id="feedback-incorrect-phrase"
-              class="font-display text-lg font-semibold text-accent-gold-on-stage"
+              class="font-sans text-lg font-semibold text-ink"
             >
             </p>
-            <p id="feedback-attempt" class="font-word text-lg text-ink-on-stage-soft"></p>
+            <p id="feedback-attempt" class="font-word text-lg text-ink-soft line-through decoration-2"></p>
             <p
               id="feedback-incorrect-word"
-              class="font-word text-5xl md:text-6xl font-semibold tracking-tight leading-none text-ink-on-stage mt-1"
+              class="font-word text-5xl md:text-6xl font-semibold tracking-tight leading-none text-ink mt-1"
             >
             </p>
-            <p id="feedback-detail" class="font-sans text-sm text-ink-on-stage-soft mt-1"></p>
+            <p id="feedback-detail" class="font-sans text-sm text-ink-soft mt-1"></p>
           </div>
         </div>
 
-        <!-- Continue button — auto row, anchors at bottom like the stage's primary action -->
+        <!-- Continue button — auto row, anchors at bottom like the practice card's primary action -->
         <button
           id="btn-next"
           type="button"

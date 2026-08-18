@@ -60,19 +60,21 @@ const gradeAccentBorders = [
           </ul>
         </div>
 
-        <!-- Word input panel — the practice stage, previewed on the homepage -->
-        <div class="rounded-3xl bg-stage p-7 shadow-stage md:p-8">
-          <p class="mb-1 text-xs font-bold uppercase tracking-[0.05em] text-accent-gold-on-stage">
+        <!-- Word input panel — previews the same light practice family used
+             on /play, not the dark "stage" surface. -->
+        <div class="practice-panel p-7 md:p-8">
+          <span class="practice-panel-accent" aria-hidden="true"></span>
+          <p class="mb-1 text-xs font-bold uppercase tracking-[0.05em] text-brand">
             Practice your own words
           </p>
-          <label for="word-input" class="mb-3 block text-sm font-semibold text-ink-on-stage">
+          <label for="word-input" class="mb-3 block text-sm font-semibold text-ink">
             Type or paste a list — one word per line
           </label>
 
           <textarea
             id="word-input"
             rows="4"
-            class="w-full resize-none rounded-2xl border-2 border-white/20 bg-white/[0.07] px-4 py-3.5 font-word text-base leading-[1.7] text-ink-on-stage tracking-[0.01em] placeholder:text-ink-on-stage-soft focus:border-transparent focus:outline-none focus:ring-2 focus:ring-accent-gold-on-stage"
+            class="practice-input resize-none px-4 py-3.5 text-base leading-[1.7] tracking-[0.01em]"
             spellcheck="false"
             autocomplete="off"
             aria-label="Your spelling words, one per line"
@@ -83,14 +85,14 @@ const gradeAccentBorders = [
             <button
               id="btn-start"
               type="button"
-              class="inline-flex items-center justify-center gap-2 rounded-pill bg-accent-gold-on-stage px-6 py-3 min-h-[44px] font-sans text-sm font-bold text-stage-deep transition hover:bg-accent-gold-on-stage-hover active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:cursor-not-allowed disabled:opacity-40"
+              class="btn-action px-6 py-3 min-h-[44px] text-sm"
               aria-label="Start a spelling practice session"
             >
               Start this list <span aria-hidden="true">→</span>
             </button>
             <span
               id="word-count-pill"
-              class="text-xs font-bold text-ink-on-stage-soft"
+              class="text-xs font-bold text-ink-soft"
               aria-live="polite"
               aria-atomic="true"
             >
@@ -98,7 +100,7 @@ const gradeAccentBorders = [
             </span>
           </div>
 
-          <p id="input-status" class="mt-2 text-xs font-medium text-ink-on-stage-soft" aria-live="polite" aria-atomic="true">
+          <p id="input-status" class="mt-2 text-xs font-medium text-ink-soft" aria-live="polite" aria-atomic="true">
             Add at least 1 word to start practicing.
           </p>
         </div>

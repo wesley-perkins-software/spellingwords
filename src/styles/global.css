@@ -109,18 +109,41 @@
   }
 
   /* Amber action — the practice/CTA accent color. Reserved for the single
-     most important action on a page: starting or continuing practice. */
+     most important action on a page: starting or continuing practice.
+     Plus Jakarta Sans, not Petrona — this is an interface control, and
+     Petrona is reserved for editorial/display headings. */
   .btn-action {
     @apply inline-flex items-center justify-center gap-2
            rounded-pill bg-accent-gold-on-stage
            px-9 py-4 min-h-[52px]
-           font-display text-lg font-semibold text-stage-deep tracking-[0.01em]
+           font-sans text-base font-bold text-stage-deep tracking-[0.01em]
            shadow-btn-amber
            transition
            hover:bg-accent-gold-on-stage-hover hover:-translate-y-0.5
            active:translate-y-0 active:scale-[0.98]
            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus
            disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  /* ── Practice surface ──────────────────────────────────────────
+     The student-facing register: a light, warm work surface rather
+     than the dark "stage" token. Shared between /play and the
+     homepage practice-preview widget so both read as the same family. */
+
+  .practice-panel {
+    @apply relative overflow-hidden rounded-[28px] border-2 border-brand/10
+           bg-white shadow-card-lg;
+  }
+
+  .practice-panel-accent {
+    @apply absolute inset-x-0 top-0 h-1.5 bg-accent-gold-on-stage;
+  }
+
+  .practice-input {
+    @apply w-full rounded-2xl border-2 border-brand/15 bg-canvas
+           font-word text-ink placeholder:text-ink-faint/70
+           transition focus:border-brand focus:outline-none
+           focus:ring-2 focus:ring-accent-gold-on-stage/50;
   }
 
   /* ── Card system ───────────────────────────────────────────── */

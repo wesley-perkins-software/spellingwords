@@ -1,0 +1,544 @@
+---
+import Proto from './_shared/Proto.astro';
+import Header from './_shared/Header.astro';
+import Footer from './_shared/Footer.astro';
+
+const grades = [
+  {
+    label: 'Kindergarten',
+    teaser: 'Letter sounds, sight words, and first spelling patterns.',
+    tint: 'mint',
+  },
+  {
+    label: 'Grade 1',
+    teaser: 'Short vowels, digraphs, and high-frequency words.',
+    tint: 'cream',
+  },
+  {
+    label: 'Grade 2',
+    teaser: 'Compound words, blends, and long vowel patterns.',
+    tint: 'sky',
+  },
+  {
+    label: 'Grade 3',
+    teaser: 'Prefixes, suffixes, and multisyllable words.',
+    tint: 'blush',
+  },
+  {
+    label: 'Grade 4',
+    teaser: 'Word roots, homophones, and spelling patterns that trip students up.',
+    tint: 'lilac',
+  },
+  {
+    label: 'Grade 5',
+    teaser: 'Advanced patterns, commonly confused words, and academic vocabulary.',
+    tint: 'peach',
+  },
+];
+---
+
+<Proto
+  title="SpellingWords.app — Direction B prototype"
+  description="Design exploration: soft tinted surfaces, gentle shape, tactile warmth."
+>
+  <Header currentPath="/design-explore/direction-b/" />
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1>Practice <span class="accent">spelling</span> your way.</h1>
+          <p class="hero-subhead">
+            Use your own words, follow a structured K–5 spelling curriculum, or explore a library
+            of focused spelling skills. Free to use, with no account or login required.
+          </p>
+        </div>
+
+        <form class="word-card" aria-labelledby="word-card-heading">
+          <div class="word-card-head">
+            <label id="word-card-heading" for="word-input">Enter your spelling words</label>
+            <span class="word-count-pill">0 words</span>
+          </div>
+          <textarea
+            id="word-input"
+            name="words"
+            rows="6"
+            placeholder="Type or paste your words here, one per line"
+          ></textarea>
+          <p class="word-card-helper">Add at least 1 word to start practicing.</p>
+          <button type="submit" class="cta-primary">Start Practicing →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ BROWSE BY GRADE ============ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Browse by Grade</h2>
+          <p>
+            Follow an organized Kindergarten–5th Grade spelling path built around Core Spelling,
+            High-Frequency Words, and Themed Spelling Practice.
+          </p>
+        </div>
+
+        <ul class="grade-grid">
+          {
+            grades.map((grade) => (
+              <li class={`grade-card tint-${grade.tint}`}>
+                <a class="grade-card-link" href="/design-explore/direction-b/grade-hub">
+                  <span class="grade-card-label">{grade.label}</span>
+                  <span class="grade-card-teaser">{grade.teaser}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ BROWSE BY SKILL ============ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="skill-panel">
+          <div class="skill-panel-copy">
+            <h2>Browse by Skill</h2>
+            <p>
+              Already know what to work on? Explore dozens of spelling skills, from short vowels
+              and consonant blends to prefixes, suffixes, homophones, and commonly confused words
+              — go straight to the specific spelling skill your student needs.
+            </p>
+            <a class="cta-secondary" href="/design-explore/direction-b/skill">
+              Browse Spelling Skills →
+            </a>
+          </div>
+          <div class="skill-panel-chips" aria-hidden="true">
+            <span class="skill-chip tint-mint">Short vowels</span>
+            <span class="skill-chip tint-sky">Consonant blends</span>
+            <span class="skill-chip tint-blush">Prefixes</span>
+            <span class="skill-chip tint-cream">Homophones</span>
+            <span class="skill-chip tint-lilac">Suffixes</span>
+            <span class="skill-chip tint-peach">Commonly confused words</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRUST / CLOSING ============ -->
+    <section class="section trust-section">
+      <div class="wrap trust-inner">
+        <h2>More than a list of spelling words</h2>
+        <p>
+          SpellingWords.app brings a structured K–5 spelling curriculum, a library of focused
+          spelling skills, and space to practice a student's own words together in one place —
+          organized by spelling patterns and high-frequency words, not a random list to memorize.
+          Parents and teachers get an organized path to follow, and students get calm, focused
+          practice. It's free, with no account required, and there are no timers, points, or
+          competitions.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Proto>
+
+<style>
+  /* ---------- Hero ---------- */
+  .hero {
+    padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.3rem, 4.4vw, 3.4rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+  }
+
+  .accent {
+    color: var(--brand-strong);
+  }
+
+  .hero-subhead {
+    margin-top: 1.25rem;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    line-height: 1.6;
+  }
+
+  .word-card {
+    background: var(--cream);
+    border: 1px solid var(--cream-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.25rem, 3vw, 1.75rem);
+    box-shadow: var(--shadow-lift);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .word-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .word-card-head label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+
+  .word-count-pill {
+    background: var(--canvas-raised);
+    color: var(--cream-ink);
+    border: 1px solid var(--cream-border);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+  }
+
+  #word-input {
+    width: 100%;
+    resize: vertical;
+    min-height: 9rem;
+    background: var(--canvas-raised);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 0.9rem 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  #word-input::placeholder {
+    color: var(--ink-faint);
+  }
+
+  #word-input:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  .word-card-helper {
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+
+  .cta-primary {
+    align-self: flex-start;
+    background: var(--brand);
+    color: var(--ink-on-brand);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    min-height: 44px;
+    transition:
+      background 0.15s ease,
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .cta-primary:hover {
+    background: var(--brand-strong);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  /* ---------- Section shared ---------- */
+  .section {
+    padding-block: clamp(2.5rem, 5vw, 3.75rem);
+  }
+
+  .section-head {
+    max-width: 62ch;
+    margin-bottom: 2.25rem;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  }
+
+  .section-head p {
+    margin-top: 0.75rem;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  /* ---------- Grade grid ---------- */
+  .grade-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .grade-card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition:
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .grade-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .grade-card-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: inherit;
+    padding: 1.4rem 1.5rem;
+    border-radius: var(--radius-lg);
+    height: 100%;
+  }
+
+  .grade-card-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+
+  .grade-card-teaser {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  /* Tint family */
+  .tint-mint {
+    background: var(--mint);
+    border: 1px solid var(--mint-border);
+  }
+  .tint-mint .grade-card-label {
+    color: var(--mint-ink);
+  }
+  .tint-mint .grade-card-teaser {
+    color: color-mix(in srgb, var(--mint-ink) 82%, var(--ink-soft));
+  }
+
+  .tint-cream {
+    background: var(--cream);
+    border: 1px solid var(--cream-border);
+  }
+  .tint-cream .grade-card-label {
+    color: var(--cream-ink);
+  }
+  .tint-cream .grade-card-teaser {
+    color: color-mix(in srgb, var(--cream-ink) 82%, var(--ink-soft));
+  }
+
+  .tint-sky {
+    background: var(--sky);
+    border: 1px solid var(--sky-border);
+  }
+  .tint-sky .grade-card-label {
+    color: var(--sky-ink);
+  }
+  .tint-sky .grade-card-teaser {
+    color: color-mix(in srgb, var(--sky-ink) 82%, var(--ink-soft));
+  }
+
+  .tint-blush {
+    background: var(--blush);
+    border: 1px solid var(--blush-border);
+  }
+  .tint-blush .grade-card-label {
+    color: var(--blush-ink);
+  }
+  .tint-blush .grade-card-teaser {
+    color: color-mix(in srgb, var(--blush-ink) 82%, var(--ink-soft));
+  }
+
+  .tint-lilac {
+    background: var(--lilac);
+    border: 1px solid var(--lilac-border);
+  }
+  .tint-lilac .grade-card-label {
+    color: var(--lilac-ink);
+  }
+  .tint-lilac .grade-card-teaser {
+    color: color-mix(in srgb, var(--lilac-ink) 82%, var(--ink-soft));
+  }
+
+  .tint-peach {
+    background: var(--peach);
+    border: 1px solid var(--peach-border);
+  }
+  .tint-peach .grade-card-label {
+    color: var(--peach-ink);
+  }
+  .tint-peach .grade-card-teaser {
+    color: color-mix(in srgb, var(--peach-ink) 82%, var(--ink-soft));
+  }
+
+  /* ---------- Skill panel ---------- */
+  .skill-panel {
+    background: var(--sky);
+    border: 1px solid var(--sky-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.75rem, 4vw, 2.75rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+
+  .skill-panel-copy h2 {
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    color: var(--sky-ink);
+  }
+
+  .skill-panel-copy p {
+    margin-top: 0.9rem;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    max-width: 58ch;
+  }
+
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 1.35rem;
+    background: var(--canvas-raised);
+    color: var(--brand-strong);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.98rem;
+    text-decoration: none;
+    padding: 0.75rem 1.35rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-strong);
+    box-shadow: var(--shadow-sm);
+    transition:
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .cta-secondary:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .skill-panel-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-content: flex-start;
+  }
+
+  .skill-chip {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius-md);
+    background: var(--canvas-raised);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .skill-chip.tint-mint {
+    color: var(--mint-ink);
+  }
+  .skill-chip.tint-sky {
+    color: var(--sky-ink);
+  }
+  .skill-chip.tint-blush {
+    color: var(--blush-ink);
+  }
+  .skill-chip.tint-cream {
+    color: var(--cream-ink);
+  }
+  .skill-chip.tint-lilac {
+    color: var(--lilac-ink);
+  }
+  .skill-chip.tint-peach {
+    color: var(--peach-ink);
+  }
+
+  /* ---------- Trust section ---------- */
+  .trust-section {
+    padding-block-end: clamp(3.5rem, 7vw, 5.5rem);
+  }
+
+  .trust-inner {
+    background: var(--mint);
+    border: 1px solid var(--mint-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(2rem, 5vw, 3rem);
+    max-width: 78ch;
+  }
+
+  .trust-inner h2 {
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    color: var(--mint-ink);
+  }
+
+  .trust-inner p {
+    margin-top: 1rem;
+    color: var(--ink-soft);
+    font-size: 1.04rem;
+    line-height: 1.65;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 960px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .skill-panel {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .grade-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 520px) {
+    .grade-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .word-card {
+      padding: 1.1rem;
+    }
+
+    .cta-primary {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+</style>

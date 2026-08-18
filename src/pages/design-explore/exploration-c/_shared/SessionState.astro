@@ -1,0 +1,30 @@
+---
+interface Props { state: 'correct' | 'incorrect' | 'results' }
+const { state } = Astro.props;
+const correct = state === 'correct';
+---
+
+<main id="main" class="wrap session">
+  <nav class="crumb" aria-label="Breadcrumb"><a href="./grade-hub.html">Grade 2</a><span aria-hidden="true">/</span><a href="./skill.html">Soft C and Soft G</a></nav>
+  {state === 'results' ? (
+    <section class="result" aria-labelledby="result-title">
+      <p class="kicker">Practice complete</p><h1 id="result-title">You found the pattern.</h1>
+      <div class="score" aria-label="Score: 5 out of 6"><strong>5</strong><span>out of 6 correct</span></div>
+      <p>Soft <b>c</b> and <b>g</b> usually change before <b>e, i,</b> or <b>y</b>. Review <strong>gym</strong>, then try the set again.</p>
+      <div class="actions"><a class="primary" href="./practice.html">Practice again</a><a href="./skill.html">Review the rule</a></div>
+    </section>
+  ) : (
+    <section class:list={["feedback", correct ? 'right' : 'wrong']} aria-labelledby="feedback-title" role="status" aria-live="polite">
+      <p class="kicker">Soft C and Soft G · 3 of 6</p>
+      <div class="mark" aria-hidden="true">{correct ? '✓' : '×'}</div>
+      <h1 id="feedback-title">{correct ? 'Correct — page' : 'Not yet — gym'}</h1>
+      <p>{correct ? 'The g comes before silent e, so it makes its soft sound.' : 'You wrote “jim.” The sound is right; this word uses soft g before y.'}</p>
+      {!correct && <p class="word"><span>g</span>ym</p>}
+      <a class="primary" href={correct ? './practice.html' : './results.html'}>{correct ? 'Next word' : 'Got it — continue'}</a>
+    </section>
+  )}
+</main>
+
+<style>
+  .session{max-width:760px;padding-block:2rem 5rem}.crumb{display:flex;gap:.65rem;min-height:44px;align-items:center;color:var(--ink-soft);font-size:.9rem}.crumb a{padding:.65rem 0}.feedback,.result{margin-top:1.5rem;background:repeating-linear-gradient(#fff,#fff 39px,#eeeeec 40px);border:1px solid var(--border);border-top:1px solid var(--border);border-bottom:5px solid var(--practice-strong);border-radius:0;padding:clamp(2rem,7vw,4.5rem);text-align:center;box-shadow:none}.feedback.right{border-bottom-color:var(--correct-ink)}.feedback.wrong{border-bottom-color:var(--incorrect-ink)}.kicker{text-transform:uppercase;letter-spacing:.1em;font-weight:800;font-size:.76rem;color:var(--ink-soft)}h1{font-size:clamp(2rem,7vw,3.5rem);margin:.7rem 0 1rem}.mark{width:56px;height:56px;display:grid;place-items:center;margin:1.5rem auto .5rem;border:3px solid currentColor;border-radius:var(--radius-sm);font-size:2.2rem;font-weight:800}.right .mark{color:var(--correct-ink);background:var(--correct-bg)}.wrong .mark{color:var(--incorrect-ink);background:var(--incorrect-bg)}.feedback p,.result>p{max-width:34rem;margin-inline:auto}.word{font:700 2.5rem var(--font-word);margin-top:1.5rem}.word span{color:var(--incorrect-ink);text-decoration:underline 4px}.primary,.actions a{min-height:48px;display:inline-flex;align-items:center;justify-content:center;margin-top:2rem;padding:.7rem 1.25rem;border-radius:var(--radius-sm);font-weight:800}.primary{background:var(--practice-strong);color:#fff;text-decoration:none}.actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}.actions a:not(.primary){border:2px solid var(--practice-strong);color:var(--practice-strong);text-decoration:none}.score{display:flex;justify-content:center;align-items:baseline;gap:.8rem;margin:2rem 0}.score strong{font:700 5rem var(--font-display);color:var(--practice-strong)}@media(max-width:560px){.feedback,.result{padding:2rem 1.25rem}.actions{display:grid}.actions a{width:100%;margin-top:.5rem}}
+</style>

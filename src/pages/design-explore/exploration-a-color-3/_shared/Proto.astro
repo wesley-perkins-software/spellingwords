@@ -30,53 +30,59 @@ const { title, description } = Astro.props;
          never as a full-bleed background wash.
          ============================================================ */
       :root {
-        /* Canvas — cool near-neutral, NOT warm cream. The warmth in this
-           palette lives only in the brand/stage accent, not the paper,
-           to keep the system reading modern/graphic rather than aged. */
-        --canvas: #f6f6f7;
+        /* Canvas — cool near-neutral, no warmth in the paper at all. An
+           earlier pass tinted the paper/ink/stage warm-brown and, combined
+           with the serif display face, read as coffeehouse/wine-label
+           rather than a spelling app — so this revision keeps every
+           SURFACE a true neutral graphite and puts the entire chromatic
+           thesis into one confident accent hue instead. */
+        --canvas: #f7f6f7;
         --canvas-raised: #ffffff;
-        --canvas-sunken: #eeeeef;
+        --canvas-sunken: #efedee;
 
-        /* Ink — near-black with the faintest warm cast, low chroma */
-        --ink: #201a18;
-        --ink-soft: #564d49;
-        --ink-faint: #857b76;
-        --ink-on-stage: #f7ece8;
-        --ink-on-stage-soft: #d9b6ac;
+        /* Ink — true neutral graphite, no hue bleed from the brand at all */
+        --ink: #1c1a1d;
+        --ink-soft: #514c50;
+        --ink-faint: #837d81;
+        --ink-on-stage: #f5eef1;
+        --ink-on-stage-soft: #d3c3cb;
 
         /* Borders */
-        --border: #e3e0de;
-        --border-strong: #cac4c0;
-        --border-interactive: #9c7a72;
+        --border: #e2dfe1;
+        --border-strong: #c9c4c8;
+        --border-interactive: #9c7086;
 
-        /* Brand — deep brick/oxblood: muted and dark enough to read almost
-           as a dark neutral, revealing its hue on larger surfaces/type. */
-        --brand: #8a2f22;
-        --brand-strong: #601f17;
-        --brand-tint: #f3e2de;
+        /* Brand — deep raspberry/rose: a confident pink-red anchor, kept
+           dark and muted (not bubblegum) so it reads sophisticated, and
+           deliberately more magenta than the brick/orange of --coral or
+           the incorrect-feedback red so it never doubles as an error cue. */
+        --brand: #9c1f52;
+        --brand-strong: #6f1339;
+        --brand-tint: #fbe6ee;
 
-        /* Word stage — the one saturated large surface, reserved for the
-           practice/audio moment so it reads as a considered destination */
-        --stage: #2a1613;
-        --stage-deep: #190c0a;
-        --stage-edge: #6b342a;
+        /* Word stage — kept a true neutral graphite-black rather than a
+           tinted version of the brand hue: the raspberry appears only as
+           the on-stage accent below, so colour still concentrates on one
+           destination without the whole surface turning "pink app." */
+        --stage: #221f22;
+        --stage-deep: #141315;
+        --stage-edge: #4a444a;
 
         /* Secondary accents — used in small, purposeful doses: chips,
-           underlines, grade/skill wayfinding, illustrative dots. --coral is
-           nudged lighter/more orange than --brand so a wayfinding chip
-           doesn't read as "the brand, just smaller." */
-        --coral: #cf6a3e;
-        --coral-tint: #fcebe0;
+           underlines, grade/skill wayfinding, illustrative dots. Unchanged
+           from Exploration A; none collide with the new raspberry brand. */
+        --coral: #c14a2b;
+        --coral-tint: #fbe6df;
         --gold: #a8701e;
         --gold-tint: #f8ecd6;
         --teal: #146059;
         --teal-tint: #dcf0ec;
         --plum: #6a3f89;
         --plum-tint: #efe3f5;
-        /* Brass/amber accent on the dark brick stage — brick+brass reads
-           like ember/ceramic, mirroring A's own indigo+gold relationship. */
-        --gold-on-stage: #c98a2c;
-        --gold-on-stage-hover: #dda13f;
+        /* Bright raspberry-pink reserved for use ON the dark graphite stage
+           only, where it needs to read as a confident highlight. */
+        --gold-on-stage: #c73f75;
+        --gold-on-stage-hover: #d65f8d;
 
         /* Feedback — calm, never the sole signal (paired with icon/text) */
         --correct-bg: #e3f3e4;
@@ -86,7 +92,7 @@ const { title, description } = Astro.props;
         --incorrect-ink: #a13a24;
         --incorrect-border: #edb9ab;
 
-        --focus-ring: #c98a2c;
+        --focus-ring: #c73f75;
 
         --font-display: 'Petrona', 'Iowan Old Style', 'Georgia', serif;
         --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;

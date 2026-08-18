@@ -28,6 +28,23 @@ const skills = [
   title="SpellingWords.app — Exploration A4"
   description="Design exploration A: homepage for calm K-5 spelling practice."
 >
+  <style is:global>
+    /* The homepage's own-word hero panel is a preview of the practice
+       destination, so — like Exploration A itself — it borrows the
+       PRACTICE mode's stage family rather than the homepage's cool
+       browsing brand, foreshadowing the mode change to come. Only the
+       stage tokens shift; --brand/--focus-ring stay this page's cool
+       blue so the rest of the homepage isn't affected. */
+    :root {
+      --stage: #3a1f10;
+      --stage-deep: #24130a;
+      --stage-edge: #7a4a2c;
+      --ink-on-stage: #f8efe6;
+      --ink-on-stage-soft: #dcbfa4;
+      --gold-on-stage: #d98f3c;
+      --gold-on-stage-hover: #e8a557;
+    }
+  </style>
   <Header currentPath="/design-explore/exploration-a-color-4/" />
 
   <main id="main">

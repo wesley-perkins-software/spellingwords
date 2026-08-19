@@ -53,9 +53,17 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
 
           <section class="prose-section" aria-labelledby="wordlist-heading">
             <h2 id="wordlist-heading">Word list</h2>
-            <ul class="word-list">
-              {words.map((word) => <li>{word}</li>)}
-            </ul>
+            <!--
+              Tinted sun field ties this word list back to its Core Spelling
+              strand color on the Grade Hub. A skill page under a different
+              strand (High-Frequency Words, Themed Spelling Practice) would
+              use that strand's own tint (teal, periwinkle) here instead.
+            -->
+            <div class="word-list-panel">
+              <ul class="word-list">
+                {words.map((word) => <li>{word}</li>)}
+              </ul>
+            </div>
           </section>
 
           <section class="prose-section" aria-labelledby="about-heading">
@@ -230,6 +238,13 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
     }
 
     /* ============================= WORD LIST ============================= */
+    .word-list-panel {
+      background: var(--sun-tint);
+      border: 1px solid var(--sun);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.25rem, 3vw, 1.75rem);
+    }
+
     .word-list {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));

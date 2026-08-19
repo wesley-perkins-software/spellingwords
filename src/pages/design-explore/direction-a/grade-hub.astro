@@ -69,7 +69,7 @@ const strands = [
         }
       </section>
 
-      <section class="begin-panel tint-brand" aria-labelledby="begin-heading">
+      <section class="begin-panel tint-pink" aria-labelledby="begin-heading">
         <h2 id="begin-heading">Where to begin</h2>
         <p>
           Most Grade 1 students are ready to start with Core Spelling, especially short-vowel
@@ -242,25 +242,27 @@ const strands = [
       margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
     }
 
-    .tint-brand {
-      background: var(--brand-tint);
-      border: 1px solid var(--brand);
+    .tint-pink {
+      background: var(--pink-tint);
+      border: 1px solid var(--pink);
     }
 
     .begin-panel h2 {
       font-size: 1.3rem;
-      color: var(--brand-strong);
+      color: var(--pink-ink);
     }
 
     .begin-panel p {
       margin-top: 0.75rem;
-      color: color-mix(in srgb, var(--brand-strong) 78%, var(--ink-soft));
+      color: color-mix(in srgb, var(--pink-ink) 78%, var(--ink-soft));
       font-size: 1.05rem;
       line-height: 1.65;
       max-width: 68ch;
     }
 
     .begin-panel a {
+      /* Brand blue, not the panel's own pink ink, so the actionable link
+         stands out clearly from the panel's guidance copy. */
       color: var(--brand-strong);
       font-weight: 800;
       text-decoration: underline;

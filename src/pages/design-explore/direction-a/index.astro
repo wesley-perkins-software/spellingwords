@@ -383,6 +383,10 @@ const grades = [
     }
 
     /* ============================ SKILL SECTION ========================= */
+    .skill-section {
+      background: var(--teal-tint);
+    }
+
     .skill-inner {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
@@ -426,29 +430,31 @@ const grades = [
     }
 
     .skill-chip {
+      background: var(--canvas-raised);
       font-weight: 700;
       font-size: 0.9rem;
       padding: 0.6rem 1rem;
       border-radius: var(--radius-pill);
+      border: 1.5px solid transparent;
       line-height: 1;
     }
 
     .chip-teal {
-      background: var(--teal-tint);
+      border-color: var(--teal);
       color: var(--teal-ink);
     }
     .chip-periwinkle {
-      background: var(--periwinkle-tint);
+      border-color: var(--periwinkle);
       color: var(--periwinkle-ink);
     }
     .chip-sun {
-      background: var(--sun-tint);
+      border-color: var(--sun);
       color: var(--sun-ink);
     }
 
     /* ============================ TRUST SECTION ========================= */
     .trust-section {
-      background: var(--canvas);
+      background: var(--sun-tint);
     }
 
     .trust-inner {
@@ -457,6 +463,7 @@ const grades = [
       border: 1px solid color-mix(in srgb, var(--brand) 55%, var(--border-strong));
       border-radius: var(--radius-lg);
       padding: clamp(2rem, 5vw, 3rem);
+      box-shadow: var(--shadow-sm);
     }
 
     .trust-inner h2 {

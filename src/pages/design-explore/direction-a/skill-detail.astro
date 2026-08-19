@@ -1,0 +1,698 @@
+---
+// Canonical Skill reference page — Direction A.
+//
+// Distinct job from the Grade Unit page (skill.astro): a Grade Unit answers
+// "what should this grade practice right now?"; a Skill page answers "what
+// is this concept, how does it work, and how do I teach it?" Content here
+// is transcribed from the real production Skill content model
+// (contentRole: 'skill') at src/content/spelling-lists/phonics/vowel-teams-ai-ay.md
+// so the design is validated against real data shape, not invented copy.
+import Proto from './_shared/Proto.astro';
+import Header from './_shared/Header.astro';
+import Footer from './_shared/Footer.astro';
+import Button from './_shared/Button.astro';
+import Chip from './_shared/Chip.astro';
+import SectionBand from './_shared/SectionBand.astro';
+
+const aiWords = ['chain', 'mail', 'nail', 'paint', 'rain', 'snail', 'train', 'wait'];
+const ayWords = ['day', 'play', 'stay', 'way'];
+
+const faqs = [
+  {
+    question: "Why does 'wait' use ai and not ay if the sound comes before a consonant?",
+    answer:
+      "Because ai is the spelling used inside a word or syllable, and 'wait' has a consonant sound (t) after the vowel team — the ai sits in the middle of the word, not at its very end. The same reasoning explains mail, nail, paint, rain, snail, and train.",
+  },
+  {
+    question: 'Does the AI/AY position tendency still apply to longer, multisyllable words?',
+    answer:
+      'This page focuses on one-syllable base words, where the tendency is strongest and easiest to apply. Multisyllable words involve more complex syllable division and are taught at a later stage — the base-word tendency here is the foundation for that later work, not a claim that covers every syllable in every longer word.',
+  },
+];
+---
+
+<Proto
+  title="AI and AY Words — Direction A prototype"
+  description="How the AI and AY vowel teams spell the long a sound, for parents and teachers."
+>
+  <Header currentPath="/design-explore/direction-a/skill-detail" />
+
+  <main id="main">
+    <div class="wrap page-shell">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <ol>
+          <li><a href="/design-explore/direction-a/">Home</a></li>
+          <li>Vowel Teams</li>
+          <li aria-current="page">AI and AY Words</li>
+        </ol>
+      </nav>
+
+      <section class="hero-card">
+        <ul class="hero-chips">
+          <li><Chip tone="teal">Phonics</Chip></li>
+          <li><Chip tone="periwinkle">Vowel Teams</Chip></li>
+          <li><Chip tone="sun">Grade 1+</Chip></li>
+        </ul>
+        <h1>AI and AY Words</h1>
+        <p class="hero-lede">
+          AI and AY are two-letter vowel teams that spell the long a sound — the sound that says
+          its own name, as in <em>rain</em>, <em>mail</em>, <em>play</em>, and <em>stay</em>. In
+          common one-syllable words, <strong>ai</strong> is typically found in the middle of the
+          word or syllable, while <strong>ay</strong> is typically found at the end. Neither
+          letter pair makes its own separate sound; together, the two letters spell one long
+          vowel sound.
+        </p>
+        <Button href="/design-explore/direction-a/practice" variant="soft" class="skill-cta">
+          Practice these words →
+        </Button>
+      </section>
+    </div>
+
+    <!-- ============ PATTERN AT A GLANCE — signature educational component ============ -->
+    <SectionBand tone="sunken" ariaLabel="Pattern at a glance">
+      <p class="eyebrow">Pattern at a glance</p>
+      <h2 class="glance-heading">AI and AY, grouped by where they fall in the word</h2>
+      <div class="glance-grid">
+        <div class="glance-group">
+          <div class="glance-group-head">
+            <Chip tone="periwinkle" class="glance-badge">ai</Chip>
+            <span class="glance-position">Inside the word or syllable</span>
+          </div>
+          <ul class="glance-words">
+            {aiWords.map((word) => <li>{word}</li>)}
+          </ul>
+        </div>
+        <div class="glance-group">
+          <div class="glance-group-head">
+            <Chip tone="pink" class="glance-badge">ay</Chip>
+            <span class="glance-position">At the end of the word</span>
+          </div>
+          <ul class="glance-words">
+            {ayWords.map((word) => <li>{word}</li>)}
+          </ul>
+        </div>
+      </div>
+      <p class="glance-note">
+        Reading each row aloud shows the same long-a sound in every word, even though the
+        two-letter spelling changes depending on where the sound falls in the word.
+      </p>
+    </SectionBand>
+
+    <div class="wrap page-shell">
+      <!-- ============ CONCEPT EXPLANATION — open editorial reading ============ -->
+      <article class="concept-chapter">
+        <section class="concept-section" aria-labelledby="what-heading">
+          <h2 id="what-heading">What are the AI and AY vowel teams?</h2>
+          <p>
+            A vowel team is two vowel letters that work together to spell one vowel sound, rather
+            than one letter doing the work alone. Long a is the vowel sound that says its own
+            name — the same sound heard in the letter a itself. In <em>rain</em>, the letters
+            <em>a</em> and <em>i</em> sit next to each other and together spell that one long-a
+            sound; neither letter is silent and neither is sounded separately. The same is true
+            of <em>ay</em> in <em>day</em>.
+          </p>
+        </section>
+
+        <section class="concept-section" aria-labelledby="why-heading">
+          <h2 id="why-heading">Why AI appears in the middle and AY at the end</h2>
+          <p>
+            In common one-syllable base words, <em>ai</em> is typically found inside the word or
+            syllable — followed by at least one more consonant, as in <em>rain</em>,
+            <em>mail</em>, and <em>train</em> — while <em>ay</em> is typically found at the very
+            end of the word, as in <em>day</em>, <em>play</em>, and <em>stay</em>. This is a
+            genuinely reliable tendency across common, everyday words: when a learner hears long
+            a <em>and</em> hears another consonant sound after it, <em>ai</em> is the better first
+            guess; when long a is the very last sound in the word, <em>ay</em> is the better
+            guess.
+          </p>
+          <p>
+            This tendency describes the base word, not every letter string a longer word might
+            contain. Once a suffix is added, <em>ay</em> can end up away from the very end of the
+            whole word without breaking the tendency: <em>playing</em> and <em>stayed</em> both
+            keep the <em>ay</em> from their base words <em>play</em> and <em>stay</em>.
+          </p>
+        </section>
+
+        <section class="concept-section" aria-labelledby="compare-heading">
+          <h2 id="compare-heading">AI/AY compared with long A silent E</h2>
+          <p>
+            <em>Cake</em>, <em>gate</em>, and <em>plate</em> spell the same long-a sound with a
+            different tool: one vowel letter, a consonant, then a silent e that changes the vowel
+            before it — the pattern taught in Long A Silent E Words. AI and AY spell long a a
+            different way, using two vowel letters placed next to each other instead of a single
+            vowel plus a silent helper. A word is spelled with one pattern or the other; English
+            doesn't mix a silent e onto the end of an ai or ay word to spell the same sound twice.
+          </p>
+        </section>
+      </article>
+
+      <!-- ============ WHAT TO NOTICE — instructional callout ============ -->
+      <section class="editorial-note notice-note" aria-labelledby="notice-heading">
+        <p class="eyebrow">What to notice</p>
+        <h2 id="notice-heading">What should the learner notice?</h2>
+        <ul>
+          <li><em>Ai</em> and <em>ay</em> each spell one sound — long a — not two separate vowel sounds.</li>
+          <li>
+            Whether a word uses <em>ai</em> or <em>ay</em> usually depends on where the long-a
+            sound falls: inside the word (<em>ai</em>) or at the very end (<em>ay</em>).
+          </li>
+          <li>
+            A longer word built from a base word — <em>playing</em> from <em>play</em>,
+            <em>stayed</em> from <em>stay</em> — can carry <em>ay</em> in a position that isn't
+            the end of the whole word, without breaking the pattern.
+          </li>
+          <li>
+            Words like <em>chain</em>, <em>snail</em>, and <em>train</em> combine the <em>ai</em>
+            vowel team with a consonant blend already taught elsewhere — the vowel team stays a
+            single unit even when other sounds surround it.
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============ EXCEPTION — small distinct callout, not a full card ============ -->
+      <aside class="exception-callout" aria-labelledby="exception-heading">
+        <p class="exception-label" id="exception-heading">A genuine exception worth knowing</p>
+        <p>
+          The position tendency is strong but not exceptionless once a learner moves beyond this
+          page's word set — a small number of English words, mostly borrowed from other
+          languages (such as <em>chai</em>), end in <em>ai</em>. These are uncommon enough in
+          early reading and writing that naming the tendency as "typical," not "always," is
+          enough to keep it accurate.
+        </p>
+      </aside>
+
+      <!-- ============ TEACHING ROUTINE — numbered, open region ============ -->
+      <section class="routine-section" aria-labelledby="routine-heading">
+        <p class="eyebrow">Teaching routine</p>
+        <h2 id="routine-heading">How to practice AI and AY words</h2>
+        <ol class="routine-list">
+          <li>Say the target word aloud.</li>
+          <li>
+            Listen for where the long-a sound falls: is there another consonant sound after it in
+            the word, or is it the very last sound?
+          </li>
+          <li>Choose <em>ai</em> if another sound follows it, or <em>ay</em> if it's the last sound.</li>
+          <li>Write or type the letters in order, then read the result back exactly as written.</li>
+        </ol>
+        <p class="routine-tip">
+          If a learner writes <em>day</em> as <em>dai</em> or <em>rain</em> as <em>rayn</em>, step
+          4 is the key one: read back exactly what was written, and ask where the long-a sound
+          falls in the word. Let the learner work out which spelling fits, rather than correcting
+          the letters directly.
+        </p>
+      </section>
+
+      <!-- ============ MASTERY SIGNALS — checklist, positive/calm color tie-in ============ -->
+      <section class="mastery-section" aria-labelledby="mastery-heading">
+        <p class="eyebrow">Signs it's becoming secure</p>
+        <h2 id="mastery-heading" class="visually-hidden">Signs the AI/AY pattern is becoming secure</h2>
+        <ul class="mastery-list">
+          <li>Hearing long a in a new word and identifying whether it falls mid-word or at the end.</li>
+          <li>Choosing ai or ay correctly for an unfamiliar regular word based on that position.</li>
+          <li>Reading an ai or ay word not seen before.</li>
+          <li>Spelling a representative word from dictation.</li>
+          <li>
+            Recognizing that <em>playing</em> and <em>stayed</em> still follow the pattern,
+            because the ay belongs to the base word.
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- ============ NEXT STEPS — where this fits + related skills ============ -->
+    <SectionBand tone="sunken" ariaLabel="Where this fits and related skills">
+      <div class="next-grid">
+        <a class="fits-card" href="/design-explore/direction-a/skill">
+          <span class="fits-label">Where this fits in the curriculum</span>
+          <span class="fits-title">Grade 1 → Core Spelling → Short Vowels: CVC Words</span>
+          <span class="fits-desc">
+            AI/AY builds on the short-vowel and silent-e patterns students meet earlier in the
+            Grade 1 sequence.
+          </span>
+        </a>
+        <div class="related-skills">
+          <p class="eyebrow">Related skills</p>
+          <ul>
+            <li><a href="#">Silent E: Long O Words</a></li>
+            <li><a href="#">Vowel Teams: EE and EA Words</a></li>
+          </ul>
+        </div>
+      </div>
+    </SectionBand>
+
+    <div class="wrap page-shell">
+      <!-- ============ FAQ — same rule-based editorial treatment as Grade Unit ============ -->
+      <section class="faq-section" aria-labelledby="faq-heading">
+        <p class="eyebrow">Common questions</p>
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <dl class="faq-list">
+          {
+            faqs.map((item) => (
+              <div class="faq-item">
+                <dt>{item.question}</dt>
+                <dd>{item.answer}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </section>
+
+      <p class="source-line">Curated by the SpellingWords.app editorial team.</p>
+    </div>
+  </main>
+
+  <Footer />
+
+  <style>
+    .page-shell {
+      padding-block: clamp(2rem, 5vw, 3rem) 0;
+    }
+
+    /* ============================= BREADCRUMB ============================= */
+    .breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0 0 1.5rem;
+      padding: 0;
+      font-size: 0.9rem;
+      color: var(--ink-faint);
+    }
+
+    .breadcrumb li:not(:last-child)::after {
+      content: '/';
+      margin-left: 0.5rem;
+      color: var(--border-strong);
+    }
+
+    .breadcrumb a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-weight: 600;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--brand);
+    }
+
+    .breadcrumb li[aria-current='page'] {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* ============================= HERO ============================= */
+    /* Same hero-card DNA as the Grade Unit page (brand-tint surface, chips,
+       title, CTA) so the two pages read as one family — differentiated by
+       the shortAnswer lede and a quieter CTA, not a different visual system. */
+    .hero-card {
+      max-width: 74ch;
+      background: var(--brand-tint);
+      border: 1px solid var(--brand);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.75rem, 4vw, 2.5rem);
+      margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero-card h1 {
+      font-size: clamp(1.9rem, 4vw, 2.5rem);
+    }
+
+    .hero-lede {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+
+    :global(.skill-cta) {
+      margin-top: 0.25rem;
+    }
+
+    /* ============================= PATTERN AT A GLANCE ============================= */
+    .glance-heading {
+      font-size: clamp(1.4rem, 2.6vw, 1.75rem);
+      max-width: 44ch;
+      margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .glance-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .glance-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .glance-group-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    :global(.glance-badge) {
+      font-family: var(--font-word);
+      font-size: 1.1rem;
+      padding: 0.4rem 1rem;
+    }
+
+    .glance-position {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ink-soft);
+    }
+
+    .glance-words {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.6rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .glance-words li {
+      background: var(--canvas-raised);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 0.4rem;
+      text-align: center;
+      font-family: var(--font-word);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .glance-note {
+      margin-top: clamp(1.5rem, 3vw, 2rem);
+      max-width: 62ch;
+      font-size: 0.98rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ============================= CONCEPT CHAPTER (open editorial) ===== */
+    .concept-chapter {
+      max-width: 68ch;
+      margin-top: clamp(3rem, 6vw, 4rem);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(2rem, 4vw, 2.5rem);
+    }
+
+    .concept-section h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .concept-section p {
+      color: var(--ink-soft);
+      font-size: 1.04rem;
+      line-height: 1.75;
+    }
+
+    .concept-section p + p {
+      margin-top: 0.9rem;
+    }
+
+    .concept-section em {
+      font-style: normal;
+      font-family: var(--font-word);
+      color: var(--ink);
+    }
+
+    /* ============================= WHAT TO NOTICE ============================= */
+    .notice-note {
+      margin-top: clamp(2.5rem, 5vw, 3.25rem);
+    }
+
+    /* ============================= EXCEPTION CALLOUT ============================= */
+    .exception-callout {
+      max-width: 60ch;
+      margin-top: clamp(2rem, 4vw, 2.5rem);
+      background: var(--sun-tint);
+      border: 1px solid var(--sun);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .exception-label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--sun-ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .exception-callout p:not(.exception-label) {
+      color: color-mix(in srgb, var(--sun-ink) 78%, var(--ink-soft));
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    /* ============================= TEACHING ROUTINE ============================= */
+    .routine-section {
+      max-width: 62ch;
+      margin-top: clamp(2.5rem, 5vw, 3.25rem);
+    }
+
+    .routine-section h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .routine-list {
+      list-style: none;
+      counter-reset: routine;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .routine-list li {
+      counter-increment: routine;
+      display: flex;
+      align-items: baseline;
+      gap: 0.85rem;
+      font-size: 1.02rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .routine-list li::before {
+      content: counter(routine);
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      color: var(--brand-strong);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .routine-tip {
+      margin-top: 1.25rem;
+      font-size: 0.95rem;
+      color: var(--ink-faint);
+      line-height: 1.6;
+    }
+
+    /* ============================= MASTERY SIGNALS ============================= */
+    .mastery-section {
+      max-width: 62ch;
+      margin-top: clamp(2.5rem, 5vw, 3.25rem);
+      margin-bottom: clamp(3rem, 6vw, 4rem);
+    }
+
+    .mastery-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .mastery-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.65rem;
+      font-size: 1rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    .mastery-list li::before {
+      content: '✓';
+      flex-shrink: 0;
+      color: var(--correct-ink);
+      font-weight: 700;
+    }
+
+    /* ============================= NEXT STEPS ============================= */
+    .next-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: clamp(2rem, 4vw, 3rem);
+      align-items: start;
+    }
+
+    .fits-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      background: var(--canvas-raised);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .fits-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .fits-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-faint);
+    }
+
+    .fits-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--brand-strong);
+    }
+
+    .fits-desc {
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    .related-skills ul {
+      list-style: none;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .related-skills a {
+      font-weight: 700;
+      color: var(--brand-strong);
+      text-decoration: none;
+      font-size: 0.98rem;
+    }
+
+    .related-skills a:hover {
+      text-decoration: underline;
+    }
+
+    /* ============================= FAQ ============================= */
+    .faq-section {
+      max-width: 68ch;
+      margin-top: clamp(3rem, 6vw, 4rem);
+    }
+
+    .faq-section h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .faq-list {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .faq-item {
+      padding-block: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-item dt {
+      display: flex;
+      gap: 0.6rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-item dt::before {
+      content: 'Q';
+      flex-shrink: 0;
+      color: var(--brand);
+      font-weight: 700;
+    }
+
+    .faq-item dd {
+      margin: 0 0 0 1.35rem;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .source-line {
+      margin-top: clamp(2rem, 4vw, 2.75rem);
+      padding-bottom: clamp(3rem, 6vw, 4rem);
+      font-size: 0.85rem;
+      color: var(--ink-faint);
+    }
+
+    /* ============================= RESPONSIVE ============================= */
+    @media (max-width: 900px) {
+      .glance-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .next-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .glance-words {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      :global(.skill-cta) {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</Proto>

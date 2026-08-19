@@ -2,6 +2,8 @@
 import Proto from './_shared/Proto.astro';
 import Header from './_shared/Header.astro';
 import Footer from './_shared/Footer.astro';
+import Button from './_shared/Button.astro';
+import Chip from './_shared/Chip.astro';
 
 const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'run'];
 ---
@@ -25,34 +27,39 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
 
       <section class="hero-card">
         <ul class="hero-chips">
-          <li class="chip chip-brand"><span class="visually-hidden">Grade: </span>Grade 1</li>
-          <li class="chip chip-teal"><span class="visually-hidden">Skill area: </span>Phonics</li>
-          <li class="chip chip-sun"><span class="visually-hidden">Level: </span>Beginner</li>
+          <li><Chip tone="brand"><span class="visually-hidden">Grade: </span>Grade 1</Chip></li>
+          <li><Chip tone="teal"><span class="visually-hidden">Skill area: </span>Phonics</Chip></li>
+          <li><Chip tone="sun"><span class="visually-hidden">Level: </span>Beginner</Chip></li>
         </ul>
         <h1>Short Vowels: CVC Words</h1>
-        <a class="cta-primary" href="/design-explore/direction-a/practice">Practice these words →</a>
+        <Button href="/design-explore/direction-a/practice" size="lg">Practice these words →</Button>
       </section>
 
       <div class="content-grid">
         <div class="content-main">
-          <section class="prose-section" aria-labelledby="what-heading">
+          <!-- ============ CHAPTER 1 — ORIENTATION ============ -->
+          <section class="prose-section chapter-open" aria-labelledby="what-heading">
             <h2 id="what-heading">What are Short Vowels: CVC Words?</h2>
             <p>
               This list practices short-vowel CVC words such as cat, hot, and bug — a
               foundational phonics pattern from the early-elementary curriculum.
             </p>
-          </section>
-
-          <section class="prose-section" aria-labelledby="readiness-heading">
-            <h2 id="readiness-heading">These spelling words are a good fit for students who...</h2>
-            <p>
-              can identify beginning and ending consonant sounds, and are ready to blend a
-              single short-vowel sound in the middle of a three-letter word.
+            <p class="readiness-line">
+              <strong>A good fit for students who</strong> can identify beginning and ending
+              consonant sounds, and are ready to blend a single short-vowel sound in the middle
+              of a three-letter word.
             </p>
           </section>
 
-          <section class="prose-section" aria-labelledby="wordlist-heading">
-            <h2 id="wordlist-heading">Word list</h2>
+          <hr class="rule chapter-rule" />
+
+          <!-- ============ CHAPTER 2 — THE WORDS (central artifact) ============ -->
+          <section class="wordlist-chapter" aria-labelledby="wordlist-heading">
+            <p class="eyebrow">Word list</p>
+            <div class="wordlist-head">
+              <h2 id="wordlist-heading">10 words for this unit</h2>
+              <p class="wordlist-meta">Grade 1 · Core Spelling · Short vowels</p>
+            </div>
             <!--
               Tinted sun field ties this word list back to its Core Spelling
               strand color on the Grade Hub. A skill page under a different
@@ -66,8 +73,10 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
             </div>
           </section>
 
-          <section class="prose-section" aria-labelledby="about-heading">
-            <h2 id="about-heading">About this pattern</h2>
+          <!-- ============ CHAPTER 3 — TEACHING CONTEXT ============ -->
+          <section class="teaching-chapter" aria-labelledby="about-heading">
+            <p class="eyebrow">About this pattern</p>
+            <h2 id="about-heading">Why CVC words come first</h2>
             <p>
               Consonant-vowel-consonant (CVC) words are the first words most students decode and
               spell independently. Practicing one short-vowel sound at a time — and then mixing
@@ -75,7 +84,11 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
             </p>
           </section>
 
+          <hr class="rule chapter-rule" />
+
+          <!-- ============ CHAPTER 4 — FAQ ============ -->
           <section class="prose-section" aria-labelledby="faq-heading">
+            <p class="eyebrow">Common questions</p>
             <h2 id="faq-heading">Frequently asked questions</h2>
             <dl class="faq-list">
               <div class="faq-item">
@@ -89,7 +102,7 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
           </section>
         </div>
 
-        <aside class="content-side" aria-label="Related skill">
+        <aside class="content-side" aria-label="Related learning">
           <section class="deeper-card">
             <h2>Go deeper</h2>
             <a class="deeper-link" href="#">
@@ -99,6 +112,15 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
               </span>
             </a>
           </section>
+
+          <a class="skill-ref-link" href="/design-explore/direction-a/skill-detail">
+            <span class="skill-ref-label">Skill reference</span>
+            <span class="skill-ref-title">AI and AY Words →</span>
+            <span class="skill-ref-desc">
+              Later in the sequence, students meet two-letter vowel teams. See the full teaching
+              reference.
+            </span>
+          </a>
 
           <p class="source-line">Curated by the SpellingWords.app editorial team.</p>
         </aside>
@@ -169,48 +191,8 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
       padding: 0;
     }
 
-    .chip {
-      font-weight: 700;
-      font-size: 0.82rem;
-      padding: 0.35rem 0.85rem;
-      border-radius: var(--radius-pill);
-      line-height: 1;
-    }
-
-    .chip-brand {
-      background: var(--canvas-raised);
-      color: var(--brand-strong);
-    }
-    .chip-teal {
-      background: var(--teal-tint);
-      color: var(--teal-ink);
-    }
-    .chip-sun {
-      background: var(--sun-tint);
-      color: var(--sun-ink);
-    }
-
     .hero-card h1 {
       font-size: clamp(1.9rem, 4vw, 2.5rem);
-    }
-
-    .cta-primary {
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      background: var(--coral);
-      color: #ffffff;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      border-radius: var(--radius-sm);
-      padding: 0.85rem 1.6rem;
-      transition: background 0.15s ease;
-    }
-
-    .cta-primary:hover {
-      background: var(--coral-strong);
     }
 
     /* ============================= CONTENT GRID ============================= */
@@ -237,12 +219,50 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
       max-width: 68ch;
     }
 
-    /* ============================= WORD LIST ============================= */
+    .chapter-open p + p {
+      margin-top: 0.9rem;
+    }
+
+    .readiness-line strong {
+      color: var(--ink);
+    }
+
+    /* Chapter transitions read through spacing + a thin rule, not a
+       change of card — keeps the page feeling like one flowing document
+       with visible sections, rather than a stack of separate blocks. */
+    .chapter-rule {
+      margin-block: clamp(2.25rem, 4.5vw, 3rem);
+    }
+
+    /* ============================= WORD LIST (central artifact) ========= */
+    .wordlist-chapter {
+      margin-bottom: clamp(2.5rem, 5vw, 3.25rem);
+    }
+
+    .wordlist-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .wordlist-head h2 {
+      font-size: 1.4rem;
+    }
+
+    .wordlist-meta {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink-faint);
+    }
+
     .word-list-panel {
       background: var(--sun-tint);
       border: 1px solid var(--sun);
       border-radius: var(--radius-lg);
-      padding: clamp(1.25rem, 3vw, 1.75rem);
+      padding: clamp(1.5rem, 3.5vw, 2rem);
     }
 
     .word-list {
@@ -267,18 +287,46 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
       box-shadow: var(--shadow-sm);
     }
 
+    /* ============================= TEACHING CONTEXT ===================== */
+    /* A quiet change of "paper" (neutral, not colored) marks the shift from
+       the word list into teaching context, without adding another bordered
+       card in a colored tint. */
+    .teaching-chapter {
+      background: var(--canvas-sunken);
+      border-radius: var(--radius-md);
+      padding: clamp(1.5rem, 3.5vw, 2rem);
+      margin-bottom: clamp(2rem, 4vw, 2.75rem);
+    }
+
+    .teaching-chapter h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .teaching-chapter p {
+      color: var(--ink-soft);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 68ch;
+    }
+
     /* ============================= FAQ ============================= */
+    /* Editorial rule-based treatment — a top rule and a small "Q" mark
+       instead of a boxed accordion/SaaS-FAQ look. */
     .faq-list {
       margin: 0;
+      display: flex;
+      flex-direction: column;
     }
 
     .faq-item {
-      background: var(--canvas-sunken);
-      border-radius: var(--radius-sm);
-      padding: 1.25rem 1.5rem;
+      padding-block: 1.25rem;
+      border-top: 1px solid var(--border);
     }
 
     .faq-item dt {
+      display: flex;
+      gap: 0.6rem;
       font-family: var(--font-display);
       font-weight: 700;
       font-size: 1.05rem;
@@ -286,8 +334,15 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
       margin-bottom: 0.5rem;
     }
 
+    .faq-item dt::before {
+      content: 'Q';
+      flex-shrink: 0;
+      color: var(--brand);
+      font-weight: 700;
+    }
+
     .faq-item dd {
-      margin: 0;
+      margin: 0 0 0 1.35rem;
       color: var(--ink-soft);
       font-size: 1rem;
       line-height: 1.65;
@@ -340,6 +395,40 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
       line-height: 1.55;
     }
 
+    .skill-ref-link {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      text-decoration: none;
+    }
+
+    .skill-ref-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-faint);
+    }
+
+    .skill-ref-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--brand-strong);
+    }
+
+    .skill-ref-link:hover .skill-ref-title {
+      text-decoration: underline;
+    }
+
+    .skill-ref-desc {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
     .source-line {
       font-size: 0.85rem;
       color: var(--ink-faint);
@@ -361,6 +450,12 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
         flex: 1 1 240px;
       }
 
+      .skill-ref-link {
+        flex: 1 1 240px;
+        border-top: none;
+        padding-top: 0;
+      }
+
       .word-list {
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
@@ -371,13 +466,18 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .cta-primary {
+      :global(.hero-card .btn) {
         width: 100%;
         justify-content: center;
       }
 
       .content-side {
         flex-direction: column;
+      }
+
+      .skill-ref-link {
+        border-top: 1px solid var(--border);
+        padding-top: 1.25rem;
       }
     }
   </style>

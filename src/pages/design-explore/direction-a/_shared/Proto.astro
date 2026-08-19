@@ -199,6 +199,65 @@ const { title, description } = Astro.props;
         padding-inline: clamp(1.25rem, 4vw, 3rem);
       }
 
+      /* ------------------------------------------------------------
+         Small shared editorial primitives (used across 2+ pages).
+         Kept intentionally minimal — composition tools, not a utility
+         framework: an eyebrow label, a rule, and a left-accent note
+         block for guidance/callout copy that shouldn't become a card.
+         ------------------------------------------------------------ */
+      .eyebrow {
+        display: block;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+        margin-bottom: 0.6rem;
+      }
+
+      .rule {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0;
+      }
+
+      .editorial-note {
+        max-width: 60ch;
+        padding-left: 1.35rem;
+        border-left: 3px solid var(--brand);
+      }
+
+      .editorial-note .eyebrow {
+        color: var(--brand-strong);
+      }
+
+      .editorial-note h2,
+      .editorial-note h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .editorial-note p {
+        color: var(--ink-soft);
+        font-size: 1.05rem;
+        line-height: 1.65;
+      }
+
+      .editorial-note ul {
+        margin: 0.6rem 0 0;
+        padding-left: 1.15rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .editorial-note li {
+        color: var(--ink-soft);
+        font-size: 1.02rem;
+        line-height: 1.6;
+      }
+
       /* Prototype corner badge — clearly marks this as design exploration */
       .proto-badge {
         position: fixed;

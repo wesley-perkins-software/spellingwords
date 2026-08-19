@@ -24,11 +24,11 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
       </nav>
 
       <section class="hero-card">
-        <div class="hero-chips" aria-hidden="true">
-          <span class="chip chip-brand">Grade 1</span>
-          <span class="chip chip-teal">Phonics</span>
-          <span class="chip chip-sun">Beginner</span>
-        </div>
+        <ul class="hero-chips">
+          <li class="chip chip-brand"><span class="visually-hidden">Grade: </span>Grade 1</li>
+          <li class="chip chip-teal"><span class="visually-hidden">Skill area: </span>Phonics</li>
+          <li class="chip chip-sun"><span class="visually-hidden">Level: </span>Beginner</li>
+        </ul>
         <h1>Short Vowels: CVC Words</h1>
         <a class="cta-primary" href="/design-explore/direction-a/practice">Practice these words →</a>
       </section>
@@ -53,9 +53,17 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
 
           <section class="prose-section" aria-labelledby="wordlist-heading">
             <h2 id="wordlist-heading">Word list</h2>
-            <ul class="word-list">
-              {words.map((word) => <li>{word}</li>)}
-            </ul>
+            <!--
+              Tinted sun field ties this word list back to its Core Spelling
+              strand color on the Grade Hub. A skill page under a different
+              strand (High-Frequency Words, Themed Spelling Practice) would
+              use that strand's own tint (teal, periwinkle) here instead.
+            -->
+            <div class="word-list-panel">
+              <ul class="word-list">
+                {words.map((word) => <li>{word}</li>)}
+              </ul>
+            </div>
           </section>
 
           <section class="prose-section" aria-labelledby="about-heading">
@@ -142,7 +150,7 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
     /* ============================= HERO CARD ============================= */
     .hero-card {
       background: var(--brand-tint);
-      border: 1px solid var(--border);
+      border: 1px solid var(--brand);
       border-radius: var(--radius-lg);
       padding: clamp(1.75rem, 4vw, 2.5rem);
       margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
@@ -156,6 +164,9 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
       display: flex;
       flex-wrap: wrap;
       gap: 0.6rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .chip {
@@ -227,6 +238,13 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
     }
 
     /* ============================= WORD LIST ============================= */
+    .word-list-panel {
+      background: var(--sun-tint);
+      border: 1px solid var(--sun);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.25rem, 3vw, 1.75rem);
+    }
+
     .word-list {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -240,10 +258,10 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
       background: var(--canvas-raised);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 0.85rem 0.5rem;
+      padding: 1rem 0.5rem;
       text-align: center;
-      font-family: var(--font-word, var(--font-display));
-      font-size: 1.15rem;
+      font-family: var(--font-word);
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--ink);
       box-shadow: var(--shadow-sm);

@@ -115,14 +115,15 @@ const grades = [
           </p>
           <a class="cta-secondary" href="/design-explore/direction-a/skill">Browse Spelling Skills →</a>
         </div>
-        <div class="skill-chips" aria-hidden="true">
-          <span class="skill-chip chip-teal">Short vowels</span>
-          <span class="skill-chip chip-coral">Consonant blends</span>
-          <span class="skill-chip chip-periwinkle">Prefixes</span>
-          <span class="skill-chip chip-sun">Homophones</span>
-          <span class="skill-chip chip-pink">Suffixes</span>
-          <span class="skill-chip chip-brand">Commonly confused words</span>
-        </div>
+        <ul class="skill-chips">
+          <li class="visually-hidden">Examples of spelling skills:</li>
+          <li class="skill-chip chip-teal">Short vowels</li>
+          <li class="skill-chip chip-periwinkle">Consonant blends</li>
+          <li class="skill-chip chip-sun">Prefixes</li>
+          <li class="skill-chip chip-teal">Homophones</li>
+          <li class="skill-chip chip-periwinkle">Suffixes</li>
+          <li class="skill-chip chip-sun">Commonly confused words</li>
+        </ul>
       </div>
     </section>
 
@@ -239,7 +240,7 @@ const grades = [
 
     .cta-primary {
       align-self: flex-start;
-      background: var(--brand);
+      background: var(--coral);
       color: #ffffff;
       font-family: var(--font-display);
       font-weight: 700;
@@ -253,7 +254,7 @@ const grades = [
     }
 
     .cta-primary:hover {
-      background: var(--brand-strong);
+      background: var(--coral-strong);
       transform: translateY(-1px);
     }
 
@@ -382,6 +383,10 @@ const grades = [
     }
 
     /* ============================ SKILL SECTION ========================= */
+    .skill-section {
+      background: var(--teal-tint);
+    }
+
     .skill-inner {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
@@ -419,52 +424,46 @@ const grades = [
       flex-wrap: wrap;
       gap: 0.75rem;
       align-content: flex-start;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .skill-chip {
+      background: var(--canvas-raised);
       font-weight: 700;
       font-size: 0.9rem;
       padding: 0.6rem 1rem;
       border-radius: var(--radius-pill);
+      border: 1.5px solid transparent;
       line-height: 1;
     }
 
     .chip-teal {
-      background: var(--teal-tint);
+      border-color: var(--teal);
       color: var(--teal-ink);
     }
-    .chip-coral {
-      background: var(--coral-tint);
-      color: var(--coral-ink);
-    }
     .chip-periwinkle {
-      background: var(--periwinkle-tint);
+      border-color: var(--periwinkle);
       color: var(--periwinkle-ink);
     }
     .chip-sun {
-      background: var(--sun-tint);
+      border-color: var(--sun);
       color: var(--sun-ink);
-    }
-    .chip-pink {
-      background: var(--pink-tint);
-      color: var(--pink-ink);
-    }
-    .chip-brand {
-      background: var(--brand-tint);
-      color: var(--brand-strong);
     }
 
     /* ============================ TRUST SECTION ========================= */
     .trust-section {
-      background: var(--canvas);
+      background: var(--sun-tint);
     }
 
     .trust-inner {
       max-width: 74ch;
       background: var(--brand-tint);
-      border: 1px solid var(--brand);
+      border: 1px solid color-mix(in srgb, var(--brand) 55%, var(--border-strong));
       border-radius: var(--radius-lg);
       padding: clamp(2rem, 5vw, 3rem);
+      box-shadow: var(--shadow-sm);
     }
 
     .trust-inner h2 {

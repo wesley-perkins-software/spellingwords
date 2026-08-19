@@ -5,9 +5,8 @@ import Footer from './_shared/Footer.astro';
 
 const strands = [
   {
-    accent: 'coral',
+    accent: 'sun',
     name: 'Core Spelling',
-    icon: 'M4 12h16M4 6h16M4 18h10',
     description:
       'Grade 1 core spelling patterns build on phonics fundamentals — short vowels, consonant blends, and simple long-vowel patterns like silent e.',
     href: '/design-explore/direction-a/skill',
@@ -16,7 +15,6 @@ const strands = [
   {
     accent: 'teal',
     name: 'High-Frequency Words',
-    icon: 'M12 3l2.5 5.5L20 9l-4.5 3.8L17 19l-5-3-5 3 1.5-6.2L4 9l5.5-.5L12 3z',
     description:
       'The most common words Grade 1 readers and writers need to know by sight, organized into manageable practice sets.',
     href: '#',
@@ -25,7 +23,6 @@ const strands = [
   {
     accent: 'periwinkle',
     name: 'Themed Spelling Practice',
-    icon: 'M4 4h16v16H4V4zm4 0v16m8-16v16M4 12h16',
     description:
       'Grade-level word lists organized around themes and topics young learners are excited to write about.',
     href: '#',
@@ -61,12 +58,7 @@ const strands = [
       <section class="strands" aria-label="Grade 1 spelling strands">
         {
           strands.map((strand) => (
-            <article class={`strand-card accent-${strand.accent}`}>
-              <span class="strand-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d={strand.icon} />
-                </svg>
-              </span>
+            <article class={`strand-card tint-${strand.accent}`}>
               <h2>{strand.name}</h2>
               <p>{strand.description}</p>
               <a class="strand-link" href={strand.href}>
@@ -77,21 +69,14 @@ const strands = [
         }
       </section>
 
-      <section class="begin-panel" aria-labelledby="begin-heading">
-        <span class="begin-badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2L12 2z" />
-          </svg>
-        </span>
-        <div>
-          <h2 id="begin-heading">Where to begin</h2>
-          <p>
-            Most Grade 1 students are ready to start with Core Spelling, especially short-vowel
-            CVC words like the ones in <a href="/design-explore/direction-a/skill">Short Vowels: CVC Words</a>. If
-            your student already reads short-vowel words comfortably, High-Frequency Words is a
-            good next step.
-          </p>
-        </div>
+      <section class="begin-panel tint-pink" aria-labelledby="begin-heading">
+        <h2 id="begin-heading">Where to begin</h2>
+        <p>
+          Most Grade 1 students are ready to start with Core Spelling, especially short-vowel
+          CVC words like the ones in <a href="/design-explore/direction-a/skill">Short Vowels: CVC Words</a>. If
+          your student already reads short-vowel words comfortably, High-Frequency Words is a
+          good next step.
+        </p>
       </section>
 
       <nav class="grade-nav" aria-label="Adjacent grades">
@@ -171,37 +156,25 @@ const strands = [
     }
 
     .strand-card {
-      background: var(--canvas-raised);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-lg);
       padding: 1.75rem 1.5rem;
       box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
       gap: 0.6rem;
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
     }
 
-    .strand-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.75rem;
-      height: 2.75rem;
-      border-radius: var(--radius-sm);
-      margin-bottom: 0.4rem;
-    }
-
-    .strand-icon svg {
-      width: 1.4rem;
-      height: 1.4rem;
+    .strand-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
     }
 
     .strand-card h2 {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
     }
 
     .strand-card p {
-      color: var(--ink-soft);
       font-size: 0.98rem;
       line-height: 1.6;
       flex-grow: 1;
@@ -217,78 +190,81 @@ const strands = [
       text-decoration: none;
     }
 
-    .accent-coral .strand-icon {
-      background: var(--coral-tint);
-      color: var(--coral-ink);
-    }
-    .accent-coral .strand-link {
-      color: var(--coral-strong);
-    }
-
-    .accent-teal .strand-icon {
-      background: var(--teal-tint);
-      color: var(--teal-ink);
-    }
-    .accent-teal .strand-link {
-      color: var(--teal-ink);
-    }
-
-    .accent-periwinkle .strand-icon {
-      background: var(--periwinkle-tint);
-      color: var(--periwinkle-ink);
-    }
-    .accent-periwinkle .strand-link {
-      color: var(--periwinkle-ink);
-    }
-
     .strand-link:hover {
       text-decoration: underline;
     }
 
-    /* ============================= BEGIN PANEL ============================= */
-    .begin-panel {
-      display: flex;
-      gap: 1.25rem;
-      align-items: flex-start;
+    /* Tint recipe: full pastel fill + matching-hue border + strong-ink
+       heading/link + body copy blended toward the hue rather than flat gray,
+       so text reads as belonging to the tinted card. Soft tint = organization,
+       never used on an action button (see color-semantic rule). */
+    .tint-sun {
       background: var(--sun-tint);
       border: 1px solid var(--sun);
+    }
+    .tint-sun h2,
+    .tint-sun .strand-link {
+      color: var(--sun-ink);
+    }
+    .tint-sun p {
+      color: color-mix(in srgb, var(--sun-ink) 82%, var(--ink-soft));
+    }
+
+    .tint-teal {
+      background: var(--teal-tint);
+      border: 1px solid var(--teal);
+    }
+    .tint-teal h2,
+    .tint-teal .strand-link {
+      color: var(--teal-ink);
+    }
+    .tint-teal p {
+      color: color-mix(in srgb, var(--teal-ink) 82%, var(--ink-soft));
+    }
+
+    .tint-periwinkle {
+      background: var(--periwinkle-tint);
+      border: 1px solid var(--periwinkle);
+    }
+    .tint-periwinkle h2,
+    .tint-periwinkle .strand-link {
+      color: var(--periwinkle-ink);
+    }
+    .tint-periwinkle p {
+      color: color-mix(in srgb, var(--periwinkle-ink) 82%, var(--ink-soft));
+    }
+
+    /* ============================= BEGIN PANEL ============================= */
+    .begin-panel {
       border-radius: var(--radius-lg);
-      padding: clamp(1.5rem, 3vw, 2rem);
+      padding: clamp(1.75rem, 3.5vw, 2.5rem);
+      box-shadow: var(--shadow-sm);
       margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
     }
 
-    .begin-badge {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.75rem;
-      height: 2.75rem;
-      border-radius: var(--radius-sm);
-      background: var(--sun);
-      color: var(--sun-ink);
-    }
-
-    .begin-badge svg {
-      width: 1.4rem;
-      height: 1.4rem;
+    .tint-pink {
+      background: var(--pink-tint);
+      border: 1px solid var(--pink);
     }
 
     .begin-panel h2 {
-      font-size: 1.15rem;
-      color: var(--sun-ink);
+      font-size: 1.3rem;
+      color: var(--pink-ink);
     }
 
     .begin-panel p {
-      margin-top: 0.6rem;
-      color: var(--ink-soft);
-      font-size: 1rem;
+      margin-top: 0.75rem;
+      color: color-mix(in srgb, var(--pink-ink) 78%, var(--ink-soft));
+      font-size: 1.05rem;
       line-height: 1.65;
+      max-width: 68ch;
     }
 
     .begin-panel a {
+      /* Brand blue, not the panel's own pink ink, so the actionable link
+         stands out clearly from the panel's guidance copy. */
       color: var(--brand-strong);
-      font-weight: 700;
+      font-weight: 800;
       text-decoration: underline;
     }
 
@@ -345,10 +321,6 @@ const strands = [
     }
 
     @media (max-width: 560px) {
-      .begin-panel {
-        flex-direction: column;
-      }
-
       .grade-nav {
         flex-direction: column;
       }

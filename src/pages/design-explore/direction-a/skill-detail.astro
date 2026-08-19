@@ -273,6 +273,15 @@ const faqs = [
   <Footer />
 
   <style>
+    /* Page-role atmosphere: canonical Skill pages read as a quiet
+       mint/sage-neutral — distinct from the Grade Unit's warm blush and the
+       Grade Hub's lavender-neutral — reinforcing that this is the
+       reference/explanatory page family. The blue hero and the cool
+       pattern-at-a-glance chapter stay as-is on top of it. */
+    :global(body) {
+      background: var(--surface-skill);
+    }
+
     .page-shell {
       padding-block: clamp(2rem, 5vw, 3rem) 0;
     }

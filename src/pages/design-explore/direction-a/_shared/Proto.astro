@@ -92,6 +92,17 @@ const { title, description } = Astro.props;
         --surface-cool: #f2f6fb; /* extremely pale cool blue-white */
         --surface-neutral: #f6f3ee; /* low-chroma neutral, between white and cream */
 
+        /* Page-role atmosphere — the quietest layer of all: one low-chroma
+           near-white base tone per major page type, so a page's role is
+           felt before it's consciously noticed. Sits *underneath* the
+           chapter surfaces above (which still provide internal long-scroll
+           rhythm) and well below the component tints (--teal-tint, etc.),
+           which keep communicating content meaning, not page identity. */
+        --surface-home: #f3f8fd; /* powder blue — broad, exploratory browsing */
+        --surface-grade: #f7f6fb; /* near-white, faint lavender/periwinkle cast */
+        --surface-unit: #fdf6f3; /* near-white, faint blush/apricot cast */
+        --surface-skill: #f4faf8; /* near-white, faint mint/sage cast */
+
         /* Softened, lower-strength versions of the stronger accent tints,
            for use only as large chapter/stage backgrounds — the full-strength
            tints stay reserved for cards, chips, and callouts. */

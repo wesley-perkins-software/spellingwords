@@ -131,6 +131,15 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
   <Footer />
 
   <style>
+    /* Page-role atmosphere: Grade Unit pages read as a quiet warm-neutral
+       (blush/apricot cast), distinct from the Grade Hub's lavender-neutral
+       and the Skill page's mint-neutral. The blue hero and internal chapter
+       surfaces (word-list neutral, "about this pattern" cool) stay as-is on
+       top of it. */
+    :global(body) {
+      background: var(--surface-unit);
+    }
+
     .page-shell {
       padding-block: clamp(2rem, 5vw, 3rem) clamp(3rem, 6vw, 4.5rem);
     }
@@ -239,7 +248,10 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
        panel (layer 3) sits behind the white word tiles (layer 4) — the
        word list gains presence through layered depth, not bigger tiles. */
     .wordlist-chapter {
-      background: var(--surface-neutral);
+      /* White, not surface-neutral — surface-neutral now sits too close in
+         hue/lightness to the page's new warm-blush base to read as a
+         distinct layer. */
+      background: var(--surface-white);
       border-radius: var(--radius-lg);
       padding: clamp(1.5rem, 3.5vw, 2.25rem);
       margin-bottom: clamp(2.5rem, 5vw, 3.25rem);

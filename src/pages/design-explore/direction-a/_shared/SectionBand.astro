@@ -4,7 +4,20 @@
 // `background:` declarations per section) — the main tool for breaking up
 // long stretches of cream at the chapter level, not the section level.
 interface Props {
-  tone?: 'sunken' | 'white' | 'cool' | 'neutral' | 'brand' | 'sun' | 'teal' | 'periwinkle' | 'pink';
+  tone?:
+    | 'sunken'
+    | 'white'
+    | 'cool'
+    | 'neutral'
+    | 'brand'
+    | 'sun'
+    | 'teal'
+    | 'periwinkle'
+    | 'pink'
+    | 'home'
+    | 'grade'
+    | 'unit'
+    | 'skill';
   class?: string;
   ariaLabel?: string;
 }
@@ -49,5 +62,19 @@ const { tone = 'sunken', class: className = '', ariaLabel } = Astro.props;
   }
   .band-pink {
     background: var(--pink-tint);
+  }
+
+  /* Page-role atmosphere tones — see Proto.astro for the layering rationale. */
+  .band-home {
+    background: var(--surface-home);
+  }
+  .band-grade {
+    background: var(--surface-grade);
+  }
+  .band-unit {
+    background: var(--surface-unit);
+  }
+  .band-skill {
+    background: var(--surface-skill);
   }
 </style>

@@ -1,8 +1,16 @@
 ---
+interface Props {
+  /** 'direction-a' shows the new design system's footer chrome — same links,
+   *  same hrefs. See src/lib/content/pilotContent.ts. */
+  theme?: 'legacy' | 'direction-a';
+}
+
+const { theme = 'legacy' } = Astro.props;
+const isDirectionA = theme === 'direction-a';
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-line bg-cream-deep">
+<footer class:list={['border-t', isDirectionA ? 'border-da-border bg-da-surface-neutral' : 'border-line bg-cream-deep']}>
   <div class="mx-auto max-w-content-xl px-6 py-12">
 
     <div class="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:justify-between sm:text-left">
@@ -10,11 +18,14 @@ const year = new Date().getFullYear();
       <!-- Wordmark -->
       <a
         href="/"
-        class="flex items-center gap-1.5 font-display text-[17px] font-semibold text-ink-faint transition-colors hover:text-ink-soft"
+        class:list={[
+          'flex items-center gap-1.5 text-[17px] font-semibold transition-colors',
+          isDirectionA ? 'font-quicksand text-da-ink-faint hover:text-da-ink-soft' : 'font-display text-ink-faint hover:text-ink-soft',
+        ]}
         aria-label="spellingwords home"
       >
         <span
-          class="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink-faint"
+          class:list={['inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full', isDirectionA ? 'bg-da-ink-faint' : 'bg-ink-faint']}
           aria-hidden="true"
         ></span>
         spellingwords
@@ -22,18 +33,18 @@ const year = new Date().getFullYear();
 
       <!-- Nav links -->
       <nav aria-label="Footer navigation">
-        <ul class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 list-none m-0 p-0 text-sm font-semibold text-ink-faint sm:justify-end">
-          <li><a href="/#grades" class="transition hover:text-ink-soft">Grades</a></li>
-          <li><a href="/skills" class="transition hover:text-ink-soft">Skills</a></li>
-          <li><a href="/#how-it-works" class="transition hover:text-ink-soft">How it Works</a></li>
-          <li><a href="/privacy" class="transition hover:text-ink-soft">Privacy</a></li>
+        <ul class:list={['flex flex-wrap items-center justify-center gap-x-5 gap-y-2 list-none m-0 p-0 text-sm font-semibold sm:justify-end', isDirectionA ? 'text-da-ink-faint' : 'text-ink-faint']}>
+          <li><a href="/#grades" class:list={['transition', isDirectionA ? 'hover:text-da-ink-soft' : 'hover:text-ink-soft']}>Grades</a></li>
+          <li><a href="/skills" class:list={['transition', isDirectionA ? 'hover:text-da-ink-soft' : 'hover:text-ink-soft']}>Skills</a></li>
+          <li><a href="/#how-it-works" class:list={['transition', isDirectionA ? 'hover:text-da-ink-soft' : 'hover:text-ink-soft']}>How it Works</a></li>
+          <li><a href="/privacy" class:list={['transition', isDirectionA ? 'hover:text-da-ink-soft' : 'hover:text-ink-soft']}>Privacy</a></li>
         </ul>
       </nav>
 
     </div>
 
     <!-- Tagline + copyright -->
-    <div class="mt-8 border-t border-line/60 pt-6 text-center text-[13px] font-semibold text-ink-faint">
+    <div class:list={['mt-8 border-t pt-6 text-center text-[13px] font-semibold', isDirectionA ? 'border-da-border/60 text-da-ink-faint' : 'border-line/60 text-ink-faint']}>
       <p class="mb-1">No accounts. No timers. Just spelling.</p>
       <p>&copy; {year} spellingwords.app</p>
     </div>

@@ -1,0 +1,35 @@
+---
+// Full-bleed section-background primitive for the Direction A design system.
+// Gives pilot pages a controlled, named set of environmental surfaces to
+// move through — the page-role atmosphere tones (home/grade/unit/skill) plus
+// a small set of neutral/tint bands for internal long-scroll rhythm.
+// Promoted from src/pages/design-explore/direction-a/_shared/SectionBand.astro.
+interface Props {
+  tone?: 'home' | 'grade' | 'unit' | 'skill' | 'white' | 'cool' | 'neutral' | 'sun' | 'teal' | 'pink' | 'periwinkle' | 'brand';
+  ariaLabel?: string;
+  class?: string;
+}
+
+const toneClass: Record<NonNullable<Props['tone']>, string> = {
+  home: 'bg-da-surface-home',
+  grade: 'bg-da-surface-grade',
+  unit: 'bg-da-surface-unit',
+  skill: 'bg-da-surface-skill',
+  white: 'bg-da-surface-white',
+  cool: 'bg-da-surface-cool',
+  neutral: 'bg-da-surface-neutral',
+  sun: 'bg-da-sun-tint',
+  teal: 'bg-da-teal-tint',
+  pink: 'bg-da-pink-tint',
+  periwinkle: 'bg-da-periwinkle-tint',
+  brand: 'bg-da-brand-tint',
+};
+
+const { tone = 'neutral', ariaLabel, class: className = '' } = Astro.props;
+---
+
+<section class:list={['py-12 md:py-16', toneClass[tone], className]} aria-label={ariaLabel}>
+  <div class="mx-auto max-w-2xl px-5 sm:px-6 md:max-w-3xl">
+    <slot />
+  </div>
+</section>

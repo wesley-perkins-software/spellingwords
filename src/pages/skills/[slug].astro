@@ -25,6 +25,9 @@ import {
   skillPracticeDescription,
   toPlayableSkillPracticeWords,
 } from '@/lib/content/skillPracticeBanks';
+import { isPilotSkill, SKILL_FAMILY_ACCENT } from '@/lib/content/pilotContent';
+import { SPELLING_SKILL_FAMILIES } from '@/lib/content/spellingSkills';
+import SkillView from '@/components/direction-a/SkillView.astro';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('spelling-lists')).filter(isPublished);
@@ -121,8 +124,55 @@ const curriculumPlacements = allEntries
     gradeLabel: gradeConfig.find((g) => g.grade === unit.data.grade)?.label,
   }))
   .sort((a, b) => gradeSortIndex(a.unit.data.grade) - gradeSortIndex(b.unit.data.grade));
+
+const usePilotDesign = isPilotSkill(data.id);
+const skillFamily = SPELLING_SKILL_FAMILIES.find((family) => (family.skillIds as readonly string[]).includes(data.id));
+const familyAccent = skillFamily ? SKILL_FAMILY_ACCENT[skillFamily.title] : undefined;
 ---
 
+{usePilotDesign ? (
+<Layout
+  title={`${data.title} — spellingwords`}
+  description={data.description}
+  ogType="article"
+  jsonLd={jsonLdBlocks}
+  theme="direction-a"
+>
+  <SiteHeader variant="discovery" currentPath="/skills" theme="direction-a" />
+  <main id="main-content">
+    <div class="mx-auto max-w-2xl px-5 pt-8 sm:px-6 md:max-w-3xl md:pt-10">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+    <SkillView
+      title={data.title}
+      description={data.description}
+      shortAnswer={data.shortAnswer}
+      Content={Content}
+      familyLabel={skillFamily?.title}
+      familyAccent={familyAccent}
+      readinessSignals={data.readinessSignals}
+      easierList={easierList}
+      harderList={harderList}
+      demoWords={playWords}
+      practiceBankWords={practiceBankWords}
+      practiceDescription={practiceDescription}
+      buttonId={`btn-pilot-practice-skill-${data.id}`}
+      faq={data.faq}
+      curriculumPlacements={curriculumPlacements}
+      prerequisites={prerequisites}
+      next={next}
+      related={related}
+      listLink={listLink}
+    />
+    {data.canonicalSource?.publicAttribution && (
+      <div class="mx-auto max-w-2xl px-5 py-8 sm:px-6 md:max-w-3xl">
+        <SourceAttribution source={data.canonicalSource} />
+      </div>
+    )}
+  </main>
+  <SiteFooter theme="direction-a" />
+</Layout>
+) : (
 <Layout
   title={`${data.title} — spellingwords`}
   description={data.description}
@@ -438,6 +488,7 @@ const curriculumPlacements = allEntries
 
   <SiteFooter />
 </Layout>
+)}
 
 <script>
   import { encodeWordList } from '@/lib/words';

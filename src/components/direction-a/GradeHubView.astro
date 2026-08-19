@@ -1,0 +1,86 @@
+---
+// Direction A Grade Hub body — lavender-neutral atmosphere, three strand
+// destination cards, editorial "Where to begin" guidance, prev/next/all-grades
+// nav. Built from the same buildGradeHubModel() data the legacy template
+// uses; only the rendered markup/styles differ.
+import AtmosphereBand from './AtmosphereBand.astro';
+import type { GradeHubModel } from '@/lib/content/gradeHubModel';
+import { STRAND_ACCENT, type DaAccent } from '@/lib/content/pilotContent';
+import type { GradeConfigEntry } from '@/lib/content/gradeConfig';
+
+interface Props {
+  label: string;
+  hub: GradeHubModel;
+  prev?: GradeConfigEntry;
+  next?: GradeConfigEntry;
+}
+
+const { label, hub, prev, next } = Astro.props;
+
+const accentCardClass: Record<DaAccent, string> = {
+  sun: 'bg-da-sun-tint border-da-sun',
+  teal: 'bg-da-teal-tint border-da-teal',
+  periwinkle: 'bg-da-periwinkle-tint border-da-periwinkle',
+  pink: 'bg-da-pink-tint border-da-pink',
+  brand: 'bg-da-brand-tint border-da-brand',
+  coral: 'bg-da-coral-tint border-da-coral',
+};
+const accentTextClass: Record<DaAccent, string> = {
+  sun: 'text-da-sun-ink',
+  teal: 'text-da-teal-ink',
+  periwinkle: 'text-da-periwinkle-ink',
+  pink: 'text-da-pink-ink',
+  brand: 'text-da-brand-strong',
+  coral: 'text-da-coral-ink',
+};
+---
+
+<AtmosphereBand tone="grade" ariaLabel={`${label} spelling strands`} class="mt-6 rounded-3xl md:mt-8">
+  <header class="mb-10 max-w-2xl md:mb-12">
+    <h1 class="font-quicksand text-[clamp(2rem,4.2vw,2.75rem)] font-bold leading-[1.1] text-da-ink">
+      {label} Spelling Words
+    </h1>
+    {hub.orientation.map((paragraph) => (
+      <p class="mt-4 text-[1.1rem] leading-relaxed text-da-ink-soft">{paragraph}</p>
+    ))}
+  </header>
+
+  <div class="grid gap-5 md:grid-cols-3">
+    {hub.strands.map((strand) => {
+      const accent = STRAND_ACCENT[strand.strand];
+      return (
+        <article class:list={['flex flex-col gap-2.5 rounded-2xl border p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md', accentCardClass[accent]]}>
+          <h2 class:list={['font-quicksand text-xl font-bold', accentTextClass[accent]]}>{strand.label}</h2>
+          <p class="flex-grow text-[0.98rem] leading-relaxed text-da-ink-soft">{strand.summary}</p>
+          <a href={strand.href} class:list={['mt-2 inline-flex min-h-[44px] items-center text-[0.95rem] font-bold hover:underline', accentTextClass[accent]]}>
+            {strand.linkLabel} →
+          </a>
+        </article>
+      );
+    })}
+  </div>
+</AtmosphereBand>
+
+<div class="mx-auto max-w-2xl px-5 sm:px-6 md:max-w-3xl">
+  <section aria-labelledby="guidance-heading" class="my-10 max-w-[60ch] border-l-[3px] border-da-brand pl-5 sm:pl-6 md:my-12">
+    <p class="mb-2 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-brand-strong">Guidance</p>
+    <h2 id="guidance-heading" class="font-quicksand text-xl font-bold text-da-ink">Where to begin</h2>
+    <p class="mt-2 text-[1.02rem] leading-relaxed text-da-ink-soft">{hub.synthesis}</p>
+  </section>
+
+  <nav aria-label="Adjacent grade levels" class="mb-6 grid grid-cols-1 items-center gap-2 rounded-xl border border-da-border bg-da-canvas-raised p-2 shadow-sm sm:grid-cols-[1fr_auto_1fr]">
+    {prev ? (
+      <a href={prev.hubHref} class="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2 text-sm font-bold text-da-ink-soft transition hover:bg-da-surface-neutral hover:text-da-brand-strong">
+        ← {prev.label} Spelling Words
+      </a>
+    ) : <span></span>}
+    <a href="/#grades" class="inline-flex min-h-[44px] items-center justify-center rounded-full border-[1.5px] border-da-border-strong bg-da-surface-neutral px-4 py-2 text-sm font-bold text-da-ink-soft transition hover:border-da-brand hover:text-da-brand-strong sm:order-none">
+      All grades
+    </a>
+    {next ? (
+      <a href={next.hubHref} class="inline-flex min-h-[44px] items-center justify-end gap-2 rounded-lg px-3 py-2 text-right text-sm font-bold text-da-ink-soft transition hover:bg-da-surface-neutral hover:text-da-brand-strong">
+        {next.label} Spelling Words →
+      </a>
+    ) : <span></span>}
+  </nav>
+</div>

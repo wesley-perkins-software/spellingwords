@@ -9,6 +9,8 @@ import { isPublished } from '@/lib/content/spellingLists';
 import { gradeConfig, getAdjacentGrades } from '@/lib/content/gradeConfig';
 import type { GradeConfigEntry } from '@/lib/content/gradeConfig';
 import { buildGradeHubModel } from '@/lib/content/gradeHubModel';
+import { isPilotGradeHub } from '@/lib/content/pilotContent';
+import GradeHubView from '@/components/direction-a/GradeHubView.astro';
 
 export async function getStaticPaths() {
   return gradeConfig.map((gradeEntry) => ({
@@ -28,6 +30,8 @@ const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label },
 ];
+
+const usePilotDesign = isPilotGradeHub(grade);
 
 const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
 
@@ -62,10 +66,18 @@ const itemListJsonLd = {
   title={`${label} Spelling Words | spellingwords.app`}
   description={hub.metaDescription}
   jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
+  theme={usePilotDesign ? 'direction-a' : 'legacy'}
 >
-  <SiteHeader variant="discovery" currentPath={gradeEntry.hubHref} />
+  <SiteHeader variant="discovery" currentPath={gradeEntry.hubHref} theme={usePilotDesign ? 'direction-a' : 'legacy'} />
 
   <main id="main-content">
+    {usePilotDesign ? (
+      <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
+    ) : null}
+    {usePilotDesign && <GradeHubView label={label} hub={hub} prev={prev} next={next} />}
+    {!usePilotDesign && (
     <div class="mx-auto max-w-3xl px-6 py-12 md:py-16">
       <div class="mb-6">
         <Breadcrumbs items={breadcrumbItems} />
@@ -135,7 +147,8 @@ const itemListJsonLd = {
         </a>
       </p>
     </div>
+    )}
   </main>
 
-  <SiteFooter />
+  <SiteFooter theme={usePilotDesign ? 'direction-a' : 'legacy'} />
 </Layout>

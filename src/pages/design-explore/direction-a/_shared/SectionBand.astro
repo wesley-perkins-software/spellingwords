@@ -4,7 +4,7 @@
 // `background:` declarations per section) — the main tool for breaking up
 // long stretches of cream at the chapter level, not the section level.
 interface Props {
-  tone?: 'sunken' | 'white' | 'brand' | 'sun' | 'teal' | 'periwinkle' | 'pink';
+  tone?: 'sunken' | 'white' | 'cool' | 'neutral' | 'brand' | 'sun' | 'teal' | 'periwinkle' | 'pink';
   class?: string;
   ariaLabel?: string;
 }
@@ -24,19 +24,25 @@ const { tone = 'sunken', class: className = '', ariaLabel } = Astro.props;
   }
 
   .band-sunken {
-    background: var(--canvas-sunken);
+    background: var(--surface-warm);
   }
   .band-white {
-    background: var(--canvas-raised);
+    background: var(--surface-white);
+  }
+  .band-cool {
+    background: var(--surface-cool);
+  }
+  .band-neutral {
+    background: var(--surface-neutral);
   }
   .band-brand {
-    background: var(--brand-tint);
+    background: var(--brand-tint-soft);
   }
   .band-sun {
     background: var(--sun-tint);
   }
   .band-teal {
-    background: var(--teal-tint);
+    background: var(--teal-tint-soft);
   }
   .band-periwinkle {
     background: var(--periwinkle-tint);

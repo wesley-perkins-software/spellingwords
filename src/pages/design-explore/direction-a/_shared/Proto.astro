@@ -80,6 +80,24 @@ const { title, description } = Astro.props;
         --incorrect-ink-strong: #822c1a;
         --incorrect-border: #edb9ab;
 
+        /* Layered surface system — page canvas, chapter/section surface,
+           component surface, accent color are deliberately distinct color
+           families rather than variations on the same warm cream. Chapter
+           surfaces are quieter than the component tints below (--brand-tint,
+           --teal-tint, etc.) so a full-bleed section reads as "white with a
+           faint cast," not "a colored rectangle." Cream (--canvas-sunken)
+           remains one surface among these, used sparingly, not the default. */
+        --surface-warm: var(--canvas-sunken); /* existing cream, used sparingly */
+        --surface-white: var(--canvas-raised); /* white component/chapter surface */
+        --surface-cool: #f2f6fb; /* extremely pale cool blue-white */
+        --surface-neutral: #f6f3ee; /* low-chroma neutral, between white and cream */
+
+        /* Softened, lower-strength versions of the stronger accent tints,
+           for use only as large chapter/stage backgrounds — the full-strength
+           tints stay reserved for cards, chips, and callouts. */
+        --teal-tint-soft: color-mix(in srgb, var(--teal-tint) 55%, var(--surface-white));
+        --brand-tint-soft: color-mix(in srgb, var(--brand-tint) 55%, var(--surface-white));
+
         --focus-ring: #1f5fa8;
 
         --font-display: 'Quicksand', system-ui, -apple-system, sans-serif;

@@ -235,7 +235,13 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
     }
 
     /* ============================= WORD LIST (central artifact) ========= */
+    /* A quiet neutral surface (layer 2) sits behind the sun-tint word-list
+       panel (layer 3) sits behind the white word tiles (layer 4) — the
+       word list gains presence through layered depth, not bigger tiles. */
     .wordlist-chapter {
+      background: var(--surface-neutral);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3.5vw, 2.25rem);
       margin-bottom: clamp(2.5rem, 5vw, 3.25rem);
     }
 
@@ -288,11 +294,10 @@ const words = ['cat', 'hat', 'bed', 'red', 'pig', 'sit', 'hot', 'dog', 'bug', 'r
     }
 
     /* ============================= TEACHING CONTEXT ===================== */
-    /* A quiet change of "paper" (neutral, not colored) marks the shift from
-       the word list into teaching context, without adding another bordered
-       card in a colored tint. */
+    /* A cool-neutral surface — not another cream box on the cream page —
+       marks the shift from the word list into teaching context. */
     .teaching-chapter {
-      background: var(--canvas-sunken);
+      background: var(--surface-cool);
       border-radius: var(--radius-md);
       padding: clamp(1.5rem, 3.5vw, 2rem);
       margin-bottom: clamp(2rem, 4vw, 2.75rem);

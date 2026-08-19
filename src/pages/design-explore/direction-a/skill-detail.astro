@@ -68,8 +68,12 @@ const faqs = [
       </section>
     </div>
 
-    <!-- ============ PATTERN AT A GLANCE — signature educational component ============ -->
-    <SectionBand tone="sunken" ariaLabel="Pattern at a glance">
+    <!-- ============ CHAPTER — PATTERN AT A GLANCE + CONCEPT EXPLANATION ============
+         One continuous cool, quiet surface: this is the page's central
+         teaching chapter (the visual comparison plus the concept prose that
+         explains it), so it gets its own distinct, calm environment rather
+         than sharing the page's default cream. -->
+    <SectionBand tone="cool" ariaLabel="Pattern at a glance and concept explanation">
       <p class="eyebrow">Pattern at a glance</p>
       <h2 class="glance-heading">AI and AY, grouped by where they fall in the word</h2>
       <div class="glance-grid">
@@ -96,9 +100,7 @@ const faqs = [
         Reading each row aloud shows the same long-a sound in every word, even though the
         two-letter spelling changes depending on where the sound falls in the word.
       </p>
-    </SectionBand>
 
-    <div class="wrap page-shell">
       <!-- ============ CONCEPT EXPLANATION — open editorial reading ============ -->
       <article class="concept-chapter">
         <section class="concept-section" aria-labelledby="what-heading">
@@ -145,7 +147,14 @@ const faqs = [
           </p>
         </section>
       </article>
+    </SectionBand>
 
+    <!-- ============ CHAPTER — WHAT TO NOTICE, EXCEPTION, TEACHING ROUTINE, MASTERY ============
+         A second, distinct environment (warm-neutral, not cream, not the
+         cool chapter above) for the "how to teach it" chapter. Individual
+         callouts inside keep their own differentiated treatment; the
+         chapter itself reads as one visual unit. -->
+    <SectionBand tone="neutral" ariaLabel="What to notice, exceptions, and how to teach this pattern">
       <!-- ============ WHAT TO NOTICE — instructional callout ============ -->
       <section class="editorial-note notice-note" aria-labelledby="notice-heading">
         <p class="eyebrow">What to notice</p>
@@ -217,10 +226,10 @@ const faqs = [
           </li>
         </ul>
       </section>
-    </div>
+    </SectionBand>
 
     <!-- ============ NEXT STEPS — where this fits + related skills ============ -->
-    <SectionBand tone="sunken" ariaLabel="Where this fits and related skills">
+    <SectionBand tone="white" ariaLabel="Where this fits and related skills">
       <div class="next-grid">
         <a class="fits-card" href="/design-explore/direction-a/skill">
           <span class="fits-label">Where this fits in the curriculum</span>
@@ -439,9 +448,8 @@ const faqs = [
     }
 
     /* ============================= WHAT TO NOTICE ============================= */
-    .notice-note {
-      margin-top: clamp(2.5rem, 5vw, 3.25rem);
-    }
+    /* First element in its chapter band — no extra top margin needed on top
+       of the band's own padding. */
 
     /* ============================= EXCEPTION CALLOUT ============================= */
     .exception-callout {
@@ -525,7 +533,6 @@ const faqs = [
     .mastery-section {
       max-width: 62ch;
       margin-top: clamp(2.5rem, 5vw, 3.25rem);
-      margin-bottom: clamp(3rem, 6vw, 4rem);
     }
 
     .mastery-list {
@@ -561,11 +568,13 @@ const faqs = [
       align-items: start;
     }
 
+    /* This band is now surface-white, so the destination card needs its own
+       (quieter) surface to stay visible rather than white-on-white. */
     .fits-card {
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
-      background: var(--canvas-raised);
+      background: var(--surface-neutral);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 1.5rem;

@@ -2,6 +2,7 @@
 import Proto from './_shared/Proto.astro';
 import Header from './_shared/Header.astro';
 import Footer from './_shared/Footer.astro';
+import SectionBand from './_shared/SectionBand.astro';
 
 const strands = [
   {
@@ -38,14 +39,18 @@ const strands = [
   <Header currentPath="/design-explore/direction-a/grade-hub" />
 
   <main id="main">
-    <div class="wrap page-shell">
+    <div class="wrap page-shell breadcrumb-shell">
       <nav aria-label="Breadcrumb" class="breadcrumb">
         <ol>
           <li><a href="/design-explore/direction-a/">Home</a></li>
           <li aria-current="page">Grade 1 Spelling Words</li>
         </ol>
       </nav>
+    </div>
 
+    <!-- Intro + the three strand destination cards read as one chapter, on a
+         quiet cool surface distinct from the plain cream page canvas. -->
+    <SectionBand tone="cool" class="intro-band">
       <header class="page-header">
         <h1>Grade 1 Spelling Words</h1>
         <p class="page-lede">
@@ -68,7 +73,9 @@ const strands = [
           ))
         }
       </section>
+    </SectionBand>
 
+    <div class="wrap page-shell page-shell-bottom">
       <section class="begin-note editorial-note" aria-labelledby="begin-heading">
         <p class="eyebrow">Guidance</p>
         <h2 id="begin-heading">Where to begin</h2>
@@ -105,6 +112,18 @@ const strands = [
   <style>
     .page-shell {
       padding-block: clamp(2rem, 5vw, 3rem) clamp(3rem, 6vw, 4.5rem);
+    }
+
+    .breadcrumb-shell {
+      padding-bottom: 0;
+    }
+
+    .page-shell-bottom {
+      padding-top: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    :global(.intro-band) {
+      margin-top: clamp(1.25rem, 3vw, 1.75rem);
     }
 
     /* ============================= BREADCRUMB ============================= */
@@ -164,7 +183,6 @@ const strands = [
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.25rem;
-      margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
     }
 
     .strand-card {
@@ -260,10 +278,11 @@ const strands = [
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
       gap: 1rem;
-      background: var(--canvas-sunken);
+      background: var(--surface-white);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 0.5rem;
+      box-shadow: var(--shadow-sm);
     }
 
     .switch-link {
@@ -278,7 +297,7 @@ const strands = [
     }
 
     .switch-link:hover {
-      background: var(--canvas-raised);
+      background: var(--surface-neutral);
     }
 
     .switch-next {
@@ -325,7 +344,7 @@ const strands = [
       padding: 0.6rem 1.1rem;
       border: 1.5px solid var(--border-strong);
       border-radius: var(--radius-pill);
-      background: var(--canvas-raised);
+      background: var(--surface-neutral);
       text-decoration: none;
       font-weight: 700;
       font-size: 0.88rem;

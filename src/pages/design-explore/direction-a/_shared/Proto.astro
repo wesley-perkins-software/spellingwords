@@ -80,6 +80,35 @@ const { title, description } = Astro.props;
         --incorrect-ink-strong: #822c1a;
         --incorrect-border: #edb9ab;
 
+        /* Layered surface system — page canvas, chapter/section surface,
+           component surface, accent color are deliberately distinct color
+           families rather than variations on the same warm cream. Chapter
+           surfaces are quieter than the component tints below (--brand-tint,
+           --teal-tint, etc.) so a full-bleed section reads as "white with a
+           faint cast," not "a colored rectangle." Cream (--canvas-sunken)
+           remains one surface among these, used sparingly, not the default. */
+        --surface-warm: var(--canvas-sunken); /* existing cream, used sparingly */
+        --surface-white: var(--canvas-raised); /* white component/chapter surface */
+        --surface-cool: #f2f6fb; /* extremely pale cool blue-white */
+        --surface-neutral: #f6f3ee; /* low-chroma neutral, between white and cream */
+
+        /* Page-role atmosphere — the quietest layer of all: one low-chroma
+           near-white base tone per major page type, so a page's role is
+           felt before it's consciously noticed. Sits *underneath* the
+           chapter surfaces above (which still provide internal long-scroll
+           rhythm) and well below the component tints (--teal-tint, etc.),
+           which keep communicating content meaning, not page identity. */
+        --surface-home: #f3f8fd; /* powder blue — broad, exploratory browsing */
+        --surface-grade: #f8f4fc; /* near-white, faint lavender/periwinkle cast */
+        --surface-unit: #fdf6f3; /* near-white, faint blush/apricot cast */
+        --surface-skill: #f3faf6; /* near-white, faint mint/sage cast */
+
+        /* Softened, lower-strength versions of the stronger accent tints,
+           for use only as large chapter/stage backgrounds — the full-strength
+           tints stay reserved for cards, chips, and callouts. */
+        --teal-tint-soft: color-mix(in srgb, var(--teal-tint) 55%, var(--surface-white));
+        --brand-tint-soft: color-mix(in srgb, var(--brand-tint) 55%, var(--surface-white));
+
         --focus-ring: #1f5fa8;
 
         --font-display: 'Quicksand', system-ui, -apple-system, sans-serif;
@@ -197,6 +226,65 @@ const { title, description } = Astro.props;
         max-width: 1240px;
         margin-inline: auto;
         padding-inline: clamp(1.25rem, 4vw, 3rem);
+      }
+
+      /* ------------------------------------------------------------
+         Small shared editorial primitives (used across 2+ pages).
+         Kept intentionally minimal — composition tools, not a utility
+         framework: an eyebrow label, a rule, and a left-accent note
+         block for guidance/callout copy that shouldn't become a card.
+         ------------------------------------------------------------ */
+      .eyebrow {
+        display: block;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+        margin-bottom: 0.6rem;
+      }
+
+      .rule {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0;
+      }
+
+      .editorial-note {
+        max-width: 60ch;
+        padding-left: 1.35rem;
+        border-left: 3px solid var(--brand);
+      }
+
+      .editorial-note .eyebrow {
+        color: var(--brand-strong);
+      }
+
+      .editorial-note h2,
+      .editorial-note h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .editorial-note p {
+        color: var(--ink-soft);
+        font-size: 1.05rem;
+        line-height: 1.65;
+      }
+
+      .editorial-note ul {
+        margin: 0.6rem 0 0;
+        padding-left: 1.15rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .editorial-note li {
+        color: var(--ink-soft);
+        font-size: 1.02rem;
+        line-height: 1.6;
       }
 
       /* Prototype corner badge — clearly marks this as design exploration */

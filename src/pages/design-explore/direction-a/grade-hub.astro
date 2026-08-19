@@ -2,6 +2,7 @@
 import Proto from './_shared/Proto.astro';
 import Header from './_shared/Header.astro';
 import Footer from './_shared/Footer.astro';
+import SectionBand from './_shared/SectionBand.astro';
 
 const strands = [
   {
@@ -38,14 +39,18 @@ const strands = [
   <Header currentPath="/design-explore/direction-a/grade-hub" />
 
   <main id="main">
-    <div class="wrap page-shell">
+    <div class="wrap page-shell breadcrumb-shell">
       <nav aria-label="Breadcrumb" class="breadcrumb">
         <ol>
           <li><a href="/design-explore/direction-a/">Home</a></li>
           <li aria-current="page">Grade 1 Spelling Words</li>
         </ol>
       </nav>
+    </div>
 
+    <!-- Intro + the three strand destination cards read as one chapter, on a
+         quiet cool surface distinct from the plain cream page canvas. -->
+    <SectionBand tone="grade" class="intro-band">
       <header class="page-header">
         <h1>Grade 1 Spelling Words</h1>
         <p class="page-lede">
@@ -68,8 +73,11 @@ const strands = [
           ))
         }
       </section>
+    </SectionBand>
 
-      <section class="begin-panel tint-pink" aria-labelledby="begin-heading">
+    <div class="wrap page-shell page-shell-bottom">
+      <section class="begin-note editorial-note" aria-labelledby="begin-heading">
+        <p class="eyebrow">Guidance</p>
         <h2 id="begin-heading">Where to begin</h2>
         <p>
           Most Grade 1 students are ready to start with Core Spelling, especially short-vowel
@@ -79,12 +87,23 @@ const strands = [
         </p>
       </section>
 
-      <nav class="grade-nav" aria-label="Adjacent grades">
-        <a class="grade-nav-link" href="#">← Kindergarten Spelling Words</a>
-        <a class="grade-nav-link grade-nav-next" href="#">Grade 2 Spelling Words →</a>
+      <nav class="grade-switcher" aria-label="Grade navigation">
+        <a class="switch-link switch-prev" href="#">
+          <span class="switch-arrow" aria-hidden="true">←</span>
+          <span class="switch-text">
+            <span class="switch-label">Previous grade</span>
+            <span class="switch-grade">Kindergarten</span>
+          </span>
+        </a>
+        <a class="switch-all" href="/design-explore/direction-a/">All grades</a>
+        <a class="switch-link switch-next" href="#">
+          <span class="switch-text switch-text-right">
+            <span class="switch-label">Next grade</span>
+            <span class="switch-grade">Grade 2</span>
+          </span>
+          <span class="switch-arrow" aria-hidden="true">→</span>
+        </a>
       </nav>
-
-      <a class="back-link" href="/design-explore/direction-a/">← Back to all grades</a>
     </div>
   </main>
 
@@ -93,6 +112,18 @@ const strands = [
   <style>
     .page-shell {
       padding-block: clamp(2rem, 5vw, 3rem) clamp(3rem, 6vw, 4.5rem);
+    }
+
+    .breadcrumb-shell {
+      padding-bottom: 0;
+    }
+
+    .page-shell-bottom {
+      padding-top: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    :global(.intro-band) {
+      margin-top: clamp(1.25rem, 3vw, 1.75rem);
     }
 
     /* ============================= BREADCRUMB ============================= */
@@ -152,7 +183,6 @@ const strands = [
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.25rem;
-      margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
     }
 
     .strand-card {
@@ -234,83 +264,98 @@ const strands = [
       color: color-mix(in srgb, var(--periwinkle-ink) 82%, var(--ink-soft));
     }
 
-    /* ============================= BEGIN PANEL ============================= */
-    .begin-panel {
-      border-radius: var(--radius-lg);
-      padding: clamp(1.75rem, 3.5vw, 2.5rem);
-      box-shadow: var(--shadow-sm);
-      margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+    /* ============================= WHERE TO BEGIN ============================= */
+    /* Editorial guidance note, not a fourth destination card — reuses the
+       shared .editorial-note left-rule primitive from Proto.astro so it
+       reads as a distinct kind of content, not another tinted panel. */
+    .begin-note {
+      margin-bottom: clamp(2.75rem, 5.5vw, 3.75rem);
     }
 
-    .tint-pink {
-      background: var(--pink-tint);
-      border: 1px solid var(--pink);
-    }
-
-    .begin-panel h2 {
-      font-size: 1.3rem;
-      color: var(--pink-ink);
-    }
-
-    .begin-panel p {
-      margin-top: 0.75rem;
-      color: color-mix(in srgb, var(--pink-ink) 78%, var(--ink-soft));
-      font-size: 1.05rem;
-      line-height: 1.65;
-      max-width: 68ch;
-    }
-
-    .begin-panel a {
-      /* Brand blue, not the panel's own pink ink, so the actionable link
-         stands out clearly from the panel's guidance copy. */
-      color: var(--brand-strong);
-      font-weight: 800;
-      text-decoration: underline;
-    }
-
-    /* ============================= GRADE NAV ============================= */
-    .grade-nav {
-      display: flex;
-      justify-content: space-between;
+    /* ============================= GRADE SWITCHER ============================= */
+    .grade-switcher {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
       gap: 1rem;
-      flex-wrap: wrap;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding-block: 1.25rem;
-      margin-bottom: 1.75rem;
+      background: var(--surface-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.5rem;
+      box-shadow: var(--shadow-sm);
     }
 
-    .grade-nav-link {
+    .switch-link {
       display: inline-flex;
       align-items: center;
+      gap: 0.75rem;
       min-height: 44px;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
       text-decoration: none;
-      font-weight: 700;
-      color: var(--brand-strong);
-      font-size: 0.98rem;
+      transition: background 0.15s ease;
     }
 
-    .grade-nav-link:hover {
+    .switch-link:hover {
+      background: var(--surface-neutral);
+    }
+
+    .switch-next {
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .switch-arrow {
+      font-size: 1.25rem;
       color: var(--brand);
-      text-decoration: underline;
+      flex-shrink: 0;
     }
 
-    .grade-nav-next {
-      margin-left: auto;
+    .switch-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
     }
 
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.92rem;
+    .switch-text-right {
+      align-items: flex-end;
+    }
+
+    .switch-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       color: var(--ink-faint);
     }
 
-    .back-link:hover {
+    .switch-grade {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--brand-strong);
+    }
+
+    .switch-all {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.6rem 1.1rem;
+      border: 1.5px solid var(--border-strong);
+      border-radius: var(--radius-pill);
+      background: var(--surface-neutral);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
       color: var(--ink-soft);
+      white-space: nowrap;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .switch-all:hover {
+      border-color: var(--brand);
+      color: var(--brand-strong);
     }
 
     /* ============================= RESPONSIVE ============================= */
@@ -320,13 +365,23 @@ const strands = [
       }
     }
 
-    @media (max-width: 560px) {
-      .grade-nav {
-        flex-direction: column;
+    @media (max-width: 640px) {
+      .grade-switcher {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
       }
 
-      .grade-nav-next {
-        margin-left: 0;
+      .switch-next {
+        justify-content: flex-start;
+        text-align: left;
+      }
+
+      .switch-text-right {
+        align-items: flex-start;
+      }
+
+      .switch-all {
+        order: 3;
       }
     }
   </style>

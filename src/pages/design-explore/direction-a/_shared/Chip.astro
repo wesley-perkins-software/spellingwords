@@ -1,0 +1,59 @@
+---
+// Shared tinted-pill primitive. Replaces the several near-identical chip/pill
+// declarations previously duplicated per page (.skill-chip, .hero-card .chip,
+// .missed-chip).
+interface Props {
+  tone?: 'brand' | 'teal' | 'sun' | 'periwinkle' | 'pink' | 'coral';
+  class?: string;
+}
+
+const { tone = 'brand', class: className = '' } = Astro.props;
+---
+
+<span class:list={['chip', `chip-${tone}`, className]}>
+  <slot />
+</span>
+
+<style>
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 1;
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid transparent;
+  }
+
+  .chip-brand {
+    background: var(--canvas-raised);
+    color: var(--brand-strong);
+    border-color: var(--brand);
+  }
+  .chip-teal {
+    background: var(--teal-tint);
+    color: var(--teal-ink);
+    border-color: var(--teal);
+  }
+  .chip-sun {
+    background: var(--sun-tint);
+    color: var(--sun-ink);
+    border-color: var(--sun);
+  }
+  .chip-periwinkle {
+    background: var(--periwinkle-tint);
+    color: var(--periwinkle-ink);
+    border-color: var(--periwinkle);
+  }
+  .chip-pink {
+    background: var(--pink-tint);
+    color: var(--pink-ink);
+    border-color: var(--pink);
+  }
+  .chip-coral {
+    background: var(--coral-tint);
+    color: var(--coral-ink);
+    border-color: var(--coral);
+  }
+</style>

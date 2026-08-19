@@ -2,6 +2,9 @@
 import Proto from './_shared/Proto.astro';
 import Header from './_shared/Header.astro';
 import Footer from './_shared/Footer.astro';
+import Button from './_shared/Button.astro';
+import Chip from './_shared/Chip.astro';
+import SectionBand from './_shared/SectionBand.astro';
 
 const grades = [
   {
@@ -72,40 +75,38 @@ const grades = [
             rows="6"
             placeholder="Type or paste your words here, one per line"></textarea>
           <p class="word-helper">Add at least 1 word to start practicing.</p>
-          <button type="submit" class="cta-primary">Start Practicing →</button>
+          <Button type="submit" size="lg" class="start-btn">Start Practicing →</Button>
         </form>
       </div>
     </section>
 
     <!-- ========================= BROWSE BY GRADE ======================== -->
-    <section class="section grades-section">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Browse by Grade</h2>
-          <p>
-            Follow an organized Kindergarten–5th Grade spelling path built around Core Spelling,
-            High-Frequency Words, and Themed Spelling Practice.
-          </p>
-        </div>
-
-        <div class="grade-grid">
-          {
-            grades.map((grade) => (
-              <a class={`grade-card accent-${grade.accent}`} href="/design-explore/direction-a/grade-hub">
-                <span class="grade-band" aria-hidden="true" />
-                <span class="grade-numeral" aria-hidden="true">{grade.short}</span>
-                <span class="grade-label">{grade.label}</span>
-                <span class="grade-teaser">{grade.teaser}</span>
-              </a>
-            ))
-          }
-        </div>
+    <SectionBand tone="home" class="section grades-section">
+      <div class="section-head">
+        <h2>Browse by Grade</h2>
+        <p>
+          Follow an organized Kindergarten–5th Grade spelling path built around Core Spelling,
+          High-Frequency Words, and Themed Spelling Practice.
+        </p>
       </div>
-    </section>
+
+      <div class="grade-grid">
+        {
+          grades.map((grade) => (
+            <a class={`grade-card accent-${grade.accent}`} href="/design-explore/direction-a/grade-hub">
+              <span class="grade-band" aria-hidden="true" />
+              <span class="grade-numeral" aria-hidden="true">{grade.short}</span>
+              <span class="grade-label">{grade.label}</span>
+              <span class="grade-teaser">{grade.teaser}</span>
+            </a>
+          ))
+        }
+      </div>
+    </SectionBand>
 
     <!-- ========================= BROWSE BY SKILL ======================== -->
-    <section class="section skill-section">
-      <div class="wrap skill-inner">
+    <SectionBand tone="teal" class="section skill-section">
+      <div class="skill-inner">
         <div class="skill-copy">
           <h2>Browse by Skill</h2>
           <p>
@@ -113,23 +114,29 @@ const grades = [
             and consonant blends to prefixes, suffixes, homophones, and commonly confused
             words — go straight to the specific spelling skill your student needs.
           </p>
-          <a class="cta-secondary" href="/design-explore/direction-a/skill">Browse Spelling Skills →</a>
+          <Button
+            href="/design-explore/direction-a/skill-detail"
+            variant="secondary"
+            class="browse-skills-btn"
+          >
+            Browse Spelling Skills →
+          </Button>
         </div>
         <ul class="skill-chips">
           <li class="visually-hidden">Examples of spelling skills:</li>
-          <li class="skill-chip chip-teal">Short vowels</li>
-          <li class="skill-chip chip-periwinkle">Consonant blends</li>
-          <li class="skill-chip chip-sun">Prefixes</li>
-          <li class="skill-chip chip-teal">Homophones</li>
-          <li class="skill-chip chip-periwinkle">Suffixes</li>
-          <li class="skill-chip chip-sun">Commonly confused words</li>
+          <li><Chip tone="teal">Short vowels</Chip></li>
+          <li><Chip tone="periwinkle">Consonant blends</Chip></li>
+          <li><Chip tone="sun">Prefixes</Chip></li>
+          <li><Chip tone="teal">Homophones</Chip></li>
+          <li><Chip tone="periwinkle">Suffixes</Chip></li>
+          <li><Chip tone="sun">Commonly confused words</Chip></li>
         </ul>
       </div>
-    </section>
+    </SectionBand>
 
     <!-- ============================ TRUST ============================= -->
-    <section class="section trust-section">
-      <div class="wrap trust-inner">
+    <SectionBand tone="sun" class="section trust-section">
+      <div class="trust-inner">
         <h2>More than a list of spelling words</h2>
         <p>
           SpellingWords.app brings a structured K–5 spelling curriculum, a library of focused
@@ -140,7 +147,7 @@ const grades = [
           points, or competitions.
         </p>
       </div>
-    </section>
+    </SectionBand>
   </main>
 
   <Footer />
@@ -238,31 +245,11 @@ const grades = [
       color: var(--ink-faint);
     }
 
-    .cta-primary {
+    :global(.start-btn) {
       align-self: flex-start;
-      background: var(--coral);
-      color: #ffffff;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1rem;
-      border: none;
-      border-radius: var(--radius-sm);
-      padding: 0.85rem 1.6rem;
-      cursor: pointer;
-      transition: background 0.15s ease, transform 0.15s ease;
-      min-height: 44px;
-    }
-
-    .cta-primary:hover {
-      background: var(--coral-strong);
-      transform: translateY(-1px);
     }
 
     /* ============================ SECTIONS ============================= */
-    .section {
-      padding-block: clamp(3rem, 6vw, 4.5rem);
-    }
-
     .section-head {
       max-width: 62ch;
       margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
@@ -282,10 +269,6 @@ const grades = [
     }
 
     /* ============================ GRADE GRID ============================ */
-    .grades-section {
-      background: var(--canvas-sunken);
-    }
-
     .grade-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -383,10 +366,6 @@ const grades = [
     }
 
     /* ============================ SKILL SECTION ========================= */
-    .skill-section {
-      background: var(--teal-tint);
-    }
-
     .skill-inner {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
@@ -402,21 +381,8 @@ const grades = [
       max-width: 54ch;
     }
 
-    .cta-secondary {
-      display: inline-flex;
-      align-items: center;
+    :global(.browse-skills-btn) {
       margin-top: 1.5rem;
-      min-height: 44px;
-      color: var(--brand-strong);
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      border-bottom: 2px solid var(--coral);
-      padding-bottom: 0.15rem;
-    }
-
-    .cta-secondary:hover {
-      color: var(--coral-strong);
     }
 
     .skill-chips {
@@ -429,34 +395,7 @@ const grades = [
       padding: 0;
     }
 
-    .skill-chip {
-      background: var(--canvas-raised);
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 0.6rem 1rem;
-      border-radius: var(--radius-pill);
-      border: 1.5px solid transparent;
-      line-height: 1;
-    }
-
-    .chip-teal {
-      border-color: var(--teal);
-      color: var(--teal-ink);
-    }
-    .chip-periwinkle {
-      border-color: var(--periwinkle);
-      color: var(--periwinkle-ink);
-    }
-    .chip-sun {
-      border-color: var(--sun);
-      color: var(--sun-ink);
-    }
-
     /* ============================ TRUST SECTION ========================= */
-    .trust-section {
-      background: var(--sun-tint);
-    }
-
     .trust-inner {
       max-width: 74ch;
       background: var(--brand-tint);
@@ -501,9 +440,9 @@ const grades = [
         flex-wrap: wrap;
       }
 
-      .cta-primary {
+      :global(.start-btn) {
         width: 100%;
-        text-align: center;
+        justify-content: center;
       }
     }
   </style>

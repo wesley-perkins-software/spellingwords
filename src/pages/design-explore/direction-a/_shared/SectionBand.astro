@@ -1,0 +1,80 @@
+---
+// Full-bleed section-background primitive. Gives pages a controlled, named
+// set of environmental surfaces to move through (instead of one-off
+// `background:` declarations per section) — the main tool for breaking up
+// long stretches of cream at the chapter level, not the section level.
+interface Props {
+  tone?:
+    | 'sunken'
+    | 'white'
+    | 'cool'
+    | 'neutral'
+    | 'brand'
+    | 'sun'
+    | 'teal'
+    | 'periwinkle'
+    | 'pink'
+    | 'home'
+    | 'grade'
+    | 'unit'
+    | 'skill';
+  class?: string;
+  ariaLabel?: string;
+}
+
+const { tone = 'sunken', class: className = '', ariaLabel } = Astro.props;
+---
+
+<section class:list={['band', `band-${tone}`, className]} aria-label={ariaLabel}>
+  <div class="wrap">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .band {
+    padding-block: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .band-sunken {
+    background: var(--surface-warm);
+  }
+  .band-white {
+    background: var(--surface-white);
+  }
+  .band-cool {
+    background: var(--surface-cool);
+  }
+  .band-neutral {
+    background: var(--surface-neutral);
+  }
+  .band-brand {
+    background: var(--brand-tint-soft);
+  }
+  .band-sun {
+    background: var(--sun-tint);
+  }
+  .band-teal {
+    background: var(--teal-tint-soft);
+  }
+  .band-periwinkle {
+    background: var(--periwinkle-tint);
+  }
+  .band-pink {
+    background: var(--pink-tint);
+  }
+
+  /* Page-role atmosphere tones — see Proto.astro for the layering rationale. */
+  .band-home {
+    background: var(--surface-home);
+  }
+  .band-grade {
+    background: var(--surface-grade);
+  }
+  .band-unit {
+    background: var(--surface-unit);
+  }
+  .band-skill {
+    background: var(--surface-skill);
+  }
+</style>

@@ -1,0 +1,100 @@
+---
+// Shared action-button primitive for Direction A.
+// Replaces the hand-duplicated .cta-primary / .check-btn / .results-btn-primary /
+// .cta-secondary declarations that previously repeated the same recipe per page.
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit';
+  variant?: 'primary' | 'secondary' | 'outline' | 'soft';
+  size?: 'md' | 'lg';
+  class?: string;
+}
+
+const { href, type = 'button', variant = 'primary', size = 'md', class: className = '' } =
+  Astro.props;
+
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  href={href}
+  type={href ? undefined : type}
+  class:list={['btn', `btn-${variant}`, `btn-${size}`, className]}
+>
+  <slot />
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius-sm);
+    transition:
+      background 0.15s ease,
+      color 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .btn-md {
+    font-size: 1rem;
+    padding: 0.85rem 1.6rem;
+  }
+
+  .btn-lg {
+    font-size: 1.05rem;
+    padding: 0.9rem 2rem;
+  }
+
+  /* Coral — the high-priority action color. Solid fill for the site's primary CTAs. */
+  .btn-primary {
+    background: var(--coral);
+    color: #ffffff;
+  }
+  .btn-primary:hover {
+    background: var(--coral-strong);
+    transform: translateY(-1px);
+  }
+
+  /* Brand-blue text link with a coral underline — secondary CTAs, "browse" actions. */
+  .btn-secondary {
+    background: transparent;
+    color: var(--brand-strong);
+    border-bottom: 2px solid var(--coral);
+    border-radius: 0;
+    padding: 0.5rem 0.1rem;
+  }
+  .btn-secondary:hover {
+    color: var(--coral-strong);
+  }
+
+  /* Outlined brand-blue — a real button that reads lighter than solid coral. */
+  .btn-outline {
+    background: var(--canvas-raised);
+    color: var(--brand-strong);
+    border: 2px solid var(--brand);
+  }
+  .btn-outline:hover {
+    background: var(--brand-tint);
+  }
+
+  /* Coral-tinted, unfilled — still clearly an action, deliberately quieter than
+     .btn-primary. Used where a page has a more reference-oriented CTA that
+     still needs to stay a real, discoverable button. */
+  .btn-soft {
+    background: var(--coral-tint);
+    color: var(--coral-ink);
+    border: 1.5px solid var(--coral);
+  }
+  .btn-soft:hover {
+    background: var(--coral);
+    color: #ffffff;
+  }
+</style>

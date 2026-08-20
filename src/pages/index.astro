@@ -1,15 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Button from '@/components/direction-a/Button.astro';
 import Chip from '@/components/direction-a/Chip.astro';
-import { isPublished } from '@/lib/content/spellingLists';
-import { SKILLS_INDEX_PATH, getCanonicalSkillPathById } from '@/lib/content/canonicalSkillRoutes';
+import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
-import { GRADE_ACCENT, ACCENT_BG_CLASS, ACCENT_INK_CLASS, PILOT_SKILL_IDS, SKILL_FAMILY_ACCENT } from '@/lib/content/pilotContent';
-import { SPELLING_SKILL_FAMILIES } from '@/lib/content/spellingSkills';
+import { GRADE_ACCENT, ACCENT_BG_CLASS, ACCENT_INK_CLASS, type DaAccent } from '@/lib/content/pilotContent';
 import {
   homepageGradeHubs,
   homepageJsonLd,
@@ -25,24 +22,18 @@ const gradeCards = homepageGradeHubs.map((hub, index) => ({
   accent: GRADE_ACCENT[gradeConfig[index].grade],
 }));
 
-// Real, live Direction A Skill pages — used as example destinations below
-// the "Browse by Skill" CTA rather than guessing hrefs from the plain-text
-// HOMEPAGE_REPRESENTATIVE_SKILLS labels, which don't map 1:1 to a single
-// canonical Skill route.
-const entries = (await getCollection('spelling-lists')).filter(isPublished);
-const entriesById = new Map(entries.map((entry) => [entry.data.id, entry]));
-
-function familyAccentForSkill(id: string) {
-  const family = SPELLING_SKILL_FAMILIES.find((f) => (f.skillIds as readonly string[]).includes(id));
-  return (family && SKILL_FAMILY_ACCENT[family.title]) ?? 'brand';
-}
-
-const exampleSkillChips = PILOT_SKILL_IDS.map((id) => {
-  const entry = entriesById.get(id);
-  const href = getCanonicalSkillPathById(id);
-  if (!entry || !href) return null;
-  return { label: entry.data.title, href, accent: familyAccentForSkill(id) };
-}).filter((chip): chip is NonNullable<typeof chip> => chip !== null);
+// Illustrative, non-pilot-scoped examples of the range of Skills on offer —
+// drawn from the homepage's own permanent HOMEPAGE_REPRESENTATIVE_SKILLS
+// list (also used in the prose above), not from PILOT_SKILL_IDS. These are
+// category labels, not individual Skill-page destinations (per the same
+// design-explore/direction-a mockup this section is drawn from), so they
+// stay as plain decorative Chips — the "Browse Spelling Skills" button
+// remains the one real link, to the canonical Skills index.
+const REPRESENTATIVE_SKILL_TONES: readonly DaAccent[] = ['teal', 'periwinkle', 'sun', 'teal', 'periwinkle', 'sun'];
+const representativeSkillChips = HOMEPAGE_REPRESENTATIVE_SKILLS.map((label, index) => ({
+  label: label.charAt(0).toUpperCase() + label.slice(1),
+  tone: REPRESENTATIVE_SKILL_TONES[index % REPRESENTATIVE_SKILL_TONES.length],
+}));
 ---
 
 <Layout
@@ -155,13 +146,9 @@ const exampleSkillChips = PILOT_SKILL_IDS.map((id) => {
           </Button>
         </div>
 
-        <ul class="flex flex-wrap gap-3" aria-label="Example spelling skills">
-          {exampleSkillChips.map((chip) => (
-            <li>
-              <a href={chip.href} class="no-underline">
-                <Chip tone={chip.accent}>{chip.label}</Chip>
-              </a>
-            </li>
+        <ul class="flex flex-wrap gap-3" aria-label="Examples of spelling skills">
+          {representativeSkillChips.map((chip) => (
+            <li><Chip tone={chip.tone}>{chip.label}</Chip></li>
           ))}
         </ul>
       </div>

@@ -15,17 +15,17 @@ const { category, difficulty, durationMinutes, wordCount, wordCountLabel } = Ast
 
 <div class="flex flex-wrap items-center gap-2 text-xs font-medium">
   {category && (
-    <span class="rounded-full bg-chip-sky px-3 py-1 font-semibold text-white">
+    <span class="rounded-full bg-accent-teal-tint px-3 py-1 font-semibold text-accent-teal">
       {categoryLabels[category] ?? category}
     </span>
   )}
-  <span class="rounded-full bg-chip-sun px-3 py-1 font-semibold text-white">
+  <span class="rounded-full bg-accent-gold-tint px-3 py-1 font-semibold text-accent-gold">
     {difficultyLabels[difficulty] ?? difficulty}
   </span>
-  <span class="rounded-full bg-app-cloud px-3 py-1 font-semibold text-brand-blue">
+  <span class="rounded-full bg-canvas-sunken px-3 py-1 font-semibold text-brand">
     ~{durationMinutes} min
   </span>
-  <span class="rounded-full bg-chip-berry px-3 py-1 font-semibold text-white">
+  <span class="rounded-full bg-accent-coral-tint px-3 py-1 font-semibold text-accent-coral">
     {wordCountLabel ?? `${wordCount} words`}
   </span>
 </div>

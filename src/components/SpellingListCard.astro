@@ -22,11 +22,11 @@ const categoryLabel = badge ?? (categoryLabels[category as keyof typeof category
 
 <a
   href={href}
-  class="flex flex-col gap-3 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_22px_-8px_rgba(47,111,237,0.25)]"
+  class="flex flex-col gap-3 rounded-2xl border border-border bg-white p-5 shadow-card transition hover:-translate-y-0.5 hover:shadow-card-md hover:border-border-strong"
 >
   <div class="flex flex-col gap-1">
     {showCategoryBadge && <div class="flex items-center gap-2">
-      <span class="rounded-md bg-app-cloud px-2 py-0.5 text-xs font-medium text-ink-soft">
+      <span class="rounded-md bg-canvas-sunken px-2 py-0.5 text-xs font-medium text-ink-soft">
         {categoryLabel}
       </span>
     </div>}

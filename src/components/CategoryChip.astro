@@ -7,17 +7,17 @@ interface Props {
 const { label, variant = 'blue' } = Astro.props;
 
 const variantClasses: Record<NonNullable<Props['variant']>, string> = {
-  blue: 'bg-chip-sky text-white shadow-[0_4px_14px_-4px_rgba(63,182,232,0.55)] hover:shadow-[0_6px_18px_-4px_rgba(63,182,232,0.6)]',
-  yellow: 'bg-chip-sun text-white shadow-[0_4px_14px_-4px_rgba(255,179,71,0.55)] hover:shadow-[0_6px_18px_-4px_rgba(255,179,71,0.6)]',
-  coral: 'bg-chip-berry text-white shadow-[0_4px_14px_-4px_rgba(239,93,168,0.55)] hover:shadow-[0_6px_18px_-4px_rgba(239,93,168,0.6)]',
-  green: 'bg-chip-grass text-white shadow-[0_4px_14px_-4px_rgba(76,175,109,0.55)] hover:shadow-[0_6px_18px_-4px_rgba(76,175,109,0.6)]',
-  sage: 'bg-brand-blue text-white shadow-[0_4px_14px_-4px_rgba(47,111,237,0.55)] hover:shadow-[0_6px_18px_-4px_rgba(47,111,237,0.6)]',
+  blue: 'bg-brand text-white shadow-btn-brand hover:bg-brand-strong',
+  yellow: 'bg-accent-gold text-white shadow-[0_4px_14px_-4px_rgba(168,112,30,0.45)] hover:opacity-90',
+  coral: 'bg-accent-coral text-white shadow-[0_4px_14px_-4px_rgba(193,74,43,0.45)] hover:opacity-90',
+  green: 'bg-accent-teal text-white shadow-[0_4px_14px_-4px_rgba(20,96,89,0.45)] hover:opacity-90',
+  sage: 'bg-accent-plum text-white shadow-[0_4px_14px_-4px_rgba(106,63,137,0.45)] hover:opacity-90',
 };
 ---
 
 <button
   type="button"
-  class={`inline-flex cursor-pointer items-center rounded-full px-5 py-2 text-sm font-bold transition-all hover:scale-[1.03] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue ${variantClasses[variant]}`}
+  class={`inline-flex cursor-pointer items-center rounded-pill px-5 py-2 text-sm font-bold transition-all hover:scale-[1.03] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus ${variantClasses[variant]}`}
 >
   {label}
 </button>

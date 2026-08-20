@@ -66,14 +66,14 @@ const itemListJsonLd = {
       </div>
 
       <section aria-labelledby="skills-heading" class="mb-10 flex flex-col gap-4">
-        <h1 id="skills-heading" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+        <h1 id="skills-heading" class="text-display-lg">
           Spelling Practice by Skill
         </h1>
-        <p class="max-w-2xl text-base leading-relaxed text-ink-soft">
+        <p class="max-w-2xl text-body text-ink-soft">
           Browse by skill when you already know or recognize the spelling concept your child needs,
           from sound-spelling patterns and conventions to word parts and meaning-based choices. If
           you want a sequenced grade-level path,{' '}
-          <a href="/#grades" class="font-semibold text-brand-blue hover:underline"
+          <a href="/#grades" class="link font-semibold"
             >browse by grade</a
           >.
         </p>
@@ -84,7 +84,7 @@ const itemListJsonLd = {
           'anchorId' in family ? family.anchorId : `${family.title.toLowerCase().replaceAll(' ', '-')}-heading`;
 
         return (
-          <section aria-labelledby={headingId} class="mb-12 rounded-2xl border border-line bg-white p-5 shadow-[0_4px_16px_-6px_rgba(31,41,55,0.06)] sm:p-6">
+          <section aria-labelledby={headingId} class="mb-8 card p-5 sm:p-6">
             <div class="mb-5">
               <h2 id={headingId} class="font-display text-lg font-semibold text-ink">
                 {family.title}
@@ -94,16 +94,16 @@ const itemListJsonLd = {
               </p>
             </div>
 
-            <div class="divide-y divide-line border-y border-line">
+            <div class="divide-y divide-border border-y border-border">
               {family.entries.map((entry) => (
-                <a href={getSpellingSkillPath(entry)} class="group flex items-start justify-between gap-4 rounded-xl px-3 py-4 transition hover:bg-app-cloud sm:items-center">
+                <a href={getSpellingSkillPath(entry)} class="group flex items-start justify-between gap-4 rounded-xl px-3 py-4 transition hover:bg-canvas-sunken sm:items-center">
                   <div>
-                    <h3 class="font-display text-base font-semibold text-ink transition group-hover:text-brand-blue">
+                    <h3 class="font-display text-base font-semibold text-ink transition group-hover:text-brand">
                       {entry.data.title}
                     </h3>
                     <p class="mt-1 text-sm leading-relaxed text-ink-soft">{entry.data.description}</p>
                   </div>
-                  <span class="mt-1 shrink-0 text-sm font-semibold text-brand-blue transition group-hover:translate-x-0.5 sm:mt-0" aria-hidden="true">→</span>
+                  <span class="mt-1 shrink-0 text-sm font-semibold text-brand transition group-hover:translate-x-0.5 sm:mt-0" aria-hidden="true">→</span>
                 </a>
               ))}
             </div>

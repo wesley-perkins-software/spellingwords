@@ -88,10 +88,11 @@ const itemListJsonLd = {
     <div class="mx-auto max-w-3xl px-6 py-12 md:py-16">
       <div class="mb-6"><Breadcrumbs items={breadcrumbItems} /></div>
       <header class="mb-10">
-        <h1 class="font-display text-2xl font-semibold text-ink md:text-3xl">{gradeEntry.label} {descriptor.label}</h1>
-        <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">{description}</p>
+        <p class="mb-2 text-xs font-bold uppercase tracking-[0.06em] text-brand">{gradeEntry.label}</p>
+        <h1 class="text-display-lg">{descriptor.label}</h1>
+        <p class="mt-4 max-w-2xl text-body text-ink-soft">{description}</p>
         {pilotCopy && (
-          <div class="mt-4 max-w-2xl space-y-3 text-base leading-relaxed text-ink-soft">
+          <div class="mt-4 max-w-2xl space-y-3 text-body text-ink-soft">
             <p>{pilotCopy.synthesis}</p>
             {pilotCopy.guidance && <p>{pilotCopy.guidance}</p>}
           </div>
@@ -100,18 +101,18 @@ const itemListJsonLd = {
       <ListElement class="flex flex-col gap-4">
         {resources.map(({ route, entry }, index) => (
           <li class="flex items-start gap-3">
-            {strand !== 'themed-spelling-practice' && <span aria-hidden="true" class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-sm font-semibold text-brand-blue">{index + 1}</span>}
+            {strand !== 'themed-spelling-practice' && <span aria-hidden="true" class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-tint text-sm font-semibold text-brand">{index + 1}</span>}
             <div class="flex-1"><SpellingListCard href={route.canonicalPath} category={entry.data.category} title={entry.data.title} description={getGatewayCardDescription(strand, entry.data.description, entry.data.shortAnswer)} difficulty={entry.data.difficulty} durationMinutes={entry.data.durationMinutes} wordCount={entry.data.words.length} showCategoryBadge={false} /></div>
           </li>
         ))}
       </ListElement>
-      <nav aria-label={`More ${gradeEntry.label} spelling practice`} class="mt-10 border-t border-line pt-6">
+      <nav aria-label={`More ${gradeEntry.label} spelling practice`} class="mt-10 border-t border-border pt-6">
         <p class="text-sm text-ink-soft">
           Explore{' '}
           {wayfindingStrands.map((relatedStrand, index) => (
             <>
               {index > 0 && (index === wayfindingStrands.length - 1 ? ' or ' : ', ')}
-              <a class="font-semibold text-brand-blue hover:underline" href={getGradeStrandPath(gradeEntry.grade, relatedStrand)}>
+              <a class="link font-semibold" href={getGradeStrandPath(gradeEntry.grade, relatedStrand)}>
                 {gradeEntry.label} {GRADE_STRANDS[relatedStrand].label}{index === wayfindingStrands.length - 1 ? '.' : ''}
               </a>
             </>

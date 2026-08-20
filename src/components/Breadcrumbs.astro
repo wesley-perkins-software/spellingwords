@@ -12,12 +12,12 @@ const { items } = Astro.props;
 ---
 
 <nav aria-label="Breadcrumb">
-  <ol class="flex flex-wrap items-center gap-1 text-sm font-semibold text-ink-soft">
+  <ol class="flex flex-wrap items-center gap-1 text-sm font-bold text-da-ink-soft">
     {items.map((item, index) => (
       <li class="flex items-center gap-1">
         {index > 0 && <span aria-hidden="true">/</span>}
         {item.href ? (
-          <a href={item.href} class="hover:text-brand-blue">{item.label}</a>
+          <a href={item.href} class="hover:text-da-brand">{item.label}</a>
         ) : (
           <span aria-current="page">{item.label}</span>
         )}

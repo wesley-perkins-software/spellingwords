@@ -63,9 +63,8 @@ const itemListJsonLd = {
   title={`${label} Spelling Words | spellingwords.app`}
   description={hub.metaDescription}
   jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
-  theme="direction-a"
 >
-  <SiteHeader variant="discovery" currentPath={gradeEntry.hubHref} theme="direction-a" />
+  <SiteHeader variant="discovery" currentPath={gradeEntry.hubHref} />
 
   <main id="main-content">
     <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
@@ -74,5 +73,5 @@ const itemListJsonLd = {
     <GradeHubView label={label} hub={hub} prev={prev} next={next} />
   </main>
 
-  <SiteFooter theme="direction-a" />
+  <SiteFooter />
 </Layout>

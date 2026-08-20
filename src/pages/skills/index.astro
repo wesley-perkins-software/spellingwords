@@ -68,9 +68,8 @@ const itemListJsonLd = {
   title="Spelling Practice by Skill | spellingwords.app"
   description="Browse the complete collection of spelling skills and concepts for focused, grade-independent spelling practice."
   jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
-  theme="direction-a"
 >
-  <SiteHeader variant="discovery" currentPath="/skills" theme="direction-a" />
+  <SiteHeader variant="discovery" currentPath="/skills" />
 
   <main id="main-content">
     <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
@@ -79,5 +78,5 @@ const itemListJsonLd = {
     <SkillsHubView families={families} />
   </main>
 
-  <SiteFooter theme="direction-a" />
+  <SiteFooter />
 </Layout>

@@ -130,9 +130,8 @@ const familyAccent = skillFamily ? SKILL_FAMILY_ACCENT[skillFamily.title] : unde
   description={data.description}
   ogType="article"
   jsonLd={jsonLdBlocks}
-  theme="direction-a"
 >
-  <SiteHeader variant="discovery" currentPath="/skills" theme="direction-a" />
+  <SiteHeader variant="discovery" currentPath="/skills" />
   <main id="main-content">
     <div class="mx-auto max-w-[1100px] px-5 pt-8 sm:px-6 md:pt-10">
       <Breadcrumbs items={breadcrumbItems} />
@@ -164,5 +163,5 @@ const familyAccent = skillFamily ? SKILL_FAMILY_ACCENT[skillFamily.title] : unde
       </div>
     )}
   </main>
-  <SiteFooter theme="direction-a" />
+  <SiteFooter />
 </Layout>

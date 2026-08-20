@@ -97,9 +97,8 @@ const wayfindingLinks = wayfindingStrands.map((relatedStrand) => ({
   title={`${gradeEntry.label} ${descriptor.label} | spellingwords.app`}
   description={description}
   jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
-  theme="direction-a"
 >
-  <SiteHeader variant="discovery" currentPath={gatewayPath} theme="direction-a" />
+  <SiteHeader variant="discovery" currentPath={gatewayPath} />
   <main id="main-content">
     <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
       <Breadcrumbs items={breadcrumbItems} />
@@ -115,5 +114,5 @@ const wayfindingLinks = wayfindingStrands.map((relatedStrand) => ({
       wayfindingLinks={wayfindingLinks}
     />
   </main>
-  <SiteFooter theme="direction-a" />
+  <SiteFooter />
 </Layout>

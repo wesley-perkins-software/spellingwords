@@ -127,9 +127,8 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
   description={data.description}
   ogType="article"
   jsonLd={jsonLdBlocks}
-  theme="direction-a"
 >
-  <SiteHeader variant="discovery" currentPath={getGradeHubPath(canonicalGradeRoute.grade)} theme="direction-a" />
+  <SiteHeader variant="discovery" currentPath={getGradeHubPath(canonicalGradeRoute.grade)} />
   <main id="main-content">
     <div class="mx-auto max-w-[1100px] px-5 pt-8 sm:px-6 md:pt-10">
       <Breadcrumbs items={breadcrumbItems} />
@@ -166,5 +165,5 @@ const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
       </div>
     )}
   </main>
-  <SiteFooter theme="direction-a" />
+  <SiteFooter />
 </Layout>

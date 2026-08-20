@@ -154,9 +154,8 @@ const relatedGroups = isHighFrequencyWords
   description={data.description}
   ogType="article"
   jsonLd={jsonLdBlocks}
-  theme="direction-a"
 >
-  <SiteHeader variant="discovery" currentPath={getGradeHubPath(route.grade)} theme="direction-a" />
+  <SiteHeader variant="discovery" currentPath={getGradeHubPath(route.grade)} />
   <main id="main-content">
     <div class="mx-auto max-w-[1100px] px-5 pt-8 sm:px-6 md:pt-10">
       <Breadcrumbs items={breadcrumbItems} />
@@ -193,6 +192,6 @@ const relatedGroups = isHighFrequencyWords
       </div>
     )}
   </main>
-  <SiteFooter theme="direction-a" />
+  <SiteFooter />
 </Layout>
 )}

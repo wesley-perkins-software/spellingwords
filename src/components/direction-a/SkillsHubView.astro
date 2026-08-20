@@ -1,0 +1,84 @@
+---
+// Direction A Skills Hub — browses the frozen Skill taxonomy grouped by
+// family. Deliberately NOT a 41-card dashboard: each family gets one
+// compact section (family accent chip, description, guidance) and its
+// Skills render as a wrapped row of link-pills rather than individual
+// cards, so the full taxonomy stays scannable on mobile without endless
+// scrolling through repeated card chrome.
+import AtmosphereBand from './AtmosphereBand.astro';
+import Chip from './Chip.astro';
+import { SKILL_FAMILY_ACCENT, type DaAccent } from '@/lib/content/pilotContent';
+
+interface SkillLink {
+  title: string;
+  href: string;
+}
+
+interface Family {
+  title: string;
+  description: string;
+  guidance: string;
+  anchorId: string;
+  skills: SkillLink[];
+}
+
+interface Props {
+  families: Family[];
+}
+
+const { families } = Astro.props;
+
+const accentPillClass: Record<DaAccent, string> = {
+  sun: 'border-da-sun bg-da-sun-tint text-da-sun-ink hover:bg-da-sun',
+  teal: 'border-da-teal bg-da-teal-tint text-da-teal-ink hover:bg-da-teal',
+  periwinkle: 'border-da-periwinkle bg-da-periwinkle-tint text-da-periwinkle-ink hover:bg-da-periwinkle',
+  pink: 'border-da-pink bg-da-pink-tint text-da-pink-ink hover:bg-da-pink',
+  brand: 'border-da-brand bg-da-canvas-raised text-da-brand-strong hover:bg-da-brand',
+  coral: 'border-da-coral bg-da-coral-tint text-da-coral-ink hover:bg-da-coral',
+};
+---
+
+<AtmosphereBand tone="skill" ariaLabel="Spelling Practice by Skill" class="mt-6 rounded-3xl md:mt-8">
+  <header class="max-w-2xl">
+    <h1 class="font-quicksand text-[clamp(1.9rem,4vw,2.5rem)] font-bold leading-[1.1] text-da-ink">
+      Spelling Practice by Skill
+    </h1>
+    <p class="mt-4 text-[1.05rem] leading-relaxed text-da-ink-soft">
+      Browse by skill when you already know or recognize the spelling concept your child needs,
+      from sound-spelling patterns and conventions to word parts and meaning-based choices. If you
+      want a sequenced grade-level path,{' '}
+      <a href="/#grades" class="font-bold text-da-brand-strong hover:underline">browse by grade</a>.
+    </p>
+  </header>
+</AtmosphereBand>
+
+<div class="mx-auto max-w-3xl px-5 py-10 sm:px-6 md:py-14">
+  <div class="flex flex-col gap-8">
+    {families.map((family) => {
+      const accent = SKILL_FAMILY_ACCENT[family.title] ?? 'brand';
+      return (
+        <section id={family.anchorId} aria-labelledby={`${family.anchorId}-heading`} class="scroll-mt-24">
+          <div class="flex flex-wrap items-baseline gap-2.5">
+            <Chip tone={accent}>{family.title}</Chip>
+          </div>
+          <h2 id={`${family.anchorId}-heading`} class="sr-only">{family.title}</h2>
+          <p class="mt-3 max-w-xl text-[0.98rem] leading-relaxed text-da-ink-soft">
+            {family.description} {family.guidance}
+          </p>
+          <ul class="mt-4 flex flex-wrap gap-2.5">
+            {family.skills.map((skill) => (
+              <li>
+                <a
+                  href={skill.href}
+                  class:list={['inline-flex min-h-[44px] items-center rounded-full border-[1.5px] px-4 py-2 text-sm font-bold leading-tight transition hover:text-white', accentPillClass[accent]]}
+                >
+                  {skill.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      );
+    })}
+  </div>
+</div>

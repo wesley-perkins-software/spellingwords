@@ -7,8 +7,6 @@ import { getCanonicalUrl } from '@/lib/canonicalUrl';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
-import WordListPreview from '@/components/WordListPreview.astro';
-import RelatedListCards from '@/components/RelatedListCards.astro';
 import SourceAttribution from '@/components/SourceAttribution.astro';
 import {
   isPublished,
@@ -17,7 +15,6 @@ import {
   toPlayableWords,
 } from '@/lib/content/spellingLists';
 import { getSequenceNeighbors } from '@/lib/content/navigationSequence';
-import { cardAccent } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 import {
@@ -25,7 +22,7 @@ import {
   skillPracticeDescription,
   toPlayableSkillPracticeWords,
 } from '@/lib/content/skillPracticeBanks';
-import { isPilotSkill, SKILL_FAMILY_ACCENT } from '@/lib/content/pilotContent';
+import { SKILL_FAMILY_ACCENT } from '@/lib/content/pilotContent';
 import { SPELLING_SKILL_FAMILIES } from '@/lib/content/spellingSkills';
 import SkillView from '@/components/direction-a/SkillView.astro';
 
@@ -61,7 +58,6 @@ const playWords = toPlayableWords(entry);
 
 const practiceBank = getSkillPracticeBank(data.id);
 const practiceBankWords = practiceBank ? toPlayableSkillPracticeWords(practiceBank) : null;
-const practiceBankWordsJson = practiceBankWords ? JSON.stringify(practiceBankWords) : null;
 const practiceDescription = practiceBankWords
   ? skillPracticeDescription(practiceBankWords.length)
   : null;
@@ -125,12 +121,10 @@ const curriculumPlacements = allEntries
   }))
   .sort((a, b) => gradeSortIndex(a.unit.data.grade) - gradeSortIndex(b.unit.data.grade));
 
-const usePilotDesign = isPilotSkill(data.id);
 const skillFamily = SPELLING_SKILL_FAMILIES.find((family) => (family.skillIds as readonly string[]).includes(data.id));
 const familyAccent = skillFamily ? SKILL_FAMILY_ACCENT[skillFamily.title] : undefined;
 ---
 
-{usePilotDesign ? (
 <Layout
   title={`${data.title} — spellingwords`}
   description={data.description}
@@ -172,377 +166,3 @@ const familyAccent = skillFamily ? SKILL_FAMILY_ACCENT[skillFamily.title] : unde
   </main>
   <SiteFooter theme="direction-a" />
 </Layout>
-) : (
-<Layout
-  title={`${data.title} — spellingwords`}
-  description={data.description}
-  ogType="article"
-  jsonLd={jsonLdBlocks}
->
-  <SiteHeader variant="discovery" currentPath="/skills" />
-
-  <main id="main-content">
-    <!-- Breadcrumbs -->
-    <div class="mx-auto max-w-2xl px-5 pt-8 sm:px-6 md:max-w-3xl md:pt-10">
-      <Breadcrumbs items={breadcrumbItems} />
-    </div>
-
-    <!-- Hero band: what is this Skill? -->
-    <section class="px-5 pb-10 pt-6 sm:px-6 md:pb-14 md:pt-8">
-      <div class="mx-auto max-w-2xl md:max-w-3xl">
-        <div
-          class="relative overflow-hidden rounded-3xl border border-line bg-white px-6 py-8 shadow-card-lg sm:px-10 sm:py-10"
-        >
-          <div class={`absolute inset-x-0 top-0 h-1.5 ${cardAccent.bg}`} aria-hidden="true"></div>
-
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="rounded-full bg-app-cloud px-3 py-1 text-sm font-semibold text-ink">
-              Skill
-            </span>
-          </div>
-
-          <h1 class="text-display-lg mt-3">{data.title}</h1>
-          <p class="text-body-lg mt-3 max-w-2xl text-ink-soft">{data.description}</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skill answer block: the extractable "What is …?" definition -->
-    {
-      data.shortAnswer && (
-        <section class="px-5 pb-10 sm:px-6 md:pb-14" aria-labelledby="answer-heading">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <div class={`rounded-3xl bg-cream-deep px-6 py-6 sm:px-8 border-l-[3px] ${cardAccent.border}`}>
-              <h2 id="answer-heading" class="font-display text-lg font-semibold text-ink">
-                What are {data.title.toLowerCase()}?
-              </h2>
-              <p class="mt-2 text-base leading-relaxed text-ink-soft">{data.shortAnswer}</p>
-            </div>
-          </div>
-        </section>
-      )
-    }
-
-    <!-- Is this the right Skill? -->
-    {
-      data.readinessSignals.length > 0 && (
-        <section
-          class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
-          aria-labelledby="readiness-heading"
-        >
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="readiness-heading" class="font-display text-lg font-semibold text-ink">
-              These spelling words are a good fit for students who...
-            </h2>
-            <ul class="mt-4 space-y-3 text-base leading-relaxed text-ink-soft">
-              {data.readinessSignals.map((signal) => (
-                <li class="flex items-start gap-2.5">
-                  <span aria-hidden="true" class="mt-0.5 flex-shrink-0 text-brand-blue">
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </span>
-                  <span>{signal}</span>
-                </li>
-              ))}
-            </ul>
-            {(easierList || harderList) && (
-              <p class="mt-4 text-base leading-relaxed text-ink-soft">
-                {easierList && (
-                  <>
-                    Too much too soon?{' '}
-                    <a
-                      href={listLink(easierList)}
-                      class="font-semibold text-brand-blue hover:underline"
-                    >
-                      {easierList.data.title}
-                    </a>{' '}
-                    is a gentler starting point.{' '}
-                  </>
-                )}
-                {harderList && (
-                  <>
-                    Moving through it easily?{' '}
-                    <a
-                      href={listLink(harderList)}
-                      class="font-semibold text-brand-blue hover:underline"
-                    >
-                      {harderList.data.title}
-                    </a>{' '}
-                    is a natural next step.
-                  </>
-                )}
-              </p>
-            )}
-          </div>
-        </section>
-      )
-    }
-
-    <!-- Demonstration preview: only shown when this Skill has no practice
-         bank yet. Once a Skill has a full practice inventory (below), that
-         supersedes the small demonstration teaser rather than sitting
-         alongside it — see docs note in the practice-inventory section. -->
-    {
-      !practiceBank && (
-        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="word-list-heading">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="word-list-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-              Hear the pattern in these words
-            </h2>
-            <WordListPreview words={playWords} accentClass={cardAccent.bg} showSentences={false} />
-          </div>
-        </section>
-      )
-    }
-
-    <!-- Full practice inventory: every word in this Skill's practice bank,
-         rendered directly from src/lib/content/skillPracticeBanks.ts (never
-         duplicated in page content). Replaces the small demonstration
-         preview above once a Skill has a bank, since showing 5-10 sample
-         words next to a CTA that draws from a larger, unseen collection was
-         confusing. Only rendered when a bank exists for this Skill. -->
-    {
-      practiceBank && practiceBankWords && (
-        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="practice-words-heading">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="practice-words-heading" class="font-display text-lg font-semibold text-ink">
-              {data.title} to Practice
-            </h2>
-            <p class="mt-1 text-sm font-semibold text-ink-soft">
-              {practiceBankWords.length} words
-            </p>
-            <div class="mt-4">
-              <WordListPreview
-                words={practiceBankWords}
-                accentClass={cardAccent.bg}
-                showSentences={false}
-              />
-            </div>
-          </div>
-        </section>
-      )
-    }
-
-    <!-- Practice CTA: draws a random 10-word session from the full
-         inventory shown above. See src/lib/content/skillPracticeBanks.ts. -->
-    {
-      practiceBank && practiceBankWords && (
-        <section class="px-5 pb-10 sm:px-6 md:pb-14" aria-labelledby="practice-heading">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <div
-              class={`rounded-3xl border border-line bg-white px-6 py-7 shadow-card sm:px-8 border-l-[3px] ${cardAccent.border}`}
-            >
-              <h2 id="practice-heading" class="font-display text-lg font-semibold text-ink">
-                Practice {data.title}
-              </h2>
-              <p class="mt-2 max-w-2xl text-base leading-relaxed text-ink-soft">
-                {practiceDescription}
-              </p>
-              <button
-                type="button"
-                id={`btn-practice-skill-${data.id}`}
-                data-words={practiceBankWordsJson}
-                data-skill-title={data.title}
-                class="btn-primary mt-5"
-              >
-                Practice {data.title}
-              </button>
-              <p
-                id={`practice-status-${data.id}`}
-                class="sr-only"
-                role="status"
-                aria-live="polite"
-              />
-            </div>
-          </div>
-        </section>
-      )
-    }
-
-    <!-- Why these words / how the concept works (markdown body) -->
-    <section class="bg-cream-deep px-5 py-12 sm:px-6 md:py-16" aria-labelledby="why-heading">
-      <div class="mx-auto max-w-2xl md:max-w-3xl">
-        <div class={`border-l-[3px] pl-5 sm:pl-6 ${cardAccent.border}`}>
-          <h2 class="text-display-md">Understanding the pattern</h2>
-          <div
-            class="text-body-lg [&_strong]:font-semibold [&_strong]:text-ink mt-4 max-w-2xl space-y-5 text-ink-soft sm:space-y-6 [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto"
-          >
-            <Content />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skill → Grade Units: the only route from here into assigned practice -->
-    {
-      curriculumPlacements.length > 0 && (
-        <section
-          class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
-          aria-labelledby="curriculum-heading"
-        >
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="curriculum-heading" class="mb-2 font-display text-lg font-semibold text-ink">
-              Where this fits in the curriculum
-            </h2>
-            <p class="mb-5 max-w-2xl text-base leading-relaxed text-ink-soft">
-              This page explains the pattern — practice it in the grade-level lesson where it's
-              taught:
-            </p>
-            <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-              {curriculumPlacements.map(({ unit, position, gradeLabel }) => (
-                <a
-                  href={listLink(unit)}
-                  class="relative flex-1 overflow-hidden rounded-3xl border border-line bg-white py-4 pl-5 pr-4 shadow-card transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-brand-blue before:content-[''] hover:-translate-y-0.5 hover:shadow-card-md sm:flex-none sm:min-w-[16rem]"
-                >
-                  {(gradeLabel || position) && (
-                    <span class="block text-sm font-semibold text-brand-blue">
-                      {gradeLabel}
-                      {gradeLabel && position && <span aria-hidden="true"> · </span>}
-                      {position && `Step ${position.step} of ${position.total}`}
-                    </span>
-                  )}
-                  <span class="mt-0.5 block font-display text-base font-semibold text-ink">
-                    {unit.data.title}
-                  </span>
-                  <span class="mt-1 block text-sm font-semibold text-brand-blue">
-                    {unit.data.words.length} words to practice →
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-      )
-    }
-
-    <!-- FAQ -->
-    {
-      data.faq.length > 0 && (
-        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="faq-heading">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="faq-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-              Frequently asked questions
-            </h2>
-            <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-card">
-              <div class="divide-y divide-line/60 px-6 sm:px-7">
-                {data.faq.map((item) => (
-                  <div class="py-5">
-                    <h3 class="font-display text-base font-semibold text-ink">{item.question}</h3>
-                    <p class="mt-2 text-base leading-relaxed text-ink-soft">{item.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )
-    }
-
-    <!-- Learning progression -->
-    {
-      (prerequisites.length > 0 || related.length > 0 || next.length > 0) && (
-        <section
-          class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
-          aria-labelledby="progression-heading"
-        >
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="progression-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-              Where to Go From Here
-            </h2>
-            <RelatedListCards
-              heading="Review First"
-              items={prerequisites}
-              listLink={listLink}
-              accent="previous"
-            />
-            <RelatedListCards
-              heading="Next Step"
-              items={next}
-              listLink={listLink}
-              accent="forward"
-            />
-            <RelatedListCards heading="Explore More" items={related} listLink={listLink} />
-          </div>
-        </section>
-      )
-    }
-
-    {
-      data.canonicalSource?.publicAttribution && (
-        <div class="mx-auto max-w-2xl px-5 py-8 sm:px-6 md:max-w-3xl">
-          <SourceAttribution source={data.canonicalSource} />
-        </div>
-      )
-    }
-  </main>
-
-  <SiteFooter />
-</Layout>
-)}
-
-<script>
-  import { encodeWordList } from '@/lib/words';
-  import { selectSkillPracticeSession } from '@/lib/content/skillPracticeBanks';
-
-  const SESSION_SIZE = 10;
-
-  interface SpellingWordData {
-    word: string;
-    exampleSentence?: string;
-  }
-
-  function getBankWords(button: HTMLButtonElement): SpellingWordData[] {
-    try {
-      const parsed: unknown = JSON.parse(button.dataset.words ?? '[]');
-      if (!Array.isArray(parsed)) return [];
-      return parsed.filter(
-        (e): e is SpellingWordData =>
-          typeof e === 'object' && e !== null && typeof (e as SpellingWordData).word === 'string',
-      );
-    } catch {
-      return [];
-    }
-  }
-
-  function handlePracticeClick(event: Event): void {
-    const button = event.currentTarget as HTMLButtonElement;
-    const statusEl = document.getElementById(
-      button.id.replace('btn-practice-skill-', 'practice-status-'),
-    );
-    const bank = getBankWords(button);
-    if (bank.length === 0) return;
-
-    const session = selectSkillPracticeSession(bank, SESSION_SIZE);
-    const result = encodeWordList(session.map((w) => w.word));
-    if (!result.ok) {
-      if (statusEl) {
-        statusEl.textContent = 'Could not start this practice session. Please try again.';
-      }
-      return;
-    }
-
-    const skillTitle = button.dataset.skillTitle ?? '';
-    try {
-      sessionStorage.setItem(`sw:words:${result.payload}`, JSON.stringify(session));
-      if (skillTitle) sessionStorage.setItem(`sw:title:${result.payload}`, skillTitle);
-    } catch {
-      /* quota exceeded or private browsing — non-fatal */
-    }
-
-    window.location.href = `/play?list=${result.payload}`;
-  }
-
-  document.querySelectorAll<HTMLButtonElement>('[id^="btn-practice-skill-"]').forEach((btn) => {
-    btn.addEventListener('click', handlePracticeClick);
-  });
-</script>

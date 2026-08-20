@@ -6,23 +6,8 @@ import type { GradeRouteClassification } from './canonicalGradeRoutes';
  * only the accent mappings every Direction A view draws from — the staged
  * per-route `isPilot*` gating that used to live here has been retired route
  * family by route family as each was verified and migrated (Grade Hubs,
- * Grade Units). Any content still gated behind an `isPilot*`-style check
- * elsewhere in the codebase (e.g. `isPilotSkill`, still used by
- * `skills/[slug].astro`) is on its own remaining allowlist until that route
- * family's rollout is verified too.
+ * Grade Units, canonical Skills).
  */
-
-export const PILOT_SKILL_IDS: readonly string[] = [
-  'vowel-teams-ai-ay', // /skills/ai-ay-vowel-teams
-  'short-a-words', // /skills/short-a-words
-  'digraph-ch-words', // /skills/ch-digraph-words
-  'silent-e-long-o', // /skills/long-o-silent-e
-  'greek-and-latin-roots', // /skills/greek-and-latin-roots
-];
-
-export function isPilotSkill(id: string): boolean {
-  return PILOT_SKILL_IDS.includes(id);
-}
 
 /**
  * Restrained accent mapping — documented here in full, not scattered, so it

@@ -10,14 +10,6 @@ import { describe, expect, it } from 'vitest';
 // assert on rendered markup (environment: 'node', no jsdom/happy-dom, no
 // @astrojs/container, no Playwright config).
 
-function indexOfHeading(source: string, heading: string): number {
-  const match = source.match(new RegExp(`heading=["']${heading}["']`));
-  if (!match || match.index === undefined) {
-    throw new Error(`Could not find heading="${heading}" in source`);
-  }
-  return match.index;
-}
-
 describe('Relationship navigation rendering', () => {
   it('renders Explore more only for canonical non-Core Grade pages', () => {
     // The real file is src/pages/[gradeSlug]/[strand]/[slug].astro (the
@@ -38,13 +30,23 @@ describe('Relationship navigation rendering', () => {
   });
 
   it('preserves the existing three-bucket model on Skill pages', () => {
-    const source = readFileSync(join(process.cwd(), 'src/pages/skills/[slug].astro'), 'utf8');
-    expect(indexOfHeading(source, 'Review First')).toBeLessThan(
-      indexOfHeading(source, 'Next Step'),
+    // The three-bucket "Where to go from here" model is built as a
+    // `heading: '...'` view-model array inside SkillView.astro (the shared
+    // Direction A component the Skill page renders), not as JSX heading
+    // attributes on the page itself.
+    const source = readFileSync(
+      join(process.cwd(), 'src/components/direction-a/SkillView.astro'),
+      'utf8',
     );
-    expect(indexOfHeading(source, 'Next Step')).toBeLessThan(
-      indexOfHeading(source, 'Explore More'),
-    );
+    const review = source.indexOf("heading: 'Review First'");
+    const next = source.indexOf("heading: 'Next Step'");
+    const explore = source.indexOf("heading: 'Explore More'");
+
+    expect(review).toBeGreaterThan(-1);
+    expect(next).toBeGreaterThan(-1);
+    expect(explore).toBeGreaterThan(-1);
+    expect(review).toBeLessThan(next);
+    expect(next).toBeLessThan(explore);
   });
 
   it('renders Core copy in order without Explore More in the Grade Unit world renderer', () => {

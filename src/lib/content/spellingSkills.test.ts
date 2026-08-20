@@ -27,6 +27,10 @@ import { getCanonicalSkillPathById } from './canonicalSkillRoutes';
 
 const netlifyTomlPath = join(process.cwd(), 'netlify.toml');
 const skillsHubPath = join(process.cwd(), 'src/pages/skills/index.astro');
+// The Hub's page-level intro copy and per-skill rendering now live in the
+// shared Direction A view component the Hub page renders (SkillsHubView),
+// not inline in the page file itself.
+const skillsHubViewPath = join(process.cwd(), 'src/components/direction-a/SkillsHubView.astro');
 
 function findNetlifyRedirect(from: string): { to: string; status: string } | undefined {
   const source = readFileSync(netlifyTomlPath, 'utf8');
@@ -140,14 +144,14 @@ const byId = new Map(summaries.map((entry) => [entry.data.id, entry]));
 
 describe('curated spelling Skills browse index', () => {
   it('frames the Hub around known skills and concepts and routes sequence-seeking readers to grades', () => {
-    const source = readFileSync(skillsHubPath, 'utf8');
+    const viewSource = readFileSync(skillsHubViewPath, 'utf8');
 
-    expect(source).toMatch(/Browse by skill/);
-    expect(source).toMatch(/spelling concept/);
-    expect(source).toContain('href="/#grades"');
-    expect(source).toMatch(/sequenced grade-level path/);
-    expect(source).not.toMatch(/Start with short vowels/i);
-    expect(source).not.toMatch(/Choose a specific spelling sound or pattern/i);
+    expect(viewSource).toMatch(/Browse by skill/);
+    expect(viewSource).toMatch(/spelling concept/);
+    expect(viewSource).toContain('href="/#grades"');
+    expect(viewSource).toMatch(/sequenced grade-level path/);
+    expect(viewSource).not.toMatch(/Start with short vowels/i);
+    expect(viewSource).not.toMatch(/Choose a specific spelling sound or pattern/i);
   });
 
   it('gives every family authored orientation without the legacy Mad-Libs template', () => {
@@ -163,11 +167,21 @@ describe('curated spelling Skills browse index', () => {
     expect(GREEK_AND_LATIN_ROOTS_SKILL_FAMILY.guidance).not.toMatch(/choose/i);
   });
 
-  it('uses canonical entry descriptions and introduces no Hub-only or grade metadata', () => {
+  it('uses canonical family descriptions and introduces no Hub-only or grade metadata', () => {
     const source = readFileSync(skillsHubPath, 'utf8');
+    const viewSource = readFileSync(skillsHubViewPath, 'utf8');
 
-    expect(source).toContain('{entry.data.description}');
+    // Family sections thread the canonical description/guidance straight
+    // through from SPELLING_SKILL_FAMILIES to the view, unmodified — the
+    // Hub doesn't fabricate its own per-family or per-skill copy. Individual
+    // Skills render as link-pills (title + href only, see the "compact
+    // section, not a 41-card dashboard" design note atop SkillsHubView), so
+    // there is deliberately no per-skill description on this page.
+    expect(source).toContain('description: family.description,');
+    expect(source).toContain('guidance: family.guidance,');
+    expect(viewSource).toContain('{family.description} {family.guidance}');
     expect(source).not.toMatch(/hubDescription|skillDescription|gradeBadge|gradeRange/);
+    expect(viewSource).not.toMatch(/hubDescription|skillDescription|gradeBadge|gradeRange/);
   });
 
   it('retains a BreadcrumbList and one flat canonical 41-Skill ItemList', () => {

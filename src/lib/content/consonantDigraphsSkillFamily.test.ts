@@ -16,6 +16,10 @@ import {
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const skillsIndexRoutePath = join(process.cwd(), 'src/pages/skills/index.astro');
+// The per-family description/guidance prose now renders inside the shared
+// Direction A view component the Hub page passes its `families` prop to,
+// not inline in the page file itself.
+const skillsHubViewPath = join(process.cwd(), 'src/components/direction-a/SkillsHubView.astro');
 const listDetailRoutePath = join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro');
 
 const CONSONANT_DIGRAPH_SKILL_IDS = [
@@ -161,7 +165,8 @@ describe('Consonant Digraphs Skill Family', () => {
     );
 
     const route = readFileSync(skillsIndexRoutePath, 'utf8');
-    expect(route).toContain('{family.description} {family.guidance}');
+    const view = readFileSync(skillsHubViewPath, 'utf8');
+    expect(view).toContain('{family.description} {family.guidance}');
     expect(route).toContain('getSpellingSkillPath(entry)');
   });
 

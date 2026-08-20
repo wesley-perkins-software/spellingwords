@@ -3,18 +3,24 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { SKILL_PRACTICE_BANKS, skillPracticeDescription } from './skillPracticeBanks';
 
-// Source-level checks on the Skill page template, matching this repo's
-// existing convention (see shortAReferenceSkill.test.ts) of asserting on
-// file content rather than rendering Astro components in Vitest.
+// Source-level checks on the Skill page + its shared Direction A view
+// component, matching this repo's existing convention (see
+// shortAReferenceSkill.test.ts) of asserting on file content rather than
+// rendering Astro components in Vitest. The page (src/pages/skills/[slug].astro)
+// computes the practice-bank data and owns the /play launch transport;
+// SkillView.astro (src/components/direction-a/SkillView.astro) renders it.
 const skillPagePath = join(process.cwd(), 'src/pages/skills/[slug].astro');
 const source = readFileSync(skillPagePath, 'utf8');
 
+const skillViewPath = join(process.cwd(), 'src/components/direction-a/SkillView.astro');
+const viewSource = readFileSync(skillViewPath, 'utf8');
+
 function sectionMarkup(labelledBy: string, until: string): string {
-  const start = source.indexOf(`aria-labelledby="${labelledBy}"`);
+  const start = viewSource.indexOf(`aria-labelledby="${labelledBy}"`);
   expect(start, `expected to find a section labelled "${labelledBy}"`).toBeGreaterThan(-1);
-  const end = source.indexOf(until, start);
+  const end = viewSource.indexOf(until, start);
   expect(end, `expected to find "${until}" after "${labelledBy}"`).toBeGreaterThan(start);
-  return source.slice(start, end);
+  return viewSource.slice(start, end);
 }
 
 describe('Skill page practice inventory', () => {
@@ -24,7 +30,13 @@ describe('Skill page practice inventory', () => {
     expect(source).toContain('skillPracticeDescription');
     expect(source).toContain('toPlayableSkillPracticeWords');
     expect(source).toContain('const practiceBank = getSkillPracticeBank(data.id);');
-    expect(source).toContain('practiceBank && practiceBankWords && (');
+    expect(source).toContain(
+      'const practiceBankWords = practiceBank ? toPlayableSkillPracticeWords(practiceBank) : null;',
+    );
+    // SkillView renders the CTA + practice-only sections only when a bank
+    // resolved to real practice words — every downstream section is gated
+    // on the same computed value, not re-derived independently.
+    expect(viewSource).toContain('{practiceBankWords && (');
   });
 
   it('has at least one piloted Skill so the practice branches are exercised at build time', () => {
@@ -32,31 +44,37 @@ describe('Skill page practice inventory', () => {
   });
 
   it('renders the full canonical practice bank, not a duplicated or partial word list', () => {
-    const inventoryMarkup = sectionMarkup('practice-words-heading', 'aria-labelledby="practice-heading"');
-    // Pulls straight from the bank data computed at the top of the file —
-    // there is no second, independently-authored word list in the template.
-    expect(inventoryMarkup).toContain('words={practiceBankWords}');
-    expect(inventoryMarkup).toContain('{practiceBankWords.length} words');
-    expect(inventoryMarkup).toContain('{data.title} to Practice');
+    const inventoryMarkup = sectionMarkup('word-list-heading', '</section>');
+    // Pulls straight from the bank data computed at the top of the page and
+    // passed in as a prop — there is no second, independently-authored word
+    // list in the view component.
+    expect(inventoryMarkup).toContain('words={practiceBankWords ?? demoWords}');
+    expect(inventoryMarkup).toContain('{(practiceBankWords ?? demoWords).length} words');
+    expect(inventoryMarkup).toContain('${title} to Practice');
   });
 
   it('shows the demonstration preview only for Skills without a practice bank', () => {
-    const guardStart = source.indexOf('!practiceBank && (');
-    expect(guardStart, 'expected a "!practiceBank" guard').toBeGreaterThan(-1);
-    const headingStart = source.indexOf('aria-labelledby="practice-words-heading"');
-    const demoMarkup = source.slice(guardStart, headingStart);
-    expect(demoMarkup).toContain('Hear the pattern in these words');
+    const wordListMarkup = sectionMarkup('word-list-heading', '</section>');
+    // A single heading/word-grid section serves both cases: it shows the
+    // full practice bank when one exists, and falls back to the demo
+    // preview copy/words only when practiceBankWords is falsy.
+    expect(wordListMarkup).toContain(
+      "practiceBankWords ? `${title} to Practice` : 'Hear the pattern in these words'",
+    );
+    expect(wordListMarkup).toContain('Hear the pattern in these words');
   });
 
   it('derives the practice heading and CTA copy from the Skill title and bank size, not hardcoded prose', () => {
-    expect(source).toContain('Practice {data.title}');
+    expect(viewSource).toContain('Practice {title}');
 
-    const practiceSectionMarkup = sectionMarkup('practice-heading', '<!-- Why these words');
+    const practiceSectionMarkup = sectionMarkup('practice-heading', '</section>');
     // The description text itself is computed (skillPracticeDescription), not
     // authored inline — see the dedicated tests on that function below for
     // the exact wording per bank-size band.
     expect(practiceSectionMarkup).toContain('{practiceDescription}');
-    expect(source).toContain('skillPracticeDescription(practiceBankWords.length)');
+    expect(source).toContain(
+      'const practiceDescription = practiceBankWords\n  ? skillPracticeDescription(practiceBankWords.length)\n  : null;',
+    );
 
     // No internal architecture terminology leaking into user-facing copy.
     expect(practiceSectionMarkup).not.toMatch(/practice bank/i);
@@ -76,17 +94,19 @@ describe('Skill page practice inventory', () => {
   });
 
   it('launches /play through the existing encode + sessionStorage transport, not a new one', () => {
-    expect(source).toContain("import { encodeWordList } from '@/lib/words';");
-    expect(source).toContain('selectSkillPracticeSession');
-    expect(source).toContain('const SESSION_SIZE = 10;');
-    expect(source).toContain("sessionStorage.setItem(`sw:words:");
-    expect(source).toContain("window.location.href = `/play?list=");
+    // The launch transport lives in SkillView's own self-contained script
+    // (it targets [data-skill-title], not a page-owned button handler).
+    expect(viewSource).toContain("import { encodeWordList } from '@/lib/words';");
+    expect(viewSource).toContain('selectSkillPracticeSession');
+    expect(viewSource).toContain('const SESSION_SIZE = 10;');
+    expect(viewSource).toContain('sessionStorage.setItem(`sw:words:');
+    expect(viewSource).toContain('window.location.href = `/play?list=');
   });
 
   it('uses unique heading ids across the practice sections', () => {
-    const ids = ['word-list-heading', 'practice-words-heading', 'practice-heading'];
+    const ids = ['word-list-heading', 'practice-heading'];
     for (const id of ids) {
-      const matches = source.split(`id="${id}"`).length - 1;
+      const matches = viewSource.split(`id="${id}"`).length - 1;
       expect(matches, `expected exactly one "${id}" heading`).toBe(1);
     }
   });

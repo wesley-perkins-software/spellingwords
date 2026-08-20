@@ -77,3 +77,79 @@ export const SKILL_FAMILY_ACCENT: Record<string, DaAccent> = {
   'Silent E': 'periwinkle',
   'Greek and Latin Roots': 'pink',
 };
+
+/**
+ * Grade identity — a second, independent accent axis from strand (see
+ * STRAND_ACCENT above). Reused verbatim from Direction A's own homepage
+ * grade-grid mock (design-explore/direction-a/index.astro), not invented
+ * for this refinement — so Grade Unit pages carry the same grade-color
+ * language a visitor already saw on the homepage/Grade Hub. Applied only
+ * to Grade Unit pages (grade chip, a thin structural rule, and the
+ * related-learning card accent) — canonical Skill pages are grade-
+ * independent and never use this map; their identity comes from
+ * SKILL_FAMILY_ACCENT instead. Coral is Grade 1's identity color here AND
+ * the site's one action color (STRAND/GRADE_ACCENT never controls a
+ * Practice CTA's color — that always renders via Button's own coral
+ * variant, regardless of which grade or strand the page belongs to).
+ */
+export const GRADE_ACCENT: Record<GradeCode, DaAccent> = {
+  K: 'sun',
+  '1': 'coral',
+  '2': 'teal',
+  '3': 'periwinkle',
+  '4': 'pink',
+  '5': 'brand',
+};
+
+/** Tailwind class lookups for each accent, written as literal strings (not
+ * template-built) in every table below so Tailwind's JIT scanner can find
+ * them — see the same convention already used in RelatedListCards.astro. */
+export const ACCENT_BG_CLASS: Record<DaAccent, string> = {
+  brand: 'bg-da-brand',
+  coral: 'bg-da-coral',
+  sun: 'bg-da-sun',
+  teal: 'bg-da-teal',
+  pink: 'bg-da-pink',
+  periwinkle: 'bg-da-periwinkle',
+};
+
+export const ACCENT_TINT_BG_CLASS: Record<DaAccent, string> = {
+  brand: 'bg-da-brand-tint',
+  coral: 'bg-da-coral-tint',
+  sun: 'bg-da-sun-tint',
+  teal: 'bg-da-teal-tint',
+  pink: 'bg-da-pink-tint',
+  periwinkle: 'bg-da-periwinkle-tint',
+};
+
+export const ACCENT_BORDER_CLASS: Record<DaAccent, string> = {
+  brand: 'border-da-brand',
+  coral: 'border-da-coral',
+  sun: 'border-da-sun',
+  teal: 'border-da-teal',
+  pink: 'border-da-pink',
+  periwinkle: 'border-da-periwinkle',
+};
+
+export const ACCENT_INK_CLASS: Record<DaAccent, string> = {
+  brand: 'text-da-brand-strong',
+  coral: 'text-da-coral-ink',
+  sun: 'text-da-sun-ink',
+  teal: 'text-da-teal-ink',
+  pink: 'text-da-pink-ink',
+  periwinkle: 'text-da-periwinkle-ink',
+};
+
+/** Same accent bg color, expressed as a `before:` pseudo-element variant —
+ * for the left-edge-accent card treatment (relative + before:absolute
+ * before:inset-y-0 before:left-0 before:w-1.5). Kept as its own literal
+ * table (rather than derived at render time) so Tailwind's JIT scanner can
+ * find the full class string. */
+export const ACCENT_BEFORE_BG_CLASS: Record<DaAccent, string> = {
+  brand: 'before:bg-da-brand',
+  coral: 'before:bg-da-coral',
+  sun: 'before:bg-da-sun',
+  teal: 'before:bg-da-teal',
+  pink: 'before:bg-da-pink',
+  periwinkle: 'before:bg-da-periwinkle',
+};

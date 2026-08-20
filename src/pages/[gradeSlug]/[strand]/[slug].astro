@@ -202,7 +202,7 @@ const pilotRelatedGroups = isHighFrequencyWords
 >
   <SiteHeader variant="discovery" currentPath={getGradeHubPath(route.grade)} theme="direction-a" />
   <main id="main-content">
-    <div class="mx-auto max-w-2xl px-5 pt-8 sm:px-6 md:max-w-3xl md:pt-10">
+    <div class="mx-auto max-w-[1100px] px-5 pt-8 sm:px-6 md:pt-10">
       <Breadcrumbs items={breadcrumbItems} />
     </div>
     <GradeUnitView
@@ -211,6 +211,7 @@ const pilotRelatedGroups = isHighFrequencyWords
       Content={Content}
       strand={route.classification}
       strandLabel={categoryLabel}
+      grade={data.grade}
       gradeLabel={gradeDisplay}
       roadmapPosition={roadmapPosition}
       gradeHubHref={gradeHub?.hubHref}
@@ -218,6 +219,7 @@ const pilotRelatedGroups = isHighFrequencyWords
       playWordsJson={playWordsJson}
       buttonId={`btn-pilot-practice-${data.id}`}
       wordListHeading={isContractUnit ? `The ${data.words.length} words to practice in this step` : `All ${data.words.length} words in this list`}
+      wordCount={data.words.length}
       showSentences={isContractUnit}
       readinessSignals={!isHighFrequencyWords && !isThemedSpellingPractice ? data.readinessSignals : []}
       bodyHeading={bodyHeading}
@@ -230,7 +232,7 @@ const pilotRelatedGroups = isHighFrequencyWords
       extraNav={pilotExtraNav}
     />
     {data.canonicalSource?.publicAttribution && (
-      <div class="mx-auto max-w-2xl px-5 py-8 sm:px-6 md:max-w-3xl">
+      <div class="mx-auto max-w-[1100px] px-5 py-8 sm:px-6">
         <SourceAttribution source={data.canonicalSource} />
       </div>
     )}

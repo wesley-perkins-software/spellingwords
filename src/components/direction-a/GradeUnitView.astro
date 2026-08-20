@@ -3,17 +3,29 @@
 // Unit pages, used by BOTH the standard-template renderer
 // ([gradeSlug]/[strand]/[slug].astro) and the Core Spelling renderer
 // (GradeUnitWorldPage.astro), replacing the old gradient-sky "world kit"
-// hero for pilot ids. Blush-neutral atmosphere, blue educational hero, coral
-// Practice CTA. Adapts to whichever real content it's given — word notes,
-// concept-skill callouts, related-list groups, and extra navigation
-// (HFW set prev/next) are all optional and simply omitted when absent.
+// hero for pilot ids.
+//
+// Structure is deliberately promoted from the design-explore prototype
+// (design-explore/direction-a/skill.astro), not simplified from it: an
+// open, rule-separated editorial column plus a sticky related-learning
+// sidebar on desktop, a designed word-tile bank (not a plain text list),
+// and two independent, restrained accent axes — grade identity (chip,
+// structural rule, sidebar card) and strand identity (word-bank tint,
+// section eyebrow) — rather than one flat "blush + tiny accent" system.
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
-import AtmosphereBand from './AtmosphereBand.astro';
 import Chip from './Chip.astro';
 import Button from './Button.astro';
+import WordTileGrid from './WordTileGrid.astro';
 import type { SpellingListEntry } from '@/lib/content/spellingLists';
 import type { GradeRouteClassification } from '@/lib/content/canonicalGradeRoutes';
-import { STRAND_ACCENT } from '@/lib/content/pilotContent';
+import {
+  STRAND_ACCENT,
+  GRADE_ACCENT,
+  ACCENT_BG_CLASS,
+  ACCENT_BORDER_CLASS,
+  ACCENT_TINT_BG_CLASS,
+  ACCENT_INK_CLASS,
+} from '@/lib/content/pilotContent';
 import type { SpellingWord } from '@/types/spelling';
 
 interface WordNoteItem {
@@ -34,6 +46,10 @@ interface Props {
   Content: AstroComponentFactory;
   strand: GradeRouteClassification;
   strandLabel: string;
+  /** Content's raw grade value (validated at content-collection time, but
+   *  typed as a plain string there) — looked up against GRADE_ACCENT with a
+   *  safe fallback so an unrecognized value just omits the grade accent. */
+  grade?: string | null;
   gradeLabel?: string | null;
   roadmapPosition?: { step: number; total: number };
   gradeHubHref?: string;
@@ -41,6 +57,7 @@ interface Props {
   playWordsJson: string;
   buttonId: string;
   wordListHeading: string;
+  wordCount: number;
   showSentences: boolean;
   readinessSignals: readonly string[];
   bodyHeading: string;
@@ -59,6 +76,7 @@ const {
   Content,
   strand,
   strandLabel,
+  grade,
   gradeLabel,
   roadmapPosition,
   gradeHubHref,
@@ -66,6 +84,7 @@ const {
   playWordsJson,
   buttonId,
   wordListHeading,
+  wordCount,
   showSentences,
   readinessSignals,
   bodyHeading,
@@ -78,33 +97,16 @@ const {
   extraNav,
 } = Astro.props;
 
-const accent = STRAND_ACCENT[strand];
-const chipTone = accent === 'brand' ? 'brand' : accent;
+const strandAccent = STRAND_ACCENT[strand as GradeRouteClassification];
+const gradeAccent = grade && grade in GRADE_ACCENT ? GRADE_ACCENT[grade as keyof typeof GRADE_ACCENT] : undefined;
 
-// Written as literal strings (not template-built) so Tailwind's JIT scanner
-// can detect them — see the same convention in RelatedListCards.astro.
-const accentBgClass: Record<typeof accent, string> = {
-  brand: 'bg-da-brand',
-  coral: 'bg-da-coral',
-  sun: 'bg-da-sun',
-  teal: 'bg-da-teal',
-  pink: 'bg-da-pink',
-  periwinkle: 'bg-da-periwinkle',
-};
-const accentBorderClass: Record<typeof accent, string> = {
-  brand: 'border-da-brand',
-  coral: 'border-da-coral',
-  sun: 'border-da-sun',
-  teal: 'border-da-teal',
-  pink: 'border-da-pink',
-  periwinkle: 'border-da-periwinkle',
-};
+const hasSidebar = conceptSkills.length > 0 || relatedGroups.some((g: RelatedGroup) => g.items.length > 0) || Boolean(extraNav?.items.length);
 ---
 
-<!-- Hero: blue educational hero, unit atmosphere underneath -->
-<section class="px-5 pb-8 pt-6 sm:px-6 md:pb-10 md:pt-8">
-  <div class="mx-auto max-w-2xl md:max-w-3xl">
-    <div class="relative overflow-hidden rounded-3xl border border-da-brand bg-da-brand-tint px-6 py-8 sm:px-10 sm:py-10">
+<!-- Hero: blue structural DNA, grade identity via chip + the rule beneath it -->
+<section class="px-5 pb-0 pt-6 sm:px-6 md:pt-8">
+  <div class="mx-auto max-w-[1100px]">
+    <div class="relative overflow-hidden rounded-2xl border border-da-brand bg-da-brand-tint px-6 py-7 sm:px-9 sm:py-9">
       {roadmapPosition && gradeHubHref && gradeLabel && (
         <p class="mb-3 text-sm font-bold text-da-brand-strong">
           <a href={gradeHubHref} class="hover:underline">{gradeLabel} Spelling</a>
@@ -114,14 +116,14 @@ const accentBorderClass: Record<typeof accent, string> = {
       )}
 
       <div class="flex flex-wrap items-center gap-2">
-        {gradeLabel && <Chip tone="neutral">{gradeLabel}</Chip>}
-        <Chip tone={chipTone}>{strandLabel}</Chip>
+        {gradeLabel && gradeAccent && <Chip tone={gradeAccent}>{gradeLabel}</Chip>}
+        <Chip tone={strandAccent}>{strandLabel}</Chip>
       </div>
 
-      <h1 class="mt-3 font-quicksand text-[clamp(1.9rem,4vw,2.5rem)] font-bold leading-[1.15] text-da-ink">{title}</h1>
+      <h1 class="mt-3 max-w-[36ch] font-quicksand text-[clamp(1.9rem,4vw,2.6rem)] font-bold leading-[1.12] text-da-ink">{title}</h1>
       <p class="mt-3 max-w-2xl text-[1.05rem] leading-relaxed text-da-ink-soft">{description}</p>
 
-      <div class="mt-7">
+      <div class="mt-6">
         <Button
           id={buttonId}
           type="button"
@@ -130,161 +132,148 @@ const accentBorderClass: Record<typeof accent, string> = {
           size="lg"
           aria-label={`Practice these ${playWords.length} words in ${title}`}
         >
-          Practice these words
+          Practice these words →
         </Button>
         <p id={`${buttonId}-status`} class="mt-3 text-sm text-da-incorrect" aria-live="polite" aria-atomic="true" />
       </div>
     </div>
+    {gradeAccent && <div class:list={['mt-6 h-[3px] w-16 rounded-full', ACCENT_BG_CLASS[gradeAccent]]} aria-hidden="true"></div>}
   </div>
 </section>
 
-{readinessSignals.length > 0 && (
-  <AtmosphereBand tone="unit" ariaLabel="Is this the right list?">
-    <h2 class="font-quicksand text-xl font-bold text-da-ink">These spelling words are a good fit for students who...</h2>
-    <ul class="mt-4 space-y-3 text-base leading-relaxed text-da-ink-soft">
-      {readinessSignals.map((signal) => (
-        <li class="flex items-start gap-2.5">
-          <span aria-hidden="true" class="mt-0.5 flex-shrink-0 text-da-brand">✓</span>
-          <span>{signal}</span>
-        </li>
-      ))}
-    </ul>
-  </AtmosphereBand>
-)}
+<div class="px-5 pb-4 pt-8 sm:px-6 md:pt-10">
+  <div class:list={['mx-auto grid max-w-[1100px] gap-10', hasSidebar && 'lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start']}>
+    <div class="min-w-0">
+      {readinessSignals.length > 0 && (
+        <>
+          <section aria-labelledby="readiness-heading" class="mb-8">
+            <h2 id="readiness-heading" class="mb-3 font-quicksand text-xl font-bold text-da-ink">These spelling words are a good fit for students who...</h2>
+            <ul class="space-y-2.5 text-base leading-relaxed text-da-ink-soft">
+              {readinessSignals.map((signal: string) => (
+                <li class="flex items-start gap-2.5">
+                  <span aria-hidden="true" class="mt-0.5 flex-shrink-0 text-da-brand">✓</span>
+                  <span>{signal}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+          <hr class="my-8 border-t border-da-border" />
+        </>
+      )}
 
-<!-- Word list -->
-<section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="word-list-heading">
-  <div class="mx-auto max-w-2xl md:max-w-3xl">
-    <h2 id="word-list-heading" class="mb-4 font-quicksand text-xl font-bold text-da-ink">{wordListHeading}</h2>
-    <div class="overflow-hidden rounded-3xl border border-da-border bg-da-canvas-raised shadow-sm">
-      <div class:list={['h-1.5', accentBgClass[accent]]} aria-hidden="true"></div>
-      {showSentences ? (
-        <ul class="px-6 py-3 sm:px-8 sm:py-4" aria-label="Words in this list">
-          {playWords.map((word) => (
-            <li class="flex flex-col gap-0.5 border-b border-da-border py-3 last:border-b-0 sm:flex-row sm:items-baseline sm:gap-5">
-              <span class="w-20 shrink-0 font-quicksand text-lg font-semibold leading-snug text-da-ink sm:text-xl">{word.word}</span>
-              {word.exampleSentence && <span class="text-sm leading-relaxed text-da-ink-soft sm:text-base">{word.exampleSentence}</span>}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <ul class="grid grid-cols-2 gap-x-6 gap-y-3 px-6 py-7 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-4 sm:px-8 sm:py-8" aria-label="Words in this list">
-          {playWords.map((word) => (
-            <li class="font-quicksand text-lg font-semibold leading-snug text-da-ink sm:text-xl">{word.word}</li>
-          ))}
-        </ul>
+      <!-- Word list — the central artifact: strand-tinted panel, white tiles -->
+      <section aria-labelledby="word-list-heading" class="mb-9">
+        <p class:list={['mb-1 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em]', ACCENT_INK_CLASS[strandAccent]]}>Word list</p>
+        <div class="mb-3 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+          <h2 id="word-list-heading" class="font-quicksand text-xl font-bold text-da-ink">{wordListHeading}</h2>
+          <p class="text-sm font-bold text-da-ink-faint">{gradeLabel ? `${gradeLabel} · ${strandLabel}` : strandLabel}</p>
+        </div>
+        <WordTileGrid words={playWords} accent={strandAccent} showSentences={showSentences} />
+        <p class="mt-2 text-sm font-semibold text-da-ink-faint">{wordCount} words</p>
+      </section>
+
+      <!-- Explanation -->
+      <section aria-labelledby="why-heading" class="mb-9 rounded-2xl bg-da-surface-cool p-6 sm:p-7">
+        <h2 id="why-heading" class="font-quicksand text-[1.3rem] font-bold text-da-ink">{bodyHeading}</h2>
+        <div class="mt-3 max-w-[68ch] space-y-4 text-[1.02rem] leading-relaxed text-da-ink-soft [&_strong]:font-semibold [&_strong]:text-da-ink [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto">
+          <Content />
+        </div>
+      </section>
+
+      {wordNotes.length > 0 && (
+        <section aria-labelledby="word-notes-heading" class="mb-9">
+          <h2 id="word-notes-heading" class="mb-3 font-quicksand text-xl font-bold text-da-ink">{wordNotesHeading ?? 'Notes for particular words'}</h2>
+          <div class="space-y-3">
+            {wordNotes.map((item: WordNoteItem) => (
+              <article class="rounded-xl border border-da-border bg-da-canvas-raised px-5 py-4">
+                <h3 class="font-quicksand text-base font-bold text-da-ink">{item.word}</h3>
+                <p class="mt-1 text-base leading-relaxed text-da-ink-soft">{item.note}</p>
+                {item.contextExample && (
+                  <p class="mt-2 text-base leading-relaxed text-da-ink-soft">
+                    <strong class="font-semibold text-da-ink">In a sentence:</strong> {item.contextExample}
+                  </p>
+                )}
+                {item.pronunciationNote && (
+                  <p class="mt-2 text-sm leading-relaxed text-da-ink-soft">
+                    <strong class="font-semibold text-da-ink">Pronunciation note:</strong> {item.pronunciationNote}
+                  </p>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {faq.length > 0 && (
+        <>
+          <hr class="my-8 border-t border-da-border" />
+          <section aria-labelledby="faq-heading">
+            <p class="mb-1 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-ink-faint">Common questions</p>
+            <h2 id="faq-heading" class="mb-3 font-quicksand text-xl font-bold text-da-ink">Frequently asked questions</h2>
+            <dl class="flex flex-col">
+              {faq.map((item: { question: string; answer: string }) => (
+                <div class="border-t border-da-border py-5 first:border-t-0">
+                  <dt class="flex gap-2.5 font-quicksand text-base font-bold text-da-ink">
+                    <span aria-hidden="true" class="flex-shrink-0 text-da-brand">Q</span>
+                    {item.question}
+                  </dt>
+                  <dd class="ml-5 mt-1.5 text-base leading-relaxed text-da-ink-soft">{item.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        </>
       )}
     </div>
-  </div>
-</section>
 
-<!-- Explanation -->
-<AtmosphereBand tone="cool" ariaLabel={bodyHeading}>
-  <div class:list={['border-l-[3px] pl-5 sm:pl-6', accentBorderClass[accent]]}>
-    <h2 class="font-quicksand text-2xl font-bold text-da-ink">{bodyHeading}</h2>
-    <div class="mt-4 max-w-2xl space-y-5 text-[1.05rem] leading-relaxed text-da-ink-soft [&_strong]:font-semibold [&_strong]:text-da-ink [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto">
-      <Content />
-    </div>
-  </div>
-</AtmosphereBand>
-
-{wordNotes.length > 0 && (
-  <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="word-notes-heading">
-    <div class="mx-auto max-w-2xl md:max-w-3xl">
-      <h2 id="word-notes-heading" class="font-quicksand text-xl font-bold text-da-ink">{wordNotesHeading ?? 'Notes for particular words'}</h2>
-      <div class="mt-4 space-y-4">
-        {wordNotes.map((item) => (
-          <article class="rounded-2xl border border-da-border bg-da-canvas-raised px-6 py-5 shadow-sm">
-            <h3 class="font-quicksand text-lg font-semibold text-da-ink">{item.word}</h3>
-            <p class="mt-1 text-base leading-relaxed text-da-ink-soft">{item.note}</p>
-            {item.contextExample && (
-              <p class="mt-2 text-base leading-relaxed text-da-ink-soft">
-                <strong class="font-semibold text-da-ink">In a sentence:</strong> {item.contextExample}
-              </p>
-            )}
-            {item.pronunciationNote && (
-              <p class="mt-2 text-sm leading-relaxed text-da-ink-soft">
-                <strong class="font-semibold text-da-ink">Pronunciation note:</strong> {item.pronunciationNote}
-              </p>
-            )}
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-)}
-
-{conceptSkills.length > 0 && (
-  <AtmosphereBand tone="unit" ariaLabel="Go deeper">
-    <h2 class="mb-3 font-quicksand text-xl font-bold text-da-ink">
-      {conceptSkills.length > 1 ? 'Go deeper on these patterns' : 'Go deeper on this pattern'}
-    </h2>
-    <div class="flex flex-col gap-3">
-      {conceptSkills.map((skill) => (
-        <a href={listLink(skill)} class="relative block overflow-hidden rounded-2xl border border-da-border bg-da-canvas-raised px-6 py-5 shadow-sm transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-da-brand before:content-[''] hover:-translate-y-0.5 hover:shadow-md">
-          <span class="block font-quicksand text-lg font-bold text-da-brand-strong">
-            Learn more about {skill.data.title.replace(/ Words$/i, '')} →
-          </span>
-          <span class="mt-1 block text-sm leading-relaxed text-da-ink-soft sm:text-base">
-            {skill.data.title} is the full guide to this pattern — how it works, what trips children up, and where else it's taught.
-          </span>
-        </a>
-      ))}
-    </div>
-  </AtmosphereBand>
-)}
-
-{faq.length > 0 && (
-  <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="faq-heading">
-    <div class="mx-auto max-w-2xl md:max-w-3xl">
-      <h2 id="faq-heading" class="mb-4 font-quicksand text-xl font-bold text-da-ink">Frequently asked questions</h2>
-      <div class="overflow-hidden rounded-3xl border border-da-border bg-da-canvas-raised shadow-sm">
-        <div class="divide-y divide-da-border px-6 sm:px-7">
-          {faq.map((item) => (
-            <div class="py-5">
-              <h3 class="font-quicksand text-base font-bold text-da-ink">{item.question}</h3>
-              <p class="mt-2 text-base leading-relaxed text-da-ink-soft">{item.answer}</p>
+    {hasSidebar && (
+      <aside class="flex flex-col gap-6 lg:sticky lg:top-24" aria-label="Related learning">
+        {conceptSkills.length > 0 && gradeAccent && (
+          <div class:list={['rounded-xl border p-5', ACCENT_TINT_BG_CLASS[gradeAccent], ACCENT_BORDER_CLASS[gradeAccent]]}>
+            <h2 class:list={['mb-3 font-quicksand text-base font-bold', ACCENT_INK_CLASS[gradeAccent]]}>
+              {conceptSkills.length > 1 ? 'Go deeper' : 'Go deeper'}
+            </h2>
+            <div class="flex flex-col gap-3.5">
+              {conceptSkills.map((skill: SpellingListEntry, index: number) => (
+                <a href={listLink(skill)} class:list={['flex flex-col gap-1 no-underline', index > 0 && 'border-t border-da-border/60 pt-3.5']}>
+                  <span class="font-quicksand text-[1.02rem] font-bold text-da-ink hover:underline">
+                    {skill.data.title.replace(/ Words$/i, '')} →
+                  </span>
+                  <span class="text-sm leading-relaxed text-da-ink-soft">
+                    The full teaching reference for this pattern.
+                  </span>
+                </a>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-)}
+          </div>
+        )}
 
-{relatedGroups.some((group) => group.items.length > 0) && (
-  <AtmosphereBand tone="unit" ariaLabel="Where to go from here">
-    <h2 class="mb-4 font-quicksand text-xl font-bold text-da-ink">Where to go from here</h2>
-    {relatedGroups.map((group) => group.items.length > 0 && (
-      <div class="mt-6 first:mt-0">
-        <h3 class="mb-3 font-quicksand text-base font-bold text-da-ink">{group.heading}</h3>
-        <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-          {group.items.map((item) => (
-            <a href={listLink(item)} class="relative flex-1 overflow-hidden rounded-2xl border border-da-border bg-da-canvas-raised py-3 pl-5 pr-4 text-sm shadow-sm transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-da-brand before:content-[''] hover:-translate-y-0.5 hover:shadow-md sm:flex-none sm:min-w-[14rem] sm:max-w-sm">
-              <span class="mt-0.5 block font-quicksand text-base font-bold text-da-ink">{item.data.title}</span>
-              <span class="mt-1 block text-sm font-semibold text-da-ink-soft">{item.data.words.length} words →</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    ))}
-  </AtmosphereBand>
-)}
-
-{extraNav && extraNav.items.length > 0 && (
-  <nav class="px-5 py-10 sm:px-6 md:py-14" aria-label={extraNav.heading}>
-    <div class="mx-auto max-w-2xl md:max-w-3xl">
-      <h2 class="font-quicksand text-xl font-bold text-da-ink">{extraNav.heading}</h2>
-      <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        {extraNav.items.map((item) => (
-          <a href={item.href} class="rounded-2xl border border-da-border bg-da-canvas-raised px-6 py-4 font-bold text-da-brand-strong shadow-sm hover:underline">
-            {item.label}
-          </a>
+        {relatedGroups.map((group: RelatedGroup) => group.items.length > 0 && (
+          <div class="flex flex-col gap-3">
+            <p class="text-xs font-bold uppercase tracking-[0.04em] text-da-ink-faint">{group.heading}</p>
+            {group.items.map((item: SpellingListEntry) => (
+              <a href={listLink(item)} class="flex flex-col gap-0.5 border-t border-da-border pt-3 no-underline first:border-t-0 first:pt-0">
+                <span class="font-quicksand text-base font-bold text-da-ink hover:underline">{item.data.title}</span>
+                <span class="text-sm font-semibold text-da-brand-strong">{item.data.words.length} words →</span>
+              </a>
+            ))}
+          </div>
         ))}
-      </div>
-    </div>
-  </nav>
-)}
+
+        {extraNav && extraNav.items.length > 0 && (
+          <div class="flex flex-col gap-3">
+            <p class="text-xs font-bold uppercase tracking-[0.04em] text-da-ink-faint">{extraNav.heading}</p>
+            {extraNav.items.map((item: { label: string; href: string }, index: number) => (
+              <a href={item.href} class:list={['font-quicksand text-base font-bold text-da-brand-strong no-underline hover:underline', index > 0 && 'border-t border-da-border pt-3']}>
+                {item.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </aside>
+    )}
+  </div>
+</div>
 
 <script>
   import { encodeWordList } from '@/lib/words';

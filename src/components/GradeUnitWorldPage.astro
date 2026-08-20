@@ -156,7 +156,7 @@ const usePilotDesign = isPilotGradeUnit(data.id);
 >
   <SiteHeader variant="discovery" currentPath={getGradeHubPath(canonicalGradeRoute.grade)} theme="direction-a" />
   <main id="main-content">
-    <div class="mx-auto max-w-2xl px-5 pt-8 sm:px-6 md:max-w-3xl md:pt-10">
+    <div class="mx-auto max-w-[1100px] px-5 pt-8 sm:px-6 md:pt-10">
       <Breadcrumbs items={breadcrumbItems} />
     </div>
     <GradeUnitView
@@ -165,6 +165,7 @@ const usePilotDesign = isPilotGradeUnit(data.id);
       Content={Content}
       strand="core-spelling"
       strandLabel={categoryLabel}
+      grade={data.grade}
       gradeLabel={gradeLabel}
       roadmapPosition={roadmapPosition}
       gradeHubHref={gradeHub?.hubHref}
@@ -172,6 +173,7 @@ const usePilotDesign = isPilotGradeUnit(data.id);
       playWordsJson={playWordsJson}
       buttonId={`btn-pilot-practice-${data.id}`}
       wordListHeading={`The ${words.length} words to practice in this step`}
+      wordCount={words.length}
       showSentences={false}
       readinessSignals={data.readinessSignals}
       bodyHeading="Why these words — and what they teach"
@@ -184,7 +186,7 @@ const usePilotDesign = isPilotGradeUnit(data.id);
       listLink={listLink}
     />
     {data.canonicalSource?.publicAttribution && (
-      <div class="mx-auto max-w-2xl px-5 py-8 sm:px-6 md:max-w-3xl">
+      <div class="mx-auto max-w-[1100px] px-5 py-8 sm:px-6">
         <SourceAttribution source={data.canonicalSource} />
       </div>
     )}

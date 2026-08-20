@@ -14,46 +14,22 @@ const isActive = (path: string) => currentPath.startsWith(path);
 const isDirectionA = theme === 'direction-a';
 ---
 
-{variant === 'discovery' ? (
-  <header
-    class:list={[
-      'sticky top-0 z-10 border-b backdrop-blur-sm',
-      isDirectionA ? 'border-da-border bg-da-canvas/95' : 'border-line bg-app-paper/95',
-    ]}
-  >
-    <div class="mx-auto flex max-w-content-xl items-center justify-between px-6 py-3.5">
-
-      <a
-        href="/"
-        class:list={[
-          'flex items-center gap-1.5 text-[21px] font-semibold tracking-tight transition-colors',
-          isDirectionA ? 'font-quicksand text-da-ink' : 'font-display text-ink hover:text-ink',
-        ]}
-        aria-label="spellingwords home"
-      >
-        <span
-          class:list={[
-            'inline-block h-2 w-2 flex-shrink-0 rounded-full',
-            isDirectionA ? 'bg-da-coral' : 'bg-brand-red',
-          ]}
-          style="position: relative; top: 1px;"
-          aria-hidden="true"
-        ></span>
-        spelling<span class={isDirectionA ? 'text-da-coral' : 'text-brand-red'}>words</span>
+<!-- Direction A header (isDirectionA branch below) is promoted from
+     design-explore/direction-a/_shared/Header.astro: "Sw" brand mark, a
+     structural 3px brand-blue rule beneath the whole header, coral
+     underline on the active nav item, coral primary CTA. -->
+{variant === 'discovery' && isDirectionA ? (
+  <header class="sticky top-0 z-10 border-b-[3px] border-da-brand bg-da-canvas-raised">
+    <div class="mx-auto flex max-w-content-xl items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:px-6">
+      <a href="/" class="flex min-w-0 flex-shrink items-center gap-2.5 font-quicksand text-lg font-bold text-da-ink no-underline sm:text-xl" aria-label="SpellingWords home">
+        <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-da-brand font-quicksand text-sm font-bold text-white" aria-hidden="true">Sw</span>
+        <span class="truncate">SpellingWords</span>
       </a>
 
-      <nav aria-label="Site navigation">
-        <ul class="flex items-center gap-0.5 list-none m-0 p-0">
+      <nav aria-label="Site navigation" class="hidden flex-1 md:block">
+        <ul class="m-0 flex list-none items-center gap-7 p-0">
           <li>
-            <a
-              href="/#grades"
-              class:list={[
-                'rounded-full px-4 py-2 text-sm font-bold transition',
-                isDirectionA
-                  ? 'text-da-ink-soft hover:bg-da-surface-neutral hover:text-da-ink'
-                  : 'text-ink-soft hover:bg-app-cloud hover:text-ink',
-              ]}
-            >
+            <a href="/#grades" class="flex min-h-[44px] items-center border-b-[3px] border-transparent py-2 text-[0.94rem] font-bold text-da-ink-soft no-underline hover:text-da-brand">
               Grades
             </a>
           </li>
@@ -61,11 +37,59 @@ const isDirectionA = theme === 'direction-a';
             <a
               href="/skills"
               class:list={[
-                'rounded-full px-4 py-2 text-sm font-bold transition',
-                isDirectionA
-                  ? `hover:bg-da-surface-neutral ${isActive('/skills') ? 'text-da-ink' : 'text-da-ink-soft hover:text-da-ink'}`
-                  : `hover:bg-app-cloud ${isActive('/skills') ? 'text-ink' : 'text-ink-soft hover:text-ink'}`,
+                'flex min-h-[44px] items-center border-b-[3px] py-2 text-[0.94rem] font-bold no-underline',
+                isActive('/skills') ? 'border-da-coral text-da-brand' : 'border-transparent text-da-ink-soft hover:text-da-brand',
               ]}
+              aria-current={isActive('/skills') ? 'page' : undefined}
+            >
+              Skills
+            </a>
+          </li>
+          <li>
+            <a href="/#how-it-works" class="flex min-h-[44px] items-center border-b-[3px] border-transparent py-2 text-[0.94rem] font-bold text-da-ink-soft no-underline hover:text-da-brand">
+              How it Works
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="/" class="flex-shrink-0 whitespace-nowrap rounded-lg bg-da-coral px-3.5 py-2 text-sm font-bold text-white no-underline transition hover:bg-da-coral-strong sm:px-5 sm:py-2.5">
+        <span class="sm:hidden">Practice</span>
+        <span class="hidden sm:inline">Start practicing</span>
+      </a>
+    </div>
+  </header>
+) : variant === 'discovery' ? (
+  <header class="sticky top-0 z-10 border-b border-line bg-app-paper/95 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-content-xl items-center justify-between px-6 py-3.5">
+
+      <a
+        href="/"
+        class="flex items-center gap-1.5 font-display text-[21px] font-semibold text-ink tracking-tight transition-colors hover:text-ink"
+        aria-label="spellingwords home"
+      >
+        <span
+          class="inline-block h-2 w-2 flex-shrink-0 rounded-full bg-brand-red"
+          style="position: relative; top: 1px;"
+          aria-hidden="true"
+        ></span>
+        spelling<span class="text-brand-red">words</span>
+      </a>
+
+      <nav aria-label="Site navigation">
+        <ul class="flex items-center gap-0.5 list-none m-0 p-0">
+          <li>
+            <a
+              href="/#grades"
+              class="rounded-full px-4 py-2 text-sm font-bold text-ink-soft transition hover:bg-app-cloud hover:text-ink"
+            >
+              Grades
+            </a>
+          </li>
+          <li>
+            <a
+              href="/skills"
+              class={`rounded-full px-4 py-2 text-sm font-bold transition hover:bg-app-cloud ${isActive('/skills') ? 'text-ink' : 'text-ink-soft hover:text-ink'}`}
               aria-current={isActive('/skills') ? 'page' : undefined}
             >
               Skills
@@ -74,12 +98,7 @@ const isDirectionA = theme === 'direction-a';
           <li>
             <a
               href="/#how-it-works"
-              class:list={[
-                'rounded-full px-4 py-2 text-sm font-bold transition',
-                isDirectionA
-                  ? 'text-da-ink-soft hover:bg-da-surface-neutral hover:text-da-ink'
-                  : 'text-ink-soft hover:bg-app-cloud hover:text-ink',
-              ]}
+              class="rounded-full px-4 py-2 text-sm font-bold text-ink-soft transition hover:bg-app-cloud hover:text-ink"
             >
               How it Works
             </a>

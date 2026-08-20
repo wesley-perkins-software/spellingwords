@@ -1,0 +1,191 @@
+---
+// Direction A Grade Strand gateway — the browse page between a Grade Hub and
+// its Grade Units, for one of the three strands (Core Spelling / High-
+// Frequency Words / Themed Spelling Practice). Deliberately NOT a single
+// generic card grid: the three strands have different product roles, so
+// composition differs even though they share the same primitives
+// (AtmosphereBand/Chip/Button) and the same STRAND_ACCENT color per strand.
+//
+// - Core Spelling is an ordered curriculum path: units render as a numbered,
+//   connected sequence so the "what comes first / what follows" structure a
+//   Grade Hub already promises is visible here too.
+// - High-Frequency Words is also ordered (sets build cumulatively) but the
+//   sets are more interchangeable than Core Spelling units, so they render
+//   as a numbered grid rather than a narrative sequence.
+// - Themed Spelling Practice is genuinely browse-oriented — themes are
+//   chosen, not followed in order — so it renders as an unordered card grid
+//   with no step numbering.
+import AtmosphereBand from './AtmosphereBand.astro';
+import Chip from './Chip.astro';
+import type { GradeRouteClassification } from '@/lib/content/canonicalGradeRoutes';
+import { STRAND_ACCENT, type DaAccent } from '@/lib/content/pilotContent';
+
+interface Resource {
+  href: string;
+  title: string;
+  description: string;
+  wordCount: number;
+}
+
+interface Props {
+  gradeLabel: string;
+  strand: GradeRouteClassification;
+  strandLabel: string;
+  description: string;
+  synthesis?: string;
+  guidance?: string;
+  resources: Resource[];
+  wayfindingLinks: { label: string; href: string }[];
+}
+
+const {
+  gradeLabel,
+  strand,
+  strandLabel,
+  description,
+  synthesis,
+  guidance,
+  resources,
+  wayfindingLinks,
+} = Astro.props;
+
+const accent: DaAccent = STRAND_ACCENT[strand];
+
+const accentBorderClass: Record<DaAccent, string> = {
+  sun: 'border-da-sun',
+  teal: 'border-da-teal',
+  periwinkle: 'border-da-periwinkle',
+  pink: 'border-da-pink',
+  brand: 'border-da-brand',
+  coral: 'border-da-coral',
+};
+const accentTextClass: Record<DaAccent, string> = {
+  sun: 'text-da-sun-ink',
+  teal: 'text-da-teal-ink',
+  periwinkle: 'text-da-periwinkle-ink',
+  pink: 'text-da-pink-ink',
+  brand: 'text-da-brand-strong',
+  coral: 'text-da-coral-ink',
+};
+const accentBgClass: Record<DaAccent, string> = {
+  sun: 'bg-da-sun',
+  teal: 'bg-da-teal',
+  periwinkle: 'bg-da-periwinkle',
+  pink: 'bg-da-pink',
+  brand: 'bg-da-brand',
+  coral: 'bg-da-coral',
+};
+const accentTintBgClass: Record<DaAccent, string> = {
+  sun: 'bg-da-sun-tint',
+  teal: 'bg-da-teal-tint',
+  periwinkle: 'bg-da-periwinkle-tint',
+  pink: 'bg-da-pink-tint',
+  brand: 'bg-da-brand-tint',
+  coral: 'bg-da-coral-tint',
+};
+---
+
+<AtmosphereBand tone={accent} ariaLabel={`${gradeLabel} ${strandLabel}`} class="mt-6 rounded-3xl md:mt-8">
+  <header class="max-w-2xl">
+    <Chip tone={accent} class="mb-3">{strandLabel}</Chip>
+    <h1 class="font-quicksand text-[clamp(1.9rem,4vw,2.5rem)] font-bold leading-[1.1] text-da-ink">
+      {gradeLabel} {strandLabel}
+    </h1>
+    <p class="mt-4 text-[1.05rem] leading-relaxed text-da-ink-soft">{description}</p>
+    {synthesis && <p class="mt-3 text-[1.02rem] leading-relaxed text-da-ink-soft">{synthesis}</p>}
+    {guidance && (
+      <p class:list={['mt-4 border-l-[3px] pl-4 text-[0.98rem] leading-relaxed text-da-ink-soft', accentBorderClass[accent]]}>
+        <span class:list={['font-quicksand font-bold', accentTextClass[accent]]}>Where to begin: </span>
+        {guidance}
+      </p>
+    )}
+  </header>
+</AtmosphereBand>
+
+<div class="mx-auto max-w-2xl px-5 py-10 sm:px-6 md:max-w-3xl md:py-14">
+  {strand === 'core-spelling' && (
+    <ol class="relative flex flex-col gap-4 pl-2">
+      <div class:list={['pointer-events-none absolute bottom-4 left-[1.35rem] top-4 w-0.5', accentBgClass[accent], 'opacity-30']} aria-hidden="true" />
+      {resources.map((resource, index) => (
+        <li class="relative">
+          <a
+            href={resource.href}
+            class:list={['group flex items-start gap-4 rounded-2xl border border-da-border bg-da-canvas-raised p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-5']}
+          >
+            <span
+              class:list={['relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white', accentBgClass[accent]]}
+              aria-hidden="true"
+            >
+              {index + 1}
+            </span>
+            <span class="flex-1">
+              <span class:list={['block font-quicksand text-lg font-bold', accentTextClass[accent], 'group-hover:underline']}>
+                {resource.title}
+              </span>
+              <span class="mt-1 block text-[0.95rem] leading-relaxed text-da-ink-soft">{resource.description}</span>
+              <span class="mt-2 block text-sm font-bold text-da-ink-faint">{resource.wordCount} words</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  )}
+
+  {strand === 'high-frequency-words' && (
+    <ol class="grid gap-3 sm:grid-cols-2">
+      {resources.map((resource, index) => (
+        <li>
+          <a
+            href={resource.href}
+            class:list={['group flex h-full flex-col gap-2 rounded-2xl border p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md', accentBorderClass[accent], accentTintBgClass[accent]]}
+          >
+            <span class:list={['inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white', accentBgClass[accent]]} aria-hidden="true">
+              {index + 1}
+            </span>
+            <span class:list={['font-quicksand text-base font-bold', accentTextClass[accent], 'group-hover:underline']}>
+              {resource.title}
+            </span>
+            <span class="flex-1 text-sm leading-relaxed text-da-ink-soft">{resource.description}</span>
+            <span class="text-sm font-bold text-da-ink-faint">{resource.wordCount} words</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  )}
+
+  {strand === 'themed-spelling-practice' && (
+    <ul class="grid gap-4 sm:grid-cols-2">
+      {resources.map((resource) => (
+        <li>
+          <a
+            href={resource.href}
+            class:list={['group flex h-full flex-col gap-2 rounded-2xl border p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md', accentBorderClass[accent], 'bg-da-canvas-raised']}
+          >
+            <span class:list={['font-quicksand text-lg font-bold', accentTextClass[accent], 'group-hover:underline']}>
+              {resource.title}
+            </span>
+            <span class="flex-1 text-sm leading-relaxed text-da-ink-soft">{resource.description}</span>
+            <span class="text-sm font-bold text-da-ink-faint">{resource.wordCount} words</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+
+  {wayfindingLinks.length > 0 && (
+    <nav aria-label={`More ${gradeLabel} spelling practice`} class="mt-10 border-t border-da-border pt-6">
+      <p class="text-sm text-da-ink-soft">
+        Explore{' '}
+        {wayfindingLinks.map((link, index) => (
+          <>
+            {index > 0 && (index === wayfindingLinks.length - 1 ? ' or ' : ', ')}
+            <a class="font-bold text-da-brand-strong hover:underline" href={link.href}>
+              {link.label}
+              {index === wayfindingLinks.length - 1 ? '.' : ''}
+            </a>
+          </>
+        ))}
+      </p>
+    </nav>
+  )}
+</div>

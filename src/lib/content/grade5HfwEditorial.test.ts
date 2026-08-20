@@ -73,6 +73,6 @@ describe('Grade 5 High-Frequency Words editorial completion', () => {
     expect(getHighFrequencyNeighbors(expected[1].id)).toEqual({ previousId: expected[0].id, nextId: undefined });
 
     const renderer = readFileSync(new URL('../../pages/[gradeSlug]/[strand]/[slug].astro', import.meta.url), 'utf8');
-    expect(renderer).toContain('All {gradeHubForBreadcrumb.label} High-Frequency Words');
+    expect(renderer).toContain('All ${gradeHubForBreadcrumb.label} High-Frequency Words');
   });
 });

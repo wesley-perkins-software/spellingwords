@@ -117,6 +117,6 @@ describe('Grade 3 High-Frequency Words Sets 1–2 editorial pilot', () => {
       new URL('../../pages/[gradeSlug]/[strand]/[slug].astro', import.meta.url),
       'utf8',
     );
-    expect(renderer).toContain('All {gradeHubForBreadcrumb.label} High-Frequency Words');
+    expect(renderer).toContain('All ${gradeHubForBreadcrumb.label} High-Frequency Words');
   });
 });

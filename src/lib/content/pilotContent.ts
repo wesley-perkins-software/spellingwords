@@ -2,29 +2,15 @@ import type { GradeCode } from './gradeConfig';
 import type { GradeRouteClassification } from './canonicalGradeRoutes';
 
 /**
- * Single source of truth for which real production routes render through the
- * new "Direction A" design system during the staged migration (see
- * docs/architecture — the Direction A production pilot). Every template that
- * can show Direction A checks one of the `isPilot*` helpers below instead of
- * hardcoding slug checks — extending the pilot, or eventually retiring it in
- * favor of full rollout, is an edit to the arrays here, not a hunt through
- * components.
- *
- * IDs are content `id`s (the collection entry's stable identifier), never
- * URL slugs — a few canonical routes have a slug that doesn't match the
- * content id (e.g. Grade 2 "Compound Words" is content id `grade-2-list-02`,
- * not `compound-words`), so slug-based checks would silently miss those.
+ * Direction A is the site's production design system. This module now holds
+ * only the accent mappings every Direction A view draws from — the staged
+ * per-route `isPilot*` gating that used to live here has been retired route
+ * family by route family as each was verified and migrated (Grade Hubs,
+ * Grade Units). Any content still gated behind an `isPilot*`-style check
+ * elsewhere in the codebase (e.g. `isPilotSkill`, still used by
+ * `skills/[slug].astro`) is on its own remaining allowlist until that route
+ * family's rollout is verified too.
  */
-
-export const PILOT_GRADE_HUB_GRADES: readonly GradeCode[] = ['K', '1', '2', '3', '4', '5'];
-
-export const PILOT_GRADE_UNIT_IDS: readonly string[] = [
-  'kindergarten-short-a-words', // /kindergarten/core-spelling/short-a-words
-  'grade-2-list-02', // /2nd-grade/core-spelling/compound-words
-  'grade-4-commonly-confused-words', // /4th-grade/core-spelling/commonly-confused-words
-  'kindergarten-color-words', // /kindergarten/themed-spelling-practice/color-words
-  'grade-1-high-frequency-words-set-1', // /1st-grade/high-frequency-words/set-1
-];
 
 export const PILOT_SKILL_IDS: readonly string[] = [
   'vowel-teams-ai-ay', // /skills/ai-ay-vowel-teams
@@ -33,14 +19,6 @@ export const PILOT_SKILL_IDS: readonly string[] = [
   'silent-e-long-o', // /skills/long-o-silent-e
   'greek-and-latin-roots', // /skills/greek-and-latin-roots
 ];
-
-export function isPilotGradeHub(grade: GradeCode): boolean {
-  return (PILOT_GRADE_HUB_GRADES as readonly string[]).includes(grade);
-}
-
-export function isPilotGradeUnit(id: string): boolean {
-  return PILOT_GRADE_UNIT_IDS.includes(id);
-}
 
 export function isPilotSkill(id: string): boolean {
   return PILOT_SKILL_IDS.includes(id);

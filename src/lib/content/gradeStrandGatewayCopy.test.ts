@@ -13,7 +13,10 @@ import { getGradeStrandGatewayCopy, getGatewayCardDescription } from './gradeStr
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const gatewayRenderer = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug]/[strand].astro'), 'utf8');
-const spellingListCard = readFileSync(join(process.cwd(), 'src/components/SpellingListCard.astro'), 'utf8');
+const gatewayView = readFileSync(
+  join(process.cwd(), 'src/components/direction-a/GradeStrandGatewayView.astro'),
+  'utf8',
+);
 const gradeHubRenderer = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug].astro'), 'utf8');
 
 function contentById(): Map<string, string> {
@@ -170,10 +173,15 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     expect(getGradeStrandPath('K', 'core-spelling')).toBe('/kindergarten/core-spelling');
     expect(getGradeStrandPath('K', 'high-frequency-words')).toBe('/kindergarten/high-frequency-words');
     expect(getGradeStrandPath('K', 'themed-spelling-practice')).toBe('/kindergarten/themed-spelling-practice');
-    expect(gatewayRenderer).toContain("const ListElement = strand === 'themed-spelling-practice' ? 'ul' : 'ol'");
+    // Core Spelling and High-Frequency Words render an ordered <ol> sequence
+    // (numbered units/sets); Themed Spelling Practice renders an unordered
+    // <ul> browse grid — the strand branch lives in the Direction A view now.
+    expect(gatewayView).toContain("{strand === 'themed-spelling-practice' && (\n    <ul");
+    expect(gatewayView).toContain("{strand === 'core-spelling' && (\n    <ol");
+    expect(gatewayView).toContain("{strand === 'high-frequency-words' && (\n    <ol");
     expect(gatewayRenderer).toContain('getGradeStrandPath(gradeEntry.grade, relatedStrand)');
-    expect(gatewayRenderer).toContain("index === wayfindingStrands.length - 1 ? '.' : ''");
-    expect(gatewayRenderer).not.toMatch(/<\/a>\s*\.\s*\n/);
+    expect(gatewayView).toContain("index === wayfindingLinks.length - 1 ? '.' : ''");
+    expect(gatewayView).not.toMatch(/<\/a>\s*\.\s*\n/);
   });
 
   it('links every gateway to both same-grade sibling gateways, generated (not a hardcoded matrix)', () => {
@@ -206,17 +214,18 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     // getGradeStrandPath, independent of whether a grade+strand has authored orientation copy
     // yet. Only the synthesis/guidance prose block may depend on `pilotCopy` — the <nav> itself
     // must render for all 18 gateways, including the 15 that still use the renderer fallback.
-    expect(gatewayRenderer).not.toMatch(/\{pilotCopy && \(\s*<nav/);
-    const navIndex = gatewayRenderer.indexOf('<nav aria-label={`More');
-    const listElementCloseIndex = gatewayRenderer.indexOf('</ListElement>');
+    // wayfindingLinks is computed unconditionally in the page (not gated on `copy`)
+    // and passed as a plain prop; the view renders its <nav> whenever the array is
+    // non-empty, independent of the synthesis/guidance prose block above it.
+    expect(gatewayRenderer).not.toMatch(/wayfindingLinks\s*=\s*copy/);
+    expect(gatewayView).not.toMatch(/\{copy && \(\s*<nav/);
+    const navIndex = gatewayView.indexOf('<nav aria-label={`More');
+    const resourceListsIndex = gatewayView.lastIndexOf("strand === 'themed-spelling-practice'");
     expect(navIndex).toBeGreaterThan(-1);
-    expect(navIndex).toBeGreaterThan(listElementCloseIndex);
-    // The synthesis/guidance block, not the nav, is the part still allowed to depend on pilotCopy.
-    const synthesisBlock = gatewayRenderer.slice(
-      gatewayRenderer.indexOf('{pilotCopy && ('),
-      gatewayRenderer.indexOf('</header>'),
-    );
-    expect(synthesisBlock).toContain('pilotCopy.synthesis');
+    expect(navIndex).toBeGreaterThan(resourceListsIndex);
+    // The synthesis/guidance block, not the nav, is the part still allowed to depend on `copy`.
+    expect(gatewayRenderer).toContain('synthesis={copy?.synthesis}');
+    expect(gatewayRenderer).toContain('guidance={copy?.guidance}');
   });
 
   it('never exposes raw category classification badges on any of the three gateway strands', () => {
@@ -226,10 +235,12 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     // every card of a page already titled and sub-titled with those words.
     // All three strands must suppress the category badge unconditionally, not
     // strand-conditionally, so a future strand can't reintroduce this by omission.
-    expect(gatewayRenderer).toContain('showCategoryBadge={false}');
-    expect(gatewayRenderer).not.toMatch(/showCategoryBadge=\{strand/);
-    expect(spellingListCard).toContain('showCategoryBadge = true');
-    expect(spellingListCard).toContain('{showCategoryBadge &&');
+    // The Direction A gateway cards are built inline in GradeStrandGatewayView
+    // (not via SpellingListCard) and never reference entry.data.category —
+    // cards render only title/description/wordCount, so there is no raw
+    // category value for any strand to leak.
+    expect(gatewayView).not.toMatch(/data\.category|entry\.category|\bcategory\b/);
+    expect(gatewayRenderer).not.toMatch(/showCategoryBadge/);
   });
 
 

@@ -1,0 +1,58 @@
+---
+// Shared action-button primitive for the Direction A design system. Carries
+// forward Direction A's semantic color split: coral is the primary-action
+// color (Practice/Start CTAs only), blue (`brand`) is structure/navigation.
+// Promoted from src/pages/design-explore/direction-a/_shared/Button.astro.
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit';
+  variant?: 'primary' | 'outline' | 'soft';
+  size?: 'md' | 'lg';
+  class?: string;
+  id?: string;
+  'aria-label'?: string;
+  'data-words'?: string;
+  'data-list-title'?: string;
+  'data-skill-title'?: string;
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'primary',
+  size = 'md',
+  class: className = '',
+  ...rest
+} = Astro.props;
+
+const Tag = href ? 'a' : 'button';
+
+const variantClass: Record<NonNullable<Props['variant']>, string> = {
+  // Coral, solid — the site's one primary-action color.
+  primary:
+    'bg-da-coral text-white hover:bg-da-coral-strong hover:-translate-y-px shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)]',
+  // Outlined brand-blue — a real button that reads as navigation, not action.
+  outline: 'bg-da-canvas-raised text-da-brand-strong border-2 border-da-brand hover:bg-da-brand-tint',
+  // Coral-tinted, unfilled — still an action, deliberately quieter than primary.
+  soft: 'bg-da-coral-tint text-da-coral-ink border-[1.5px] border-da-coral hover:bg-da-coral hover:text-white',
+};
+
+const sizeClass: Record<NonNullable<Props['size']>, string> = {
+  md: 'text-base px-6 py-3',
+  lg: 'text-[1.05rem] px-8 py-3.5',
+};
+---
+
+<Tag
+  href={href}
+  type={href ? undefined : type}
+  class:list={[
+    'inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl font-quicksand font-bold no-underline transition',
+    variantClass[variant],
+    sizeClass[size],
+    className,
+  ]}
+  {...rest}
+>
+  <slot />
+</Tag>

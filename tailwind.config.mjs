@@ -38,6 +38,72 @@ export default {
           correct:   '#22B36B',
           incorrect: '#F0594B',
         },
+
+        // ─────────────────────────────────────────────────────────────
+        // "da" (Direction A) — the new production design system being
+        // staged in page-by-page (see src/lib/content/pilotContent.ts).
+        // This is not a permanent parallel theme: once the full rollout
+        // is complete, these tokens become the normal production system
+        // and the legacy tokens above (app-*, brand.*, chip.*, ink*) are
+        // retired. Until then, the two systems intentionally stay
+        // separate — nothing here is derived from or blended with the
+        // legacy palette above, and legacy pages never reference `da.*`.
+        // Promoted from src/pages/design-explore/direction-a/_shared/Proto.astro.
+        // ─────────────────────────────────────────────────────────────
+        da: {
+          canvas: '#fffbf5',
+          'canvas-raised': '#ffffff',
+          'canvas-sunken': '#fbf3e8',
+
+          ink: '#2a2420',
+          'ink-soft': '#5c534b',
+          'ink-faint': '#8a8078',
+
+          border: '#ece2d4',
+          'border-strong': '#ddcfba',
+
+          // Structure / navigation / learning
+          brand: '#2e7dd1',
+          'brand-strong': '#1f5fa8',
+          'brand-tint': '#e4f0fc',
+
+          // Principal user action (Practice / Start CTAs) — never used decoratively
+          coral: '#ff8a5b',
+          'coral-strong': '#e06a3a',
+          'coral-tint': '#ffece2',
+          'coral-ink': '#9a3d17',
+
+          // Semantic accents for grade/strand/skill-family wayfinding
+          sun: '#ffc24b',
+          'sun-tint': '#fff5df',
+          'sun-ink': '#7a5300',
+          teal: '#2fb6a3',
+          'teal-tint': '#e2f7f4',
+          'teal-ink': '#0d5c50',
+          pink: '#ff6b8a',
+          'pink-tint': '#ffe6ec',
+          'pink-ink': '#a01d3f',
+          periwinkle: '#7c8cf8',
+          'periwinkle-tint': '#ecefff',
+          'periwinkle-ink': '#3b3fb0',
+
+          correct: '#1f6b34',
+          'correct-bg': '#e3f3e4',
+          'correct-border': '#a9d9ae',
+          incorrect: '#a13a24',
+          'incorrect-bg': '#fbe9e6',
+          'incorrect-border': '#edb9ab',
+
+          // Page-role atmospheres — one low-chroma near-white base tone per
+          // major page role (see pilotContent.ts for which routes opt in).
+          'surface-home': '#f3f8fd',
+          'surface-grade': '#f8f4fc',
+          'surface-unit': '#fdf6f3',
+          'surface-skill': '#f3faf6',
+          'surface-white': '#ffffff',
+          'surface-cool': '#f2f6fb',
+          'surface-neutral': '#f6f3ee',
+        },
       },
       fontFamily: {
         // Nunito — warm, rounded body font
@@ -51,6 +117,9 @@ export default {
         // Atkinson Hyperlegible — maximally legible for word display and textarea
         word:    ['"Atkinson Hyperlegible"', 'ui-sans-serif', 'sans-serif'],
         mono:    ['"Atkinson Hyperlegible"', 'ui-monospace', 'monospace'],
+        // Direction A typography — pilot pages only (see pilotContent.ts).
+        quicksand: ['"Quicksand"', 'ui-rounded', 'system-ui', 'sans-serif'],
+        mulish:    ['"Mulish"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         sm:      '8px',

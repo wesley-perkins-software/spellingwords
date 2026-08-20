@@ -19,6 +19,8 @@ import { getNonCoreNavigationModel } from '@/lib/content/nonCoreNavigation';
 import { categoryLabels, cardAccent } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { gradeConfig } from '@/lib/content/gradeConfig';
+import { isPilotGradeUnit } from '@/lib/content/pilotContent';
+import GradeUnitView from '@/components/direction-a/GradeUnitView.astro';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('spelling-lists')).filter(isPublished);
@@ -161,11 +163,85 @@ const bodyHeading = isSkill
       ? 'What to notice when spelling these words'
       : 'Why these words — and what they teach';
 
+const usePilotDesign = isPilotGradeUnit(data.id);
+
+// Pilot-only view model — built only when needed, adapted to whichever of
+// HFW set-navigation / themed word notes / concept-skill callouts this
+// entry actually has.
+const pilotExtraNav = isHighFrequencyWords && related.length > 0
+  ? {
+      heading: 'Continue with this grade',
+      items: [
+        ...related.map((item) => {
+          const targetRoute = getCanonicalGradeRoutes().find((candidate) => candidate.id === item.data.id);
+          const currentNumber = Number(route.finalSlug.replace('set-', ''));
+          const targetNumber = Number(targetRoute?.finalSlug.replace('set-', ''));
+          const direction = targetNumber < currentNumber ? 'Previous' : 'Next';
+          return { label: `${direction}: Set ${targetNumber}`, href: listLink(item) };
+        }),
+        { label: `All ${gradeHubForBreadcrumb.label} High-Frequency Words`, href: `/${route.gradeSlug}/high-frequency-words` },
+      ],
+    }
+  : undefined;
+
+const pilotRelatedGroups = isHighFrequencyWords
+  ? []
+  : [{ heading: isThemedSpellingPractice ? 'More themed spelling practice' : 'Explore more', items: related }];
+
 ---
 
 {isCoreSpelling && <GradeUnitWorldPage listId={data.id} />}
 
-{!isCoreSpelling && (
+{!isCoreSpelling && usePilotDesign && (
+<Layout
+  title={`${data.title} — spellingwords`}
+  description={data.description}
+  ogType="article"
+  jsonLd={jsonLdBlocks}
+  theme="direction-a"
+>
+  <SiteHeader variant="discovery" currentPath={getGradeHubPath(route.grade)} theme="direction-a" />
+  <main id="main-content">
+    <div class="mx-auto max-w-[1100px] px-5 pt-8 sm:px-6 md:pt-10">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+    <GradeUnitView
+      title={data.title}
+      description={data.description}
+      Content={Content}
+      strand={route.classification}
+      strandLabel={categoryLabel}
+      grade={data.grade}
+      gradeLabel={gradeDisplay}
+      roadmapPosition={roadmapPosition}
+      gradeHubHref={gradeHub?.hubHref}
+      playWords={playWords}
+      playWordsJson={playWordsJson}
+      buttonId={`btn-pilot-practice-${data.id}`}
+      wordListHeading={isContractUnit ? `The ${data.words.length} words to practice in this step` : `All ${data.words.length} words in this list`}
+      wordCount={data.words.length}
+      showSentences={isContractUnit}
+      readinessSignals={!isHighFrequencyWords && !isThemedSpellingPractice ? data.readinessSignals : []}
+      bodyHeading={bodyHeading}
+      wordNotesHeading="Notes for particular words"
+      wordNotes={isHighFrequencyWords ? data.hfwWordNotes : isThemedSpellingPractice ? data.wordNotes : []}
+      conceptSkills={conceptSkills}
+      faq={data.faq}
+      relatedGroups={pilotRelatedGroups}
+      listLink={listLink}
+      extraNav={pilotExtraNav}
+    />
+    {data.canonicalSource?.publicAttribution && (
+      <div class="mx-auto max-w-[1100px] px-5 py-8 sm:px-6">
+        <SourceAttribution source={data.canonicalSource} />
+      </div>
+    )}
+  </main>
+  <SiteFooter theme="direction-a" />
+</Layout>
+)}
+
+{!isCoreSpelling && !usePilotDesign && (
 <Layout
   title={`${data.title} — spellingwords`}
   description={data.description}

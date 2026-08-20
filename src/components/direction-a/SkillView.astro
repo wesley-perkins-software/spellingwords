@@ -1,0 +1,273 @@
+---
+// Direction A canonical Skill reference page — mint-neutral atmosphere,
+// reference hero with shortAnswer, concept explanation, optional modules
+// (readiness signals, FAQ, curriculum placements, prerequisite/next),
+// with a skill-family accent chip. Every optional module is only rendered
+// when the real content actually has it — degrading gracefully is one of
+// the pilot's explicit tests, not an edge case designed around in advance.
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+import AtmosphereBand from './AtmosphereBand.astro';
+import Chip from './Chip.astro';
+import Button from './Button.astro';
+import WordTileGrid from './WordTileGrid.astro';
+import type { SpellingListEntry } from '@/lib/content/spellingLists';
+import type { DaAccent } from '@/lib/content/pilotContent';
+import { ACCENT_BEFORE_BG_CLASS, ACCENT_BG_CLASS, ACCENT_BORDER_CLASS, ACCENT_INK_CLASS } from '@/lib/content/pilotContent';
+import type { SpellingWord } from '@/types/spelling';
+
+interface Props {
+  title: string;
+  description: string;
+  shortAnswer?: string;
+  Content: AstroComponentFactory;
+  familyLabel?: string;
+  familyAccent?: DaAccent;
+  readinessSignals: readonly string[];
+  easierList?: SpellingListEntry;
+  harderList?: SpellingListEntry;
+  demoWords: SpellingWord[];
+  practiceBankWords?: SpellingWord[] | null;
+  practiceDescription?: string | null;
+  buttonId: string;
+  faq: readonly { question: string; answer: string }[];
+  curriculumPlacements: readonly { unit: SpellingListEntry; position?: { step: number; total: number }; gradeLabel?: string }[];
+  prerequisites: SpellingListEntry[];
+  next: SpellingListEntry[];
+  related: SpellingListEntry[];
+  listLink: (entry: SpellingListEntry) => string;
+}
+
+const {
+  title,
+  description,
+  shortAnswer,
+  Content,
+  familyLabel,
+  familyAccent = 'brand',
+  readinessSignals,
+  easierList,
+  harderList,
+  demoWords,
+  practiceBankWords,
+  practiceDescription,
+  buttonId,
+  faq,
+  curriculumPlacements,
+  prerequisites,
+  next,
+  related,
+  listLink,
+} = Astro.props;
+
+---
+
+<section class="px-5 pb-0 pt-6 sm:px-6 md:pt-8">
+  <div class="mx-auto max-w-[720px]">
+    <div class="relative overflow-hidden rounded-2xl border border-da-brand bg-da-brand-tint px-6 py-8 sm:px-10 sm:py-10">
+      <div class="flex flex-wrap items-center gap-2">
+        <Chip tone="neutral">Skill</Chip>
+        {familyLabel && <Chip tone={familyAccent}>{familyLabel}</Chip>}
+      </div>
+      <h1 class="mt-3 font-quicksand text-[clamp(1.9rem,4vw,2.5rem)] font-bold leading-[1.15] text-da-ink">{title}</h1>
+      <p class="mt-3 max-w-2xl text-[1.05rem] leading-relaxed text-da-ink-soft">{description}</p>
+    </div>
+    <div class:list={['mt-6 h-[3px] w-16 rounded-full', ACCENT_BG_CLASS[familyAccent]]} aria-hidden="true"></div>
+  </div>
+</section>
+
+{shortAnswer && (
+  <section class="px-5 pb-8 pt-8 sm:px-6 md:pb-12" aria-labelledby="answer-heading">
+    <div class="mx-auto max-w-[720px]">
+      <div class:list={['rounded-2xl border-l-[3px] bg-da-canvas-raised px-6 py-6 shadow-sm sm:px-8', ACCENT_BORDER_CLASS[familyAccent]]}>
+        <h2 id="answer-heading" class="font-quicksand text-lg font-bold text-da-ink">What are {title.toLowerCase()}?</h2>
+        <p class="mt-2 text-base leading-relaxed text-da-ink-soft">{shortAnswer}</p>
+      </div>
+    </div>
+  </section>
+)}
+
+{readinessSignals.length > 0 && (
+  <AtmosphereBand tone="skill" ariaLabel="Is this the right Skill?">
+    <h2 class="font-quicksand text-xl font-bold text-da-ink">These spelling words are a good fit for students who...</h2>
+    <ul class="mt-4 space-y-3 text-base leading-relaxed text-da-ink-soft">
+      {readinessSignals.map((signal) => (
+        <li class="flex items-start gap-2.5">
+          <span aria-hidden="true" class="mt-0.5 flex-shrink-0 text-da-brand">✓</span>
+          <span>{signal}</span>
+        </li>
+      ))}
+    </ul>
+    {(easierList || harderList) && (
+      <p class="mt-4 text-base leading-relaxed text-da-ink-soft">
+        {easierList && (
+          <>Too much too soon? <a href={listLink(easierList)} class="font-bold text-da-brand-strong hover:underline">{easierList.data.title}</a> is a gentler starting point. </>
+        )}
+        {harderList && (
+          <>Moving through it easily? <a href={listLink(harderList)} class="font-bold text-da-brand-strong hover:underline">{harderList.data.title}</a> is a natural next step.</>
+        )}
+      </p>
+    )}
+  </AtmosphereBand>
+)}
+
+<!-- Representative words: demo preview, or the full practice bank when one exists -->
+<section class="px-5 py-9 sm:px-6" aria-labelledby="word-list-heading">
+  <div class="mx-auto max-w-[720px]">
+    <p class:list={['mb-1 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em]', ACCENT_INK_CLASS[familyAccent]]}>
+      {familyLabel ?? 'Pattern'}
+    </p>
+    <h2 id="word-list-heading" class="mb-1 font-quicksand text-xl font-bold text-da-ink">
+      {practiceBankWords ? `${title} to Practice` : 'Hear the pattern in these words'}
+    </h2>
+    <p class="mb-4 text-sm font-bold text-da-ink-faint">{(practiceBankWords ?? demoWords).length} words</p>
+    <WordTileGrid words={practiceBankWords ?? demoWords} accent={familyAccent} />
+  </div>
+</section>
+
+{practiceBankWords && (
+  <section class="px-5 pb-9 sm:px-6" aria-labelledby="practice-heading">
+    <div class="mx-auto max-w-[720px]">
+      <div class:list={['rounded-2xl border-l-[3px] bg-da-canvas-raised px-6 py-7 shadow-sm sm:px-8', ACCENT_BORDER_CLASS[familyAccent]]}>
+        <h2 id="practice-heading" class="font-quicksand text-xl font-bold text-da-ink">Practice {title}</h2>
+        <p class="mt-2 max-w-2xl text-base leading-relaxed text-da-ink-soft">{practiceDescription}</p>
+        <Button id={buttonId} type="button" data-words={JSON.stringify(practiceBankWords)} data-skill-title={title} class="mt-5">
+          Practice {title}
+        </Button>
+        <p id={`${buttonId}-status`} class="sr-only" role="status" aria-live="polite" />
+      </div>
+    </div>
+  </section>
+)}
+
+<AtmosphereBand tone="cool" ariaLabel="Understanding the pattern">
+  <div class="mx-auto max-w-[720px]">
+    <div class:list={['border-l-[3px] pl-5 sm:pl-6', ACCENT_BORDER_CLASS[familyAccent]]}>
+      <h2 class="font-quicksand text-2xl font-bold text-da-ink">Understanding the pattern</h2>
+      <div class="mt-4 max-w-2xl space-y-5 text-[1.05rem] leading-relaxed text-da-ink-soft [&_strong]:font-semibold [&_strong]:text-da-ink [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto">
+        <Content />
+      </div>
+    </div>
+  </div>
+</AtmosphereBand>
+
+{curriculumPlacements.length > 0 && (
+  <AtmosphereBand tone="skill" ariaLabel="Where this fits in the curriculum">
+    <div class="mx-auto max-w-[720px]">
+      <h2 class="mb-2 font-quicksand text-xl font-bold text-da-ink">Where this fits in the curriculum</h2>
+      <p class="mb-5 max-w-2xl text-base leading-relaxed text-da-ink-soft">This page explains the pattern — practice it in the grade-level lesson where it's taught:</p>
+      <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+        {curriculumPlacements.map(({ unit, position, gradeLabel }) => (
+          <a href={listLink(unit)} class:list={['relative flex-1 overflow-hidden rounded-2xl border border-da-border bg-da-canvas-raised py-4 pl-5 pr-4 shadow-sm transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:content-[\'\'] hover:-translate-y-0.5 hover:shadow-md sm:flex-none sm:min-w-[16rem]', ACCENT_BEFORE_BG_CLASS[familyAccent]]}>
+            {(gradeLabel || position) && (
+              <span class="block text-sm font-bold text-da-brand-strong">
+                {gradeLabel}
+                {gradeLabel && position && <span aria-hidden="true"> · </span>}
+                {position && `Step ${position.step} of ${position.total}`}
+              </span>
+            )}
+            <span class="mt-0.5 block font-quicksand text-base font-bold text-da-ink">{unit.data.title}</span>
+            <span class="mt-1 block text-sm font-semibold text-da-brand-strong">{unit.data.words.length} words to practice →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </AtmosphereBand>
+)}
+
+{faq.length > 0 && (
+  <section class="px-5 py-10 sm:px-6" aria-labelledby="faq-heading">
+    <div class="mx-auto max-w-[720px]">
+      <p class="mb-1 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-ink-faint">Common questions</p>
+      <h2 id="faq-heading" class="mb-3 font-quicksand text-xl font-bold text-da-ink">Frequently asked questions</h2>
+      <dl class="flex flex-col">
+        {faq.map((item) => (
+          <div class="border-t border-da-border py-5 first:border-t-0">
+            <dt class="flex gap-2.5 font-quicksand text-base font-bold text-da-ink">
+              <span aria-hidden="true" class="flex-shrink-0 text-da-brand">Q</span>
+              {item.question}
+            </dt>
+            <dd class="ml-5 mt-1.5 text-base leading-relaxed text-da-ink-soft">{item.answer}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+)}
+
+{(prerequisites.length > 0 || related.length > 0 || next.length > 0) && (
+  <AtmosphereBand tone="skill" ariaLabel="Where to go from here">
+    <div class="mx-auto max-w-[720px]">
+      <h2 class="mb-4 font-quicksand text-xl font-bold text-da-ink">Where to go from here</h2>
+      {[
+        { heading: 'Review First', items: prerequisites },
+        { heading: 'Next Step', items: next },
+        { heading: 'Explore More', items: related },
+      ].map((group) => group.items.length > 0 && (
+        <div class="mt-6 first:mt-0">
+          <h3 class="mb-3 font-quicksand text-base font-bold text-da-ink">{group.heading}</h3>
+          <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+            {group.items.map((item) => (
+              <a href={listLink(item)} class:list={['relative flex-1 overflow-hidden rounded-2xl border border-da-border bg-da-canvas-raised py-3 pl-5 pr-4 text-sm shadow-sm transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:content-[\'\'] hover:-translate-y-0.5 hover:shadow-md sm:flex-none sm:min-w-[14rem] sm:max-w-sm', ACCENT_BEFORE_BG_CLASS[familyAccent]]}>
+                <span class="mt-0.5 block font-quicksand text-base font-bold text-da-ink">{item.data.title}</span>
+                <span class="mt-1 block text-sm font-semibold text-da-ink-soft">{item.data.words.length} words →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </AtmosphereBand>
+)}
+
+<script>
+  import { encodeWordList } from '@/lib/words';
+  import { selectSkillPracticeSession } from '@/lib/content/skillPracticeBanks';
+
+  const SESSION_SIZE = 10;
+
+  interface SpellingWordData {
+    word: string;
+    exampleSentence?: string;
+  }
+
+  function getBankWords(button: HTMLButtonElement): SpellingWordData[] {
+    try {
+      const parsed: unknown = JSON.parse(button.dataset.words ?? '[]');
+      if (!Array.isArray(parsed)) return [];
+      return parsed.filter(
+        (e): e is SpellingWordData =>
+          typeof e === 'object' && e !== null && typeof (e as SpellingWordData).word === 'string',
+      );
+    } catch {
+      return [];
+    }
+  }
+
+  function handlePracticeClick(event: Event): void {
+    const button = event.currentTarget as HTMLButtonElement;
+    const statusEl = document.getElementById(`${button.id}-status`);
+    const bank = getBankWords(button);
+    if (bank.length === 0) return;
+
+    const session = selectSkillPracticeSession(bank, SESSION_SIZE);
+    const result = encodeWordList(session.map((w) => w.word));
+    if (!result.ok) {
+      if (statusEl) statusEl.textContent = 'Could not start this practice session. Please try again.';
+      return;
+    }
+
+    const skillTitle = button.dataset.skillTitle ?? '';
+    try {
+      sessionStorage.setItem(`sw:words:${result.payload}`, JSON.stringify(session));
+      if (skillTitle) sessionStorage.setItem(`sw:title:${result.payload}`, skillTitle);
+    } catch {
+      /* quota exceeded or private browsing — non-fatal */
+    }
+
+    window.location.href = `/play?list=${result.payload}`;
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-skill-title]').forEach((btn) => {
+    btn.addEventListener('click', handlePracticeClick);
+  });
+</script>

@@ -204,7 +204,9 @@
    so it never interferes with interaction
    ───────────────────────────────────────────────────────────── */
 
-body::after {
+/* Suppressed on Direction A pilot pages (body[data-theme="direction-a"]) —
+   the grain is legacy-system texture, not part of the new design. */
+body:not([data-theme='direction-a'])::after {
   content: '';
   position: fixed;
   inset: 0;

@@ -1,0 +1,42 @@
+---
+// The designed word-bank treatment from the Direction A prototype
+// (design-explore/direction-a/skill.astro's .word-list-panel/.word-list) —
+// a tinted strand/family-colored panel holding individual white word
+// tiles, not a plain text list in a white box. Shared by Grade Unit and
+// Skill pages so the site's central spelling-word artifact stays
+// consistent everywhere it appears.
+import type { DaAccent } from '@/lib/content/pilotContent';
+import { ACCENT_BORDER_CLASS, ACCENT_TINT_BG_CLASS } from '@/lib/content/pilotContent';
+import type { SpellingWord } from '@/types/spelling';
+
+interface Props {
+  words: SpellingWord[];
+  accent: DaAccent;
+  /** Core Spelling "contract" units show each word with its example
+   *  sentence (word + sentence rows) instead of a plain tile grid. */
+  showSentences?: boolean;
+}
+
+const { words, accent, showSentences = false } = Astro.props;
+---
+
+<div class:list={['rounded-2xl border p-4 sm:p-5 md:p-6', ACCENT_TINT_BG_CLASS[accent], ACCENT_BORDER_CLASS[accent]]}>
+  {showSentences ? (
+    <ul class="flex flex-col gap-2" aria-label="Words in this list">
+      {words.map((word) => (
+        <li class="flex flex-col gap-1 rounded-xl border border-da-border bg-da-canvas-raised px-5 py-3.5 shadow-sm sm:flex-row sm:items-baseline sm:gap-5">
+          <span class="w-24 shrink-0 font-quicksand text-lg font-bold leading-snug text-da-ink sm:text-xl">{word.word}</span>
+          {word.exampleSentence && <span class="text-sm leading-relaxed text-da-ink-soft sm:text-base">{word.exampleSentence}</span>}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <ul class="grid grid-cols-3 gap-2.5 sm:grid-cols-4 sm:gap-3 lg:grid-cols-5" aria-label="Words in this list">
+      {words.map((word) => (
+        <li class="rounded-xl border border-da-border bg-da-canvas-raised px-2 py-3.5 text-center font-quicksand text-[1.15rem] font-bold leading-snug text-da-ink shadow-sm sm:py-4 sm:text-xl">
+          {word.word}
+        </li>
+      ))}
+    </ul>
+  )}
+</div>

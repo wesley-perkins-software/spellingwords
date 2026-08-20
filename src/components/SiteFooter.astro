@@ -1,42 +1,71 @@
 ---
+interface Props {
+  /** 'direction-a' shows the new design system's footer chrome — same links,
+   *  same hrefs. See src/lib/content/pilotContent.ts. */
+  theme?: 'legacy' | 'direction-a';
+}
+
+const { theme = 'legacy' } = Astro.props;
+const isDirectionA = theme === 'direction-a';
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-line bg-cream-deep">
-  <div class="mx-auto max-w-content-xl px-6 py-12">
-
-    <div class="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:justify-between sm:text-left">
-
-      <!-- Wordmark -->
-      <a
-        href="/"
-        class="flex items-center gap-1.5 font-display text-[17px] font-semibold text-ink-faint transition-colors hover:text-ink-soft"
-        aria-label="spellingwords home"
-      >
-        <span
-          class="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink-faint"
-          aria-hidden="true"
-        ></span>
-        spellingwords
-      </a>
-
-      <!-- Nav links -->
+<!-- Direction A footer (isDirectionA branch below) is promoted from
+     design-explore/direction-a/_shared/Footer.astro: one lean row
+     (tagline + nav), not a repeated wordmark/tagline/copyright stack. -->
+{isDirectionA ? (
+  <footer class="mt-20 border-t border-da-border bg-da-surface-neutral py-10">
+    <div class="mx-auto flex max-w-content-xl flex-wrap items-center justify-between gap-5 px-6">
+      <p class="max-w-[34ch] text-sm text-da-ink-faint">
+        SpellingWords.app — free K–5 spelling practice by grade or skill, no account required. &copy; {year}
+      </p>
       <nav aria-label="Footer navigation">
-        <ul class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 list-none m-0 p-0 text-sm font-semibold text-ink-faint sm:justify-end">
-          <li><a href="/#grades" class="transition hover:text-ink-soft">Grades</a></li>
-          <li><a href="/skills" class="transition hover:text-ink-soft">Skills</a></li>
-          <li><a href="/#how-it-works" class="transition hover:text-ink-soft">How it Works</a></li>
-          <li><a href="/privacy" class="transition hover:text-ink-soft">Privacy</a></li>
+        <ul class="m-0 flex list-none flex-wrap items-center gap-x-6 gap-y-2 p-0 text-sm font-bold text-da-ink-soft">
+          <li><a href="/#grades" class="no-underline hover:text-da-brand">Grades</a></li>
+          <li><a href="/skills" class="no-underline hover:text-da-brand">Skills</a></li>
+          <li><a href="/#how-it-works" class="no-underline hover:text-da-brand">How it Works</a></li>
+          <li><a href="/privacy" class="no-underline hover:text-da-brand">Privacy</a></li>
         </ul>
       </nav>
+    </div>
+  </footer>
+) : (
+  <footer class="border-t border-line bg-cream-deep">
+    <div class="mx-auto max-w-content-xl px-6 py-12">
+
+      <div class="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:justify-between sm:text-left">
+
+        <!-- Wordmark -->
+        <a
+          href="/"
+          class="flex items-center gap-1.5 font-display text-[17px] font-semibold text-ink-faint transition-colors hover:text-ink-soft"
+          aria-label="spellingwords home"
+        >
+          <span
+            class="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ink-faint"
+            aria-hidden="true"
+          ></span>
+          spellingwords
+        </a>
+
+        <!-- Nav links -->
+        <nav aria-label="Footer navigation">
+          <ul class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 list-none m-0 p-0 text-sm font-semibold text-ink-faint sm:justify-end">
+            <li><a href="/#grades" class="transition hover:text-ink-soft">Grades</a></li>
+            <li><a href="/skills" class="transition hover:text-ink-soft">Skills</a></li>
+            <li><a href="/#how-it-works" class="transition hover:text-ink-soft">How it Works</a></li>
+            <li><a href="/privacy" class="transition hover:text-ink-soft">Privacy</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <!-- Tagline + copyright -->
+      <div class="mt-8 border-t border-line/60 pt-6 text-center text-[13px] font-semibold text-ink-faint">
+        <p class="mb-1">No accounts. No timers. Just spelling.</p>
+        <p>&copy; {year} spellingwords.app</p>
+      </div>
 
     </div>
-
-    <!-- Tagline + copyright -->
-    <div class="mt-8 border-t border-line/60 pt-6 text-center text-[13px] font-semibold text-ink-faint">
-      <p class="mb-1">No accounts. No timers. Just spelling.</p>
-      <p>&copy; {year} spellingwords.app</p>
-    </div>
-
-  </div>
-</footer>
+  </footer>
+)}

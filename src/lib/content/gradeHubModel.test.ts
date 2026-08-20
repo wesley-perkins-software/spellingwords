@@ -61,7 +61,14 @@ describe('canonical K–5 Grade Hub model', () => {
     expect(renderer).toContain('const hub = buildGradeHubModel(grade, entries)');
     expect(renderer).toContain('numberOfItems: hub.strands.length');
     expect(renderer).toContain('const itemListElements = hub.strands.map');
-    expect(renderer).not.toMatch(/pilot|grade === ['"]3['"]|section\.cards|SpellingListCard|legacyItems/i);
+    // Scattered, ad-hoc special-casing (a hardcoded grade literal, or the old
+    // section.cards/SpellingListCard/legacyItems patterns) is still banned.
+    expect(renderer).not.toMatch(/grade === ['"][K1-5]['"]|section\.cards|SpellingListCard|legacyItems/i);
+    // The one sanctioned exception: branching on membership in the
+    // centralized Direction A pilot allowlist (src/lib/content/pilotContent.ts)
+    // via isPilotGradeHub — a single, reversible, non-scattered check, not a
+    // hardcoded per-grade special case. See docs on the Direction A production pilot.
+    expect(renderer).toContain('isPilotGradeHub');
   });
 
   it('protects canonical adjacent-grade navigation', () => {

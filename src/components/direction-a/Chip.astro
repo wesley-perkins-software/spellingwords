@@ -1,0 +1,30 @@
+---
+// Shared tinted-pill primitive for the Direction A design system. Promoted
+// from src/pages/design-explore/direction-a/_shared/Chip.astro.
+interface Props {
+  tone?: 'brand' | 'teal' | 'sun' | 'periwinkle' | 'pink' | 'coral' | 'neutral';
+  class?: string;
+}
+
+const toneClass: Record<NonNullable<Props['tone']>, string> = {
+  brand: 'bg-da-canvas-raised text-da-brand-strong border-da-brand',
+  teal: 'bg-da-teal-tint text-da-teal-ink border-da-teal',
+  sun: 'bg-da-sun-tint text-da-sun-ink border-da-sun',
+  periwinkle: 'bg-da-periwinkle-tint text-da-periwinkle-ink border-da-periwinkle',
+  pink: 'bg-da-pink-tint text-da-pink-ink border-da-pink',
+  coral: 'bg-da-coral-tint text-da-coral-ink border-da-coral',
+  neutral: 'bg-da-surface-neutral text-da-ink-soft border-da-border-strong',
+};
+
+const { tone = 'brand', class: className = '' } = Astro.props;
+---
+
+<span
+  class:list={[
+    'inline-flex items-center rounded-full border-[1.5px] px-3.5 py-1.5 text-sm font-bold leading-none',
+    toneClass[tone],
+    className,
+  ]}
+>
+  <slot />
+</span>

@@ -2,7 +2,11 @@
 import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
+import Button from '@/components/direction-a/Button.astro';
+import Chip from '@/components/direction-a/Chip.astro';
 import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
+import { gradeConfig } from '@/lib/content/gradeConfig';
+import { GRADE_ACCENT, ACCENT_BG_CLASS, ACCENT_INK_CLASS, type DaAccent } from '@/lib/content/pilotContent';
 import {
   homepageGradeHubs,
   homepageJsonLd,
@@ -12,130 +16,59 @@ import {
 
 const placeholderText = 'Type or paste your words here, one per line';
 
-const gradeAccents: Record<string, string> = {
-  K: 'bg-chip-berry',
-  '1': 'bg-brand-sky',
-  '2': 'bg-chip-grass',
-  '3': 'bg-chip-sun',
-  '4': 'bg-brand-sky',
-  '5': 'bg-chip-grass',
-};
+const gradeCards = homepageGradeHubs.map((hub, index) => ({
+  ...hub,
+  numeral: gradeConfig[index].grade,
+  accent: GRADE_ACCENT[gradeConfig[index].grade],
+}));
 
+// Illustrative, non-pilot-scoped examples of the range of Skills on offer —
+// drawn from the homepage's own permanent HOMEPAGE_REPRESENTATIVE_SKILLS
+// list (also used in the prose above), not from PILOT_SKILL_IDS. These are
+// category labels, not individual Skill-page destinations (per the same
+// design-explore/direction-a mockup this section is drawn from), so they
+// stay as plain decorative Chips — the "Browse Spelling Skills" button
+// remains the one real link, to the canonical Skills index.
+const REPRESENTATIVE_SKILL_TONES: readonly DaAccent[] = ['teal', 'periwinkle', 'sun', 'teal', 'periwinkle', 'sun'];
+const representativeSkillChips = HOMEPAGE_REPRESENTATIVE_SKILLS.map((label, index) => ({
+  label: label.charAt(0).toUpperCase() + label.slice(1),
+  tone: REPRESENTATIVE_SKILL_TONES[index % REPRESENTATIVE_SKILL_TONES.length],
+}));
 ---
 
 <Layout
   title="Free K–5 Spelling Practice by Grade or Skill, No Account | SpellingWords.app"
   description="Free spelling practice for K–5 students, with no account required. Practice your own words, or find structured curriculum practice by grade or spelling skill."
   jsonLd={homepageJsonLd}
+  theme="direction-a"
 >
-
-  <style>
-    /* ── Hero: very faint ruled-paper lines ─────────────────── */
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      transform: translateX(-50%);
-      width: 640px;
-      background-image: repeating-linear-gradient(
-        to bottom,
-        transparent 0px,
-        transparent 35px,
-        rgba(43, 35, 24, 0.042) 35px,
-        rgba(43, 35, 24, 0.042) 36px
-      );
-      pointer-events: none;
-    }
-
-    @media (max-width: 640px) {
-      .hero-section::before { width: 100%; }
-    }
-
-    /* ── Load animations ─────────────────────────────────────── */
-    .anim-1 { animation: fadeUp 0.55s 0.05s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .anim-2 { animation: fadeUp 0.55s 0.13s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .anim-3 { animation: fadeUp 0.55s 0.21s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .anim-4 { animation: fadeUp 0.55s 0.29s cubic-bezier(0.22, 1, 0.36, 1) both; }
-
-    /* ── Input card: focus-within ring ───────────────────────── */
-    .input-card:focus-within {
-      box-shadow:
-        0 6px 20px -6px rgba(43, 35, 24, 0.14),
-        0 0 0 3px rgba(201, 64, 48, 0.16);
-    }
-
-    /* ── Word count pill: active state ───────────────────────── */
-    #word-count-pill.has-words {
-      @apply bg-ink text-app-paper;
-    }
-
-    /* ── CTA button arrow nudge ───────────────────────────────── */
-    .btn-arrow { display: inline-block; transition: transform 0.15s; }
-    #btn-start:hover .btn-arrow { transform: translateX(4px); }
-
-    /* ── Category card scroll-reveal ─────────────────────────── */
-    .cat-card {
-      opacity: 0;
-      transform: translateY(14px);
-      transition:
-        opacity    0.4s ease,
-        transform  0.4s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.15s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .cat-card.visible { opacity: 1; transform: translateY(0); }
-    .cat-card:hover   { transform: translateY(-4px) !important; box-shadow: 0 12px 36px -8px rgba(43, 35, 24, 0.18) !important; }
-
-    /* ── Trust item scroll-reveal ────────────────────────────── */
-    .trust-item {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .trust-item.visible { opacity: 1; transform: translateY(0); }
-  </style>
-
-  <SiteHeader currentPath="/" />
+  <SiteHeader theme="direction-a" currentPath="/" />
 
   <main id="main-content">
-
     <!-- ═══ HERO ════════════════════════════════════════════════ -->
     <section
-      class="hero-section relative overflow-hidden py-20 text-center md:py-24"
+      class="bg-gradient-to-b from-da-brand-tint to-da-canvas px-5 py-12 sm:px-6 md:py-16"
       aria-labelledby="hero-heading"
     >
-      <!-- Ghost word — decorative background letterform -->
-      <span
-        class="pointer-events-none select-none absolute top-1/2 left-1/2 font-word font-bold leading-none tracking-[0.12em] whitespace-nowrap"
-        style="transform: translate(-50%, -52%); font-size: clamp(120px, 18vw, 220px); color: rgba(43, 35, 24, 0.032);"
-        aria-hidden="true"
-      >spelling</span>
+      <div class="mx-auto grid max-w-content-xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div>
+          <h1 id="hero-heading" class="font-quicksand text-[clamp(2.1rem,4.6vw,3.4rem)] font-bold leading-[1.08] tracking-tight text-da-ink">
+            Practice <span class="text-da-coral-strong">spelling</span> your way.
+          </h1>
+          <p class="mt-5 max-w-[46ch] text-[1.1rem] leading-relaxed text-da-ink-soft">
+            Use your own words, follow a structured K–5 spelling curriculum, or explore a library
+            of focused spelling skills. Free to use, with no account or login required.
+          </p>
+        </div>
 
-      <div class="relative mx-auto max-w-content-xl px-6">
-
-        <h1
-          id="hero-heading"
-          class="anim-1 text-display-xl mb-9"
-        >
-          Practice <span class="text-brand-red">spelling</span> your way.
-        </h1>
-
-        <p class="anim-2 mx-auto mb-7 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
-          Use your own words, follow a structured K–5 spelling curriculum, or explore a library
-          of focused spelling skills. Free to use, with no account or login required.
-        </p>
-
-        <!-- Word input card -->
-        <div class="anim-3 input-card mx-auto mb-5 max-w-content-sm overflow-hidden rounded-[22px] border border-line bg-app-paper shadow-card-md transition-shadow">
-
-          <div class="flex items-center justify-between border-b border-line bg-app-cloud px-[18px] py-2.5">
-            <label for="word-input" class="text-[13px] font-bold text-ink-soft tracking-[0.01em]">
+        <div class="rounded-2xl border border-da-border bg-da-canvas-raised p-6 shadow-lg sm:p-8">
+          <div class="flex items-center justify-between gap-3">
+            <label for="word-input" class="font-quicksand text-[1.15rem] font-bold text-da-ink">
               Enter your spelling words
             </label>
             <span
               id="word-count-pill"
-              class="font-sans text-[11px] font-extrabold uppercase tracking-[0.04em] text-ink-soft bg-cream-deep px-3 py-1 rounded-full transition-colors duration-200"
+              class="flex-shrink-0 rounded-full bg-da-coral-tint px-3 py-1.5 text-[0.82rem] font-bold text-da-coral-ink transition-colors"
               aria-live="polite"
               aria-atomic="true"
             >
@@ -145,102 +78,89 @@ const gradeAccents: Record<string, string> = {
 
           <textarea
             id="word-input"
-            rows="4"
-            class="w-full resize-none bg-app-paper px-5 py-4 font-word text-[19px] leading-[1.85] text-ink tracking-[0.015em] placeholder:text-ink-faint focus:outline-none"
+            rows="6"
+            class="mt-3.5 w-full resize-y rounded-lg border-2 border-da-border-strong bg-da-canvas px-4 py-3.5 font-mulish text-base leading-relaxed text-da-ink placeholder:text-da-ink-faint focus:outline-none focus-visible:border-da-brand"
             spellcheck="false"
             autocomplete="off"
             aria-label="Your spelling words, one per line"
             placeholder={placeholderText}
           ></textarea>
 
-          <div class="border-t border-line bg-app-cloud px-[18px] py-2">
-            <p
-              id="input-status"
-              class="text-[13px] font-semibold text-ink-soft"
-              aria-live="polite"
-              aria-atomic="true"
+          <p id="input-status" class="mt-3 text-[0.88rem] text-da-ink-faint" aria-live="polite" aria-atomic="true">
+            Add at least 1 word to start practicing.
+          </p>
+
+          <Button id="btn-start" type="button" size="lg" class="mt-3.5" aria-label="Start a spelling practice session">
+            Start Practicing <span aria-hidden="true">→</span>
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ BROWSE BY GRADE ═══════════════════════════════════════ -->
+    <section id="grades" class="scroll-mt-[72px] bg-da-surface-home px-5 py-14 sm:px-6 md:py-20" aria-labelledby="grade-heading">
+      <div class="mx-auto max-w-content-xl">
+        <div class="mb-9 max-w-2xl">
+          <h2 id="grade-heading" class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink">
+            Browse by Grade
+          </h2>
+          <p class="mt-2.5 text-[1.05rem] leading-relaxed text-da-ink-soft">
+            Follow an organized Kindergarten–5th Grade spelling path built around Core Spelling,
+            High-Frequency Words, and Themed Spelling Practice.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" role="list" aria-label="Grade levels">
+          {gradeCards.map(({ href, label, teaser, numeral, accent }) => (
+            <a
+              href={href}
+              class="relative flex flex-col gap-1.5 overflow-hidden rounded-2xl border border-da-border bg-da-canvas-raised p-6 pt-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              role="listitem"
             >
-              Add at least 1 word to start practicing.
-            </p>
-          </div>
+              <span class:list={['absolute inset-x-0 top-0 h-2', ACCENT_BG_CLASS[accent]]} aria-hidden="true"></span>
+              <span class:list={['font-quicksand text-4xl font-bold leading-none', ACCENT_INK_CLASS[accent]]} aria-hidden="true">
+                {numeral}
+              </span>
+              <span class="mt-1 font-quicksand text-lg font-bold text-da-ink">{label}</span>
+              <span class="text-sm leading-relaxed text-da-ink-soft">{teaser}</span>
+            </a>
+          ))}
         </div>
-
-        <!-- Primary CTA -->
-        <div class="anim-4">
-          <button
-            id="btn-start"
-            type="button"
-            class="btn-action"
-            aria-label="Start a spelling practice session"
-          >
-            Start Practicing <span class="btn-arrow" aria-hidden="true">→</span>
-          </button>
-        </div>
-
       </div>
     </section>
 
-    <hr class="h-px border-none bg-line mx-6" />
+    <!-- ═══ BROWSE BY SKILL ═══════════════════════════════════════ -->
+    <section id="skills" class="scroll-mt-[72px] bg-da-teal-tint px-5 py-14 sm:px-6 md:py-20" aria-labelledby="skill-heading">
+      <div class="mx-auto grid max-w-content-xl gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-16">
+        <div>
+          <h2 id="skill-heading" class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink">
+            Browse by Skill
+          </h2>
+          <p class="mt-2.5 max-w-[54ch] text-[1.05rem] leading-relaxed text-da-ink-soft">
+            Already know what to work on? Explore {HOMEPAGE_SKILL_COUNT} spelling skills,
+            from {HOMEPAGE_REPRESENTATIVE_SKILLS[0]} and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[3]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]}
+            — go straight to the specific spelling skill your student needs.
+          </p>
+          <Button href={SKILLS_INDEX_PATH} variant="outline" class="mt-6">
+            Browse Spelling Skills <span aria-hidden="true">→</span>
+          </Button>
+        </div>
 
-    <!-- ═══ BROWSE BY GRADE / BROWSE BY SKILL ══════════════════════ -->
-    <section id="grades" class="mx-auto max-w-content-xl px-6 py-16 scroll-mt-[72px]" aria-labelledby="grade-heading">
-      <div class="mb-9">
-        <h2
-          id="grade-heading"
-          class="text-display-lg mb-2"
-        >
-          Browse by Grade
+        <ul class="flex flex-wrap gap-3" aria-label="Examples of spelling skills">
+          {representativeSkillChips.map((chip) => (
+            <li><Chip tone={chip.tone}>{chip.label}</Chip></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══ CLOSING ═══════════════════════════════════════════════ -->
+    <section id="how-it-works" class="scroll-mt-[72px] px-5 py-14 sm:px-6 md:py-20" aria-labelledby="trust-heading">
+      <div class="mx-auto max-w-content-lg rounded-2xl border border-da-brand bg-da-brand-tint px-6 py-10 text-center shadow-sm sm:px-10">
+        <h2 id="trust-heading" class="font-quicksand text-[clamp(1.5rem,2.6vw,1.9rem)] font-bold text-da-brand-strong">
+          More than a list of spelling words
         </h2>
-        <p class="max-w-content-sm text-[15px] font-medium text-ink-soft leading-[1.55]">
-          Follow an organized Kindergarten–5th Grade spelling path built around Core Spelling,
-          High-Frequency Words, and Themed Spelling Practice.
-        </p>
-      </div>
-
-      <div
-        class="grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-3"
-        role="list"
-        aria-label="Grade levels"
-      >
-        {homepageGradeHubs.map(({ href, label, teaser }, index) => (
-          <a
-            href={href}
-            class="cat-card flex flex-col overflow-hidden rounded-2xl border border-line bg-app-paper shadow-card"
-            role="listitem"
-          >
-            <div class={`h-1 flex-shrink-0 ${gradeAccents[index === 0 ? 'K' : String(index)]}`}></div>
-            <div class="flex flex-col gap-1 p-[18px] pb-4">
-              <span class="font-display text-[21px] font-semibold text-ink leading-[1.1] tracking-[-0.01em]">
-                {label}
-              </span>
-              <span class="text-sm font-medium text-ink-soft leading-[1.4]">
-                {teaser}
-              </span>
-            </div>
-          </a>
-        ))}
-      </div>
-    </section>
-
-    <section id="skills" class="mx-auto max-w-content-xl px-6 pb-16 scroll-mt-[72px]" aria-labelledby="skill-heading">
-      <h2 id="skill-heading" class="text-display-lg mb-2">Browse by Skill</h2>
-      <p class="mb-5 max-w-content-sm text-[15px] font-medium leading-[1.55] text-ink-soft">
-        Already know what to work on? Explore {HOMEPAGE_SKILL_COUNT} spelling skills,
-        from {HOMEPAGE_REPRESENTATIVE_SKILLS[0]} and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[3]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]}
-        — go straight to the specific spelling skill your student needs.
-      </p>
-      <a href={SKILLS_INDEX_PATH} class="btn-action">Browse Spelling Skills <span aria-hidden="true">→</span></a>
-    </section>
-
-    <!-- ═══ CLOSING ══════════════════════════════════════════════ -->
-    <section
-      id="how-it-works"
-      class="border-t border-line py-12 md:py-14"
-      aria-labelledby="trust-heading"
-    >
-      <div class="trust-item mx-auto max-w-content-sm px-6 text-center">
-        <h2 id="trust-heading" class="text-display-lg mb-4">More than a list of spelling words</h2>
-        <p class="text-[15px] font-medium leading-[1.6] text-ink-soft">
+        <p class="mt-4 text-[1.05rem] leading-relaxed text-da-ink-soft">
           SpellingWords.app brings a structured K–5 spelling curriculum, a library of focused
           spelling skills, and space to practice a student's own words together in one place —
           organized by spelling patterns and high-frequency words, not a random list to memorize.
@@ -250,10 +170,9 @@ const gradeAccents: Record<string, string> = {
         </p>
       </div>
     </section>
-
   </main>
 
-  <SiteFooter />
+  <SiteFooter theme="direction-a" />
 
   <script>
     import { parseWordInput, encodeWordList } from '@/lib/words';
@@ -272,7 +191,6 @@ const gradeAccents: Record<string, string> = {
       const count = words.length;
 
       pill.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
-      pill.classList.toggle('has-words', count > 0);
 
       if (count === 0) {
         status.textContent = 'Add at least 1 word to start practicing.';
@@ -305,27 +223,5 @@ const gradeAccents: Record<string, string> = {
     textarea.addEventListener('input', updateStatus);
     btn.addEventListener('click', handleStart);
     updateStatus();
-
-    // Scroll-triggered reveal for category cards and trust items
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) {
-          (e.target as HTMLElement).classList.add('visible');
-          io.unobserve(e.target);
-        }
-      }),
-      { threshold: 0.1 }
-    );
-
-    document.querySelectorAll('.cat-card').forEach((el, i) => {
-      (el as HTMLElement).style.transitionDelay = `${i * 0.045}s`;
-      io.observe(el);
-    });
-
-    document.querySelectorAll('.trust-item').forEach((el, i) => {
-      (el as HTMLElement).style.transitionDelay = `${i * 0.07}s`;
-      io.observe(el);
-    });
   </script>
-
 </Layout>

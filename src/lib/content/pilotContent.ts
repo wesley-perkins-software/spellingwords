@@ -140,6 +140,19 @@ export const ACCENT_INK_CLASS: Record<DaAccent, string> = {
   periwinkle: 'text-da-periwinkle-ink',
 };
 
+/** Same accent as a low-opacity wash over the canvas, for large surfaces
+ * (e.g. a Grade Unit hero) where the full-strength `-tint` token would read
+ * as too saturated. Uses Tailwind's built-in color-opacity modifier on the
+ * same da.* colors already in tailwind.config.mjs — no new hex values. */
+export const ACCENT_WASH_BG_CLASS: Record<DaAccent, string> = {
+  brand: 'bg-da-brand/20',
+  coral: 'bg-da-coral/20',
+  sun: 'bg-da-sun/20',
+  teal: 'bg-da-teal/20',
+  pink: 'bg-da-pink/20',
+  periwinkle: 'bg-da-periwinkle/20',
+};
+
 /** Same accent bg color, expressed as a `before:` pseudo-element variant —
  * for the left-edge-accent card treatment (relative + before:absolute
  * before:inset-y-0 before:left-0 before:w-1.5). Kept as its own literal

@@ -25,6 +25,7 @@ import {
   ACCENT_BORDER_CLASS,
   ACCENT_TINT_BG_CLASS,
   ACCENT_INK_CLASS,
+  ACCENT_WASH_BG_CLASS,
 } from '@/lib/content/pilotContent';
 import type { SpellingWord } from '@/types/spelling';
 
@@ -106,7 +107,7 @@ const hasSidebar = conceptSkills.length > 0 || relatedGroups.some((g: RelatedGro
 <!-- Hero: blue structural DNA, grade identity via chip + the rule beneath it -->
 <section class="px-5 pb-0 pt-6 sm:px-6 md:pt-8">
   <div class="mx-auto max-w-[1100px]">
-    <div class="relative overflow-hidden rounded-2xl border border-da-brand bg-da-brand-tint px-6 py-7 sm:px-9 sm:py-9">
+    <div class:list={['relative overflow-hidden rounded-2xl border border-da-brand px-6 py-7 sm:px-9 sm:py-9', gradeAccent ? ACCENT_WASH_BG_CLASS[gradeAccent] : 'bg-da-brand-tint']}>
       {roadmapPosition && gradeHubHref && gradeLabel && (
         <p class="mb-3 text-sm font-bold text-da-brand-strong">
           <a href={gradeHubHref} class="hover:underline">{gradeLabel} Spelling</a>

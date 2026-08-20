@@ -18,7 +18,7 @@ describe('canonical homepage', () => {
   it('has one immediate page heading and complete, accurate metadata', () => {
     expect(homepageSource.match(/<h1\b/g)).toHaveLength(1);
     expect(homepageSource).toContain(
-      'Practice <span class="text-brand-red">spelling</span> your way.',
+      'Practice <span class="text-da-coral-strong">spelling</span> your way.',
     );
     expect(homepageSource).toContain(
       'title="Free K–5 Spelling Practice by Grade or Skill, No Account | SpellingWords.app"',
@@ -82,7 +82,7 @@ describe('canonical homepage', () => {
 
   it('presents grade and skill browsing as coequal semantic sections', () => {
     expect(homepageSource).toMatch(/<h2[^>]*id="grade-heading"[^>]*>\s*Browse by Grade\s*<\/h2>/);
-    expect(homepageSource).toMatch(/<h2[^>]*id="skill-heading"[^>]*>Browse by Skill<\/h2>/);
+    expect(homepageSource).toMatch(/<h2[^>]*id="skill-heading"[^>]*>\s*Browse by Skill\s*<\/h2>/);
     expect(homepageSource).toContain('href={SKILLS_INDEX_PATH}');
     expect(SKILLS_INDEX_PATH).toBe('/skills');
   });

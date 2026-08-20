@@ -16,7 +16,7 @@ import type { GradeRouteClassification } from './canonicalGradeRoutes';
  * not `compound-words`), so slug-based checks would silently miss those.
  */
 
-export const PILOT_GRADE_HUB_GRADES: readonly GradeCode[] = ['K', '5'];
+export const PILOT_GRADE_HUB_GRADES: readonly GradeCode[] = ['K', '1', '2', '3', '4', '5'];
 
 export const PILOT_GRADE_UNIT_IDS: readonly string[] = [
   'kindergarten-short-a-words', // /kindergarten/core-spelling/short-a-words
@@ -47,20 +47,28 @@ export function isPilotSkill(id: string): boolean {
 }
 
 /**
- * Restrained accent mapping for the pilot — deliberately small (documented
- * here in full, not scattered) so it can be evaluated as a whole rather than
- * requiring a legend. Two independent axes:
+ * Restrained accent mapping — documented here in full, not scattered, so it
+ * can be evaluated as a whole rather than requiring a legend. Two
+ * independent axes:
  *
  * - Grade Unit strand accent: reused verbatim from Direction A's own Grade
  *   Hub exploration (design-explore/direction-a/grade-hub.astro), so the
  *   Grade Hub's strand cards and a Grade Unit page's own strand accent stay
  *   the same color for the same strand.
- * - Skill-family accent: one explicit hue per family actually represented in
- *   the pilot. The other 7 families in SPELLING_SKILL_FAMILIES are
- *   deliberately left unassigned — inventing accents for skills the pilot
- *   never renders would be exactly the "invent a huge mapping up front"
- *   the pilot is supposed to avoid. Extend this table as more Skills join
- *   the pilot in a later rollout.
+ * - Skill-family accent: one hue per family in SPELLING_SKILL_FAMILIES.
+ *   Coral is reserved for the site's one action color, so only 5 non-coral
+ *   accents exist for 12 families — families that share a conceptual
+ *   neighborhood share an accent rather than each getting an invented,
+ *   arbitrary hue:
+ *     sun        — Short Vowels (foundational phonics)
+ *     teal       — Consonant Digraphs, Consonant Blends, Common Spelling
+ *                  Patterns (consonant-sound / consonant-adjacent conventions)
+ *     brand      — Vowel Teams, R-Controlled Vowels, Multisyllabic Words
+ *                  (vowel-sound and word-structure families)
+ *     periwinkle — Silent E, Homophones and Commonly Confused Words
+ *                  (spelling-by-meaning / usage nuance)
+ *     pink       — Greek and Latin Roots, Word Building and Endings,
+ *                  Prefixes (word-parts / morphology)
  */
 export type DaAccent = 'brand' | 'coral' | 'sun' | 'teal' | 'pink' | 'periwinkle';
 
@@ -74,8 +82,15 @@ export const SKILL_FAMILY_ACCENT: Record<string, DaAccent> = {
   'Short Vowels': 'sun',
   'Vowel Teams': 'brand',
   'Consonant Digraphs': 'teal',
+  'Consonant Blends': 'teal',
+  'Common Spelling Patterns': 'teal',
+  'R-Controlled Vowels': 'brand',
+  'Multisyllabic Words': 'brand',
   'Silent E': 'periwinkle',
+  'Homophones and Commonly Confused Words': 'periwinkle',
   'Greek and Latin Roots': 'pink',
+  'Word Building and Endings': 'pink',
+  Prefixes: 'pink',
 };
 
 /**

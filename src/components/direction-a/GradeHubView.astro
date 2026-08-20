@@ -5,7 +5,7 @@
 // uses; only the rendered markup/styles differ.
 import AtmosphereBand from './AtmosphereBand.astro';
 import type { GradeHubModel } from '@/lib/content/gradeHubModel';
-import { STRAND_ACCENT, type DaAccent } from '@/lib/content/pilotContent';
+import { STRAND_ACCENT, ACCENT_INK_CLASS, ACCENT_BEFORE_BG_CLASS } from '@/lib/content/pilotContent';
 import type { GradeConfigEntry } from '@/lib/content/gradeConfig';
 
 interface Props {
@@ -16,23 +16,6 @@ interface Props {
 }
 
 const { label, hub, prev, next } = Astro.props;
-
-const accentCardClass: Record<DaAccent, string> = {
-  sun: 'bg-da-sun-tint border-da-sun',
-  teal: 'bg-da-teal-tint border-da-teal',
-  periwinkle: 'bg-da-periwinkle-tint border-da-periwinkle',
-  pink: 'bg-da-pink-tint border-da-pink',
-  brand: 'bg-da-brand-tint border-da-brand',
-  coral: 'bg-da-coral-tint border-da-coral',
-};
-const accentTextClass: Record<DaAccent, string> = {
-  sun: 'text-da-sun-ink',
-  teal: 'text-da-teal-ink',
-  periwinkle: 'text-da-periwinkle-ink',
-  pink: 'text-da-pink-ink',
-  brand: 'text-da-brand-strong',
-  coral: 'text-da-coral-ink',
-};
 ---
 
 <AtmosphereBand tone="grade" ariaLabel={`${label} spelling strands`} class="mt-6 rounded-3xl md:mt-8">
@@ -45,17 +28,28 @@ const accentTextClass: Record<DaAccent, string> = {
     ))}
   </header>
 
-  <div class="grid gap-5 md:grid-cols-3">
+  <div class="grid gap-5 md:grid-cols-3" role="list" aria-label={`${label} strands`}>
     {hub.strands.map((strand) => {
       const accent = STRAND_ACCENT[strand.strand];
       return (
-        <article class:list={['flex flex-col gap-2.5 rounded-2xl border p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md', accentCardClass[accent]]}>
-          <h2 class:list={['font-quicksand text-xl font-bold', accentTextClass[accent]]}>{strand.label}</h2>
+        <a
+          href={strand.href}
+          role="listitem"
+          class:list={[
+            'group relative flex flex-col gap-3 overflow-hidden rounded-2xl border border-da-border bg-da-canvas-raised p-7 shadow-sm transition',
+            'before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:content-[\'\']',
+            'hover:-translate-y-1 hover:border-da-border-strong hover:shadow-lg',
+            'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand',
+            ACCENT_BEFORE_BG_CLASS[accent],
+          ]}
+        >
+          <h2 class:list={['font-quicksand text-xl font-bold', ACCENT_INK_CLASS[accent]]}>{strand.label}</h2>
           <p class="flex-grow text-[0.98rem] leading-relaxed text-da-ink-soft">{strand.summary}</p>
-          <a href={strand.href} class:list={['mt-2 inline-flex min-h-[44px] items-center text-[0.95rem] font-bold hover:underline', accentTextClass[accent]]}>
-            {strand.linkLabel} →
-          </a>
-        </article>
+          <span class:list={['mt-2 inline-flex items-center gap-1.5 text-[0.95rem] font-bold', ACCENT_INK_CLASS[accent]]}>
+            {strand.linkLabel}
+            <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+          </span>
+        </a>
       );
     })}
   </div>

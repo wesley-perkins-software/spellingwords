@@ -55,9 +55,16 @@ export default {
           'canvas-raised': '#ffffff',
           'canvas-sunken': '#fbf3e8',
 
+          // Text policy: default reading copy is near-black, not gray — hierarchy
+          // comes from weight/size/spacing, not from washing out body text.
+          // `ink` is reserved for headings/strong emphasis, `ink-soft` is the
+          // default for body copy/descriptions (deliberately very close to
+          // `ink`, not a mid-gray), and `ink-faint` is the one quieter tier,
+          // reserved for genuinely minor metadata (word counts, timestamps) —
+          // still dark enough to read easily, just the least emphatic of the three.
           ink: '#2a2420',
-          'ink-soft': '#5c534b',
-          'ink-faint': '#8a8078',
+          'ink-soft': '#332e29',
+          'ink-faint': '#5c534b',
 
           border: '#ece2d4',
           'border-strong': '#ddcfba',

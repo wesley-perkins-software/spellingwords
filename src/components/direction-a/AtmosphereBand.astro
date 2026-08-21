@@ -5,14 +5,41 @@
 // a small set of neutral/tint bands for internal long-scroll rhythm.
 // Promoted from src/pages/design-explore/direction-a/_shared/SectionBand.astro.
 interface Props {
-  tone?: 'home' | 'grade' | 'unit' | 'skill' | 'white' | 'cool' | 'neutral' | 'sun' | 'teal' | 'pink' | 'periwinkle' | 'brand';
+  tone?:
+    | 'home'
+    | 'grade-k'
+    | 'grade-1'
+    | 'grade-2'
+    | 'grade-3'
+    | 'grade-4'
+    | 'grade-5'
+    | 'unit'
+    | 'skill'
+    | 'white'
+    | 'cool'
+    | 'neutral'
+    | 'sun'
+    | 'teal'
+    | 'pink'
+    | 'periwinkle'
+    | 'brand'
+    | 'green'
+    | 'plum';
   ariaLabel?: string;
   class?: string;
 }
 
 const toneClass: Record<NonNullable<Props['tone']>, string> = {
   home: 'bg-da-surface-home',
-  grade: 'bg-da-surface-grade',
+  // Grade Hub atmospheres: one near-white surface per grade (see
+  // GRADE_ATMOSPHERE_TONE in pilotContent.ts) — every Grade Hub shares this
+  // component/layout; only the grade determines which of these six it gets.
+  'grade-k': 'bg-da-surface-grade-k',
+  'grade-1': 'bg-da-surface-grade-1',
+  'grade-2': 'bg-da-surface-grade-2',
+  'grade-3': 'bg-da-surface-grade-3',
+  'grade-4': 'bg-da-surface-grade-4',
+  'grade-5': 'bg-da-surface-grade-5',
   unit: 'bg-da-surface-unit',
   skill: 'bg-da-surface-skill',
   white: 'bg-da-surface-white',
@@ -23,6 +50,8 @@ const toneClass: Record<NonNullable<Props['tone']>, string> = {
   pink: 'bg-da-pink-tint',
   periwinkle: 'bg-da-periwinkle-tint',
   brand: 'bg-da-brand-tint',
+  green: 'bg-da-green-tint',
+  plum: 'bg-da-plum-tint',
 };
 
 const { tone = 'neutral', ariaLabel, class: className = '' } = Astro.props;

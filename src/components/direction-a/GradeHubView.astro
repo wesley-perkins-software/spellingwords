@@ -1,11 +1,19 @@
 ---
-// Direction A Grade Hub body — lavender-neutral atmosphere, three strand
-// destination cards, editorial "Where to begin" guidance, prev/next/all-grades
-// nav. Built from the same buildGradeHubModel() data the legacy template
-// uses; only the rendered markup/styles differ.
+// Direction A Grade Hub body — every grade shares this identical template;
+// only two things vary by grade: the page's near-white atmosphere tone (see
+// GRADE_ATMOSPHERE_TONE — "I moved into another grade," not "this page is
+// green") and, on Grade Unit pages downstream, the chip/hero accent. The
+// three strand destination cards below are tinted by STRAND identity, not
+// grade — a deliberately separate axis (see pilotContent.ts module doc).
 import AtmosphereBand from './AtmosphereBand.astro';
 import type { GradeHubModel } from '@/lib/content/gradeHubModel';
-import { STRAND_ACCENT, ACCENT_INK_CLASS, ACCENT_BEFORE_BG_CLASS } from '@/lib/content/pilotContent';
+import {
+  STRAND_ACCENT,
+  GRADE_ATMOSPHERE_TONE,
+  ACCENT_INK_CLASS,
+  ACCENT_TINT_BG_CLASS,
+  ACCENT_BORDER_CLASS,
+} from '@/lib/content/pilotContent';
 import type { GradeConfigEntry } from '@/lib/content/gradeConfig';
 
 interface Props {
@@ -18,7 +26,7 @@ interface Props {
 const { label, hub, prev, next } = Astro.props;
 ---
 
-<AtmosphereBand tone="grade" ariaLabel={`${label} spelling strands`} class="mt-6 rounded-3xl md:mt-8">
+<AtmosphereBand tone={GRADE_ATMOSPHERE_TONE[hub.grade]} ariaLabel={`${label} spelling strands`} class="mt-6 rounded-3xl md:mt-8">
   <header class="mb-10 max-w-2xl md:mb-12">
     <h1 class="font-quicksand text-[clamp(2rem,4.2vw,2.75rem)] font-bold leading-[1.1] text-da-ink">
       {label} Spelling Words
@@ -36,11 +44,11 @@ const { label, hub, prev, next } = Astro.props;
           href={strand.href}
           role="listitem"
           class:list={[
-            'group relative flex flex-col gap-3 overflow-hidden rounded-2xl border border-da-border bg-da-canvas-raised p-7 shadow-sm transition',
-            'before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:content-[\'\']',
-            'hover:-translate-y-1 hover:border-da-border-strong hover:shadow-lg',
+            'group relative flex flex-col gap-3 rounded-2xl border p-7 shadow-sm transition',
+            'hover:-translate-y-1 hover:shadow-lg',
             'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand',
-            ACCENT_BEFORE_BG_CLASS[accent],
+            ACCENT_TINT_BG_CLASS[accent],
+            ACCENT_BORDER_CLASS[accent],
           ]}
         >
           <h2 class:list={['font-quicksand text-xl font-bold', ACCENT_INK_CLASS[accent]]}>{strand.label}</h2>

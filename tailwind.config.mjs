@@ -55,9 +55,16 @@ export default {
           'canvas-raised': '#ffffff',
           'canvas-sunken': '#fbf3e8',
 
+          // Text policy: default reading copy is near-black, not gray — hierarchy
+          // comes from weight/size/spacing, not from washing out body text.
+          // `ink` is reserved for headings/strong emphasis, `ink-soft` is the
+          // default for body copy/descriptions (deliberately very close to
+          // `ink`, not a mid-gray), and `ink-faint` is the one quieter tier,
+          // reserved for genuinely minor metadata (word counts, timestamps) —
+          // still dark enough to read easily, just the least emphatic of the three.
           ink: '#2a2420',
-          'ink-soft': '#5c534b',
-          'ink-faint': '#8a8078',
+          'ink-soft': '#332e29',
+          'ink-faint': '#5c534b',
 
           border: '#ece2d4',
           'border-strong': '#ddcfba',
@@ -73,7 +80,13 @@ export default {
           'coral-tint': '#ffece2',
           'coral-ink': '#9a3d17',
 
-          // Semantic accents for grade/strand/skill-family wayfinding
+          // Semantic accents for strand/grade/skill-family wayfinding — a shared
+          // hue vocabulary, NOT a single-purpose token: brand and coral are the
+          // only two colors with one fixed job (structure, action) and are
+          // never assigned here. Grade identity, strand identity, and Skill
+          // families each draw their own mapping from this pool (see
+          // pilotContent.ts) and may reuse a hue where their page roles never
+          // compete for the same visual space.
           sun: '#ffc24b',
           'sun-tint': '#fff5df',
           'sun-ink': '#7a5300',
@@ -86,6 +99,19 @@ export default {
           periwinkle: '#7c8cf8',
           'periwinkle-tint': '#ecefff',
           'periwinkle-ink': '#3b3fb0',
+          // Fresh green — added for Grade 1 so grade identity no longer has to
+          // borrow action coral. Kept visibly distinct from teal (less cyan,
+          // more leaf-green).
+          green: '#4caf6d',
+          'green-tint': '#e5f6ea',
+          'green-ink': '#1f6b3e',
+          // Plum — added for Grade 5 so grade identity no longer has to borrow
+          // structural brand blue. Deliberately leans magenta/violet rather
+          // than blue-violet (unlike periwinkle) so it never reads as "another
+          // blue" next to brand.
+          plum: '#8659a8',
+          'plum-tint': '#f2eaf8',
+          'plum-ink': '#5a3878',
 
           correct: '#1f6b34',
           'correct-bg': '#e3f3e4',
@@ -97,12 +123,22 @@ export default {
           // Page-role atmospheres — one low-chroma near-white base tone per
           // major page role (see pilotContent.ts for which routes opt in).
           'surface-home': '#f3f8fd',
-          'surface-grade': '#f8f4fc',
           'surface-unit': '#fdf6f3',
           'surface-skill': '#f3faf6',
           'surface-white': '#ffffff',
           'surface-cool': '#f2f6fb',
           'surface-neutral': '#f6f3ee',
+          // Grade Hub atmospheres — one near-white surface per grade, barely
+          // tinted with that grade's identity hue. Deliberately far paler than
+          // the strand-card tints below: the goal is "I moved into another
+          // grade," not "this page is green." Every Grade Hub shares the same
+          // template; only this whisper of cast should differ.
+          'surface-grade-k': '#fdf9f0',
+          'surface-grade-1': '#f3f9f5',
+          'surface-grade-2': '#f0f8f7',
+          'surface-grade-3': '#f5f4fc',
+          'surface-grade-4': '#fbf3f5',
+          'surface-grade-5': '#f7f3fa',
         },
       },
       fontFamily: {

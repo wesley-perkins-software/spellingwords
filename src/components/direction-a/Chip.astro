@@ -2,7 +2,7 @@
 // Shared tinted-pill primitive for the Direction A design system. Promoted
 // from src/pages/design-explore/direction-a/_shared/Chip.astro.
 interface Props {
-  tone?: 'brand' | 'teal' | 'sun' | 'periwinkle' | 'pink' | 'coral' | 'neutral';
+  tone?: 'brand' | 'teal' | 'sun' | 'periwinkle' | 'pink' | 'coral' | 'green' | 'plum' | 'neutral';
   class?: string;
 }
 
@@ -13,6 +13,8 @@ const toneClass: Record<NonNullable<Props['tone']>, string> = {
   periwinkle: 'bg-da-periwinkle-tint text-da-periwinkle-ink border-da-periwinkle',
   pink: 'bg-da-pink-tint text-da-pink-ink border-da-pink',
   coral: 'bg-da-coral-tint text-da-coral-ink border-da-coral',
+  green: 'bg-da-green-tint text-da-green-ink border-da-green',
+  plum: 'bg-da-plum-tint text-da-plum-ink border-da-plum',
   neutral: 'bg-da-surface-neutral text-da-ink-soft border-da-border-strong',
 };
 

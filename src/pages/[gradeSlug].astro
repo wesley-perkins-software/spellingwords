@@ -9,7 +9,6 @@ import { isPublished } from '@/lib/content/spellingLists';
 import { gradeConfig, getAdjacentGrades } from '@/lib/content/gradeConfig';
 import type { GradeConfigEntry } from '@/lib/content/gradeConfig';
 import { buildGradeHubModel } from '@/lib/content/gradeHubModel';
-import { isPilotGradeHub } from '@/lib/content/pilotContent';
 import GradeHubView from '@/components/direction-a/GradeHubView.astro';
 
 export async function getStaticPaths() {
@@ -30,8 +29,6 @@ const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label },
 ];
-
-const usePilotDesign = isPilotGradeHub(grade);
 
 const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
 
@@ -66,89 +63,15 @@ const itemListJsonLd = {
   title={`${label} Spelling Words | spellingwords.app`}
   description={hub.metaDescription}
   jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
-  theme={usePilotDesign ? 'direction-a' : 'legacy'}
 >
-  <SiteHeader variant="discovery" currentPath={gradeEntry.hubHref} theme={usePilotDesign ? 'direction-a' : 'legacy'} />
+  <SiteHeader variant="discovery" currentPath={gradeEntry.hubHref} />
 
   <main id="main-content">
-    {usePilotDesign ? (
-      <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
-        <Breadcrumbs items={breadcrumbItems} />
-      </div>
-    ) : null}
-    {usePilotDesign && <GradeHubView label={label} hub={hub} prev={prev} next={next} />}
-    {!usePilotDesign && (
-    <div class="mx-auto max-w-3xl px-6 py-12 md:py-16">
-      <div class="mb-6">
-        <Breadcrumbs items={breadcrumbItems} />
-      </div>
-
-      <!-- Hero -->
-      <div class="mb-10 flex flex-col gap-4">
-        <h1 class="font-display text-2xl font-semibold text-ink md:text-3xl">
-          {label} Spelling Words
-        </h1>
-        {hub.orientation.map((paragraph) => (
-          <p class="max-w-2xl text-base leading-relaxed text-ink-soft">{paragraph}</p>
-        ))}
-      </div>
-
-      <div class="mb-12 flex flex-col gap-10">
-          {hub.strands.map((strand) => (
-            <section class="flex flex-col gap-3" aria-labelledby={`grade-section-${strand.strand}`}>
-              <h2 id={`grade-section-${strand.strand}`} class="font-display text-lg font-semibold text-ink">
-                {strand.label}
-              </h2>
-              <p class="max-w-2xl text-sm leading-relaxed text-ink-soft">{strand.summary}</p>
-              <p>
-                <a href={strand.href} class="text-sm font-semibold text-brand-blue hover:underline">
-                  {strand.linkLabel} →
-                </a>
-              </p>
-            </section>
-          ))}
-      </div>
-
-      <!-- Choosing guidance -->
-      <section aria-labelledby="guidance-heading" class="mb-12 rounded-2xl border border-line bg-app-cloud p-6">
-          <h2 id="guidance-heading" class="mb-2 font-display text-base font-semibold text-ink">
-            Where to begin
-          </h2>
-          <p class="text-sm leading-relaxed text-ink-soft">{hub.synthesis}</p>
-      </section>
-
-      <!-- Adjacent grade nav -->
-      <nav aria-label="Adjacent grade levels" class="mb-10 flex items-center justify-between gap-4">
-        {prev ? (
-          <a
-            href={prev.hubHref}
-            class="inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline"
-          >
-            ← {prev.label} Spelling Words
-          </a>
-        ) : <span></span>}
-        {next ? (
-          <a
-            href={next.hubHref}
-            class="inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline"
-          >
-            {next.label} Spelling Words →
-          </a>
-        ) : <span></span>}
-      </nav>
-
-      <!-- Back to grades -->
-      <p>
-        <a
-          href="/#grades"
-          class="inline-flex items-center gap-1 text-sm font-semibold text-brand-blue hover:underline"
-        >
-          ← Back to all grades
-        </a>
-      </p>
+    <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
+      <Breadcrumbs items={breadcrumbItems} />
     </div>
-    )}
+    <GradeHubView label={label} hub={hub} prev={prev} next={next} />
   </main>
 
-  <SiteFooter theme={usePilotDesign ? 'direction-a' : 'legacy'} />
+  <SiteFooter />
 </Layout>

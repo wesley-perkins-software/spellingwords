@@ -28,6 +28,10 @@ const sourceAttribution = readFileSync(
   new URL('../../components/SourceAttribution.astro', import.meta.url),
   'utf8',
 );
+const view = readFileSync(
+  new URL('../../components/direction-a/GradeUnitView.astro', import.meta.url),
+  'utf8',
+);
 
 describe('Kindergarten High-Frequency Words Set 1 editorial pilot', () => {
   it('preserves the frozen word inventory and canonical route', () => {
@@ -78,15 +82,19 @@ describe('Kindergarten High-Frequency Words Set 1 editorial pilot', () => {
   });
 
   it('keeps HFW instructional sections in a useful reading order', () => {
-    expect(renderer.indexOf('<!-- Word list -->')).toBeLessThan(
-      renderer.indexOf('<!-- Authored explanatory Markdown body -->'),
+    // Word list, then the authored explanatory body ("Explanation"), then
+    // word notes — all now rendered in this fixed order by the single
+    // shared GradeUnitView, instead of separate inline sections on the page.
+    // The standalone "Practice and review" callout (once
+    // id="hfw-practice-heading") was removed rather than relocated, so its
+    // absence here is intentional, not a regression to guard against.
+    expect(view.indexOf('aria-labelledby="word-list-heading"')).toBeLessThan(
+      view.indexOf('<!-- Explanation -->'),
     );
-    expect(renderer.indexOf('<!-- Authored explanatory Markdown body -->')).toBeLessThan(
-      renderer.indexOf('id="word-notes-heading"'),
+    expect(view.indexOf('<!-- Explanation -->')).toBeLessThan(
+      view.indexOf('id="word-notes-heading"'),
     );
-    expect(renderer.indexOf('id="word-notes-heading"')).toBeLessThan(
-      renderer.indexOf('id="hfw-practice-heading"'),
-    );
+    expect(view).not.toContain('hfw-practice-heading');
   });
 
   it('links forward within Kindergarten without inventing a previous set', () => {
@@ -94,6 +102,6 @@ describe('Kindergarten High-Frequency Words Set 1 editorial pilot', () => {
       previousId: undefined,
       nextId: 'kindergarten-high-frequency-words-set-2',
     });
-    expect(renderer).toContain('All {gradeHubForBreadcrumb.label} High-Frequency Words');
+    expect(renderer).toContain('All ${gradeHubForBreadcrumb.label} High-Frequency Words');
   });
 });

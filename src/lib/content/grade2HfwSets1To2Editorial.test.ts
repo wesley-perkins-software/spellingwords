@@ -99,13 +99,14 @@ describe('Grade 2 High-Frequency Words Sets 1–2 editorial pilot', () => {
     const schema = readFileSync(new URL('../../content/config.ts', import.meta.url), 'utf8');
     expect(schema).toContain('contextExample: z.string().optional()');
 
-    const renderer = readFileSync(
-      new URL('../../pages/[gradeSlug]/[strand]/[slug].astro', import.meta.url),
+    // "In a sentence:" is rendered once by the shared GradeUnitView word-notes
+    // section, used by both the HFW/Themed page and Core Spelling.
+    const view = readFileSync(
+      new URL('../../components/direction-a/GradeUnitView.astro', import.meta.url),
       'utf8',
     );
-    expect(renderer).toMatch(/>In a sentence:<\/strong>\{' '\}\s*\{item\.contextExample\}/);
-    expect(renderer).not.toContain('In context:');
-    expect(renderer).not.toContain('In a sentence:</strong> {item.contextExample}');
+    expect(view).toMatch(/>In a sentence:<\/strong> \{item\.contextExample\}/);
+    expect(view).not.toContain('In context:');
   });
 
   it('excludes obsolete terminology and renderer-owned sections', () => {
@@ -133,6 +134,6 @@ describe('Grade 2 High-Frequency Words Sets 1–2 editorial pilot', () => {
       new URL('../../pages/[gradeSlug]/[strand]/[slug].astro', import.meta.url),
       'utf8',
     );
-    expect(renderer).toContain('All {gradeHubForBreadcrumb.label} High-Frequency Words');
+    expect(renderer).toContain('All ${gradeHubForBreadcrumb.label} High-Frequency Words');
   });
 });

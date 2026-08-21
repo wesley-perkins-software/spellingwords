@@ -8,10 +8,20 @@
 // Structure is deliberately promoted from the design-explore prototype
 // (design-explore/direction-a/skill.astro), not simplified from it: an
 // open, rule-separated editorial column plus a sticky related-learning
-// sidebar on desktop, a designed word-tile bank (not a plain text list),
-// and two independent, restrained accent axes — grade identity (chip,
-// structural rule, sidebar card) and strand identity (word-bank tint,
-// section eyebrow) — rather than one flat "blush + tiny accent" system.
+// sidebar on desktop, a designed word-tile bank (not a plain text list).
+//
+// Color on this page follows a visual-weight hierarchy, not a hue-
+// disjointness rule: strand is the page's one color-owning accent
+// (hero rule, word-bank tint, section eyebrow, sidebar card), since a
+// colored grade chip next to a colored strand chip would put two
+// unrelated axes at equal weight in the same spot — exactly the
+// collision this page used to have for Kindergarten/Core Spelling,
+// Grade 2/High-Frequency Words, and Grade 3/Themed Practice, where
+// grade and strand shared a hue. Grade is still shown for orientation,
+// just as a neutral chip + text label, never a color. The six-grade
+// color palette (GRADE_ACCENT in pilotContent.ts) is unaffected by this
+// and still applies elsewhere (homepage, Grade Hub atmosphere) — this
+// is a page-role-specific override, not a change to the palette itself.
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import Chip from './Chip.astro';
 import Button from './Button.astro';
@@ -20,12 +30,9 @@ import type { SpellingListEntry } from '@/lib/content/spellingLists';
 import type { GradeRouteClassification } from '@/lib/content/canonicalGradeRoutes';
 import {
   STRAND_ACCENT,
-  GRADE_ACCENT,
   ACCENT_BG_CLASS,
   ACCENT_BORDER_CLASS,
-  ACCENT_TINT_BG_CLASS,
   ACCENT_INK_CLASS,
-  ACCENT_WASH_BG_CLASS,
 } from '@/lib/content/pilotContent';
 import type { SpellingWord } from '@/types/spelling';
 
@@ -48,8 +55,10 @@ interface Props {
   strand: GradeRouteClassification;
   strandLabel: string;
   /** Content's raw grade value (validated at content-collection time, but
-   *  typed as a plain string there) — looked up against GRADE_ACCENT with a
-   *  safe fallback so an unrecognized value just omits the grade accent. */
+   *  typed as a plain string there). Grade Unit pages render grade as a
+   *  neutral chip (gradeLabel) only, not a color — see the module doc at
+   *  the top of this file — so this prop is accepted for API parity with
+   *  callers but intentionally unused here. */
   grade?: string | null;
   gradeLabel?: string | null;
   roadmapPosition?: { step: number; total: number };
@@ -77,7 +86,6 @@ const {
   Content,
   strand,
   strandLabel,
-  grade,
   gradeLabel,
   roadmapPosition,
   gradeHubHref,
@@ -99,15 +107,14 @@ const {
 } = Astro.props;
 
 const strandAccent = STRAND_ACCENT[strand as GradeRouteClassification];
-const gradeAccent = grade && grade in GRADE_ACCENT ? GRADE_ACCENT[grade as keyof typeof GRADE_ACCENT] : undefined;
 
 const hasSidebar = conceptSkills.length > 0 || relatedGroups.some((g: RelatedGroup) => g.items.length > 0) || Boolean(extraNav?.items.length);
 ---
 
-<!-- Hero: blue structural DNA, grade identity via chip + the rule beneath it -->
+<!-- Hero: blue structural DNA + neutral canvas; strand is the page's sole color-owning accent -->
 <section class="px-5 pb-0 pt-6 sm:px-6 md:pt-8">
   <div class="mx-auto max-w-[1100px]">
-    <div class:list={['relative overflow-hidden rounded-2xl border border-da-brand px-6 py-7 sm:px-9 sm:py-9', gradeAccent ? ACCENT_WASH_BG_CLASS[gradeAccent] : 'bg-da-brand-tint']}>
+    <div class="relative overflow-hidden rounded-2xl border border-da-brand bg-da-canvas-raised px-6 py-7 sm:px-9 sm:py-9">
       {roadmapPosition && gradeHubHref && gradeLabel && (
         <p class="mb-3 text-sm font-bold text-da-brand-strong">
           <a href={gradeHubHref} class="hover:underline">{gradeLabel} Spelling</a>
@@ -117,7 +124,7 @@ const hasSidebar = conceptSkills.length > 0 || relatedGroups.some((g: RelatedGro
       )}
 
       <div class="flex flex-wrap items-center gap-2">
-        {gradeLabel && gradeAccent && <Chip tone={gradeAccent}>{gradeLabel}</Chip>}
+        {gradeLabel && <Chip tone="neutral">{gradeLabel}</Chip>}
         <Chip tone={strandAccent}>{strandLabel}</Chip>
       </div>
 
@@ -138,7 +145,7 @@ const hasSidebar = conceptSkills.length > 0 || relatedGroups.some((g: RelatedGro
         <p id={`${buttonId}-status`} class="mt-3 text-sm text-da-incorrect" aria-live="polite" aria-atomic="true" />
       </div>
     </div>
-    {gradeAccent && <div class:list={['mt-6 h-[3px] w-16 rounded-full', ACCENT_BG_CLASS[gradeAccent]]} aria-hidden="true"></div>}
+    <div class:list={['mt-6 h-[3px] w-16 rounded-full', ACCENT_BG_CLASS[strandAccent]]} aria-hidden="true"></div>
   </div>
 </section>
 
@@ -229,10 +236,10 @@ const hasSidebar = conceptSkills.length > 0 || relatedGroups.some((g: RelatedGro
 
     {hasSidebar && (
       <aside class="flex flex-col gap-6 lg:sticky lg:top-24" aria-label="Related learning">
-        {conceptSkills.length > 0 && gradeAccent && (
-          <div class:list={['rounded-xl border p-5', ACCENT_TINT_BG_CLASS[gradeAccent], ACCENT_BORDER_CLASS[gradeAccent]]}>
-            <h2 class:list={['mb-3 font-quicksand text-base font-bold', ACCENT_INK_CLASS[gradeAccent]]}>
-              {conceptSkills.length > 1 ? 'Go deeper' : 'Go deeper'}
+        {conceptSkills.length > 0 && (
+          <div class:list={['rounded-xl border bg-da-surface-neutral p-5', ACCENT_BORDER_CLASS[strandAccent]]}>
+            <h2 class:list={['mb-3 font-quicksand text-base font-bold', ACCENT_INK_CLASS[strandAccent]]}>
+              Go deeper
             </h2>
             <div class="flex flex-col gap-3.5">
               {conceptSkills.map((skill: SpellingListEntry, index: number) => (

@@ -20,6 +20,10 @@ import {
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
 const skillsIndexRoutePath = join(process.cwd(), 'src/pages/skills/index.astro');
+// The per-family description/guidance prose now renders inside the shared
+// Direction A view component the Hub page passes its `families` prop to,
+// not inline in the page file itself.
+const skillsHubViewPath = join(process.cwd(), 'src/components/direction-a/SkillsHubView.astro');
 
 // Long E Silent E is deliberately excluded per SKILLS_ARCHITECTURE.md §5: its
 // standalone page is archived (no longer statically generated) and its old
@@ -161,7 +165,8 @@ describe('Silent E Skill Family', () => {
     expect(SILENT_E_SKILL_FAMILY.guidance).toMatch(/long A, I, O, or U/);
 
     const route = readFileSync(skillsIndexRoutePath, 'utf8');
-    expect(route).toContain('{family.description} {family.guidance}');
+    const view = readFileSync(skillsHubViewPath, 'utf8');
+    expect(view).toContain('{family.description} {family.guidance}');
     expect(route).toContain('getSpellingSkillPath(entry)');
     expect(route).not.toContain('longEOverviewNote');
   });

@@ -10,51 +10,68 @@ import { describe, expect, it } from 'vitest';
 // assert on rendered markup (environment: 'node', no jsdom/happy-dom, no
 // @astrojs/container, no Playwright config).
 
-function indexOfHeading(source: string, heading: string): number {
-  const match = source.match(new RegExp(`heading=["']${heading}["']`));
-  if (!match || match.index === undefined) {
-    throw new Error(`Could not find heading="${heading}" in source`);
-  }
-  return match.index;
-}
-
 describe('Relationship navigation rendering', () => {
   it('renders Explore more only for canonical non-Core Grade pages', () => {
-    const source = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro'), 'utf8');
-    expect(source).toContain('Where to go from here');
-    expect(source).toContain('heading="Explore more"');
-    expect(source).not.toContain('heading="Review First"');
-    expect(source).not.toContain('heading="Next Step"');
-    expect(source).not.toContain('heading="Review first"');
-    expect(source).not.toContain('heading="Next step"');
+    // The real file is src/pages/[gradeSlug]/[strand]/[slug].astro (the
+    // bare src/pages/[gradeSlug]/[slug].astro path never existed). Non-Core
+    // routes build a single `relatedGroups` view-model entry headed "Explore
+    // more" (or the Themed-specific variant), passed into the shared
+    // GradeUnitView — there's no separate Review-first/Next-step bucket on
+    // this branch, that pairing is Core-only (see GradeUnitWorldPage.astro).
+    const source = readFileSync(
+      join(process.cwd(), 'src/pages/[gradeSlug]/[strand]/[slug].astro'),
+      'utf8',
+    );
+    expect(source).toContain(
+      "heading: isThemedSpellingPractice ? 'More themed spelling practice' : 'Explore more'",
+    );
+    expect(source).not.toContain("heading: 'Review first'");
+    expect(source).not.toContain("heading: 'Next step'");
   });
 
   it('preserves the existing three-bucket model on Skill pages', () => {
-    const source = readFileSync(join(process.cwd(), 'src/pages/skills/[slug].astro'), 'utf8');
-    expect(indexOfHeading(source, 'Review First')).toBeLessThan(
-      indexOfHeading(source, 'Next Step'),
+    // The three-bucket "Where to go from here" model is built as a
+    // `heading: '...'` view-model array inside SkillView.astro (the shared
+    // Direction A component the Skill page renders), not as JSX heading
+    // attributes on the page itself.
+    const source = readFileSync(
+      join(process.cwd(), 'src/components/direction-a/SkillView.astro'),
+      'utf8',
     );
-    expect(indexOfHeading(source, 'Next Step')).toBeLessThan(
-      indexOfHeading(source, 'Explore More'),
-    );
+    const review = source.indexOf("heading: 'Review First'");
+    const next = source.indexOf("heading: 'Next Step'");
+    const explore = source.indexOf("heading: 'Explore More'");
+
+    expect(review).toBeGreaterThan(-1);
+    expect(next).toBeGreaterThan(-1);
+    expect(explore).toBeGreaterThan(-1);
+    expect(review).toBeLessThan(next);
+    expect(next).toBeLessThan(explore);
   });
 
   it('renders Core copy in order without Explore More in the Grade Unit world renderer', () => {
+    // GradeUnitWorldPage no longer has its own "Where to go from here"
+    // wrapper copy or JSX-attribute headings — it builds a `relatedGroups`
+    // view-model array (Review first, then Next step, in that order) for
+    // the shared GradeUnitView to render, with no Explore More bucket.
     const path = join(process.cwd(), 'src/components/GradeUnitWorldPage.astro');
     const source = readFileSync(path, 'utf8');
-    const outer = source.indexOf('Where to go from here');
-    const review = indexOfHeading(source, 'Review first');
-    const next = indexOfHeading(source, 'Next step');
+    const review = source.indexOf("heading: 'Review first'");
+    const next = source.indexOf("heading: 'Next step'");
 
-    expect(outer).toBeGreaterThan(-1);
-    expect(outer).toBeLessThan(review);
+    expect(review).toBeGreaterThan(-1);
     expect(review).toBeLessThan(next);
-    expect(source).not.toMatch(/heading=["']Explore [Mm]ore["']/);
+    expect(source).not.toMatch(/heading:\s*['"]Explore [Mm]ore['"]/);
     expect(source).not.toContain('data.relatedLists');
   });
 
   it('routes every Grade Unit away from the non-Core rendering branch', () => {
-    const source = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro'), 'utf8');
+    // See note above: the real file lives one directory deeper, at
+    // src/pages/[gradeSlug]/[strand]/[slug].astro.
+    const source = readFileSync(
+      join(process.cwd(), 'src/pages/[gradeSlug]/[strand]/[slug].astro'),
+      'utf8',
+    );
     expect(source).toContain("const isCoreSpelling = route.classification === 'core-spelling';");
     expect(source).toContain('{isCoreSpelling && <GradeUnitWorldPage listId={data.id} />}');
     expect(source).toContain('{!isCoreSpelling && (');

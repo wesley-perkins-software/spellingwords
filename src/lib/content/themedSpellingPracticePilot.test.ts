@@ -28,6 +28,10 @@ const coreRenderer = readFileSync(
   new URL('../../components/GradeUnitWorldPage.astro', import.meta.url),
   'utf8',
 );
+const viewRenderer = readFileSync(
+  new URL('../../components/direction-a/GradeUnitView.astro', import.meta.url),
+  'utf8',
+);
 
 function listItems(blockName: string, nextBlock?: string): string[] {
   const end = nextBlock ? `(?=^${nextBlock}:)` : '(?=^---$)';
@@ -47,11 +51,15 @@ describe('Themed Spelling Practice shared foundation', () => {
   });
 
   it('suppresses Core-style readiness only for themed pages and retains Core readiness', () => {
+    // The page passes an empty readiness array for HFW/Themed routes and the
+    // real signals everywhere else; GradeUnitView (the single shared
+    // renderer) is what decides whether to show the section at all.
     expect(renderer).toContain(
-      '!isHighFrequencyWords && !isThemedSpellingPractice && data.readinessSignals.length > 0',
+      'readinessSignals={!isHighFrequencyWords && !isThemedSpellingPractice ? data.readinessSignals : []}',
     );
-    expect(coreRenderer).toContain('data.readinessSignals.length > 0');
-    expect(coreRenderer).toContain('These spelling words are a good fit for students who...');
+    expect(coreRenderer).toContain('readinessSignals={data.readinessSignals}');
+    expect(viewRenderer).toContain('readinessSignals.length > 0');
+    expect(viewRenderer).toContain('These spelling words are a good fit for students who...');
   });
 
   it('keeps HFW notes and review intact while adding optional generic notes', () => {
@@ -59,22 +67,30 @@ describe('Themed Spelling Practice shared foundation', () => {
     expect(schema).toContain('wordNotes: z.array(wordNote).default([])');
     expect(schema).toMatch(/contextExample: z\.string\(\)\.optional\(\)/);
     expect(schema).toMatch(/pronunciationNote: z\.string\(\)\.optional\(\)/);
-    expect(renderer).toContain('isHighFrequencyWords && data.hfwWordNotes.length > 0');
-    expect(renderer).toContain('isThemedSpellingPractice && data.wordNotes.length > 0');
+    expect(renderer).toContain(
+      'wordNotes={isHighFrequencyWords ? data.hfwWordNotes : isThemedSpellingPractice ? data.wordNotes : []}',
+    );
   });
 
   it('renders the themed spelling heading, selective-note context label, and shared review', () => {
     expect(renderer).toContain("? 'What to notice when spelling these words'");
-    expect(renderer).toContain("isThemedSpellingPractice && (");
-    expect(renderer).toContain('Hear or say each word, notice a useful part of its spelling');
-    expect(renderer).toContain("<strong class=\"font-semibold text-ink\">In a sentence:</strong>{' '}");
-    expect(renderer).not.toContain('In context:');
+    expect(renderer).toContain(
+      'wordNotes={isHighFrequencyWords ? data.hfwWordNotes : isThemedSpellingPractice ? data.wordNotes : []}',
+    );
+    expect(viewRenderer).toContain(
+      '<strong class="font-semibold text-da-ink">In a sentence:</strong> {item.contextExample}',
+    );
+    expect(viewRenderer).not.toContain('In context:');
   });
 
   it('presents peers without progression language and links the owning gateway', () => {
     expect(renderer).toContain("'More themed spelling practice'");
-    expect(renderer).toContain('href={`/${route.gradeSlug}/themed-spelling-practice`}');
-    expect(renderer).toContain('All {gradeHubForBreadcrumb.label} Themed Spelling Practice');
+    // Themed Spelling Practice has no dedicated sidebar gateway link (that
+    // pattern is HFW-only, gated on isHighFrequencyWords); its gateway is
+    // reached through the shared breadcrumb section link instead.
+    expect(renderer).toContain(
+      '{ label: route.section, href: `/${route.gradeSlug}/${route.classification}` }',
+    );
     expect(getThemedSpellingPracticeExploreMore(weatherId)).toHaveLength(3);
   });
 });

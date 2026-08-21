@@ -105,6 +105,6 @@ describe('Grade 2 High-Frequency Words Sets 3–7 editorial completion', () => {
       new URL('../../pages/[gradeSlug]/[strand]/[slug].astro', import.meta.url),
       'utf8',
     );
-    expect(renderer).toContain('All {gradeHubForBreadcrumb.label} High-Frequency Words');
+    expect(renderer).toContain('All ${gradeHubForBreadcrumb.label} High-Frequency Words');
   });
 });

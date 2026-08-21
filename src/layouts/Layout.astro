@@ -7,16 +7,11 @@ interface Props {
   description: string;
   ogType?: 'website' | 'article';
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
-  /** 'direction-a' opts a page into the new design system (see
-   *  src/lib/content/pilotContent.ts) — new fonts, no paper-grain texture,
-   *  `da-*` token background. Defaults to the current production look. */
-  theme?: 'legacy' | 'direction-a';
 }
 
-const { title, description, ogType = 'website', jsonLd, theme = 'legacy' } = Astro.props;
+const { title, description, ogType = 'website', jsonLd } = Astro.props;
 const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
 const jsonLdBlocks = jsonLd === undefined ? [] : Array.isArray(jsonLd) ? jsonLd : [jsonLd];
-const isDirectionA = theme === 'direction-a';
 ---
 
 <!doctype html>
@@ -25,7 +20,7 @@ const isDirectionA = theme === 'direction-a';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content={isDirectionA ? '#fffbf5' : '#FBF8F3'} />
+    <meta name="theme-color" content="#fffbf5" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Open Graph -->
@@ -44,28 +39,17 @@ const isDirectionA = theme === 'direction-a';
       <script type="application/ld+json" set:html={JSON.stringify(block)} />
     ))}
 
-    {isDirectionA && (
-      <>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap"
-          rel="stylesheet"
-        />
-      </>
-    )}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body
-    class={isDirectionA
-      ? 'min-h-screen bg-da-canvas text-da-ink font-mulish'
-      : 'min-h-screen bg-app-paper text-ink font-sans'}
-    data-theme={isDirectionA ? 'direction-a' : undefined}
-  >
+  <body class="min-h-screen bg-da-canvas text-da-ink font-mulish" data-theme="direction-a">
     <a
       href="#main-content"
-      class={isDirectionA
-        ? 'sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-4 focus-visible:left-4 focus-visible:z-50 focus-visible:rounded-full focus-visible:bg-da-brand focus-visible:px-4 focus-visible:py-2 focus-visible:text-white focus-visible:font-semibold'
-        : 'sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-4 focus-visible:left-4 focus-visible:z-50 focus-visible:rounded-full focus-visible:bg-brand-blue focus-visible:px-4 focus-visible:py-2 focus-visible:text-white focus-visible:font-semibold'}
+      class="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-4 focus-visible:left-4 focus-visible:z-50 focus-visible:rounded-full focus-visible:bg-da-brand focus-visible:px-4 focus-visible:py-2 focus-visible:text-white focus-visible:font-semibold"
     >
       Skip to main content
     </a>

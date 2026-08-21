@@ -6,8 +6,6 @@ import { getCanonicalUrl } from '@/lib/canonicalUrl';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
-import WordListPreview from '@/components/WordListPreview.astro';
-import RelatedListCards from '@/components/RelatedListCards.astro';
 import SourceAttribution from '@/components/SourceAttribution.astro';
 import GradeUnitWorldPage from '@/components/GradeUnitWorldPage.astro';
 import {
@@ -16,10 +14,9 @@ import {
   toPlayableWords,
 } from '@/lib/content/spellingLists';
 import { getNonCoreNavigationModel } from '@/lib/content/nonCoreNavigation';
-import { categoryLabels, cardAccent } from '@/lib/content/categoryMeta';
+import { categoryLabels } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { gradeConfig } from '@/lib/content/gradeConfig';
-import { isPilotGradeUnit } from '@/lib/content/pilotContent';
 import GradeUnitView from '@/components/direction-a/GradeUnitView.astro';
 
 export async function getStaticPaths() {
@@ -102,23 +99,12 @@ const faqJsonLd =
 
 const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
 
-const roleDisplay = data.contentRole === 'skill' ? 'Skill' : null;
-const gradeDisplay =
-  data.contentRole === 'skill'
-    ? null
-    : data.grade
-      ? data.grade === 'K'
-        ? 'Kindergarten'
-        : `Grade ${data.grade}`
-      : null;
+const gradeDisplay = data.grade ? (data.grade === 'K' ? 'Kindergarten' : `Grade ${data.grade}`) : null;
 
-const isSkill = data.contentRole === 'skill';
-const isGradeUnit = data.contentRole === 'grade-unit';
 // A Grade Unit adopts the sequencing-page presentation (roadmap step, word
 // sentences, Skill callout cards) only once it declares at least one
-// canonical Skill. This keeps un-migrated grade-unit pages rendering exactly
-// as before.
-const isContractUnit = isGradeUnit && data.skillIds.length > 0;
+// canonical Skill.
+const isContractUnit = data.contentRole === 'grade-unit' && data.skillIds.length > 0;
 
 // "Kindergarten Spelling · Step N of M" context for core-progression Grade Units.
 const roadmapPosition = isContractUnit ? getKindergartenRoadmapPosition(data.id) : undefined;
@@ -132,43 +118,13 @@ const conceptSkills = isContractUnit
       .filter((entry): entry is (typeof allEntries)[number] => entry !== undefined)
   : [];
 
-// Skill → the Grade Units that declare it in their skillIds ("Where this
-// fits"). Computed here, not stored on the Skill — the Skill never lists its
-// own placements.
-// Placements are sorted into canonical K-5 order (gradeConfig) rather than
-// left in whatever order the content collection happens to return them —
-// without this, cards can appear out of grade sequence whenever a Skill is
-// placed in more than one grade (e.g. a Kindergarten and a Grade 1 unit).
-function gradeSortIndex(grade?: string): number {
-  const index = gradeConfig.findIndex((g) => g.grade === grade);
-  return index === -1 ? gradeConfig.length : index;
-}
+const bodyHeading = isHighFrequencyWords || isThemedSpellingPractice
+  ? 'What to notice when spelling these words'
+  : 'Why these words — and what they teach';
 
-const curriculumPlacements = isSkill
-  ? allEntries
-      .filter((e) => e.data.skillIds.includes(data.id))
-      .map((unit) => ({
-        unit,
-        position: getKindergartenRoadmapPosition(unit.data.id),
-        gradeLabel: gradeConfig.find((g) => g.grade === unit.data.grade)?.label,
-      }))
-      .sort((a, b) => gradeSortIndex(a.unit.data.grade) - gradeSortIndex(b.unit.data.grade))
-  : [];
-
-const bodyHeading = isSkill
-  ? 'Understanding the pattern'
-  : isHighFrequencyWords
-    ? 'What to notice when spelling these words'
-    : isThemedSpellingPractice
-      ? 'What to notice when spelling these words'
-      : 'Why these words — and what they teach';
-
-const usePilotDesign = isPilotGradeUnit(data.id);
-
-// Pilot-only view model — built only when needed, adapted to whichever of
-// HFW set-navigation / themed word notes / concept-skill callouts this
-// entry actually has.
-const pilotExtraNav = isHighFrequencyWords && related.length > 0
+// View model adapted to whichever of HFW set-navigation / themed word notes /
+// concept-skill callouts this entry actually has.
+const extraNav = isHighFrequencyWords && related.length > 0
   ? {
       heading: 'Continue with this grade',
       items: [
@@ -184,7 +140,7 @@ const pilotExtraNav = isHighFrequencyWords && related.length > 0
     }
   : undefined;
 
-const pilotRelatedGroups = isHighFrequencyWords
+const relatedGroups = isHighFrequencyWords
   ? []
   : [{ heading: isThemedSpellingPractice ? 'More themed spelling practice' : 'Explore more', items: related }];
 
@@ -192,15 +148,14 @@ const pilotRelatedGroups = isHighFrequencyWords
 
 {isCoreSpelling && <GradeUnitWorldPage listId={data.id} />}
 
-{!isCoreSpelling && usePilotDesign && (
+{!isCoreSpelling && (
 <Layout
   title={`${data.title} — spellingwords`}
   description={data.description}
   ogType="article"
   jsonLd={jsonLdBlocks}
-  theme="direction-a"
 >
-  <SiteHeader variant="discovery" currentPath={getGradeHubPath(route.grade)} theme="direction-a" />
+  <SiteHeader variant="discovery" currentPath={getGradeHubPath(route.grade)} />
   <main id="main-content">
     <div class="mx-auto max-w-[1100px] px-5 pt-8 sm:px-6 md:pt-10">
       <Breadcrumbs items={breadcrumbItems} />
@@ -227,9 +182,9 @@ const pilotRelatedGroups = isHighFrequencyWords
       wordNotes={isHighFrequencyWords ? data.hfwWordNotes : isThemedSpellingPractice ? data.wordNotes : []}
       conceptSkills={conceptSkills}
       faq={data.faq}
-      relatedGroups={pilotRelatedGroups}
+      relatedGroups={relatedGroups}
       listLink={listLink}
-      extraNav={pilotExtraNav}
+      extraNav={extraNav}
     />
     {data.canonicalSource?.publicAttribution && (
       <div class="mx-auto max-w-[1100px] px-5 py-8 sm:px-6">
@@ -237,490 +192,6 @@ const pilotRelatedGroups = isHighFrequencyWords
       </div>
     )}
   </main>
-  <SiteFooter theme="direction-a" />
-</Layout>
-)}
-
-{!isCoreSpelling && !usePilotDesign && (
-<Layout
-  title={`${data.title} — spellingwords`}
-  description={data.description}
-  ogType="article"
-  jsonLd={jsonLdBlocks}
->
-  <SiteHeader variant="discovery" currentPath={getGradeHubPath(route.grade)} />
-
-  <main id="main-content">
-    <!-- Breadcrumbs -->
-    <div class="mx-auto max-w-2xl px-5 pt-8 sm:px-6 md:max-w-3xl md:pt-10">
-      <Breadcrumbs items={breadcrumbItems} />
-    </div>
-
-    <!-- Hero band: what is this list? -->
-    <section class="px-5 pb-10 pt-6 sm:px-6 md:pb-14 md:pt-8">
-      <div class="mx-auto max-w-2xl md:max-w-3xl">
-        <div
-          class="relative overflow-hidden rounded-3xl border border-line bg-white px-6 py-8 shadow-card-lg sm:px-10 sm:py-10"
-        >
-          <div class={`absolute inset-x-0 top-0 h-1.5 ${cardAccent.bg}`} aria-hidden="true"></div>
-
-          {
-            roadmapPosition && gradeHub && (
-              <p class="mb-3 text-sm font-semibold text-brand-blue">
-                <a href={gradeHub.hubHref} class="hover:underline">
-                  {gradeHub.label} Spelling
-                </a>
-                <span aria-hidden="true"> · </span>
-                <span>
-                  Step {roadmapPosition.step} of {roadmapPosition.total}
-                </span>
-              </p>
-            )
-          }
-
-          <div class="flex flex-wrap items-center gap-2">
-            {
-              roleDisplay && (
-                <span class="rounded-full bg-app-cloud px-3 py-1 text-sm font-semibold text-ink">
-                  {roleDisplay}
-                </span>
-              )
-            }
-            {
-              gradeDisplay && (
-                <span class="rounded-full bg-app-cloud px-3 py-1 text-sm font-semibold text-ink">
-                  {gradeDisplay}
-                </span>
-              )
-            }
-            <span
-              class={`rounded-full px-3 py-1 text-sm font-semibold text-white ${cardAccent.bg} ${cardAccent.glow}`}
-            >
-              {categoryLabel}
-            </span>
-          </div>
-
-          <h1 class="text-display-lg mt-3">{data.title}</h1>
-          <p class="text-body-lg mt-3 max-w-2xl text-ink-soft">{data.description}</p>
-
-          {
-            !isSkill && (
-              <div class="mt-8">
-                <button
-                  id="btn-practice"
-                  type="button"
-                  data-words={playWordsJson}
-                  data-list-title={data.title}
-                  class="btn-primary w-full px-9 py-4 text-base sm:w-auto"
-                  aria-label={`Practice these ${playWords.length} words in ${data.title}`}
-                >
-                  Practice these words
-                </button>
-                <p
-                  id="start-test-status"
-                  class="mt-3 text-sm text-feedback-incorrect"
-                  aria-live="polite"
-                  aria-atomic="true"
-                />
-              </div>
-            )
-          }
-        </div>
-      </div>
-    </section>
-
-    <!-- Skill answer block: the extractable "What is …?" definition -->
-    {
-      isSkill && data.shortAnswer && (
-        <section class="px-5 pb-10 sm:px-6 md:pb-14" aria-labelledby="answer-heading">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <div class={`rounded-3xl bg-cream-deep px-6 py-6 sm:px-8 border-l-[3px] ${cardAccent.border}`}>
-              <h2 id="answer-heading" class="font-display text-lg font-semibold text-ink">
-                What are {data.title.toLowerCase()}?
-              </h2>
-              <p class="mt-2 text-base leading-relaxed text-ink-soft">{data.shortAnswer}</p>
-            </div>
-          </div>
-        </section>
-      )
-    }
-
-    <!-- Is this the right list? -->
-    {
-      !isHighFrequencyWords && !isThemedSpellingPractice && data.readinessSignals.length > 0 && (
-        <section
-          class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
-          aria-labelledby="readiness-heading"
-        >
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="readiness-heading" class="font-display text-lg font-semibold text-ink">
-              These spelling words are a good fit for students who...
-            </h2>
-            <ul class="mt-4 space-y-3 text-base leading-relaxed text-ink-soft">
-              {data.readinessSignals.map((signal) => (
-                <li class="flex items-start gap-2.5">
-                  <span aria-hidden="true" class="mt-0.5 flex-shrink-0 text-brand-blue">
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </span>
-                  <span>{signal}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )
-    }
-
-    <!-- Word list -->
-    <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="word-list-heading">
-      <div class="mx-auto max-w-2xl md:max-w-3xl">
-        <h2 id="word-list-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-          {
-            isSkill
-              ? 'Hear the pattern in these words'
-              : isContractUnit
-                ? `The ${data.words.length} words to practice in this step`
-                : `All ${data.words.length} words in this list`
-          }
-        </h2>
-        <WordListPreview words={playWords} accentClass={cardAccent.bg} showSentences={isContractUnit} />
-      </div>
-    </section>
-
-    <!-- Authored explanatory Markdown body -->
-    <section class="bg-cream-deep px-5 py-12 sm:px-6 md:py-16" aria-labelledby="why-heading">
-      <div class="mx-auto max-w-2xl md:max-w-3xl">
-        <div class={`border-l-[3px] pl-5 sm:pl-6 ${cardAccent.border}`}>
-          <h2 id="why-heading" class="text-display-md">{bodyHeading}</h2>
-          <div
-            class="text-body-lg [&_strong]:font-semibold [&_strong]:text-ink mt-4 max-w-2xl space-y-5 text-ink-soft sm:space-y-6 [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto"
-          >
-            <Content />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {
-      isHighFrequencyWords && data.hfwWordNotes.length > 0 && (
-        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="word-notes-heading">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="word-notes-heading" class="font-display text-lg font-semibold text-ink">
-              Notes for particular words
-            </h2>
-            <div class="mt-4 space-y-4">
-              {data.hfwWordNotes.map((item) => (
-                <article class="rounded-3xl border border-line bg-white px-6 py-5 shadow-card">
-                  <h3 class="font-word text-lg font-semibold text-ink">{item.word}</h3>
-                  <p class="mt-1 text-base leading-relaxed text-ink-soft">{item.note}</p>
-                  {item.contextExample && (
-                    <p class="mt-2 text-base leading-relaxed text-ink-soft">
-                      <strong class="font-semibold text-ink">In a sentence:</strong>{' '}
-                      {item.contextExample}
-                    </p>
-                  )}
-                  {item.pronunciationNote && (
-                    <p class="mt-2 text-sm leading-relaxed text-ink-soft">
-                      <strong class="font-semibold text-ink">Pronunciation note:</strong>{' '}
-                      {item.pronunciationNote}
-                    </p>
-                  )}
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )
-    }
-
-    {
-      isThemedSpellingPractice && data.wordNotes.length > 0 && (
-        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="themed-word-notes-heading">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="themed-word-notes-heading" class="font-display text-lg font-semibold text-ink">
-              Notes for particular words
-            </h2>
-            <div class="mt-4 space-y-4">
-              {data.wordNotes.map((item) => (
-                <article class="rounded-3xl border border-line bg-white px-6 py-5 shadow-card">
-                  <h3 class="font-word text-lg font-semibold text-ink">{item.word}</h3>
-                  <p class="mt-1 text-base leading-relaxed text-ink-soft">{item.note}</p>
-                  {item.contextExample && (
-                    <p class="mt-2 text-base leading-relaxed text-ink-soft">
-                      <strong class="font-semibold text-ink">In a sentence:</strong>{' '}
-                      {item.contextExample}
-                    </p>
-                  )}
-                  {item.pronunciationNote && (
-                    <p class="mt-2 text-sm leading-relaxed text-ink-soft">
-                      <strong class="font-semibold text-ink">Pronunciation note:</strong>{' '}
-                      {item.pronunciationNote}
-                    </p>
-                  )}
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )
-    }
-
-    {
-      isHighFrequencyWords && (
-        <section class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14" aria-labelledby="hfw-practice-heading">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="hfw-practice-heading" class="font-display text-lg font-semibold text-ink">
-              Practice and review
-            </h2>
-            <p class="mt-3 max-w-2xl text-base leading-relaxed text-ink-soft">
-              Hear each word, notice and map its spelling, then spell it without seeing the word.
-              Check the spelling and retrieve it again later in mixed review. When most words are
-              becoming secure, begin the next set and carry one or two difficult words forward for
-              more review.
-            </p>
-          </div>
-        </section>
-      )
-    }
-
-    {
-      isThemedSpellingPractice && (
-        <section class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14" aria-labelledby="themed-practice-heading">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="themed-practice-heading" class="font-display text-lg font-semibold text-ink">
-              Practice and review
-            </h2>
-            <p class="mt-3 max-w-2xl text-base leading-relaxed text-ink-soft">
-              Hear or say each word, notice a useful part of its spelling, and spell it without
-              looking. Check the whole word, correct it if needed, and try it again later with
-              words from other practice lists.
-            </p>
-          </div>
-        </section>
-      )
-    }
-
-    <!-- Grade Unit → canonical Skill(s): the "go deeper" recommendation(s) -->
-    {
-      conceptSkills.length > 0 && (
-        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="concept-skill-heading">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="concept-skill-heading" class="mb-3 font-display text-lg font-semibold text-ink">
-              {conceptSkills.length > 1 ? 'Go deeper on these patterns' : 'Go deeper on this pattern'}
-            </h2>
-            <div class="flex flex-col gap-3">
-              {conceptSkills.map((conceptSkill) => (
-                <a
-                  href={listLink(conceptSkill)}
-                  class="relative block overflow-hidden rounded-3xl border border-line bg-white px-6 py-5 shadow-card transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-brand-blue before:content-[''] hover:-translate-y-0.5 hover:shadow-card-md"
-                >
-                  <span class="block font-display text-lg font-semibold text-brand-blue">
-                    Learn more about {conceptSkill.data.title.replace(/ Words$/i, '')} →
-                  </span>
-                  <span class="mt-1 block text-sm leading-relaxed text-ink-soft sm:text-base">
-                    {conceptSkill.data.title} is the full guide to this pattern — how it works, what
-                    trips children up, and where else it's taught.
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-      )
-    }
-
-    <!-- Skill → Grade Units: the only route from here into assigned practice -->
-    {
-      curriculumPlacements.length > 0 && (
-        <section
-          class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
-          aria-labelledby="curriculum-heading"
-        >
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="curriculum-heading" class="mb-2 font-display text-lg font-semibold text-ink">
-              Where this fits in the curriculum
-            </h2>
-            <p class="mb-5 max-w-2xl text-base leading-relaxed text-ink-soft">
-              This page explains the pattern — practice it in the grade-level lesson where it's
-              taught:
-            </p>
-            <div class="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-              {curriculumPlacements.map(({ unit, position, gradeLabel }) => (
-                <a
-                  href={listLink(unit)}
-                  class="relative flex-1 overflow-hidden rounded-3xl border border-line bg-white py-4 pl-5 pr-4 shadow-card transition before:absolute before:inset-y-0 before:left-0 before:w-1.5 before:bg-brand-blue before:content-[''] hover:-translate-y-0.5 hover:shadow-card-md sm:flex-none sm:min-w-[16rem]"
-                >
-                  {(gradeLabel || position) && (
-                    <span class="block text-sm font-semibold text-brand-blue">
-                      {gradeLabel}
-                      {gradeLabel && position && <span aria-hidden="true"> · </span>}
-                      {position && `Step ${position.step} of ${position.total}`}
-                    </span>
-                  )}
-                  <span class="mt-0.5 block font-display text-base font-semibold text-ink">
-                    {unit.data.title}
-                  </span>
-                  <span class="mt-1 block text-sm font-semibold text-brand-blue">
-                    {unit.data.words.length} words to practice →
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-      )
-    }
-
-    <!-- FAQ -->
-    {
-      data.faq.length > 0 && (
-        <section class="px-5 py-10 sm:px-6 md:py-14" aria-labelledby="faq-heading">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="faq-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-              Frequently asked questions
-            </h2>
-            <div class="overflow-hidden rounded-3xl border border-line bg-white shadow-card">
-              <div class="divide-y divide-line/60 px-6 sm:px-7">
-                {data.faq.map((item) => (
-                  <div class="py-5">
-                    <h3 class="font-display text-base font-semibold text-ink">{item.question}</h3>
-                    <p class="mt-2 text-base leading-relaxed text-ink-soft">{item.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )
-    }
-
-    <!-- Learning progression -->
-    {
-      !isHighFrequencyWords && related.length > 0 && (
-        <section
-          class="bg-app-cloud px-5 py-10 sm:px-6 md:py-14"
-          aria-labelledby="progression-heading"
-        >
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 id="progression-heading" class="mb-4 font-display text-lg font-semibold text-ink">
-              {isThemedSpellingPractice ? 'More themed spelling practice' : 'Where to go from here'}
-            </h2>
-            <RelatedListCards heading="Explore more" items={related} listLink={listLink} />
-            {isThemedSpellingPractice && (
-              <a
-                href={`/${route.gradeSlug}/themed-spelling-practice`}
-                class="mt-5 inline-block font-semibold text-brand-blue hover:underline"
-              >
-                All {gradeHubForBreadcrumb.label} Themed Spelling Practice
-              </a>
-            )}
-          </div>
-        </section>
-      )
-    }
-
-    {
-      isHighFrequencyWords && (
-        <nav class="px-5 py-10 sm:px-6 md:py-14" aria-label="High-Frequency Words set navigation">
-          <div class="mx-auto max-w-2xl md:max-w-3xl">
-            <h2 class="font-display text-lg font-semibold text-ink">Continue with this grade</h2>
-            <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              {related.map((item) => {
-                const targetRoute = getCanonicalGradeRoutes().find((candidate) => candidate.id === item.data.id);
-                const currentNumber = Number(route.finalSlug.replace('set-', ''));
-                const targetNumber = Number(targetRoute?.finalSlug.replace('set-', ''));
-                const direction = targetNumber < currentNumber ? 'Previous' : 'Next';
-                return (
-                  <a href={listLink(item)} class="rounded-3xl border border-line bg-white px-6 py-4 font-semibold text-brand-blue shadow-card hover:underline">
-                    {direction}: Set {targetNumber}
-                  </a>
-                );
-              })}
-              <a href={`/${route.gradeSlug}/high-frequency-words`} class="rounded-3xl border border-line bg-white px-6 py-4 font-semibold text-brand-blue shadow-card hover:underline">
-                All {gradeHubForBreadcrumb.label} High-Frequency Words
-              </a>
-            </div>
-          </div>
-        </nav>
-      )
-    }
-
-    {
-      data.canonicalSource?.publicAttribution && (
-        <div class="mx-auto max-w-2xl px-5 py-8 sm:px-6 md:max-w-3xl">
-          <SourceAttribution source={data.canonicalSource} />
-        </div>
-      )
-    }
-  </main>
-
   <SiteFooter />
 </Layout>
 )}
-
-<script>
-  import { encodeWordList } from '@/lib/words';
-
-  interface SpellingWordData {
-    word: string;
-    hint?: string;
-    exampleSentence?: string;
-    phonicsPattern?: string[];
-  }
-
-  const statusEl = document.getElementById('start-test-status');
-
-  function getSpellingWords(button: HTMLButtonElement): SpellingWordData[] {
-    try {
-      const parsed: unknown = JSON.parse(button.dataset.words ?? '[]');
-      if (!Array.isArray(parsed)) return [];
-      return parsed.filter(
-        (e): e is SpellingWordData =>
-          typeof e === 'object' && e !== null && typeof (e as SpellingWordData).word === 'string',
-      );
-    } catch {
-      return [];
-    }
-  }
-
-  function handleStart(event: Event): void {
-    const button = event.currentTarget as HTMLButtonElement;
-    const words = getSpellingWords(button);
-    if (words.length === 0) return;
-
-    const result = encodeWordList(words.map((w) => w.word));
-    if (!result.ok) {
-      if (statusEl) {
-        statusEl.textContent =
-          result.code === 'payload_too_long'
-            ? 'There are too many words to start automatically. Please try a shorter list.'
-            : 'Could not start this spelling test. Please try again.';
-      }
-      return;
-    }
-
-    // Persist rich word data (with exampleSentence etc.) so play.astro can read it.
-    const listTitle = button.dataset.listTitle ?? '';
-    try {
-      sessionStorage.setItem(`sw:words:${result.payload}`, JSON.stringify(words));
-      if (listTitle) sessionStorage.setItem(`sw:title:${result.payload}`, listTitle);
-    } catch {
-      /* quota exceeded or private browsing — non-fatal */
-    }
-
-    window.location.href = `/play?list=${result.payload}`;
-  }
-
-  document.getElementById('btn-practice')?.addEventListener('click', handleStart);
-</script>

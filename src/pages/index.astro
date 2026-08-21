@@ -22,10 +22,10 @@ const gradeCards = homepageGradeHubs.map((hub, index) => ({
   accent: GRADE_ACCENT[gradeConfig[index].grade],
 }));
 
-// Illustrative, non-pilot-scoped examples of the range of Skills on offer —
-// drawn from the homepage's own permanent HOMEPAGE_REPRESENTATIVE_SKILLS
-// list (also used in the prose above), not from PILOT_SKILL_IDS. These are
-// category labels, not individual Skill-page destinations (per the same
+// Illustrative examples of the range of Skills on offer — drawn from the
+// homepage's own permanent HOMEPAGE_REPRESENTATIVE_SKILLS list (also used
+// in the prose above). These are category labels, not individual
+// Skill-page destinations (per the same
 // design-explore/direction-a mockup this section is drawn from), so they
 // stay as plain decorative Chips — the "Browse Spelling Skills" button
 // remains the one real link, to the canonical Skills index.
@@ -40,9 +40,8 @@ const representativeSkillChips = HOMEPAGE_REPRESENTATIVE_SKILLS.map((label, inde
   title="Free K–5 Spelling Practice by Grade or Skill, No Account | SpellingWords.app"
   description="Free spelling practice for K–5 students, with no account required. Practice your own words, or find structured curriculum practice by grade or spelling skill."
   jsonLd={homepageJsonLd}
-  theme="direction-a"
 >
-  <SiteHeader theme="direction-a" currentPath="/" />
+  <SiteHeader currentPath="/" />
 
   <main id="main-content">
     <!-- ═══ HERO ════════════════════════════════════════════════ -->
@@ -172,7 +171,7 @@ const representativeSkillChips = HOMEPAGE_REPRESENTATIVE_SKILLS.map((label, inde
     </section>
   </main>
 
-  <SiteFooter theme="direction-a" />
+  <SiteFooter />
 
   <script>
     import { parseWordInput, encodeWordList } from '@/lib/words';

@@ -713,3 +713,7 @@ competitions. *(This claim now leads the Audience section instead of standing al
 **Status:** Frozen, as revised by the V2 reopening pass and further amended by the V3 reopening
 pass. Production conformance to this standard, including the amendments above, is pending
 implementation.
+
+## Authorized cross-grade linking amendment — August 2026
+
+The Curriculum-Organization section now links each strand heading/card exactly once to its canonical cross-grade gateway: `/core-spelling`, `/high-frequency-words`, or `/themed-spelling-practice`. Its representative concepts, words, and topics remain plain, non-linked text. This is the sole amendment to §7's primary-content link boundary; links to individual grade/strand Gateways or member pages remain prohibited.

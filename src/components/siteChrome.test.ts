@@ -36,8 +36,13 @@ describe('global site chrome', () => {
     for (const path of ['/about', '/curriculum', '/accessibility', '/skills']) {
       expect(`${header}\n${footer}`).toContain(`href="${path}"`);
     }
+    for (const strand of ['core-spelling', 'high-frequency-words', 'themed-spelling-practice']) {
+      expect(footer).toContain(`CROSS_GRADE_STRAND_PATHS['${strand}']`);
+    }
     expect(footer).not.toContain('href="/privacy"');
     expect(footer).not.toContain('href="/terms"');
     expect(footer).not.toContain('href="/contact"');
+    expect(header).not.toContain('href="/core-spelling"');
+    expect(footer).not.toContain('Browse All Grades');
   });
 });

@@ -71,18 +71,21 @@ export const HOMEPAGE_REPRESENTATIVE_SKILLS = [
 export const HOMEPAGE_STRANDS = [
   {
     name: 'Core Spelling',
+    href: '/core-spelling',
     definition:
-      "Core Spelling is the main sequence for each grade — units ordered around the spelling concepts students are ready to practice, moving from sound-letter patterns toward syllables, word parts, and increasingly complex words.",
+      'Core Spelling is the main sequence for each grade — units ordered around the spelling concepts students are ready to practice, moving from sound-letter patterns toward syllables, word parts, and increasingly complex words.',
     examples: ['Short vowels', 'Silent e', 'Vowel teams', 'Suffixes', 'Greek and Latin roots'],
   },
   {
     name: 'High-Frequency Words',
+    href: '/high-frequency-words',
     definition:
-      "High-Frequency Words are spellings students meet often in reading and writing. Grouped into grade-level sets and practiced alongside Core Spelling, they get attention to both predictable sound-spelling patterns and the specific details worth extra notice — so common words become accurate and automatic, not just memorized as exceptions.",
+      'High-Frequency Words are spellings students meet often in reading and writing. Grouped into grade-level sets and practiced alongside Core Spelling, they get attention to both predictable sound-spelling patterns and the specific details worth extra notice — so common words become accurate and automatic, not just memorized as exceptions.',
     examples: ['the', 'you', 'over', 'were'],
   },
   {
     name: 'Themed Spelling Practice',
+    href: '/themed-spelling-practice',
     definition:
       'Themed Spelling Practice offers optional grade-level lists built around topics students already know from school and everyday life — useful additional practice, not part of the required Core sequence.',
     examples: ['Animals', 'Colors', 'Weather', 'Careers', 'Measurement'],
@@ -142,15 +145,18 @@ export const HOMEPAGE_US_POSITIONING =
 export const HOMEPAGE_AUDIENCES = [
   {
     label: 'Students',
-    description: 'Focused word lists, calm practice, and clear explanations of what each spelling pattern is and why it matters.',
+    description:
+      'Focused word lists, calm practice, and clear explanations of what each spelling pattern is and why it matters.',
   },
   {
     label: 'Parents',
-    description: "An organized grade-level path, plus guidance on what your child is practicing and why — so you can support spelling at home without guesswork.",
+    description:
+      'An organized grade-level path, plus guidance on what your child is practicing and why — so you can support spelling at home without guesswork.',
   },
   {
     label: 'Teachers',
-    description: 'Grade-level word lists and focused Skill references that can complement classroom spelling instruction and give students extra practice.',
+    description:
+      'Grade-level word lists and focused Skill references that can complement classroom spelling instruction and give students extra practice.',
   },
 ] as const;
 
@@ -186,7 +192,7 @@ export const HOMEPAGE_FAQ = [
   {
     question: 'What are High-Frequency Words?',
     answer:
-      "Spellings students meet often in reading and writing. They're not the same as \"irregular\" words — some are entirely predictable from common spelling patterns, others need extra attention — and they're practiced alongside Core Spelling, not instead of it.",
+      'Spellings students meet often in reading and writing. They\'re not the same as "irregular" words — some are entirely predictable from common spelling patterns, others need extra attention — and they\'re practiced alongside Core Spelling, not instead of it.',
   },
   {
     question: 'Is SpellingWords.app designed for U.S. elementary students?',
@@ -195,7 +201,8 @@ export const HOMEPAGE_FAQ = [
   },
   {
     question: 'Can I practice my own spelling words?',
-    answer: 'Yes — enter or paste any list of words on the homepage and start practicing immediately, no account required.',
+    answer:
+      'Yes — enter or paste any list of words on the homepage and start practicing immediately, no account required.',
   },
 ] as const;
 

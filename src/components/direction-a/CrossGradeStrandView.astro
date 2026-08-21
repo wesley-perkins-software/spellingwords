@@ -1,0 +1,95 @@
+---
+import AtmosphereBand from './AtmosphereBand.astro';
+import Chip from './Chip.astro';
+import type { CrossGradeStrandModel } from '@/lib/content/crossGradeStrandModel';
+import {
+  STRAND_ACCENT,
+  ACCENT_BORDER_CLASS,
+  ACCENT_INK_CLASS,
+  ACCENT_TINT_BG_CLASS,
+} from '@/lib/content/pilotContent';
+
+interface Props {
+  model: CrossGradeStrandModel;
+}
+
+const { model } = Astro.props;
+const accent = STRAND_ACCENT[model.strand];
+const isCore = model.strand === 'core-spelling';
+const isHfw = model.strand === 'high-frequency-words';
+---
+
+<AtmosphereBand tone={accent} ariaLabel={model.title} class="mt-6 rounded-3xl md:mt-8">
+  <header class="max-w-2xl">
+    <Chip tone={accent} class="mb-3">{model.eyebrow}</Chip>
+    <h1 class="font-quicksand text-[clamp(2rem,4.2vw,2.75rem)] font-bold leading-[1.1] text-da-ink">
+      {model.title}
+    </h1>
+    {model.intro.map((paragraph) => (
+      <p class="mt-4 text-[1.05rem] leading-relaxed text-da-ink-soft">{paragraph}</p>
+    ))}
+  </header>
+</AtmosphereBand>
+
+<div class="mx-auto max-w-3xl px-5 py-10 sm:px-6 md:py-14">
+  <section aria-labelledby="progression-heading">
+    <div class="mb-7 max-w-2xl">
+      <p class:list={['font-quicksand text-sm font-bold uppercase tracking-[0.07em]', ACCENT_INK_CLASS[accent]]}>
+        Kindergarten through 5th Grade
+      </p>
+      <h2 id="progression-heading" class="mt-1 font-quicksand text-2xl font-bold text-da-ink">
+        {isCore ? 'How Core Spelling develops' : isHfw ? 'Choose a grade-level sequence' : 'Browse every topic by grade'}
+      </h2>
+    </div>
+
+    <ol class="grid gap-4" aria-label={`${model.title} grade progression`}>
+      {model.grades.map((grade) => (
+        <li class:list={['rounded-2xl border bg-da-canvas-raised p-5 shadow-sm sm:p-6', ACCENT_BORDER_CLASS[accent]]}>
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div class="max-w-2xl">
+              <h3 class="font-quicksand text-xl font-bold text-da-ink">{grade.label}</h3>
+              <p class="mt-1 text-sm font-bold text-da-ink-faint">
+                {isCore
+                  ? `${grade.memberCount} ordered units`
+                  : isHfw
+                    ? `${grade.memberCount} ${grade.memberCount === 1 ? 'set' : 'sets'} · ${grade.wordCount} words`
+                    : `${grade.memberCount} optional ${grade.memberCount === 1 ? 'list' : 'lists'}`}
+              </p>
+              <p class="mt-3 leading-relaxed text-da-ink-soft">{grade.summary}</p>
+              {grade.examples.length > 0 && (
+                <p class="mt-3 text-[0.92rem] leading-relaxed text-da-ink-soft">
+                  <span class="font-bold text-da-ink">{isCore ? 'Representative units' : 'Topics'}:</span>{' '}
+                  {grade.examples.join(' · ')}
+                </p>
+              )}
+            </div>
+            <a
+              href={grade.href}
+              class:list={[
+                'inline-flex min-h-[44px] shrink-0 items-center font-bold no-underline hover:underline sm:justify-end',
+                ACCENT_INK_CLASS[accent],
+              ]}
+            >
+              View {grade.label} {isCore ? 'Core Spelling' : isHfw ? 'words' : 'topics'} →
+            </a>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <aside class:list={['mt-10 rounded-2xl border p-5 sm:p-6', ACCENT_BORDER_CLASS[accent], ACCENT_TINT_BG_CLASS[accent]]}>
+    <h2 class="font-quicksand text-lg font-bold text-da-ink">Keep the curriculum paths distinct</h2>
+    <p class="mt-2 leading-relaxed text-da-ink-soft">
+      {isCore
+        ? 'Use a grade page above for the complete ordered sequence. Use Spelling Skills when you want a grade-independent explanation of one concept.'
+        : isHfw
+          ? 'High-Frequency Words complement Core Spelling; they do not replace the systematic pattern and word-structure sequence.'
+          : 'Themed lists are optional additional practice. Core Spelling remains the systematic starting path for each grade.'}
+    </p>
+    <p class="mt-3 text-sm text-da-ink-soft">
+      Read <a href="/curriculum" class="font-bold text-da-brand-strong hover:underline">how the curriculum is designed</a>
+      {isCore && <> or <a href="/skills" class="font-bold text-da-brand-strong hover:underline">browse spelling skills</a></>}.
+    </p>
+  </aside>
+</div>

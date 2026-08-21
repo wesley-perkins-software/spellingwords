@@ -34,30 +34,44 @@ const { label, hub, prev, next } = Astro.props;
     {hub.orientation.map((paragraph) => (
       <p class="mt-4 text-[1.1rem] leading-relaxed text-da-ink-soft">{paragraph}</p>
     ))}
+    <div class="mt-7 border-t border-da-border/80 pt-5">
+      <p class="font-quicksand text-sm font-bold text-da-ink">What students work on in {label}</p>
+      <p class="mt-2 text-[0.92rem] font-bold leading-relaxed text-da-ink-soft">
+        {hub.fingerprint.join(' · ')}
+      </p>
+    </div>
   </header>
 
   <div class="grid gap-5 md:grid-cols-3" role="list" aria-label={`${label} strands`}>
     {hub.strands.map((strand) => {
       const accent = STRAND_ACCENT[strand.strand];
       return (
-        <a
-          href={strand.href}
+        <article
           role="listitem"
           class:list={[
-            'group relative flex flex-col gap-3 rounded-2xl border p-7 shadow-sm transition',
-            'hover:-translate-y-1 hover:shadow-lg',
-            'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand',
+            'relative flex flex-col gap-3 rounded-2xl border p-7 shadow-sm',
             ACCENT_TINT_BG_CLASS[accent],
             ACCENT_BORDER_CLASS[accent],
           ]}
         >
           <h2 class:list={['font-quicksand text-xl font-bold', ACCENT_INK_CLASS[accent]]}>{strand.label}</h2>
           <p class="flex-grow text-[0.98rem] leading-relaxed text-da-ink-soft">{strand.summary}</p>
-          <span class:list={['mt-2 inline-flex items-center gap-1.5 text-[0.95rem] font-bold', ACCENT_INK_CLASS[accent]]}>
+          <p class="text-[0.86rem] leading-relaxed text-da-ink-soft">
+            <span class="font-bold text-da-ink">{strand.previewLabel}:</span>{' '}
+            {strand.previewExamples.join(' · ')}
+          </p>
+          <a
+            href={strand.href}
+            class:list={[
+              'mt-2 inline-flex min-h-[44px] items-center gap-1.5 self-start text-[0.95rem] font-bold',
+              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand',
+              ACCENT_INK_CLASS[accent],
+            ]}
+          >
             {strand.linkLabel}
-            <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-          </span>
-        </a>
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
       );
     })}
   </div>

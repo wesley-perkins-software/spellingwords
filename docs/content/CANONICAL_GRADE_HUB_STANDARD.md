@@ -193,3 +193,14 @@ does not prescribe linked-heading markup, button markup, or a number of visible 
 - [ ] Skills remain parallel rather than a required Hub child.
 - [ ] No visual layout, CTA form, or link-count contract has been inferred from this standard.
 
+
+## 13. Authorized Grade Hub V2 amendment — August 2026
+
+The approved Grade Hub V2 reopening supersedes the narrower prohibitions in §§4, 6, 11, and 12 only as follows:
+
+- every Hub includes a compact, grade-specific curriculum fingerprint;
+- every Core card names exactly four explicitly curated canonical unit titles as non-linked text;
+- every HFW card names exactly four explicitly curated words from that grade's frozen inventory as non-linked text; and
+- every Themed card names up to four explicitly curated canonical topics as non-linked text.
+
+Selections must be validated against canonical production data and must not be generated from order, titles, tags, or popularity. The preview is not an inventory: no example links directly to a member page, each card retains one link to its same-grade Gateway, and each Gateway remains the complete authoritative inventory. All other requirements remain frozen.

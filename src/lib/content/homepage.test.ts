@@ -77,6 +77,11 @@ describe('canonical homepage', () => {
     // rendered prose directly — the same pattern the grade-teaser test
     // above uses for `{teaser}`).
     expect(HOMEPAGE_STRANDS.map((s) => s.name)).toEqual(strandNames);
+    expect(HOMEPAGE_STRANDS.map((s) => s.href)).toEqual([
+      '/core-spelling',
+      '/high-frequency-words',
+      '/themed-spelling-practice',
+    ]);
     for (const strand of HOMEPAGE_STRANDS) expect(strand.definition.length).toBeGreaterThan(0);
     expect(homepageSource).toContain('strandCards.map');
     expect(homepageSource).toContain('{definition}');
@@ -128,6 +133,7 @@ describe('canonical homepage', () => {
     // Example concepts render as plain chips, never as links into deeper
     // Grade Unit, Themed-list, or Skill routes.
     expect(homepageSource).toContain('{examples.map');
+    expect(homepageSource).toContain('href={href}');
     expect(homepageSource).not.toMatch(/examples\.map\([^)]*<a\s/);
   });
 
@@ -145,7 +151,9 @@ describe('canonical homepage', () => {
     expect(HOMEPAGE_US_POSITIONING.toLowerCase()).not.toMatch(/aligned with all u\.s\. standards/);
     expect(HOMEPAGE_US_POSITIONING.toLowerCase()).not.toMatch(/aligned with (?:every|all) state/);
     expect(HOMEPAGE_US_POSITIONING).toMatch(/commonly expected across U\.S\. elementary education/);
-    expect(HOMEPAGE_US_POSITIONING.toLowerCase()).toMatch(/no single national scope and sequence exists/);
+    expect(HOMEPAGE_US_POSITIONING.toLowerCase()).toMatch(
+      /no single national scope and sequence exists/,
+    );
   });
 
   it('presents a compact audience section, closing with the structured-organization and free/no-account/no-gamification facts', () => {
@@ -204,7 +212,7 @@ describe('canonical homepage', () => {
   it('keeps the Practice Your Own Words interaction hosted directly on the page', () => {
     expect(homepageSource).toContain('id="word-input"');
     expect(homepageSource).toContain('id="btn-start"');
-    expect(homepageSource).toContain("window.location.href = `/play?list=");
+    expect(homepageSource).toContain('window.location.href = `/play?list=');
   });
 
   it('emits the required homepage structured-data types, including FAQPage matching visible content', () => {

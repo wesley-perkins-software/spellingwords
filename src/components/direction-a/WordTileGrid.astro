@@ -18,6 +18,39 @@ interface Props {
 }
 
 const { words, accent, showSentences = false } = Astro.props;
+
+// Content-aware mobile column density: a fixed grid-cols-N breakpoint
+// ladder doesn't know how long this particular list's words are, so a
+// short-word list (cat, dog, pig) and a long-word list
+// (responsibility, investigation) got the same column count and the
+// long words could overflow their tile on narrow screens. Instead, size
+// each column's minimum width off the longest word actually in *this*
+// list, then let CSS grid's auto-fit expand to as many columns as
+// genuinely fit — dense on short lists, fewer/wider columns on long
+// ones, and it naturally opens up further at sm/md/lg without a second
+// breakpoint ladder to maintain. Tiers and rem values were chosen by
+// rendering the real K-5 corpus (word lengths run 3-14 letters; shortest
+// is Kindergarten CVC/high-frequency lists, longest is
+// 5th-grade-multisyllabic-academic-words: "responsibility",
+// "investigation") with Playwright at 320-428px and reading actual
+// tile/column measurements, not estimated from character counts alone —
+// each floor is set so that tier's longest real word stays on one line
+// before a second column would appear at that width. Mid-word wrapping
+// stays as a defensive fallback for content this doesn't anticipate
+// (see [overflow-wrap:anywhere] below), not the normal case.
+const longestWordLength = Math.max(0, ...words.map((word) => word.word.length));
+const tileMinWidth =
+  longestWordLength <= 4
+    ? '4rem'
+    : longestWordLength <= 6
+      ? '4.75rem'
+      : longestWordLength <= 8
+        ? '6rem'
+        : longestWordLength <= 10
+          ? '7.25rem'
+          : longestWordLength <= 12
+            ? '9rem'
+            : '11rem';
 ---
 
 <div class:list={['rounded-2xl border p-4 sm:p-5 md:p-6', ACCENT_TINT_BG_CLASS[accent], ACCENT_BORDER_CLASS[accent]]}>
@@ -31,9 +64,13 @@ const { words, accent, showSentences = false } = Astro.props;
       ))}
     </ul>
   ) : (
-    <ul class="grid grid-cols-3 gap-2.5 sm:grid-cols-4 sm:gap-3 lg:grid-cols-5" aria-label="Words in this list">
+    <ul
+      class="grid gap-2.5 sm:gap-3"
+      style={`grid-template-columns: repeat(auto-fit, minmax(${tileMinWidth}, 1fr));`}
+      aria-label="Words in this list"
+    >
       {words.map((word) => (
-        <li class="rounded-xl border border-da-border bg-da-canvas-raised px-2 py-3.5 text-center font-quicksand text-[1.15rem] font-bold leading-snug text-da-ink shadow-sm sm:py-4 sm:text-xl">
+        <li class="min-w-0 rounded-xl border border-da-border bg-da-canvas-raised px-2 py-3.5 text-center font-quicksand text-[1.15rem] font-bold leading-snug text-da-ink shadow-sm [overflow-wrap:anywhere] sm:py-4 sm:text-xl">
           {word.word}
         </li>
       ))}

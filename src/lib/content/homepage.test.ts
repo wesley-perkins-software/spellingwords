@@ -7,8 +7,16 @@ import {
   HOMEPAGE_URL,
   HOMEPAGE_SKILL_COUNT,
   HOMEPAGE_REPRESENTATIVE_SKILLS,
+  HOMEPAGE_STRANDS,
+  HOMEPAGE_PROGRESSION_STAGES,
+  HOMEPAGE_PROGRESSION_NOTE,
+  HOMEPAGE_US_POSITIONING,
+  HOMEPAGE_AUDIENCES,
+  HOMEPAGE_CLOSING_STATEMENT,
+  HOMEPAGE_FAQ,
   homepageGradeHubs,
   homepageJsonLd,
+  homepageFaqJsonLd,
 } from './homepage';
 import { gradeStrandGatewayPaths, getCanonicalGradeRoutes } from './canonicalGradeRoutes';
 
@@ -32,52 +40,47 @@ describe('canonical homepage', () => {
     expect(homepageSource.toLowerCase()).not.toMatch(/\bchildren\b/);
   });
 
-  it('derives exactly the six visible Grade Hub destinations from canonical grade data, each with its approved teaser', () => {
+  it('derives exactly the six visible Grade Hub destinations from canonical grade data, each with its approved teaser and focus line', () => {
     expect(homepageGradeHubs).toHaveLength(6);
     expect(homepageGradeHubs.map(({ label, href }) => ({ label, href }))).toEqual(
       gradeConfig.map(({ label, hubHref }) => ({ label, href: hubHref })),
     );
-    expect(homepageGradeHubs).toEqual([
-      expect.objectContaining({
-        label: 'Kindergarten',
-        teaser:
-          'Builds the foundations with letters, sounds, first words, and short-vowel spelling.',
-      }),
-      expect.objectContaining({
-        label: '1st Grade',
-        teaser:
-          'Strengthens early spelling with consonant blends and digraphs, silent e, vowel teams, and word endings.',
-      }),
-      expect.objectContaining({
-        label: '2nd Grade',
-        teaser:
-          'Expands into r-controlled vowels, more vowel patterns, syllable structure, silent letters, and multisyllabic words.',
-      }),
-      expect.objectContaining({
-        label: '3rd Grade',
-        teaser:
-          'Introduces prefixes, suffixes, spelling changes, homophones, possessives, and word families.',
-      }),
-      expect.objectContaining({
-        label: '4th Grade',
-        teaser:
-          'Develops advanced word knowledge through roots, morphology, multisyllabic spelling, and commonly confused words.',
-      }),
-      expect.objectContaining({
-        label: '5th Grade',
-        teaser:
-          'Brings it together with advanced roots and affixes, academic words, and spelling changes across related words.',
-      }),
-    ]);
-    expect(homepageSource).toContain('homepageGradeHubs.map');
+    for (const hub of homepageGradeHubs) {
+      expect(typeof hub.teaser).toBe('string');
+      expect(hub.teaser.length).toBeGreaterThan(0);
+      expect(typeof hub.focus).toBe('string');
+      expect(hub.focus.length).toBeGreaterThan(0);
+    }
+    expect(homepageSource).toContain('gradeCards.map');
     expect(homepageSource).toContain('{teaser}');
+    expect(homepageSource).toContain('{focus}');
   });
 
-  it('names the three canonical curriculum strands exactly once, in Browse by Grade', () => {
+  it('names the three canonical curriculum strands bare, once, in Browse by Grade, and explains them exactly once, in the Curriculum-Organization section', () => {
     const strandNames = ['Core Spelling', 'High-Frequency Words', 'Themed Spelling Practice'];
+
+    // Bare naming: the Browse by Grade orienting paragraph names all three,
+    // with no per-strand explanation attached to that mention.
+    const gradeSectionMatch = homepageSource.match(
+      /BROWSE BY GRADE[\s\S]*?(?=BROWSE BY SKILL|HOW THE K-5 CURRICULUM)/,
+    );
+    expect(gradeSectionMatch).not.toBeNull();
+    const gradeSection = gradeSectionMatch![0];
     for (const strand of strandNames) {
-      expect(homepageSource.split(strand)).toHaveLength(2);
+      expect(gradeSection).toContain(strand);
     }
+
+    // Explained naming: the Curriculum-Organization section is the sole
+    // section that renders each strand's full definition (definitions are
+    // data-driven from HOMEPAGE_STRANDS, not literal template text, so we
+    // assert the section renders from that array rather than matching
+    // rendered prose directly — the same pattern the grade-teaser test
+    // above uses for `{teaser}`).
+    expect(HOMEPAGE_STRANDS.map((s) => s.name)).toEqual(strandNames);
+    for (const strand of HOMEPAGE_STRANDS) expect(strand.definition.length).toBeGreaterThan(0);
+    expect(homepageSource).toContain('strandCards.map');
+    expect(homepageSource).toContain('{definition}');
+    expect(homepageSource.match(/\{definition\}/g)).toHaveLength(1);
   });
 
   it('presents grade and skill browsing as coequal semantic sections', () => {
@@ -114,6 +117,76 @@ describe('canonical homepage', () => {
     }
   });
 
+  it('explains the three curriculum strands with real, non-hyperlinked example concepts', () => {
+    expect(homepageSource).toMatch(
+      /<h2[^>]*id="curriculum-org-heading"[^>]*>\s*How the K–5 curriculum is organized\s*<\/h2>/,
+    );
+    for (const strand of HOMEPAGE_STRANDS) {
+      expect(strand.definition.length).toBeGreaterThan(0);
+      expect(strand.examples.length).toBeGreaterThan(0);
+    }
+    // Example concepts render as plain chips, never as links into deeper
+    // Grade Unit, Themed-list, or Skill routes.
+    expect(homepageSource).toContain('{examples.map');
+    expect(homepageSource).not.toMatch(/examples\.map\([^)]*<a\s/);
+  });
+
+  it('presents a compact three-stage K-5 progression with the defensible U.S.-curriculum-positioning statement', () => {
+    expect(homepageSource).toMatch(
+      /<h2[^>]*id="progression-heading"[^>]*>\s*How spelling develops from Kindergarten through 5th Grade\s*<\/h2>/,
+    );
+    expect(HOMEPAGE_PROGRESSION_STAGES).toHaveLength(3);
+    expect(homepageSource).toContain('HOMEPAGE_PROGRESSION_STAGES.map');
+    expect(HOMEPAGE_PROGRESSION_NOTE.length).toBeGreaterThan(0);
+    expect(homepageSource).toContain('HOMEPAGE_PROGRESSION_NOTE');
+    expect(homepageSource).toContain('HOMEPAGE_US_POSITIONING');
+
+    // Defensible wording only — never an absolute/unsourced standards claim.
+    expect(HOMEPAGE_US_POSITIONING.toLowerCase()).not.toMatch(/aligned with all u\.s\. standards/);
+    expect(HOMEPAGE_US_POSITIONING.toLowerCase()).not.toMatch(/aligned with (?:every|all) state/);
+    expect(HOMEPAGE_US_POSITIONING).toMatch(/commonly expected across U\.S\. elementary education/);
+    expect(HOMEPAGE_US_POSITIONING.toLowerCase()).toMatch(/no single national scope and sequence exists/);
+  });
+
+  it('presents a compact audience section, closing with the structured-organization and free/no-account/no-gamification facts', () => {
+    expect(homepageSource).toMatch(
+      /<h2[^>]*id="audience-heading"[^>]*>\s*Built for students, parents, and teachers\s*<\/h2>/,
+    );
+    expect(HOMEPAGE_AUDIENCES.map((a) => a.label)).toEqual(['Students', 'Parents', 'Teachers']);
+    expect(homepageSource).toContain('HOMEPAGE_AUDIENCES.map');
+
+    expect(homepageSource).toContain('HOMEPAGE_CLOSING_STATEMENT');
+    expect(HOMEPAGE_CLOSING_STATEMENT).toMatch(/real, distinct categories of spelling knowledge/);
+    expect(HOMEPAGE_CLOSING_STATEMENT.toLowerCase()).toMatch(/free/);
+    expect(HOMEPAGE_CLOSING_STATEMENT.toLowerCase()).toMatch(/no account/);
+    expect(HOMEPAGE_CLOSING_STATEMENT.toLowerCase()).toMatch(/no timers, points, streaks/);
+    expect(homepageSource.toLowerCase()).not.toMatch(/actually learned/);
+    expect(homepageSource.toLowerCase()).not.toMatch(/the single correct/);
+
+    // The former standalone closing anchor now lives on the Audience section,
+    // so /#how-it-works links in the header/footer keep working.
+    expect(homepageSource).toContain('id="how-it-works"');
+  });
+
+  it('has a visible, accurate FAQ of 4-6 questions with matching FAQPage structured data', () => {
+    expect(homepageSource).toMatch(
+      /<h2[^>]*id="faq-heading"[^>]*>\s*Frequently asked questions\s*<\/h2>/,
+    );
+    expect(HOMEPAGE_FAQ.length).toBeGreaterThanOrEqual(4);
+    expect(HOMEPAGE_FAQ.length).toBeLessThanOrEqual(6);
+    expect(homepageSource).toContain('HOMEPAGE_FAQ.map');
+
+    expect(homepageFaqJsonLd['@type']).toBe('FAQPage');
+    expect(homepageFaqJsonLd.mainEntity).toEqual(
+      HOMEPAGE_FAQ.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+      })),
+    );
+    expect(homepageSource).toContain('homepageFaqJsonLd');
+  });
+
   it('does not flatten primary navigation into deeper canonical routes', () => {
     const forbiddenRoutes = [
       ...gradeStrandGatewayPaths,
@@ -128,25 +201,13 @@ describe('canonical homepage', () => {
     expect(homepageSource.toLowerCase()).not.toMatch(/start (?:with|at) short vowels/);
   });
 
-  it('replaces the old four-item equal-weight trust section with the approved closing content', () => {
-    expect(homepageSource).not.toContain('Simple, focused spelling practice');
-    expect(homepageSource).not.toContain('No competitive gamification');
-    expect(homepageSource).not.toContain('Curated and structured');
-    expect(homepageSource).toContain('More than a list of spelling words');
-    expect(homepageSource).toContain(
-      'SpellingWords.app brings a structured K–5 spelling curriculum',
-    );
-    expect(homepageSource.toLowerCase()).not.toMatch(/actually learned/);
-    expect(homepageSource.toLowerCase()).not.toMatch(/real spelling knowledge/);
-  });
-
   it('keeps the Practice Your Own Words interaction hosted directly on the page', () => {
     expect(homepageSource).toContain('id="word-input"');
     expect(homepageSource).toContain('id="btn-start"');
     expect(homepageSource).toContain("window.location.href = `/play?list=");
   });
 
-  it('emits only the required homepage structured-data types', () => {
+  it('emits the required homepage structured-data types, including FAQPage matching visible content', () => {
     expect(homepageJsonLd.map((block) => block['@type'])).toEqual(['WebSite', 'ItemList']);
     expect(homepageJsonLd[0]).toMatchObject({ name: 'SpellingWords.app', url: HOMEPAGE_URL });
     expect(homepageJsonLd[1].itemListElement).toEqual(
@@ -160,5 +221,7 @@ describe('canonical homepage', () => {
     expect(JSON.stringify(homepageJsonLd)).not.toMatch(
       /BreadcrumbList|FAQPage|SearchAction|Organization/,
     );
+    expect(homepageFaqJsonLd['@type']).toBe('FAQPage');
+    expect(homepageSource).toContain('jsonLd={[...homepageJsonLd, homepageFaqJsonLd]}');
   });
 });

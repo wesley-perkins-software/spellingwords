@@ -19,8 +19,8 @@ interface Props {
 
 const { words, accent, showSentences = false } = Astro.props;
 
-// Content-aware mobile column density: a fixed grid-cols-N breakpoint
-// ladder doesn't know how long this particular list's words are, so a
+// Content-aware column density: a fixed grid-cols-N breakpoint ladder
+// doesn't know how long this particular list's words are, so a
 // short-word list (cat, dog, pig) and a long-word list
 // (responsibility, investigation) got the same column count and the
 // long words could overflow their tile on narrow screens. Instead, size
@@ -28,29 +28,39 @@ const { words, accent, showSentences = false } = Astro.props;
 // list, then let CSS grid's auto-fit expand to as many columns as
 // genuinely fit — dense on short lists, fewer/wider columns on long
 // ones, and it naturally opens up further at sm/md/lg without a second
-// breakpoint ladder to maintain. Tiers and rem values were chosen by
-// rendering the real K-5 corpus (word lengths run 3-14 letters; shortest
-// is Kindergarten CVC/high-frequency lists, longest is
-// 5th-grade-multisyllabic-academic-words: "responsibility",
-// "investigation") with Playwright at 320-428px and reading actual
-// tile/column measurements, not estimated from character counts alone —
-// each floor is set so that tier's longest real word stays on one line
-// before a second column would appear at that width. Mid-word wrapping
-// stays as a defensive fallback for content this doesn't anticipate
-// (see [overflow-wrap:anywhere] below), not the normal case.
+// breakpoint ladder to maintain.
+//
+// minmax()'s floor is a hard lower bound — auto-fit only ever grows a
+// track above it, never below — so each tier below is set to the actual
+// widest render of a real corpus word at that length, not an estimate
+// from character count. That render was measured directly (Playwright,
+// headless Chromium, this component's live font/weight/padding) across
+// every word in every canonical list (`words:` arrays under
+// src/content/spelling-lists/**), at both the mobile (1.15rem) and sm+
+// (1.25rem) tile font sizes — since the same inline floor applies at
+// every breakpoint, each tier uses the larger (sm+) requirement plus a
+// ~12px allowance for cross-browser font-metric variance. Prior tiers
+// were sized well under this and let "understand", "government", and
+// other 8-14 letter words wrap mid-word at common tablet/mobile widths.
+// Longest real words seen: 14 letters ("transportation",
+// "responsibility", "representative"); the previous ">12" bucket is
+// unchanged as the ceiling for that range. [overflow-wrap:anywhere]
+// below stays only as a defensive fallback for future pathological
+// content (e.g. a single word far outside this tiering), not the
+// normal case.
 const longestWordLength = Math.max(0, ...words.map((word) => word.word.length));
 const tileMinWidth =
   longestWordLength <= 4
-    ? '4rem'
+    ? '5.75rem'
     : longestWordLength <= 6
-      ? '4.75rem'
+      ? '7.75rem'
       : longestWordLength <= 8
-        ? '6rem'
+        ? '9.25rem'
         : longestWordLength <= 10
-          ? '7.25rem'
+          ? '10.5rem'
           : longestWordLength <= 12
-            ? '9rem'
-            : '11rem';
+            ? '11.75rem'
+            : '12.75rem';
 ---
 
 <div class:list={['rounded-2xl border p-4 sm:p-5 md:p-6', ACCENT_TINT_BG_CLASS[accent], ACCENT_BORDER_CLASS[accent]]}>

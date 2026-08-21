@@ -12,6 +12,7 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import AtmosphereBand from '@/components/direction-a/AtmosphereBand.astro';
 import Button from '@/components/direction-a/Button.astro';
 import Chip from '@/components/direction-a/Chip.astro';
+import WordSpecimen from '@/components/direction-a/WordSpecimen.astro';
 import { STRAND_ACCENT } from '@/lib/content/pilotContent';
 import { isPublished } from '@/lib/content/spellingLists';
 import { buildHfwGatewayModel, HF_WORDS_TOTAL_SET_COUNT, HF_WORDS_TOTAL_WORD_COUNT } from '@/lib/content/strandGatewayModel';
@@ -92,15 +93,25 @@ const itemListJsonLd = {
             <p class="mt-1 text-sm font-bold text-da-teal-ink">{section.setCount} sets · {section.wordCount} words</p>
             <p class="mt-2 max-w-[64ch] text-[0.95rem] leading-relaxed text-da-ink-soft">{section.role}</p>
 
-            <ol class="mt-4 divide-y divide-da-border rounded-xl border border-da-border bg-da-canvas-raised">
+            <ol class="mt-4 grid gap-3 sm:grid-cols-2">
               {section.sets.map((set) => (
-                <li class="flex flex-col gap-0.5 px-4 py-3 sm:flex-row sm:items-baseline sm:gap-3">
-                  <a href={set.href} class="shrink-0 font-quicksand text-[0.98rem] font-bold text-da-teal-ink hover:underline">
-                    {set.title}
-                  </a>
-                  <p class="text-[0.85rem] leading-snug text-da-ink-faint">
-                    <span class="font-bold">Sample words:</span> {set.sampleWords.join(' · ')}
-                  </p>
+                <li class="group relative flex flex-col gap-2.5 rounded-2xl border border-da-teal/30 bg-da-teal-tint p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-da-teal hover:shadow-md">
+                  <div class="flex items-start justify-between gap-2">
+                    <a
+                      href={set.href}
+                      class="font-quicksand text-[0.98rem] font-bold text-da-teal-ink after:absolute after:inset-0 group-hover:underline"
+                    >
+                      {set.title}
+                    </a>
+                    <span class="shrink-0 text-da-teal-ink/40 transition group-hover:translate-x-0.5 group-hover:text-da-teal-ink" aria-hidden="true">
+                      →
+                    </span>
+                  </div>
+                  <p class="text-xs font-bold text-da-teal-ink">{set.wordCount} words</p>
+                  <div>
+                    <p class="text-[0.7rem] font-bold uppercase tracking-wide text-da-ink-faint">Sample words</p>
+                    <WordSpecimen words={set.sampleWords} class="mt-1.5" />
+                  </div>
                 </li>
               ))}
             </ol>

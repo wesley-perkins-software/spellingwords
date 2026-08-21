@@ -93,7 +93,12 @@ const itemListJsonLd = {
     </AtmosphereBand>
 
     <div class="mx-auto max-w-2xl px-5 py-10 sm:px-6 md:max-w-3xl md:py-14">
-      <div class="relative flex flex-col gap-10">
+      <p class="max-w-[64ch] text-[0.9rem] leading-relaxed text-da-ink-faint">
+        Each Core unit below shows a few sample words from its full spelling list. Open a unit to
+        see the complete word list, explanation, and practice.
+      </p>
+
+      <div class="relative mt-8 flex flex-col gap-10">
         <div class="pointer-events-none absolute bottom-8 left-[0.4rem] top-8 hidden w-0.5 bg-da-brand opacity-20 sm:block" aria-hidden="true" />
         {sections.map((section) => (
           <section class="relative sm:pl-6" aria-labelledby={`core-${section.grade}-heading`}>
@@ -118,7 +123,8 @@ const itemListJsonLd = {
                     >
                       {unit.title}
                     </a>
-                    <WordSpecimen words={unit.sampleWords} class="mt-1.5" />
+                    <p class="mt-1.5 text-[0.7rem] font-bold uppercase tracking-wide text-da-ink-faint">Sample words</p>
+                    <WordSpecimen words={unit.sampleWords} class="mt-1" />
                   </div>
                   <span class="mt-1 shrink-0 text-da-sun-ink/40 transition group-hover:translate-x-0.5 group-hover:text-da-sun-ink" aria-hidden="true">
                     →

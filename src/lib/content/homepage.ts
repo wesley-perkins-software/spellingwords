@@ -179,9 +179,9 @@ export const HOMEPAGE_FAQ = [
       'Each grade, Kindergarten through 5th, is organized into three strands: Core Spelling, the main sequence; High-Frequency Words, practiced alongside it; and Themed Spelling Practice, optional extra practice. Alongside the grade path, 41 canonical Skill pages explain individual spelling concepts independent of grade, and you can always practice a custom list of your own words.',
   },
   {
-    question: 'What is the difference between a Grade Unit and a Skill page?',
+    question: 'What is the difference between browsing by Grade and browsing by Skill?',
     answer:
-      'A Grade Unit is what students at a given grade practice right now, in sequence. A Skill page is grade-independent — it explains one spelling concept, shows examples, and can be reached from whichever grade or need brought you to it.',
+      'Browse by Grade to follow the structured K–5 spelling curriculum and practice the word lists taught at each grade. Browse by Skill when you want to focus on a specific spelling concept — such as short vowels, silent e, vowel teams, prefixes, or homophones — regardless of grade.',
   },
   {
     question: 'What are High-Frequency Words?',

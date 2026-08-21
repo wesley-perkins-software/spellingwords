@@ -1,4 +1,6 @@
 ---
+import { gradeConfig } from '@/lib/content/gradeConfig';
+
 interface Props {
   variant?: 'discovery' | 'practice';
   currentPath?: string;
@@ -6,73 +8,338 @@ interface Props {
 
 const { variant = 'discovery', currentPath = '' } = Astro.props;
 
-const isActive = (path: string) => currentPath.startsWith(path);
+const isSkillsActive = currentPath === '/skills' || currentPath.startsWith('/skills/');
+const isCurriculumActive = currentPath === '/curriculum';
+const isGradeActive = gradeConfig.some(
+  (grade) => currentPath === grade.hubHref || currentPath.startsWith(`${grade.hubHref}/`),
+);
+const currentGrade = gradeConfig.find(
+  (grade) => currentPath === grade.hubHref || currentPath.startsWith(`${grade.hubHref}/`),
+);
 ---
 
-<!-- Discovery header: "Sw" brand mark, a structural 3px brand-blue rule
-     beneath the whole header, coral underline on the active nav item,
-     coral primary CTA. Promoted from
-     design-explore/direction-a/_shared/Header.astro.
-     Practice header (else branch below): minimal chrome — wordmark + a way
-     back to a new list — so the practice stage stays the focus. -->
-{variant === 'discovery' ? (
-  <header class="sticky top-0 z-10 border-b-[3px] border-da-brand bg-da-canvas-raised">
-    <div class="mx-auto flex max-w-content-xl items-center justify-between gap-3 px-4 py-3 sm:gap-6 sm:px-6">
-      <a href="/" class="flex min-w-0 flex-shrink items-center gap-2.5 font-quicksand text-lg font-bold text-da-ink no-underline sm:text-xl" aria-label="SpellingWords home">
-        <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-da-brand font-quicksand text-sm font-bold text-white" aria-hidden="true">Sw</span>
-        <span class="truncate">SpellingWords</span>
-      </a>
+{
+  variant === 'discovery' ? (
+    <header
+      class="sticky top-0 z-20 border-b-[3px] border-da-brand bg-da-canvas-raised"
+      data-site-header
+    >
+      <div class="mx-auto flex max-w-content-xl items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6">
+        <a
+          href="/"
+          class="mr-auto flex min-w-0 flex-shrink items-center gap-2.5 font-quicksand text-lg font-bold text-da-ink no-underline sm:text-xl md:mr-3"
+          aria-label="SpellingWords home"
+        >
+          <span
+            class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-da-brand font-quicksand text-sm font-bold text-white"
+            aria-hidden="true"
+          >
+            Sw
+          </span>
+          <span class="hidden min-[390px]:inline">SpellingWords</span>
+        </a>
 
-      <nav aria-label="Site navigation" class="hidden flex-1 md:block">
-        <ul class="m-0 flex list-none items-center gap-7 p-0">
-          <li>
-            <a href="/#grades" class="flex min-h-[44px] items-center border-b-[3px] border-transparent py-2 text-[0.94rem] font-bold text-da-ink-soft no-underline hover:text-da-brand">
+        <nav aria-label="Primary navigation" class="hidden flex-1 md:block">
+          <ul class="m-0 flex list-none items-center gap-2 p-0 lg:gap-4">
+            <li class="relative" data-grades-disclosure>
+              <button
+                type="button"
+                class:list={[
+                  'flex min-h-[44px] items-center gap-1.5 rounded-lg border-b-[3px] px-3 py-2 text-[0.94rem] font-bold transition',
+                  isGradeActive
+                    ? 'border-da-coral text-da-brand'
+                    : 'border-transparent text-da-ink-soft hover:bg-da-surface-neutral hover:text-da-brand',
+                ]}
+                aria-expanded="false"
+                aria-controls="desktop-grades-panel"
+                data-grades-toggle
+              >
+                Grades
+                <svg
+                  class="h-4 w-4 transition-transform"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                  data-disclosure-icon
+                >
+                  <path d="m4 6 4 4 4-4" />
+                </svg>
+              </button>
+              <div
+                id="desktop-grades-panel"
+                class="absolute left-0 top-[calc(100%+0.5rem)] hidden w-64 rounded-xl border border-da-border bg-da-canvas-raised p-2 shadow-lg"
+                data-grades-panel
+              >
+                <ul class="m-0 list-none p-0">
+                  {gradeConfig.map((grade) => (
+                    <li>
+                      <a
+                        href={grade.hubHref}
+                        class:list={[
+                          'flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-bold no-underline transition hover:bg-da-brand-tint hover:text-da-brand-strong',
+                          currentGrade?.grade === grade.grade
+                            ? 'bg-da-brand-tint text-da-brand-strong'
+                            : 'text-da-ink-soft',
+                        ]}
+                        aria-current={currentGrade?.grade === grade.grade ? 'page' : undefined}
+                      >
+                        {grade.label}
+                      </a>
+                    </li>
+                  ))}
+                  <li class="mt-1 border-t border-da-border pt-1">
+                    <a
+                      href="/#grades"
+                      class="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-bold text-da-brand-strong no-underline transition hover:bg-da-brand-tint"
+                    >
+                      View all grades
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <a
+                href="/skills"
+                class:list={[
+                  'flex min-h-[44px] items-center rounded-lg border-b-[3px] px-3 py-2 text-[0.94rem] font-bold no-underline transition',
+                  isSkillsActive
+                    ? 'border-da-coral text-da-brand'
+                    : 'border-transparent text-da-ink-soft hover:bg-da-surface-neutral hover:text-da-brand',
+                ]}
+                aria-current={isSkillsActive ? 'page' : undefined}
+              >
+                Skills
+              </a>
+            </li>
+            <li>
+              <a
+                href="/curriculum"
+                class:list={[
+                  'flex min-h-[44px] items-center rounded-lg border-b-[3px] px-3 py-2 text-[0.94rem] font-bold no-underline transition',
+                  isCurriculumActive
+                    ? 'border-da-coral text-da-brand'
+                    : 'border-transparent text-da-ink-soft hover:bg-da-surface-neutral hover:text-da-brand',
+                ]}
+                aria-current={isCurriculumActive ? 'page' : undefined}
+              >
+                Curriculum
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <a
+          href="/#practice"
+          class="flex min-h-[44px] flex-shrink-0 items-center whitespace-nowrap rounded-lg bg-da-coral px-3 text-sm font-bold text-white no-underline transition hover:bg-da-coral-strong sm:px-4 lg:px-5"
+        >
+          <span class="lg:hidden">Practice</span>
+          <span class="hidden lg:inline">Start practicing</span>
+        </a>
+
+        <button
+          type="button"
+          class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg border border-da-border-strong text-da-ink-soft transition hover:bg-da-surface-neutral hover:text-da-brand md:hidden"
+          aria-expanded="false"
+          aria-controls="mobile-navigation"
+          aria-label="Open navigation menu"
+          data-mobile-menu-toggle
+        >
+          <svg
+            class="h-6 w-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+            data-menu-open-icon
+          >
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <svg
+            class="hidden h-6 w-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+            data-menu-close-icon
+          >
+            <path d="m6 6 12 12M18 6 6 18" />
+          </svg>
+        </button>
+      </div>
+
+      <nav
+        id="mobile-navigation"
+        aria-label="Mobile navigation"
+        class="hidden border-t border-da-border bg-da-canvas-raised px-4 pb-5 pt-3 md:hidden"
+        data-mobile-menu
+      >
+        <div class="mx-auto max-w-content-xl">
+          <details class="group" data-mobile-grades>
+            <summary class="flex min-h-[48px] cursor-pointer list-none items-center justify-between rounded-lg px-3 py-2 font-bold text-da-ink [&::-webkit-details-marker]:hidden">
               Grades
-            </a>
-          </li>
-          <li>
-            <a
-              href="/skills"
-              class:list={[
-                'flex min-h-[44px] items-center border-b-[3px] py-2 text-[0.94rem] font-bold no-underline',
-                isActive('/skills') ? 'border-da-coral text-da-brand' : 'border-transparent text-da-ink-soft hover:text-da-brand',
-              ]}
-              aria-current={isActive('/skills') ? 'page' : undefined}
-            >
-              Skills
-            </a>
-          </li>
-          <li>
-            <a href="/#how-it-works" class="flex min-h-[44px] items-center border-b-[3px] border-transparent py-2 text-[0.94rem] font-bold text-da-ink-soft no-underline hover:text-da-brand">
-              How it Works
-            </a>
-          </li>
-        </ul>
+              <svg
+                class="h-4 w-4 transition-transform group-open:rotate-180"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="m4 6 4 4 4-4" />
+              </svg>
+            </summary>
+            <ul class="m-0 grid list-none gap-1 pb-2 pl-3 pr-0 pt-1 sm:grid-cols-2">
+              {gradeConfig.map((grade) => (
+                <li>
+                  <a
+                    href={grade.hubHref}
+                    class="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-bold text-da-ink-soft no-underline hover:bg-da-brand-tint hover:text-da-brand-strong"
+                  >
+                    {grade.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a
+                  href="/#grades"
+                  class="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-bold text-da-brand-strong no-underline hover:bg-da-brand-tint"
+                >
+                  View all grades
+                </a>
+              </li>
+            </ul>
+          </details>
+          <ul class="m-0 list-none border-t border-da-border p-0 pt-2">
+            <li>
+              <a
+                href="/skills"
+                class="flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold text-da-ink no-underline hover:bg-da-surface-neutral"
+              >
+                Skills
+              </a>
+            </li>
+            <li>
+              <a
+                href="/curriculum"
+                class="flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold text-da-ink no-underline hover:bg-da-surface-neutral"
+              >
+                Curriculum
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about"
+                class="flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold text-da-ink no-underline hover:bg-da-surface-neutral"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="/accessibility"
+                class="flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold text-da-ink no-underline hover:bg-da-surface-neutral"
+              >
+                Accessibility
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav>
+    </header>
+  ) : (
+    <header class="sticky top-0 z-20 border-b border-da-border bg-da-canvas/95 backdrop-blur-sm">
+      <div class="mx-auto flex max-w-content-lg items-center justify-between px-6 py-3">
+        <a
+          href="/"
+          class="flex items-center gap-1.5 font-quicksand text-sm font-semibold tracking-tight text-da-ink-soft transition-colors hover:text-da-ink"
+          aria-label="SpellingWords home"
+        >
+          <span
+            class="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-da-coral opacity-60"
+            aria-hidden="true"
+          />
+          Spelling<span class="text-da-ink-faint">Words</span>
+        </a>
+        <a
+          href="/#practice"
+          class="flex min-h-[44px] items-center rounded-full px-3 py-2 text-xs font-semibold text-da-ink-soft/70 transition hover:bg-da-surface-neutral hover:text-da-ink-soft"
+        >
+          ← New list
+        </a>
+      </div>
+    </header>
+  )
+}
 
-      <a href="/" class="flex-shrink-0 whitespace-nowrap rounded-lg bg-da-coral px-3.5 py-2 text-sm font-bold text-white no-underline transition hover:bg-da-coral-strong sm:px-5 sm:py-2.5">
-        <span class="sm:hidden">Practice</span>
-        <span class="hidden sm:inline">Start practicing</span>
-      </a>
-    </div>
-  </header>
-) : (
-  <header class="sticky top-0 z-10 border-b border-da-border bg-da-canvas/95 backdrop-blur-sm">
-    <div class="mx-auto flex max-w-content-lg items-center justify-between px-6 py-3">
-      <a
-        href="/"
-        class="flex items-center gap-1.5 font-quicksand text-sm font-semibold tracking-tight text-da-ink-soft transition-colors hover:text-da-ink"
-        aria-label="spellingwords home"
-      >
-        <span class="inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-da-coral opacity-60" aria-hidden="true"></span>
-        spelling<span class="text-da-ink-faint">words</span>
-      </a>
-      <a
-        href="/"
-        class="flex min-h-[36px] items-center rounded-full px-3 py-2 text-xs font-semibold text-da-ink-soft/70 transition hover:bg-da-surface-neutral hover:text-da-ink-soft"
-      >
-        ← New list
-      </a>
-    </div>
-  </header>
-)}
+<script>
+  const header = document.querySelector<HTMLElement>('[data-site-header]');
+
+  if (header) {
+    const gradesRoot = header.querySelector<HTMLElement>('[data-grades-disclosure]');
+    const gradesToggle = header.querySelector<HTMLButtonElement>('[data-grades-toggle]');
+    const gradesPanel = header.querySelector<HTMLElement>('[data-grades-panel]');
+    const gradesIcon = gradesToggle?.querySelector<HTMLElement>('[data-disclosure-icon]');
+    const mobileToggle = header.querySelector<HTMLButtonElement>('[data-mobile-menu-toggle]');
+    const mobileMenu = header.querySelector<HTMLElement>('[data-mobile-menu]');
+    const openIcon = mobileToggle?.querySelector<HTMLElement>('[data-menu-open-icon]');
+    const closeIcon = mobileToggle?.querySelector<HTMLElement>('[data-menu-close-icon]');
+
+    function setGradesOpen(open: boolean, returnFocus = false): void {
+      if (!gradesToggle || !gradesPanel) return;
+      gradesToggle.setAttribute('aria-expanded', String(open));
+      gradesPanel.classList.toggle('hidden', !open);
+      gradesIcon?.classList.toggle('rotate-180', open);
+      if (returnFocus) gradesToggle.focus();
+    }
+
+    function setMobileOpen(open: boolean, returnFocus = false): void {
+      if (!mobileToggle || !mobileMenu) return;
+      mobileToggle.setAttribute('aria-expanded', String(open));
+      mobileToggle.setAttribute(
+        'aria-label',
+        open ? 'Close navigation menu' : 'Open navigation menu',
+      );
+      mobileMenu.classList.toggle('hidden', !open);
+      openIcon?.classList.toggle('hidden', open);
+      closeIcon?.classList.toggle('hidden', !open);
+      if (returnFocus) mobileToggle.focus();
+    }
+
+    gradesToggle?.addEventListener('click', () => {
+      setGradesOpen(gradesToggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    mobileToggle?.addEventListener('click', () => {
+      setMobileOpen(mobileToggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    document.addEventListener('pointerdown', (event) => {
+      if (gradesRoot && !gradesRoot.contains(event.target as Node)) setGradesOpen(false);
+    });
+
+    header.addEventListener('focusout', (event) => {
+      const next = event.relatedTarget as Node | null;
+      if (gradesRoot && next && !gradesRoot.contains(next)) setGradesOpen(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      if (gradesToggle?.getAttribute('aria-expanded') === 'true') {
+        setGradesOpen(false, true);
+      } else if (mobileToggle?.getAttribute('aria-expanded') === 'true') {
+        setMobileOpen(false, true);
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 768px)').matches) setMobileOpen(false);
+    });
+  }
+</script>

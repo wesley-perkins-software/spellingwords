@@ -353,7 +353,7 @@ Omit payments, refunds, subscriptions, trials, enterprise SLAs, account terminat
 
 ### Analytics implementation acceptance criteria
 
-- First decide with privacy counsel/product whether GA may load before consent for this child-directed product. Implement that decision explicitly; do not infer consent from continued use.
+- Keep GA entirely absent until the practice URL/data flow and legal/configuration decisions below are resolved. Then obtain privacy counsel guidance on whether the intended minimal GA4 configuration qualifies for the FTC's support-for-internal-operations exception for persistent identifiers used solely for qualifying site analytics, and what notice, consent, and configuration obligations still apply. The question is not a simplistic “consent or no consent” binary; do not infer either the exception or consent from continued use.
 - Load only on the canonical production hostname and production build. Exclude localhost, automated tests, design-explore routes, Netlify deploy previews, and branch deploys. Keep the measurement ID in a public build environment variable, but treat the hostname/build gate—not secrecy—as the protection.
 - Ensure **no network request to GA occurs before safe configuration is applied**. Do not let the automatic config page view race ahead.
 - Send a manually constructed page path/location that strips all query parameters and fragments. For `/play`, report only `/play`. Also prevent a query-bearing document referrer from being sent; test navigation from `/play?list=...` to another tracked page.
@@ -366,7 +366,7 @@ Omit payments, refunds, subscriptions, trials, enterprise SLAs, account terminat
 - Perform a browser network inspection using deliberately unique test words and confirm the unique strings and their encoded payload do not appear in requests, request bodies, cookies, or analytics debug views.
 - Record the final Measurement ID/property (in private operational documentation if appropriate), Admin settings, consent behavior, events, retention, linked products, and processor list before drafting final Privacy prose.
 
-Separately reduce exposure at the product layer in a follow-up architecture decision: replace word-bearing query transport with tab-local opaque session IDs or fragment-based/local transport if shareable word-list URLs are not a launch requirement. This is preferable defense in depth, but it changes practice transport and should be reviewed/tested as product engineering rather than slipped into the legal-page commit.
+Before adding GA, evaluate replacing the word-bearing query transport with session-scoped browser storage and a non-sensitive, tab-local lookup key so user-entered spelling words no longer appear in URLs at all. Prefer eliminating the URL exposure over relying on analytics redaction alone; sanitized analytics paths/referrers remain required as defense in depth. If shareable word-list URLs are a real product requirement, design that feature explicitly rather than treating the current reversible query payload as an acceptable default. This practice-transport change belongs in its own reviewed and tested product-engineering commit.
 
 ---
 
@@ -376,18 +376,21 @@ Keep work reviewable; the phases below may each be one commit/PR or a small cohe
 
 ### Phase 0 — Resolve launch decisions and verify operations
 
-1. Identify the real site operator/legal jurisdiction and determine whether a privacy/accessibility/legal contact channel is required. Do not publish invented details.
-2. Have specialized counsel decide the child-directed analytics consent/configuration posture.
+1. Determine the truthful operator identity, physical or mailing address, and online contact information that Privacy/Terms must disclose. A COPPA-related operator-contact requirement may exist independently of whether the product offers a general Contact page; do not publish invented details or create `/contact` unless the product actually wants and can support it.
+2. Have specialized counsel evaluate whether the intended strictly minimal GA4 use fits the FTC support-for-internal-operations framework for qualifying analytics and determine the resulting notice, consent, and configuration obligations.
 3. Inspect Netlify account logging/retention and production/deploy-preview environment variables.
 4. Decide whether Google Fonts will be self-hosted; audit the duplicate global font import.
 5. Decide whether query-based shareable lists are required or whether practice transport can move off the query string.
 
-### Phase 1 — Analytics privacy engineering (before GA launch)
+### Phase 1 — Practice transport and analytics privacy engineering (before GA launch)
 
-1. Add one typed analytics module/component with production-host gating, consent handling, manual sanitized page views, strict event allowlist, and no arbitrary parameter API.
-2. Configure GA Admin for data minimization and document settings.
-3. Add automated tests plus browser/network leak checks using unique custom words.
-4. Verify deploy previews and design prototypes send nothing.
+1. First move user-entered spelling words out of the URL into session-scoped browser storage unless an explicit shareable-list design is approved; test browser history, referrers, and failure recovery.
+2. Only after legal/configuration decisions are resolved, add one typed analytics module/component with production-host gating, consent handling, manual sanitized page views, strict event allowlist, and no arbitrary parameter API.
+3. Configure GA Admin for data minimization and document settings.
+4. Add automated tests plus browser/network leak checks using unique custom words.
+5. Verify deploy previews and retired design prototypes send nothing.
+
+GA remains entirely absent throughout the approved About/Curriculum/navigation work; that work must be committed and reviewed separately from practice-transport, analytics, Privacy, and Terms changes so unresolved legal work cannot block the information-architecture release.
 
 This precedes Privacy drafting because it determines the facts the policy must state.
 
@@ -410,8 +413,8 @@ This precedes Privacy drafting because it determines the facts the policy must s
 
 ### Phase 4 — Footer and contextual internal links
 
-1. Implement the four footer groups using `gradeConfig` and canonical route constants rather than duplicated hardcoded paths where available.
-2. Add About/Curriculum/Privacy/Terms/Accessibility destinations; remove the broken placeholder nature of `/privacy`.
+1. Implement the three currently valid footer groups using `gradeConfig` and canonical route constants rather than duplicated hardcoded paths where available; add the fourth Legal group only when Privacy and Terms exist.
+2. Add About/Curriculum/Accessibility destinations now. Add Privacy/Terms only with their reviewed pages; remove the broken `/privacy` placeholder link in the meantime.
 3. Link homepage curriculum summary → `/curriculum`; About ↔ Curriculum; Curriculum → grades/Skills; Privacy from any consent UI.
 4. Verify no nonexistent global strand route or Contact link appears.
 
@@ -428,8 +431,8 @@ This precedes Privacy drafting because it determines the facts the policy must s
 
 ## I. Genuine open decisions
 
-1. **Analytics consent/legal posture:** May GA4 load before affirmative consent on this child-directed K–5 site, and are any cookieless Consent Mode pings acceptable? This requires specialized legal/product judgment.
-2. **Public legal/privacy channel:** Is a real email or other maintainable request channel available, and is one legally required? This determines whether Privacy/Terms can launch and how Accessibility feedback is described; it does not automatically justify a general Contact page.
+1. **Analytics legal/configuration posture:** Does the intended minimal GA4 configuration qualify for the FTC support-for-internal-operations exception for persistent identifiers used solely for qualifying analytics, and what notice, consent, cookieless-ping, retention, and property-setting obligations follow? This requires specialized legal/product judgment; GA stays absent meanwhile.
+2. **Truthful operator/contact details:** What operator name, address, and online contact information must Privacy/Terms disclose, including any COPPA-specific requirements? This does not automatically justify a general Contact page, which should exist only if the product wants and can support one.
 3. **Practice URL transport:** Are shareable word-list URLs a required feature? If not, move user-entered words out of the query string before analytics launch. If yes, accept that copied/history URLs contain reversible words and build stricter redaction/referrer/log controls.
 4. **Font delivery:** Self-host the two Direction A font families (privacy/performance control) or disclose and retain Google Fonts after removing redundant requests?
 5. **Accessibility statement timing:** Commit to the verification/remediation needed to publish `/accessibility` at launch, or defer the page rather than publish unsupported conformance language?

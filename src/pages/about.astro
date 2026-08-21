@@ -1,0 +1,90 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import SupportingPage from '@/components/SupportingPage.astro';
+---
+
+<Layout
+  title="About SpellingWords | K–5 Spelling Practice"
+  description="Learn what SpellingWords is, who it serves, and how its focused K–5 spelling curriculum, reference pages, and practice tools work together."
+>
+  <SiteHeader currentPath="/about" />
+  <SupportingPage
+    eyebrow="About the site"
+    title="About SpellingWords"
+    intro="SpellingWords.app is a focused K–5 spelling website for students, parents, and teachers. It brings together structured grade-level curriculum, clear spelling references, and calm interactive practice."
+    currentPath="/about"
+  >
+    <section aria-labelledby="why-heading">
+      <h2 id="why-heading">A place to focus on spelling</h2>
+      <p>
+        Spelling deserves a learning space of its own. SpellingWords helps children hear a word,
+        think through its letters and patterns, type it, and check their work without timers,
+        points, streaks, or a crowded game interface.
+      </p>
+      <p>
+        The site is intentionally not a general literacy platform. It does not try to replace
+        reading instruction, writing instruction, or a school curriculum. Its job is narrower: to
+        make useful K–5 spelling knowledge easier to find, understand, and practice.
+      </p>
+    </section>
+
+    <section aria-labelledby="paths-heading">
+      <h2 id="paths-heading">Three ways to use SpellingWords</h2>
+      <div class="supporting-cards">
+        <div class="supporting-card">
+          <h3>Practice your own words</h3>
+          <p>
+            Enter a school list or any words that need attention and begin a focused practice
+            session.
+          </p>
+          <p><a href="/#practice">Start with your words</a></p>
+        </div>
+        <div class="supporting-card">
+          <h3>Follow a grade</h3>
+          <p>
+            Browse Kindergarten through 5th Grade to find an organized spelling path for each year.
+          </p>
+          <p><a href="/#grades">Browse all grades</a></p>
+        </div>
+        <div class="supporting-card">
+          <h3>Look up a skill</h3>
+          <p>
+            Use grade-independent references when a child needs help with one particular spelling
+            pattern.
+          </p>
+          <p><a href="/skills">Browse spelling skills</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="audience-heading">
+      <h2 id="audience-heading">Built for students and the adults who support them</h2>
+      <p>
+        Students can practice in a quiet interface with clear feedback. Parents can find an
+        appropriate starting point without needing specialist terminology. Teachers and homeschool
+        educators can use the grade and Skill architecture as a supplemental source of focused
+        practice.
+      </p>
+      <p>
+        No account or login is required. That keeps the path from choosing words to practicing them
+        short, especially when a child is using a shared or classroom device.
+      </p>
+    </section>
+
+    <section aria-labelledby="method-heading">
+      <h2 id="method-heading">A spelling-specific curriculum</h2>
+      <p>
+        The curriculum is organized around spelling patterns, high-frequency words, meaningful
+        grade-level progression, and selected themed practice. Educational usefulness matters more
+        than publishing the largest possible collection of word pages.
+      </p>
+      <p>
+        Read <a href="/curriculum">Our Spelling Curriculum</a> for the full parent- and teacher-friendly
+        explanation of how the paths are organized and how content earns a place on the site.
+      </p>
+    </section>
+  </SupportingPage>
+  <SiteFooter />
+</Layout>

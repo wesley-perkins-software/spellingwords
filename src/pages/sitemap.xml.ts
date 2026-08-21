@@ -1,4 +1,8 @@
-import { getCanonicalGradeRoutes, getGradeHubPath, gradeStrandGatewayPaths } from '@/lib/content/canonicalGradeRoutes';
+import {
+  getCanonicalGradeRoutes,
+  getGradeHubPath,
+  gradeStrandGatewayPaths,
+} from '@/lib/content/canonicalGradeRoutes';
 import { getCanonicalSkillRoutes, SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 
@@ -11,6 +15,9 @@ function url(path: string) {
 export async function GET() {
   const paths = [
     '/',
+    '/about',
+    '/accessibility',
+    '/curriculum',
     '/play',
     SKILLS_INDEX_PATH,
     ...gradeConfig.map((grade) => getGradeHubPath(grade.grade)),
@@ -20,14 +27,22 @@ export async function GET() {
   ];
 
   const uniquePaths = new Set(paths);
-  const expectedPathCount = 2 + gradeConfig.length + 1 + gradeStrandGatewayPaths.length + getCanonicalGradeRoutes().length + getCanonicalSkillRoutes().length;
+  const expectedPathCount =
+    5 +
+    gradeConfig.length +
+    1 +
+    gradeStrandGatewayPaths.length +
+    getCanonicalGradeRoutes().length +
+    getCanonicalSkillRoutes().length;
   if (uniquePaths.size !== expectedPathCount) {
     throw new Error(
       `Sitemap expected exactly ${expectedPathCount} canonical URLs, got ${uniquePaths.size}.`,
     );
   }
 
-  const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...uniquePaths]
+  const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[
+    ...uniquePaths,
+  ]
     .sort()
     .map((path) => `  <url><loc>${url(path)}</loc></url>`)
     .join('\n')}\n</urlset>\n`;

@@ -18,6 +18,19 @@ Before launch, publish four canonical supporting pages—`/about`, `/curriculum`
 > replacement for the 18 grade-scoped Gateways and not a new URL parent for them; grade-first
 > breadcrumbs and routes are unchanged. See `docs/content/CANONICAL_GRADE_HUB_STANDARD.md` §6.1 for
 > the companion Grade Hub amendment. The footer's Explore column (§D1) is updated accordingly.
+>
+> **Follow-up amendment (2026-08-21) — role refined from orientation to complete linked index.**
+> The three gateways initially shipped as grade-by-grade *summaries* (representative examples
+> only, same as a Grade Hub). That was refined the same day, after deploy-preview review, to a
+> distinct role: each is now a **complete linked K–5 index of its strand's direct child
+> resources** (every Core unit, every HFW set, every Themed topic — with curated sample words on
+> Core/HFW, whose titles alone don't communicate content). This does not reopen the "not a
+> replacement for the 18 grade-scoped Gateways" decision above — the grade-specific Gateway still
+> owns full same-grade orientation, sequence guidance, and richer inter-unit relationships; the
+> cross-grade page now additionally lets a visitor who already knows what they want (e.g. "Solar
+> System Words") reach it without a forced intermediate click. See
+> `docs/content/CANONICAL_GRADE_HUB_STANDARD.md` §6.2 for the full rationale and the explicit
+> boundary against reopening the Grade Hub's own no-directory rule.
 
 Make Grades a simple desktop disclosure menu with the six real Grade Hubs and `View all grades` linking to `/#grades`. Keep Skills as one direct link to `/skills`; the canonical hub already presents all 41 Skills in their frozen 12-family taxonomy, and a partial header taxonomy would add complexity without a clear user benefit. Replace `How it Works` with `Curriculum`. Keep the coral action labeled `Start practicing` where space permits and `Practice` in compact mobile chrome.
 

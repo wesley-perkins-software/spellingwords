@@ -126,6 +126,15 @@ describe('canonical K–5 Grade Hub model', () => {
     expect(renderer).toContain('href="/#grades"');
   });
 
+  it('never gains direct member links from the cross-grade strand-gateway completeness refinement (2026-08-21)', () => {
+    // The complete-linked-index refinement applies only to /core-spelling, /high-frequency-words,
+    // and /themed-spelling-practice. Grade Hubs keep their bounded, non-linked previews — the
+    // rendered preview line must not wrap previewItems in an anchor.
+    const previewLine = renderer.match(/<p class="flex-grow[^>]*>[^]*?previewItems\.join[^]*?<\/p>/)?.[0] ?? '';
+    expect(previewLine).not.toBe('');
+    expect(previewLine).not.toContain('<a ');
+  });
+
   it('has grade-specific metadata, two-paragraph orientations, and a 5-6 phrase fingerprint', () => {
     for (const { grade } of gradeConfig) {
       expect(gradeHubCopy[grade].metaDescription).toMatch(/Core Spelling.*High-Frequency Words.*optional Themed Spelling Practice/);

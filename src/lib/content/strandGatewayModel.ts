@@ -6,10 +6,17 @@ import {
 } from './canonicalGradeRoutes';
 import { FROZEN_HF_WORDS_CURRICULUM, HF_WORDS_TOTAL_SET_COUNT, HF_WORDS_TOTAL_WORD_COUNT } from './hfWordsCurriculum';
 import { coreSpellingGatewaySummaries, hfwGatewaySummaries, themedGatewaySummaries } from './strandGatewayPreview';
-import { gradeHubPreview } from './gradeHubPreview';
+import { CORE_UNIT_SAMPLE_WORDS, HFW_SET_SAMPLE_WORDS } from './strandIndexSamples';
 import type { SpellingListEntry } from './spellingLists';
 
 export { HF_WORDS_TOTAL_SET_COUNT, HF_WORDS_TOTAL_WORD_COUNT };
+
+export interface CoreIndexUnit {
+  id: string;
+  href: string;
+  title: string;
+  sampleWords: readonly string[];
+}
 
 export interface CoreGatewaySection {
   grade: GradeCode;
@@ -17,7 +24,10 @@ export interface CoreGatewaySection {
   gatewayHref: string;
   unitCount: number;
   summary: string;
-  representativeTitles: readonly string[];
+  /** Every canonical Core unit for this grade, in curriculum order — /core-spelling is a
+   * complete linked index (docs/content/CANONICAL_GRADE_HUB_STANDARD.md §6.1, 2026-08-21
+   * refinement), unlike the bounded, non-linked Grade Hub preview. */
+  units: readonly CoreIndexUnit[];
 }
 
 /** Builds the six grade sections for /core-spelling. Titles resolve from live content, never copied. */
@@ -25,11 +35,12 @@ export function buildCoreSpellingGatewayModel(entries: SpellingListEntry[]): rea
   const entriesById = new Map(entries.map((entry) => [entry.data.id, entry]));
   return gradeConfig.map(({ grade, label }) => {
     const routes = canonicalGradeRoutes.filter((r) => r.grade === grade && r.classification === 'core-spelling');
-    const representativeIds = gradeHubPreview[grade].coreRepresentativeIds;
-    const representativeTitles = representativeIds.map((id) => {
-      const entry = entriesById.get(id);
-      if (!entry) throw new Error(`/core-spelling could not resolve representative id ${id}`);
-      return entry.data.title;
+    const units = routes.map((route) => {
+      const entry = entriesById.get(route.id);
+      if (!entry) throw new Error(`/core-spelling could not resolve unit id ${route.id}`);
+      const sampleWords = CORE_UNIT_SAMPLE_WORDS[route.id];
+      if (!sampleWords) throw new Error(`/core-spelling has no curated sample words for unit id ${route.id}`);
+      return { id: route.id, href: route.canonicalPath, title: entry.data.title, sampleWords };
     });
     return {
       grade,
@@ -37,9 +48,17 @@ export function buildCoreSpellingGatewayModel(entries: SpellingListEntry[]): rea
       gatewayHref: getGradeStrandPath(grade, 'core-spelling'),
       unitCount: routes.length,
       summary: coreSpellingGatewaySummaries[grade].summary,
-      representativeTitles,
+      units,
     };
   });
+}
+
+export interface HfwIndexSet {
+  id: string;
+  href: string;
+  title: string;
+  wordCount: number;
+  sampleWords: readonly string[];
 }
 
 export interface HfwGatewaySection {
@@ -49,25 +68,39 @@ export interface HfwGatewaySection {
   setCount: number;
   wordCount: number;
   role: string;
+  /** Every canonical HFW set for this grade, in canonical order — complete linked index. */
+  sets: readonly HfwIndexSet[];
 }
 
 /** Builds the six grade sections for /high-frequency-words. Counts derive live from the frozen curriculum. */
-export function buildHfwGatewayModel(): readonly HfwGatewaySection[] {
+export function buildHfwGatewayModel(entries: SpellingListEntry[]): readonly HfwGatewaySection[] {
+  const entriesById = new Map(entries.map((entry) => [entry.data.id, entry]));
   return gradeConfig.map(({ grade, label }) => {
-    const sets = FROZEN_HF_WORDS_CURRICULUM[grade];
+    const frozenSets = FROZEN_HF_WORDS_CURRICULUM[grade];
+    const sets = frozenSets.map((set) => {
+      const route = canonicalGradeRoutes.find((r) => r.id === set.id);
+      if (!route) throw new Error(`/high-frequency-words could not resolve canonical route for set id ${set.id}`);
+      const entry = entriesById.get(set.id);
+      if (!entry) throw new Error(`/high-frequency-words could not resolve set id ${set.id}`);
+      const sampleWords = HFW_SET_SAMPLE_WORDS[set.id];
+      if (!sampleWords) throw new Error(`/high-frequency-words has no curated sample words for set id ${set.id}`);
+      return { id: set.id, href: route.canonicalPath, title: entry.data.title, wordCount: set.words.length, sampleWords };
+    });
     return {
       grade,
       label,
       gatewayHref: getGradeStrandPath(grade, 'high-frequency-words'),
-      setCount: sets.length,
-      wordCount: sets.reduce((total, set) => total + set.words.length, 0),
+      setCount: frozenSets.length,
+      wordCount: frozenSets.reduce((total, set) => total + set.words.length, 0),
       role: hfwGatewaySummaries[grade].role,
+      sets,
     };
   });
 }
 
 export interface ThemedTopic {
   id: string;
+  href: string;
   label: string;
 }
 
@@ -127,7 +160,7 @@ export function buildThemedGatewayModel(entries: SpellingListEntry[]): readonly 
     const topics = routes.map((route) => {
       const entry = entriesById.get(route.id);
       if (!entry) throw new Error(`/themed-spelling-practice could not resolve topic id ${route.id}`);
-      return { id: route.id, label: displayLabelFor(route, entry) };
+      return { id: route.id, href: route.canonicalPath, label: displayLabelFor(route, entry) };
     });
     return {
       grade,

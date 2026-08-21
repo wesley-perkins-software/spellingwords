@@ -35,6 +35,9 @@ const breadcrumbJsonLd = {
     ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
   })),
 };
+// See the equivalent comment in core-spelling.astro: the ItemList mirrors the page's six visible
+// grade chapters. The 27 individual topic links are real, crawlable, anchor-texted <a> chips in
+// the page body — that body markup is the source of truth for them, not a duplicated ItemList.
 const itemListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -90,8 +93,13 @@ const itemListJsonLd = {
             <p class="mt-2 max-w-[64ch] text-[0.95rem] leading-relaxed text-da-ink-soft">{section.intro}</p>
             <ul class="mt-3 flex flex-wrap gap-2" aria-label={`${section.label} themed topics`}>
               {section.topics.map((topic) => (
-                <li class="rounded-full border border-da-periwinkle bg-da-periwinkle-tint px-3 py-1 text-xs font-bold text-da-periwinkle-ink">
-                  {topic.label}
+                <li>
+                  <a
+                    href={topic.href}
+                    class="inline-flex min-h-[36px] items-center rounded-full border border-da-periwinkle bg-da-periwinkle-tint px-3 py-1 text-xs font-bold text-da-periwinkle-ink transition hover:bg-da-periwinkle hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand"
+                  >
+                    {topic.label}
+                  </a>
                 </li>
               ))}
             </ul>

@@ -1,7 +1,10 @@
 ---
-// Cross-grade High-Frequency Words gateway. HFW emphasizes definition + grade/set organization,
-// so grade sections render as a compact numbers-forward grid rather than Core's narrative
-// sequence or Themed's flat topic catalog (Part 5 of the strand-gateway feature spec).
+// Cross-grade High-Frequency Words gateway — a complete, linked K–5 index of all canonical HFW
+// sets (2026-08-21 refinement to docs/content/CANONICAL_GRADE_HUB_STANDARD.md §6.1). Set titles
+// ("Set 3") carry almost no descriptive signal on their own, so every set shows curated sample
+// words alongside its link — an editorial grade-by-grade list rather than a card grid, since the
+// grid read as a dashboard once sets were added and didn't scale to per-set detail.
+import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
@@ -10,10 +13,12 @@ import AtmosphereBand from '@/components/direction-a/AtmosphereBand.astro';
 import Button from '@/components/direction-a/Button.astro';
 import Chip from '@/components/direction-a/Chip.astro';
 import { STRAND_ACCENT } from '@/lib/content/pilotContent';
+import { isPublished } from '@/lib/content/spellingLists';
 import { buildHfwGatewayModel, HF_WORDS_TOTAL_SET_COUNT, HF_WORDS_TOTAL_WORD_COUNT } from '@/lib/content/strandGatewayModel';
 import { getCanonicalUrl } from '@/lib/canonicalUrl';
 
-const sections = buildHfwGatewayModel();
+const entries = (await getCollection('spelling-lists')).filter(isPublished);
+const sections = buildHfwGatewayModel(entries);
 
 const canonicalURL = getCanonicalUrl('/high-frequency-words', Astro.site);
 const breadcrumbItems = [
@@ -30,6 +35,8 @@ const breadcrumbJsonLd = {
     ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
   })),
 };
+// See the equivalent comment in core-spelling.astro: the ItemList mirrors the page's six visible
+// grade chapters, not the 27 individual set links each chapter contains.
 const itemListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -46,7 +53,7 @@ const itemListJsonLd = {
 
 <Layout
   title="High-Frequency Words by Grade | spellingwords.app"
-  description={`See how High-Frequency Words is organized across K–5: ${HF_WORDS_TOTAL_SET_COUNT} sets and ${HF_WORDS_TOTAL_WORD_COUNT} words in total, with a set and word count for every grade.`}
+  description={`See every one of the ${HF_WORDS_TOTAL_SET_COUNT} High-Frequency Words sets across K–5 (${HF_WORDS_TOTAL_WORD_COUNT} words total), with sample words and a direct link to each set.`}
   jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
 >
   <SiteHeader variant="discovery" currentPath="/high-frequency-words" />
@@ -78,22 +85,36 @@ const itemListJsonLd = {
     </AtmosphereBand>
 
     <div class="mx-auto max-w-2xl px-5 py-10 sm:px-6 md:max-w-3xl md:py-14">
-      <div class="grid gap-4 sm:grid-cols-2">
+      <div class="flex flex-col gap-10">
         {sections.map((section) => (
-          <div class="flex flex-col gap-2 rounded-2xl border border-da-border bg-da-canvas-raised p-5 shadow-sm">
-            <h2 class="font-quicksand text-lg font-bold text-da-ink">{section.label}</h2>
-            <p class="text-sm font-bold text-da-teal-ink">{section.setCount} sets · {section.wordCount} words</p>
-            <p class="flex-grow text-[0.92rem] leading-relaxed text-da-ink-soft">{section.role}</p>
-            <Button href={section.gatewayHref} variant="outline" size="md" class="mt-1 self-start">
+          <section aria-labelledby={`hfw-${section.grade}-heading`}>
+            <h2 id={`hfw-${section.grade}-heading`} class="font-quicksand text-xl font-bold text-da-ink">{section.label}</h2>
+            <p class="mt-1 text-sm font-bold text-da-teal-ink">{section.setCount} sets · {section.wordCount} words</p>
+            <p class="mt-2 max-w-[64ch] text-[0.95rem] leading-relaxed text-da-ink-soft">{section.role}</p>
+
+            <ol class="mt-4 divide-y divide-da-border rounded-xl border border-da-border bg-da-canvas-raised">
+              {section.sets.map((set) => (
+                <li class="flex flex-col gap-0.5 px-4 py-3 sm:flex-row sm:items-baseline sm:gap-3">
+                  <a href={set.href} class="shrink-0 font-quicksand text-[0.98rem] font-bold text-da-teal-ink hover:underline">
+                    {set.title}
+                  </a>
+                  <p class="text-[0.85rem] leading-snug text-da-ink-faint">
+                    <span class="font-bold">Sample words:</span> {set.sampleWords.join(' · ')}
+                  </p>
+                </li>
+              ))}
+            </ol>
+
+            <Button href={section.gatewayHref} variant="outline" size="md" class="mt-4">
               View {section.label} High-Frequency Words <span aria-hidden="true">→</span>
             </Button>
-          </div>
+          </section>
         ))}
       </div>
 
       <p class="mt-10 max-w-[64ch] text-[0.95rem] leading-relaxed text-da-ink-faint">
-        Sets build cumulatively within each grade; this page summarizes counts and role rather than
-        repeating word samples — the six grade-specific gateways above are the complete inventory.
+        Each set link goes straight to its full word list. The grade-specific High-Frequency Words
+        gateway above still owns the complete same-grade inventory and orientation.
       </p>
       <p class="mt-4 max-w-[64ch] text-[0.98rem] leading-relaxed text-da-ink-soft">
         See how High-Frequency Words fits alongside <a class="font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand" href="/core-spelling">Core Spelling</a>,

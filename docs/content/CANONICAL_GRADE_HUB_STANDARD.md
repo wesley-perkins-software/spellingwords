@@ -144,6 +144,35 @@ enough concrete curriculum context (real unit titles, real words, real topics) t
 distinguishes one grade from another *before* committing to a strand, without turning the Hub into
 a second inventory. This narrow exception exists to solve exactly that problem and no more.
 
+### 6.2 Cross-grade strand gateways are now complete linked indexes (amendment, 2026-08-21)
+
+**Status of this amendment: authorized and implemented as of this dated entry.** This §6 boundary
+governs Grade Hubs only (`/kindergarten` … `/5th-grade`) and continues to do so unchanged: Grade
+Hubs remain bounded, non-linked previews per §6.1, never a directory.
+
+The three cross-grade strand gateways — `/core-spelling`, `/high-frequency-words`,
+`/themed-spelling-practice` — are a distinct page family this document does not govern (see the
+Scope note at the top of this file). They were introduced as orientation-level summaries; this
+amendment records that their role has been refined to **complete linked indexes** of their direct
+child resources:
+
+- `/core-spelling` links every canonical Core Spelling unit across K–5 (in curriculum order, with
+  curated sample words per unit);
+- `/high-frequency-words` links every canonical HFW set across K–5 (with curated sample words per
+  set);
+- `/themed-spelling-practice` links every canonical Themed topic across K–5 (topic titles are
+  self-descriptive, so no sample words are added there).
+
+This is a deliberate, intentional distinction from the Grade Hub rule directly above it, not a
+weakening of it: a Grade Hub answers "what should a student in this grade practice?" and stays a
+bounded preview; a cross-grade strand gateway answers "what content exists in this strand across
+K–5?" and is meant to be a comprehensive map. The grade-specific Grade-Strand Gateway
+(`/{grade}/{strand}`) remains available from each cross-grade section as an additional contextual
+path — it is not bypassed, only no longer the sole route to an individual unit/set/topic page.
+Historical context: earlier planning explicitly avoided direct member links on any gateway-family
+page precisely because that scope was undefined; this amendment resolves that ambiguity for the
+cross-grade family specifically, having named a real content-inventory job for it to do.
+
 ## 7. Counts
 
 Useful grade-and-strand facts may appear inline, including the Core unit count, HFW set and total

@@ -420,6 +420,17 @@ authority this standard inherits rather than re-derives. Revisiting this rule re
 future amendment to this standard with a stated, non-generic reason; it is not a decision an
 implementation may make case by case.
 
+> **Amendment (2026-08-21) — the Curriculum-Organization strand heading may link to its new
+> top-level strand gateway.** This "MUST NOT" list bars linking to *individual, grade-specific*
+> Grade-Strand Gateways (e.g. `/2nd-grade/core-spelling`); it predates and does not name the three
+> new cross-grade gateways `/core-spelling`, `/high-frequency-words`, `/themed-spelling-practice`
+> authorized in `docs/content/CANONICAL_GRADE_HUB_STANDARD.md` §6.1 and
+> `docs/planning/LAUNCH_SUPPORTING_PAGES_AND_GLOBAL_NAVIGATION_PLAN.md`. Each Curriculum-
+> Organization strand card's `<h3>` (§5.2a) may link to its matching top-level gateway. The example
+> concepts inside each card stay plain, non-hyperlinked text — §7's internal-linking boundary is
+> otherwise unchanged, and this amendment grants nothing beyond the one named heading-level link
+> per strand card.
+
 Secondary/footer-level navigation (e.g., a future About or Privacy page) is outside this rule's
 scope — it governs primary homepage content, not global site chrome.
 

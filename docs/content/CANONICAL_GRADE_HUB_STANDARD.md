@@ -1,7 +1,9 @@
 # Canonical Grade Hub Standard
 
 **Status:** Frozen production editorial and architecture authority. Production conformance is
-pending; this standard does not itself authorize renderer, component, schema, or visual changes.
+pending; this standard does not itself authorize renderer, component, schema, or visual changes,
+**except** for the narrow, dated representative-preview exception recorded in §6.1, which does
+authorize the specific renderer change it describes.
 **Source:** Approved conclusions in
 `docs/content/CANONICAL_GRADE_HUB_STANDARD_RESEARCH.md`.
 **Scope:** Exactly `/kindergarten`, `/1st-grade`, `/2nd-grade`, `/3rd-grade`, `/4th-grade`, and
@@ -118,6 +120,59 @@ This freezes the target architecture only. The current production Hubs still con
 member directories; removing them is pending implementation and is not authorized by this
 documentation task.
 
+### 6.1 Narrow representative-preview exception (amendment, 2026-08-21)
+
+**Status of this amendment: authorized and implemented as of this dated entry.** Grade Hub V2
+adds two bounded, non-linked preview elements per Hub, in addition to everything §2–§5 already
+require:
+
+- one grade-wide curriculum **fingerprint** — 5–6 short plain-text phrases naming the curriculum
+  concepts a student works on at that grade (not new Skill links, not a Gateway substitute);
+- up to **four non-linked representative previews per strand card** — up to four curated Core
+  unit titles, up to four curated HFW words, and up to four curated Themed topic labels, rendered
+  as plain text within the existing single-destination card.
+
+These previews remain subject to every other prohibition in this document: they are not member
+cards, not individually linked, not a complete inventory, and do not replace the same-grade
+Gateway as the authoritative destination. A strand card remains exactly one clickable destination
+(`<a href={gateway}>`); the representative items sit inside that same anchor as plain text, never
+as nested links or a second destination.
+
+**Why:** a visitor comparing, say, the 2nd Grade Hub and the 4th Grade Hub could not previously
+tell the curriculum substance apart — only the grade name and counts differed. Visitors need
+enough concrete curriculum context (real unit titles, real words, real topics) to understand what
+distinguishes one grade from another *before* committing to a strand, without turning the Hub into
+a second inventory. This narrow exception exists to solve exactly that problem and no more.
+
+### 6.2 Cross-grade strand gateways are now complete linked indexes (amendment, 2026-08-21)
+
+**Status of this amendment: authorized and implemented as of this dated entry.** This §6 boundary
+governs Grade Hubs only (`/kindergarten` … `/5th-grade`) and continues to do so unchanged: Grade
+Hubs remain bounded, non-linked previews per §6.1, never a directory.
+
+The three cross-grade strand gateways — `/core-spelling`, `/high-frequency-words`,
+`/themed-spelling-practice` — are a distinct page family this document does not govern (see the
+Scope note at the top of this file). They were introduced as orientation-level summaries; this
+amendment records that their role has been refined to **complete linked indexes** of their direct
+child resources:
+
+- `/core-spelling` links every canonical Core Spelling unit across K–5 (in curriculum order, with
+  curated sample words per unit);
+- `/high-frequency-words` links every canonical HFW set across K–5 (with curated sample words per
+  set);
+- `/themed-spelling-practice` links every canonical Themed topic across K–5 (topic titles are
+  self-descriptive, so no sample words are added there).
+
+This is a deliberate, intentional distinction from the Grade Hub rule directly above it, not a
+weakening of it: a Grade Hub answers "what should a student in this grade practice?" and stays a
+bounded preview; a cross-grade strand gateway answers "what content exists in this strand across
+K–5?" and is meant to be a comprehensive map. The grade-specific Grade-Strand Gateway
+(`/{grade}/{strand}`) remains available from each cross-grade section as an additional contextual
+path — it is not bypassed, only no longer the sole route to an individual unit/set/topic page.
+Historical context: earlier planning explicitly avoided direct member links on any gateway-family
+page precisely because that scope was undefined; this amendment resolves that ambiguity for the
+cross-grade family specifically, having named a real content-inventory job for it to do.
+
 ## 7. Counts
 
 Useful grade-and-strand facts may appear inline, including the Core unit count, HFW set and total
@@ -164,7 +219,9 @@ does not prescribe linked-heading markup, button markup, or a number of visible 
 
 ## 11. Prohibited or default-rejected Hub content
 
-- individual member cards or inventories;
+- individual member cards or inventories (the §6.1 exception permits only up to four non-linked,
+  plain-text representative previews per strand card plus one plain-text grade fingerprint — not a
+  card, not a link, not a complete inventory);
 - full Core progression narratives;
 - complete HFW set inventories;
 - individual Themed-list inventories or Gateway-level theme-selection guidance;

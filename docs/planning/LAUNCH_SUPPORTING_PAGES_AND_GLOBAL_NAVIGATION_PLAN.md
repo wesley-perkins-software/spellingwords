@@ -6,7 +6,31 @@
 
 ## Executive decisions
 
-Before launch, publish four canonical supporting pages—`/about`, `/curriculum`, `/privacy`, and `/terms`—plus a carefully scoped `/accessibility` statement after an accessibility verification pass. Do not create `/contact` until a real, maintainable public channel exists. Do not create a standalone FAQ, help center, global Core/HFW/Themed hub, or HTML sitemap: the current product does not give any of those a distinct job.
+Before launch, publish four canonical supporting pages—`/about`, `/curriculum`, `/privacy`, and `/terms`—plus a carefully scoped `/accessibility` statement after an accessibility verification pass. Do not create `/contact` until a real, maintainable public channel exists. Do not create a standalone FAQ, help center, or HTML sitemap: the current product does not give any of those a distinct job.
+
+> **Amendment (2026-08-21) — global Core/HFW/Themed gateways superseded into scope.** The line
+> above originally also read "global Core/HFW/Themed hub" as out of scope, and section D1 below
+> originally said not to invent grade-independent Core/HFW/Themed URLs. That decision is
+> superseded, not deleted: a second, strand-first browsing axis (`/core-spelling`,
+> `/high-frequency-words`, `/themed-spelling-practice`) was authorized because visitors had no way
+> to ask "how does this strand progress across K–5?" — every existing route answers "what should
+> this grade practice?" instead. These three routes are lateral, cross-grade *gateways*, not a
+> replacement for the 18 grade-scoped Gateways and not a new URL parent for them; grade-first
+> breadcrumbs and routes are unchanged. See `docs/content/CANONICAL_GRADE_HUB_STANDARD.md` §6.1 for
+> the companion Grade Hub amendment. The footer's Explore column (§D1) is updated accordingly.
+>
+> **Follow-up amendment (2026-08-21) — role refined from orientation to complete linked index.**
+> The three gateways initially shipped as grade-by-grade *summaries* (representative examples
+> only, same as a Grade Hub). That was refined the same day, after deploy-preview review, to a
+> distinct role: each is now a **complete linked K–5 index of its strand's direct child
+> resources** (every Core unit, every HFW set, every Themed topic — with curated sample words on
+> Core/HFW, whose titles alone don't communicate content). This does not reopen the "not a
+> replacement for the 18 grade-scoped Gateways" decision above — the grade-specific Gateway still
+> owns full same-grade orientation, sequence guidance, and richer inter-unit relationships; the
+> cross-grade page now additionally lets a visitor who already knows what they want (e.g. "Solar
+> System Words") reach it without a forced intermediate click. See
+> `docs/content/CANONICAL_GRADE_HUB_STANDARD.md` §6.2 for the full rationale and the explicit
+> boundary against reopening the Grade Hub's own no-directory rule.
 
 Make Grades a simple desktop disclosure menu with the six real Grade Hubs and `View all grades` linking to `/#grades`. Keep Skills as one direct link to `/skills`; the canonical hub already presents all 41 Skills in their frozen 12-family taxonomy, and a partial header taxonomy would add complexity without a clear user benefit. Replace `How it Works` with `Curriculum`. Keep the coral action labeled `Start practicing` where space permits and `Practice` in compact mobile chrome.
 
@@ -153,7 +177,7 @@ The public-facing pages should synthesize, not copy, the repository's internal s
 
 - **Contact:** no route and no supportable email/form/address exist. A blank or fabricated channel reduces trust. Create later only with a real owner, response expectations, spam/security plan, and privacy handling. Legal counsel must separately decide whether Privacy/Terms require a contact method.
 - **Standalone FAQ/help:** the homepage and relevant detail pages already answer context-specific questions. A global FAQ would duplicate them and has no separate support workflow.
-- **Global Core/HFW/Themed pages:** those are grade-specific architectures. Their canonical destinations are the 18 grade/strand gateways, not nonexistent top-level hubs.
+- **Global Core/HFW/Themed pages:** *(superseded, 2026-08-21 — see the amendment note above)* originally rejected because Core/HFW/Themed were treated as purely grade-specific architectures with no distinct top-level job. `/core-spelling`, `/high-frequency-words`, and `/themed-spelling-practice` now exist as lateral, cross-grade gateways answering a distinct question ("how does this strand progress across K–5?"); the 18 grade/strand gateways remain the authoritative same-grade inventories and are unchanged.
 - **HTML sitemap/navigation page:** global nav, footer, `/skills`, homepage grade grid, and XML sitemap already cover discovery. An HTML link directory would add a large repeated block without a clear human task.
 - **Advertising/cookie-vendor page:** there are no ads at launch. Re-audit and update Privacy/consent before—not after—adding any ad technology.
 
@@ -260,16 +284,25 @@ Use a responsive four-column link area plus a bottom identity row.
 
 **Explore**
 
+- Core Spelling → `/core-spelling`
+- High-Frequency Words → `/high-frequency-words`
+- Themed Spelling Practice → `/themed-spelling-practice`
 - Spelling Skills → `/skills`
 - Practice Your Own Words → `/#practice`
-- Browse all grades → `/#grades`
 
 **Legal**
 
 - Privacy Policy
 - Terms of Use
 
-Do not list Core Spelling, High-Frequency Words, or Themed Spelling Practice here because no canonical grade-independent destination exists. The homepage and every Grade Hub already introduce those three strands in the correct grade context. Do not add Contact.
+> **Amendment (2026-08-21):** the three strand rows above were added, and "Browse all grades" was
+> removed as redundant with the four-column Grades footer group, once all three canonical
+> `/core-spelling`, `/high-frequency-words`, `/themed-spelling-practice` gateways existed and were
+> published together (never a partial set — see the amendment note at the top of this document).
+> The line that previously stood here — "Do not list Core Spelling, High-Frequency Words, or
+> Themed Spelling Practice here because no canonical grade-independent destination exists" — no
+> longer reflects the architecture; it is preserved here, struck through in spirit, as the reasoning
+> trail for why the original decision was made and why it changed. Do not add Contact.
 
 Bottom row:
 
@@ -438,4 +471,4 @@ This precedes Privacy drafting because it determines the facts the policy must s
 5. **Accessibility statement timing:** Commit to the verification/remediation needed to publish `/accessibility` at launch, or defer the page rather than publish unsupported conformance language?
 6. **Operator identity/jurisdiction:** What truthful legal name and governing jurisdiction, if any, should Terms/Privacy identify? The domain alone is not an answer.
 
-Everything else in this plan—page set, no Contact page for now, naming convention, direct Skills link, Grades disclosure, Curriculum label, grade-rich footer, and avoidance of invented global strand routes—can proceed without reopening curriculum or Direction A.
+Everything else in this plan—page set, no Contact page for now, naming convention, direct Skills link, Grades disclosure, Curriculum label, and grade-rich footer—can proceed without reopening curriculum or Direction A. (The prior "avoidance of invented global strand routes" item was itself superseded by the 2026-08-21 amendment above and is no longer an open constraint.)

@@ -71,18 +71,21 @@ export const HOMEPAGE_REPRESENTATIVE_SKILLS = [
 export const HOMEPAGE_STRANDS = [
   {
     name: 'Core Spelling',
+    href: '/core-spelling',
     definition:
       "Core Spelling is the main sequence for each grade — units ordered around the spelling concepts students are ready to practice, moving from sound-letter patterns toward syllables, word parts, and increasingly complex words.",
     examples: ['Short vowels', 'Silent e', 'Vowel teams', 'Suffixes', 'Greek and Latin roots'],
   },
   {
     name: 'High-Frequency Words',
+    href: '/high-frequency-words',
     definition:
       "High-Frequency Words are spellings students meet often in reading and writing. Grouped into grade-level sets and practiced alongside Core Spelling, they get attention to both predictable sound-spelling patterns and the specific details worth extra notice — so common words become accurate and automatic, not just memorized as exceptions.",
     examples: ['the', 'you', 'over', 'were'],
   },
   {
     name: 'Themed Spelling Practice',
+    href: '/themed-spelling-practice',
     definition:
       'Themed Spelling Practice offers optional grade-level lists built around topics students already know from school and everyday life — useful additional practice, not part of the required Core sequence.',
     examples: ['Animals', 'Colors', 'Weather', 'Careers', 'Measurement'],

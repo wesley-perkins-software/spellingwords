@@ -5,6 +5,7 @@ import {
 } from '@/lib/content/canonicalGradeRoutes';
 import { getCanonicalSkillRoutes, SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
+import { STRAND_GATEWAY_PATHS } from '@/lib/content/strandGatewayRoutes';
 
 const SITE = 'https://spellingwords.app';
 
@@ -20,6 +21,7 @@ export async function GET() {
     '/curriculum',
     '/play',
     SKILLS_INDEX_PATH,
+    ...Object.values(STRAND_GATEWAY_PATHS),
     ...gradeConfig.map((grade) => getGradeHubPath(grade.grade)),
     ...gradeStrandGatewayPaths,
     ...getCanonicalGradeRoutes().map((route) => route.canonicalPath),
@@ -29,6 +31,7 @@ export async function GET() {
   const uniquePaths = new Set(paths);
   const expectedPathCount =
     5 +
+    Object.keys(STRAND_GATEWAY_PATHS).length +
     gradeConfig.length +
     1 +
     gradeStrandGatewayPaths.length +

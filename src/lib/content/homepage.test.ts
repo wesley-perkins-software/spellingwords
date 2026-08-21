@@ -81,6 +81,15 @@ describe('canonical homepage', () => {
     expect(homepageSource).toContain('strandCards.map');
     expect(homepageSource).toContain('{definition}');
     expect(homepageSource.match(/\{definition\}/g)).toHaveLength(1);
+
+    // Each strand card heading links to its cross-grade top-level strand gateway (2026-08-21
+    // CANONICAL_HOMEPAGE_STANDARD.md amendment) — example concepts stay non-hyperlinked.
+    expect(HOMEPAGE_STRANDS.map((s) => s.href)).toEqual([
+      '/core-spelling',
+      '/high-frequency-words',
+      '/themed-spelling-practice',
+    ]);
+    expect(homepageSource).toContain('<a href={href}');
   });
 
   it('presents grade and skill browsing as coequal semantic sections', () => {

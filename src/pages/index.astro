@@ -6,7 +6,15 @@ import Button from '@/components/direction-a/Button.astro';
 import Chip from '@/components/direction-a/Chip.astro';
 import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
-import { GRADE_ACCENT, STRAND_ACCENT, ACCENT_BG_CLASS, ACCENT_INK_CLASS, ACCENT_TINT_BG_CLASS, ACCENT_BORDER_CLASS, type DaAccent } from '@/lib/content/pilotContent';
+import {
+  GRADE_ACCENT,
+  STRAND_ACCENT,
+  ACCENT_BG_CLASS,
+  ACCENT_INK_CLASS,
+  ACCENT_TINT_BG_CLASS,
+  ACCENT_BORDER_CLASS,
+  type DaAccent,
+} from '@/lib/content/pilotContent';
 import {
   homepageGradeHubs,
   homepageJsonLd,
@@ -37,7 +45,14 @@ const gradeCards = homepageGradeHubs.map((hub, index) => ({
 // design-explore/direction-a mockup this section is drawn from), so they
 // stay as plain decorative Chips — the "Browse Spelling Skills" button
 // remains the one real link, to the canonical Skills index.
-const REPRESENTATIVE_SKILL_TONES: readonly DaAccent[] = ['teal', 'periwinkle', 'sun', 'teal', 'periwinkle', 'sun'];
+const REPRESENTATIVE_SKILL_TONES: readonly DaAccent[] = [
+  'teal',
+  'periwinkle',
+  'sun',
+  'teal',
+  'periwinkle',
+  'sun',
+];
 const representativeSkillChips = HOMEPAGE_REPRESENTATIVE_SKILLS.map((label, index) => ({
   label: label.charAt(0).toUpperCase() + label.slice(1),
   tone: REPRESENTATIVE_SKILL_TONES[index % REPRESENTATIVE_SKILL_TONES.length],
@@ -67,18 +82,26 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
       class="bg-gradient-to-b from-da-brand-tint to-da-canvas px-5 py-12 sm:px-6 md:py-16"
       aria-labelledby="hero-heading"
     >
-      <div class="mx-auto grid max-w-content-xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div
+        class="mx-auto grid max-w-content-xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16"
+      >
         <div>
-          <h1 id="hero-heading" class="font-quicksand text-[clamp(2.1rem,4.6vw,3.4rem)] font-bold leading-[1.08] tracking-tight text-da-ink">
+          <h1
+            id="hero-heading"
+            class="font-quicksand text-[clamp(2.1rem,4.6vw,3.4rem)] font-bold leading-[1.08] tracking-tight text-da-ink"
+          >
             Practice <span class="text-da-coral-strong">spelling</span> your way.
           </h1>
           <p class="mt-5 max-w-[46ch] text-[1.1rem] leading-relaxed text-da-ink-soft">
-            Use your own words, follow a structured K–5 spelling curriculum, or explore a library
-            of focused spelling skills. Free to use, with no account or login required.
+            Use your own words, follow a structured K–5 spelling curriculum, or explore a library of
+            focused spelling skills. Free to use, with no account or login required.
           </p>
         </div>
 
-        <div class="rounded-2xl border border-da-border bg-da-canvas-raised p-6 shadow-lg sm:p-8">
+        <div
+          id="practice"
+          class="scroll-mt-24 rounded-2xl border border-da-border bg-da-canvas-raised p-6 shadow-lg sm:p-8"
+        >
           <div class="flex items-center justify-between gap-3">
             <label for="word-input" class="font-quicksand text-[1.15rem] font-bold text-da-ink">
               Enter your spelling words
@@ -100,14 +123,24 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
             spellcheck="false"
             autocomplete="off"
             aria-label="Your spelling words, one per line"
-            placeholder={placeholderText}
-          ></textarea>
+            placeholder={placeholderText}></textarea>
 
-          <p id="input-status" class="mt-3 text-[0.88rem] text-da-ink-faint" aria-live="polite" aria-atomic="true">
+          <p
+            id="input-status"
+            class="mt-3 text-[0.88rem] text-da-ink-faint"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             Add at least 1 word to start practicing.
           </p>
 
-          <Button id="btn-start" type="button" size="lg" class="mt-3.5" aria-label="Start a spelling practice session">
+          <Button
+            id="btn-start"
+            type="button"
+            size="lg"
+            class="mt-3.5"
+            aria-label="Start a spelling practice session"
+          >
             Start Practicing <span aria-hidden="true">→</span>
           </Button>
         </div>
@@ -115,10 +148,17 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
     </section>
 
     <!-- ═══ BROWSE BY GRADE ═══════════════════════════════════════ -->
-    <section id="grades" class="scroll-mt-[72px] bg-da-surface-home px-5 py-14 sm:px-6 md:py-20" aria-labelledby="grade-heading">
+    <section
+      id="grades"
+      class="scroll-mt-[72px] bg-da-surface-home px-5 py-14 sm:px-6 md:py-20"
+      aria-labelledby="grade-heading"
+    >
       <div class="mx-auto max-w-content-xl">
         <div class="mb-9 max-w-2xl">
-          <h2 id="grade-heading" class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink">
+          <h2
+            id="grade-heading"
+            class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink"
+          >
             Browse by Grade
           </h2>
           <p class="mt-2.5 text-[1.05rem] leading-relaxed text-da-ink-soft">
@@ -127,22 +167,39 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
           </p>
         </div>
 
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" role="list" aria-label="Grade levels">
-          {gradeCards.map(({ href, label, teaser, focus, numeral, accent }) => (
-            <a
-              href={href}
-              class="relative flex flex-col gap-1.5 overflow-hidden rounded-2xl border border-da-border bg-da-canvas-raised p-6 pt-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-              role="listitem"
-            >
-              <span class:list={['absolute inset-x-0 top-0 h-2', ACCENT_BG_CLASS[accent]]} aria-hidden="true"></span>
-              <span class:list={['font-quicksand text-4xl font-bold leading-none', ACCENT_INK_CLASS[accent]]} aria-hidden="true">
-                {numeral}
-              </span>
-              <span class="mt-1 font-quicksand text-lg font-bold text-da-ink">{label}</span>
-              <span class="text-sm leading-relaxed text-da-ink-soft">{teaser}</span>
-              <span class:list={['mt-1 text-[0.8rem] font-bold', ACCENT_INK_CLASS[accent]]}>{focus}</span>
-            </a>
-          ))}
+        <div
+          class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          role="list"
+          aria-label="Grade levels"
+        >
+          {
+            gradeCards.map(({ href, label, teaser, focus, numeral, accent }) => (
+              <a
+                href={href}
+                class="relative flex flex-col gap-1.5 overflow-hidden rounded-2xl border border-da-border bg-da-canvas-raised p-6 pt-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                role="listitem"
+              >
+                <span
+                  class:list={['absolute inset-x-0 top-0 h-2', ACCENT_BG_CLASS[accent]]}
+                  aria-hidden="true"
+                />
+                <span
+                  class:list={[
+                    'font-quicksand text-4xl font-bold leading-none',
+                    ACCENT_INK_CLASS[accent],
+                  ]}
+                  aria-hidden="true"
+                >
+                  {numeral}
+                </span>
+                <span class="mt-1 font-quicksand text-lg font-bold text-da-ink">{label}</span>
+                <span class="text-sm leading-relaxed text-da-ink-soft">{teaser}</span>
+                <span class:list={['mt-1 text-[0.8rem] font-bold', ACCENT_INK_CLASS[accent]]}>
+                  {focus}
+                </span>
+              </a>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -151,10 +208,15 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
     <section class="px-5 py-14 sm:px-6 md:py-20" aria-labelledby="curriculum-org-heading">
       <div class="mx-auto max-w-content-xl">
         <div class="mb-9 max-w-2xl">
-          <p class="mb-2 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-brand-strong">
+          <p
+            class="mb-2 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-brand-strong"
+          >
             How it's structured
           </p>
-          <h2 id="curriculum-org-heading" class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink">
+          <h2
+            id="curriculum-org-heading"
+            class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink"
+          >
             How the K–5 curriculum is organized
           </h2>
           <p class="mt-2.5 text-[1.05rem] leading-relaxed text-da-ink-soft">
@@ -162,34 +224,67 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
           </p>
         </div>
 
-        <div class="grid grid-cols-1 gap-5 md:grid-cols-3" role="list" aria-label="The three curriculum strands">
-          {strandCards.map(({ name, definition, examples, accent }) => (
-            <div class:list={['flex flex-col gap-3 rounded-2xl border p-6', ACCENT_TINT_BG_CLASS[accent], ACCENT_BORDER_CLASS[accent]]} role="listitem">
-              <h3 class="font-quicksand text-lg font-bold text-da-ink">{name}</h3>
-              <p class="text-sm leading-relaxed text-da-ink-soft">{definition}</p>
-              <ul class="mt-auto flex flex-wrap gap-2 pt-1" aria-label={`Examples of ${name}`}>
-                {examples.map((example) => (
-                  <li class="rounded-full border border-da-border bg-da-canvas-raised px-3 py-1 text-xs font-bold text-da-ink-soft">
-                    {example}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <div
+          class="grid grid-cols-1 gap-5 md:grid-cols-3"
+          role="list"
+          aria-label="The three curriculum strands"
+        >
+          {
+            strandCards.map(({ name, definition, examples, accent }) => (
+              <div
+                class:list={[
+                  'flex flex-col gap-3 rounded-2xl border p-6',
+                  ACCENT_TINT_BG_CLASS[accent],
+                  ACCENT_BORDER_CLASS[accent],
+                ]}
+                role="listitem"
+              >
+                <h3 class="font-quicksand text-lg font-bold text-da-ink">{name}</h3>
+                <p class="text-sm leading-relaxed text-da-ink-soft">{definition}</p>
+                <ul class="mt-auto flex flex-wrap gap-2 pt-1" aria-label={`Examples of ${name}`}>
+                  {examples.map((example) => (
+                    <li class="rounded-full border border-da-border bg-da-canvas-raised px-3 py-1 text-xs font-bold text-da-ink-soft">
+                      {example}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
         </div>
+        <p class="mt-8">
+          <a
+            href="/curriculum"
+            class="inline-flex min-h-[44px] items-center font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand"
+          >
+            Read about our spelling curriculum <span class="ml-1" aria-hidden="true">→</span>
+          </a>
+        </p>
       </div>
     </section>
 
     <!-- ═══ BROWSE BY SKILL ═══════════════════════════════════════ -->
-    <section id="skills" class="scroll-mt-[72px] bg-da-teal-tint px-5 py-14 sm:px-6 md:py-20" aria-labelledby="skill-heading">
-      <div class="mx-auto grid max-w-content-xl gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-16">
+    <section
+      id="skills"
+      class="scroll-mt-[72px] bg-da-teal-tint px-5 py-14 sm:px-6 md:py-20"
+      aria-labelledby="skill-heading"
+    >
+      <div
+        class="mx-auto grid max-w-content-xl gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-16"
+      >
         <div>
-          <h2 id="skill-heading" class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink">
+          <h2
+            id="skill-heading"
+            class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink"
+          >
             Browse by Skill
           </h2>
           <p class="mt-2.5 max-w-[54ch] text-[1.05rem] leading-relaxed text-da-ink-soft">
-            Already know what to work on? Explore {HOMEPAGE_SKILL_COUNT} spelling skills,
-            from {HOMEPAGE_REPRESENTATIVE_SKILLS[0]} and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[3]}, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]}
+            Already know what to work on? Explore {HOMEPAGE_SKILL_COUNT} spelling skills, from {
+              HOMEPAGE_REPRESENTATIVE_SKILLS[0]
+            } and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {
+              HOMEPAGE_REPRESENTATIVE_SKILLS[3]
+            }, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]}
             — go straight to the specific spelling skill your student needs.
           </p>
           <Button href={SKILLS_INDEX_PATH} variant="outline" class="mt-6">
@@ -198,18 +293,28 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
         </div>
 
         <ul class="flex flex-wrap gap-3" aria-label="Examples of spelling skills">
-          {representativeSkillChips.map((chip) => (
-            <li><Chip tone={chip.tone}>{chip.label}</Chip></li>
-          ))}
+          {
+            representativeSkillChips.map((chip) => (
+              <li>
+                <Chip tone={chip.tone}>{chip.label}</Chip>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </section>
 
     <!-- ═══ PROGRESSION + U.S. POSITIONING ═══════════════════════ -->
-    <section class="bg-da-surface-home px-5 py-14 sm:px-6 md:py-20" aria-labelledby="progression-heading">
+    <section
+      class="bg-da-surface-home px-5 py-14 sm:px-6 md:py-20"
+      aria-labelledby="progression-heading"
+    >
       <div class="mx-auto max-w-content-xl">
         <div class="mb-9 max-w-2xl">
-          <h2 id="progression-heading" class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink">
+          <h2
+            id="progression-heading"
+            class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink"
+          >
             How spelling develops from Kindergarten through 5th Grade
           </h2>
           <p class="mt-2.5 text-[1.05rem] leading-relaxed text-da-ink-soft">
@@ -217,14 +322,25 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
           </p>
         </div>
 
-        <div class="grid grid-cols-1 gap-5 md:grid-cols-3" role="list" aria-label="The three stages of K-5 spelling development">
-          {HOMEPAGE_PROGRESSION_STAGES.map(({ grades, label, description }) => (
-            <div class="flex flex-col gap-2 rounded-2xl border border-da-border bg-da-canvas-raised p-6 shadow-sm" role="listitem">
-              <p class="font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-brand-strong">{grades}</p>
-              <h3 class="font-quicksand text-lg font-bold text-da-ink">{label}</h3>
-              <p class="text-sm leading-relaxed text-da-ink-soft">{description}</p>
-            </div>
-          ))}
+        <div
+          class="grid grid-cols-1 gap-5 md:grid-cols-3"
+          role="list"
+          aria-label="The three stages of K-5 spelling development"
+        >
+          {
+            HOMEPAGE_PROGRESSION_STAGES.map(({ grades, label, description }) => (
+              <div
+                class="flex flex-col gap-2 rounded-2xl border border-da-border bg-da-canvas-raised p-6 shadow-sm"
+                role="listitem"
+              >
+                <p class="font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-brand-strong">
+                  {grades}
+                </p>
+                <h3 class="font-quicksand text-lg font-bold text-da-ink">{label}</h3>
+                <p class="text-sm leading-relaxed text-da-ink-soft">{description}</p>
+              </div>
+            ))
+          }
         </div>
 
         <p class="mx-auto mt-9 max-w-[68ch] text-[0.95rem] leading-relaxed text-da-ink-soft">
@@ -234,22 +350,33 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
     </section>
 
     <!-- ═══ AUDIENCE + CLOSING TRUST CONTENT ═══════════════════════ -->
-    <section id="how-it-works" class="scroll-mt-[72px] px-5 py-14 sm:px-6 md:py-20" aria-labelledby="audience-heading">
+    <section
+      id="how-it-works"
+      class="scroll-mt-[72px] px-5 py-14 sm:px-6 md:py-20"
+      aria-labelledby="audience-heading"
+    >
       <div class="mx-auto max-w-content-xl">
-        <h2 id="audience-heading" class="text-center font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink">
+        <h2
+          id="audience-heading"
+          class="text-center font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink"
+        >
           Built for students, parents, and teachers
         </h2>
 
         <div class="mx-auto mt-9 grid max-w-content-lg grid-cols-1 gap-6 sm:grid-cols-3">
-          {HOMEPAGE_AUDIENCES.map(({ label, description }) => (
-            <div class="flex flex-col gap-1.5">
-              <h3 class="font-quicksand text-base font-bold text-da-ink">{label}</h3>
-              <p class="text-sm leading-relaxed text-da-ink-soft">{description}</p>
-            </div>
-          ))}
+          {
+            HOMEPAGE_AUDIENCES.map(({ label, description }) => (
+              <div class="flex flex-col gap-1.5">
+                <h3 class="font-quicksand text-base font-bold text-da-ink">{label}</h3>
+                <p class="text-sm leading-relaxed text-da-ink-soft">{description}</p>
+              </div>
+            ))
+          }
         </div>
 
-        <div class="mx-auto mt-10 max-w-content-lg rounded-2xl border border-da-brand bg-da-brand-tint px-6 py-8 text-center shadow-sm sm:px-10">
+        <div
+          class="mx-auto mt-10 max-w-content-lg rounded-2xl border border-da-brand bg-da-brand-tint px-6 py-8 text-center shadow-sm sm:px-10"
+        >
           <p class="text-[1.02rem] leading-relaxed text-da-ink-soft">
             {HOMEPAGE_CLOSING_STATEMENT}
           </p>
@@ -260,17 +387,22 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
     <!-- ═══ FAQ ═══════════════════════════════════════════════════ -->
     <section class="bg-da-surface-home px-5 py-14 sm:px-6 md:py-20" aria-labelledby="faq-heading">
       <div class="mx-auto max-w-content-md">
-        <h2 id="faq-heading" class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink">
+        <h2
+          id="faq-heading"
+          class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink"
+        >
           Frequently asked questions
         </h2>
 
         <div class="mt-8 flex flex-col gap-7">
-          {HOMEPAGE_FAQ.map(({ question, answer }) => (
-            <div>
-              <h3 class="font-quicksand text-base font-bold text-da-ink">{question}</h3>
-              <p class="mt-1.5 text-sm leading-relaxed text-da-ink-soft">{answer}</p>
-            </div>
-          ))}
+          {
+            HOMEPAGE_FAQ.map(({ question, answer }) => (
+              <div>
+                <h3 class="font-quicksand text-base font-bold text-da-ink">{question}</h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-da-ink-soft">{answer}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -282,9 +414,9 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
     import { parseWordInput, encodeWordList } from '@/lib/words';
 
     const textarea = document.getElementById('word-input') as HTMLTextAreaElement;
-    const pill     = document.getElementById('word-count-pill')!;
-    const status   = document.getElementById('input-status')!;
-    const btn      = document.getElementById('btn-start') as HTMLButtonElement;
+    const pill = document.getElementById('word-count-pill')!;
+    const status = document.getElementById('input-status')!;
+    const btn = document.getElementById('btn-start') as HTMLButtonElement;
 
     function getWords(): string[] {
       return parseWordInput(textarea.value);

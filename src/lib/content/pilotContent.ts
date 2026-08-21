@@ -18,23 +18,34 @@ import type { GradeRouteClassification } from './canonicalGradeRoutes';
  *                    STRAND_ACCENT — Button's `primary` variant is always
  *                    coral regardless of which grade/strand page it's on.
  *   grade palette  — GRADE_ACCENT below. Answers "what learner level am I
- *                    in?" — chip, hero atmosphere/wash, structural rule,
- *                    related-learning accent on Grade Unit pages, plus the
- *                    Grade Hub's own near-white page atmosphere.
+ *                    in?" — a small orientation accent (chip, numeral
+ *                    stripe) on the homepage and the Grade Hub's own
+ *                    near-white page atmosphere. Deliberately NOT used for
+ *                    color on Grade Unit pages (see GradeUnitView.astro) —
+ *                    that page gives strand sole ownership of color so a
+ *                    grade chip and a strand chip never carry equal visual
+ *                    weight in the same spot.
  *   strand palette — STRAND_ACCENT below. Answers "what type of spelling
- *                    work is this?" — Grade Hub destination cards, Grade
- *                    Unit word-bank tint/section eyebrow, gateway pages.
+ *                    work is this?" — Grade Hub destination cards, gateway
+ *                    pages, and (as the page's one color-owning accent)
+ *                    Grade Unit hero rule/word-bank tint/section eyebrow/
+ *                    sidebar card.
  *   Skill-family   — SKILL_FAMILY_ACCENT below. Answers "which canonical
  *                    Skill grouping?" — grade-independent, a separate
- *                    system from grade identity.
+ *                    system from grade identity. A restrained reference
+ *                    accent only (chip/rule/border); the family *name* is
+ *                    the real identifier, so multiple families may share a
+ *                    hue — brand is the one hue this map may never use.
  *   very dark ink  — da-ink/da-ink-soft (tailwind.config.mjs). Primary
  *                    reading text site-wide; never grayed out by default.
  *
- * Grade, strand, and Skill-family draw from the same non-brand/non-coral hue
- * pool and may reuse a hue where their page roles never compete for the same
- * visual space (e.g. Grade 2 and the High-Frequency Words strand are both
- * teal, but a grade chip and a strand-tinted word bank never read as the
- * same signal). What they may never do is reach into brand or coral.
+ * The collision rule here is about visual WEIGHT, not hue disjointness: two
+ * of these systems may share or approach a hue as long as they never appear
+ * at comparable visual weight in the same composition (e.g. Grade 2 and the
+ * High-Frequency Words strand are both teal — fine, because nowhere do a
+ * grade-colored surface and a strand-colored surface of matching size sit
+ * next to each other). What none of grade/strand/Skill-family may ever do is
+ * reach into brand or coral, at any weight.
  */
 export type DaAccent = 'brand' | 'coral' | 'sun' | 'teal' | 'pink' | 'periwinkle' | 'green' | 'plum';
 
@@ -46,25 +57,28 @@ export const STRAND_ACCENT: Record<GradeRouteClassification, DaAccent> = {
 
 export const SKILL_FAMILY_ACCENT: Record<string, DaAccent> = {
   'Short Vowels': 'sun',
-  'Vowel Teams': 'brand',
+  'Vowel Teams': 'periwinkle',
   'Consonant Digraphs': 'teal',
   'Consonant Blends': 'teal',
   'Common Spelling Patterns': 'teal',
-  'R-Controlled Vowels': 'brand',
-  'Multisyllabic Words': 'brand',
+  'R-Controlled Vowels': 'sun',
+  'Multisyllabic Words': 'pink',
   'Silent E': 'periwinkle',
   'Homophones and Commonly Confused Words': 'periwinkle',
   'Greek and Latin Roots': 'pink',
   'Word Building and Endings': 'pink',
-  Prefixes: 'pink',
+  Prefixes: 'sun',
 };
 
 /**
  * Grade identity — a third, independent accent axis from strand and Skill-
- * family (see above). Applied to Grade Unit pages (grade chip, hero wash, a
- * thin structural rule, the related-learning card accent) and to the Grade
- * Hub's own page atmosphere (see GRADE_ATMOSPHERE_TONE below) — canonical
- * Skill pages are grade-independent and never use this map.
+ * family (see above), but a small-orientation-accent one: the homepage
+ * (grade-browse cards) and the Grade Hub's own near-white page atmosphere
+ * (see GRADE_ATMOSPHERE_TONE below) are its only color-bearing surfaces.
+ * GradeUnitView.astro deliberately does not read this map for color — grade
+ * shows there as a neutral chip/label only, so it never competes with the
+ * strand accent that page already owns. Canonical Skill pages are
+ * grade-independent and never use this map at all.
  *
  * K, 2, 3, and 4 reuse hues already established for strand/Skill-family use
  * (sun, teal, periwinkle, pink) — deliberately, not by accident: adapting an
@@ -75,7 +89,10 @@ export const SKILL_FAMILY_ACCENT: Record<string, DaAccent> = {
  * structural brand blue — the exact conflict this mapping exists to fix.
  * `green` and `plum` (tailwind.config.mjs) were added for exactly those two
  * slots, chosen to stay clearly distinct from both reserved colors and from
- * each other.
+ * each other. This palette stays as-is for now — the current fix is scoping
+ * *where* grade is allowed to carry color, not reassigning its hues; a
+ * specific grade's hue would only change if, after this scoping, visual
+ * review still finds a real perceptual conflict at the new (small) weight.
  */
 export const GRADE_ACCENT: Record<GradeCode, DaAccent> = {
   K: 'sun',

@@ -13,6 +13,7 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import AtmosphereBand from '@/components/direction-a/AtmosphereBand.astro';
 import Button from '@/components/direction-a/Button.astro';
 import Chip from '@/components/direction-a/Chip.astro';
+import WordSpecimen from '@/components/direction-a/WordSpecimen.astro';
 import { STRAND_ACCENT } from '@/lib/content/pilotContent';
 import { isPublished } from '@/lib/content/spellingLists';
 import { buildCoreSpellingGatewayModel } from '@/lib/content/strandGatewayModel';
@@ -92,7 +93,12 @@ const itemListJsonLd = {
     </AtmosphereBand>
 
     <div class="mx-auto max-w-2xl px-5 py-10 sm:px-6 md:max-w-3xl md:py-14">
-      <div class="relative flex flex-col gap-10">
+      <p class="max-w-[64ch] text-[0.9rem] leading-relaxed text-da-ink-faint">
+        Each Core unit below shows a few sample words from its full spelling list. Open a unit to
+        see the complete word list, explanation, and practice.
+      </p>
+
+      <div class="relative mt-8 flex flex-col gap-10">
         <div class="pointer-events-none absolute bottom-8 left-[0.4rem] top-8 hidden w-0.5 bg-da-brand opacity-20 sm:block" aria-hidden="true" />
         {sections.map((section) => (
           <section class="relative sm:pl-6" aria-labelledby={`core-${section.grade}-heading`}>
@@ -101,16 +107,28 @@ const itemListJsonLd = {
             <p class="mt-1 text-sm font-bold text-da-ink-faint">{section.unitCount} Core Spelling units</p>
             <p class="mt-2 max-w-[64ch] text-[0.95rem] leading-relaxed text-da-ink-soft">{section.summary}</p>
 
-            <ol class="mt-4 divide-y divide-da-border rounded-xl border border-da-border bg-da-canvas-raised">
+            <ol class="mt-4 divide-y divide-da-border rounded-2xl border border-da-border bg-da-canvas-raised shadow-sm">
               {section.units.map((unit, index) => (
-                <li class="flex gap-3 px-4 py-3">
-                  <span class="mt-0.5 shrink-0 text-sm font-bold text-da-ink-faint" aria-hidden="true">{index + 1}.</span>
-                  <div class="min-w-0">
-                    <a href={unit.href} class="font-quicksand text-[0.98rem] font-bold text-da-sun-ink hover:underline">
+                <li class="group relative flex items-start gap-3 rounded-2xl px-4 py-3 transition-colors first:rounded-t-2xl last:rounded-b-2xl hover:bg-da-sun-tint">
+                  <span
+                    class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-da-sun-tint text-xs font-bold text-da-sun-ink"
+                    aria-hidden="true"
+                  >
+                    {index + 1}
+                  </span>
+                  <div class="min-w-0 flex-1">
+                    <a
+                      href={unit.href}
+                      class="font-quicksand text-[0.98rem] font-bold text-da-sun-ink after:absolute after:inset-0 group-hover:underline"
+                    >
                       {unit.title}
                     </a>
-                    <p class="mt-0.5 text-[0.85rem] leading-snug text-da-ink-faint">{unit.sampleWords.join(' · ')}</p>
+                    <p class="mt-1.5 text-[0.7rem] font-bold uppercase tracking-wide text-da-ink-faint">Sample words</p>
+                    <WordSpecimen words={unit.sampleWords} class="mt-1" />
                   </div>
+                  <span class="mt-1 shrink-0 text-da-sun-ink/40 transition group-hover:translate-x-0.5 group-hover:text-da-sun-ink" aria-hidden="true">
+                    →
+                  </span>
                 </li>
               ))}
             </ol>

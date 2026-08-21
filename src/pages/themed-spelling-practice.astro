@@ -96,9 +96,12 @@ const itemListJsonLd = {
                 <li>
                   <a
                     href={topic.href}
-                    class="inline-flex min-h-[36px] items-center rounded-full border border-da-periwinkle bg-da-periwinkle-tint px-3 py-1 text-xs font-bold text-da-periwinkle-ink transition hover:bg-da-periwinkle hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand"
+                    class="group inline-flex min-h-[44px] items-center gap-1.5 rounded-lg border border-da-periwinkle/40 bg-da-periwinkle-tint px-3.5 py-2 text-sm font-bold text-da-periwinkle-ink transition hover:border-da-periwinkle hover:bg-da-periwinkle-tint hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand"
                   >
                     {topic.label}
+                    <span class="text-da-periwinkle-ink/40 transition group-hover:translate-x-0.5 group-hover:text-da-periwinkle-ink" aria-hidden="true">
+                      →
+                    </span>
                   </a>
                 </li>
               ))}

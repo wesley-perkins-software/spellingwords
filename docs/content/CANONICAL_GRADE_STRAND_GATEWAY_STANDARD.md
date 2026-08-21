@@ -283,3 +283,7 @@ For every future grade+strand editorial batch (Grades 1–5):
 
 If a frozen identity, route, or inventory appears wrong during this work, stop and escalate it as
 a separate curriculum decision — do not repair it inside gateway editorial implementation.
+
+## Authorized cross-grade relationship amendment — August 2026
+
+The matching top-level strand Gateway owns cross-grade K–5 synthesis. Grade-contained Gateways retain their complete member inventories, same-grade sibling wayfinding, and unchanged Home → Grade → Strand breadcrumbs. The cross-grade pages are lateral wayfinding rather than new URL parents; `/core-spelling` is the explicit handoff for the full Core K–5 map previously described in §3 only as a future site-wide feature.

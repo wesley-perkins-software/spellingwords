@@ -28,6 +28,10 @@ describe('canonical K–5 Grade Hub model', () => {
     for (const hub of hubs) {
       expect(hub.strands.map(({ strand, label, href }) => ({ strand, label, href }))).toEqual(getGradeHubGatewayLinks(hub.grade));
       expect(hub.strands).toHaveLength(3);
+      expect(hub.fingerprint.length).toBeGreaterThanOrEqual(5);
+      expect(hub.strands.find(({ strand }) => strand === 'core-spelling')?.previewExamples).toHaveLength(4);
+      expect(hub.strands.find(({ strand }) => strand === 'high-frequency-words')?.previewExamples).toHaveLength(4);
+      expect(hub.strands.find(({ strand }) => strand === 'themed-spelling-practice')?.previewExamples.length).toBeLessThanOrEqual(4);
       expect(hub.strands.flatMap((strand) => Object.keys(strand))).not.toContain('cards');
       const memberPaths = new Set(canonicalGradeRoutes.filter(({ grade }) => grade === hub.grade).map(({ canonicalPath }) => canonicalPath));
       expect(hub.strands.every(({ href }) => !memberPaths.has(href))).toBe(true);
@@ -64,11 +68,7 @@ describe('canonical K–5 Grade Hub model', () => {
     // Scattered, ad-hoc special-casing (a hardcoded grade literal, or the old
     // section.cards/SpellingListCard/legacyItems patterns) is still banned.
     expect(renderer).not.toMatch(/grade === ['"][K1-5]['"]|section\.cards|SpellingListCard|legacyItems/i);
-    // The one sanctioned exception: branching on membership in the
-    // centralized Direction A pilot allowlist (src/lib/content/pilotContent.ts)
-    // via isPilotGradeHub — a single, reversible, non-scattered check, not a
-    // hardcoded per-grade special case. See docs on the Direction A production pilot.
-    expect(renderer).toContain('isPilotGradeHub');
+    expect(renderer).toContain('GradeHubView');
   });
 
   it('protects canonical adjacent-grade navigation', () => {

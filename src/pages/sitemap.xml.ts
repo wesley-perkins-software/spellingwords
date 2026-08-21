@@ -5,6 +5,7 @@ import {
 } from '@/lib/content/canonicalGradeRoutes';
 import { getCanonicalSkillRoutes, SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
+import { CROSS_GRADE_STRAND_PATHS } from '@/lib/content/crossGradeStrands';
 
 const SITE = 'https://spellingwords.app';
 
@@ -20,6 +21,7 @@ export async function GET() {
     '/curriculum',
     '/play',
     SKILLS_INDEX_PATH,
+    ...Object.values(CROSS_GRADE_STRAND_PATHS),
     ...gradeConfig.map((grade) => getGradeHubPath(grade.grade)),
     ...gradeStrandGatewayPaths,
     ...getCanonicalGradeRoutes().map((route) => route.canonicalPath),
@@ -31,6 +33,7 @@ export async function GET() {
     5 +
     gradeConfig.length +
     1 +
+    Object.keys(CROSS_GRADE_STRAND_PATHS).length +
     gradeStrandGatewayPaths.length +
     getCanonicalGradeRoutes().length +
     getCanonicalSkillRoutes().length;
@@ -47,5 +50,7 @@ export async function GET() {
     .map((path) => `  <url><loc>${url(path)}</loc></url>`)
     .join('\n')}\n</urlset>\n`;
 
-  return new Response(body, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } });
+  return new Response(body, {
+    headers: { 'Content-Type': 'application/xml; charset=utf-8' },
+  });
 }

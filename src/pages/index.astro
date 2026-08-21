@@ -230,7 +230,7 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
           aria-label="The three curriculum strands"
         >
           {
-            strandCards.map(({ name, definition, examples, accent }) => (
+            strandCards.map(({ name, href, definition, examples, accent }) => (
               <div
                 class:list={[
                   'flex flex-col gap-3 rounded-2xl border p-6',
@@ -239,7 +239,11 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
                 ]}
                 role="listitem"
               >
-                <h3 class="font-quicksand text-lg font-bold text-da-ink">{name}</h3>
+                <h3 class="font-quicksand text-lg font-bold text-da-ink">
+                  <a href={href} class="underline decoration-2 underline-offset-4 hover:text-da-brand">
+                    {name}
+                  </a>
+                </h3>
                 <p class="text-sm leading-relaxed text-da-ink-soft">{definition}</p>
                 <ul class="mt-auto flex flex-wrap gap-2 pt-1" aria-label={`Examples of ${name}`}>
                   {examples.map((example) => (

@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import CrossGradeStrandView from '@/components/direction-a/CrossGradeStrandView.astro';
+import { getCanonicalUrl } from '@/lib/canonicalUrl';
+import { buildCrossGradeStrandModel } from '@/lib/content/crossGradeStrandModel';
+import { CROSS_GRADE_STRAND_PATHS } from '@/lib/content/crossGradeStrands';
+import { isPublished } from '@/lib/content/spellingLists';
+
+const strand = 'high-frequency-words' as const;
+const path = CROSS_GRADE_STRAND_PATHS[strand];
+const entries = (await getCollection('spelling-lists')).filter(isPublished);
+const model = buildCrossGradeStrandModel(strand, entries);
+const canonicalURL = getCanonicalUrl(path, Astro.site);
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'High-Frequency Words' }];
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem', position: index + 1, name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: model.title,
+  numberOfItems: model.grades.length,
+  itemListElement: model.grades.map((grade, index) => ({
+    '@type': 'ListItem', position: index + 1, name: `${grade.label} High-Frequency Words`,
+    url: new URL(grade.href, canonicalURL.origin).toString(),
+  })),
+};
+---
+
+<Layout title={`${model.title} | SpellingWords.app`} description={model.description} jsonLd={[breadcrumbJsonLd, itemListJsonLd]}>
+  <SiteHeader variant="discovery" currentPath={path} />
+  <main id="main-content">
+    <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6"><Breadcrumbs items={breadcrumbItems} /></div>
+    <CrossGradeStrandView model={model} />
+  </main>
+  <SiteFooter />
+</Layout>

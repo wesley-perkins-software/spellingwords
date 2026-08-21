@@ -1,7 +1,7 @@
 # Grade Hub V2 and Cross-Grade Strand Gateways
 
-**Status:** Architecture proposal only — no production implementation is authorized by this
-document.  
+**Status:** Approved as an authorized architecture reopening; implementation authorized on
+2026-08-21.
 **Date:** 2026-08-21  
 **Scope:** the six Grade Hubs and a proposed second, strand-first navigation axis at
 `/core-spelling`, `/high-frequency-words`, and `/themed-spelling-practice`.
@@ -28,8 +28,7 @@ are orientation, not directories: four representative Core unit titles, four HFW
 four Themed topic titles, all plain text. The card itself remains the single link to the same-grade
 gateway.
 
-This proposal **reopens two frozen decisions and cannot be implemented until they are formally
-amended**:
+This work **reopens two frozen decisions, formally amended with implementation**:
 
 1. `CANONICAL_GRADE_HUB_STANDARD.md` currently prohibits listing individual units or themes on a
    Hub and prohibits direct member routes. This plan retains the direct-route prohibition but asks
@@ -605,23 +604,16 @@ approved.
 
 ---
 
-## K. Open decisions requiring product/editorial approval
+## K. Approved decisions
 
-1. **Approve the frozen-standard reopening:** allow up to four non-linked representative examples
-   per Grade Hub card, or retain the present no-member-name boundary and rely only on fingerprints.
-   This is the principal decision; direct member links are not recommended in either case.
-2. **Approve all three top-level gateways together or defer Themed:** Core and HFW have the
-   strongest progression intent. This plan finds Themed independently useful because the real
-   27-topic catalog supports cross-grade discovery, but product may choose a staged launch after
-   observing the first two.
-3. **Themed catalog density:** approve all 27 plain-text topic labels on the cross-grade page
-   (recommended), or cap each grade at four and require an extra click for the fifth K–2 topic.
-4. **Final editorial selections/copy:** approve the four representative IDs/words per Hub and the
-   six grade summaries per top-level strand. These are curriculum-facing editorial judgments and
-   must not be generated.
-5. **Footer rollout timing:** update Explore when all three pages publish (recommended) rather than
-   exposing a partial strand set during staged implementation.
+1. The frozen standards are reopened for a curriculum fingerprint and bounded, non-linked Grade
+   Hub previews: exactly four Core titles, four HFW words, and up to four Themed topics.
+2. All three top-level gateways ship at the approved URLs.
+3. The Themed gateway displays all 27 topic labels, including all five K–2 topics.
+4. Preview selections and cross-grade synthesis remain explicit editorial data in dedicated
+   modules and are validated against canonical production data.
+5. The footer changes only when all three routes are ready, so Explore lands atomically.
 
 Everything else—URL spelling, preservation of existing grade routes, no header additions, one CTA
 per Grade Hub card, no direct unit shortcuts, derived counts, and the ownership boundaries above—
-has a clear architectural answer and should not remain open during implementation.
+has a clear architectural answer and is frozen for implementation.

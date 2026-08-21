@@ -439,3 +439,7 @@ This precedes Privacy drafting because it determines the facts the policy must s
 6. **Operator identity/jurisdiction:** What truthful legal name and governing jurisdiction, if any, should Terms/Privacy identify? The domain alone is not an answer.
 
 Everything else in this plan—page set, no Contact page for now, naming convention, direct Skills link, Grades disclosure, Curriculum label, grade-rich footer, and avoidance of invented global strand routes—can proceed without reopening curriculum or Direction A.
+
+## Superseding cross-grade gateway decision — August 2026
+
+The earlier rejection of global Core/HFW/Themed pages, their footer exclusion, and the Phase 4 check for nonexistent global strand routes are superseded by an authorized architecture reopening. `/core-spelling`, `/high-frequency-words`, and `/themed-spelling-practice` are now canonical cross-grade Gateways. Add all three to Footer → Explore only when all three ship, and verify them atomically; the restrained header remains unchanged. The 18 grade/strand Gateways retain their existing routes and grade-specific inventory ownership.

@@ -91,3 +91,13 @@ Because the site has never launched, old repository-shaped URLs for migrated gra
 ## August 2026 HFW curriculum migration
 
 The HFW curriculum now contains 27 canonical sets. Grade 1 and Grade 2 include `high-frequency-words/set-7`; Grade 4 and Grade 5 each end at Set 2. The former Grade 4/5 Set 3 and Set 4 routes are not generated and return 404 under the verified pre-launch policy above. Repository deployment documentation, the empty redirect configuration, and absence of a configured deployment remote support that disposition; if the operational launch status changes, redirects require a separate explicit decision.
+
+## Authorized cross-grade strand gateways — August 2026
+
+The approved second browsing axis adds exactly three canonical, no-trailing-slash routes:
+
+- `/core-spelling`
+- `/high-frequency-words`
+- `/themed-spelling-practice`
+
+Each synthesizes one strand across K–5 and links to the six existing grade-contained Gateways. These are lateral browse gateways, not URL ancestors of the unchanged grade-first routes, and they do not replace the complete inventory owned by each grade/strand Gateway.

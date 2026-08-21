@@ -1,0 +1,119 @@
+---
+// Cross-grade Core Spelling gateway — lateral "Browse by Strand" navigation, not a URL parent
+// of the six grade-specific Core Spelling gateways. See docs/planning/
+// LAUNCH_SUPPORTING_PAGES_AND_GLOBAL_NAVIGATION_PLAN.md (2026-08-21 amendment) and
+// docs/content/CANONICAL_GRADE_HUB_STANDARD.md §6.1. Core emphasizes progression, so grade
+// sections render as a connected vertical sequence (mirrors the same-grade Core Gateway's own
+// progression treatment) rather than a card grid.
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import AtmosphereBand from '@/components/direction-a/AtmosphereBand.astro';
+import Button from '@/components/direction-a/Button.astro';
+import Chip from '@/components/direction-a/Chip.astro';
+import { STRAND_ACCENT } from '@/lib/content/pilotContent';
+import { isPublished } from '@/lib/content/spellingLists';
+import { buildCoreSpellingGatewayModel } from '@/lib/content/strandGatewayModel';
+import { CORE_DEVELOPMENT_BRIDGE } from '@/lib/content/strandGatewayPreview';
+import { getCanonicalUrl } from '@/lib/canonicalUrl';
+
+const entries = (await getCollection('spelling-lists')).filter(isPublished);
+const sections = buildCoreSpellingGatewayModel(entries);
+const totalUnits = sections.reduce((total, section) => total + section.unitCount, 0);
+
+const canonicalURL = getCanonicalUrl('/core-spelling', Astro.site);
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Core Spelling' },
+];
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'K–5 Core Spelling Gateways',
+  numberOfItems: sections.length,
+  itemListElement: sections.map((section, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: new URL(section.gatewayHref, canonicalURL.origin).toString(),
+    name: `${section.label} Core Spelling`,
+  })),
+};
+---
+
+<Layout
+  title="K–5 Core Spelling Curriculum | spellingwords.app"
+  description="See how Core Spelling — the main systematic K–5 spelling sequence — develops from Kindergarten through 5th Grade, with a summary and representative units for every grade."
+  jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
+>
+  <SiteHeader variant="discovery" currentPath="/core-spelling" />
+
+  <main id="main-content">
+    <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+
+    <AtmosphereBand tone={STRAND_ACCENT['core-spelling']} ariaLabel="Core Spelling across K–5" class="mt-6 rounded-3xl md:mt-8">
+      <header class="max-w-2xl">
+        <Chip tone={STRAND_ACCENT['core-spelling']} class="mb-3">Core Spelling</Chip>
+        <h1 class="font-quicksand text-[clamp(2rem,4.2vw,2.75rem)] font-bold leading-[1.1] text-da-ink">
+          K–5 Core Spelling Curriculum
+        </h1>
+        <p class="mt-4 text-[1.1rem] leading-relaxed text-da-ink-soft">
+          Core Spelling is the main systematic grade-level spelling sequence — {totalUnits} units in
+          all, ordered from Kindergarten through 5th Grade.
+        </p>
+        <ol class="mt-5 flex flex-col gap-2 text-[0.95rem] leading-relaxed text-da-ink-soft sm:flex-row sm:gap-6">
+          {CORE_DEVELOPMENT_BRIDGE.map((stage, index) => (
+            <li class="flex gap-2">
+              <span class="font-quicksand font-bold text-da-brand-strong">{index + 1}.</span>
+              <span>{stage}</span>
+            </li>
+          ))}
+        </ol>
+      </header>
+    </AtmosphereBand>
+
+    <div class="mx-auto max-w-2xl px-5 py-10 sm:px-6 md:max-w-3xl md:py-14">
+      <ol class="relative flex flex-col gap-6 pl-2">
+        <div class="pointer-events-none absolute bottom-6 left-[0.4rem] top-6 w-0.5 bg-da-brand opacity-20" aria-hidden="true" />
+        {sections.map((section) => (
+          <li class="relative pl-6">
+            <span class="absolute left-0 top-1.5 h-2.5 w-2.5 rounded-full bg-da-brand" aria-hidden="true" />
+            <h2 class="font-quicksand text-xl font-bold text-da-ink">{section.label}</h2>
+            <p class="mt-1 text-sm font-bold text-da-ink-faint">{section.unitCount} Core Spelling units</p>
+            <p class="mt-2 max-w-[64ch] text-[0.98rem] leading-relaxed text-da-ink-soft">{section.summary}</p>
+            <p class="mt-2 max-w-[64ch] text-[0.9rem] leading-relaxed text-da-ink-faint">
+              <span class="font-bold">Representative units:</span> {section.representativeTitles.join(' · ')}
+            </p>
+            <Button href={section.gatewayHref} variant="outline" size="md" class="mt-3">
+              View {section.label} Core Spelling <span aria-hidden="true">→</span>
+            </Button>
+          </li>
+        ))}
+      </ol>
+
+      <p class="mt-10 max-w-[64ch] text-[0.95rem] leading-relaxed text-da-ink-faint">
+        This page summarizes the K–5 arc; it does not replace the six grade-specific Core Spelling
+        gateways above, each of which is the complete, ordered inventory for its grade.
+      </p>
+      <p class="mt-4 max-w-[64ch] text-[0.98rem] leading-relaxed text-da-ink-soft">
+        Read more about how the curriculum is designed on <a class="font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand" href="/curriculum">Our Spelling Curriculum</a>,
+        or look up a specific pattern on the <a class="font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand" href="/skills">Spelling Skills</a> reference library.
+      </p>
+    </div>
+  </main>
+
+  <SiteFooter />
+</Layout>

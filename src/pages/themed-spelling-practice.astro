@@ -1,0 +1,115 @@
+---
+// Cross-grade Themed Spelling Practice gateway. Themed emphasizes the complete grade-organized
+// topic catalog (all 27 canonical topics, per Part 5 of the strand-gateway feature spec) — each
+// grade section shows every canonical topic label as plain text, never individually linked; the
+// grade-specific Themed gateway remains the authoritative selectable inventory.
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import AtmosphereBand from '@/components/direction-a/AtmosphereBand.astro';
+import Button from '@/components/direction-a/Button.astro';
+import Chip from '@/components/direction-a/Chip.astro';
+import { STRAND_ACCENT } from '@/lib/content/pilotContent';
+import { isPublished } from '@/lib/content/spellingLists';
+import { buildThemedGatewayModel } from '@/lib/content/strandGatewayModel';
+import { getCanonicalUrl } from '@/lib/canonicalUrl';
+
+const entries = (await getCollection('spelling-lists')).filter(isPublished);
+const sections = buildThemedGatewayModel(entries);
+const totalTopics = sections.reduce((total, section) => total + section.topics.length, 0);
+
+const canonicalURL = getCanonicalUrl('/themed-spelling-practice', Astro.site);
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Themed Spelling Practice' },
+];
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'K–5 Themed Spelling Practice Gateways',
+  numberOfItems: sections.length,
+  itemListElement: sections.map((section, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: new URL(section.gatewayHref, canonicalURL.origin).toString(),
+    name: `${section.label} Themed Spelling Practice`,
+  })),
+};
+---
+
+<Layout
+  title="Themed Spelling Practice by Grade | spellingwords.app"
+  description={`Browse all ${totalTopics} optional Themed Spelling Practice topics across K–5, organized by grade.`}
+  jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
+>
+  <SiteHeader variant="discovery" currentPath="/themed-spelling-practice" />
+
+  <main id="main-content">
+    <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+
+    <AtmosphereBand tone={STRAND_ACCENT['themed-spelling-practice']} ariaLabel="Themed Spelling Practice across K–5" class="mt-6 rounded-3xl md:mt-8">
+      <header class="max-w-2xl">
+        <Chip tone={STRAND_ACCENT['themed-spelling-practice']} class="mb-3">Themed Spelling Practice</Chip>
+        <h1 class="font-quicksand text-[clamp(2rem,4.2vw,2.75rem)] font-bold leading-[1.1] text-da-ink">
+          Themed Spelling Practice by Grade
+        </h1>
+        <p class="mt-4 text-[1.1rem] leading-relaxed text-da-ink-soft">
+          Themed Spelling Practice is optional, additional, nonsequential grade-level spelling
+          practice set in recognizable topics — {totalTopics} lists in all across Kindergarten–5th Grade.
+        </p>
+        <p class="mt-3 text-[0.98rem] leading-relaxed text-da-ink-soft">
+          Choose a theme that connects with what a child is reading, learning, or talking about.
+          Each list stands on its own, so there is no required order and no theme is a prerequisite
+          for another.
+        </p>
+      </header>
+    </AtmosphereBand>
+
+    <div class="mx-auto max-w-2xl px-5 py-10 sm:px-6 md:max-w-3xl md:py-14">
+      <div class="flex flex-col gap-8">
+        {sections.map((section) => (
+          <section aria-labelledby={`themed-${section.grade}-heading`}>
+            <h2 id={`themed-${section.grade}-heading`} class="font-quicksand text-xl font-bold text-da-ink">
+              {section.label}
+            </h2>
+            <p class="mt-1 text-sm font-bold text-da-ink-faint">{section.topics.length} themed lists</p>
+            <p class="mt-2 max-w-[64ch] text-[0.95rem] leading-relaxed text-da-ink-soft">{section.intro}</p>
+            <ul class="mt-3 flex flex-wrap gap-2" aria-label={`${section.label} themed topics`}>
+              {section.topics.map((topic) => (
+                <li class="rounded-full border border-da-periwinkle bg-da-periwinkle-tint px-3 py-1 text-xs font-bold text-da-periwinkle-ink">
+                  {topic.label}
+                </li>
+              ))}
+            </ul>
+            <Button href={section.gatewayHref} variant="outline" size="md" class="mt-4">
+              View {section.label} Themed Spelling Practice <span aria-hidden="true">→</span>
+            </Button>
+          </section>
+        ))}
+      </div>
+
+      <p class="mt-10 max-w-[64ch] text-[0.95rem] leading-relaxed text-da-ink-soft">
+        Core Spelling remains the systematic path for each grade — see
+        <a class="font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand" href="/core-spelling"> K–5 Core Spelling</a>.
+        For the reasoning behind how strands relate, read
+        <a class="font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand" href="/curriculum"> Our Spelling Curriculum</a>.
+      </p>
+    </div>
+  </main>
+
+  <SiteFooter />
+</Layout>

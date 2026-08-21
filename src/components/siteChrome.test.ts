@@ -40,4 +40,13 @@ describe('global site chrome', () => {
     expect(footer).not.toContain('href="/terms"');
     expect(footer).not.toContain('href="/contact"');
   });
+
+  it('exposes all three top-level strand gateways in the footer Explore column, with no partial set', () => {
+    for (const path of ['/core-spelling', '/high-frequency-words', '/themed-spelling-practice']) {
+      expect(footer).toContain(`href="${path}"`);
+    }
+    // Superseded once all three strand gateways exist (2026-08-21 amendment) — redundant with
+    // the Grades footer column, which already links all six Grade Hubs.
+    expect(footer).not.toContain('href="/#grades"');
+  });
 });

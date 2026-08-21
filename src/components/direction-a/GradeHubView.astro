@@ -34,11 +34,20 @@ const { label, hub, prev, next } = Astro.props;
     {hub.orientation.map((paragraph) => (
       <p class="mt-4 text-[1.1rem] leading-relaxed text-da-ink-soft">{paragraph}</p>
     ))}
+    <p class="mt-5 text-[0.95rem] leading-relaxed text-da-ink-faint">
+      <span class="font-bold text-da-ink-soft">What students work on in {label}: </span>
+      {hub.fingerprint.join(' · ')}
+    </p>
   </header>
 
   <div class="grid gap-5 md:grid-cols-3" role="list" aria-label={`${label} strands`}>
     {hub.strands.map((strand) => {
       const accent = STRAND_ACCENT[strand.strand];
+      const previewLabel = {
+        'core-spelling': "A few units you'll find here:",
+        'high-frequency-words': 'Examples include:',
+        'themed-spelling-practice': 'Topics include:',
+      }[strand.strand];
       return (
         <a
           href={strand.href}
@@ -52,7 +61,10 @@ const { label, hub, prev, next } = Astro.props;
           ]}
         >
           <h2 class:list={['font-quicksand text-xl font-bold', ACCENT_INK_CLASS[accent]]}>{strand.label}</h2>
-          <p class="flex-grow text-[0.98rem] leading-relaxed text-da-ink-soft">{strand.summary}</p>
+          <p class="text-[0.98rem] leading-relaxed text-da-ink-soft">{strand.cardDescription}</p>
+          <p class="flex-grow text-[0.9rem] leading-relaxed text-da-ink-faint">
+            <span class="font-bold">{previewLabel}</span> {strand.previewItems.join(' · ')}
+          </p>
           <span class:list={['mt-2 inline-flex items-center gap-1.5 text-[0.95rem] font-bold', ACCENT_INK_CLASS[accent]]}>
             {strand.linkLabel}
             <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>

@@ -1,7 +1,9 @@
 # Canonical Grade Hub Standard
 
 **Status:** Frozen production editorial and architecture authority. Production conformance is
-pending; this standard does not itself authorize renderer, component, schema, or visual changes.
+pending; this standard does not itself authorize renderer, component, schema, or visual changes,
+**except** for the narrow, dated representative-preview exception recorded in §6.1, which does
+authorize the specific renderer change it describes.
 **Source:** Approved conclusions in
 `docs/content/CANONICAL_GRADE_HUB_STANDARD_RESEARCH.md`.
 **Scope:** Exactly `/kindergarten`, `/1st-grade`, `/2nd-grade`, `/3rd-grade`, `/4th-grade`, and
@@ -118,6 +120,30 @@ This freezes the target architecture only. The current production Hubs still con
 member directories; removing them is pending implementation and is not authorized by this
 documentation task.
 
+### 6.1 Narrow representative-preview exception (amendment, 2026-08-21)
+
+**Status of this amendment: authorized and implemented as of this dated entry.** Grade Hub V2
+adds two bounded, non-linked preview elements per Hub, in addition to everything §2–§5 already
+require:
+
+- one grade-wide curriculum **fingerprint** — 5–6 short plain-text phrases naming the curriculum
+  concepts a student works on at that grade (not new Skill links, not a Gateway substitute);
+- up to **four non-linked representative previews per strand card** — up to four curated Core
+  unit titles, up to four curated HFW words, and up to four curated Themed topic labels, rendered
+  as plain text within the existing single-destination card.
+
+These previews remain subject to every other prohibition in this document: they are not member
+cards, not individually linked, not a complete inventory, and do not replace the same-grade
+Gateway as the authoritative destination. A strand card remains exactly one clickable destination
+(`<a href={gateway}>`); the representative items sit inside that same anchor as plain text, never
+as nested links or a second destination.
+
+**Why:** a visitor comparing, say, the 2nd Grade Hub and the 4th Grade Hub could not previously
+tell the curriculum substance apart — only the grade name and counts differed. Visitors need
+enough concrete curriculum context (real unit titles, real words, real topics) to understand what
+distinguishes one grade from another *before* committing to a strand, without turning the Hub into
+a second inventory. This narrow exception exists to solve exactly that problem and no more.
+
 ## 7. Counts
 
 Useful grade-and-strand facts may appear inline, including the Core unit count, HFW set and total
@@ -164,7 +190,9 @@ does not prescribe linked-heading markup, button markup, or a number of visible 
 
 ## 11. Prohibited or default-rejected Hub content
 
-- individual member cards or inventories;
+- individual member cards or inventories (the §6.1 exception permits only up to four non-linked,
+  plain-text representative previews per strand card plus one plain-text grade fingerprint — not a
+  card, not a link, not a complete inventory);
 - full Core progression narratives;
 - complete HFW set inventories;
 - individual Themed-list inventories or Gateway-level theme-selection guidance;

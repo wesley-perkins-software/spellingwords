@@ -1,0 +1,106 @@
+---
+// Cross-grade High-Frequency Words gateway. HFW emphasizes definition + grade/set organization,
+// so grade sections render as a compact numbers-forward grid rather than Core's narrative
+// sequence or Themed's flat topic catalog (Part 5 of the strand-gateway feature spec).
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import AtmosphereBand from '@/components/direction-a/AtmosphereBand.astro';
+import Button from '@/components/direction-a/Button.astro';
+import Chip from '@/components/direction-a/Chip.astro';
+import { STRAND_ACCENT } from '@/lib/content/pilotContent';
+import { buildHfwGatewayModel, HF_WORDS_TOTAL_SET_COUNT, HF_WORDS_TOTAL_WORD_COUNT } from '@/lib/content/strandGatewayModel';
+import { getCanonicalUrl } from '@/lib/canonicalUrl';
+
+const sections = buildHfwGatewayModel();
+
+const canonicalURL = getCanonicalUrl('/high-frequency-words', Astro.site);
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'High-Frequency Words' },
+];
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'K–5 High-Frequency Words Gateways',
+  numberOfItems: sections.length,
+  itemListElement: sections.map((section, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: new URL(section.gatewayHref, canonicalURL.origin).toString(),
+    name: `${section.label} High-Frequency Words`,
+  })),
+};
+---
+
+<Layout
+  title="High-Frequency Words by Grade | spellingwords.app"
+  description={`See how High-Frequency Words is organized across K–5: ${HF_WORDS_TOTAL_SET_COUNT} sets and ${HF_WORDS_TOTAL_WORD_COUNT} words in total, with a set and word count for every grade.`}
+  jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
+>
+  <SiteHeader variant="discovery" currentPath="/high-frequency-words" />
+
+  <main id="main-content">
+    <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+
+    <AtmosphereBand tone={STRAND_ACCENT['high-frequency-words']} ariaLabel="High-Frequency Words across K–5" class="mt-6 rounded-3xl md:mt-8">
+      <header class="max-w-2xl">
+        <Chip tone={STRAND_ACCENT['high-frequency-words']} class="mb-3">High-Frequency Words</Chip>
+        <h1 class="font-quicksand text-[clamp(2rem,4.2vw,2.75rem)] font-bold leading-[1.1] text-da-ink">
+          High-Frequency Words by Grade
+        </h1>
+        <p class="mt-4 text-[1.1rem] leading-relaxed text-da-ink-soft">
+          High-Frequency Words are the spellings students meet most often in reading and writing,
+          organized into grade-level sets and practiced alongside Core Spelling.
+        </p>
+        <ul class="mt-4 flex flex-col gap-1.5 text-[0.95rem] leading-relaxed text-da-ink-soft">
+          <li>• "High-frequency" describes how often a word occurs — not whether its spelling is irregular.</li>
+          <li>• Not every High-Frequency Word is unpredictable; many follow familiar sound-spelling patterns.</li>
+          <li>• High-Frequency Words complement Core Spelling; they are practiced alongside it, not instead of it.</li>
+        </ul>
+        <p class="mt-4 text-[0.98rem] font-bold text-da-ink">
+          {HF_WORDS_TOTAL_SET_COUNT} sets · {HF_WORDS_TOTAL_WORD_COUNT} words across Kindergarten–5th Grade.
+        </p>
+      </header>
+    </AtmosphereBand>
+
+    <div class="mx-auto max-w-2xl px-5 py-10 sm:px-6 md:max-w-3xl md:py-14">
+      <div class="grid gap-4 sm:grid-cols-2">
+        {sections.map((section) => (
+          <div class="flex flex-col gap-2 rounded-2xl border border-da-border bg-da-canvas-raised p-5 shadow-sm">
+            <h2 class="font-quicksand text-lg font-bold text-da-ink">{section.label}</h2>
+            <p class="text-sm font-bold text-da-teal-ink">{section.setCount} sets · {section.wordCount} words</p>
+            <p class="flex-grow text-[0.92rem] leading-relaxed text-da-ink-soft">{section.role}</p>
+            <Button href={section.gatewayHref} variant="outline" size="md" class="mt-1 self-start">
+              View {section.label} High-Frequency Words <span aria-hidden="true">→</span>
+            </Button>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-10 max-w-[64ch] text-[0.95rem] leading-relaxed text-da-ink-faint">
+        Sets build cumulatively within each grade; this page summarizes counts and role rather than
+        repeating word samples — the six grade-specific gateways above are the complete inventory.
+      </p>
+      <p class="mt-4 max-w-[64ch] text-[0.98rem] leading-relaxed text-da-ink-soft">
+        See how High-Frequency Words fits alongside <a class="font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand" href="/core-spelling">Core Spelling</a>,
+        or read the reasoning behind the curriculum on <a class="font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand" href="/curriculum">Our Spelling Curriculum</a>.
+      </p>
+    </div>
+  </main>
+
+  <SiteFooter />
+</Layout>

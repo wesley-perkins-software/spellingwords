@@ -10,31 +10,39 @@
 // open, rule-separated editorial column plus a sticky related-learning
 // sidebar on desktop, a designed word-tile bank (not a plain text list).
 //
-// Color on this page follows a visual-weight hierarchy, not a hue-
-// disjointness rule: strand is the page's one color-owning accent
-// (hero rule, word-bank tint, section eyebrow, sidebar card), since a
-// colored grade chip next to a colored strand chip would put two
-// unrelated axes at equal weight in the same spot — exactly the
-// collision this page used to have for Kindergarten/Core Spelling,
-// Grade 2/High-Frequency Words, and Grade 3/Themed Practice, where
-// grade and strand shared a hue. Grade is still shown for orientation,
-// just as a neutral chip + text label, never a color. The six-grade
-// color palette (GRADE_ACCENT in pilotContent.ts) is unaffected by this
-// and still applies elsewhere (homepage, Grade Hub atmosphere) — this
-// is a page-role-specific override, not a change to the palette itself.
+// Color on this page follows a visual-weight hierarchy: strand is the
+// page's dominant color-owning accent (hero fill/border, the whole word-list
+// section, section eyebrow, sidebar card) — the surface a visitor should
+// still be able to identify with the word-list panel off-screen. Grade is
+// a second, deliberately subordinate layer: a neutral chip/label for
+// orientation, plus (since GRADE_ACCENT and STRAND_ACCENT are now
+// hue-disjoint — see pilotContent.ts) a very faint full-bleed ambient wash
+// behind the whole page so grade reads as "which grade am I in" atmosphere
+// without ever competing with strand for visual weight. Because the two
+// axes no longer share hues, this wash can safely run underneath a
+// strand-tinted section without the two fusing into one flat color.
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import Chip from './Chip.astro';
 import Button from './Button.astro';
 import WordTileGrid from './WordTileGrid.astro';
 import type { SpellingListEntry } from '@/lib/content/spellingLists';
 import type { GradeRouteClassification } from '@/lib/content/canonicalGradeRoutes';
+import type { GradeCode } from '@/lib/content/gradeConfig';
 import {
   STRAND_ACCENT,
+  GRADE_ACCENT,
   ACCENT_BG_CLASS,
   ACCENT_BORDER_CLASS,
   ACCENT_INK_CLASS,
+  ACCENT_TINT_BG_CLASS,
+  ACCENT_WASH_BG_CLASS,
+  ACCENT_AMBIENT_BG_CLASS,
 } from '@/lib/content/pilotContent';
 import type { SpellingWord } from '@/types/spelling';
+
+function isGradeCode(value: string): value is GradeCode {
+  return value in GRADE_ACCENT;
+}
 
 interface WordNoteItem {
   word: string;
@@ -55,10 +63,9 @@ interface Props {
   strand: GradeRouteClassification;
   strandLabel: string;
   /** Content's raw grade value (validated at content-collection time, but
-   *  typed as a plain string there). Grade Unit pages render grade as a
-   *  neutral chip (gradeLabel) only, not a color — see the module doc at
-   *  the top of this file — so this prop is accepted for API parity with
-   *  callers but intentionally unused here. */
+   *  typed as a plain string there). Still renders as a neutral chip
+   *  (gradeLabel), never a colored one — but also drives the page's faint
+   *  grade-owned ambient wash (see the module doc at the top of this file). */
   grade?: string | null;
   gradeLabel?: string | null;
   roadmapPosition?: { step: number; total: number };
@@ -86,6 +93,7 @@ const {
   Content,
   strand,
   strandLabel,
+  grade,
   gradeLabel,
   roadmapPosition,
   gradeHubHref,
@@ -107,14 +115,17 @@ const {
 } = Astro.props;
 
 const strandAccent = STRAND_ACCENT[strand as GradeRouteClassification];
+const gradeAccent = grade && isGradeCode(grade) ? GRADE_ACCENT[grade] : null;
+const gradeAmbientClass = gradeAccent ? ACCENT_AMBIENT_BG_CLASS[gradeAccent] : '';
 
 const hasSidebar = conceptSkills.length > 0 || relatedGroups.some((g: RelatedGroup) => g.items.length > 0) || Boolean(extraNav?.items.length);
 ---
 
-<!-- Hero: blue structural DNA + neutral canvas; strand is the page's sole color-owning accent -->
-<section class="px-5 pb-0 pt-6 sm:px-6 md:pt-8">
+<!-- Hero: strand-tinted fill/border (the page's dominant accent); a faint
+     grade-owned ambient wash runs behind this and the content below it. -->
+<section class:list={['px-5 pb-0 pt-6 sm:px-6 md:pt-8', gradeAmbientClass]}>
   <div class="mx-auto max-w-[1100px]">
-    <div class="relative overflow-hidden rounded-2xl border border-da-brand bg-da-canvas-raised px-6 py-7 sm:px-9 sm:py-9">
+    <div class:list={['relative overflow-hidden rounded-2xl border px-6 py-7 sm:px-9 sm:py-9', ACCENT_BORDER_CLASS[strandAccent], ACCENT_TINT_BG_CLASS[strandAccent]]}>
       {roadmapPosition && gradeHubHref && gradeLabel && (
         <p class="mb-3 text-sm font-bold text-da-brand-strong">
           <a href={gradeHubHref} class="hover:underline">{gradeLabel} Spelling</a>
@@ -149,7 +160,7 @@ const hasSidebar = conceptSkills.length > 0 || relatedGroups.some((g: RelatedGro
   </div>
 </section>
 
-<div class="px-5 pb-4 pt-8 sm:px-6 md:pt-10">
+<div class:list={['px-5 pb-4 pt-8 sm:px-6 md:pt-10', gradeAmbientClass]}>
   <div class:list={['mx-auto grid max-w-[1100px] gap-10', hasSidebar && 'lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start']}>
     <div class="min-w-0">
       {readinessSignals.length > 0 && (
@@ -169,8 +180,13 @@ const hasSidebar = conceptSkills.length > 0 || relatedGroups.some((g: RelatedGro
         </>
       )}
 
-      <!-- Word list — the central artifact: strand-tinted panel, white tiles -->
-      <section aria-labelledby="word-list-heading" class="mb-9">
+      <!-- Word list — the page's strand crescendo: a soft strand wash holding
+           the more fully-tinted WordTileGrid panel, so this is the one
+           strongest color moment on the page (not just the tile panel). -->
+      <section
+        aria-labelledby="word-list-heading"
+        class:list={['mb-9 rounded-2xl p-4 sm:p-5', ACCENT_WASH_BG_CLASS[strandAccent]]}
+      >
         <p class:list={['mb-1 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em]', ACCENT_INK_CLASS[strandAccent]]}>Word list</p>
         <div class="mb-3 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
           <h2 id="word-list-heading" class="font-quicksand text-xl font-bold text-da-ink">{wordListHeading}</h2>

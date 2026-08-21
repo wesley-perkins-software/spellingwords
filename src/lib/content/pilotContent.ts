@@ -18,18 +18,16 @@ import type { GradeRouteClassification } from './canonicalGradeRoutes';
  *                    STRAND_ACCENT — Button's `primary` variant is always
  *                    coral regardless of which grade/strand page it's on.
  *   grade palette  — GRADE_ACCENT below. Answers "what learner level am I
- *                    in?" — a small orientation accent (chip, numeral
- *                    stripe) on the homepage and the Grade Hub's own
- *                    near-white page atmosphere. Deliberately NOT used for
- *                    color on Grade Unit pages (see GradeUnitView.astro) —
- *                    that page gives strand sole ownership of color so a
- *                    grade chip and a strand chip never carry equal visual
- *                    weight in the same spot.
+ *                    in?" — a restrained, subordinate accent: the homepage
+ *                    numeral chips, the Grade Hub's own near-white page
+ *                    atmosphere, AND (as of this revision) a very faint
+ *                    full-bleed ambient wash on Grade Unit pages (see
+ *                    ACCENT_AMBIENT_BG_CLASS and GradeUnitView.astro) — never
+ *                    at a visual weight that competes with strand.
  *   strand palette — STRAND_ACCENT below. Answers "what type of spelling
  *                    work is this?" — Grade Hub destination cards, gateway
- *                    pages, and (as the page's one color-owning accent)
- *                    Grade Unit hero rule/word-bank tint/section eyebrow/
- *                    sidebar card.
+ *                    pages, and (as the page's dominant color-owning accent)
+ *                    Grade Unit hero rule/word-list section/sidebar card.
  *   Skill-family   — SKILL_FAMILY_ACCENT below. Answers "which canonical
  *                    Skill grouping?" — grade-independent, a separate
  *                    system from grade identity. A restrained reference
@@ -39,15 +37,33 @@ import type { GradeRouteClassification } from './canonicalGradeRoutes';
  *   very dark ink  — da-ink/da-ink-soft (tailwind.config.mjs). Primary
  *                    reading text site-wide; never grayed out by default.
  *
- * The collision rule here is about visual WEIGHT, not hue disjointness: two
- * of these systems may share or approach a hue as long as they never appear
- * at comparable visual weight in the same composition (e.g. Grade 2 and the
- * High-Frequency Words strand are both teal — fine, because nowhere do a
- * grade-colored surface and a strand-colored surface of matching size sit
- * next to each other). What none of grade/strand/Skill-family may ever do is
- * reach into brand or coral, at any weight.
+ * The collision rule here is hue disjointness, not just weight: no
+ * GRADE_ACCENT value may equal any STRAND_ACCENT value, full stop — a
+ * visitor combines any grade with any strand, so any shared hue between the
+ * two axes collides somewhere. (An earlier version of this module accepted
+ * three exact collisions — Kindergarten/Core Spelling, Grade 2/High-
+ * Frequency Words, Grade 3/Themed Spelling Practice all shared one hue each
+ * — reasoning that grade never appeared at comparable weight to strand in
+ * the same composition. Once grade gained its own ambient wash on Grade Unit
+ * pages, that reasoning no longer held: a grade wash and a strand-tinted
+ * section of the *same* hue on the *same* page reads as one flat color, not
+ * two coexisting identities. See `sprout`/`fern`/`orchid` below.) Skill-
+ * family may still share hues with grade/strand, since Skill pages never
+ * render a grade or strand accent alongside it. What none of grade/strand/
+ * Skill-family may ever do is reach into brand or coral, at any weight.
  */
-export type DaAccent = 'brand' | 'coral' | 'sun' | 'teal' | 'pink' | 'periwinkle' | 'green' | 'plum';
+export type DaAccent =
+  | 'brand'
+  | 'coral'
+  | 'sun'
+  | 'teal'
+  | 'pink'
+  | 'periwinkle'
+  | 'green'
+  | 'plum'
+  | 'sprout'
+  | 'fern'
+  | 'orchid';
 
 export const STRAND_ACCENT: Record<GradeRouteClassification, DaAccent> = {
   'core-spelling': 'sun',
@@ -72,33 +88,30 @@ export const SKILL_FAMILY_ACCENT: Record<string, DaAccent> = {
 
 /**
  * Grade identity — a third, independent accent axis from strand and Skill-
- * family (see above), but a small-orientation-accent one: the homepage
- * (grade-browse cards) and the Grade Hub's own near-white page atmosphere
- * (see GRADE_ATMOSPHERE_TONE below) are its only color-bearing surfaces.
- * GradeUnitView.astro deliberately does not read this map for color — grade
- * shows there as a neutral chip/label only, so it never competes with the
- * strand accent that page already owns. Canonical Skill pages are
- * grade-independent and never use this map at all.
+ * family (see above): a restrained, subordinate accent everywhere it
+ * appears — the homepage grade-browse cards, the Grade Hub's own near-white
+ * page atmosphere (see GRADE_ATMOSPHERE_TONE below), and a very faint
+ * full-bleed ambient wash on Grade Unit pages (ACCENT_AMBIENT_BG_CLASS,
+ * consumed in GradeUnitView.astro) — never at a weight that competes with
+ * the strand accent those same pages give dominant color ownership to.
+ * Canonical Skill pages are grade-independent and never use this map.
  *
- * K, 2, 3, and 4 reuse hues already established for strand/Skill-family use
- * (sun, teal, periwinkle, pink) — deliberately, not by accident: adapting an
- * existing hue is preferred over inventing a new one where the roles don't
- * collide (see the module doc above). Grade 1 and Grade 5 needed genuinely
- * new hues: every other slot in the existing non-brand/non-coral pool was
- * taken, and Grade 1 previously borrowed action coral while Grade 5 borrowed
- * structural brand blue — the exact conflict this mapping exists to fix.
- * `green` and `plum` (tailwind.config.mjs) were added for exactly those two
- * slots, chosen to stay clearly distinct from both reserved colors and from
- * each other. This palette stays as-is for now — the current fix is scoping
- * *where* grade is allowed to carry color, not reassigning its hues; a
- * specific grade's hue would only change if, after this scoping, visual
- * review still finds a real perceptual conflict at the new (small) weight.
+ * Every value here must be hue-disjoint from every STRAND_ACCENT value
+ * (sun/teal/periwinkle) — see the module doc above for why. `green` (Grade
+ * 1) and `plum` (Grade 5) were already safe. `sprout` (Kindergarten), `fern`
+ * (Grade 2), and `orchid` (Grade 3) replace what used to be sun/teal/
+ * periwinkle reused 1:1 from Core Spelling/High-Frequency Words/Themed
+ * Spelling Practice — those three exact collisions were tolerable only back
+ * when grade carried no page-level color of its own; once Grade Unit pages
+ * gained a grade-owned ambient wash, a same-hue grade wash sitting behind a
+ * same-hue strand-tinted section would visually fuse into one flat color
+ * instead of two legible layers. `pink` (Grade 4) was already safe too.
  */
 export const GRADE_ACCENT: Record<GradeCode, DaAccent> = {
-  K: 'sun',
+  K: 'sprout',
   '1': 'green',
-  '2': 'teal',
-  '3': 'periwinkle',
+  '2': 'fern',
+  '3': 'orchid',
   '4': 'pink',
   '5': 'plum',
 };
@@ -137,6 +150,9 @@ export const ACCENT_BG_CLASS: Record<DaAccent, string> = {
   periwinkle: 'bg-da-periwinkle',
   green: 'bg-da-green',
   plum: 'bg-da-plum',
+  sprout: 'bg-da-sprout',
+  fern: 'bg-da-fern',
+  orchid: 'bg-da-orchid',
 };
 
 export const ACCENT_TINT_BG_CLASS: Record<DaAccent, string> = {
@@ -148,6 +164,9 @@ export const ACCENT_TINT_BG_CLASS: Record<DaAccent, string> = {
   periwinkle: 'bg-da-periwinkle-tint',
   green: 'bg-da-green-tint',
   plum: 'bg-da-plum-tint',
+  sprout: 'bg-da-sprout-tint',
+  fern: 'bg-da-fern-tint',
+  orchid: 'bg-da-orchid-tint',
 };
 
 export const ACCENT_BORDER_CLASS: Record<DaAccent, string> = {
@@ -159,6 +178,9 @@ export const ACCENT_BORDER_CLASS: Record<DaAccent, string> = {
   periwinkle: 'border-da-periwinkle',
   green: 'border-da-green',
   plum: 'border-da-plum',
+  sprout: 'border-da-sprout',
+  fern: 'border-da-fern',
+  orchid: 'border-da-orchid',
 };
 
 export const ACCENT_INK_CLASS: Record<DaAccent, string> = {
@@ -170,6 +192,9 @@ export const ACCENT_INK_CLASS: Record<DaAccent, string> = {
   periwinkle: 'text-da-periwinkle-ink',
   green: 'text-da-green-ink',
   plum: 'text-da-plum-ink',
+  sprout: 'text-da-sprout-ink',
+  fern: 'text-da-fern-ink',
+  orchid: 'text-da-orchid-ink',
 };
 
 /** Same accent as a low-opacity wash over the canvas, for large surfaces
@@ -185,6 +210,28 @@ export const ACCENT_WASH_BG_CLASS: Record<DaAccent, string> = {
   periwinkle: 'bg-da-periwinkle/20',
   green: 'bg-da-green/20',
   plum: 'bg-da-plum/20',
+  sprout: 'bg-da-sprout/20',
+  fern: 'bg-da-fern/20',
+  orchid: 'bg-da-orchid/20',
+};
+
+/** A much fainter tier than ACCENT_WASH_BG_CLASS, for full-bleed page-level
+ * bands — specifically GRADE_ACCENT's ambient wash on Grade Unit pages
+ * (GradeUnitView.astro). At 6% opacity over da-canvas the cast is legible as
+ * "which grade am I in" atmosphere without competing with the page's
+ * strand-tinted surfaces, which stay on the stronger `-tint`/`-wash` tiers. */
+export const ACCENT_AMBIENT_BG_CLASS: Record<DaAccent, string> = {
+  brand: 'bg-da-brand/[0.06]',
+  coral: 'bg-da-coral/[0.06]',
+  sun: 'bg-da-sun/[0.06]',
+  teal: 'bg-da-teal/[0.06]',
+  pink: 'bg-da-pink/[0.06]',
+  periwinkle: 'bg-da-periwinkle/[0.06]',
+  green: 'bg-da-green/[0.06]',
+  plum: 'bg-da-plum/[0.06]',
+  sprout: 'bg-da-sprout/[0.06]',
+  fern: 'bg-da-fern/[0.06]',
+  orchid: 'bg-da-orchid/[0.06]',
 };
 
 /** Same accent bg color, expressed as a `before:` pseudo-element variant —
@@ -201,4 +248,7 @@ export const ACCENT_BEFORE_BG_CLASS: Record<DaAccent, string> = {
   periwinkle: 'before:bg-da-periwinkle',
   green: 'before:bg-da-green',
   plum: 'before:bg-da-plum',
+  sprout: 'before:bg-da-sprout',
+  fern: 'before:bg-da-fern',
+  orchid: 'before:bg-da-orchid',
 };

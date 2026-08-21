@@ -18,7 +18,13 @@
 import AtmosphereBand from './AtmosphereBand.astro';
 import Chip from './Chip.astro';
 import type { GradeRouteClassification } from '@/lib/content/canonicalGradeRoutes';
-import { STRAND_ACCENT, type DaAccent } from '@/lib/content/pilotContent';
+import {
+  STRAND_ACCENT,
+  ACCENT_BORDER_CLASS,
+  ACCENT_INK_CLASS,
+  ACCENT_BG_CLASS,
+  ACCENT_TINT_BG_CLASS,
+} from '@/lib/content/pilotContent';
 
 interface Resource {
   href: string;
@@ -49,48 +55,14 @@ const {
   wayfindingLinks,
 } = Astro.props;
 
-const accent: DaAccent = STRAND_ACCENT[strand];
+const accent = STRAND_ACCENT[strand];
 
-const accentBorderClass: Record<DaAccent, string> = {
-  sun: 'border-da-sun',
-  teal: 'border-da-teal',
-  periwinkle: 'border-da-periwinkle',
-  pink: 'border-da-pink',
-  brand: 'border-da-brand',
-  coral: 'border-da-coral',
-  green: 'border-da-green',
-  plum: 'border-da-plum',
-};
-const accentTextClass: Record<DaAccent, string> = {
-  sun: 'text-da-sun-ink',
-  teal: 'text-da-teal-ink',
-  periwinkle: 'text-da-periwinkle-ink',
-  pink: 'text-da-pink-ink',
-  brand: 'text-da-brand-strong',
-  coral: 'text-da-coral-ink',
-  green: 'text-da-green-ink',
-  plum: 'text-da-plum-ink',
-};
-const accentBgClass: Record<DaAccent, string> = {
-  sun: 'bg-da-sun',
-  teal: 'bg-da-teal',
-  periwinkle: 'bg-da-periwinkle',
-  pink: 'bg-da-pink',
-  brand: 'bg-da-brand',
-  coral: 'bg-da-coral',
-  green: 'bg-da-green',
-  plum: 'bg-da-plum',
-};
-const accentTintBgClass: Record<DaAccent, string> = {
-  sun: 'bg-da-sun-tint',
-  teal: 'bg-da-teal-tint',
-  periwinkle: 'bg-da-periwinkle-tint',
-  pink: 'bg-da-pink-tint',
-  brand: 'bg-da-brand-tint',
-  coral: 'bg-da-coral-tint',
-  green: 'bg-da-green-tint',
-  plum: 'bg-da-plum-tint',
-};
+// Reuses the central pilotContent.ts accent tables (kept as short local
+// aliases below since this file was written against that naming).
+const accentBorderClass = ACCENT_BORDER_CLASS;
+const accentTextClass = ACCENT_INK_CLASS;
+const accentBgClass = ACCENT_BG_CLASS;
+const accentTintBgClass = ACCENT_TINT_BG_CLASS;
 ---
 
 <AtmosphereBand tone={accent} ariaLabel={`${gradeLabel} ${strandLabel}`} class="mt-6 rounded-3xl md:mt-8">

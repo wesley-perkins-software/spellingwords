@@ -37,6 +37,12 @@ const accentPillClass: Record<DaAccent, string> = {
   coral: 'border-da-coral bg-da-coral-tint text-da-coral-ink hover:bg-da-coral',
   green: 'border-da-green bg-da-green-tint text-da-green-ink hover:bg-da-green',
   plum: 'border-da-plum bg-da-plum-tint text-da-plum-ink hover:bg-da-plum',
+  // Grade-only hues (see pilotContent.ts) — never selected here since this
+  // table is keyed by SKILL_FAMILY_ACCENT, but Record<DaAccent, string>
+  // requires every member.
+  sprout: 'border-da-sprout bg-da-sprout-tint text-da-sprout-ink hover:bg-da-sprout',
+  fern: 'border-da-fern bg-da-fern-tint text-da-fern-ink hover:bg-da-fern',
+  orchid: 'border-da-orchid bg-da-orchid-tint text-da-orchid-ink hover:bg-da-orchid',
 };
 ---
 

@@ -134,24 +134,41 @@ enough to click the right one. Nothing more.
 
 ## 6. Individual Skill-entry standard
 
-Each Skill entry **MUST** use:
+*Amended — see §13a.* Each Skill entry **MUST** use, unmodified where shown:
 
-- The canonical Skill title, unmodified.
-- The Skill's existing canonical `description` field from `spellingSkills.ts` / the Skill page's
-  own frontmatter.
+- The canonical Skill title.
+- Where a description is shown, the Skill's existing canonical `description` field from
+  `spellingSkills.ts` / the Skill page's own frontmatter, or the narrow Hub-only clarifier
+  permitted below — never a rewrite of the canonical field into a third form.
 
-The Hub **MUST NOT** introduce a new Hub-specific description field. The shared `description`
-field **MAY** be tightened where independently warranted (e.g. trimming a search-snippet audience
-tag or a repeated generic opener) — such edits improve the one shared field for both its canonical
-and Hub-directory uses at once; they do not fork a second field.
+Showing a description on every entry is no longer required (§13a). The Hub's canonical entry
+descriptions field is still the shared `description` field: where the Hub does display
+descriptive text below a title, it **MUST** reuse that field verbatim rather than fork a new
+general-purpose Hub description. The one narrow exception is a **clarifier**: a short (under ~90
+characters), hand-authored phrase used only for a Skill whose title and example words together
+remain genuinely ambiguous (e.g. distinguishing a spelling-change rule from a same-family sibling
+that also produces suffixed words). A clarifier is not a second description field — it is not
+written for every entry, does not restate the canonical `description`, and stays too short to
+carry instructional content (that remains the Skill page's exclusive territory).
 
-**Desired quality** for each entry description: accurate; concise and scannable; differentiates
-the Skill from its siblings; parent-readable; not redundant with its family's orientation
-paragraph; not a substitute for the Skill page's own instructional content. Description
-length and structure need not be identical across all 41 entries.
+The shared `description` field **MAY** still be tightened where independently warranted (e.g.
+trimming a search-snippet audience tag or a repeated generic opener) — such edits improve the one
+shared field for both its canonical and Hub-directory uses at once; they do not fork a second
+field.
 
-Skill entries **MUST NOT** add: grade metadata, a practice CTA, a duplicate demonstration word
-set, or a separate Hub-only summary distinct from the canonical `description`.
+**Desired quality** for each entry description, where shown: accurate; concise and scannable;
+differentiates the Skill from its siblings; parent-readable; not redundant with its family's
+orientation paragraph; not a substitute for the Skill page's own instructional content.
+
+Skill entries **MUST NOT** add: grade metadata, a practice CTA, a full demonstration word grid, or
+a separate Hub-only summary distinct from the canonical `description` and the narrow clarifier
+exception above.
+
+A Skill entry **MAY** show a small set of representative example words — 3 by default, 4 only
+where the fourth demonstrates a distinct sub-pattern the title itself names — drawn *only* from
+that Skill's own canonical word list (never invented, never merely the first N in list order).
+This is a curated, editorially-selected subset, not the full demonstration word grid a Skill page
+shows (that stays exclusive to the Skill page). See §13a for why this is now permitted.
 
 ## 7. Taxonomy and naming
 
@@ -259,6 +276,37 @@ interaction treatment, provided it preserves:
 - Accessibility.
 - Every responsibility boundary stated in this standard (§3, §6, §12).
 
+## 13a. Amendment record: 2026-08 visual/editorial redesign
+
+This standard was reopened, as authorized by §13, to implement a Skills Hub visual/editorial
+redesign that moves the page away from `rounded-full` pill links (for both family headings and
+Skill destinations) toward compact editorial reference tiles. The canonical 12-family / 41-Skill
+taxonomy, order, direct linking, and every responsibility boundary in §3 are unchanged.
+
+Two clauses in the original text were broader than the redesign needs and are amended here rather
+than silently violated:
+
+- **§6 previously required every Skill entry to display its canonical `description`.** The
+  pill-only Hub that shipped before this amendment never actually did this (a known,
+  documented gap). Rather than close the gap by forcing a description onto all 41 entries — which
+  would make most tiles taller than their content needs, since a title plus a few example words is
+  already sufficient for most Skills — §6 now makes per-entry descriptive text optional, reusing
+  the canonical `description` field verbatim wherever shown, plus a narrow hand-authored
+  "clarifier" exception for the rare Skill that needs a short disambiguating phrase beyond its
+  title and examples.
+- **§6 previously banned "a duplicate demonstration word set" on every Skill entry**, read broadly
+  enough to also forbid a small set of representative example words. §6 now distinguishes that
+  banned case (a full demonstration word grid, functionally reproducing the Skill page's practice
+  list) from a curated 3-4 word example set drawn from the Skill's own canonical word list —
+  informational, non-interactive, and capped, not a substitute for the Skill page's own word-list
+  demonstration.
+
+Four purely editorial "chapter" dividers (grouping the 12 families for scanability — e.g.
+"Foundational sounds and spelling patterns") were added as a rendering-only convenience: no anchor
+ids, no structured-data representation, no heading level between the page H1 and each family's H2,
+and no change to canonical family order. They are not a new taxonomy level and nothing in §2, §7,
+or §9 changes as a result.
+
 ## 14. Implementation checklist
 
 - [ ] Exactly 12 family sections are present.
@@ -270,17 +318,24 @@ interaction treatment, provided it preserves:
 - [ ] A working route to grade browsing is present.
 - [ ] No sequencing or "start with X" language appears anywhere on the page.
 - [ ] Every family has authored, non-templated orientation copy.
-- [ ] Skill entry descriptions reuse the canonical `description` field — no new Hub-only field.
+- [ ] Where a Skill entry shows descriptive text, it reuses the canonical `description` field
+      verbatim, or is one of the narrow hand-authored clarifiers permitted by §6/§13a — no
+      general-purpose Hub-only description field exists.
+- [ ] Where a Skill entry shows example words, there are 3 (occasionally 4, only where the fourth
+      demonstrates a distinct sub-pattern), every one drawn from that Skill's own canonical word
+      list (§6/§13a) — never a full demonstration word grid.
 - [ ] No grade metadata (badge, range, or otherwise) is attached to any family or Skill on the Hub.
 - [ ] No direct practice widget or CTA is present.
 - [ ] `BreadcrumbList` structured data is present and matches the visible breadcrumb.
 - [ ] A single flat `ItemList` (41 items, no family nesting) is present and matches visible
       content.
 - [ ] Page metadata (`<title>`, description) is present and accurate.
-- [ ] Heading structure is correct and accessible (§11).
+- [ ] Heading structure is correct and accessible (§11); any chapter divider is a visual label only
+      (no heading level, no anchor id, no structured-data representation) per §13a.
 - [ ] No Skill page's instructional content (explanation, examples, mistakes, teaching routine,
       FAQ) is duplicated on the Hub.
 
 ---
 
-**Status:** Frozen. Production conformance to this standard is pending implementation.
+**Status:** Frozen, as amended by §13a. Production conformance to this standard is pending
+implementation.

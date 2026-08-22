@@ -154,6 +154,14 @@ describe('curated spelling Skills browse index', () => {
     expect(viewSource).not.toMatch(/Choose a specific spelling sound or pattern/i);
   });
 
+  it('renders Skill destinations as tiles, not rounded-full pills (2026-08 visual redesign, §13a)', () => {
+    const viewSource = readFileSync(skillsHubViewPath, 'utf8');
+
+    expect(viewSource).not.toContain("import Chip from './Chip.astro'");
+    expect(viewSource).toContain('SkillIndexTile');
+    expect(viewSource).not.toMatch(/rounded-full[^"]*"[^>]*>\s*\{skill\.title\}/);
+  });
+
   it('gives every family authored orientation without the legacy Mad-Libs template', () => {
     expect(SPELLING_SKILL_FAMILIES).toHaveLength(12);
     for (const family of SPELLING_SKILL_FAMILIES) {

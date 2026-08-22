@@ -11,7 +11,9 @@ import {
   SPELLING_SKILL_FAMILIES,
   getSpellingSkillPath,
   resolveCuratedSkillFamilyEntries,
+  type CuratedSpellingSkillId,
 } from '@/lib/content/spellingSkills';
+import { SKILL_INDEX_CLARIFIERS, SKILL_INDEX_EXAMPLE_WORDS } from '@/lib/content/skillIndexExamples';
 
 const entries = (await getCollection('spelling-lists')).filter(isPublished);
 
@@ -20,15 +22,22 @@ const skillFamilies = SPELLING_SKILL_FAMILIES.map((family) => ({
   entries: resolveCuratedSkillFamilyEntries(entries, family.skillIds),
 }));
 
+const totalSkillCount = skillFamilies.reduce((count, family) => count + family.entries.length, 0);
+
 const families = skillFamilies.map((family) => ({
   title: family.title,
   description: family.description,
   guidance: family.guidance,
   anchorId: 'anchorId' in family ? family.anchorId : `${family.title.toLowerCase().replaceAll(' ', '-')}-heading`,
-  skills: family.entries.map((entry) => ({
-    title: entry.data.title,
-    href: getSpellingSkillPath(entry),
-  })),
+  skills: family.entries.map((entry) => {
+    const skillId = entry.data.id as CuratedSpellingSkillId;
+    return {
+      title: entry.data.title,
+      href: getSpellingSkillPath(entry),
+      examples: SKILL_INDEX_EXAMPLE_WORDS[skillId],
+      clarifier: SKILL_INDEX_CLARIFIERS[skillId],
+    };
+  }),
 }));
 
 // Skills is a first-class top-level journey, parallel to the grade-first journey.
@@ -75,7 +84,7 @@ const itemListJsonLd = {
     <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
       <Breadcrumbs items={breadcrumbItems} />
     </div>
-    <SkillsHubView families={families} />
+    <SkillsHubView families={families} skillCount={totalSkillCount} familyCount={skillFamilies.length} />
   </main>
 
   <SiteFooter />

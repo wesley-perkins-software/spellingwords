@@ -36,6 +36,21 @@ export type {
   EncodeErrorCode,
   EncodeResult,
 } from './serialization';
+export {
+  MAX_SHARED_PAYLOAD_LENGTH,
+  MAX_SHARED_TITLE_LENGTH,
+  MAX_SHARED_WORD_COUNT,
+  MAX_SHARED_WORD_LENGTH,
+  SHARED_LIST_FORMAT_VERSION,
+  decodeSharedList,
+  encodeSharedList,
+} from './sharedList';
+export type {
+  DecodeSharedListErrorCode,
+  DecodeSharedListResult,
+  EncodeSharedListErrorCode,
+  EncodeSharedListResult,
+} from './sharedList';
 export type {
   AnswerOutcome,
   CompareOptions,

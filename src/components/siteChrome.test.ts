@@ -49,4 +49,20 @@ describe('global site chrome', () => {
     // the Grades footer column, which already links all six Grade Hubs.
     expect(footer).not.toContain('href="/#grades"');
   });
+
+  it('gives the global practice CTA an explicit desktop label and a compact mobile fallback, both pointing at the dedicated own-word page', () => {
+    expect(header).toContain('href="/practice-your-own-words"');
+    expect(header).toContain('<span class="lg:hidden">Practice</span>');
+    expect(header).toContain('<span class="hidden lg:inline">Practice Your Own Words</span>');
+    // The CTA must never mean "start practicing this page" — it always
+    // targets the dedicated own-word journey, never /play directly.
+    expect(header).not.toContain('href="/play"');
+    expect(header).not.toContain('href="/#practice"');
+  });
+
+  it('points the footer\'s Practice Your Own Words link at the dedicated page, not the homepage anchor', () => {
+    expect(footer).toContain('href="/practice-your-own-words"');
+    expect(footer).toContain('Practice Your Own Words</a>');
+    expect(footer).not.toContain('href="/#practice"');
+  });
 });

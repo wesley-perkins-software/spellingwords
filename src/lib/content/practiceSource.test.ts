@@ -3,6 +3,7 @@ import {
   resolveGradeUnitPracticeSource,
   resolveSkillPracticeSource,
   resolveCustomPracticeSource,
+  resolveSharedPracticeSource,
 } from './practiceSource';
 
 const titleById = (id: string): string | undefined => {
@@ -100,7 +101,29 @@ describe('resolveSkillPracticeSource', () => {
 });
 
 describe('resolveCustomPracticeSource', () => {
-  it('returns exactly the minimal custom shape, never user text', () => {
-    expect(resolveCustomPracticeSource()).toEqual({ type: 'custom' });
+  it('returns the dedicated own-word page as its return destination, never user text', () => {
+    expect(resolveCustomPracticeSource()).toEqual({
+      type: 'custom',
+      title: 'Practice Your Own Words',
+      href: '/practice-your-own-words',
+    });
+  });
+});
+
+describe('resolveSharedPracticeSource', () => {
+  it('uses the given title when provided', () => {
+    expect(resolveSharedPracticeSource({ title: 'Week 4 Spelling' })).toEqual({
+      type: 'shared',
+      title: 'Week 4 Spelling',
+      href: '/practice-your-own-words',
+    });
+  });
+
+  it('falls back to a generic title when none is given', () => {
+    expect(resolveSharedPracticeSource({})).toEqual({
+      type: 'shared',
+      title: 'Practice Your Own Words',
+      href: '/practice-your-own-words',
+    });
   });
 });

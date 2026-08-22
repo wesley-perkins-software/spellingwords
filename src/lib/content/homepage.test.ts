@@ -21,6 +21,10 @@ import {
 import { gradeStrandGatewayPaths, getCanonicalGradeRoutes } from './canonicalGradeRoutes';
 
 const homepageSource = readFileSync(join(process.cwd(), 'src/pages/index.astro'), 'utf8');
+const customWordEntrySource = readFileSync(
+  join(process.cwd(), 'src/components/CustomWordEntry.astro'),
+  'utf8',
+);
 
 describe('canonical homepage', () => {
   it('has one immediate page heading and complete, accurate metadata', () => {
@@ -211,9 +215,17 @@ describe('canonical homepage', () => {
   });
 
   it('keeps the Practice Your Own Words interaction hosted directly on the page', () => {
-    expect(homepageSource).toContain('id="word-input"');
-    expect(homepageSource).toContain('id="btn-start"');
-    expect(homepageSource).toContain("window.location.href = `/play?list=");
+    // The tool's markup/wiring now lives in the shared CustomWordEntry
+    // component (reused by /practice-your-own-words), but the homepage must
+    // still render it inline — not merely link out to it — per
+    // docs/content/CANONICAL_HOMEPAGE_STANDARD.md §5.1.
+    expect(homepageSource).toContain('<CustomWordEntry variant="compact"');
+    expect(customWordEntrySource).toContain('id="word-input"');
+    expect(customWordEntrySource).toContain('id="btn-start"');
+    // The homepage's compact variant keeps the legacy `/play?list=` transport
+    // (documented as intentional technical debt, not migrated by this
+    // change — see docs/planning/LAUNCH_SUPPORTING_PAGES_AND_GLOBAL_NAVIGATION_PLAN.md).
+    expect(customWordEntrySource).toContain("window.location.href = `/play?list=");
   });
 
   it('emits the required homepage structured-data types, including FAQPage matching visible content', () => {

@@ -4,6 +4,7 @@ import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Button from '@/components/direction-a/Button.astro';
 import Chip from '@/components/direction-a/Chip.astro';
+import CustomWordEntry from '@/components/CustomWordEntry.astro';
 import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 import {
@@ -29,8 +30,6 @@ import {
   HOMEPAGE_CLOSING_STATEMENT,
   HOMEPAGE_FAQ,
 } from '@/lib/content/homepage';
-
-const placeholderText = 'Type or paste your words here, one per line';
 
 const gradeCards = homepageGradeHubs.map((hub, index) => ({
   ...hub,
@@ -98,53 +97,8 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
           </p>
         </div>
 
-        <div
-          id="practice"
-          class="scroll-mt-24 rounded-2xl border border-da-border bg-da-canvas-raised p-6 shadow-lg sm:p-8"
-        >
-          <div class="flex items-center justify-between gap-3">
-            <label for="word-input" class="font-quicksand text-[1.15rem] font-bold text-da-ink">
-              Enter your spelling words
-            </label>
-            <span
-              id="word-count-pill"
-              class="flex-shrink-0 rounded-full bg-da-coral-tint px-3 py-1.5 text-[0.82rem] font-bold text-da-coral-ink transition-colors"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              0 words
-            </span>
-          </div>
-
-          <textarea
-            id="word-input"
-            rows="6"
-            class="mt-3.5 w-full resize-y rounded-lg border-2 border-da-border-strong bg-da-canvas px-4 py-3.5 font-mulish text-base leading-relaxed text-da-ink placeholder:text-da-ink-faint focus:outline-none focus-visible:border-da-brand"
-            spellcheck="false"
-            autocomplete="off"
-            autocorrect="off"
-            autocapitalize="off"
-            aria-label="Your spelling words, one per line"
-            placeholder={placeholderText}></textarea>
-
-          <p
-            id="input-status"
-            class="mt-3 text-[0.88rem] text-da-ink-faint"
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            Add at least 1 word to start practicing.
-          </p>
-
-          <Button
-            id="btn-start"
-            type="button"
-            size="lg"
-            class="mt-3.5"
-            aria-label="Start a spelling practice session"
-          >
-            Start Practicing <span aria-hidden="true">→</span>
-          </Button>
+        <div id="practice" class="scroll-mt-24">
+          <CustomWordEntry variant="compact" headingId="hero-word-input-label" />
         </div>
       </div>
     </section>
@@ -413,62 +367,4 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
   </main>
 
   <SiteFooter />
-
-  <script>
-    import { parseWordInput, encodeWordList } from '@/lib/words';
-    import { resolveCustomPracticeSource } from '@/lib/content/practiceSource';
-
-    const textarea = document.getElementById('word-input') as HTMLTextAreaElement;
-    const pill = document.getElementById('word-count-pill')!;
-    const status = document.getElementById('input-status')!;
-    const btn = document.getElementById('btn-start') as HTMLButtonElement;
-
-    function getWords(): string[] {
-      return parseWordInput(textarea.value);
-    }
-
-    function updateStatus(): void {
-      const words = getWords();
-      const count = words.length;
-
-      pill.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
-
-      if (count === 0) {
-        status.textContent = 'Add at least 1 word to start practicing.';
-        btn.disabled = true;
-      } else if (count > 200) {
-        status.textContent = 'Maximum 200 words. Please remove some words.';
-        btn.disabled = true;
-      } else {
-        status.textContent = `${count} ${count === 1 ? 'word' : 'words'} ready to practice.`;
-        btn.disabled = false;
-      }
-    }
-
-    function handleStart(): void {
-      const words = getWords();
-      if (words.length === 0 || words.length > 200) return;
-
-      const result = encodeWordList(words);
-      if (!result.ok) {
-        status.textContent =
-          result.code === 'payload_too_long'
-            ? 'Word list is too long to encode. Please shorten some words.'
-            : 'Could not create test. Please check your word list.';
-        return;
-      }
-
-      try {
-        sessionStorage.setItem(`sw:source:${result.payload}`, JSON.stringify(resolveCustomPracticeSource()));
-      } catch {
-        /* sessionStorage unavailable — non-fatal */
-      }
-
-      window.location.href = `/play?list=${result.payload}`;
-    }
-
-    textarea.addEventListener('input', updateStatus);
-    btn.addEventListener('click', handleStart);
-    updateStatus();
-  </script>
 </Layout>

@@ -207,6 +207,8 @@ journeys. No fourth journey may be added by this standard or by homepage impleme
   mechanic is not already obvious from the interface.
 - **MUST NOT** carry feature enumeration, comparisons to other products, or marketing superlatives.
 
+> **Amendment (2026-08-22) — a dedicated `/practice-your-own-words` page now exists alongside the homepage's directly-hosted tool.** Every requirement above is unchanged and remains frozen: the homepage's own word-entry interaction stays directly hosted, dominant, and account-free. This amendment records that Practice Your Own Words now *also* has its own canonical page at `/practice-your-own-words`, used as (a) the destination for the site's header/footer CTAs for this journey (previously `/#practice`, since a global CTA pointing at a homepage anchor read ambiguously — "practice this page?" — from a curriculum or Skill page), and (b) the landing target for shareable practice links a teacher/parent can create there. §7's "MUST NOT link the practice experience (`/play`) directly, absent user-entered words" is unaffected — the new page is not `/play`, and links to it never carry pre-populated words by default; a shared link's fragment-carried words land on an inspectable "ready" screen on `/practice-your-own-words` requiring an explicit "Start practice" click, never auto-starting.
+
 ### 5.2 Browse by Grade
 
 - **MUST** expose all six Grade Hubs (Kindergarten, 1st–5th Grade) as direct, crawlable links from

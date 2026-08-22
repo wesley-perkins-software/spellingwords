@@ -628,7 +628,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
       practiceExitLink.href = practiceSource.href!;
     } else {
       practiceExitLink.textContent = '← New list';
-      practiceExitLink.href = '/#practice';
+      practiceExitLink.href = '/practice-your-own-words';
     }
   }
 
@@ -646,16 +646,53 @@ import SiteFooter from '@/components/SiteFooter.astro';
   // --- Initialization ---
   function init(): void {
     const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session');
     const payload = params.get('list');
 
-    if (!payload) {
+    // Two hand-off transports land here:
+    //  - `?session=<opaque id>`: word data lives only in sessionStorage,
+    //    never in this URL — used by /practice-your-own-words (both typed
+    //    and shared lists) specifically so a shared link's words don't end
+    //    up back in a query string after being received via a privacy-
+    //    conscious URL fragment. Required: there is no query fallback, so a
+    //    lost/expired session (e.g. sessionStorage unavailable, or this URL
+    //    opened in a different tab) surfaces the same "no word list" error.
+    //  - `?list=<payload>`: the original, still-supported transport — the
+    //    homepage's compact entry tool and curated list pages. See
+    //    docs/planning/LAUNCH_SUPPORTING_PAGES_AND_GLOBAL_NAVIGATION_PLAN.md
+    //    for why both exist rather than one being migrated wholesale.
+    let storageKey: string;
+    if (sessionId) {
+      storageKey = sessionId;
+      let sessionWords: string[] | null = null;
+      try {
+        const stored = sessionStorage.getItem(`sw:session-words:${sessionId}`);
+        if (stored) {
+          const parsed: unknown = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.every((w) => typeof w === 'string') && parsed.length > 0) {
+            sessionWords = parsed as string[];
+          }
+        }
+      } catch {
+        /* sessionStorage unavailable or parse failed */
+      }
+      if (!sessionWords) {
+        showError(
+          'Your practice session could not be found. Please go back to Practice Your Own Words and start again.',
+        );
+        return;
+      }
+      originalWords = sessionWords;
+    } else if (payload) {
+      storageKey = payload;
+      const decoded = decodeWordList(payload);
+      if (!decoded.ok) {
+        showError('The word list could not be loaded. Please go back and try again.');
+        return;
+      }
+      originalWords = decoded.words;
+    } else {
       showError('No word list found. Please go back and enter your words.');
-      return;
-    }
-
-    const decoded = decodeWordList(payload);
-    if (!decoded.ok) {
-      showError('The word list could not be loaded. Please go back and try again.');
       return;
     }
 
@@ -664,12 +701,10 @@ import SiteFooter from '@/components/SiteFooter.astro';
       return;
     }
 
-    originalWords = decoded.words;
-
     // Try to recover rich SpellingWord data (with exampleSentence) stored by curated list pages.
     let richWords: { word: string; exampleSentence?: string }[] | null = null;
     try {
-      const stored = sessionStorage.getItem(`sw:words:${payload}`);
+      const stored = sessionStorage.getItem(`sw:words:${storageKey}`);
       if (stored) {
         const parsed: unknown = JSON.parse(stored);
         if (Array.isArray(parsed) && parsed.every((e) => typeof e?.word === 'string')) {
@@ -696,7 +731,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
     // this is a custom session (unverifiable casing) or a curated one
     // (canonical, meaningfully-capitalized casing) up front.
     try {
-      const stored = sessionStorage.getItem(`sw:source:${payload}`);
+      const stored = sessionStorage.getItem(`sw:source:${storageKey}`);
       if (stored) {
         const parsed: unknown = JSON.parse(stored);
         if (parsed && typeof parsed === 'object' && typeof (parsed as PracticeSource).type === 'string') {
@@ -709,7 +744,10 @@ import SiteFooter from '@/components/SiteFooter.astro';
 
     state = spellingTestReducer(
       createInitialState(),
-      initializeTest(richWords, { meaningfulCapitalization: practiceSource.type !== 'custom' }),
+      initializeTest(richWords, {
+        shuffle: true,
+        meaningfulCapitalization: practiceSource.type !== 'custom',
+      }),
     );
 
     const count = originalWords.length;
@@ -717,7 +755,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
     // Resolve session title: curated list title from sessionStorage, else custom fallback
     let sessionTitle = 'Your Spelling Words';
     try {
-      const stored = sessionStorage.getItem(`sw:title:${payload}`);
+      const stored = sessionStorage.getItem(`sw:title:${storageKey}`);
       if (stored) sessionTitle = stored;
     } catch {
       /* sessionStorage unavailable — use fallback */
@@ -1102,6 +1140,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
     state = spellingTestReducer(
       createInitialState(),
       initializeTest(originalRichWords, {
+        shuffle: true,
         meaningfulCapitalization: practiceSource.type !== 'custom',
       }),
     );
@@ -1113,7 +1152,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
   // action, which starts a fresh session containing only the words missed
   // in the previous pass (with their original sentence/hint data intact).
   function handleReviewMissed(): void {
-    state = spellingTestReducer(state, reviewMissed());
+    state = spellingTestReducer(state, reviewMissed({ shuffle: true }));
     renderQuestion();
   }
 

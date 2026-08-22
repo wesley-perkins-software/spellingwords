@@ -304,6 +304,33 @@ Use a responsive four-column link area plus a bottom identity row.
 > longer reflects the architecture; it is preserved here, struck through in spirit, as the reasoning
 > trail for why the original decision was made and why it changed. Do not add Contact.
 
+> **Amendment (2026-08-22) — header/footer CTA target changed to `/practice-your-own-words`; new
+> fragment-based transport added for user-generated shareable links.** The "Practice Your Own
+> Words → `/#practice`" mapping above (and the equivalent "coral **Start practicing**"/"coral
+> **Practice**" header-CTA mappings elsewhere in this document) described the state before a
+> dedicated page existed for this journey; the global header and footer CTAs now target
+> `/practice-your-own-words`, which hosts the same directly-embedded entry tool plus new
+> shared-link creation. This document's privacy analysis of the `/play?list=...` query-string
+> transport — "reversible transport, not encryption," words exist in browser history/screenshots/
+> logs, a future default GA `page_view` risks leaking it via `page_location` — is extended, not
+> superseded: a newly created shareable link instead uses URL **fragment** transport
+> (`/practice-your-own-words#list=...`), specifically because a fragment is not included in the
+> HTTP request on ordinary navigation and so is not written to server/CDN access logs the way a
+> query string is. This is **not** a privacy or encryption claim — anyone holding a shared link can
+> decode its contents client-side with the same ease as the existing `?list=` transport, and the
+> in-product copy says so explicitly ("Anyone with this link can open and see this list. It isn't
+> encrypted or private..."). Practically, `/play` now accepts two hand-off transports: the legacy
+> `?list=<payload>` query string (unchanged, still used by the homepage's own entry tool and by
+> curated list pages) and a new `?session=<opaque id>` query parameter, under which the actual word
+> data lives only in `sessionStorage`, keyed by a random id that carries no word content itself —
+> used by `/practice-your-own-words` for both a freshly typed list and an opened shared list, so
+> that a shared link's words are never written back into a URL after being received via the
+> fragment. Unifying these two transports into one is a deliberate, **documented deferral** — out
+> of scope for this change, tracked here as technical debt rather than attempted piecemeal — not an
+> oversight. As before, no analytics module exists anywhere in this codebase as of this amendment,
+> so there is currently no live leak through either transport; the constraint above remains
+> forward-looking, to be honored whenever analytics is added, not evidence of a present incident.
+
 Bottom row:
 
 `SpellingWords.app — K–5 spelling curriculum and practice. © {year}`

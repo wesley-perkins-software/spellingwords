@@ -44,6 +44,8 @@ This is the flagship homepage experience.
 
 Conceptual role: “I already have words. Let’s practice.”
 
+> **Amendment (2026-08-22) — Practice Your Own Words gains a dedicated canonical page; the homepage tool remains the flagship, unchanged.** This section's "flagship homepage experience" status is preserved as-is — the homepage continues to host a fully working, immediate word-entry tool with no detour required. In addition, `/practice-your-own-words` now exists as this journey's dedicated destination page: the global header and footer CTAs for this journey now point there instead of to the homepage's `#practice` anchor, and it is also the landing destination for newly generated shareable practice links (fragment transport, `#list=...`). The homepage anchor (`/#practice`) continues to work and the on-page tool is unchanged; only the *external* entry points (header, footer, and a few inline cross-links) were re-pointed. See docs/content/CANONICAL_HOMEPAGE_STANDARD.md and docs/planning/LAUNCH_SUPPORTING_PAGES_AND_GLOBAL_NAVIGATION_PLAN.md for the fuller amendment.
+
 ### 3.2 Learn by Grade
 
 User intent: “My child is in Kindergarten, Grade 1, Grade 2, Grade 3, Grade 4, or Grade 5. What should they practice?”

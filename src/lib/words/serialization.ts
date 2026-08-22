@@ -76,8 +76,14 @@ const BASE64URL_LOOKUP: Record<string, number> = (() => {
   return table;
 })();
 
-/** Encode raw bytes as an unpadded base64url string. */
-function bytesToBase64Url(bytes: Uint8Array): string {
+/**
+ * Encode raw bytes as an unpadded base64url string.
+ *
+ * Exported so sibling transport modules (e.g. `sharedList.ts`, which encodes a
+ * JSON envelope rather than a newline-joined word list) can reuse the same
+ * base64url implementation instead of duplicating it.
+ */
+export function bytesToBase64Url(bytes: Uint8Array): string {
   let output = '';
 
   for (let i = 0; i < bytes.length; i += 3) {
@@ -101,8 +107,10 @@ function bytesToBase64Url(bytes: Uint8Array): string {
 /**
  * Decode an unpadded base64url string back into bytes. Returns `null` when the
  * input contains characters outside the alphabet or has an invalid length.
+ *
+ * Exported for reuse by sibling transport modules — see `bytesToBase64Url`.
  */
-function base64UrlToBytes(value: string): Uint8Array | null {
+export function base64UrlToBytes(value: string): Uint8Array | null {
   // A base64 group is 4 chars -> 3 bytes. Unpadded tails of length 1 are invalid.
   if (value.length % 4 === 1) return null;
 

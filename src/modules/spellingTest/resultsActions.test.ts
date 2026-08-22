@@ -52,6 +52,21 @@ const skillSource: PracticeSource = {
 
 const customSource: PracticeSource = { type: 'custom' };
 
+// What resolveCustomPracticeSource() actually returns today — a custom
+// session now carries a return destination, unlike the bare `customSource`
+// above (kept to prove the generic href/title-less behavior still works).
+const customSourceWithReturn: PracticeSource = {
+  type: 'custom',
+  title: 'Practice Your Own Words',
+  href: '/practice-your-own-words',
+};
+
+const sharedSource: PracticeSource = {
+  type: 'shared',
+  title: 'Week 4 Spelling',
+  href: '/practice-your-own-words',
+};
+
 describe('resolveResultsActions', () => {
   it('perfect + source with nextHref: continueNext, retryFull, sourceReturn in order', () => {
     const actions = resolveResultsActions(makeResult(0), coreSourceWithNext);
@@ -103,5 +118,27 @@ describe('resolveResultsActions', () => {
     const actions = resolveResultsActions(makeResult(0), coreSourceAtCurriculumEnd);
     expect(actions.some((a) => a.kind === 'continueNext')).toBe(false);
     expect(actions.map((a) => a.kind)).toEqual(['retryFull', 'sourceReturn']);
+  });
+
+  it('custom practice with a return destination (as resolveCustomPracticeSource now returns) never dead-ends: perfect session still offers sourceReturn', () => {
+    const actions = resolveResultsActions(makeResult(0), customSourceWithReturn);
+    expect(actions.map((a) => a.kind)).toEqual(['retryFull', 'sourceReturn']);
+    expect(actions[1].label).toBe('← Return to Practice Your Own Words');
+    expect(actions[1].href).toBe('/practice-your-own-words');
+  });
+
+  it('custom practice with a return destination: non-perfect session offers sourceReturn too', () => {
+    const actions = resolveResultsActions(makeResult(2), customSourceWithReturn);
+    expect(actions.map((a) => a.kind)).toEqual(['reviewMissed', 'retryFull', 'sourceReturn']);
+  });
+
+  it('shared-list source never matches the core/hfw next-label branch and still offers sourceReturn', () => {
+    const perfect = resolveResultsActions(makeResult(0), sharedSource);
+    expect(perfect.map((a) => a.kind)).toEqual(['retryFull', 'sourceReturn']);
+    expect(perfect.some((a) => a.kind === 'continueNext')).toBe(false);
+    expect(perfect[1].label).toBe('← Return to Week 4 Spelling');
+
+    const nonPerfect = resolveResultsActions(makeResult(3), sharedSource);
+    expect(nonPerfect.map((a) => a.kind)).toEqual(['reviewMissed', 'retryFull', 'sourceReturn']);
   });
 });

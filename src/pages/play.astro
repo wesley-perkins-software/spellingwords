@@ -104,33 +104,52 @@ import SiteFooter from '@/components/SiteFooter.astro';
     <!-- Practice shell — a restrained, full-bleed cool-blue band gives the
          active ready/question/feedback/results states a single, stable
          environment rather than floating on the same canvas as editorial
-         pages. The inner grid reserves symmetric ad rails at genuinely wide
-         viewports only; the practice stage itself never resizes or shifts
-         when a rail appears or disappears.
+         pages.
 
-         Rail architecture (documented here, not just in code comments, per
-         the redesign brief's request to record safe rail widths/gutters):
-           - below 1360px:        single column, no rails — today's width.
-           - 1360px – 1759px:     one fixed 300px rail + centered stage.
-           - 1760px and wider:    two symmetric fixed 300px rails.
-         Rails are empty, inert placeholders (no ad code) so the practice
-         stage's width and position never move once a rail is later filled.
-         The outer shell is capped at 1384px = 672px stage + 2×300px rails +
-         2×32px gutters + 2×24px container padding (md:px-6) — exactly
-         enough for the two-rail layout, so the 672px stage never compresses
-         once both rails are present. -->
+         GOVERNING INVARIANT: the practice stage's own center must equal the
+         viewport's center at every width, whether zero, one, or two future
+         ad rails are present. This is achieved with a permanently 3-column
+         grid — minmax(0,1fr) / minmax(0,672px) / minmax(0,1fr) — used
+         unchanged at every breakpoint. The two outer tracks are `fr`, so
+         they always split whatever space remains equally; the fixed 672px
+         center track is therefore always exactly centered, regardless of
+         whether the side tracks are empty, hold one rail, or hold two.
+         (A prior version of this shell centered a [rail, stage] pair as one
+         fixed-width group at the "one rail" breakpoint, which shifted the
+         stage itself off-center — that is exactly the bug this structure
+         is designed to make impossible: the stage's track never changes
+         size or position based on rail presence, only the rail elements'
+         visibility does.)
+
+         Rail visibility (documented here, not just in code, per the
+         redesign brief's request to record safe rail widths/gutters):
+           - below 1440px:        both rails hidden — side tracks sit empty.
+           - 1440px – 1759px:     left rail may appear (~300px, hugging the
+                                   stage's left gutter); right stays empty.
+                                   1440px is chosen with a real safety
+                                   margin over the ~1432px geometric minimum
+                                   at which a 300px rail plus its 32px
+                                   gutter first fits in the side track.
+           - 1760px and wider:    right rail may also appear, symmetric with
+                                   the left. (Both sides are always the same
+                                   width, so nothing geometrically requires
+                                   deferring the right rail this long — it's
+                                   a deliberate, cautious product staging,
+                                   not a layout constraint.)
+         Rails are empty, inert placeholders (no ad code). No outer max-width
+         caps this shell — peripheral space is intentionally left to grow
+         unbounded on very wide screens, per "peripheral regions consume
+         only the space naturally remaining." -->
     <div id="practice-stage" class="hidden bg-da-brand-tint py-10 md:py-14">
-      <div class="mx-auto max-w-[1384px] px-4 md:px-6">
-        <div
-          class="grid grid-cols-1 justify-center gap-8 [@media(min-width:1360px)]:grid-cols-[300px_minmax(0,672px)] [@media(min-width:1760px)]:grid-cols-[300px_minmax(0,672px)_300px]"
-        >
+      <div class="w-full px-4 md:px-6">
+        <div class="grid grid-cols-[minmax(0,1fr)_minmax(0,672px)_minmax(0,1fr)] gap-8">
           <aside
             id="rail-left"
-            class="hidden [@media(min-width:1360px)]:block"
+            class="col-start-1 hidden min-[1440px]:block w-[300px] justify-self-end"
             aria-hidden="true"
           ></aside>
 
-          <div id="practice-stage-inner" class="min-w-0 mx-auto w-full max-w-content-md">
+          <div id="practice-stage-inner" class="col-start-2 min-w-0 w-full max-w-content-md justify-self-center">
             <!-- Shared session progress — visible during question AND feedback, hidden otherwise -->
             <div id="session-progress" class="hidden mb-5 flex flex-col gap-2">
               <p
@@ -388,7 +407,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
 
           <aside
             id="rail-right"
-            class="hidden [@media(min-width:1760px)]:block"
+            class="col-start-3 hidden min-[1760px]:block w-[300px] justify-self-start"
             aria-hidden="true"
           ></aside>
         </div>

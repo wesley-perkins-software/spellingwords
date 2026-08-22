@@ -414,6 +414,7 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
 
   <script>
     import { parseWordInput, encodeWordList } from '@/lib/words';
+    import { resolveCustomPracticeSource } from '@/lib/content/practiceSource';
 
     const textarea = document.getElementById('word-input') as HTMLTextAreaElement;
     const pill = document.getElementById('word-count-pill')!;
@@ -453,6 +454,12 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
             ? 'Word list is too long to encode. Please shorten some words.'
             : 'Could not create test. Please check your word list.';
         return;
+      }
+
+      try {
+        sessionStorage.setItem(`sw:source:${result.payload}`, JSON.stringify(resolveCustomPracticeSource()));
+      } catch {
+        /* sessionStorage unavailable — non-fatal */
       }
 
       window.location.href = `/play?list=${result.payload}`;

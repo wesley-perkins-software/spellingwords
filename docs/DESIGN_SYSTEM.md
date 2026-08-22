@@ -306,16 +306,25 @@ Ads are part of the long-term business model. They are planned into the design, 
 
 - Footer areas of discovery pages (homepage, library, list detail, hubs, teaching guides)
 - Sidebar of list detail pages on wide desktop layouts
-- Session completion state (after practice ends, before returning to the library)
-- The start screen of a practice session (before the first word)
+- Reserved side rails flanking the practice stage on wide desktop (see "Practice session ad rails" below) — never inline within the practice stage itself, at any state
 
 ### Where ads must never appear
 
-- Inside the active practice session (between words, adjacent to the word display, adjacent to the typing input)
+- Inside the practice stage at any state — ready, active question, feedback, or results (this supersedes an earlier version of this document that allowed inline ads on the start and completion screens; the 2026 practice redesign moved to a stricter rails-only architecture so the practice interaction never has to make room for an ad next to itself)
 - Within the word list on a list detail page
 - Immediately adjacent to a "Start Practice" call to action
 - As interstitials between pages
 - As autoplay video or audio of any kind
+
+### Practice session ad rails
+
+The practice stage (`src/pages/play.astro`) reserves two fixed-width, empty rail columns that only become visible at genuinely wide viewports — no ad code today, layout architecture only:
+
+- Below 1360px: single column, no rails. The practice stage is exactly what it is today.
+- 1360px–1759px: one fixed 300px rail appears (left side), alongside the centered 672px practice stage. Gutter between rail and stage: 32px.
+- 1760px and wider: two symmetric fixed 300px rails appear. The outer shell is capped at 1336px (672px stage + 2×300px rails + 2×32px gutters) so the stage never compresses once both rails are present.
+
+A rail never overlaps the stage, never sits between the progress bar and the question, never sits adjacent to Check Spelling / Continue, and never appears on mobile or tablet. Because the rails are reserved (not inserted) at these breakpoints, populating them later with a real ad causes no layout shift and never forces the stage off-center.
 
 ### Visual treatment
 
@@ -345,7 +354,7 @@ List Detail pages carry the most SEO weight and must hold the attention of both 
 
 ### Practice Session
 
-The practice session is the only page where the UI disappears. Once practice begins, the page IS the Practice Tray. The wordmark is present but quiet. Navigation is available but not prominent. The child sees a word, hears it, types it, and receives calm feedback. Nothing else competes. No ads during active practice.
+The practice session is the only page where the UI disappears. Once practice begins, the page IS the Practice Tray. The header carries the full "Sw" mark and wordmark (quieter than the discovery header, but unmistakably the same brand) plus one contextual action: "← Back to {source}" before a session starts (when the session has a known source page), "Exit practice" during an active question or feedback state, and "← New list" as the fallback when no source is known. The site footer never appears during ready, question, feedback, or results — only on the error/unsupported screens, which sit outside the practice shell entirely. The child sees a word, hears it, types it, and receives calm feedback. Nothing else competes. No ads during active practice — see "Practice session ad rails" in §10 for the reserved-rail architecture that keeps future ads outside the stage entirely.
 
 ### Grade Hub
 

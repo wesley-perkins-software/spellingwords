@@ -37,21 +37,25 @@ reading it in one sitting.
    through an entire collection — but they choose it deliberately (e.g.,
    "Practice all 41 words"), rather than having it be the only or default path.
 
-4. **"Review missed" is headed toward first-class status.**
+4. **"Review missed" is a first-class results action.**
    Reviewing words a learner got wrong is a natural, high-value session type —
-   arguably more valuable than grinding through an entire collection again. It
-   currently exists as a post-session action; over time it should become a
-   session type a learner can choose directly, alongside quick practice and
-   full-collection practice.
+   arguably more valuable than grinding through an entire collection again. On
+   the results screen, "Practice missed words" starts a new session containing
+   only the words missed in the previous pass (via the state machine's
+   `reviewMissed()` action), preserving each word's original sentence and hint
+   data. Missed words never re-enter the queue mid-session — they are only
+   ever collected into `result.missedWords` and offered as this explicit
+   follow-up session once the original pass is complete.
 
-5. **Example sentence behavior is intentionally deferred.**
-   Words in collections may carry an `exampleSentence`. Whether and how that
-   sentence is surfaced during a practice session (spoken automatically,
-   available on request, shown as text, etc.) is **not yet decided**. This is
-   a deliberate placeholder — the goal is to settle the Collection/Session
-   model first, observe how real sessions feel, and only then design the
-   sentence experience so it fits the session model rather than being bolted
-   onto the old "test the whole list" flow.
+5. **Example sentences are spoken automatically, on a deliberate delay.**
+   When a word carries an `exampleSentence`, the practice session speaks the
+   word immediately on arrival, then — after a short pause (1 second) so the
+   two utterances don't overlap or blur together — speaks the sentence too.
+   This is core to the "listen, then type" pedagogy, not incidental autoplay:
+   the word's pronunciation is the primary information a learner needs before
+   typing, and it is available the moment a question appears, without
+   requiring an extra tap. Learners can always replay either the word or the
+   sentence on demand via the "Hear word" / "Hear sentence" controls.
 
 6. **No gamification.**
    The learning model does not include experience points, streaks, badges,
@@ -69,9 +73,9 @@ When authoring a new collection:
 - Word order matters: curated collections are typically taught in a rough
   frequency or difficulty order, so the first N words of a collection form a
   reasonable default "quick practice" session.
-- Don't assume `exampleSentence` (or `hint`) will be surfaced during practice
-  yet — they remain useful editorial context and may power a future feature,
-  but no session currently displays or speaks them.
+- `exampleSentence` is spoken automatically during practice (see decision 5)
+  whenever a word has one — write sentences with that in mind. `hint` is not
+  yet surfaced anywhere in the play experience.
 
 ## What this means for the play experience
 
@@ -85,3 +89,13 @@ When authoring a new collection:
   supplies the exact words they want to practice, so the entire pasted list is
   the session by definition. The Collection/Session distinction applies to
   curated library content, not to custom lists.
+- A practice session carries lightweight provenance (`PracticeSource`, see
+  `src/types/spelling.ts` and `src/lib/content/practiceSource.ts`) describing
+  the exact Core unit / HFW set / Themed list / Skill page it was launched
+  from, if any. This drives "← Return to {source}" navigation on the ready
+  and results screens, and (for Core and HFW sources only, which have real
+  sequencing) a "Continue to next unit/set" progression action on a perfect
+  score. A non-perfect score never offers next-unit/set progression,
+  regardless of whether the source has one — the priority there is
+  practicing the missed words, not moving on. Custom sessions carry no
+  return destination and are never given a forced generic one.

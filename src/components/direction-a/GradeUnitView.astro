@@ -38,7 +38,7 @@ import {
   ACCENT_WASH_BG_CLASS,
   ACCENT_AMBIENT_BG_CLASS,
 } from '@/lib/content/pilotContent';
-import type { SpellingWord } from '@/types/spelling';
+import type { SpellingWord, PracticeSource } from '@/types/spelling';
 
 function isGradeCode(value: string): value is GradeCode {
   return value in GRADE_ACCENT;
@@ -72,6 +72,7 @@ interface Props {
   gradeHubHref?: string;
   playWords: SpellingWord[];
   playWordsJson: string;
+  practiceSource: PracticeSource;
   buttonId: string;
   wordListHeading: string;
   wordCount: number;
@@ -99,6 +100,7 @@ const {
   gradeHubHref,
   playWords,
   playWordsJson,
+  practiceSource,
   buttonId,
   wordListHeading,
   wordCount,
@@ -148,6 +150,7 @@ const hasSidebar = conceptSkills.length > 0 || relatedGroups.some((g: RelatedGro
           type="button"
           data-words={playWordsJson}
           data-list-title={title}
+          data-source={JSON.stringify(practiceSource)}
           size="lg"
           aria-label={`Practice these ${playWords.length} words in ${title}`}
         >
@@ -343,6 +346,9 @@ const hasSidebar = conceptSkills.length > 0 || relatedGroups.some((g: RelatedGro
     try {
       sessionStorage.setItem(`sw:words:${result.payload}`, JSON.stringify(words));
       if (listTitle) sessionStorage.setItem(`sw:title:${result.payload}`, listTitle);
+      if (button.dataset.source) {
+        sessionStorage.setItem(`sw:source:${result.payload}`, button.dataset.source);
+      }
     } catch {
       /* quota exceeded or private browsing — non-fatal */
     }

@@ -63,6 +63,12 @@ export function createSpeechController(
       utterance.voice = selectPreferredVoice(voices) ?? null;
     }
 
+    if (options?.onStart || options?.onEnd) {
+      utterance.onstart = options.onStart ?? null;
+      utterance.onend = options.onEnd ?? null;
+      utterance.onerror = options.onEnd ?? null;
+    }
+
     synthesis.speak(utterance);
     return { ok: true };
   }

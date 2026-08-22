@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import { getCanonicalListPath } from '@/lib/content/canonicalGradeRoutes';
-import { getCanonicalSkillRoutes, SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
+import { getCanonicalSkillRoutes, getCanonicalSkillPathById, SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
+import { resolveSkillPracticeSource } from '@/lib/content/practiceSource';
 import Layout from '@/layouts/Layout.astro';
 import { getCanonicalUrl } from '@/lib/canonicalUrl';
 import SiteHeader from '@/components/SiteHeader.astro';
@@ -68,6 +69,11 @@ function listLink(e: (typeof allEntries)[number]) {
 
 const easierList = prerequisites[0];
 const harderList = next[0];
+
+const practiceSource = resolveSkillPracticeSource({
+  title: data.title,
+  href: getCanonicalSkillPathById(data.id) ?? Astro.url.pathname,
+});
 
 // Skills is a first-class top-level journey, parallel to the grade-first journey.
 const breadcrumbItems = [
@@ -149,6 +155,7 @@ const familyAccent = skillFamily ? SKILL_FAMILY_ACCENT[skillFamily.title] : unde
       demoWords={playWords}
       practiceBankWords={practiceBankWords}
       practiceDescription={practiceDescription}
+      practiceSource={practiceSource}
       buttonId={`btn-pilot-practice-skill-${data.id}`}
       faq={data.faq}
       curriculumPlacements={curriculumPlacements}

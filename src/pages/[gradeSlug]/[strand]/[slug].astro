@@ -14,6 +14,7 @@ import {
   toPlayableWords,
 } from '@/lib/content/spellingLists';
 import { getNonCoreNavigationModel } from '@/lib/content/nonCoreNavigation';
+import { resolveGradeUnitPracticeSource } from '@/lib/content/practiceSource';
 import { categoryLabels } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { gradeConfig } from '@/lib/content/gradeConfig';
@@ -56,6 +57,15 @@ const playWordsJson = JSON.stringify(playWords);
 function listLink(e: (typeof allEntries)[number]) {
   return getCanonicalListPath(e.data);
 }
+
+const practiceSource = resolveGradeUnitPracticeSource({
+  id: data.id,
+  classification: route.classification,
+  title: data.title,
+  href: route.canonicalPath,
+  grade: data.grade,
+  titleById: (id) => allEntries.find((e) => e.data.id === id)?.data.title,
+});
 
 const categoryLabel = isHighFrequencyWords
   ? 'High-Frequency Words'
@@ -172,6 +182,7 @@ const relatedGroups = isHighFrequencyWords
       gradeHubHref={gradeHub?.hubHref}
       playWords={playWords}
       playWordsJson={playWordsJson}
+      practiceSource={practiceSource}
       buttonId={`btn-pilot-practice-${data.id}`}
       wordListHeading={isContractUnit ? `The ${data.words.length} words to practice in this step` : `All ${data.words.length} words in this list`}
       wordCount={data.words.length}

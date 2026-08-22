@@ -13,7 +13,7 @@ import WordTileGrid from './WordTileGrid.astro';
 import type { SpellingListEntry } from '@/lib/content/spellingLists';
 import type { DaAccent } from '@/lib/content/pilotContent';
 import { ACCENT_BEFORE_BG_CLASS, ACCENT_BG_CLASS, ACCENT_BORDER_CLASS, ACCENT_INK_CLASS } from '@/lib/content/pilotContent';
-import type { SpellingWord } from '@/types/spelling';
+import type { SpellingWord, PracticeSource } from '@/types/spelling';
 
 interface Props {
   title: string;
@@ -28,6 +28,7 @@ interface Props {
   demoWords: SpellingWord[];
   practiceBankWords?: SpellingWord[] | null;
   practiceDescription?: string | null;
+  practiceSource: PracticeSource;
   buttonId: string;
   faq: readonly { question: string; answer: string }[];
   curriculumPlacements: readonly { unit: SpellingListEntry; position?: { step: number; total: number }; gradeLabel?: string }[];
@@ -50,6 +51,7 @@ const {
   demoWords,
   practiceBankWords,
   practiceDescription,
+  practiceSource,
   buttonId,
   faq,
   curriculumPlacements,
@@ -130,7 +132,7 @@ const {
       <div class:list={['rounded-2xl border-l-[3px] bg-da-canvas-raised px-6 py-7 shadow-sm sm:px-8', ACCENT_BORDER_CLASS[familyAccent]]}>
         <h2 id="practice-heading" class="font-quicksand text-xl font-bold text-da-ink">Practice {title}</h2>
         <p class="mt-2 max-w-2xl text-base leading-relaxed text-da-ink-soft">{practiceDescription}</p>
-        <Button id={buttonId} type="button" data-words={JSON.stringify(practiceBankWords)} data-skill-title={title} class="mt-5">
+        <Button id={buttonId} type="button" data-words={JSON.stringify(practiceBankWords)} data-skill-title={title} data-source={JSON.stringify(practiceSource)} class="mt-5">
           Practice {title}
         </Button>
         <p id={`${buttonId}-status`} class="sr-only" role="status" aria-live="polite" />
@@ -260,6 +262,9 @@ const {
     try {
       sessionStorage.setItem(`sw:words:${result.payload}`, JSON.stringify(session));
       if (skillTitle) sessionStorage.setItem(`sw:title:${result.payload}`, skillTitle);
+      if (button.dataset.source) {
+        sessionStorage.setItem(`sw:source:${result.payload}`, button.dataset.source);
+      }
     } catch {
       /* quota exceeded or private browsing — non-fatal */
     }

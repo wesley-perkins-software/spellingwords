@@ -11,10 +11,16 @@ import SiteFooter from '@/components/SiteFooter.astro';
   <SiteHeader variant="practice" />
 
   <main id="main-content">
-    <!-- Narrow container: error / unsupported / begin screens -->
-    <div class="mx-auto max-w-xl px-6 py-12 md:py-16">
-      <!-- Error screen -->
-      <section id="screen-error" class="hidden text-center" aria-labelledby="error-heading">
+    <!-- Error / unsupported screens live outside the practice shell — they
+         never need the ad-rail grid or the session progress bar. Padding
+         lives on each section (not a shared wrapper) so an empty wrapper
+         never reserves blank vertical space while both are hidden. -->
+    <!-- Error screen -->
+    <section
+      id="screen-error"
+      class="hidden mx-auto max-w-xl px-6 py-12 text-center md:py-16"
+      aria-labelledby="error-heading"
+    >
         <div class="flex flex-col items-center gap-6">
           <div
             class="flex h-16 w-16 items-center justify-center rounded-2xl bg-da-incorrect-bg text-da-incorrect"
@@ -47,323 +53,377 @@ import SiteFooter from '@/components/SiteFooter.astro';
             ← Enter new words
           </a>
         </div>
-      </section>
+    </section>
 
-      <!-- Unsupported browser screen -->
-      <section
-        id="screen-unsupported"
-        class="hidden text-center"
-        aria-labelledby="unsupported-heading"
-      >
-        <div class="flex flex-col items-center gap-6">
-          <div
-            class="flex h-16 w-16 items-center justify-center rounded-2xl bg-da-sun-tint text-da-ink-soft"
+    <!-- Unsupported browser screen -->
+    <section
+      id="screen-unsupported"
+      class="hidden mx-auto max-w-xl px-6 py-12 text-center md:py-16"
+      aria-labelledby="unsupported-heading"
+    >
+      <div class="flex flex-col items-center gap-6">
+        <div
+          class="flex h-16 w-16 items-center justify-center rounded-2xl bg-da-sun-tint text-da-ink-soft"
+          aria-hidden="true"
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
             aria-hidden="true"
+            ><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line
+              x1="23"
+              y1="9"
+              x2="17"
+              y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg
           >
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-              ><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line
-                x1="23"
-                y1="9"
-                x2="17"
-                y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg
-            >
-          </div>
-          <div class="flex flex-col gap-2">
-            <h1 id="unsupported-heading" class="font-quicksand text-2xl font-bold text-da-ink">
-              Audio not supported
-            </h1>
-            <p class="text-base text-da-ink-soft">
-              Audio spelling tests are not supported in this browser.<br />
-              Please try a modern browser with speech support.
-            </p>
-          </div>
-          <a
-            href="/"
-            class="rounded-xl bg-da-brand px-6 py-3 font-quicksand text-sm font-bold text-white no-underline transition hover:bg-da-brand-strong"
-          >
-            ← Go back
-          </a>
         </div>
-      </section>
-
-      <!-- Begin screen -->
-      <section id="screen-begin" class="hidden" aria-labelledby="begin-heading">
-        <div class="flex flex-col items-center gap-8 text-center">
-          <!-- Readiness phrase + session identity, grouped tightly -->
-          <div class="flex flex-col items-center gap-3">
-            <p class="font-mulish text-base font-bold text-da-ink-soft tracking-wide">Let's begin.</p>
-            <h1 id="begin-heading" class="font-quicksand text-3xl font-bold text-da-ink leading-snug">
-            </h1>
-            <p id="begin-word-count" class="font-mulish text-base text-da-ink-soft"></p>
-          </div>
-
-          <!-- Instructional line -->
-          <p class="font-mulish text-base text-da-ink-soft">Listen carefully and type what you hear.</p>
-
-          <!-- Primary CTA -->
-          <button
-            id="btn-begin"
-            type="button"
-            class="w-full min-h-[44px] rounded-xl bg-da-coral px-10 py-4 font-quicksand text-[19px] font-bold text-white tracking-[0.01em] shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0"
-          >
-            Start Practice <span aria-hidden="true">→</span>
-          </button>
-
-          <!-- Hidden session meta slot for future chunking -->
-          <span id="begin-session-meta" class="hidden"></span>
-        </div>
-      </section>
-    </div>
-
-    <!-- Practice stage — a restrained, full-bleed cool-blue band gives the
-         active question/feedback/results states their own environmental
-         identity as a distinct mode, rather than floating on the same
-         canvas as the editorial pages. -->
-    <div id="practice-stage" class="hidden bg-da-brand-tint py-10 md:py-14">
-      <div class="mx-auto max-w-xl md:max-w-content-md px-6">
-        <!-- Shared session progress — visible during question AND feedback, hidden otherwise -->
-        <div id="session-progress" class="hidden mb-5 flex flex-col gap-2">
-          <p
-            id="progress"
-            class="font-quicksand text-sm font-bold text-da-ink-soft"
-            aria-live="polite"
-            aria-atomic="true"
-          >
+        <div class="flex flex-col gap-2">
+          <h1 id="unsupported-heading" class="font-quicksand text-2xl font-bold text-da-ink">
+            Audio not supported
+          </h1>
+          <p class="text-base text-da-ink-soft">
+            Audio spelling tests are not supported in this browser.<br />
+            Please try a modern browser with speech support.
           </p>
-          <div class="h-3 rounded-full bg-da-canvas-sunken overflow-hidden">
-            <div
-              id="progress-bar"
-              class="h-full rounded-full bg-da-brand transition-[width] duration-400"
-              style="width: 0%"
-            >
-            </div>
-          </div>
         </div>
-
-        <!-- Question screen
-             Uses CSS grid (1fr auto) with a shared min-height so the Check Spelling button
-             always occupies a consistent vertical slot. -->
-        <section
-          id="screen-question"
-          class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[420px]"
-          aria-labelledby="question-heading"
+        <a
+          href="/"
+          class="rounded-xl bg-da-brand px-6 py-3 font-quicksand text-sm font-bold text-white no-underline transition hover:bg-da-brand-strong"
         >
-          <!-- White interaction surface — the focused workbook card inside the cool stage -->
-          <div
-            class="rounded-2xl border border-da-border bg-da-canvas-raised shadow-md px-7 py-8 md:px-8 md:py-9 flex flex-col gap-7"
-          >
-            <h1 id="question-heading" class="sr-only">Type the word you hear</h1>
+          ← Go back
+        </a>
+      </div>
+    </section>
 
-            <!-- Hear Word / Hear Sentence controls — large, primary listening action -->
-            <div class="flex flex-col items-center gap-3 rounded-xl bg-da-canvas-sunken px-4 py-7">
-              <button
-                id="btn-repeat"
-                type="button"
-                class="flex h-28 w-28 items-center justify-center rounded-full bg-da-brand text-white shadow-[0_10px_24px_-8px_rgba(46,125,209,0.55),0_0_0_6px_theme(colors.da.canvas-raised),0_0_0_8px_theme(colors.da.brand-tint)] transition hover:bg-da-brand-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-da-brand active:translate-y-0"
-                aria-label="Hear the word again"
-                aria-describedby="hear-word-caption"
-              >
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4 10v4h3.5L12 17.5v-11L7.5 10H4z"></path>
-                  <path d="M15.5 9a3.5 3.5 0 010 6"></path>
-                  <path d="M18 6.5a7 7 0 010 11"></path>
-                </svg>
-              </button>
-              <p id="hear-word-caption" class="font-quicksand text-lg font-bold text-da-ink">Hear Word</p>
+    <!-- Practice shell — a restrained, full-bleed cool-blue band gives the
+         active ready/question/feedback/results states a single, stable
+         environment rather than floating on the same canvas as editorial
+         pages.
 
-              <button
-                id="btn-sentence"
-                type="button"
-                class="hidden mt-1 items-center gap-2 rounded-full border-[1.5px] border-da-border-strong bg-da-canvas-sunken px-5 py-2.5 font-mulish text-sm font-bold text-da-ink-soft transition hover:bg-da-brand-tint hover:text-da-brand-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand"
-                aria-label="Hear the word used in a sentence again"
-              >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                </svg>
-                Hear Sentence
-              </button>
+         GOVERNING INVARIANT: the practice stage's own center must equal the
+         viewport's center at every width, whether zero, one, or two future
+         ad rails are present. This is achieved with a permanently 3-column
+         grid — minmax(0,1fr) / minmax(0,672px) / minmax(0,1fr) — used
+         unchanged at every breakpoint. The two outer tracks are `fr`, so
+         they always split whatever space remains equally; the fixed 672px
+         center track is therefore always exactly centered, regardless of
+         whether the side tracks are empty, hold one rail, or hold two.
+         (A prior version of this shell centered a [rail, stage] pair as one
+         fixed-width group at the "one rail" breakpoint, which shifted the
+         stage itself off-center — that is exactly the bug this structure
+         is designed to make impossible: the stage's track never changes
+         size or position based on rail presence, only the rail elements'
+         visibility does.)
 
-              <!-- Shown only when no example sentence exists for this word -->
-              <p id="no-sentence-note" class="hidden mt-1 font-mulish text-sm font-semibold text-da-ink-soft" aria-live="polite">
-                No sentence available for this word.
-              </p>
-            </div>
+         Rail visibility (documented here, not just in code, per the
+         redesign brief's request to record safe rail widths/gutters):
+           - below 1440px:        both rails hidden — side tracks sit empty.
+           - 1440px – 1759px:     left rail may appear (~300px, hugging the
+                                   stage's left gutter); right stays empty.
+                                   1440px is chosen with a real safety
+                                   margin over the ~1432px geometric minimum
+                                   at which a 300px rail plus its 32px
+                                   gutter first fits in the side track.
+           - 1760px and wider:    right rail may also appear, symmetric with
+                                   the left. (Both sides are always the same
+                                   width, so nothing geometrically requires
+                                   deferring the right rail this long — it's
+                                   a deliberate, cautious product staging,
+                                   not a layout constraint.)
+         Rails are empty, inert placeholders (no ad code). No outer max-width
+         caps this shell — peripheral space is intentionally left to grow
+         unbounded on very wide screens, per "peripheral regions consume
+         only the space naturally remaining."
 
-            <!-- Answer input -->
-            <div class="flex flex-col gap-2">
-              <p id="question-instruction" class="text-center text-base font-bold text-da-ink"></p>
-              <input
-                id="answer-input"
-                type="text"
-                autocomplete="off"
-                autocorrect="off"
-                autocapitalize="off"
-                spellcheck="false"
-                placeholder="Type the word"
-                class="w-full rounded-xl border-[2.5px] border-da-border-strong bg-da-canvas px-5 py-4 text-center font-word text-3xl font-semibold text-da-ink tracking-wide placeholder:font-mulish placeholder:font-normal placeholder:text-da-ink-faint/60 transition focus:border-da-brand focus:outline-none"
-                aria-label="Your answer"
-              />
+         Vertical centering: this shell is min-height'd to the viewport
+         height below the practice header (100dvh minus the header's real
+         measured height, kept in --practice-header-h by the script below,
+         with a sensible fallback) and centers its single child on that
+         cross axis. Every screen — ready, question, feedback, results — is
+         a child of #practice-stage-inner below, so all four automatically
+         share one centering discipline: short content (a perfect-score
+         results card, the ready screen) centers within the available
+         height; content taller than the available height simply grows the
+         (min-height, not fixed-height) shell past the viewport, and the
+         page scrolls normally — no clipping, no one-off transforms. -->
+    <div
+      id="practice-stage"
+      class="hidden min-h-[calc(100dvh-var(--practice-header-h,4.5rem))] items-center bg-da-brand-tint py-8 md:py-12"
+    >
+      <div class="w-full px-4 md:px-6">
+        <div class="grid grid-cols-[minmax(0,1fr)_minmax(0,672px)_minmax(0,1fr)] gap-8">
+          <aside
+            id="rail-left"
+            class="col-start-1 hidden min-[1440px]:block w-[300px] justify-self-end"
+            aria-hidden="true"
+          ></aside>
+
+          <div id="practice-stage-inner" class="col-start-2 min-w-0 w-full max-w-content-md justify-self-center">
+            <!-- Shared session progress — visible during question AND feedback, hidden otherwise -->
+            <div id="session-progress" class="hidden mb-5 flex flex-col gap-2">
               <p
-                id="answer-error"
-                class="min-h-[1.25rem] px-1 text-center text-sm font-semibold text-da-incorrect"
+                id="progress"
+                class="font-quicksand text-sm font-bold text-da-ink-soft"
                 aria-live="polite"
-                role="alert"
+                aria-atomic="true"
               >
               </p>
-            </div>
-          </div>
-
-          <!-- Primary action — grid row 2, same slot as Continue button on feedback screen -->
-          <button
-            id="btn-submit"
-            type="button"
-            class="w-full min-h-[44px] rounded-xl bg-da-coral px-6 py-4 font-quicksand text-xl font-bold text-white shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0"
-          >
-            Check Spelling
-          </button>
-        </section>
-
-        <!-- Feedback screen — mirrors question screen grid so content centers between progress and button -->
-        <section
-          id="screen-feedback"
-          class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[420px] text-center"
-          aria-labelledby="feedback-heading"
-          aria-live="assertive"
-        >
-          <!-- Visually hidden heading updated for screen readers -->
-          <h1 id="feedback-heading" class="sr-only"></h1>
-
-          <!-- Content zone — centered vertically in the 1fr row -->
-          <div class="flex flex-col items-center justify-center gap-4 rounded-2xl px-6 py-8 md:px-8">
-            <!-- Correct answer: icon + word, calm phrase below -->
-            <div id="feedback-correct-layout" class="hidden w-full flex-col items-center gap-4 rounded-2xl border border-da-correct-border bg-da-correct-bg px-6 py-8 md:px-8">
-              <span class="flex h-14 w-14 items-center justify-center rounded-full bg-da-correct text-white" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <path d="M8 12.5l2.5 2.5L16 9"></path>
-                </svg>
-              </span>
-              <div class="flex flex-col items-center gap-1">
-                <p id="feedback-correct-phrase" class="font-quicksand text-xl font-bold text-da-correct">
-                </p>
-                <p
-                  id="feedback-correct-word"
-                  class="font-word text-5xl font-bold tracking-tight leading-none text-da-ink mt-1"
+              <div class="h-3 rounded-full bg-da-canvas-sunken overflow-hidden">
+                <div
+                  id="progress-bar"
+                  class="h-full rounded-full bg-da-brand transition-[width] duration-400"
+                  style="width: 0%"
                 >
-                </p>
+                </div>
               </div>
             </div>
 
-            <!-- Incorrect answer: icon + phrase, then a you-wrote/correct-spelling comparison -->
-            <div id="feedback-incorrect-layout" class="hidden w-full flex-col items-center gap-3 rounded-2xl border border-da-incorrect-border bg-da-incorrect-bg px-6 py-8 md:px-8">
-              <span class="flex h-14 w-14 items-center justify-center rounded-full bg-da-incorrect text-white" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <path d="M12 8v5"></path>
-                  <circle cx="12" cy="16" r="0.75" fill="currentColor" stroke="none"></circle>
-                </svg>
-              </span>
-              <p
-                id="feedback-incorrect-phrase"
-                class="font-quicksand text-xl font-bold text-da-incorrect"
-              >
-              </p>
-              <dl class="mt-1 flex flex-col gap-2">
-                <div class="flex items-baseline justify-center gap-2.5">
-                  <dt class="font-mulish text-sm font-bold text-da-ink-soft">You wrote:</dt>
-                  <dd id="feedback-attempt" class="font-word text-2xl font-bold text-da-incorrect line-through decoration-2"></dd>
-                </div>
-                <div class="flex items-baseline justify-center gap-2.5">
-                  <dt class="font-mulish text-sm font-bold text-da-ink-soft">Correct spelling:</dt>
-                  <dd
-                    id="feedback-incorrect-word"
-                    class="font-word text-4xl font-bold tracking-tight leading-none text-da-correct"
-                  >
-                  </dd>
-                </div>
-              </dl>
-              <p id="feedback-detail" class="mt-1 font-mulish text-sm font-semibold text-da-ink-soft"></p>
-            </div>
-          </div>
-
-          <!-- Continue button — auto row, anchors at bottom like Check Spelling on question screen -->
-          <button
-            id="btn-next"
-            type="button"
-            aria-label="Continue to next word"
-            class="w-full min-h-[44px] rounded-xl bg-da-coral px-8 py-4 font-quicksand text-xl font-bold text-white shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0 disabled:opacity-40 disabled:cursor-default disabled:translate-y-0"
-          >
-            Continue →
-          </button>
-        </section>
-
-        <!-- Results screen -->
-        <section id="screen-results" class="hidden" aria-labelledby="results-heading">
-          <div
-            id="results-content"
-            class="flex flex-col items-center gap-6 rounded-2xl border border-da-brand border-t-4 bg-da-canvas-raised px-6 py-9 shadow-md text-center md:px-9"
-          >
-            <!-- Outcome zone -->
-            <div>
-              <h1
-                id="results-heading"
-                class="font-quicksand text-3xl font-bold text-da-brand-strong leading-tight"
-              >
-              </h1>
-              <p id="results-summary" class="mt-3 text-lg font-semibold text-da-ink-soft"></p>
-              <!-- Shown only for difficult sessions -->
-              <p id="results-reassurance" class="hidden mt-2 text-sm text-da-ink-soft">
-                Some words take a few tries to stick.
-              </p>
-            </div>
-
-            <!-- Missed words section — chips only, no button inside; hidden for perfect sessions -->
-            <div
-              id="results-missed-section"
-              class="hidden w-full flex flex-col items-center gap-3"
+            <!-- Begin screen — shares the same min-height grid discipline as
+                 question/feedback so ready→question never jumps in height. -->
+            <section
+              id="screen-begin"
+              class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[420px]"
+              aria-labelledby="begin-heading"
             >
-              <p id="results-missed-heading" class="font-quicksand text-sm font-bold uppercase tracking-[0.05em] text-da-ink-faint"></p>
-              <ul
-                id="results-missed-list"
-                class="flex flex-wrap justify-center gap-2.5"
-                aria-label="Words to practice again"
-              >
-              </ul>
-              <p id="results-missed-overflow" class="hidden font-mulish text-sm font-bold text-da-ink-soft">
-              </p>
-            </div>
+              <div class="flex flex-col items-center justify-center gap-7 rounded-2xl border border-da-border bg-da-canvas-raised px-7 py-8 text-center shadow-md md:px-8 md:py-9">
+                <div class="flex flex-col items-center gap-3">
+                  <p class="font-mulish text-base font-bold text-da-ink-soft tracking-wide">Ready to practice</p>
+                  <h1 id="begin-heading" class="font-quicksand text-3xl font-bold text-da-ink leading-snug"></h1>
+                  <p id="begin-word-count" class="font-mulish text-base text-da-ink-soft"></p>
+                </div>
+                <p id="begin-instructions" class="max-w-[36ch] font-mulish text-base text-da-ink-soft"></p>
+                <a
+                  id="begin-source-link"
+                  href="#"
+                  class="hidden font-mulish text-sm font-bold text-da-brand-strong no-underline hover:underline"
+                ></a>
+              </div>
 
-            <!-- Action zone — populated and ordered by renderResults() -->
-            <div id="results-action-zone" class="flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
-              <!-- Perfect session primary -->
-              <a
-                id="btn-choose-list"
-                href="/#grades"
-                class="hidden w-full rounded-xl bg-da-coral px-6 py-4 text-center font-quicksand text-lg font-bold text-white no-underline shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0 sm:w-auto"
-              >
-                Choose another list
-              </a>
-
-              <!-- Retry full list — role (primary/secondary) and label set by JS -->
               <button
-                id="btn-retry"
+                id="btn-begin"
                 type="button"
-                class="w-full min-h-[44px] rounded-xl border-2 border-da-brand bg-da-canvas-raised px-6 py-3.5 font-quicksand text-base font-bold text-da-brand-strong transition hover:bg-da-brand-tint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand active:scale-[0.98] sm:w-auto"
+                class="w-full min-h-[44px] rounded-xl bg-da-coral px-10 py-4 font-quicksand text-[19px] font-bold text-white tracking-[0.01em] shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0"
               >
-                Practice these words again
+                Start practice <span aria-hidden="true">→</span>
               </button>
-            </div>
+            </section>
+
+            <!-- Question screen
+                 Uses CSS grid (1fr auto) with a shared min-height so the Check Spelling button
+                 always occupies a consistent vertical slot. -->
+            <section
+              id="screen-question"
+              class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[420px]"
+              aria-labelledby="question-heading"
+            >
+              <!-- White interaction surface — the focused workbook card inside the cool stage -->
+              <div
+                class="rounded-2xl border border-da-border bg-da-canvas-raised shadow-md px-7 py-8 md:px-8 md:py-9 flex flex-col gap-7"
+              >
+                <h1 id="question-heading" class="sr-only">Type the word you hear</h1>
+
+                <!-- Hear Word / Hear Sentence — one coherent listening-control
+                     group. Hear Word is primary (solid brand blue); Hear
+                     Sentence is secondary but equally reachable — same
+                     height, same rounded-rectangle shape language as the
+                     rest of the page, no oversized circular icon. -->
+                <div class="flex flex-col gap-2.5 sm:flex-row">
+                  <button
+                    id="btn-repeat"
+                    type="button"
+                    aria-pressed="false"
+                    class="flex min-h-[56px] flex-1 items-center justify-center gap-2.5 rounded-xl bg-da-brand px-5 font-quicksand text-base font-bold text-white transition hover:bg-da-brand-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand aria-pressed:bg-da-brand-strong"
+                    aria-label="Hear the word again"
+                  >
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M4 10v4h3.5L12 17.5v-11L7.5 10H4z"></path>
+                      <path d="M15.5 9a3.5 3.5 0 010 6"></path>
+                      <path d="M18 6.5a7 7 0 010 11"></path>
+                    </svg>
+                    Hear word
+                  </button>
+
+                  <button
+                    id="btn-sentence"
+                    type="button"
+                    aria-pressed="false"
+                    class="hidden min-h-[56px] flex-1 items-center justify-center gap-2.5 rounded-xl border-[1.5px] border-da-border-strong bg-da-canvas-sunken px-5 font-quicksand text-base font-bold text-da-ink-soft transition hover:bg-da-brand-tint hover:text-da-brand-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand aria-pressed:bg-da-brand-tint aria-pressed:text-da-brand-strong"
+                    aria-label="Hear the word used in a sentence again"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    Hear sentence
+                  </button>
+                </div>
+                <!-- Shown only when no example sentence exists for this word -->
+                <p id="no-sentence-note" class="hidden -mt-4 text-center font-mulish text-sm font-semibold text-da-ink-soft" aria-live="polite">
+                  No sentence available for this word.
+                </p>
+
+                <!-- Answer input -->
+                <div class="flex flex-col gap-2">
+                  <p id="question-instruction" class="text-center text-base font-bold text-da-ink"></p>
+                  <input
+                    id="answer-input"
+                    type="text"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    placeholder="Type the word"
+                    class="w-full rounded-xl border-[2.5px] border-da-border-strong bg-da-canvas px-5 py-4 text-center font-word text-3xl font-semibold text-da-ink tracking-wide placeholder:font-mulish placeholder:font-normal placeholder:text-da-ink-faint/60 transition focus:border-da-brand focus:outline-none"
+                    aria-label="Your answer"
+                  />
+                  <p
+                    id="answer-error"
+                    class="min-h-[1.25rem] px-1 text-center text-sm font-semibold text-da-incorrect"
+                    aria-live="polite"
+                    role="alert"
+                  >
+                  </p>
+                </div>
+              </div>
+
+              <!-- Primary action — grid row 2, same slot as Continue button on feedback screen -->
+              <button
+                id="btn-submit"
+                type="button"
+                class="w-full min-h-[44px] rounded-xl bg-da-coral px-6 py-4 font-quicksand text-xl font-bold text-white shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0"
+              >
+                Check Spelling
+              </button>
+            </section>
+
+            <!-- Feedback screen — mirrors question screen grid so content centers between progress and button -->
+            <section
+              id="screen-feedback"
+              class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[420px] text-center"
+              aria-labelledby="feedback-heading"
+              aria-live="assertive"
+            >
+              <!-- Visually hidden heading updated for screen readers -->
+              <h1 id="feedback-heading" class="sr-only"></h1>
+
+              <!-- Content zone — centered vertically in the 1fr row -->
+              <div class="flex flex-col items-center justify-center gap-4 rounded-2xl px-6 py-8 md:px-8">
+                <!-- Correct answer: icon + word, calm phrase below -->
+                <div id="feedback-correct-layout" class="hidden w-full flex-col items-center gap-4 rounded-2xl border border-da-correct-border bg-da-correct-bg px-6 py-8 md:px-8">
+                  <span class="flex h-14 w-14 items-center justify-center rounded-full bg-da-correct text-white" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M8 12.5l2.5 2.5L16 9"></path>
+                    </svg>
+                  </span>
+                  <div class="flex flex-col items-center gap-1">
+                    <p id="feedback-correct-phrase" class="font-quicksand text-xl font-bold text-da-correct">
+                    </p>
+                    <p
+                      id="feedback-correct-word"
+                      class="font-word text-5xl font-bold tracking-tight leading-none text-da-ink mt-1"
+                    >
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Incorrect answer: icon + phrase, then a labeled comparison —
+                     never a strikethrough. The student's own spelling stays
+                     fully legible; the correct spelling reads as visually
+                     dominant through size and color, not by crossing anything
+                     out. -->
+                <div id="feedback-incorrect-layout" class="hidden w-full flex-col items-center gap-3 rounded-2xl border border-da-incorrect-border bg-da-incorrect-bg px-6 py-8 md:px-8">
+                  <span class="flex h-14 w-14 items-center justify-center rounded-full bg-da-incorrect text-white" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M12 8v5"></path>
+                      <circle cx="12" cy="16" r="0.75" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                  </span>
+                  <p
+                    id="feedback-incorrect-phrase"
+                    class="font-quicksand text-xl font-bold text-da-incorrect"
+                  >
+                  </p>
+                  <dl class="mt-1 flex flex-col gap-3">
+                    <div class="flex flex-col items-center gap-0.5">
+                      <dt class="font-quicksand text-xs font-bold uppercase tracking-[0.06em] text-da-ink-faint">Your spelling</dt>
+                      <dd id="feedback-attempt" class="font-word text-2xl font-bold text-da-ink-soft"></dd>
+                    </div>
+                    <div class="flex flex-col items-center gap-0.5">
+                      <dt class="font-quicksand text-xs font-bold uppercase tracking-[0.06em] text-da-ink-faint">Correct spelling</dt>
+                      <dd
+                        id="feedback-incorrect-word"
+                        class="font-word text-4xl font-bold tracking-tight leading-none text-da-correct"
+                      >
+                      </dd>
+                    </div>
+                  </dl>
+                  <p id="feedback-detail" class="mt-1 font-mulish text-sm font-semibold text-da-ink-soft"></p>
+                </div>
+              </div>
+
+              <!-- Continue button — auto row, anchors at bottom like Check Spelling on question screen -->
+              <button
+                id="btn-next"
+                type="button"
+                aria-label="Continue to next word"
+                class="w-full min-h-[44px] rounded-xl bg-da-coral px-8 py-4 font-quicksand text-xl font-bold text-white shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0 disabled:opacity-40 disabled:cursor-default disabled:translate-y-0"
+              >
+                Continue →
+              </button>
+            </section>
+
+            <!-- Results screen -->
+            <section id="screen-results" class="hidden" aria-labelledby="results-heading">
+              <div
+                id="results-content"
+                class="flex flex-col items-center gap-6 rounded-2xl border border-da-brand border-t-4 bg-da-canvas-raised px-6 py-9 shadow-md text-center md:px-9"
+              >
+                <!-- Outcome zone -->
+                <div>
+                  <h1
+                    id="results-heading"
+                    class="font-quicksand text-3xl font-bold text-da-brand-strong leading-tight"
+                  >
+                  </h1>
+                  <p id="results-summary" class="mt-3 text-lg font-semibold text-da-ink-soft"></p>
+                </div>
+
+                <!-- Missed words — a neutral, non-interactive specimen list
+                     (not pill-shaped chips) since these words aren't
+                     clickable; hidden entirely for perfect sessions. -->
+                <div
+                  id="results-missed-section"
+                  class="hidden w-full flex flex-col items-center gap-3"
+                >
+                  <p class="font-quicksand text-sm font-bold uppercase tracking-[0.05em] text-da-ink-faint">Words to practice again</p>
+                  <ul
+                    id="results-missed-list"
+                    class="flex flex-wrap justify-center gap-1.5"
+                    aria-label="Words to practice again"
+                  >
+                  </ul>
+                </div>
+
+                <!-- Action zone — populated and ordered by renderResults() via resolveResultsActions() -->
+                <div id="results-action-zone" class="flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+                </div>
+              </div>
+            </section>
           </div>
-        </section>
+
+          <aside
+            id="rail-right"
+            class="col-start-3 hidden min-[1760px]:block w-[300px] justify-self-start"
+            aria-hidden="true"
+          ></aside>
+        </div>
       </div>
     </div>
   </main>
@@ -385,9 +445,13 @@ import SiteFooter from '@/components/SiteFooter.astro';
     startTest,
     submitAnswer,
     nextWord,
-    resetTest,
+    reviewMissed,
   } from '@/modules/spellingTest/stateMachine';
   import type { TestState } from '@/modules/spellingTest/types';
+  import { resolveResultsActions } from '@/modules/spellingTest/resultsActions';
+  import type { ResultsAction } from '@/modules/spellingTest/resultsActions';
+  import { getPracticeIntroCopy } from '@/modules/spellingTest/practiceIntro';
+  import type { PracticeSource } from '@/types/spelling';
 
   // --- DOM refs ---
   const $ = (id: string) => document.getElementById(id)!;
@@ -411,6 +475,8 @@ import SiteFooter from '@/components/SiteFooter.astro';
 
   const beginHeading = $('begin-heading');
   const beginWordCount = $('begin-word-count');
+  const beginInstructions = $('begin-instructions');
+  const beginSourceLink = $('begin-source-link') as HTMLAnchorElement;
   const progressEl = $('progress');
   const questionInstruction = $('question-instruction');
   const answerInput = $('answer-input') as HTMLInputElement;
@@ -426,27 +492,26 @@ import SiteFooter from '@/components/SiteFooter.astro';
   const feedbackDetail = $('feedback-detail');
   const progressBar = $('progress-bar') as HTMLElement;
   const sessionProgress = $('session-progress');
-  const resultsReassurance = $('results-reassurance');
+  const resultsHeading = $('results-heading');
   const resultsSummary = $('results-summary');
   const resultsMissedSection = $('results-missed-section');
-  const resultsMissedHeading = $('results-missed-heading');
   const resultsMissedList = $('results-missed-list');
-  const resultsMissedOverflow = $('results-missed-overflow');
-  const btnChooseList = $('btn-choose-list') as HTMLAnchorElement;
+  const resultsActionZone = $('results-action-zone');
   const btnBegin = $('btn-begin') as HTMLButtonElement;
   const btnRepeat = $('btn-repeat') as HTMLButtonElement;
   const btnSentence = $('btn-sentence') as HTMLButtonElement;
   const noSentenceNote = $('no-sentence-note');
   const btnSubmit = $('btn-submit') as HTMLButtonElement;
   const btnNext = $('btn-next') as HTMLButtonElement;
-  const btnRetry = $('btn-retry') as HTMLButtonElement;
   const errorMessage = $('error-message');
+  const practiceExitLink = document.getElementById('practice-exit-link') as HTMLAnchorElement | null;
 
   // --- Module state ---
   const speech = createSpeechController();
   let state: TestState = createInitialState();
   let originalWords: string[] = [];
   let originalRichWords: { word: string; exampleSentence?: string }[] = [];
+  let practiceSource: PracticeSource = { type: 'custom' };
 
   let selectedVoice: SpeechSynthesisVoiceAdapter | null = null;
   const currentRate = 1.0;
@@ -459,6 +524,13 @@ import SiteFooter from '@/components/SiteFooter.astro';
       clearTimeout(sentenceTimeout);
       sentenceTimeout = null;
     }
+  }
+
+  // Clears the "speaking" pressed-state on whichever listening button
+  // triggered the current utterance, wherever speech might have stopped.
+  function clearSpeakingState(): void {
+    btnRepeat.setAttribute('aria-pressed', 'false');
+    btnSentence.setAttribute('aria-pressed', 'false');
   }
 
   // --- Warm, varied feedback copy ---
@@ -505,7 +577,9 @@ import SiteFooter from '@/components/SiteFooter.astro';
 
   // --- Screen management ---
   const siteFooter = document.getElementById('site-footer');
-  const immersiveScreens = [screenQuestion, screenFeedback, screenResults];
+  // Every practice-stage screen is an "immersive" state — ready, question,
+  // feedback, and results all share the same quiet, chrome-suppressed shell.
+  const immersiveScreens = [screenBegin, screenQuestion, screenFeedback, screenResults];
 
   const practiceScreens = [screenQuestion, screenFeedback];
 
@@ -514,12 +588,37 @@ import SiteFooter from '@/components/SiteFooter.astro';
       screen.classList.toggle('hidden', screen !== target);
       screen.classList.remove('screen-entering');
     }
-    practiceStage.classList.toggle('hidden', !immersiveScreens.includes(target));
-    siteFooter?.classList.toggle('hidden', immersiveScreens.includes(target));
+    const showStage = immersiveScreens.includes(target);
+    practiceStage.classList.toggle('hidden', !showStage);
+    // 'hidden' (display:none) and 'flex' must be toggled together, never
+    // left both present — Tailwind's cascade order would otherwise let
+    // 'flex' win and defeat 'hidden'.
+    practiceStage.classList.toggle('flex', showStage);
+    siteFooter?.classList.toggle('hidden', showStage);
     sessionProgress.classList.toggle('hidden', !practiceScreens.includes(target));
+    updateExitLink(target);
     // Trigger reflow so the animation restarts each time
     void (target as HTMLElement).offsetHeight;
     target.classList.add('screen-entering');
+  }
+
+  // The practice header's exit link is contextual: it offers to return to
+  // the exact page the session started from wherever we know one, and its
+  // label changes once a session is actually in progress.
+  function updateExitLink(target: HTMLElement): void {
+    if (!practiceExitLink) return;
+    const hasSource = Boolean(practiceSource.href && practiceSource.title);
+
+    if (target === screenQuestion || target === screenFeedback) {
+      practiceExitLink.textContent = 'Exit practice';
+      practiceExitLink.href = hasSource ? practiceSource.href! : '/';
+    } else if (target === screenBegin && hasSource) {
+      practiceExitLink.textContent = `← Back to ${practiceSource.title}`;
+      practiceExitLink.href = practiceSource.href!;
+    } else {
+      practiceExitLink.textContent = '← New list';
+      practiceExitLink.href = '/#practice';
+    }
   }
 
   function showError(message: string): void {
@@ -593,8 +692,27 @@ import SiteFooter from '@/components/SiteFooter.astro';
       /* sessionStorage unavailable — use fallback */
     }
 
+    // Resolve session provenance, written by the page that launched practice.
+    try {
+      const stored = sessionStorage.getItem(`sw:source:${payload}`);
+      if (stored) {
+        const parsed: unknown = JSON.parse(stored);
+        if (parsed && typeof parsed === 'object' && typeof (parsed as PracticeSource).type === 'string') {
+          practiceSource = parsed as PracticeSource;
+        }
+      }
+    } catch {
+      /* sessionStorage unavailable or parse failed — default 'custom' source stands */
+    }
+
     beginHeading.textContent = sessionTitle;
     beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
+    beginInstructions.textContent = getPracticeIntroCopy(richWords);
+    if (practiceSource.href && practiceSource.title) {
+      beginSourceLink.textContent = `← Back to ${practiceSource.title}`;
+      beginSourceLink.href = practiceSource.href;
+      beginSourceLink.classList.remove('hidden');
+    }
     showScreen(screenBegin);
 
     // Load voices in the background — does not require a user gesture
@@ -602,13 +720,10 @@ import SiteFooter from '@/components/SiteFooter.astro';
   }
 
   // --- Render helpers ---
-  function speechOptions() {
-    return { voice: selectedVoice, rate: currentRate };
+  function speechOptions(onStart?: () => void, onEnd?: () => void) {
+    return { voice: selectedVoice, rate: currentRate, onStart, onEnd };
   }
 
-  // --- Progressive instructions ---
-  // Full guidance up front; as the child settles in, the screen quietly
-  // steps back rather than repeating itself on every single word.
   function instructionForIndex(): string {
     return 'Listen, then type the word.';
   }
@@ -627,7 +742,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
     // Show sentence button only when this word has an example sentence
     const hasSentence = Boolean(current.exampleSentence);
     btnSentence.classList.toggle('hidden', !hasSentence);
-    btnSentence.classList.toggle('inline-flex', hasSentence);
+    btnSentence.classList.toggle('flex', hasSentence);
     noSentenceNote.classList.toggle('hidden', hasSentence);
 
     showScreen(screenQuestion);
@@ -635,17 +750,32 @@ import SiteFooter from '@/components/SiteFooter.astro';
 
     // Cancel any pending sentence from the previous word, then speak this word.
     // After a short natural pause, auto-speak the sentence if one exists.
+    // This immediate word pronunciation is the core "listen, then type"
+    // mechanism, not incidental autoplay — see docs/LEARNING_MODEL.md.
     cancelPendingSentence();
     speech.cancelSpeech();
+    clearSpeakingState();
 
-    const result = speech.speakWord(current.word, speechOptions());
+    const result = speech.speakWord(
+      current.word,
+      speechOptions(
+        () => btnRepeat.setAttribute('aria-pressed', 'true'),
+        () => btnRepeat.setAttribute('aria-pressed', 'false'),
+      ),
+    );
     if (!result.ok) {
       answerError.textContent =
         'Audio is not available right now. Try "Hear Word", or check your device sound.';
     } else if (hasSentence) {
       sentenceTimeout = setTimeout(() => {
         sentenceTimeout = null;
-        speech.speakWord(current.exampleSentence!, speechOptions());
+        speech.speakWord(
+          current.exampleSentence!,
+          speechOptions(
+            () => btnSentence.setAttribute('aria-pressed', 'true'),
+            () => btnSentence.setAttribute('aria-pressed', 'false'),
+          ),
+        );
       }, 1000);
     }
   }
@@ -685,8 +815,8 @@ import SiteFooter from '@/components/SiteFooter.astro';
       btnNext.textContent = isLast ? 'See Results →' : 'Continue →';
       requestAnimationFrame(() => btnNext.focus());
     } else {
-      // Incorrect: icon + phrase, then a you-wrote/correct-spelling comparison —
-      // never color alone: the wrong attempt is struck through as a non-color cue too.
+      // Incorrect: icon + phrase, then a labeled your-spelling/correct-spelling
+      // comparison — never color alone: both spellings carry text labels too.
       feedbackIncorrectLayout.classList.remove('hidden');
       feedbackIncorrectLayout.classList.add('flex');
       feedbackCorrectLayout.classList.add('hidden');
@@ -700,7 +830,10 @@ import SiteFooter from '@/components/SiteFooter.astro';
       feedbackIncorrectPhrase.textContent = phrase;
       feedbackAttempt.textContent = submittedAnswer || '—';
       feedbackIncorrectWord.textContent = currentWord;
-      feedbackDetail.textContent = "We'll come back to this one.";
+      // Missed words never re-enter the queue mid-session — they only
+      // surface in the results screen's "Practice missed words" action —
+      // so this copy describes what actually happens, not a mid-run retry.
+      feedbackDetail.textContent = 'You can practice this word again at the end.';
 
       // SR label covers outcome, attempt, and correct word
       feedbackHeading.textContent = `${phrase} You wrote ${submittedAnswer}. The correct spelling is ${currentWord}.`;
@@ -719,31 +852,55 @@ import SiteFooter from '@/components/SiteFooter.astro';
     }
   }
 
-  // CSS class sets for primary vs secondary button styling
+  // CSS class sets for primary / secondary / tertiary results actions
   const PRIMARY_BTN_CLS =
-    'w-full min-h-[44px] rounded-xl bg-da-coral px-6 py-4 font-quicksand text-lg font-bold text-white shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0 sm:w-auto';
+    'w-full min-h-[44px] rounded-xl bg-da-coral px-6 py-4 font-quicksand text-lg font-bold text-white no-underline text-center shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0 sm:w-auto';
   const SECONDARY_BTN_CLS =
-    'w-full min-h-[44px] rounded-xl border-2 border-da-brand bg-da-canvas-raised px-6 py-3.5 font-quicksand text-base font-bold text-da-brand-strong transition hover:bg-da-brand-tint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand active:scale-[0.98] sm:w-auto';
-  const PRIMARY_LINK_CLS =
-    'w-full rounded-xl bg-da-coral px-6 py-4 text-center font-quicksand text-lg font-bold text-white no-underline shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0 sm:w-auto';
+    'w-full min-h-[44px] rounded-xl border-2 border-da-brand bg-da-canvas-raised px-6 py-3.5 font-quicksand text-base font-bold text-da-brand-strong no-underline text-center transition hover:bg-da-brand-tint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand active:scale-[0.98] sm:w-auto';
+  const TERTIARY_LINK_CLS =
+    'w-full min-h-[44px] flex items-center justify-center rounded-xl px-6 py-3.5 font-quicksand text-base font-bold text-da-ink-soft no-underline text-center transition hover:bg-da-surface-neutral hover:text-da-ink sm:w-auto';
 
-  function buildMissedChips(missedWords: { word: string }[], cap: number): void {
+  // Non-pill, neutral "specimen" treatment for missed words — matching
+  // WordSpecimen.astro's inert reference-content styling, since these words
+  // are not interactive.
+  function buildMissedWordSpecimens(missedWords: { word: string }[]): void {
     resultsMissedList.textContent = '';
-    const visible = missedWords.slice(0, cap);
-    const overflow = missedWords.length - cap;
-    for (const w of visible) {
+    for (const w of missedWords) {
       const li = document.createElement('li');
       li.textContent = w.word;
       li.className =
-        'rounded-full border border-da-border-strong bg-da-canvas-raised px-4 py-2.5 font-word text-base font-semibold text-da-ink select-none';
+        'rounded-md border border-da-border-strong bg-da-border px-2.5 py-1 font-word text-sm text-da-ink-soft select-none';
       resultsMissedList.appendChild(li);
     }
-    if (overflow > 0) {
-      resultsMissedOverflow.textContent = `+${overflow} more`;
-      resultsMissedOverflow.classList.remove('hidden');
-    } else {
-      resultsMissedOverflow.classList.add('hidden');
+  }
+
+  function buildResultsAction(action: ResultsAction): HTMLElement {
+    if (action.kind === 'reviewMissed') {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.id = 'btn-review-missed';
+      btn.textContent = action.label;
+      btn.className = PRIMARY_BTN_CLS;
+      btn.addEventListener('click', handleReviewMissed);
+      return btn;
     }
+    if (action.kind === 'retryFull') {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.id = 'btn-retry-full';
+      btn.textContent = action.label;
+      // retryFull is primary only when it's the first action in the list
+      // (a perfect session with no next-unit progression available).
+      btn.className = SECONDARY_BTN_CLS;
+      btn.addEventListener('click', handleRetryFull);
+      return btn;
+    }
+    // continueNext / sourceReturn — plain navigation links
+    const a = document.createElement('a');
+    a.textContent = action.label;
+    a.href = action.href ?? '/';
+    a.className = action.kind === 'continueNext' ? PRIMARY_BTN_CLS : TERTIARY_LINK_CLS;
+    return a;
   }
 
   function renderResults(): void {
@@ -753,7 +910,6 @@ import SiteFooter from '@/components/SiteFooter.astro';
 
     // Adaptive headline — perfect gets a fixed phrase; not-perfect rotates through
     // a pool so the same line doesn't land twice in a row across sessions.
-    const resultsHeading = $('results-heading');
     if (isPerfect) {
       resultsHeading.textContent = 'You got every word.';
     } else {
@@ -778,41 +934,34 @@ import SiteFooter from '@/components/SiteFooter.astro';
       resultsSummary.textContent = `You spelled ${result.correct} of ${result.total} ${wordLabel} correctly.`;
     }
 
-    // Reassurance line not used in the simplified two-state layout
-    resultsReassurance.classList.add('hidden');
-
-    // Rebuild action zone in the correct DOM order so keyboard and screen reader
-    // order matches the visual primary-first hierarchy.
-    const actionZone = $('results-action-zone');
-    while (actionZone.firstChild) actionZone.removeChild(actionZone.firstChild);
-
     if (isPerfect) {
       resultsMissedSection.classList.add('hidden');
-
-      btnChooseList.className = PRIMARY_LINK_CLS;
-      btnRetry.className = SECONDARY_BTN_CLS;
-      btnRetry.textContent = 'Practice these words again';
-
-      actionZone.appendChild(btnChooseList);
-      actionZone.appendChild(btnRetry);
-
-      showScreen(screenResults);
-      requestAnimationFrame(() => btnChooseList.focus());
     } else {
-      buildMissedChips(result.missedWords, result.missedWords.length);
+      buildMissedWordSpecimens(result.missedWords);
       resultsMissedSection.classList.remove('hidden');
-      resultsMissedHeading.textContent = "Let's work on these words together.";
-
-      btnRetry.className = PRIMARY_BTN_CLS;
-      btnRetry.textContent = 'Practice these words again';
-      btnChooseList.className = SECONDARY_BTN_CLS;
-
-      actionZone.appendChild(btnRetry);
-      actionZone.appendChild(btnChooseList);
-
-      showScreen(screenResults);
-      requestAnimationFrame(() => btnRetry.focus());
     }
+
+    // Rebuild action zone from resolveResultsActions() so DOM order matches
+    // the visual/keyboard priority: primary action first.
+    resultsActionZone.textContent = '';
+    const actions = resolveResultsActions(result, practiceSource);
+    let firstFocusTarget: HTMLElement | null = null;
+    actions.forEach((action, index) => {
+      const el = buildResultsAction(action);
+      // Anchors (continueNext/sourceReturn) already carry the right class
+      // for their fixed position. Buttons (reviewMissed/retryFull) only
+      // need promoting to primary styling when they lead — reviewMissed
+      // always leads when present; retryFull leads only in a perfect
+      // session with no next-unit progression to offer.
+      if (index === 0 && el instanceof HTMLButtonElement) {
+        el.className = PRIMARY_BTN_CLS;
+      }
+      if (index === 0) firstFocusTarget = el;
+      resultsActionZone.appendChild(el);
+    });
+
+    showScreen(screenResults);
+    requestAnimationFrame(() => firstFocusTarget?.focus());
   }
 
   // --- Event handlers ---
@@ -828,6 +977,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
     // Cancel any pending auto-sentence before showing feedback
     cancelPendingSentence();
     speech.cancelSpeech();
+    clearSpeakingState();
 
     state = spellingTestReducer(state, submitAnswer(answer, Date.now()));
     renderFeedback();
@@ -845,7 +995,14 @@ import SiteFooter from '@/components/SiteFooter.astro';
     if (word) {
       cancelPendingSentence();
       speech.cancelSpeech();
-      speech.speakWord(word, speechOptions());
+      clearSpeakingState();
+      speech.speakWord(
+        word,
+        speechOptions(
+          () => btnRepeat.setAttribute('aria-pressed', 'true'),
+          () => btnRepeat.setAttribute('aria-pressed', 'false'),
+        ),
+      );
     }
   });
 
@@ -854,7 +1011,14 @@ import SiteFooter from '@/components/SiteFooter.astro';
     if (sentence) {
       cancelPendingSentence();
       speech.cancelSpeech();
-      speech.speakWord(sentence, speechOptions());
+      clearSpeakingState();
+      speech.speakWord(
+        sentence,
+        speechOptions(
+          () => btnSentence.setAttribute('aria-pressed', 'true'),
+          () => btnSentence.setAttribute('aria-pressed', 'false'),
+        ),
+      );
     }
   });
 
@@ -872,6 +1036,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
     }
     cancelPendingSentence();
     speech.cancelSpeech();
+    clearSpeakingState();
     state = spellingTestReducer(state, nextWord(Date.now()));
     if (state.status === 'awaitingAnswer') {
       renderQuestion();
@@ -889,10 +1054,37 @@ import SiteFooter from '@/components/SiteFooter.astro';
     }
   });
 
-  btnRetry.addEventListener('click', () => {
-    state = spellingTestReducer(resetTest(), initializeTest(originalRichWords));
-    showScreen(screenBegin);
-  });
+  // "Practice full list again" — replays the original session from the start.
+  function handleRetryFull(): void {
+    state = spellingTestReducer(createInitialState(), initializeTest(originalRichWords));
+    state = spellingTestReducer(state, startTest(Date.now()));
+    renderQuestion();
+  }
+
+  // "Practice missed words" — actually re-drives the tested REVIEW_MISSED
+  // action, which starts a fresh session containing only the words missed
+  // in the previous pass (with their original sentence/hint data intact).
+  function handleReviewMissed(): void {
+    state = spellingTestReducer(state, reviewMissed());
+    renderQuestion();
+  }
+
+  // --- Viewport-fit ---
+  // Keeps --practice-header-h in sync with the real, rendered practice
+  // header height so #practice-stage's min-height (100dvh minus this
+  // variable) always matches "the viewport below the header," accounting
+  // for whatever the header actually measures at this width/zoom — rather
+  // than a guessed constant.
+  function updateHeaderHeightVar(): void {
+    const header = document.querySelector('header');
+    if (!header) return;
+    document.documentElement.style.setProperty(
+      '--practice-header-h',
+      `${header.getBoundingClientRect().height}px`,
+    );
+  }
+  updateHeaderHeightVar();
+  window.addEventListener('resize', updateHeaderHeightVar);
 
   // --- Boot ---
   init();

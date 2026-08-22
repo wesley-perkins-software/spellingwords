@@ -30,6 +30,9 @@ function makeMocks() {
       pitch: 1,
       volume: 1,
       lang: '',
+      onstart: null,
+      onend: null,
+      onerror: null,
     }),
   };
 
@@ -46,6 +49,9 @@ function makeUnsupportedFactory(): SpeechAdapterFactory {
       pitch: 1,
       volume: 1,
       lang: '',
+      onstart: null,
+      onend: null,
+      onerror: null,
     }),
   };
 }

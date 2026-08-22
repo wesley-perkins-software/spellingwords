@@ -17,6 +17,9 @@ export interface SpeechSynthesisUtteranceAdapter {
   pitch: number;
   volume: number;
   lang: string;
+  onstart: (() => void) | null;
+  onend: (() => void) | null;
+  onerror: (() => void) | null;
 }
 
 // Mirrors SpeechSynthesisVoice without DOM coupling.
@@ -48,6 +51,10 @@ export interface SpeechOptions {
   volume?: number;
   /** Specific voice to use. When omitted, selectPreferredVoice() is called. */
   voice?: SpeechSynthesisVoiceAdapter | null;
+  /** Called when this utterance actually begins playing — drives a subtle "speaking" UI state. */
+  onStart?: () => void;
+  /** Called when this utterance ends, is cancelled, or errors — always fired at most once per speakWord() call. */
+  onEnd?: () => void;
 }
 
 export interface VoicePreferences {

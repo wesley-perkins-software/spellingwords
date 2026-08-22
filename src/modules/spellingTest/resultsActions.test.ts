@@ -1,0 +1,67 @@
+import { describe, expect, it } from 'vitest';
+import { resolveResultsActions } from './resultsActions';
+import type { TestResult } from './types';
+import type { PracticeSource } from '@/types/spelling';
+
+function makeResult(missedCount: number): TestResult {
+  return {
+    words: [],
+    attempts: [],
+    missedWords: Array.from({ length: missedCount }, (_, i) => ({ word: `missed-${i}` })),
+    correct: 8 - missedCount,
+    total: 8,
+    percentage: ((8 - missedCount) / 8) * 100,
+    elapsedMs: 1000,
+    startedAt: 0,
+    completedAt: 1000,
+  };
+}
+
+const coreSourceWithNext: PracticeSource = {
+  type: 'core',
+  title: 'First Words',
+  href: '/kindergarten/core-spelling/first-words',
+  nextHref: '/kindergarten/core-spelling/short-a-words',
+  nextTitle: 'Short A Words',
+};
+
+const skillSource: PracticeSource = {
+  type: 'skill',
+  title: 'Short A Words',
+  href: '/skills/short-a-words',
+};
+
+const customSource: PracticeSource = { type: 'custom' };
+
+describe('resolveResultsActions', () => {
+  it('perfect + source with nextHref: continueNext, retryFull, sourceReturn in order', () => {
+    const actions = resolveResultsActions(makeResult(0), coreSourceWithNext);
+    expect(actions.map((a) => a.kind)).toEqual(['continueNext', 'retryFull', 'sourceReturn']);
+    expect(actions[0].href).toBe('/kindergarten/core-spelling/short-a-words');
+    expect(actions[0].label).toBe('Continue to next unit →');
+    expect(actions[2].href).toBe('/kindergarten/core-spelling/first-words');
+  });
+
+  it('perfect + source without nextHref: retryFull, sourceReturn only', () => {
+    const actions = resolveResultsActions(makeResult(0), skillSource);
+    expect(actions.map((a) => a.kind)).toEqual(['retryFull', 'sourceReturn']);
+    expect(actions[0].label).toBe('Practice again');
+  });
+
+  it('perfect + no source: retryFull only, no forced generic destination', () => {
+    const actions = resolveResultsActions(makeResult(0), customSource);
+    expect(actions.map((a) => a.kind)).toEqual(['retryFull']);
+  });
+
+  it('non-perfect + source with nextHref: never offers continueNext', () => {
+    const actions = resolveResultsActions(makeResult(2), coreSourceWithNext);
+    expect(actions.map((a) => a.kind)).toEqual(['reviewMissed', 'retryFull', 'sourceReturn']);
+    expect(actions.some((a) => a.kind === 'continueNext')).toBe(false);
+    expect(actions[1].label).toBe('Practice full list again');
+  });
+
+  it('non-perfect + custom source: reviewMissed, retryFull only, no forced link', () => {
+    const actions = resolveResultsActions(makeResult(3), customSource);
+    expect(actions.map((a) => a.kind)).toEqual(['reviewMissed', 'retryFull']);
+  });
+});

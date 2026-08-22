@@ -66,15 +66,20 @@ export function resolveCustomPracticeSource(): PracticeSource {
 
 /**
  * A session launched from a teacher/parent shared-link (`#list=...` on
- * `/practice-your-own-words`). `href` intentionally points at the generic
- * own-word page, not back to the original share fragment — the fragment
- * itself isn't stored, so "back to shared list" means "back to the page that
- * hosts this journey," which is an honest, sufficient return destination.
+ * `/practice-your-own-words`). Unlike `resolveCustomPracticeSource`, `href`
+ * here **must** be the exact source URL the shared list was opened from
+ * (path + `#list=...` fragment, e.g.
+ * `/practice-your-own-words#list=2.eyJ2...`) — a results-screen action
+ * that says "← Return to {title}" is a promise to restore that exact
+ * shared list, not a generic link to the blank entry page. The caller
+ * (`CustomWordEntry.astro`) is responsible for capturing that exact URL at
+ * the moment it decodes the shared payload and passing it through
+ * unmodified here; this function never reconstructs or guesses it.
  */
-export function resolveSharedPracticeSource(args: { title?: string }): PracticeSource {
+export function resolveSharedPracticeSource(args: { title?: string; href: string }): PracticeSource {
   return {
     type: 'shared',
     title: args.title ?? 'Practice Your Own Words',
-    href: '/practice-your-own-words',
+    href: args.href,
   };
 }

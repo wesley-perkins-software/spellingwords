@@ -34,4 +34,18 @@ describe('practice-your-own-words page', () => {
   it('lets the tool dominate the page rather than routing it through the narrow supporting-page prose template used by pages like /about', () => {
     expect(pageSource).not.toContain('SupportingPage');
   });
+
+  it('never advertises the 200-word practice or 30-word share limits as general page copy — those numbers only appear contextually, in CustomWordEntry, once a user actually hits them', () => {
+    expect(pageSource).not.toMatch(/\b200\b/);
+    expect(pageSource).not.toMatch(/\b30\b/);
+    expect(pageSource).not.toContain('MAX_WORD_COUNT');
+    expect(pageSource).not.toContain('MAX_SHARED_WORD_COUNT');
+  });
+
+  it('gives the How it works section a short, human structure instead of documentation-style prose', () => {
+    expect(pageSource).toContain('Enter your words');
+    expect(pageSource).toContain('Start practicing');
+    expect(pageSource).toContain('Share a list');
+    expect(pageSource).toContain('Keep shared lists non-personal');
+  });
 });

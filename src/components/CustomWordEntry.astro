@@ -38,7 +38,7 @@ const placeholderText = 'Type or paste your words here, one per line';
 
       <ul
         id="shared-ready-words"
-        class="flex flex-wrap gap-1.5"
+        class="grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-3 md:grid-cols-4"
         aria-label="Words in this shared list"
       ></ul>
 
@@ -51,9 +51,9 @@ const placeholderText = 'Type or paste your words here, one per line';
         <button
           id="btn-shared-edit"
           type="button"
-          class="min-h-[44px] rounded-xl border-2 border-da-brand bg-da-canvas-raised px-5 py-3 font-quicksand text-sm font-bold text-da-brand-strong transition hover:bg-da-brand-tint"
+          class="min-h-[44px] rounded-xl border-2 border-da-brand bg-da-canvas-raised px-5 py-3 font-quicksand text-base font-bold text-da-brand-strong transition hover:bg-da-brand-tint"
         >
-          Edit this list before practicing
+          Edit this list
         </button>
       </div>
     </div>
@@ -86,7 +86,7 @@ const placeholderText = 'Type or paste your words here, one per line';
         aria-label="Your spelling words, one per line"
         placeholder={placeholderText}></textarea>
 
-      <p id="input-status" class="mt-3 text-[0.88rem] text-da-ink-faint" aria-live="polite" aria-atomic="true">
+      <p id="input-status" class="mt-3 text-base text-da-ink-soft" aria-live="polite" aria-atomic="true">
         Add at least 1 word to start practicing.
       </p>
 
@@ -104,15 +104,14 @@ const placeholderText = 'Type or paste your words here, one per line';
         <h2 id="share-heading" class="font-quicksand text-lg font-bold text-da-ink">
           Share this list with a class
         </h2>
-        <p class="mt-1.5 font-mulish text-sm text-da-ink-soft">
-          Create a link a student can open to practice these same words. No account, and nothing is saved to a
-          server.
+        <p class="mt-1.5 font-mulish text-base text-da-ink-soft">
+          Create a link students can open to practice the same spelling list. No account is required.
         </p>
 
         <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
           <div class="flex-1">
-            <label for="share-title-input" class="font-quicksand text-sm font-bold text-da-ink">
-              List title <span class="font-mulish font-normal text-da-ink-faint">(optional)</span>
+            <label for="share-title-input" class="font-quicksand text-base font-bold text-da-ink">
+              List title <span class="font-mulish font-normal text-da-ink-soft">(optional)</span>
             </label>
             <input
               id="share-title-input"
@@ -126,35 +125,34 @@ const placeholderText = 'Type or paste your words here, one per line';
             id="btn-create-link"
             type="button"
             disabled
-            class="min-h-[44px] flex-shrink-0 rounded-xl bg-da-brand px-5 py-3 font-quicksand text-sm font-bold text-white transition hover:bg-da-brand-strong disabled:cursor-not-allowed disabled:opacity-40"
+            class="min-h-[44px] flex-shrink-0 rounded-xl bg-da-brand px-5 py-3 font-quicksand text-base font-bold text-white transition hover:bg-da-brand-strong disabled:cursor-not-allowed disabled:opacity-40"
           >
             Create practice link
           </button>
         </div>
-        <p id="share-limit-note" class="mt-2 min-h-[1.1rem] font-mulish text-sm text-da-incorrect" aria-live="polite"></p>
+        <p id="share-limit-note" class="mt-2 min-h-[1.1rem] font-mulish text-base text-da-incorrect" aria-live="polite"></p>
 
-        <p class="mt-3 font-mulish text-sm text-da-ink-faint">
-          Anyone with this link can open and see this list. It isn't encrypted or private — avoid including
-          student names or other personal information.
+        <p class="mt-3 font-mulish text-base text-da-ink-soft">
+          Anyone with this link can see the words. Avoid names or other personal information.
         </p>
 
         <!-- Share-success state — Copy Link is the primary, most prominent
              result; the raw encoded URL is a secondary fallback, revealed
              only on request, never the main output of the action. -->
         <div id="share-success" class="hidden mt-5 flex flex-col gap-3 rounded-xl border border-da-brand bg-da-brand-tint p-4">
-          <p class="font-quicksand text-sm font-bold text-da-brand-strong">Link ready</p>
+          <p class="font-quicksand text-base font-bold text-da-brand-strong">Link ready</p>
           <div class="flex flex-wrap items-center gap-2.5">
             <button
               id="btn-copy-link"
               type="button"
-              class="min-h-[44px] rounded-xl bg-da-brand px-5 py-2.5 font-quicksand text-sm font-bold text-white transition hover:bg-da-brand-strong"
+              class="min-h-[44px] rounded-xl bg-da-brand px-5 py-2.5 font-quicksand text-base font-bold text-white transition hover:bg-da-brand-strong"
             >
               Copy Link
             </button>
             <button
               id="btn-native-share"
               type="button"
-              class="hidden min-h-[44px] rounded-xl border-2 border-da-brand bg-da-canvas-raised px-5 py-2.5 font-quicksand text-sm font-bold text-da-brand-strong transition hover:bg-da-brand-tint"
+              class="hidden min-h-[44px] rounded-xl border-2 border-da-brand bg-da-canvas-raised px-5 py-2.5 font-quicksand text-base font-bold text-da-brand-strong transition hover:bg-da-brand-tint"
             >
               Share…
             </button>
@@ -163,7 +161,7 @@ const placeholderText = 'Type or paste your words here, one per line';
               type="button"
               aria-expanded="false"
               aria-controls="share-url-wrapper"
-              class="min-h-[44px] rounded-xl px-3 py-2.5 font-quicksand text-sm font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand"
+              class="min-h-[44px] rounded-xl px-3 py-2.5 font-quicksand text-base font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand"
             >
               Show link
             </button>
@@ -217,14 +215,22 @@ const placeholderText = 'Type or paste your words here, one per line';
 
       pill.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
 
+      // The word-count ceiling only ever appears here, at the moment it
+      // actually matters — never as a number quoted in general page copy.
       if (count === 0) {
         status.textContent = 'Add at least 1 word to start practicing.';
+        status.classList.remove('text-da-incorrect');
+        status.classList.add('text-da-ink-soft');
         btn.disabled = true;
       } else if (count > MAX_WORD_COUNT) {
-        status.textContent = `Maximum ${MAX_WORD_COUNT} words. Please remove some words.`;
+        status.textContent = `This list is too long to practice at once. Shorten it to ${MAX_WORD_COUNT} words or fewer.`;
+        status.classList.remove('text-da-ink-soft');
+        status.classList.add('text-da-incorrect');
         btn.disabled = true;
       } else {
         status.textContent = `${count} ${count === 1 ? 'word' : 'words'} ready to practice.`;
+        status.classList.remove('text-da-incorrect');
+        status.classList.add('text-da-ink-soft');
         btn.disabled = false;
       }
 
@@ -309,22 +315,31 @@ const placeholderText = 'Type or paste your words here, one per line';
       const shareUrlField = document.getElementById('share-url-field') as HTMLInputElement;
       const shareStatus = document.getElementById('share-status')!;
 
-      let decodedShared: { words: string[]; title?: string } | null = null;
+      let decodedShared: { words: string[]; title?: string; sourceHref: string } | null = null;
 
-      function buildSharedSpecimen(word: string): HTMLLIElement {
+      // An editorial word-list treatment, not a pill cloud: plain dark text
+      // in a light-dividered grid, so a 30-word shared list still scans as
+      // a clean list rather than 30 individually-boxed chips. break-words
+      // keeps a long word from overflowing its column on narrow screens.
+      function buildSharedWordCell(word: string): HTMLLIElement {
         const li = document.createElement('li');
         li.textContent = word;
         li.className =
-          'rounded-md border border-da-border-strong bg-da-border px-2.5 py-1 font-word text-sm text-da-ink-soft select-none';
+          'border-b border-da-border py-1.5 font-word text-base text-da-ink break-words select-none';
         return li;
       }
 
       function showSharedReady(words: string[], title?: string): void {
-        decodedShared = { words, title };
+        // Captured exactly as-is (path + fragment, no origin) so a later
+        // "← Return to {title}" action on the results screen can restore
+        // this precise shared list — never a semantically-equivalent but
+        // freshly re-encoded URL, and never the bare entry page.
+        const sourceHref = `${window.location.pathname}${window.location.hash}`;
+        decodedShared = { words, title, sourceHref };
         sharedReadyHeading.textContent = title || 'Practice this shared list';
         sharedReadyCount.textContent = `${words.length} ${words.length === 1 ? 'word' : 'words'}`;
         sharedReadyWords.textContent = '';
-        for (const w of words) sharedReadyWords.appendChild(buildSharedSpecimen(w));
+        for (const w of words) sharedReadyWords.appendChild(buildSharedWordCell(w));
         sharedReadyError.classList.add('hidden');
         sharedReadyState.classList.remove('hidden');
         sharedReadyState.classList.add('flex');
@@ -360,7 +375,7 @@ const placeholderText = 'Type or paste your words here, one per line';
         if (!decodedShared) return;
         startSessionHandoff(
           decodedShared.words,
-          resolveSharedPracticeSource({ title: decodedShared.title }),
+          resolveSharedPracticeSource({ title: decodedShared.title, href: decodedShared.sourceHref }),
           decodedShared.title,
         );
       });
@@ -382,7 +397,7 @@ const placeholderText = 'Type or paste your words here, one per line';
         const title = shareTitleInput.value.trim() || undefined;
         const result = encodeSharedList(words, title);
         if (!result.ok) {
-          shareLimitNote.textContent = result.message;
+          shareLimitNote.textContent = shareErrorMessage(result.code, words.length);
           return;
         }
         lastSharePayload = result.payload;
@@ -441,6 +456,24 @@ const placeholderText = 'Type or paste your words here, one per line';
       });
     }
 
+    // Plain-language, contextual copy — never the raw technical error
+    // message from the encoder (e.g. "payload exceeds N characters"), and
+    // never quoted in general page copy — only shown at the moment a real
+    // list actually exceeds the shareable limit.
+    function shareErrorMessage(code: string, wordCount: number): string {
+      switch (code) {
+        case 'too_many_words':
+        case 'payload_too_long':
+          return `Shared practice links support up to ${MAX_SHARED_WORD_COUNT} words (this list has ${wordCount}). You can still practice the full list yourself above, or shorten it to create a link.`;
+        case 'word_too_long':
+          return 'One of these words is too long to include in a shared link. You can still practice the full list yourself above.';
+        case 'title_too_long':
+          return 'That title is a bit too long. Try a shorter one.';
+        default:
+          return 'This list can’t be turned into a link right now. You can still practice it yourself above.';
+      }
+    }
+
     // Declared once at this scope (rather than inside the `if (isFull)`
     // block above) so `updateStatus()` — defined earlier in this same
     // scope — can call it via ordinary function-declaration hoisting. The
@@ -458,7 +491,7 @@ const placeholderText = 'Type or paste your words here, one per line';
         note.textContent = '';
       } else if (words.length > MAX_SHARED_WORD_COUNT) {
         createBtn.disabled = true;
-        note.textContent = `Shared lists can have at most ${MAX_SHARED_WORD_COUNT} words (this list has ${words.length}). You can still practice it yourself above.`;
+        note.textContent = shareErrorMessage('too_many_words', words.length);
       } else {
         createBtn.disabled = false;
         note.textContent = '';

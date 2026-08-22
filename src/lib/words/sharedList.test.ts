@@ -197,6 +197,19 @@ describe('limits', () => {
     expect(result.ok).toBe(false);
     if (!result.ok) expect(result.code).toBe('title_too_long');
   });
+
+  it('the practice limit (200) and the share limit (30) are independent: a list too big to share still practices fine locally', () => {
+    const words = Array.from({ length: MAX_SHARED_WORD_COUNT + 5 }, (_, i) => `word${i}`);
+
+    const shareResult = encodeSharedList(words);
+    expect(shareResult.ok).toBe(false);
+    if (!shareResult.ok) expect(shareResult.code).toBe('too_many_words');
+
+    // The same list is well within encodeWordList's much higher ceiling —
+    // sharing being unavailable never blocks ordinary local practice.
+    const practiceResult = encodeWordList(words);
+    expect(practiceResult.ok).toBe(true);
+  });
 });
 
 describe('empty input', () => {

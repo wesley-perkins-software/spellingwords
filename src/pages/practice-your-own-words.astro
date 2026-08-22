@@ -4,7 +4,6 @@ import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import CustomWordEntry from '@/components/CustomWordEntry.astro';
-import { MAX_WORD_COUNT, MAX_SHARED_WORD_COUNT } from '@/lib/words';
 ---
 
 <Layout
@@ -38,7 +37,7 @@ import { MAX_WORD_COUNT, MAX_SHARED_WORD_COUNT } from '@/lib/words';
           SpellingWords will read each word aloud and let you type its spelling — no account required, and
           practice begins in a random order every time.
         </p>
-        <p class="mt-2 max-w-[62ch] text-base leading-relaxed text-da-ink-faint">
+        <p class="mt-2 max-w-[62ch] text-base leading-relaxed text-da-ink-soft">
           Some words may also include a sentence, when one is available.
         </p>
       </div>
@@ -55,27 +54,25 @@ import { MAX_WORD_COUNT, MAX_SHARED_WORD_COUNT } from '@/lib/words';
     <section class="bg-da-surface-home px-5 py-14 sm:px-6 md:py-20" aria-labelledby="how-it-works-heading">
       <div class="mx-auto max-w-content-md">
         <h2 id="how-it-works-heading" class="font-quicksand text-2xl font-bold text-da-ink">How it works</h2>
-        <ul class="mt-5 flex flex-col gap-4 text-base leading-relaxed text-da-ink-soft">
+        <ul class="mt-6 flex flex-col gap-5 text-base leading-relaxed text-da-ink-soft">
           <li>
-            <strong class="text-da-ink">Type or paste one word per line.</strong> Numbered lists, bullets, and
-            commas are cleaned up automatically.
+            <p class="font-quicksand text-lg font-bold text-da-ink">Enter your words</p>
+            <p class="mt-1">Type or paste one spelling word per line.</p>
           </li>
           <li>
-            <strong class="text-da-ink">Up to {MAX_WORD_COUNT} words</strong> per practice session — plenty for
-            a normal spelling list.
+            <p class="font-quicksand text-lg font-bold text-da-ink">Start practicing</p>
+            <p class="mt-1">Words are presented in a random order. Listen to each word, then type its spelling.</p>
           </li>
           <li>
-            <strong class="text-da-ink">Practice happens in your browser.</strong> Nothing you type is saved to
-            a server or requires an account.
+            <p class="font-quicksand text-lg font-bold text-da-ink">Share a list</p>
+            <p class="mt-1">
+              Create a practice link that students can open without an account. They can look over the list
+              before starting — practice never begins automatically.
+            </p>
           </li>
           <li>
-            <strong class="text-da-ink">Share a list with a class</strong> by creating a link — up to
-            {MAX_SHARED_WORD_COUNT} words, with an optional short title. Anyone who opens it can inspect the
-            list before starting; practice never begins automatically.
-          </li>
-          <li>
-            <strong class="text-da-ink">Keep it simple:</strong> avoid entering names or other personal
-            information, since anyone with a shared link can see its contents.
+            <p class="font-quicksand text-lg font-bold text-da-ink">Keep shared lists non-personal</p>
+            <p class="mt-1">Anyone with the link can see its words, so leave out names or private information.</p>
           </li>
         </ul>
       </div>

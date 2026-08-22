@@ -36,15 +36,47 @@ const PAYLOAD_SEPARATOR = '.';
 /**
  * Maximum number of words a single shared link may carry. Deliberately
  * tighter than `serialization.ts`'s general-purpose `MAX_WORD_COUNT` (200):
- * a shared link targets "a normal classroom spelling list," and real
- * generated-URL lengths were measured (not guessed) at 10/20/30/40/60 words
- * for both a typical case (short words, short title) and a worst case (every
- * word and the title at their per-field maximum, including multi-byte
- * Unicode). 30 was chosen because its worst-case URL stays within a few
- * hundred characters of the historical ~2083-char IE/Excel-hyperlink limit —
- * still the most conservative practical bound in wide use — while a typical
- * K-5 list of 10-20 short words produces a URL of only a few hundred
- * characters, comfortably pasted into chat/SMS/LMS text fields.
+ * a shared link targets "a normal classroom spelling list," not a bulk word
+ * database, and its payload lives in the URL itself.
+ *
+ * Re-verified (2026-08-22) by measuring real generated URLs — this repo's
+ * actual base64url/JSON encoding, not an estimate — at 10/20/30/40 words,
+ * under both a typical case (short ~6-char words, a 40-char title) and a
+ * deliberately pathological worst case (every word at the 45-char per-word
+ * maximum, plus a full 40-char title):
+ *
+ *   words │ typical URL │ worst-case (ASCII) │ worst-case (accented Unicode)
+ *   ──────┼─────────────┼─────────────────────┼───────────────────────────────
+ *      10 │      268 ch │              788 ch │                       1388 ch
+ *      20 │      388 ch │             1428 ch │                       2628 ch
+ *      30 │      508 ch │             2068 ch │                       3868 ch
+ *      40 │      628 ch │             2708 ch │                       5108 ch
+ *
+ * Two things follow from this table:
+ *  - A *typical* K-5 spelling list (short real words) produces a tiny URL —
+ *    even 40 words is only ~600 characters, trivially safe to paste into
+ *    Google Classroom/Canvas, email, or a chat/SMS message (modern phones
+ *    silently auto-concatenate a long SMS into multiple segments; the link
+ *    still works either way — this only affects carrier segment count, not
+ *    functionality). Because this is a URL *fragment*, it is also never
+ *    sent to a server, so server/CDN request-line limits (commonly ~8KB)
+ *    don't apply to it at all.
+ *  - The realistic risk is a pathological list (every word near the 45-char
+ *    validation ceiling). At 30 words, even the ASCII worst case (2068 ch)
+ *    stays under the ~2083-character threshold long cited as the most
+ *    conservative "works absolutely everywhere" bound (originally an old
+ *    IE/Excel hyperlink limit; that browser is long dead, but the number
+ *    remains a widely-used rule of thumb for "safe under any legacy
+ *    system"). At 40 words the ASCII worst case (2708 ch) crosses that
+ *    threshold, and the accented-Unicode worst case (5108 ch) crosses it by
+ *    a wide margin.
+ *
+ * A real K-5 weekly spelling list is 10-20 words; 30 already covers even a
+ * generously extended list with comfortable headroom in the typical case,
+ * while keeping the pathological case under the safest practical bound.
+ * There's no concrete product need pushing past that, so 30 stays the
+ * limit — raising it to 40 was considered and deliberately rejected, not
+ * left unconsidered.
  */
 export const MAX_SHARED_WORD_COUNT = 30;
 

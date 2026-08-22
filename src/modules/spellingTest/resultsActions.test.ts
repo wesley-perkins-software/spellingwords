@@ -64,7 +64,7 @@ const customSourceWithReturn: PracticeSource = {
 const sharedSource: PracticeSource = {
   type: 'shared',
   title: 'Week 4 Spelling',
-  href: '/practice-your-own-words',
+  href: '/practice-your-own-words#list=2.eyJ2IjoxLCJ3b3JkcyI6WyJjYXQiXX0',
 };
 
 describe('resolveResultsActions', () => {
@@ -140,5 +140,18 @@ describe('resolveResultsActions', () => {
 
     const nonPerfect = resolveResultsActions(makeResult(3), sharedSource);
     expect(nonPerfect.map((a) => a.kind)).toEqual(['reviewMissed', 'retryFull', 'sourceReturn']);
+  });
+
+  it('a shared source\'s sourceReturn action uses the exact fragment-bearing href verbatim, never a bare page link', () => {
+    const actions = resolveResultsActions(makeResult(0), sharedSource);
+    const sourceReturn = actions.find((a) => a.kind === 'sourceReturn')!;
+    expect(sourceReturn.href).toBe(sharedSource.href);
+    expect(sourceReturn.href).toContain('#list=');
+
+    // A local custom source, by contrast, must never carry a fragment —
+    // its return destination is intentionally the blank entry page.
+    const customActions = resolveResultsActions(makeResult(0), customSourceWithReturn);
+    const customReturn = customActions.find((a) => a.kind === 'sourceReturn')!;
+    expect(customReturn.href).not.toContain('#');
   });
 });

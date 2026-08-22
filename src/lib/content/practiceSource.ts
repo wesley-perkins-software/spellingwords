@@ -56,7 +56,30 @@ export function resolveSkillPracticeSource(args: { title: string; href: string }
   return { type: 'skill', title: args.title, href: args.href };
 }
 
-/** Custom (pasted-word) sessions never carry a return destination or user text. */
+/**
+ * Custom (pasted-word) sessions now return to the dedicated own-word practice
+ * page rather than dead-ending with no return destination.
+ */
 export function resolveCustomPracticeSource(): PracticeSource {
-  return { type: 'custom' };
+  return { type: 'custom', title: 'Practice Your Own Words', href: '/practice-your-own-words' };
+}
+
+/**
+ * A session launched from a teacher/parent shared-link (`#list=...` on
+ * `/practice-your-own-words`). Unlike `resolveCustomPracticeSource`, `href`
+ * here **must** be the exact source URL the shared list was opened from
+ * (path + `#list=...` fragment, e.g.
+ * `/practice-your-own-words#list=2.eyJ2...`) — a results-screen action
+ * that says "← Return to {title}" is a promise to restore that exact
+ * shared list, not a generic link to the blank entry page. The caller
+ * (`CustomWordEntry.astro`) is responsible for capturing that exact URL at
+ * the moment it decodes the shared payload and passing it through
+ * unmodified here; this function never reconstructs or guesses it.
+ */
+export function resolveSharedPracticeSource(args: { title?: string; href: string }): PracticeSource {
+  return {
+    type: 'shared',
+    title: args.title ?? 'Practice Your Own Words',
+    href: args.href,
+  };
 }

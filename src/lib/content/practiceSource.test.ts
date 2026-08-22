@@ -3,6 +3,7 @@ import {
   resolveGradeUnitPracticeSource,
   resolveSkillPracticeSource,
   resolveCustomPracticeSource,
+  resolveSharedPracticeSource,
 } from './practiceSource';
 
 const titleById = (id: string): string | undefined => {
@@ -100,7 +101,45 @@ describe('resolveSkillPracticeSource', () => {
 });
 
 describe('resolveCustomPracticeSource', () => {
-  it('returns exactly the minimal custom shape, never user text', () => {
-    expect(resolveCustomPracticeSource()).toEqual({ type: 'custom' });
+  it('returns the dedicated own-word page as its return destination, never user text', () => {
+    expect(resolveCustomPracticeSource()).toEqual({
+      type: 'custom',
+      title: 'Practice Your Own Words',
+      href: '/practice-your-own-words',
+    });
+  });
+});
+
+describe('resolveSharedPracticeSource', () => {
+  const sharedHref = '/practice-your-own-words#list=2.eyJ2IjoxLCJ3b3JkcyI6WyJjYXQiXX0';
+
+  it('uses the given title when provided', () => {
+    expect(resolveSharedPracticeSource({ title: 'Week 4 Spelling', href: sharedHref })).toEqual({
+      type: 'shared',
+      title: 'Week 4 Spelling',
+      href: sharedHref,
+    });
+  });
+
+  it('falls back to a generic title when none is given', () => {
+    expect(resolveSharedPracticeSource({ href: sharedHref })).toEqual({
+      type: 'shared',
+      title: 'Practice Your Own Words',
+      href: sharedHref,
+    });
+  });
+
+  it('preserves the exact fragment-bearing href verbatim — never a bare page link, never re-derived', () => {
+    const messyHref = '/practice-your-own-words#list=2.abc-XYZ_123';
+    expect(resolveSharedPracticeSource({ href: messyHref }).href).toBe(messyHref);
+  });
+
+  it('resolves a distinct return destination from resolveCustomPracticeSource, which stays a bare page link', () => {
+    const shared = resolveSharedPracticeSource({ title: 'Week 4 Spelling', href: sharedHref });
+    const custom = resolveCustomPracticeSource();
+    expect(shared.href).not.toBe(custom.href);
+    expect(shared.href).toContain('#list=');
+    expect(custom.href).toBe('/practice-your-own-words');
+    expect(custom.href).not.toContain('#');
   });
 });

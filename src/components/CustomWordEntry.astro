@@ -1,0 +1,501 @@
+---
+// Shared own-word entry tool: the homepage hero's tool (`variant="compact"`,
+// unchanged behavior) and the dedicated /practice-your-own-words page's tool
+// (`variant="full"`, which also adds shared-link creation and inspecting an
+// incoming shared list). One implementation avoids the two diverging copies
+// this extraction exists to prevent — all parsing/encoding logic stays in
+// `@/lib/words` / `@/lib/content/practiceSource`; nothing is duplicated here.
+import Button from '@/components/direction-a/Button.astro';
+
+interface Props {
+  headingId: string;
+  variant?: 'compact' | 'full';
+}
+
+const { headingId, variant = 'compact' } = Astro.props;
+const isFull = variant === 'full';
+const placeholderText = 'Type or paste your words here, one per line';
+---
+
+<div data-custom-word-entry data-variant={variant}>
+  <!-- Shared "Ready" inspection state — shown instead of the entry form
+       when the page loaded with a `#list=` shared-link fragment. Never
+       auto-starts practice; the words themselves are shown, not just a
+       count, so the shared content is transparent before starting. -->
+  {isFull && (
+    <div
+      id="shared-ready-state"
+      class="hidden flex-col gap-6 rounded-2xl border border-da-border bg-da-canvas-raised p-6 shadow-lg sm:p-8"
+      aria-labelledby="shared-ready-heading"
+    >
+      <div class="flex flex-col gap-1.5">
+        <p class="font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-brand-strong">
+          Shared spelling list
+        </p>
+        <h2 id="shared-ready-heading" class="font-quicksand text-2xl font-bold text-da-ink"></h2>
+        <p id="shared-ready-count" class="font-mulish text-base text-da-ink-soft"></p>
+      </div>
+
+      <ul
+        id="shared-ready-words"
+        class="grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-3 md:grid-cols-4"
+        aria-label="Words in this shared list"
+      ></ul>
+
+      <p id="shared-ready-error" class="hidden font-mulish text-base text-da-incorrect" role="alert"></p>
+
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <Button id="btn-shared-start" type="button" size="lg" aria-label="Start practicing this shared list">
+          Start practice <span aria-hidden="true">→</span>
+        </Button>
+        <button
+          id="btn-shared-edit"
+          type="button"
+          class="min-h-[44px] rounded-xl border-2 border-da-brand bg-da-canvas-raised px-5 py-3 font-quicksand text-base font-bold text-da-brand-strong transition hover:bg-da-brand-tint"
+        >
+          Edit this list
+        </button>
+      </div>
+    </div>
+  )}
+
+  <div id="entry-state" class="flex flex-col gap-6">
+    <div class="rounded-2xl border border-da-border bg-da-canvas-raised p-6 shadow-lg sm:p-8">
+      <div class="flex items-center justify-between gap-3">
+        <label for="word-input" id={headingId} class="font-quicksand text-[1.15rem] font-bold text-da-ink">
+          Enter your spelling words
+        </label>
+        <span
+          id="word-count-pill"
+          class="flex-shrink-0 rounded-full bg-da-coral-tint px-3 py-1.5 text-[0.82rem] font-bold text-da-coral-ink transition-colors"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          0 words
+        </span>
+      </div>
+
+      <textarea
+        id="word-input"
+        rows="6"
+        class="mt-3.5 w-full resize-y rounded-lg border-2 border-da-border-strong bg-da-canvas px-4 py-3.5 font-mulish text-base leading-relaxed text-da-ink placeholder:text-da-ink-faint focus:outline-none focus-visible:border-da-brand"
+        spellcheck="false"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        aria-label="Your spelling words, one per line"
+        placeholder={placeholderText}></textarea>
+
+      <p id="input-status" class="mt-3 text-base text-da-ink-soft" aria-live="polite" aria-atomic="true">
+        Add at least 1 word to start practicing.
+      </p>
+
+      <Button id="btn-start" type="button" size="lg" class="mt-3.5" aria-label="Start a spelling practice session">
+        Start Practicing <span aria-hidden="true">→</span>
+      </Button>
+    </div>
+
+    <!-- Sharing subsection — deliberately subordinate: its own lighter
+         surface, separate heading, and disabled until the entered list is
+         valid, so it never competes with "Start Practicing" as a second
+         equally-weighted primary action. -->
+    {isFull && (
+      <div class="rounded-2xl border border-da-border bg-da-canvas p-6 sm:p-8" aria-labelledby="share-heading">
+        <h2 id="share-heading" class="font-quicksand text-lg font-bold text-da-ink">
+          Share this list with a class
+        </h2>
+        <p class="mt-1.5 font-mulish text-base text-da-ink-soft">
+          Create a link students can open to practice the same spelling list. No account is required.
+        </p>
+
+        <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
+          <div class="flex-1">
+            <label for="share-title-input" class="font-quicksand text-base font-bold text-da-ink">
+              List title <span class="font-mulish font-normal text-da-ink-soft">(optional)</span>
+            </label>
+            <input
+              id="share-title-input"
+              type="text"
+              maxlength="40"
+              placeholder="Week 4 Spelling"
+              class="mt-1.5 w-full rounded-lg border-2 border-da-border-strong bg-da-canvas-raised px-3.5 py-2.5 font-mulish text-base text-da-ink placeholder:text-da-ink-faint focus:outline-none focus-visible:border-da-brand"
+            />
+          </div>
+          <button
+            id="btn-create-link"
+            type="button"
+            disabled
+            class="min-h-[44px] flex-shrink-0 rounded-xl bg-da-brand px-5 py-3 font-quicksand text-base font-bold text-white transition hover:bg-da-brand-strong disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            Create practice link
+          </button>
+        </div>
+        <p id="share-limit-note" class="mt-2 min-h-[1.1rem] font-mulish text-base text-da-incorrect" aria-live="polite"></p>
+
+        <p class="mt-3 font-mulish text-base text-da-ink-soft">
+          Anyone with this link can see the words. Avoid names or other personal information.
+        </p>
+
+        <!-- Share-success state — Copy Link is the primary, most prominent
+             result; the raw encoded URL is a secondary fallback, revealed
+             only on request, never the main output of the action. -->
+        <div id="share-success" class="hidden mt-5 flex flex-col gap-3 rounded-xl border border-da-brand bg-da-brand-tint p-4">
+          <p class="font-quicksand text-base font-bold text-da-brand-strong">Link ready</p>
+          <div class="flex flex-wrap items-center gap-2.5">
+            <button
+              id="btn-copy-link"
+              type="button"
+              class="min-h-[44px] rounded-xl bg-da-brand px-5 py-2.5 font-quicksand text-base font-bold text-white transition hover:bg-da-brand-strong"
+            >
+              Copy Link
+            </button>
+            <button
+              id="btn-native-share"
+              type="button"
+              class="hidden min-h-[44px] rounded-xl border-2 border-da-brand bg-da-canvas-raised px-5 py-2.5 font-quicksand text-base font-bold text-da-brand-strong transition hover:bg-da-brand-tint"
+            >
+              Share…
+            </button>
+            <button
+              id="btn-show-link"
+              type="button"
+              aria-expanded="false"
+              aria-controls="share-url-wrapper"
+              class="min-h-[44px] rounded-xl px-3 py-2.5 font-quicksand text-base font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand"
+            >
+              Show link
+            </button>
+          </div>
+          <div id="share-url-wrapper" class="hidden">
+            <label for="share-url-field" class="sr-only">Shared practice link</label>
+            <input
+              id="share-url-field"
+              type="text"
+              readonly
+              class="w-full overflow-x-auto rounded-lg border border-da-border-strong bg-da-canvas-raised px-3 py-2 font-mono text-sm text-da-ink-soft"
+            />
+          </div>
+          <p id="share-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+        </div>
+      </div>
+    )}
+  </div>
+</div>
+
+<script>
+  import {
+    parseWordInput,
+    encodeWordList,
+    decodeSharedList,
+    encodeSharedList,
+    MAX_WORD_COUNT,
+    MAX_SHARED_WORD_COUNT,
+  } from '@/lib/words';
+  import { resolveCustomPracticeSource, resolveSharedPracticeSource } from '@/lib/content/practiceSource';
+  import type { PracticeSource } from '@/types/spelling';
+
+  const root = document.querySelector<HTMLElement>('[data-custom-word-entry]');
+  if (root) {
+    const variant = root.dataset.variant === 'full' ? 'full' : 'compact';
+    const isFull = variant === 'full';
+
+    const textarea = document.getElementById('word-input') as HTMLTextAreaElement;
+    const pill = document.getElementById('word-count-pill')!;
+    const status = document.getElementById('input-status')!;
+    const btn = document.getElementById('btn-start') as HTMLButtonElement;
+    const entryState = document.getElementById('entry-state')!;
+
+    function getWords(): string[] {
+      return parseWordInput(textarea.value);
+    }
+
+    function updateStatus(): void {
+      const words = getWords();
+      const count = words.length;
+
+      pill.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
+
+      // The word-count ceiling only ever appears here, at the moment it
+      // actually matters — never as a number quoted in general page copy.
+      if (count === 0) {
+        status.textContent = 'Add at least 1 word to start practicing.';
+        status.classList.remove('text-da-incorrect');
+        status.classList.add('text-da-ink-soft');
+        btn.disabled = true;
+      } else if (count > MAX_WORD_COUNT) {
+        status.textContent = `This list is too long to practice at once. Shorten it to ${MAX_WORD_COUNT} words or fewer.`;
+        status.classList.remove('text-da-ink-soft');
+        status.classList.add('text-da-incorrect');
+        btn.disabled = true;
+      } else {
+        status.textContent = `${count} ${count === 1 ? 'word' : 'words'} ready to practice.`;
+        status.classList.remove('text-da-incorrect');
+        status.classList.add('text-da-ink-soft');
+        btn.disabled = false;
+      }
+
+      if (isFull) updateShareAvailability(words);
+    }
+
+    // A short, random, unguessable id — never contains the words themselves.
+    // crypto.randomUUID() is available in all evergreen browsers; the
+    // fallback only matters for older/unusual environments.
+    function newSessionId(): string {
+      if ('randomUUID' in crypto) return crypto.randomUUID();
+      return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+    }
+
+    // Starts a session via the opaque `?session=` hand-off: word data lives
+    // only in sessionStorage, never in the /play URL itself (unlike the
+    // legacy `?list=` transport the homepage's compact variant still uses —
+    // see docs/planning/LAUNCH_SUPPORTING_PAGES_AND_GLOBAL_NAVIGATION_PLAN.md).
+    function startSessionHandoff(words: string[], source: PracticeSource, title?: string): void {
+      const id = newSessionId();
+      try {
+        sessionStorage.setItem(`sw:session-words:${id}`, JSON.stringify(words));
+        sessionStorage.setItem(`sw:source:${id}`, JSON.stringify(source));
+        if (title) sessionStorage.setItem(`sw:title:${id}`, title);
+      } catch {
+        /* sessionStorage unavailable — non-fatal; /play will show its "No word list found" error */
+      }
+      window.location.href = `/play?session=${id}`;
+    }
+
+    function handleStart(): void {
+      const words = getWords();
+      if (words.length === 0 || words.length > MAX_WORD_COUNT) return;
+
+      if (isFull) {
+        startSessionHandoff(words, resolveCustomPracticeSource());
+        return;
+      }
+
+      // Compact (homepage) variant: unchanged legacy `?list=` hand-off.
+      const result = encodeWordList(words);
+      if (!result.ok) {
+        status.textContent =
+          result.code === 'payload_too_long'
+            ? 'Word list is too long to encode. Please shorten some words.'
+            : 'Could not create test. Please check your word list.';
+        return;
+      }
+
+      try {
+        sessionStorage.setItem(`sw:source:${result.payload}`, JSON.stringify(resolveCustomPracticeSource()));
+      } catch {
+        /* sessionStorage unavailable — non-fatal */
+      }
+
+      window.location.href = `/play?list=${result.payload}`;
+    }
+
+    textarea.addEventListener('input', updateStatus);
+    btn.addEventListener('click', handleStart);
+    updateStatus();
+
+    // ─── Full-variant-only behavior: shared-link creation + inspecting an
+    //     incoming shared list. ─────────────────────────────────────────
+    if (isFull) {
+      const sharedReadyState = document.getElementById('shared-ready-state')!;
+      const sharedReadyHeading = document.getElementById('shared-ready-heading')!;
+      const sharedReadyCount = document.getElementById('shared-ready-count')!;
+      const sharedReadyWords = document.getElementById('shared-ready-words')!;
+      const sharedReadyError = document.getElementById('shared-ready-error')!;
+      const btnSharedStart = document.getElementById('btn-shared-start') as HTMLButtonElement;
+      const btnSharedEdit = document.getElementById('btn-shared-edit') as HTMLButtonElement;
+
+      const shareTitleInput = document.getElementById('share-title-input') as HTMLInputElement;
+      const btnCreateLink = document.getElementById('btn-create-link') as HTMLButtonElement;
+      const shareLimitNote = document.getElementById('share-limit-note')!;
+      const shareSuccess = document.getElementById('share-success')!;
+      const btnCopyLink = document.getElementById('btn-copy-link') as HTMLButtonElement;
+      const btnNativeShare = document.getElementById('btn-native-share') as HTMLButtonElement;
+      const btnShowLink = document.getElementById('btn-show-link') as HTMLButtonElement;
+      const shareUrlWrapper = document.getElementById('share-url-wrapper')!;
+      const shareUrlField = document.getElementById('share-url-field') as HTMLInputElement;
+      const shareStatus = document.getElementById('share-status')!;
+
+      let decodedShared: { words: string[]; title?: string; sourceHref: string } | null = null;
+
+      // An editorial word-list treatment, not a pill cloud: plain dark text
+      // in a light-dividered grid, so a 30-word shared list still scans as
+      // a clean list rather than 30 individually-boxed chips. break-words
+      // keeps a long word from overflowing its column on narrow screens.
+      function buildSharedWordCell(word: string): HTMLLIElement {
+        const li = document.createElement('li');
+        li.textContent = word;
+        li.className =
+          'border-b border-da-border py-1.5 font-word text-base text-da-ink break-words select-none';
+        return li;
+      }
+
+      function showSharedReady(words: string[], title?: string): void {
+        // Captured exactly as-is (path + fragment, no origin) so a later
+        // "← Return to {title}" action on the results screen can restore
+        // this precise shared list — never a semantically-equivalent but
+        // freshly re-encoded URL, and never the bare entry page.
+        const sourceHref = `${window.location.pathname}${window.location.hash}`;
+        decodedShared = { words, title, sourceHref };
+        sharedReadyHeading.textContent = title || 'Practice this shared list';
+        sharedReadyCount.textContent = `${words.length} ${words.length === 1 ? 'word' : 'words'}`;
+        sharedReadyWords.textContent = '';
+        for (const w of words) sharedReadyWords.appendChild(buildSharedWordCell(w));
+        sharedReadyError.classList.add('hidden');
+        sharedReadyState.classList.remove('hidden');
+        sharedReadyState.classList.add('flex');
+        entryState.classList.add('hidden');
+      }
+
+      function showSharedError(message: string): void {
+        sharedReadyHeading.textContent = 'This shared link could not be opened';
+        sharedReadyCount.textContent = '';
+        sharedReadyWords.textContent = '';
+        sharedReadyError.textContent = message;
+        sharedReadyError.classList.remove('hidden');
+        btnSharedStart.classList.add('hidden');
+        btnSharedEdit.classList.add('hidden');
+        sharedReadyState.classList.remove('hidden');
+        sharedReadyState.classList.add('flex');
+        entryState.classList.add('hidden');
+      }
+
+      // Fragments are never sent to the server and don't exist at build
+      // time — reading and decoding this is entirely a client concern.
+      const match = /^#list=(.+)$/.exec(window.location.hash);
+      if (match) {
+        const decoded = decodeSharedList(match[1]);
+        if (decoded.ok) {
+          showSharedReady(decoded.words, decoded.title);
+        } else {
+          showSharedError('This link is damaged or was created by a newer version of the site. Ask for a new link, or enter the words yourself below.');
+        }
+      }
+
+      btnSharedStart.addEventListener('click', () => {
+        if (!decodedShared) return;
+        startSessionHandoff(
+          decodedShared.words,
+          resolveSharedPracticeSource({ title: decodedShared.title, href: decodedShared.sourceHref }),
+          decodedShared.title,
+        );
+      });
+
+      btnSharedEdit.addEventListener('click', () => {
+        if (!decodedShared) return;
+        textarea.value = decodedShared.words.join('\n');
+        sharedReadyState.classList.add('hidden');
+        sharedReadyState.classList.remove('flex');
+        entryState.classList.remove('hidden');
+        updateStatus();
+        textarea.focus();
+      });
+
+      let lastSharePayload: string | null = null;
+
+      function handleCreateLink(): void {
+        const words = getWords();
+        const title = shareTitleInput.value.trim() || undefined;
+        const result = encodeSharedList(words, title);
+        if (!result.ok) {
+          shareLimitNote.textContent = shareErrorMessage(result.code, words.length);
+          return;
+        }
+        lastSharePayload = result.payload;
+        const url = `${window.location.origin}/practice-your-own-words#list=${result.payload}`;
+        shareUrlField.value = url;
+        shareUrlWrapper.classList.add('hidden');
+        btnShowLink.setAttribute('aria-expanded', 'false');
+        btnShowLink.textContent = 'Show link';
+        shareSuccess.classList.remove('hidden');
+        btnNativeShare.classList.toggle('hidden', !('share' in navigator));
+        shareStatus.textContent = '';
+        requestAnimationFrame(() => btnCopyLink.focus());
+      }
+
+      async function handleCopyLink(): Promise<void> {
+        const url = shareUrlField.value;
+        if (!url) return;
+        try {
+          await navigator.clipboard.writeText(url);
+          shareStatus.textContent = 'Link copied.';
+        } catch {
+          shareUrlWrapper.classList.remove('hidden');
+          btnShowLink.setAttribute('aria-expanded', 'true');
+          btnShowLink.textContent = 'Hide link';
+          shareUrlField.select();
+          shareStatus.textContent = 'Could not copy automatically. The link is selected below — copy it manually.';
+        }
+      }
+
+      function handleNativeShare(): void {
+        const url = shareUrlField.value;
+        if (!url || !('share' in navigator)) return;
+        (navigator as Navigator & { share: (data: { url: string; title?: string }) => Promise<void> })
+          .share({ url, title: shareTitleInput.value.trim() || 'Spelling practice list' })
+          .catch(() => {
+            /* user cancelled or share failed — Copy Link remains available */
+          });
+      }
+
+      function handleShowLinkToggle(): void {
+        const expanded = btnShowLink.getAttribute('aria-expanded') === 'true';
+        shareUrlWrapper.classList.toggle('hidden', expanded);
+        btnShowLink.setAttribute('aria-expanded', String(!expanded));
+        btnShowLink.textContent = expanded ? 'Show link' : 'Hide link';
+        if (!expanded) shareUrlField.select();
+      }
+
+      btnCreateLink.addEventListener('click', handleCreateLink);
+      btnCopyLink.addEventListener('click', handleCopyLink);
+      btnNativeShare.addEventListener('click', handleNativeShare);
+      btnShowLink.addEventListener('click', handleShowLinkToggle);
+      shareTitleInput.addEventListener('input', () => {
+        // A title change invalidates a previously created link's title —
+        // hide the stale success state rather than leaving a mismatched link.
+        if (lastSharePayload) shareSuccess.classList.add('hidden');
+      });
+    }
+
+    // Plain-language, contextual copy — never the raw technical error
+    // message from the encoder (e.g. "payload exceeds N characters"), and
+    // never quoted in general page copy — only shown at the moment a real
+    // list actually exceeds the shareable limit.
+    function shareErrorMessage(code: string, wordCount: number): string {
+      switch (code) {
+        case 'too_many_words':
+        case 'payload_too_long':
+          return `Shared practice links support up to ${MAX_SHARED_WORD_COUNT} words (this list has ${wordCount}). You can still practice the full list yourself above, or shorten it to create a link.`;
+        case 'word_too_long':
+          return 'One of these words is too long to include in a shared link. You can still practice the full list yourself above.';
+        case 'title_too_long':
+          return 'That title is a bit too long. Try a shorter one.';
+        default:
+          return 'This list can’t be turned into a link right now. You can still practice it yourself above.';
+      }
+    }
+
+    // Declared once at this scope (rather than inside the `if (isFull)`
+    // block above) so `updateStatus()` — defined earlier in this same
+    // scope — can call it via ordinary function-declaration hoisting. The
+    // compact variant never renders these elements, so it's a no-op there.
+    function updateShareAvailability(words: string[]): void {
+      if (!isFull) return;
+      const note = document.getElementById('share-limit-note');
+      const createBtn = document.getElementById('btn-create-link') as HTMLButtonElement | null;
+      const success = document.getElementById('share-success');
+      if (!note || !createBtn) return;
+      // A word-list edit invalidates any previously created link's contents.
+      success?.classList.add('hidden');
+      if (words.length === 0) {
+        createBtn.disabled = true;
+        note.textContent = '';
+      } else if (words.length > MAX_SHARED_WORD_COUNT) {
+        createBtn.disabled = true;
+        note.textContent = shareErrorMessage('too_many_words', words.length);
+      } else {
+        createBtn.disabled = false;
+        note.textContent = '';
+      }
+    }
+  }
+</script>

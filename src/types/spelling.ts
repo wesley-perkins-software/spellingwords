@@ -20,7 +20,7 @@ export interface WordList {
   relatedLists: string[];
 }
 
-export type PracticeSourceType = 'core' | 'hfw' | 'themed' | 'skill' | 'custom';
+export type PracticeSourceType = 'core' | 'hfw' | 'themed' | 'skill' | 'custom' | 'shared';
 
 /**
  * Describes where a /play session was launched from, so the practice

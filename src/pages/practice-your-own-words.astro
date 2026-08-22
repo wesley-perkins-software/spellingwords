@@ -1,0 +1,83 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import CustomWordEntry from '@/components/CustomWordEntry.astro';
+---
+
+<Layout
+  title="Practice Your Own Spelling Words | SpellingWords"
+  description="Type or paste any spelling list and start practicing immediately in your browser — no account needed. Create a free link to share the same list with a class."
+>
+  <SiteHeader currentPath="/practice-your-own-words" />
+
+  <main id="main-content">
+    <!-- Identity band — breadcrumb, eyebrow, H1, direct-answer intro. Kept as
+         page-level markup (not routed through the narrow supporting-page
+         prose template used by pages like /about) so the tool below can
+         read as a dominant, first-class workspace rather than a widget
+         embedded in an article. -->
+    <div class="mx-auto max-w-content-xl px-5 pt-8 sm:px-6 md:pt-10">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Practice Your Own Words' }]} />
+    </div>
+
+    <header class="px-5 pb-8 pt-8 sm:px-6 md:pb-10 md:pt-12">
+      <div class="mx-auto max-w-content-xl">
+        <p class="font-quicksand text-sm font-bold uppercase tracking-[0.08em] text-da-brand-strong">
+          Your words, your list
+        </p>
+        <h1
+          class="mt-3 max-w-[20ch] font-quicksand text-[clamp(2.15rem,4.6vw,3.2rem)] font-bold leading-[1.08] tracking-tight text-da-ink"
+        >
+          Practice Your Own Spelling Words
+        </h1>
+        <p class="mt-5 max-w-[62ch] text-[1.1rem] leading-relaxed text-da-ink-soft">
+          Enter a spelling list from school, homework, a weekly test, or any words you want to practice.
+          SpellingWords will read each word aloud and let you type its spelling — no account required, and
+          practice begins in a random order every time.
+        </p>
+        <p class="mt-2 max-w-[62ch] text-base leading-relaxed text-da-ink-soft">
+          Some words may also include a sentence, when one is available.
+        </p>
+      </div>
+    </header>
+
+    <!-- The tool — full-width, dominant workspace. -->
+    <section class="px-5 pb-14 sm:px-6 md:pb-20" aria-labelledby="entry-heading">
+      <div class="mx-auto max-w-content-md">
+        <CustomWordEntry variant="full" headingId="entry-heading" />
+      </div>
+    </section>
+
+    <!-- Secondary explanation — narrower reading column, deliberately quieter than the tool above. -->
+    <section class="bg-da-surface-home px-5 py-14 sm:px-6 md:py-20" aria-labelledby="how-it-works-heading">
+      <div class="mx-auto max-w-content-md">
+        <h2 id="how-it-works-heading" class="font-quicksand text-2xl font-bold text-da-ink">How it works</h2>
+        <ul class="mt-6 flex flex-col gap-5 text-base leading-relaxed text-da-ink-soft">
+          <li>
+            <p class="font-quicksand text-lg font-bold text-da-ink">Enter your words</p>
+            <p class="mt-1">Type or paste one spelling word per line.</p>
+          </li>
+          <li>
+            <p class="font-quicksand text-lg font-bold text-da-ink">Start practicing</p>
+            <p class="mt-1">Words are presented in a random order. Listen to each word, then type its spelling.</p>
+          </li>
+          <li>
+            <p class="font-quicksand text-lg font-bold text-da-ink">Share a list</p>
+            <p class="mt-1">
+              Create a practice link that students can open without an account. They can look over the list
+              before starting — practice never begins automatically.
+            </p>
+          </li>
+          <li>
+            <p class="font-quicksand text-lg font-bold text-da-ink">Keep shared lists non-personal</p>
+            <p class="mt-1">Anyone with the link can see its words, so leave out names or private information.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Layout>

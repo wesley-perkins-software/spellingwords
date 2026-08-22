@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import {
   TRAILING_SLASH,
   canonicalGradeRoutes,
+  getCanonicalGradeRouteById,
   getCanonicalListPath,
   getCanonicalListPathById,
   getGradeHubPath,
@@ -116,6 +117,9 @@ describe('canonical grade routes', () => {
   it('resolves approved representative paths by stable content id', () => {
     expect(getCanonicalListPathById('kindergarten-first-words')).toBe('/kindergarten/core-spelling/first-words');
     expect(getCanonicalListPathById('kindergarten-short-a-words')).toBe('/kindergarten/core-spelling/short-a-words');
+    expect(getCanonicalListPathById('kindergarten-animal-words')).toBe(
+      '/kindergarten/themed-spelling-practice/animal-words',
+    );
     expect(getCanonicalListPathById('grade-1-floss-rule')).toBe('/1st-grade/core-spelling/floss-rule');
     expect(getCanonicalListPathById('grade-1-high-frequency-words-set-1')).toBe('/1st-grade/high-frequency-words/set-1');
     expect(getCanonicalListPathById('grade-1-weather-words')).toBe('/1st-grade/themed-spelling-practice/weather-words');
@@ -127,6 +131,18 @@ describe('canonical grade routes', () => {
     expect(getCanonicalListPathById('grade-3-suffix-spelling-changes')).toBe(
       '/3rd-grade/core-spelling/suffix-spelling-changes',
     );
+  });
+
+  it('keeps the canonical Kindergarten Animal Words id complete in the route manifest and content', () => {
+    const sources = canonicalContentById();
+
+    expect(sources.get('kindergarten-animal-words')).toMatch(/^status: published$/m);
+    expect(getCanonicalGradeRouteById('kindergarten-animal-words')).toMatchObject({
+      grade: 'K',
+      classification: 'themed-spelling-practice',
+      canonicalPath: '/kindergarten/themed-spelling-practice/animal-words',
+    });
+    expect(getCanonicalGradeRouteById('kindergarten-animal-wo')).toBeUndefined();
   });
 
   it('composes with the Skill manifest: getCanonicalListPath resolves Skill ids to /skills/{slug}', () => {

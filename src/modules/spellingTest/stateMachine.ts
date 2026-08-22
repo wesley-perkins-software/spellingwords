@@ -1,5 +1,5 @@
 import type { SpellingWord } from '@/types/spelling';
-import { normalizeWord, compareWords } from '@/lib/words';
+import { getAnswerOutcome } from '@/lib/words';
 import type { TestState, TestAction, TestErrorCode } from './types';
 import { shuffleWords } from './order';
 import { buildResult } from './scoring';
@@ -16,6 +16,7 @@ export function createInitialState(): TestState {
     completedAt: null,
     result: null,
     lastAnswerCorrect: null,
+    lastAnswerOutcome: null,
     error: null,
   };
 }
@@ -72,14 +73,17 @@ function handleSubmitAnswer(
   }
 
   const target = state.words[state.currentIndex];
-  const normalizedAnswer = normalizeWord(payload.answer, { lowercase: true });
-  const normalizedTarget = normalizeWord(target.word, { lowercase: true });
-  const correct = compareWords(normalizedAnswer, normalizedTarget);
+  // Compare the raw (not pre-lowercased) submitted answer against the raw
+  // canonical word — getAnswerOutcome needs real casing to tell an exact
+  // match from a case-only mismatch worth a capitalization reminder.
+  const outcome = getAnswerOutcome(payload.answer, target.word);
+  const correct = outcome !== 'incorrect';
 
   const attempt = {
     wordIndex: state.currentIndex,
     answer: payload.answer,
     correct,
+    outcome,
   };
 
   return clearError({
@@ -87,6 +91,7 @@ function handleSubmitAnswer(
     status: 'feedback',
     attempts: [...state.attempts, attempt],
     lastAnswerCorrect: correct,
+    lastAnswerOutcome: outcome,
   });
 }
 
@@ -102,6 +107,7 @@ function handleNextWord(state: TestState, payload: { timestamp: number }): TestS
       status: 'awaitingAnswer',
       currentIndex: nextIndex,
       lastAnswerCorrect: null,
+      lastAnswerOutcome: null,
     });
   }
 
@@ -110,6 +116,7 @@ function handleNextWord(state: TestState, payload: { timestamp: number }): TestS
     status: 'complete',
     currentIndex: -1,
     lastAnswerCorrect: null,
+    lastAnswerOutcome: null,
     completedAt: payload.timestamp,
     error: null,
   };

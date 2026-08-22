@@ -1,4 +1,5 @@
 import type { SpellingWord } from '@/types/spelling';
+import type { AnswerOutcome } from '@/lib/words';
 
 export type TestStatus = 'idle' | 'ready' | 'awaitingAnswer' | 'feedback' | 'complete';
 
@@ -7,7 +8,11 @@ export type TestErrorCode = 'empty_word_list' | 'invalid_state_transition' | 'an
 export interface WordAttempt {
   wordIndex: number;
   answer: string;
+  /** True for both `correct` and `caseMismatch` outcomes — a case-only
+   *  mismatch against meaningfully-capitalized canonical words still counts
+   *  as correct for scoring. See `outcome` for the richer grading detail. */
   correct: boolean;
+  outcome: AnswerOutcome;
 }
 
 export interface TestResult {
@@ -31,6 +36,7 @@ export interface TestState {
   completedAt: number | null;
   result: TestResult | null;
   lastAnswerCorrect: boolean | null;
+  lastAnswerOutcome: AnswerOutcome | null;
   error: TestErrorCode | null;
 }
 

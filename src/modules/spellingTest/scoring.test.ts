@@ -4,7 +4,7 @@ import type { WordAttempt, TestState } from './types';
 import { createInitialState } from './stateMachine';
 
 function makeAttempt(wordIndex: number, answer: string, correct: boolean): WordAttempt {
-  return { wordIndex, answer, correct };
+  return { wordIndex, answer, correct, outcome: correct ? 'correct' : 'incorrect' };
 }
 
 describe('calculateScore', () => {

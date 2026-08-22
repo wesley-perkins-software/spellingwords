@@ -16,7 +16,8 @@ export { normalizeWord } from './normalizeWord';
 export { normalizeWordList } from './normalizeWordList';
 export type { NormalizeWordListOptions } from './normalizeWordList';
 export { dedupeWords } from './dedupeWords';
-export { compareWords, comparisonKey } from './compareWords';
+export { compareWords, comparisonKey, getAnswerOutcome } from './compareWords';
+export type { AnswerOutcomeOptions } from './compareWords';
 export { parseWordInput } from './parseWordInput';
 export { validateWordInput } from './validateWordInput';
 export {
@@ -36,6 +37,7 @@ export type {
   EncodeResult,
 } from './serialization';
 export type {
+  AnswerOutcome,
   CompareOptions,
   NormalizeOptions,
   ParseOptions,

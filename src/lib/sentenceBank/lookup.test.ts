@@ -76,6 +76,34 @@ describe('getSentenceBankEntry', () => {
   });
 });
 
+describe('mixed word lists never make a session-level sentence promise', () => {
+  // Regression guard for the /play custom-list enrichment path (play.astro),
+  // which maps each word through getSentenceBankEntry independently. A
+  // mixed list must enrich only the words that actually have bank
+  // coverage — never assume every word in a session has a sentence just
+  // because some do, and never silently borrow one word's sentence for
+  // another.
+  it('enriches only the words that have bank coverage, leaving the rest without exampleSentence', () => {
+    const words = ['friend', 'xylophone', 'because', 'zzzznotaword'];
+    const enriched = words.map((w) => {
+      const entry = getSentenceBankEntry(w);
+      return entry ? { word: w, exampleSentence: entry.exampleSentence } : { word: w };
+    });
+
+    expect(enriched[0]).toMatchObject({ word: 'friend' });
+    expect(enriched[0].exampleSentence).toBeTruthy();
+
+    expect(enriched[1]).toEqual({ word: 'xylophone' });
+    expect('exampleSentence' in enriched[1]).toBe(false);
+
+    expect(enriched[2]).toMatchObject({ word: 'because' });
+    expect(enriched[2].exampleSentence).toBeTruthy();
+
+    expect(enriched[3]).toEqual({ word: 'zzzznotaword' });
+    expect('exampleSentence' in enriched[3]).toBe(false);
+  });
+});
+
 describe('getSentenceForWord', () => {
   it('returns the sentence string for a known word', () => {
     const sentence = getSentenceForWord('friend');

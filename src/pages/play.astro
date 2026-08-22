@@ -184,11 +184,12 @@ import SiteFooter from '@/components/SiteFooter.astro';
               </div>
             </div>
 
-            <!-- Begin screen — shares the same min-height grid discipline as
-                 question/feedback so ready→question never jumps in height. -->
+            <!-- Begin screen — content-driven height, like question/feedback;
+                 the practice stage stays centered as a whole rather than
+                 forcing every screen to share one inner-card height. -->
             <section
               id="screen-begin"
-              class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[420px]"
+              class="hidden flex flex-col gap-4"
               aria-labelledby="begin-heading"
             >
               <div class="flex flex-col items-center justify-center gap-7 rounded-2xl border border-da-border bg-da-canvas-raised px-7 py-8 text-center shadow-md md:px-8 md:py-9">
@@ -214,12 +215,13 @@ import SiteFooter from '@/components/SiteFooter.astro';
               </button>
             </section>
 
-            <!-- Question screen
-                 Uses CSS grid (1fr auto) with a shared min-height so the Check Spelling button
-                 always occupies a consistent vertical slot. -->
+            <!-- Question screen — content-driven height: the white card sizes
+                 to its own content (listening controls, instruction, input)
+                 instead of stretching to fill a fixed floor, so Check
+                 Spelling sits right beneath it with no dead space between. -->
             <section
               id="screen-question"
-              class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[420px]"
+              class="hidden flex flex-col gap-4"
               aria-labelledby="question-heading"
             >
               <!-- White interaction surface — the focused workbook card inside the cool stage -->
@@ -301,10 +303,10 @@ import SiteFooter from '@/components/SiteFooter.astro';
               </button>
             </section>
 
-            <!-- Feedback screen — mirrors question screen grid so content centers between progress and button -->
+            <!-- Feedback screen — content-driven height, same as question screen -->
             <section
               id="screen-feedback"
-              class="hidden grid grid-rows-[1fr_auto] gap-4 min-h-[420px] text-center"
+              class="hidden flex flex-col gap-4 text-center"
               aria-labelledby="feedback-heading"
               aria-live="assertive"
             >
@@ -330,6 +332,14 @@ import SiteFooter from '@/components/SiteFooter.astro';
                     >
                     </p>
                   </div>
+                  <!-- Shown only for a caseMismatch outcome — the spelling is
+                       correct (counts toward the score) but the canonical
+                       word's capitalization is worth a calm reminder. Never a
+                       third results tier: same green correct styling. -->
+                  <p
+                    id="feedback-capitalization-note"
+                    class="hidden mt-1 font-mulish text-sm font-semibold text-da-ink-soft"
+                  ></p>
                 </div>
 
                 <!-- Incorrect answer: icon + phrase, then a labeled comparison —
@@ -485,6 +495,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
   const feedbackCorrectLayout = $('feedback-correct-layout');
   const feedbackCorrectWord = $('feedback-correct-word');
   const feedbackCorrectPhrase = $('feedback-correct-phrase');
+  const feedbackCapitalizationNote = $('feedback-capitalization-note');
   const feedbackIncorrectLayout = $('feedback-incorrect-layout');
   const feedbackIncorrectPhrase = $('feedback-incorrect-phrase');
   const feedbackAttempt = $('feedback-attempt');
@@ -679,20 +690,11 @@ import SiteFooter from '@/components/SiteFooter.astro';
     }
 
     originalRichWords = richWords;
-    state = spellingTestReducer(createInitialState(), initializeTest(richWords));
 
-    const count = originalWords.length;
-
-    // Resolve session title: curated list title from sessionStorage, else custom fallback
-    let sessionTitle = 'Your Spelling Words';
-    try {
-      const stored = sessionStorage.getItem(`sw:title:${payload}`);
-      if (stored) sessionTitle = stored;
-    } catch {
-      /* sessionStorage unavailable — use fallback */
-    }
-
-    // Resolve session provenance, written by the page that launched practice.
+    // Resolve session provenance, written by the page that launched practice,
+    // before initializing the state machine — grading needs to know whether
+    // this is a custom session (unverifiable casing) or a curated one
+    // (canonical, meaningfully-capitalized casing) up front.
     try {
       const stored = sessionStorage.getItem(`sw:source:${payload}`);
       if (stored) {
@@ -703,6 +705,22 @@ import SiteFooter from '@/components/SiteFooter.astro';
       }
     } catch {
       /* sessionStorage unavailable or parse failed — default 'custom' source stands */
+    }
+
+    state = spellingTestReducer(
+      createInitialState(),
+      initializeTest(richWords, { meaningfulCapitalization: practiceSource.type !== 'custom' }),
+    );
+
+    const count = originalWords.length;
+
+    // Resolve session title: curated list title from sessionStorage, else custom fallback
+    let sessionTitle = 'Your Spelling Words';
+    try {
+      const stored = sessionStorage.getItem(`sw:title:${payload}`);
+      if (stored) sessionTitle = stored;
+    } catch {
+      /* sessionStorage unavailable — use fallback */
     }
 
     beginHeading.textContent = sessionTitle;
@@ -736,6 +754,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
     progressEl.textContent = `Word ${pos} of ${total}`;
     progressBar.style.width = `${(pos / total) * 100}%`;
     questionInstruction.textContent = instructionForIndex();
+    answerInput.readOnly = false;
     answerInput.value = '';
     answerError.textContent = '';
 
@@ -746,7 +765,14 @@ import SiteFooter from '@/components/SiteFooter.astro';
     noSentenceNote.classList.toggle('hidden', hasSentence);
 
     showScreen(screenQuestion);
-    requestAnimationFrame(() => answerInput.focus());
+    // Focus synchronously, in the same task as the triggering click/tap
+    // (Continue, Start, Practice again/missed) rather than deferring via
+    // requestAnimationFrame — staying inside the original user-gesture task
+    // is what gives iOS Safari/Android Chrome the best chance of reopening
+    // the software keyboard without the student having to tap the field
+    // again. showScreen()'s class toggle above is synchronous, so the input
+    // is already visible/focusable by this point.
+    answerInput.focus();
 
     // Cancel any pending sentence from the previous word, then speak this word.
     // After a short natural pause, auto-speak the sentence if one exists.
@@ -782,6 +808,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
 
   function renderFeedback(): void {
     const correct = state.lastAnswerCorrect;
+    const outcome = state.lastAnswerOutcome;
     const currentWord = state.words[state.currentIndex].word;
     const lastAttempt = state.attempts[state.attempts.length - 1];
     const submittedAnswer = lastAttempt?.answer ?? '';
@@ -807,8 +834,19 @@ import SiteFooter from '@/components/SiteFooter.astro';
       const phrase = pickPhrase(CORRECT_PHRASES, lastCorrectPhrase, (i) => (lastCorrectPhrase = i));
       feedbackCorrectPhrase.textContent = phrase;
 
+      // Case-mismatch: the spelling is correct (counts toward the score),
+      // but the canonical word's capitalization is worth a calm reminder.
+      // Not a third results tier — same green correct layout, one extra line.
+      const isCaseMismatch = outcome === 'caseMismatch';
+      feedbackCapitalizationNote.classList.toggle('hidden', !isCaseMismatch);
+      feedbackCapitalizationNote.textContent = isCaseMismatch
+        ? `Remember the capital letter. You wrote: ${submittedAnswer}. Write it as: ${currentWord}.`
+        : '';
+
       // SR label covers both the outcome and the word
-      feedbackHeading.textContent = `Correct. ${currentWord}. ${phrase}`;
+      feedbackHeading.textContent = isCaseMismatch
+        ? `Correct. ${currentWord}. ${phrase} Remember the capital letter. You wrote ${submittedAnswer}. Write it as ${currentWord}.`
+        : `Correct. ${currentWord}. ${phrase}`;
 
       showScreen(screenFeedback);
       btnNext.disabled = false;
@@ -979,6 +1017,11 @@ import SiteFooter from '@/components/SiteFooter.astro';
     speech.cancelSpeech();
     clearSpeakingState();
 
+    // Non-editable (not disabled) through feedback — stays focusable/stable
+    // rather than blurring outright, so as little keyboard churn happens as
+    // the browser allows. See renderQuestion(), which clears this.
+    answerInput.readOnly = true;
+
     state = spellingTestReducer(state, submitAnswer(answer, Date.now()));
     renderFeedback();
   }
@@ -1056,7 +1099,12 @@ import SiteFooter from '@/components/SiteFooter.astro';
 
   // "Practice full list again" — replays the original session from the start.
   function handleRetryFull(): void {
-    state = spellingTestReducer(createInitialState(), initializeTest(originalRichWords));
+    state = spellingTestReducer(
+      createInitialState(),
+      initializeTest(originalRichWords, {
+        meaningfulCapitalization: practiceSource.type !== 'custom',
+      }),
+    );
     state = spellingTestReducer(state, startTest(Date.now()));
     renderQuestion();
   }
@@ -1085,6 +1133,11 @@ import SiteFooter from '@/components/SiteFooter.astro';
   }
   updateHeaderHeightVar();
   window.addEventListener('resize', updateHeaderHeightVar);
+  // window's resize doesn't reliably fire when a mobile soft keyboard
+  // opens/closes — visualViewport's does. Keeping --practice-header-h accurate
+  // through that transition is the one narrowly-scoped use of
+  // visualViewport here (no separate full-layout recalculation).
+  window.visualViewport?.addEventListener('resize', updateHeaderHeightVar);
 
   // --- Boot ---
   init();

@@ -25,8 +25,9 @@ export function resolveGradeUnitPracticeSource(args: {
   href: string;
   grade?: string;
   titleById: (id: string) => string | undefined;
+  gradeById?: (id: string) => string | undefined;
 }): PracticeSource {
-  const { id, classification, title, href, grade, titleById } = args;
+  const { id, classification, title, href, grade, titleById, gradeById } = args;
   const type = PRACTICE_SOURCE_TYPE_BY_CLASSIFICATION[classification];
   const source: PracticeSource = { type, title, href, grade };
 
@@ -43,6 +44,7 @@ export function resolveGradeUnitPracticeSource(args: {
     if (nextHref && nextTitle) {
       source.nextHref = nextHref;
       source.nextTitle = nextTitle;
+      source.nextGrade = gradeById?.(nextId);
     }
   }
 

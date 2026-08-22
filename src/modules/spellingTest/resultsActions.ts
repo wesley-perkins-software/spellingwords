@@ -1,5 +1,6 @@
 import type { TestResult } from './types';
 import type { PracticeSource } from '@/types/spelling';
+import { gradeConfig } from '@/lib/content/gradeConfig';
 
 export type ResultsActionKind = 'reviewMissed' | 'retryFull' | 'continueNext' | 'sourceReturn';
 
@@ -15,6 +16,20 @@ const NEXT_LABEL_BY_SOURCE_TYPE: Partial<Record<PracticeSource['type'], string>>
   core: 'Continue to next unit →',
   hfw: 'Continue to next set →',
 };
+
+/**
+ * The Core Spelling "Continue" label, made destination-aware at a grade
+ * boundary. Only the label changes here — `nextHref` (set in
+ * `resolveGradeUnitPracticeSource`) is untouched, so this never affects
+ * where "Continue" actually navigates, only what it says.
+ */
+function coreContinueLabel(source: PracticeSource): string {
+  if (source.grade && source.nextGrade && source.grade !== source.nextGrade) {
+    const nextGradeLabel = gradeConfig.find((g) => g.grade === source.nextGrade)?.label;
+    if (nextGradeLabel) return `Continue to ${nextGradeLabel} Core Spelling →`;
+  }
+  return NEXT_LABEL_BY_SOURCE_TYPE.core!;
+}
 
 /**
  * Determines which results-screen actions to show, in priority order.
@@ -35,7 +50,10 @@ export function resolveResultsActions(result: TestResult, source: PracticeSource
       const actions: ResultsAction[] = [
         {
           kind: 'continueNext',
-          label: NEXT_LABEL_BY_SOURCE_TYPE[source.type] ?? 'Continue →',
+          label:
+            source.type === 'core'
+              ? coreContinueLabel(source)
+              : (NEXT_LABEL_BY_SOURCE_TYPE[source.type] ?? 'Continue →'),
           href: source.nextHref,
         },
         { kind: 'retryFull', label: 'Practice this list again' },

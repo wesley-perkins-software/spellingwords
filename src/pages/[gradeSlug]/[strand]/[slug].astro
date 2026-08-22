@@ -65,6 +65,7 @@ const practiceSource = resolveGradeUnitPracticeSource({
   href: route.canonicalPath,
   grade: data.grade,
   titleById: (id) => allEntries.find((e) => e.data.id === id)?.data.title,
+  gradeById: (id) => allEntries.find((e) => e.data.id === id)?.data.grade,
 });
 
 const categoryLabel = isHighFrequencyWords

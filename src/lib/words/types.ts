@@ -17,6 +17,17 @@ export interface NormalizeOptions {
   foldDiacritics?: boolean;
 }
 
+/**
+ * The result of grading a submitted answer against a canonical word.
+ *
+ * `caseMismatch` is distinct from `correct` only when the canonical word's
+ * own casing is meaningful (e.g. `January`, `Wednesday`) — a case-only
+ * mismatch against an all-lowercase canonical word (`cat` vs `Cat`/`CAT`) is
+ * plain `correct`, not a reminder. Counts as correct for scoring either way;
+ * `caseMismatch` exists purely to drive a calm capitalization reminder.
+ */
+export type AnswerOutcome = 'correct' | 'caseMismatch' | 'incorrect';
+
 /** Options controlling how two words are compared (and how duplicates match). */
 export interface CompareOptions {
   /** Require identical casing. Defaults to `false` (case-insensitive). */

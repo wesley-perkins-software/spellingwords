@@ -35,4 +35,7 @@ export interface PracticeSource {
   grade?: string;
   nextHref?: string;
   nextTitle?: string;
+  /** The next unit/set's own grade — lets the results CTA distinguish a
+   *  same-grade "Continue to next unit" from a grade-boundary crossing. */
+  nextGrade?: string;
 }

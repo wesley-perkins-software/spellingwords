@@ -1,5 +1,6 @@
 ---
 import { gradeConfig } from '@/lib/content/gradeConfig';
+import BrandMark from '@/components/BrandMark.astro';
 
 interface Props {
   variant?: 'discovery' | 'practice';
@@ -25,19 +26,7 @@ const currentGrade = gradeConfig.find(
       data-site-header
     >
       <div class="mx-auto flex max-w-content-xl items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6">
-        <a
-          href="/"
-          class="mr-auto flex min-w-0 flex-shrink items-center gap-2.5 font-quicksand text-lg font-bold text-da-ink no-underline sm:text-xl md:mr-3"
-          aria-label="SpellingWords home"
-        >
-          <span
-            class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-da-brand font-quicksand text-sm font-bold text-white"
-            aria-hidden="true"
-          >
-            Sw
-          </span>
-          <span class="hidden min-[390px]:inline">SpellingWords</span>
-        </a>
+        <BrandMark />
 
         <nav aria-label="Primary navigation" class="hidden flex-1 md:block">
           <ul class="m-0 flex list-none items-center gap-2 p-0 lg:gap-4">
@@ -255,24 +244,12 @@ const currentGrade = gradeConfig.find(
     </header>
   ) : (
     <header class="sticky top-0 z-20 border-b border-da-border bg-da-canvas/95 backdrop-blur-sm">
-      <div class="mx-auto flex max-w-content-lg items-center justify-between px-6 py-3">
-        <a
-          href="/"
-          class="flex items-center gap-2 font-quicksand text-sm font-semibold tracking-tight text-da-ink-soft transition-colors hover:text-da-ink"
-          aria-label="SpellingWords home"
-        >
-          <span
-            class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md bg-da-brand font-quicksand text-[0.7rem] font-bold text-white"
-            aria-hidden="true"
-          >
-            Sw
-          </span>
-          Spelling<span class="text-da-ink-faint">Words</span>
-        </a>
+      <div class="mx-auto flex max-w-content-lg items-center justify-between gap-3 px-6 py-3">
+        <BrandMark />
         <a
           id="practice-exit-link"
           href="/#practice"
-          class="flex min-h-[44px] items-center rounded-full px-3 py-2 text-xs font-semibold text-da-ink-soft/70 transition hover:bg-da-surface-neutral hover:text-da-ink-soft"
+          class="flex min-h-[44px] flex-shrink-0 items-center rounded-full px-3 py-2 font-quicksand text-base font-bold text-da-ink transition hover:bg-da-surface-neutral focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand"
         >
           ← New list
         </a>

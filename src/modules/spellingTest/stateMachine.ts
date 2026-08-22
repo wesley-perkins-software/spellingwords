@@ -1,5 +1,5 @@
 import type { SpellingWord } from '@/types/spelling';
-import { normalizeWord, compareWords } from '@/lib/words';
+import { getAnswerOutcome } from '@/lib/words';
 import type { TestState, TestAction, TestErrorCode } from './types';
 import { shuffleWords } from './order';
 import { buildResult } from './scoring';
@@ -16,6 +16,8 @@ export function createInitialState(): TestState {
     completedAt: null,
     result: null,
     lastAnswerCorrect: null,
+    lastAnswerOutcome: null,
+    meaningfulCapitalization: true,
     error: null,
   };
 }
@@ -34,7 +36,12 @@ function clearError(state: TestState): TestState {
 
 function handleInitialize(
   state: TestState,
-  payload: { words: SpellingWord[] | string[]; shuffle?: boolean; rng?: () => number },
+  payload: {
+    words: SpellingWord[] | string[];
+    shuffle?: boolean;
+    rng?: () => number;
+    meaningfulCapitalization?: boolean;
+  },
 ): TestState {
   const converted = toSpellingWords(payload.words);
   if (converted.length === 0) {
@@ -45,6 +52,7 @@ function handleInitialize(
     ...createInitialState(),
     status: 'ready',
     words: ordered,
+    meaningfulCapitalization: payload.meaningfulCapitalization ?? true,
   };
 }
 
@@ -72,14 +80,21 @@ function handleSubmitAnswer(
   }
 
   const target = state.words[state.currentIndex];
-  const normalizedAnswer = normalizeWord(payload.answer, { lowercase: true });
-  const normalizedTarget = normalizeWord(target.word, { lowercase: true });
-  const correct = compareWords(normalizedAnswer, normalizedTarget);
+  // Compare the raw (not pre-lowercased) submitted answer against the raw
+  // canonical word — getAnswerOutcome needs real casing to tell an exact
+  // match from a case-only mismatch worth a capitalization reminder.
+  // meaningfulCapitalization is false for custom sessions, so a case-only
+  // difference there is always graded correct, never a caseMismatch.
+  const outcome = getAnswerOutcome(payload.answer, target.word, {
+    meaningfulCapitalization: state.meaningfulCapitalization,
+  });
+  const correct = outcome !== 'incorrect';
 
   const attempt = {
     wordIndex: state.currentIndex,
     answer: payload.answer,
     correct,
+    outcome,
   };
 
   return clearError({
@@ -87,6 +102,7 @@ function handleSubmitAnswer(
     status: 'feedback',
     attempts: [...state.attempts, attempt],
     lastAnswerCorrect: correct,
+    lastAnswerOutcome: outcome,
   });
 }
 
@@ -102,6 +118,7 @@ function handleNextWord(state: TestState, payload: { timestamp: number }): TestS
       status: 'awaitingAnswer',
       currentIndex: nextIndex,
       lastAnswerCorrect: null,
+      lastAnswerOutcome: null,
     });
   }
 
@@ -110,6 +127,7 @@ function handleNextWord(state: TestState, payload: { timestamp: number }): TestS
     status: 'complete',
     currentIndex: -1,
     lastAnswerCorrect: null,
+    lastAnswerOutcome: null,
     completedAt: payload.timestamp,
     error: null,
   };
@@ -138,6 +156,10 @@ function handleReviewMissed(
     words: ordered,
     currentIndex: 0,
     startedAt: state.startedAt,
+    // Reviewing missed words continues the same session — carry forward
+    // whether its capitalization is meaningful rather than resetting to the
+    // createInitialState() default.
+    meaningfulCapitalization: state.meaningfulCapitalization,
   };
 }
 
@@ -161,7 +183,7 @@ export function spellingTestReducer(state: TestState, action: TestAction): TestS
 // Action creators
 export const initializeTest = (
   words: SpellingWord[] | string[],
-  options?: { shuffle?: boolean; rng?: () => number },
+  options?: { shuffle?: boolean; rng?: () => number; meaningfulCapitalization?: boolean },
 ): TestAction => ({ type: 'INITIALIZE', payload: { words, ...options } });
 
 export const startTest = (timestamp: number): TestAction => ({

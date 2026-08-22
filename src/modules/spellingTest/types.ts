@@ -37,11 +37,27 @@ export interface TestState {
   result: TestResult | null;
   lastAnswerCorrect: boolean | null;
   lastAnswerOutcome: AnswerOutcome | null;
+  /**
+   * Whether this session's canonical words carry meaningful capitalization
+   * worth teaching (curated curriculum content — `January`, `Wednesday`) as
+   * opposed to unverifiable custom-entered casing (mobile autocapitalization,
+   * accidental Shift). Set once at INITIALIZE from the session's practice
+   * source; drives whether SUBMIT_ANSWER can ever produce `caseMismatch`.
+   */
+  meaningfulCapitalization: boolean;
   error: TestErrorCode | null;
 }
 
 export type TestAction =
-  | { type: 'INITIALIZE'; payload: { words: SpellingWord[] | string[]; shuffle?: boolean; rng?: () => number } }
+  | {
+      type: 'INITIALIZE';
+      payload: {
+        words: SpellingWord[] | string[];
+        shuffle?: boolean;
+        rng?: () => number;
+        meaningfulCapitalization?: boolean;
+      };
+    }
   | { type: 'START'; payload: { timestamp: number } }
   | { type: 'SUBMIT_ANSWER'; payload: { answer: string; timestamp: number } }
   | { type: 'NEXT_WORD'; payload: { timestamp: number } }

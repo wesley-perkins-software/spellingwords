@@ -17,6 +17,7 @@ export function createInitialState(): TestState {
     result: null,
     lastAnswerCorrect: null,
     lastAnswerOutcome: null,
+    meaningfulCapitalization: true,
     error: null,
   };
 }
@@ -35,7 +36,12 @@ function clearError(state: TestState): TestState {
 
 function handleInitialize(
   state: TestState,
-  payload: { words: SpellingWord[] | string[]; shuffle?: boolean; rng?: () => number },
+  payload: {
+    words: SpellingWord[] | string[];
+    shuffle?: boolean;
+    rng?: () => number;
+    meaningfulCapitalization?: boolean;
+  },
 ): TestState {
   const converted = toSpellingWords(payload.words);
   if (converted.length === 0) {
@@ -46,6 +52,7 @@ function handleInitialize(
     ...createInitialState(),
     status: 'ready',
     words: ordered,
+    meaningfulCapitalization: payload.meaningfulCapitalization ?? true,
   };
 }
 
@@ -76,7 +83,11 @@ function handleSubmitAnswer(
   // Compare the raw (not pre-lowercased) submitted answer against the raw
   // canonical word — getAnswerOutcome needs real casing to tell an exact
   // match from a case-only mismatch worth a capitalization reminder.
-  const outcome = getAnswerOutcome(payload.answer, target.word);
+  // meaningfulCapitalization is false for custom sessions, so a case-only
+  // difference there is always graded correct, never a caseMismatch.
+  const outcome = getAnswerOutcome(payload.answer, target.word, {
+    meaningfulCapitalization: state.meaningfulCapitalization,
+  });
   const correct = outcome !== 'incorrect';
 
   const attempt = {
@@ -145,6 +156,10 @@ function handleReviewMissed(
     words: ordered,
     currentIndex: 0,
     startedAt: state.startedAt,
+    // Reviewing missed words continues the same session — carry forward
+    // whether its capitalization is meaningful rather than resetting to the
+    // createInitialState() default.
+    meaningfulCapitalization: state.meaningfulCapitalization,
   };
 }
 
@@ -168,7 +183,7 @@ export function spellingTestReducer(state: TestState, action: TestAction): TestS
 // Action creators
 export const initializeTest = (
   words: SpellingWord[] | string[],
-  options?: { shuffle?: boolean; rng?: () => number },
+  options?: { shuffle?: boolean; rng?: () => number; meaningfulCapitalization?: boolean },
 ): TestAction => ({ type: 'INITIALIZE', payload: { words, ...options } });
 
 export const startTest = (timestamp: number): TestAction => ({

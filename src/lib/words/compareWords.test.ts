@@ -54,6 +54,10 @@ describe('getAnswerOutcome', () => {
     expect(getAnswerOutcome('wednesday', 'Wednesday')).toBe('caseMismatch');
   });
 
+  it('is a caseMismatch for an all-caps answer to a capitalized canonical word', () => {
+    expect(getAnswerOutcome('JANUARY', 'January')).toBe('caseMismatch');
+  });
+
   it('is incorrect for a genuine misspelling of a proper noun, not a caseMismatch', () => {
     expect(getAnswerOutcome('Janury', 'January')).toBe('incorrect');
     expect(getAnswerOutcome('janury', 'January')).toBe('incorrect');
@@ -85,13 +89,47 @@ describe('getAnswerOutcome', () => {
     expect(getAnswerOutcome('well', "we'll")).toBe('incorrect');
   });
 
-  it('is consistent for custom-word case behavior (same shared comparison policy)', () => {
-    // A custom list preserves the student's supplied canonical form, but is
-    // not unnecessarily punitive about case-only differences either: same
-    // rule as curated content, driven by whether the canonical form itself
-    // carries meaningful capitalization.
-    expect(getAnswerOutcome('paris', 'paris')).toBe('correct'); // custom lowercase word
+  it('defaults meaningfulCapitalization to true (canonical curriculum behavior)', () => {
+    expect(getAnswerOutcome('paris', 'paris')).toBe('correct');
     expect(getAnswerOutcome('Paris', 'paris')).toBe('correct'); // case-only, not meaningful
-    expect(getAnswerOutcome('paris', 'Paris')).toBe('caseMismatch'); // custom capitalized word
+    expect(getAnswerOutcome('paris', 'Paris')).toBe('caseMismatch');
+  });
+});
+
+describe('getAnswerOutcome with meaningfulCapitalization: false (custom word lists)', () => {
+  // SpellingWords can't tell whether a custom word's capitalization was a
+  // deliberate proper noun, an acronym, or mobile-keyboard autocapitalization
+  // — so custom sessions grade case-insensitively and never show a
+  // capitalization reminder, regardless of which casing the student typed.
+  it('treats a case-only difference as correct, in either direction, never caseMismatch', () => {
+    expect(getAnswerOutcome('cat', 'Cat', { meaningfulCapitalization: false })).toBe('correct');
+    expect(getAnswerOutcome('Cat', 'cat', { meaningfulCapitalization: false })).toBe('correct');
+    expect(getAnswerOutcome('cat', 'CAT', { meaningfulCapitalization: false })).toBe('correct');
+    expect(getAnswerOutcome('january', 'January', { meaningfulCapitalization: false })).toBe(
+      'correct',
+    );
+    expect(getAnswerOutcome('nasa', 'NASA', { meaningfulCapitalization: false })).toBe('correct');
+  });
+
+  it('still catches a genuine misspelling', () => {
+    expect(getAnswerOutcome('kat', 'Cat', { meaningfulCapitalization: false })).toBe('incorrect');
+  });
+
+  it('still treats punctuation as meaningful — only case is loosened', () => {
+    expect(getAnswerOutcome("don't", "don't", { meaningfulCapitalization: false })).toBe(
+      'correct',
+    );
+    expect(getAnswerOutcome('don’t', "don't", { meaningfulCapitalization: false })).toBe(
+      'correct',
+    );
+    expect(getAnswerOutcome('dont', "don't", { meaningfulCapitalization: false })).toBe(
+      'incorrect',
+    );
+  });
+
+  it('still ignores leading/trailing whitespace', () => {
+    expect(getAnswerOutcome('  cat  ', 'Cat', { meaningfulCapitalization: false })).toBe(
+      'correct',
+    );
   });
 });

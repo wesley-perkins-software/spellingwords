@@ -186,6 +186,80 @@ describe('SUBMIT_ANSWER', () => {
     expect(state.lastAnswerOutcome).toBe('correct');
   });
 
+  describe('custom sessions (meaningfulCapitalization: false)', () => {
+    // A custom-entered "Cat" (e.g. mobile-keyboard autocapitalized) must not
+    // teach a false capitalization rule — case-only differences grade
+    // correct with no reminder, in either direction.
+    it('never produces a caseMismatch, even against a capitalized custom target', () => {
+      let state = spellingTestReducer(
+        createInitialState(),
+        initializeTest(['Cat'], { meaningfulCapitalization: false }),
+      );
+      state = spellingTestReducer(state, startTest(T.start));
+      state = spellingTestReducer(state, submitAnswer('cat', T.answer));
+      expect(state.lastAnswerOutcome).toBe('correct');
+      expect(state.lastAnswerCorrect).toBe(true);
+    });
+
+    it('accepts an all-caps answer to a capitalized custom target with no reminder', () => {
+      let state = spellingTestReducer(
+        createInitialState(),
+        initializeTest(['Cat'], { meaningfulCapitalization: false }),
+      );
+      state = spellingTestReducer(state, startTest(T.start));
+      state = spellingTestReducer(state, submitAnswer('CAT', T.answer));
+      expect(state.lastAnswerOutcome).toBe('correct');
+    });
+
+    it('accepts a lowercase answer to a custom "January" with no reminder, unlike canonical', () => {
+      let state = spellingTestReducer(
+        createInitialState(),
+        initializeTest(['January'], { meaningfulCapitalization: false }),
+      );
+      state = spellingTestReducer(state, startTest(T.start));
+      state = spellingTestReducer(state, submitAnswer('january', T.answer));
+      expect(state.lastAnswerOutcome).toBe('correct');
+    });
+
+    it('still catches a genuine misspelling', () => {
+      let state = spellingTestReducer(
+        createInitialState(),
+        initializeTest(['Cat'], { meaningfulCapitalization: false }),
+      );
+      state = spellingTestReducer(state, startTest(T.start));
+      state = spellingTestReducer(state, submitAnswer('kat', T.answer));
+      expect(state.lastAnswerOutcome).toBe('incorrect');
+    });
+
+    it('still treats a missing apostrophe as incorrect', () => {
+      let state = spellingTestReducer(
+        createInitialState(),
+        initializeTest(["don't"], { meaningfulCapitalization: false }),
+      );
+      state = spellingTestReducer(state, startTest(T.start));
+      state = spellingTestReducer(state, submitAnswer('dont', T.answer));
+      expect(state.lastAnswerOutcome).toBe('incorrect');
+    });
+
+    it('carries meaningfulCapitalization through REVIEW_MISSED, not the createInitialState default', () => {
+      let state = spellingTestReducer(
+        createInitialState(),
+        initializeTest(['Cat', 'Dog'], { meaningfulCapitalization: false }),
+      );
+      state = spellingTestReducer(state, startTest(T.start));
+      state = spellingTestReducer(state, submitAnswer('wrong', T.answer)); // miss "Cat"
+      state = spellingTestReducer(state, nextWord(T.next));
+      state = spellingTestReducer(state, submitAnswer('wrong', T.answer)); // miss "Dog"
+      state = spellingTestReducer(state, nextWord(T.complete));
+      expect(state.status).toBe('complete');
+
+      state = spellingTestReducer(state, reviewMissed());
+      expect(state.meaningfulCapitalization).toBe(false);
+      state = spellingTestReducer(state, submitAnswer('cat', T.answer));
+      expect(state.lastAnswerOutcome).toBe('correct');
+    });
+  });
+
   it('normalizes smart quotes in answer', () => {
     let state = spellingTestReducer(createInitialState(), initializeTest(["it's"]));
     state = spellingTestReducer(state, startTest(T.start));

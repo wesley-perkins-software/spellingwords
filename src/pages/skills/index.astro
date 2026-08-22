@@ -22,6 +22,8 @@ const skillFamilies = SPELLING_SKILL_FAMILIES.map((family) => ({
   entries: resolveCuratedSkillFamilyEntries(entries, family.skillIds),
 }));
 
+const totalSkillCount = skillFamilies.reduce((count, family) => count + family.entries.length, 0);
+
 const families = skillFamilies.map((family) => ({
   title: family.title,
   description: family.description,
@@ -82,7 +84,7 @@ const itemListJsonLd = {
     <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
       <Breadcrumbs items={breadcrumbItems} />
     </div>
-    <SkillsHubView families={families} />
+    <SkillsHubView families={families} skillCount={totalSkillCount} familyCount={skillFamilies.length} />
   </main>
 
   <SiteFooter />

@@ -70,21 +70,37 @@ export function stripEdgePunctuation(value: string): string {
  * data contradicts that. Digits, symbols, and emoji are never legitimate
  * spelling characters.
  */
-const SPELLING_CHARACTER_PATTERN = /[\p{L}\p{M}'’-]/u;
+const SPELLING_LETTER_PATTERN = /^[\p{L}\p{M}]$/u;
+
+/** A single apostrophe (straight or curly) or hyphen — the two punctuation
+ *  marks the policy ever allows, and only ever singly, between letters. */
+function isSpellingJoiner(char: string): boolean {
+  return char === "'" || char === '’' || char === '-';
+}
 
 /** Whether a single character may ever appear in a spelling word or answer. */
 export function isSpellingCharacter(char: string): boolean {
-  return SPELLING_CHARACTER_PATTERN.test(char);
+  return SPELLING_LETTER_PATTERN.test(char) || isSpellingJoiner(char);
 }
 
 /**
- * Strip every character that could never legitimately appear in a spelling
- * word — digits, symbols, emoji, stray whitespace — keeping only Unicode
- * letters, combining marks, apostrophes (straight and curly), and hyphens,
- * wherever in the string they occur. Unlike `stripEdgePunctuation` (which
- * only trims accidental leading/trailing punctuation and leaves interior
- * characters for `validateWordInput` to flag), this filters the whole
- * string. Iterates by Unicode code point so surrogate-pair characters
+ * Strip live input down to a structurally valid *partial* spelling word:
+ * Unicode letters, plus a single apostrophe or hyphen immediately after a
+ * letter. Unlike a plain allowed-character filter, this also rejects
+ * malformed punctuation *sequences* character-by-character as they're
+ * typed, pasted, or dictated — a second apostrophe/hyphen right after a
+ * joiner (`don''t`, `in--depth`), a mixed pair (`don'-t`, `in-'depth`), or a
+ * leading joiner (`-cat`, `'cat`) is dropped rather than kept.
+ *
+ * Deliberately partial, not "complete word valid": a trailing joiner
+ * (`don'`, `in-`) is a legitimate mid-typing state and stays — only
+ * `validateWordInput` (at submission / custom-list entry) enforces that a
+ * *finished* word can't end in a bare hyphen or other malformed shape.
+ * Digits, symbols, emoji, and whitespace are dropped unconditionally,
+ * wherever they occur, exactly as before; they never affect whether a
+ * later joiner is considered to "follow a letter" (a digit typed then
+ * removed doesn't retroactively make `cat2-` behave differently than
+ * `cat-`). Iterates by Unicode code point so surrogate-pair characters
  * (emoji) are removed cleanly rather than left as broken halves.
  *
  * Used to sanitize live input calmly — no error, invalid characters simply
@@ -92,7 +108,22 @@ export function isSpellingCharacter(char: string): boolean {
  * pastes, dictates, or autofills.
  */
 export function sanitizeSpellingCharacters(value: string): string {
-  return Array.from(value)
-    .filter(isSpellingCharacter)
-    .join('');
+  let result = '';
+  let precededByLetter = false;
+
+  for (const char of value) {
+    if (SPELLING_LETTER_PATTERN.test(char)) {
+      result += char;
+      precededByLetter = true;
+    } else if (isSpellingJoiner(char)) {
+      if (precededByLetter) {
+        result += char;
+      }
+      precededByLetter = false;
+    }
+    // else: digit, symbol, emoji, or whitespace — always dropped, and
+    // never changes whether the next joiner "follows a letter".
+  }
+
+  return result;
 }

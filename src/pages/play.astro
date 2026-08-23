@@ -444,7 +444,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
 </Layout>
 
 <script>
-  import { decodeWordList, isSpellingCharacter, sanitizeSpellingCharacters } from '@/lib/words';
+  import { decodeWordList, sanitizeSpellingCharacters } from '@/lib/words';
   import { getSentenceBankEntry } from '@/lib/sentenceBank';
   import { createSpeechController, selectPreferredVoice } from '@/modules/speech';
   import type { SpeechSynthesisVoiceAdapter } from '@/modules/speech';
@@ -1055,13 +1055,12 @@ import SiteFooter from '@/components/SiteFooter.astro';
     const sanitized = sanitizeSpellingCharacters(before);
     if (sanitized === before) return;
 
-    // Preserve caret position: count how many characters before the caret
-    // survive sanitization, and place the caret after that many in the
-    // sanitized value.
+    // Preserve caret position: sanitizing just the text before the caret
+    // gives exactly how many of those characters survive (the sanitizer
+    // only ever looks backward, never at characters after the caret), so
+    // that length is where the caret belongs in the sanitized value.
     const caret = answerInput.selectionStart ?? before.length;
-    const retainedBeforeCaret = Array.from(before.slice(0, caret)).filter(
-      isSpellingCharacter,
-    ).length;
+    const retainedBeforeCaret = sanitizeSpellingCharacters(before.slice(0, caret)).length;
 
     answerInput.value = sanitized;
     answerInput.setSelectionRange(retainedBeforeCaret, retainedBeforeCaret);

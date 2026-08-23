@@ -288,6 +288,14 @@ describe('SUBMIT_ANSWER', () => {
     expect(state.error).toBe('invalid_state_transition');
   });
 
+  it('sanitizes malformed adjacent punctuation out of the submitted answer before grading (regression)', () => {
+    let state = spellingTestReducer(createInitialState(), initializeTest(["don't"]));
+    state = spellingTestReducer(state, startTest(T.start));
+    state = spellingTestReducer(state, submitAnswer("don''t", T.answer));
+    expect(state.attempts[0].answer).toBe("don't");
+    expect(state.lastAnswerOutcome).toBe('correct');
+  });
+
   it('sanitizes disallowed characters out of the submitted answer before grading', () => {
     let state = spellingTestReducer(createInitialState(), initializeTest(['cat']));
     state = spellingTestReducer(state, startTest(T.start));

@@ -184,13 +184,14 @@ const placeholderText = 'Type or paste your words here, one per line';
 
 <script>
   import {
-    parseWordInput,
+    validateWordListInput,
     encodeWordList,
     decodeSharedList,
     encodeSharedList,
     MAX_WORD_COUNT,
     MAX_SHARED_WORD_COUNT,
   } from '@/lib/words';
+  import type { InvalidWordEntry } from '@/lib/words';
   import { resolveCustomPracticeSource, resolveSharedPracticeSource } from '@/lib/content/practiceSource';
   import type { PracticeSource } from '@/types/spelling';
 
@@ -206,18 +207,43 @@ const placeholderText = 'Type or paste your words here, one per line';
     const entryState = document.getElementById('entry-state')!;
 
     function getWords(): string[] {
-      return parseWordInput(textarea.value);
+      return validateWordListInput(textarea.value).words;
+    }
+
+    // Contextual, per-entry feedback for a custom-list line that fails the
+    // spelling character policy — never a raw technical error code, and
+    // never a silent drop (unlike `/play`'s answer field, which sanitizes
+    // as the student types with no message at all).
+    function describeInvalidEntry(entry: InvalidWordEntry): string {
+      const codes = entry.errors.map((e) => e.code);
+      if (codes.includes('contains_digits')) {
+        return `“${entry.raw}” contains a number. Spelling words can use letters, apostrophes, and hyphens.`;
+      }
+      if (codes.includes('too_long')) {
+        return `“${entry.raw}” is too long to use as a spelling word.`;
+      }
+      if (codes.includes('too_short')) {
+        return `“${entry.raw}” is too short to use as a spelling word.`;
+      }
+      return `“${entry.raw}” isn’t a word Spelling Words can practice. Spelling words can use letters, apostrophes, and hyphens.`;
     }
 
     function updateStatus(): void {
-      const words = getWords();
+      const { words, invalidEntries } = validateWordListInput(textarea.value);
       const count = words.length;
 
       pill.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
 
       // The word-count ceiling only ever appears here, at the moment it
       // actually matters — never as a number quoted in general page copy.
-      if (count === 0) {
+      if (invalidEntries.length > 0) {
+        const extra =
+          invalidEntries.length > 1 ? ` (and ${invalidEntries.length - 1} more to fix)` : '';
+        status.textContent = `${describeInvalidEntry(invalidEntries[0])}${extra}`;
+        status.classList.remove('text-da-ink-soft');
+        status.classList.add('text-da-incorrect');
+        btn.disabled = true;
+      } else if (count === 0) {
         status.textContent = 'Add at least 1 word to start practicing.';
         status.classList.remove('text-da-incorrect');
         status.classList.add('text-da-ink-soft');
@@ -234,7 +260,7 @@ const placeholderText = 'Type or paste your words here, one per line';
         btn.disabled = false;
       }
 
-      if (isFull) updateShareAvailability(words);
+      if (isFull) updateShareAvailability(words, invalidEntries.length > 0);
     }
 
     // A short, random, unguessable id — never contains the words themselves.
@@ -478,7 +504,7 @@ const placeholderText = 'Type or paste your words here, one per line';
     // block above) so `updateStatus()` — defined earlier in this same
     // scope — can call it via ordinary function-declaration hoisting. The
     // compact variant never renders these elements, so it's a no-op there.
-    function updateShareAvailability(words: string[]): void {
+    function updateShareAvailability(words: string[], hasInvalidEntries = false): void {
       if (!isFull) return;
       const note = document.getElementById('share-limit-note');
       const createBtn = document.getElementById('btn-create-link') as HTMLButtonElement | null;
@@ -486,7 +512,10 @@ const placeholderText = 'Type or paste your words here, one per line';
       if (!note || !createBtn) return;
       // A word-list edit invalidates any previously created link's contents.
       success?.classList.add('hidden');
-      if (words.length === 0) {
+      if (hasInvalidEntries) {
+        createBtn.disabled = true;
+        note.textContent = '';
+      } else if (words.length === 0) {
         createBtn.disabled = true;
         note.textContent = '';
       } else if (words.length > MAX_SHARED_WORD_COUNT) {

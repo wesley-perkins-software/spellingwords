@@ -288,6 +288,23 @@ describe('SUBMIT_ANSWER', () => {
     expect(state.error).toBe('invalid_state_transition');
   });
 
+  it('sanitizes disallowed characters out of the submitted answer before grading', () => {
+    let state = spellingTestReducer(createInitialState(), initializeTest(['cat']));
+    state = spellingTestReducer(state, startTest(T.start));
+    state = spellingTestReducer(state, submitAnswer('c@t2', T.answer));
+    expect(state.attempts[0].answer).toBe('ct');
+    expect(state.lastAnswerOutcome).toBe('incorrect');
+  });
+
+  it('treats an answer that sanitizes to nothing as no answer at all (does not advance to feedback)', () => {
+    let state = spellingTestReducer(createInitialState(), initializeTest(['cat']));
+    state = spellingTestReducer(state, startTest(T.start));
+    state = spellingTestReducer(state, submitAnswer('!/3428922', T.answer));
+    expect(state.error).toBe('empty_answer');
+    expect(state.status).toBe('awaitingAnswer');
+    expect(state.attempts).toEqual([]);
+  });
+
   it('clears previous error on valid submission', () => {
     let state = spellingTestReducer(createInitialState(), initializeTest(['cat']));
     state = spellingTestReducer(state, startTest(T.start));

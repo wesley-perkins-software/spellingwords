@@ -62,4 +62,34 @@ describe('validateWordInput', () => {
     expect(result.valid).toBe(true);
     expect(result.normalized).toBe('Friend');
   });
+
+  it('accepts a trailing-apostrophe plural possessive (audited canonical form)', () => {
+    expect(validateWordInput("boys'").valid).toBe(true);
+    expect(validateWordInput("teachers'").valid).toBe(true);
+  });
+
+  it('accepts a name with an internal apostrophe', () => {
+    expect(validateWordInput("O'Brien").valid).toBe(true);
+  });
+
+  it('rejects malformed repeated punctuation', () => {
+    expect(validateWordInput('cat---dog').valid).toBe(false);
+    expect(validateWordInput("don''t").valid).toBe(false);
+  });
+
+  it('rejects a digit-only entry', () => {
+    const result = validateWordInput('123');
+    expect(result.valid).toBe(false);
+    expect(result.errors.map((e) => e.code)).toContain('contains_digits');
+  });
+
+  it('rejects an emoji-only entry as empty (stripped entirely by normalization)', () => {
+    const result = validateWordInput('😀');
+    expect(result.valid).toBe(false);
+    expect(result.errors.map((e) => e.code)).toEqual(['empty']);
+  });
+
+  it('rejects the reported bug case outright', () => {
+    expect(validateWordInput('!/3428922').valid).toBe(false);
+  });
 });

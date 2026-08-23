@@ -5,13 +5,29 @@ const DEFAULT_MIN_LENGTH = 1;
 const DEFAULT_MAX_LENGTH = 45;
 
 /**
+ * Build the structural pattern for a well-formed spelling word: one or more
+ * letter runs, optionally joined by a single apostrophe or hyphen between
+ * runs, with at most one trailing apostrophe (covers plural possessives like
+ * `boys'`, confirmed in the canonical corpus alongside singular `boy's`).
+ * Rejects malformed punctuation such as repeated hyphens (`cat---dog`),
+ * doubled apostrophes (`don''t`), or a word that is punctuation with no
+ * letters — without needing a separate error code, since these can never be
+ * legitimate spelling targets either way.
+ */
+function buildWordShapePattern(allowDigits: boolean): RegExp {
+  const letters = allowDigits ? '\\p{L}\\p{M}\\p{N}' : '\\p{L}\\p{M}';
+  return new RegExp(`^[${letters}]+(?:['-][${letters}]+)*'?$`, 'u');
+}
+
+/**
  * Validate a single word entry, returning a structured result rather than
  * throwing. Validation runs against the normalized form (case and accents
  * preserved).
  *
  * Checks, in order: non-empty, length within `[minLength, maxLength]`, no digits
- * (unless `allowDigits`), and only allowed characters — Unicode letters,
- * apostrophes, and hyphens (plus spaces when `allowSpaces`).
+ * (unless `allowDigits`), and a well-formed spelling shape — Unicode letters
+ * joined only by single apostrophes/hyphens, plus spaces (each space-separated
+ * token checked independently) when `allowSpaces`.
  */
 export function validateWordInput(
   word: string,
@@ -49,16 +65,9 @@ export function validateWordInput(
     errors.push({ code: 'contains_digits', message: 'Word must not contain digits.' });
   }
 
-  // Allowed: Unicode letters and combining marks, apostrophe, hyphen, optionally
-  // spaces. Digits are intentionally treated as "allowed" here so they surface
-  // only as the dedicated `contains_digits` error above, never doubled up as
-  // `invalid_characters`.
-  const allowed = ['\\p{L}', '\\p{M}', '\\p{N}', "'", '\\-'];
-  if (allowSpaces) {
-    allowed.push(' ');
-  }
-  const disallowedPattern = new RegExp(`[^${allowed.join('')}]`, 'u');
-  if (disallowedPattern.test(normalized)) {
+  const wordShapePattern = buildWordShapePattern(allowDigits);
+  const tokens = allowSpaces ? normalized.split(' ') : [normalized];
+  if (!tokens.every((token) => wordShapePattern.test(token))) {
     errors.push({
       code: 'invalid_characters',
       message: 'Word contains characters that are not allowed.',
@@ -66,4 +75,20 @@ export function validateWordInput(
   }
 
   return { valid: errors.length === 0, normalized, errors };
+}
+
+/**
+ * Filter an already-normalized word list down to entries that pass the
+ * spelling character policy. Used at decode boundaries (`decodeWordList`,
+ * `decodeSharedList`) so a malformed or manually crafted shared payload can
+ * never smuggle in words the same policy would reject from ordinary custom
+ * word entry (e.g. `!/3428922`). Decoding drops them silently, matching
+ * `parseWordInput`'s existing silent-drop behavior for garbage tokens,
+ * rather than surfacing an error for content the recipient didn't type.
+ */
+export function filterValidSpellingWords(
+  words: string[],
+  options: ValidationOptions = {},
+): string[] {
+  return words.filter((word) => validateWordInput(word, options).valid);
 }

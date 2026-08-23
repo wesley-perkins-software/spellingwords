@@ -3,7 +3,11 @@ import type { AnswerOutcome } from '@/lib/words';
 
 export type TestStatus = 'idle' | 'ready' | 'awaitingAnswer' | 'feedback' | 'complete';
 
-export type TestErrorCode = 'empty_word_list' | 'invalid_state_transition' | 'answer_too_long';
+export type TestErrorCode =
+  | 'empty_word_list'
+  | 'invalid_state_transition'
+  | 'answer_too_long'
+  | 'empty_answer';
 
 export interface WordAttempt {
   wordIndex: number;

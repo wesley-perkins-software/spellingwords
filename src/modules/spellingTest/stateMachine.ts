@@ -1,5 +1,5 @@
 import type { SpellingWord } from '@/types/spelling';
-import { getAnswerOutcome } from '@/lib/words';
+import { getAnswerOutcome, sanitizeSpellingCharacters } from '@/lib/words';
 import type { TestState, TestAction, TestErrorCode } from './types';
 import { shuffleWords } from './order';
 import { buildResult } from './scoring';
@@ -75,7 +75,17 @@ function handleSubmitAnswer(
   if (state.status !== 'awaitingAnswer') {
     return withError(state, 'invalid_state_transition');
   }
-  if (payload.answer.length > MAX_ANSWER_LENGTH) {
+
+  // Defense in depth: the UI sanitizes the answer field as the student
+  // types, but the reducer must not assume that already happened — a
+  // submitted value could bypass the UI entirely. Re-running the same
+  // character policy here means an answer of only digits/symbols (e.g.
+  // `!/3428922`) can never reach comparison as if it were a real attempt.
+  const sanitizedAnswer = sanitizeSpellingCharacters(payload.answer);
+  if (sanitizedAnswer.length === 0) {
+    return withError(state, 'empty_answer');
+  }
+  if (sanitizedAnswer.length > MAX_ANSWER_LENGTH) {
     return withError(state, 'answer_too_long');
   }
 
@@ -85,14 +95,14 @@ function handleSubmitAnswer(
   // match from a case-only mismatch worth a capitalization reminder.
   // meaningfulCapitalization is false for custom sessions, so a case-only
   // difference there is always graded correct, never a caseMismatch.
-  const outcome = getAnswerOutcome(payload.answer, target.word, {
+  const outcome = getAnswerOutcome(sanitizedAnswer, target.word, {
     meaningfulCapitalization: state.meaningfulCapitalization,
   });
   const correct = outcome !== 'incorrect';
 
   const attempt = {
     wordIndex: state.currentIndex,
-    answer: payload.answer,
+    answer: sanitizedAnswer,
     correct,
     outcome,
   };

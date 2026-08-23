@@ -56,3 +56,43 @@ export function stripEdgePunctuation(value: string): string {
     .replace(/^[^\p{L}\p{N}\s'-]+/u, '')
     .replace(/[^\p{L}\p{N}\s'-]+$/u, '');
 }
+
+/**
+ * The orthographic-input policy: the exact set of characters that may ever
+ * appear in a spelling word or answer. Backed by an audit of the full
+ * canonical curriculum corpus (1,083 words across Core Spelling,
+ * High-Frequency Words, Themed Spelling Practice, and skill banks) — every
+ * canonical word is plain Unicode letters, with a small set of apostrophe
+ * contractions (`don't`) and possessives (`boys'`, `teacher's`); none
+ * contain hyphens, digits, internal spaces, or other punctuation. Hyphens
+ * are included anyway because `validateWordInput` already supports them for
+ * legitimate custom words (`mother-in-law`, `well-known`) and no canonical
+ * data contradicts that. Digits, symbols, and emoji are never legitimate
+ * spelling characters.
+ */
+const SPELLING_CHARACTER_PATTERN = /[\p{L}\p{M}'’-]/u;
+
+/** Whether a single character may ever appear in a spelling word or answer. */
+export function isSpellingCharacter(char: string): boolean {
+  return SPELLING_CHARACTER_PATTERN.test(char);
+}
+
+/**
+ * Strip every character that could never legitimately appear in a spelling
+ * word — digits, symbols, emoji, stray whitespace — keeping only Unicode
+ * letters, combining marks, apostrophes (straight and curly), and hyphens,
+ * wherever in the string they occur. Unlike `stripEdgePunctuation` (which
+ * only trims accidental leading/trailing punctuation and leaves interior
+ * characters for `validateWordInput` to flag), this filters the whole
+ * string. Iterates by Unicode code point so surrogate-pair characters
+ * (emoji) are removed cleanly rather than left as broken halves.
+ *
+ * Used to sanitize live input calmly — no error, invalid characters simply
+ * never accumulate — such as the `/play` answer field as a student types,
+ * pastes, dictates, or autofills.
+ */
+export function sanitizeSpellingCharacters(value: string): string {
+  return Array.from(value)
+    .filter(isSpellingCharacter)
+    .join('');
+}

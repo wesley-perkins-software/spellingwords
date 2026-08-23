@@ -10,7 +10,6 @@ import {
   encodeSharedList,
 } from './sharedList';
 import { SERIALIZATION_FORMAT_VERSION, decodeWordList, encodeWordList } from './serialization';
-import { normalizeWordList } from './normalizeWordList';
 
 function encodeOk(input: string[] | string, title?: string): { payload: string; words: string[]; title?: string } {
   const result = encodeSharedList(input, title);
@@ -181,7 +180,11 @@ describe('limits', () => {
   });
 
   it('rejects a decoded envelope carrying too many words (crafted payload, bypassing encode-side check)', () => {
-    const words = Array.from({ length: MAX_SHARED_WORD_COUNT + 1 }, (_, i) => `word${i}`);
+    // Letter-only words (not `word${i}`) — decoding now filters through the
+    // spelling character policy, and digits are never a valid spelling
+    // character, so a digit-bearing fixture would be filtered to empty
+    // before this test's actual target (the count guard) ever ran.
+    const words = Array.from({ length: MAX_SHARED_WORD_COUNT + 1 }, (_, i) => `word${'a'.repeat(i + 1)}`);
     const body = Buffer.from(JSON.stringify({ v: 1, words }), 'utf8').toString('base64url');
     const result = decodeSharedList(`${SHARED_LIST_FORMAT_VERSION}.${body}`);
     expect(result.ok).toBe(false);
@@ -221,14 +224,17 @@ describe('empty input', () => {
 });
 
 describe('injection safety — data passes through as inert text, never executed or specially escaped', () => {
-  it('a word containing script-like text round-trips as plain data, subject only to the same edge-punctuation normalization every word gets (never stripped/escaped specifically because it looks like markup)', () => {
+  it('a word containing script-like text is rejected by the spelling character policy on decode, not specially escaped or stripped to something markup-safe', () => {
+    // `<script>alert(1)</script>` was never HTML-escaped anywhere in this
+    // codebase (feedback rendering uses textContent, never innerHTML) — but
+    // it also isn't a legitimate spelling word: the interior `(`, `)`, `/`
+    // fail the character policy audited into `validateWordInput`, so
+    // `filterValidSpellingWords` drops it on decode rather than letting it
+    // through as if it were real spelling content.
     const raw = '<script>alert(1)</script>';
-    const [expected] = normalizeWordList([raw]);
-    const decoded = decodeOk(encodeOk([raw]).payload);
-    expect(decoded.words).toEqual([expected]);
-    // Confirms this is ordinary edge-punctuation trimming, not markup-aware
-    // sanitization: the interior angle brackets/parens survive untouched.
-    expect(decoded.words[0]).toContain('script>alert(1)</script');
+    const result = decodeSharedList(encodeOk([raw]).payload);
+    expect(result.ok).toBe(false);
+    if (!result.ok) expect(result.code).toBe('empty');
   });
 
   it('round-trips a title containing HTML-attribute-injection-like text completely unmodified (titles are not passed through word normalization)', () => {

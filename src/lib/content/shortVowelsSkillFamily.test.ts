@@ -9,7 +9,7 @@ import {
 import { KINDERGARTEN_CORE_IDS } from './kindergartenProgression';
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
-const listDetailRoutePath = join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro');
+const listDetailRoutePath = join(process.cwd(), 'src/pages/grades/[gradeSlug]/[strand]/[slug].astro');
 
 const SHORT_VOWEL_SKILL_IDS = [
   'short-a-words',

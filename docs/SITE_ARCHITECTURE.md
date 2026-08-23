@@ -241,3 +241,7 @@ Every grade now has one coherent three-strand public taxonomy: **Core Spelling**
 Each grade also publishes a gateway at the corresponding strand path. Across six grades this creates 18 gateways while preserving 105 resources (51 Core, 27 High-Frequency Words, and 27 Themed Spelling Practice). Stable content IDs, source filenames, and `contentRole: vocabulary-theme` remain unchanged; the role describes the content form rather than its public strand.
 
 Because the site remains pre-launch, superseded flat child routes are removed without redirects. The sitemap contains 173 URLs: 2 general pages + 1 Skills index + 6 Grade Hubs + 18 strand gateways + 105 grade resources + 41 Skills. The former 157-URL test assertion was inconsistent with the authoritative collections: its actual baseline arithmetic was 155, before adding the 18 gateways.
+
+## Final pre-launch grade architecture (2026-08-23)
+
+`/grades` owns the K–5 comparative progression and is the canonical parent of all grade curriculum. The six Grade pages, their 18 grade–strand pages, and all 105 curriculum members live beneath `/grades/{grade}/…`. `/core-spelling`, `/high-frequency-words`, and `/themed-spelling-practice` remain cross-grade browsing axes; `/skills` remains grade-independent. The superseded root-grade tree is not generated or redirected.

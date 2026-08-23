@@ -9,7 +9,7 @@ import {
 } from './canonicalGradeRoutes';
 import { gradeConfig } from './gradeConfig';
 
-const gradeHubRenderer = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug].astro'), 'utf8');
+const gradeHubRenderer = readFileSync(join(process.cwd(), 'src/pages/grades/[gradeSlug].astro'), 'utf8');
 
 describe('Grade Hub gateway links', () => {
   it('exposes the three canonical same-grade gateways for every Grade Hub', () => {

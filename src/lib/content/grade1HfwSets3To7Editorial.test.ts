@@ -59,7 +59,7 @@ describe('Grade 1 High-Frequency Words Sets 3–7 editorial completion', () => {
       expect(source).toContain('contentRole: high-frequency-word-set');
       expect(source).toContain('category: high-frequency-words');
       expect(getCanonicalGradeRouteById(set.id)).toMatchObject({
-        canonicalPath: `/1st-grade/high-frequency-words/set-${offset + 3}`,
+        canonicalPath: `/grades/1st-grade/high-frequency-words/set-${offset + 3}`,
         classification: 'high-frequency-words',
       });
     });

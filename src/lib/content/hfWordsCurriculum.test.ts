@@ -115,11 +115,11 @@ describe('frozen High-Frequency Words curriculum', () => {
 
   it('publishes the new Set 7 routes and retires the four obsolete upper-grade routes', () => {
     const paths = new Set(canonicalGradeRoutes.map((route) => route.canonicalPath));
-    expect(paths).toContain('/1st-grade/high-frequency-words/set-7');
-    expect(paths).toContain('/2nd-grade/high-frequency-words/set-7');
+    expect(paths).toContain('/grades/1st-grade/high-frequency-words/set-7');
+    expect(paths).toContain('/grades/2nd-grade/high-frequency-words/set-7');
     for (const path of [
-      '/4th-grade/high-frequency-words-3', '/4th-grade/high-frequency-words-4',
-      '/5th-grade/high-frequency-words-3', '/5th-grade/high-frequency-words-4',
+      '/grades/4th-grade/high-frequency-words-3', '/grades/4th-grade/high-frequency-words-4',
+      '/grades/5th-grade/high-frequency-words-3', '/grades/5th-grade/high-frequency-words-4',
     ]) expect(paths).not.toContain(path);
   });
 

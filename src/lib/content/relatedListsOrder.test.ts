@@ -12,14 +12,14 @@ import { describe, expect, it } from 'vitest';
 
 describe('Relationship navigation rendering', () => {
   it('renders Explore more only for canonical non-Core Grade pages', () => {
-    // The real file is src/pages/[gradeSlug]/[strand]/[slug].astro (the
-    // bare src/pages/[gradeSlug]/[slug].astro path never existed). Non-Core
+    // The real file is src/pages/grades/[gradeSlug]/[strand]/[slug].astro (the
+    // bare src/pages/grades/[gradeSlug]/[strand]/[slug].astro path never existed). Non-Core
     // routes build a single `relatedGroups` view-model entry headed "Explore
     // more" (or the Themed-specific variant), passed into the shared
     // GradeUnitView — there's no separate Review-first/Next-step bucket on
     // this branch, that pairing is Core-only (see GradeUnitWorldPage.astro).
     const source = readFileSync(
-      join(process.cwd(), 'src/pages/[gradeSlug]/[strand]/[slug].astro'),
+      join(process.cwd(), 'src/pages/grades/[gradeSlug]/[strand]/[slug].astro'),
       'utf8',
     );
     expect(source).toContain(
@@ -67,9 +67,9 @@ describe('Relationship navigation rendering', () => {
 
   it('routes every Grade Unit away from the non-Core rendering branch', () => {
     // See note above: the real file lives one directory deeper, at
-    // src/pages/[gradeSlug]/[strand]/[slug].astro.
+    // src/pages/grades/[gradeSlug]/[strand]/[slug].astro.
     const source = readFileSync(
-      join(process.cwd(), 'src/pages/[gradeSlug]/[strand]/[slug].astro'),
+      join(process.cwd(), 'src/pages/grades/[gradeSlug]/[strand]/[slug].astro'),
       'utf8',
     );
     expect(source).toContain("const isCoreSpelling = route.classification === 'core-spelling';");

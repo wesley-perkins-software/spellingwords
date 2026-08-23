@@ -67,7 +67,7 @@ describe('Grade 4 High-Frequency Words editorial completion', () => {
       expect(source).toContain('contentRole: high-frequency-word-set');
       expect(source).toContain('category: high-frequency-words');
       expect(getCanonicalGradeRouteById(set.id)).toMatchObject({
-        canonicalPath: `/4th-grade/high-frequency-words/set-${index + 1}`,
+        canonicalPath: `/grades/4th-grade/high-frequency-words/set-${index + 1}`,
         classification: 'high-frequency-words',
       });
     });

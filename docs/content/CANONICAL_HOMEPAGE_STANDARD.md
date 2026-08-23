@@ -424,7 +424,7 @@ implementation may make case by case.
 
 > **Amendment (2026-08-21) — the Curriculum-Organization strand heading may link to its new
 > top-level strand gateway.** This "MUST NOT" list bars linking to *individual, grade-specific*
-> Grade-Strand Gateways (e.g. `/2nd-grade/core-spelling`); it predates and does not name the three
+> Grade-Strand Gateways (e.g. `/grades/2nd-grade/core-spelling`); it predates and does not name the three
 > new cross-grade gateways `/core-spelling`, `/high-frequency-words`, `/themed-spelling-practice`
 > authorized in `docs/content/CANONICAL_GRADE_HUB_STANDARD.md` §6.1 and
 > `docs/planning/LAUNCH_SUPPORTING_PAGES_AND_GLOBAL_NAVIGATION_PLAN.md`. Each Curriculum-

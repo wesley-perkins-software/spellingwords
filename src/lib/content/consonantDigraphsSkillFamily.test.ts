@@ -20,7 +20,7 @@ const skillsIndexRoutePath = join(process.cwd(), 'src/pages/skills/index.astro')
 // Direction A view component the Hub page passes its `families` prop to,
 // not inline in the page file itself.
 const skillsHubViewPath = join(process.cwd(), 'src/components/direction-a/SkillsHubView.astro');
-const listDetailRoutePath = join(process.cwd(), 'src/pages/[gradeSlug]/[slug].astro');
+const listDetailRoutePath = join(process.cwd(), 'src/pages/grades/[gradeSlug]/[strand]/[slug].astro');
 
 const CONSONANT_DIGRAPH_SKILL_IDS = [
   'digraph-ch-words',

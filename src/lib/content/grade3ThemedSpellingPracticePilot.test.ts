@@ -36,28 +36,28 @@ const grade3Pages: readonly PilotPage[] = [
   {
     id: 'grade-3-map-globe-words',
     title: '3rd Grade Map & Globe Spelling Words',
-    path: '/3rd-grade/themed-spelling-practice/map-globe-words',
+    path: '/grades/3rd-grade/themed-spelling-practice/map-globe-words',
     words: ['compass', 'continent', 'ocean', 'border', 'region', 'direction', 'scale', 'legend'],
     noteWords: ['ocean', 'direction'],
   },
   {
     id: 'grade-3-time-words',
     title: '3rd Grade Time Spelling Words',
-    path: '/3rd-grade/themed-spelling-practice/time-words',
+    path: '/grades/3rd-grade/themed-spelling-practice/time-words',
     words: ['hour', 'minute', 'second', "o'clock", 'digital', 'analog', 'clock', 'elapsed'],
     noteWords: ['hour', "o'clock"],
   },
   {
     id: 'grade-3-life-cycle-words',
     title: '3rd Grade Life Cycle Spelling Words',
-    path: '/3rd-grade/themed-spelling-practice/life-cycle-words',
+    path: '/grades/3rd-grade/themed-spelling-practice/life-cycle-words',
     words: ['egg', 'larva', 'caterpillar', 'cocoon', 'pupa', 'tadpole', 'hatch', 'cycle'],
     noteWords: ['caterpillar', 'cycle'],
   },
   {
     id: 'grade-3-multiplication-division-words',
     title: '3rd Grade Multiplication & Division Spelling Words',
-    path: '/3rd-grade/themed-spelling-practice/multiplication-division-words',
+    path: '/grades/3rd-grade/themed-spelling-practice/multiplication-division-words',
     words: ['multiply', 'divide', 'product', 'factor', 'multiple', 'quotient', 'array', 'equation'],
     noteWords: ['quotient', 'equation'],
   },
@@ -123,7 +123,7 @@ describe('Grade 3 Themed Spelling Practice corpus', () => {
       });
     }
     expect(page.path.split('/').slice(0, 3).join('/')).toBe(
-      '/3rd-grade/themed-spelling-practice',
+      '/grades/3rd-grade/themed-spelling-practice',
     );
   });
 

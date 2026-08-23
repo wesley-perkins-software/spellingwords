@@ -114,7 +114,7 @@ describe('CORE_SPELLING_SEQUENCE', () => {
     for (const [index, id] of CORE_SPELLING_SEQUENCE.entries()) {
       const route = getCanonicalGradeRouteById(id);
       expect(route, id).toMatchObject({ classification: 'core-spelling' });
-      expect(route?.canonicalPath).toBe(`/${route?.gradeSlug}/${route?.finalSlug}`);
+      expect(route?.canonicalPath).toBe(`/grades/${route?.gradeSlug}/${route?.classification}/${route?.finalSlug}`);
       if (index < CORE_SPELLING_SEQUENCE.length - 1) {
         expect(getSequenceNeighbors(id).nextId).toBe(CORE_SPELLING_SEQUENCE[index + 1]);
         expect(

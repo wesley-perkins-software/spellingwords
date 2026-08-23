@@ -7,13 +7,13 @@ import { getHighFrequencyNeighbors } from './hfWordsSequence';
 const expected = [
   {
     id: 'grade-1-high-frequency-words-set-1',
-    path: '/1st-grade/high-frequency-words/set-1',
+    path: '/grades/1st-grade/high-frequency-words/set-1',
     words: ['of', 'said', 'have', 'they', 'one', 'all', 'after', 'an', 'what', 'down', 'or', 'but'],
     notes: ['of', 'said', 'have', 'one', 'what'],
   },
   {
     id: 'grade-1-high-frequency-words-set-2',
-    path: '/1st-grade/high-frequency-words/set-2',
+    path: '/grades/1st-grade/high-frequency-words/set-2',
     words: ['as', 'when', 'back', 'just', 'did', 'if', 'who', 'over', 'us', 'no', 'ask', 'has'],
     notes: ['who', 'over'],
   },

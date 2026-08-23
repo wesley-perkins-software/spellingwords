@@ -43,7 +43,7 @@ const pages: readonly BatchPage[] = [
   {
     id: 'grade-2-transportation-words',
     title: '2nd Grade Transportation Spelling Words',
-    path: '/2nd-grade/themed-spelling-practice/transportation-words',
+    path: '/grades/2nd-grade/themed-spelling-practice/transportation-words',
     words: ['car', 'bus', 'train', 'airplane', 'boat', 'bicycle', 'truck', 'subway'],
     noteWords: ['bicycle'],
     contextCount: 0,
@@ -52,7 +52,7 @@ const pages: readonly BatchPage[] = [
   {
     id: 'grade-2-money-words',
     title: '2nd Grade Money Spelling Words',
-    path: '/2nd-grade/themed-spelling-practice/money-words',
+    path: '/grades/2nd-grade/themed-spelling-practice/money-words',
     words: ['penny', 'nickel', 'dime', 'quarter', 'dollar', 'cent', 'coin', 'change'],
     noteWords: ['nickel', 'change'],
     contextCount: 0,
@@ -61,7 +61,7 @@ const pages: readonly BatchPage[] = [
   {
     id: 'grade-2-number-words-20-100',
     title: '2nd Grade Number Spelling Words 20–100',
-    path: '/2nd-grade/themed-spelling-practice/number-words-20-100',
+    path: '/grades/2nd-grade/themed-spelling-practice/number-words-20-100',
     words: ['thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety', 'hundred'],
     noteWords: ['forty', 'fifty', 'eighty'],
     contextCount: 0,
@@ -70,7 +70,7 @@ const pages: readonly BatchPage[] = [
   {
     id: 'grade-2-community-helpers',
     title: '2nd Grade Community Helpers Spelling Words',
-    path: '/2nd-grade/themed-spelling-practice/community-helpers',
+    path: '/grades/2nd-grade/themed-spelling-practice/community-helpers',
     words: ['doctor', 'teacher', 'firefighter', 'nurse', 'farmer', 'dentist', 'librarian', 'baker'],
     noteWords: ['librarian'],
     contextCount: 0,
@@ -79,7 +79,7 @@ const pages: readonly BatchPage[] = [
   {
     id: 'grade-2-months-of-the-year',
     title: '2nd Grade Months of the Year Spelling Words',
-    path: '/2nd-grade/themed-spelling-practice/months-of-the-year',
+    path: '/grades/2nd-grade/themed-spelling-practice/months-of-the-year',
     words: [
       'January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December',
@@ -158,7 +158,7 @@ describe('Grade 2 Themed Spelling Practice production batch', () => {
       });
     }
     expect(page.path.split('/').slice(0, 3).join('/')).toBe(
-      '/2nd-grade/themed-spelling-practice',
+      '/grades/2nd-grade/themed-spelling-practice',
     );
   });
 

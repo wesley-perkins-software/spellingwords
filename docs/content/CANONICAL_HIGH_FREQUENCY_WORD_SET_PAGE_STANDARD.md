@@ -218,7 +218,7 @@ The sitewide provenance policy is implemented in the shared schema and renderers
 
 ## 10. Reference implementation, not clone template
 
-Kindergarten Set 1 at `/kindergarten/high-frequency-words/set-1` demonstrates the standard with the frozen inventory `a, I, am, at, can, in, it, is, and, the`:
+Kindergarten Set 1 at `/grades/kindergarten/high-frequency-words/set-1` demonstrates the standard with the frozen inventory `a, I, am, at, can, in, it, is, and, the`:
 
 - five straightforward words are grouped through sound–spelling mapping;
 - `and` is handled at set level without an unnecessary note;

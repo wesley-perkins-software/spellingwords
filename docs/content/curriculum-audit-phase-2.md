@@ -289,7 +289,7 @@ These five items reduce the realistic "genuinely missing, must author new conten
 **Anything unexpected:**
 1. The Bible's published list count (76) undercounts reality by 6, entirely within `phonics/`.
 2. 5 of 7 high-frequency-word lists are archived, not published — the Bible's coverage tables treat them as live, materially overstating high-frequency-word coverage at K, 2nd, and 3rd grade.
-3. All 3 challenge lists lack a `grade` field entirely, making them invisible to the grade-first navigation architecture the Bible mandates as the primary UX pattern — yet their content already targets exactly the 4th/5th-grade root and academic-vocabulary gaps the Bible flagged as missing.
+3. All 3 challenge lists lack a `grade` field entirely, making them invisible to the grade-first navigation architecture the Bible mandates as the primary UX pattern — yet their content already targets exactly the 4th/grades/5th-grade root and academic-vocabulary gaps the Bible flagged as missing.
 4. A stale prerequisite reference: `silent-e-long-a.md` lists an archived list (`short-vowels-cvc-words`) as a live prerequisite.
 
 ---

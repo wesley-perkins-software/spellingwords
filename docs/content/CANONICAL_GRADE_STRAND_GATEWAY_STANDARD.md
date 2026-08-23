@@ -4,8 +4,8 @@
 **Scope:** All 18 canonical Grade-Strand Gateway pages — `/{grade}/core-spelling`,
 `/{grade}/high-frequency-words`, `/{grade}/themed-spelling-practice` for each of the six grades
 K–5.
-**Reference implementation:** the three Kindergarten gateways (`/kindergarten/core-spelling`,
-`/kindergarten/high-frequency-words`, `/kindergarten/themed-spelling-practice`).
+**Reference implementation:** the three Kindergarten gateways (`/grades/kindergarten/core-spelling`,
+`/grades/kindergarten/high-frequency-words`, `/grades/kindergarten/themed-spelling-practice`).
 
 This standard governs semantic content, information hierarchy, instructional responsibilities,
 and navigation relationships — not visual presentation. The supporting research, educational

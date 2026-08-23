@@ -48,7 +48,7 @@ describe('Kindergarten High-Frequency Words Set 1 editorial pilot', () => {
       'the',
     ]);
     expect(getCanonicalGradeRouteById(setId)?.canonicalPath).toBe(
-      '/kindergarten/high-frequency-words/set-1',
+      '/grades/kindergarten/high-frequency-words/set-1',
     );
     expect(getCanonicalGradeRouteById(setId)?.classification).toBe('high-frequency-words');
   });

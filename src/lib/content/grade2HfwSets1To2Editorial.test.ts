@@ -7,7 +7,7 @@ import { getHighFrequencyNeighbors } from './hfWordsSequence';
 const expected = [
   {
     id: 'grade-2-high-frequency-words-set-1',
-    path: '/2nd-grade/high-frequency-words/set-1',
+    path: '/grades/2nd-grade/high-frequency-words/set-1',
     words: [
       'again',
       'any',
@@ -27,7 +27,7 @@ const expected = [
   },
   {
     id: 'grade-2-high-frequency-words-set-2',
-    path: '/2nd-grade/high-frequency-words/set-2',
+    path: '/grades/2nd-grade/high-frequency-words/set-2',
     words: [
       'should',
       'because',

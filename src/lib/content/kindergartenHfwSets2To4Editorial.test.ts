@@ -7,13 +7,13 @@ import { getHighFrequencyNeighbors } from './hfWordsSequence';
 const expected = [
   {
     id: 'kindergarten-high-frequency-words-set-2',
-    path: '/kindergarten/high-frequency-words/set-2',
+    path: '/grades/kindergarten/high-frequency-words/set-2',
     words: ['he', 'we', 'me', 'my', 'go', 'to', 'you', 'be', 'on', 'not'],
     notes: ['my', 'to', 'you'],
   },
   {
     id: 'kindergarten-high-frequency-words-set-3',
-    path: '/kindergarten/high-frequency-words/set-3',
+    path: '/grades/kindergarten/high-frequency-words/set-3',
     words: [
       'she',
       'do',
@@ -30,7 +30,7 @@ const expected = [
   },
   {
     id: 'kindergarten-high-frequency-words-set-4',
-    path: '/kindergarten/high-frequency-words/set-4',
+    path: '/grades/kindergarten/high-frequency-words/set-4',
     words: [
       'come',
       'look',

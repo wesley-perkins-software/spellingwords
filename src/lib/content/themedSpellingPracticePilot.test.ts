@@ -89,7 +89,7 @@ describe('Themed Spelling Practice shared foundation', () => {
     // pattern is HFW-only, gated on isHighFrequencyWords); its gateway is
     // reached through the shared breadcrumb section link instead.
     expect(renderer).toContain(
-      '{ label: route.section, href: `/${route.gradeSlug}/${route.classification}` }',
+      '{ label: route.section, href: getGradeStrandPath(route.grade, route.classification) }',
     );
     expect(getThemedSpellingPracticeExploreMore(weatherId)).toHaveLength(3);
   });
@@ -103,7 +103,7 @@ describe('Grade 1 Weather Words pilot', () => {
     expect(weatherSource).toContain('contentRole: vocabulary-theme');
     expect(listItems('words')).toEqual(weatherWords);
     expect(getCanonicalGradeRouteById(weatherId)).toMatchObject({
-      canonicalPath: '/1st-grade/themed-spelling-practice/weather-words',
+      canonicalPath: '/grades/1st-grade/themed-spelling-practice/weather-words',
       classification: 'themed-spelling-practice',
       grade: '1',
     });

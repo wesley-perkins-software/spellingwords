@@ -31,7 +31,7 @@ const pages: readonly BatchPage[] = [
   {
     id: 'kindergarten-animal-words',
     title: 'Kindergarten Animal Spelling Words',
-    path: '/kindergarten/themed-spelling-practice/animal-words',
+    path: '/grades/kindergarten/themed-spelling-practice/animal-words',
     words: ['bug', 'cat', 'dog', 'duck', 'fish', 'frog', 'hen', 'pig'],
     source: sourceFor('kindergarten-animal-words'),
     noteWords: [],
@@ -39,7 +39,7 @@ const pages: readonly BatchPage[] = [
   {
     id: 'kindergarten-color-words',
     title: 'Kindergarten Color Spelling Words',
-    path: '/kindergarten/themed-spelling-practice/color-words',
+    path: '/grades/kindergarten/themed-spelling-practice/color-words',
     words: ['red', 'blue', 'green', 'yellow', 'black', 'white', 'brown', 'pink'],
     source: sourceFor('kindergarten-color-words'),
     noteWords: ['yellow'],
@@ -47,7 +47,7 @@ const pages: readonly BatchPage[] = [
   {
     id: 'kindergarten-body-words',
     title: 'Kindergarten Body Spelling Words',
-    path: '/kindergarten/themed-spelling-practice/body-words',
+    path: '/grades/kindergarten/themed-spelling-practice/body-words',
     words: ['eyes', 'ears', 'nose', 'hand', 'foot', 'arm', 'leg', 'head'],
     source: sourceFor('kindergarten-body-words'),
     noteWords: ['eyes'],
@@ -55,7 +55,7 @@ const pages: readonly BatchPage[] = [
   {
     id: 'kindergarten-number-words',
     title: 'Kindergarten Number Spelling Words',
-    path: '/kindergarten/themed-spelling-practice/number-words',
+    path: '/grades/kindergarten/themed-spelling-practice/number-words',
     words: [
       'one',
       'two',
@@ -74,7 +74,7 @@ const pages: readonly BatchPage[] = [
   {
     id: 'kindergarten-family-words',
     title: 'Kindergarten Family Spelling Words',
-    path: '/kindergarten/themed-spelling-practice/family-words',
+    path: '/grades/kindergarten/themed-spelling-practice/family-words',
     words: ['mom', 'dad', 'sister', 'brother', 'baby', 'grandma', 'grandpa', 'family'],
     source: sourceFor('kindergarten-family-words'),
     noteWords: [],
@@ -128,7 +128,7 @@ describe('Kindergarten Themed Spelling Practice production batch', () => {
       });
     }
     expect(`${route?.canonicalPath.split('/').slice(0, 3).join('/')}`).toBe(
-      '/kindergarten/themed-spelling-practice',
+      '/grades/kindergarten/themed-spelling-practice',
     );
   });
 });

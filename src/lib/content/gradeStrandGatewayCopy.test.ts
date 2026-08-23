@@ -12,12 +12,12 @@ import { gradeConfig } from './gradeConfig';
 import { getGradeStrandGatewayCopy, getGatewayCardDescription } from './gradeStrandGatewayCopy';
 
 const contentRoot = join(process.cwd(), 'src/content/spelling-lists');
-const gatewayRenderer = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug]/[strand].astro'), 'utf8');
+const gatewayRenderer = readFileSync(join(process.cwd(), 'src/pages/grades/[gradeSlug]/[strand].astro'), 'utf8');
 const gatewayView = readFileSync(
   join(process.cwd(), 'src/components/direction-a/GradeStrandGatewayView.astro'),
   'utf8',
 );
-const gradeHubRenderer = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug].astro'), 'utf8');
+const gradeHubRenderer = readFileSync(join(process.cwd(), 'src/pages/grades/[gradeSlug].astro'), 'utf8');
 
 function contentById(): Map<string, string> {
   const sources = new Map<string, string>();
@@ -113,10 +113,10 @@ describe('Kindergarten grade-strand gateway pilot', () => {
     for (const grade of gradeConfig) {
       expect(gradeStrandGatewayPaths.filter((path) => path.startsWith(`${grade.hubHref}/`))).toHaveLength(3);
     }
-    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/kindergarten/'))).toEqual([
-      '/kindergarten/core-spelling',
-      '/kindergarten/high-frequency-words',
-      '/kindergarten/themed-spelling-practice',
+    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/grades/kindergarten/'))).toEqual([
+      '/grades/kindergarten/core-spelling',
+      '/grades/kindergarten/high-frequency-words',
+      '/grades/kindergarten/themed-spelling-practice',
     ]);
   });
 
@@ -170,9 +170,9 @@ describe('Kindergarten grade-strand gateway pilot', () => {
   });
 
   it('generates same-grade wayfinding and uses unordered semantics for themed peers', () => {
-    expect(getGradeStrandPath('K', 'core-spelling')).toBe('/kindergarten/core-spelling');
-    expect(getGradeStrandPath('K', 'high-frequency-words')).toBe('/kindergarten/high-frequency-words');
-    expect(getGradeStrandPath('K', 'themed-spelling-practice')).toBe('/kindergarten/themed-spelling-practice');
+    expect(getGradeStrandPath('K', 'core-spelling')).toBe('/grades/kindergarten/core-spelling');
+    expect(getGradeStrandPath('K', 'high-frequency-words')).toBe('/grades/kindergarten/high-frequency-words');
+    expect(getGradeStrandPath('K', 'themed-spelling-practice')).toBe('/grades/kindergarten/themed-spelling-practice');
     // Core Spelling and High-Frequency Words render an ordered <ol> sequence
     // (numbered units/sets); Themed Spelling Practice renders an unordered
     // <ul> browse grid — the strand branch lives in the Direction A view now.
@@ -348,9 +348,9 @@ describe('Grade 1 grade-strand gateway rollout', () => {
   });
 
   it('generates same-grade wayfinding for Grade 1 and uses unordered semantics for themed peers', () => {
-    expect(getGradeStrandPath('1', 'core-spelling')).toBe('/1st-grade/core-spelling');
-    expect(getGradeStrandPath('1', 'high-frequency-words')).toBe('/1st-grade/high-frequency-words');
-    expect(getGradeStrandPath('1', 'themed-spelling-practice')).toBe('/1st-grade/themed-spelling-practice');
+    expect(getGradeStrandPath('1', 'core-spelling')).toBe('/grades/1st-grade/core-spelling');
+    expect(getGradeStrandPath('1', 'high-frequency-words')).toBe('/grades/1st-grade/high-frequency-words');
+    expect(getGradeStrandPath('1', 'themed-spelling-practice')).toBe('/grades/1st-grade/themed-spelling-practice');
   });
 
   it('keeps Grade 1 authored copy independent of positional presentation instructions', () => {
@@ -422,13 +422,13 @@ describe('2nd Grade strand gateways', () => {
   });
 
   it('generates same-grade wayfinding for 2nd Grade from canonical route data', () => {
-    expect(getGradeStrandPath('2', 'core-spelling')).toBe('/2nd-grade/core-spelling');
-    expect(getGradeStrandPath('2', 'high-frequency-words')).toBe('/2nd-grade/high-frequency-words');
-    expect(getGradeStrandPath('2', 'themed-spelling-practice')).toBe('/2nd-grade/themed-spelling-practice');
-    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/2nd-grade/'))).toEqual([
-      '/2nd-grade/core-spelling',
-      '/2nd-grade/high-frequency-words',
-      '/2nd-grade/themed-spelling-practice',
+    expect(getGradeStrandPath('2', 'core-spelling')).toBe('/grades/2nd-grade/core-spelling');
+    expect(getGradeStrandPath('2', 'high-frequency-words')).toBe('/grades/2nd-grade/high-frequency-words');
+    expect(getGradeStrandPath('2', 'themed-spelling-practice')).toBe('/grades/2nd-grade/themed-spelling-practice');
+    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/grades/2nd-grade/'))).toEqual([
+      '/grades/2nd-grade/core-spelling',
+      '/grades/2nd-grade/high-frequency-words',
+      '/grades/2nd-grade/themed-spelling-practice',
     ]);
   });
 
@@ -491,13 +491,13 @@ describe('3rd Grade strand gateways', () => {
   });
 
   it('generates same-grade wayfinding for 3rd Grade from canonical route data', () => {
-    expect(getGradeStrandPath('3', 'core-spelling')).toBe('/3rd-grade/core-spelling');
-    expect(getGradeStrandPath('3', 'high-frequency-words')).toBe('/3rd-grade/high-frequency-words');
-    expect(getGradeStrandPath('3', 'themed-spelling-practice')).toBe('/3rd-grade/themed-spelling-practice');
-    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/3rd-grade/'))).toEqual([
-      '/3rd-grade/core-spelling',
-      '/3rd-grade/high-frequency-words',
-      '/3rd-grade/themed-spelling-practice',
+    expect(getGradeStrandPath('3', 'core-spelling')).toBe('/grades/3rd-grade/core-spelling');
+    expect(getGradeStrandPath('3', 'high-frequency-words')).toBe('/grades/3rd-grade/high-frequency-words');
+    expect(getGradeStrandPath('3', 'themed-spelling-practice')).toBe('/grades/3rd-grade/themed-spelling-practice');
+    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/grades/3rd-grade/'))).toEqual([
+      '/grades/3rd-grade/core-spelling',
+      '/grades/3rd-grade/high-frequency-words',
+      '/grades/3rd-grade/themed-spelling-practice',
     ]);
   });
 
@@ -559,13 +559,13 @@ describe('4th Grade strand gateways', () => {
   });
 
   it('generates same-grade wayfinding for 4th Grade from canonical route data', () => {
-    expect(getGradeStrandPath('4', 'core-spelling')).toBe('/4th-grade/core-spelling');
-    expect(getGradeStrandPath('4', 'high-frequency-words')).toBe('/4th-grade/high-frequency-words');
-    expect(getGradeStrandPath('4', 'themed-spelling-practice')).toBe('/4th-grade/themed-spelling-practice');
-    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/4th-grade/'))).toEqual([
-      '/4th-grade/core-spelling',
-      '/4th-grade/high-frequency-words',
-      '/4th-grade/themed-spelling-practice',
+    expect(getGradeStrandPath('4', 'core-spelling')).toBe('/grades/4th-grade/core-spelling');
+    expect(getGradeStrandPath('4', 'high-frequency-words')).toBe('/grades/4th-grade/high-frequency-words');
+    expect(getGradeStrandPath('4', 'themed-spelling-practice')).toBe('/grades/4th-grade/themed-spelling-practice');
+    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/grades/4th-grade/'))).toEqual([
+      '/grades/4th-grade/core-spelling',
+      '/grades/4th-grade/high-frequency-words',
+      '/grades/4th-grade/themed-spelling-practice',
     ]);
   });
 
@@ -625,13 +625,13 @@ describe('5th Grade strand gateways', () => {
   });
 
   it('generates same-grade wayfinding for 5th Grade from canonical route data', () => {
-    expect(getGradeStrandPath('5', 'core-spelling')).toBe('/5th-grade/core-spelling');
-    expect(getGradeStrandPath('5', 'high-frequency-words')).toBe('/5th-grade/high-frequency-words');
-    expect(getGradeStrandPath('5', 'themed-spelling-practice')).toBe('/5th-grade/themed-spelling-practice');
-    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/5th-grade/'))).toEqual([
-      '/5th-grade/core-spelling',
-      '/5th-grade/high-frequency-words',
-      '/5th-grade/themed-spelling-practice',
+    expect(getGradeStrandPath('5', 'core-spelling')).toBe('/grades/5th-grade/core-spelling');
+    expect(getGradeStrandPath('5', 'high-frequency-words')).toBe('/grades/5th-grade/high-frequency-words');
+    expect(getGradeStrandPath('5', 'themed-spelling-practice')).toBe('/grades/5th-grade/themed-spelling-practice');
+    expect(gradeStrandGatewayPaths.filter((path) => path.startsWith('/grades/5th-grade/'))).toEqual([
+      '/grades/5th-grade/core-spelling',
+      '/grades/5th-grade/high-frequency-words',
+      '/grades/5th-grade/themed-spelling-practice',
     ]);
   });
 

@@ -34,28 +34,28 @@ const pages: readonly BatchPage[] = [
   {
     id: 'grade-1-weather-words',
     title: '1st Grade Weather Spelling Words',
-    path: '/1st-grade/themed-spelling-practice/weather-words',
+    path: '/grades/1st-grade/themed-spelling-practice/weather-words',
     words: ['sunny', 'rainy', 'cloudy', 'windy', 'snowy', 'stormy', 'foggy', 'hot', 'cold'],
     noteWords: ['cloudy'],
   },
   {
     id: 'grade-1-clothing-words',
     title: '1st Grade Clothing Spelling Words',
-    path: '/1st-grade/themed-spelling-practice/clothing-words',
+    path: '/grades/1st-grade/themed-spelling-practice/clothing-words',
     words: ['shirt', 'pants', 'shoes', 'socks', 'jacket', 'hat', 'mittens', 'boots'],
     noteWords: ['shoes'],
   },
   {
     id: 'grade-1-shape-words',
     title: '1st Grade Shape Spelling Words',
-    path: '/1st-grade/themed-spelling-practice/shape-words',
+    path: '/grades/1st-grade/themed-spelling-practice/shape-words',
     words: ['circle', 'square', 'triangle', 'rectangle', 'oval', 'diamond', 'star', 'heart'],
     noteWords: ['heart'],
   },
   {
     id: 'grade-1-number-words-11-20',
     title: '1st Grade Number Spelling Words 11–20',
-    path: '/1st-grade/themed-spelling-practice/number-words-11-20',
+    path: '/grades/1st-grade/themed-spelling-practice/number-words-11-20',
     words: [
       'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
       'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty',
@@ -65,7 +65,7 @@ const pages: readonly BatchPage[] = [
   {
     id: 'grade-1-days-of-the-week',
     title: '1st Grade Days of the Week Spelling Words',
-    path: '/1st-grade/themed-spelling-practice/days-of-the-week',
+    path: '/grades/1st-grade/themed-spelling-practice/days-of-the-week',
     words: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     noteWords: ['Wednesday'],
   },
@@ -129,7 +129,7 @@ describe('Grade 1 Themed Spelling Practice production batch', () => {
       });
     }
     expect(page.path.split('/').slice(0, 3).join('/')).toBe(
-      '/1st-grade/themed-spelling-practice',
+      '/grades/1st-grade/themed-spelling-practice',
     );
   });
 

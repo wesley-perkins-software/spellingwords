@@ -103,7 +103,7 @@ describe('Grade 1 Weather Words pilot', () => {
     expect(weatherSource).toContain('contentRole: vocabulary-theme');
     expect(listItems('words')).toEqual(weatherWords);
     expect(getCanonicalGradeRouteById(weatherId)).toMatchObject({
-      canonicalPath: '/1st-grade/themed-spelling-practice/weather-words',
+      canonicalPath: '/grades/1st-grade/themed-spelling-practice/weather-words',
       classification: 'themed-spelling-practice',
       grade: '1',
     });

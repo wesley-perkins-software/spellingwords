@@ -25,56 +25,56 @@ Do NOT recommend vocabulary pages, reading skills, phonics concepts taught only 
 ### Kindergarten First Words
 
 - ID: `kindergarten-first-words`
-- URL: `/kindergarten/first-words`
+- URL: `/grades/kindergarten/first-words`
 - Skills: None
 - Words: bed, bug, cat, cup, dog, hen, pig, sun
 
 ### Kindergarten Short A Words
 
 - ID: `kindergarten-short-a-words`
-- URL: `/kindergarten/short-a-words`
+- URL: `/grades/kindergarten/short-a-words`
 - Skills: `short-a-words`
 - Words: hat, mat, sat, man, can, bag, cap, map
 
 ### Kindergarten Short I Words
 
 - ID: `kindergarten-short-i-words`
-- URL: `/kindergarten/short-i-words`
+- URL: `/grades/kindergarten/short-i-words`
 - Skills: `short-i-words`
 - Words: pig, big, pin, dig, sit, bit, lip, win
 
 ### Kindergarten Short O Words
 
 - ID: `kindergarten-short-o-words`
-- URL: `/kindergarten/short-o-words`
+- URL: `/grades/kindergarten/short-o-words`
 - Skills: `short-o-words`
 - Words: dog, fox, dot, pot, hot, hop, top, box
 
 ### Kindergarten Short U Words
 
 - ID: `kindergarten-short-u-words`
-- URL: `/kindergarten/short-u-words`
+- URL: `/grades/kindergarten/short-u-words`
 - Skills: `short-u-words`
 - Words: bug, rug, sun, run, nut, cut, cup, fun
 
 ### Kindergarten Short E Words
 
 - ID: `kindergarten-short-e-words`
-- URL: `/kindergarten/short-e-words`
+- URL: `/grades/kindergarten/short-e-words`
 - Skills: `short-e-words`
 - Words: bed, red, hen, pen, leg, pet, net, wet
 
 ### Mixed Vowel CVC Review
 
 - ID: `kindergarten-mixed-vowel-review`
-- URL: `/kindergarten/mixed-vowel-review`
+- URL: `/grades/kindergarten/mixed-vowel-review`
 - Skills: None
 - Words: jam, lid, dog, mud, get, rag, hit, web, nap, hop
 
 ### Consonant Digraphs
 
 - ID: `kindergarten-consonant-digraphs`
-- URL: `/kindergarten/consonant-digraphs`
+- URL: `/grades/kindergarten/consonant-digraphs`
 - Skills: `digraph-sh-words`, `digraph-ch-words`, `digraph-th-words`
 - Words: ship, shop, fish, wish, chat, chin, chip, bath, path
 
@@ -83,28 +83,28 @@ Do NOT recommend vocabulary pages, reading skills, phonics concepts taught only 
 ### Kindergarten High-Frequency Words 1
 
 - ID: `kindergarten-high-frequency-words-set-1`
-- URL: `/kindergarten/high-frequency-words-1`
+- URL: `/grades/kindergarten/high-frequency-words-1`
 - Skills: None
 - Words: a, I, am, at, can, in, it, is, and, the
 
 ### Kindergarten High-Frequency Words 2
 
 - ID: `kindergarten-high-frequency-words-set-2`
-- URL: `/kindergarten/high-frequency-words-2`
+- URL: `/grades/kindergarten/high-frequency-words-2`
 - Skills: None
 - Words: he, she, we, me, my, go, to, do, you, like
 
 ### Kindergarten High-Frequency Words 3
 
 - ID: `kindergarten-high-frequency-words-set-3`
-- URL: `/kindergarten/high-frequency-words-3`
+- URL: `/grades/kindergarten/high-frequency-words-3`
 - Skills: None
 - Words: for, of, was, said, have, are, here, come, look, see
 
 ### Kindergarten High-Frequency Words 4
 
 - ID: `kindergarten-high-frequency-words-set-4`
-- URL: `/kindergarten/high-frequency-words-4`
+- URL: `/grades/kindergarten/high-frequency-words-4`
 - Skills: None
 - Words: this, that, with, they, one, two, three, where, little, play
 
@@ -113,35 +113,35 @@ Do NOT recommend vocabulary pages, reading skills, phonics concepts taught only 
 ### Kindergarten Animal Words
 
 - ID: `kindergarten-animal-words`
-- URL: `/kindergarten/animal-words`
+- URL: `/grades/kindergarten/animal-words`
 - Skills: None
 - Words: bug, cat, dog, duck, fish, frog, hen, pig
 
 ### Kindergarten Body Words
 
 - ID: `kindergarten-body-words`
-- URL: `/kindergarten/body-words`
+- URL: `/grades/kindergarten/body-words`
 - Skills: None
 - Words: eyes, ears, nose, hand, foot, arm, leg, head
 
 ### Kindergarten Number Words
 
 - ID: `kindergarten-number-words`
-- URL: `/kindergarten/number-words`
+- URL: `/grades/kindergarten/number-words`
 - Skills: None
 - Words: one, two, three, four, five, six, seven, eight, nine, ten
 
 ### Kindergarten Color Words
 
 - ID: `kindergarten-color-words`
-- URL: `/kindergarten/color-words`
+- URL: `/grades/kindergarten/color-words`
 - Skills: None
 - Words: red, blue, green, yellow, black, white, brown, pink
 
 ### Kindergarten Family Words
 
 - ID: `kindergarten-family-words`
-- URL: `/kindergarten/family-words`
+- URL: `/grades/kindergarten/family-words`
 - Skills: None
 - Words: mom, dad, sister, brother, baby, grandma, grandpa, family
 

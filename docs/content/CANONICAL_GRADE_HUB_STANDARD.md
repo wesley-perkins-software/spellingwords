@@ -6,8 +6,8 @@ pending; this standard does not itself authorize renderer, component, schema, or
 authorize the specific renderer change it describes.
 **Source:** Approved conclusions in
 `docs/content/CANONICAL_GRADE_HUB_STANDARD_RESEARCH.md`.
-**Scope:** Exactly `/kindergarten`, `/1st-grade`, `/2nd-grade`, `/3rd-grade`, `/4th-grade`, and
-`/5th-grade`.
+**Scope:** Exactly `/grades/kindergarten`, `/grades/1st-grade`, `/grades/2nd-grade`, `/grades/3rd-grade`, `/grades/4th-grade`, and
+`/grades/5th-grade`.
 **Does not govern:** the 18 Grade-Strand Gateways, the 105 member pages, Skill pages, the Skills
 Hub, the main browse page, or visual design. Those page families retain their own authorities.
 
@@ -147,7 +147,7 @@ a second inventory. This narrow exception exists to solve exactly that problem a
 ### 6.2 Cross-grade strand gateways are now complete linked indexes (amendment, 2026-08-21)
 
 **Status of this amendment: authorized and implemented as of this dated entry.** This §6 boundary
-governs Grade Hubs only (`/kindergarten` … `/5th-grade`) and continues to do so unchanged: Grade
+governs Grade Hubs only (`/grades/kindergarten` … `/grades/5th-grade`) and continues to do so unchanged: Grade
 Hubs remain bounded, non-linked previews per §6.1, never a directory.
 
 The three cross-grade strand gateways — `/core-spelling`, `/high-frequency-words`,

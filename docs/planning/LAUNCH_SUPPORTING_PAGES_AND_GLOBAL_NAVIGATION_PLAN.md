@@ -48,7 +48,7 @@ The production route set is currently:
 
 - `/` — homepage, own-word entry, Grade entry points, curriculum summary, Skills entry point, audiences, and homepage FAQ;
 - `/play` — interactive practice;
-- six Grade Hubs: `/kindergarten`, `/1st-grade`, `/2nd-grade`, `/3rd-grade`, `/4th-grade`, `/5th-grade`;
+- six Grade Hubs: `/grades/kindergarten`, `/grades/1st-grade`, `/grades/2nd-grade`, `/grades/3rd-grade`, `/grades/4th-grade`, `/grades/5th-grade`;
 - 18 grade/strand gateways under `/{grade}/{strand}` (Core Spelling, High-Frequency Words, and Themed Spelling Practice for each grade);
 - canonical grade-unit detail routes under `/{grade}/{strand}/{slug}`;
 - `/skills` and 41 canonical `/skills/{slug}` reference pages;
@@ -198,12 +198,12 @@ Order:
 
 The Grades panel contains, in canonical `gradeConfig` order:
 
-- Kindergarten → `/kindergarten`
-- 1st Grade → `/1st-grade`
-- 2nd Grade → `/2nd-grade`
-- 3rd Grade → `/3rd-grade`
-- 4th Grade → `/4th-grade`
-- 5th Grade → `/5th-grade`
+- Kindergarten → `/grades/kindergarten`
+- 1st Grade → `/grades/1st-grade`
+- 2nd Grade → `/grades/2nd-grade`
+- 3rd Grade → `/grades/3rd-grade`
+- 4th Grade → `/grades/4th-grade`
+- 5th Grade → `/grades/5th-grade`
 - separator
 - View all grades → `/#grades`
 

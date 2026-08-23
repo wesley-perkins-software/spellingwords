@@ -59,6 +59,7 @@ const gatewayPath = `${getGradeHubPath(gradeEntry.grade)}/${descriptor.routeSegm
 const canonicalURL = getCanonicalUrl(gatewayPath, Astro.site);
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
+  { label: 'Grades', href: '/grades' },
   { label: gradeEntry.label, href: getGradeHubPath(gradeEntry.grade) },
   { label: descriptor.label },
 ];

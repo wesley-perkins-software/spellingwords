@@ -150,7 +150,7 @@ legitimately do not, and the divergence is deliberate and defensible:
 | Navigation label | "Skills" | "Grades" | Short, scannable, correct for a 3-item nav bar |
 | Page H1/title | "Spelling Practice by Skill" | "{grade} Spelling Words" | Fuller, self-explanatory, correct for a landing page a user may arrive at directly from search |
 | Body copy | "browse by skill... spelling concept your child needs" (`skills/index.astro:73`) | grade-appropriate orientation prose (Hub standard §3) | Natural language, not a rigid label |
-| URL | `/skills` | `/1st-grade` | Short, stable, no redundant "spelling-" prefix |
+| URL | `/skills` | `/grades/1st-grade` | Short, stable, no redundant "spelling-" prefix |
 
 This layering is coherent and should be treated as the **template** for how the homepage should
 talk about these same systems: a short nav word, a fuller descriptive H1/intro sentence, and an
@@ -434,7 +434,7 @@ normalization recommended.
   the path itself to repeat "spelling." This is standard practice in topically-branded domains and
   is explicitly acknowledged as sufficient in `PUBLIC_URL_ARCHITECTURE.md`'s own framing of
   `/skills` as "a first-class top-level public journey," with no redundant "spelling-" prefix
-  anywhere else in the URL tree (`/1st-grade`, not `/spelling-1st-grade`; `core-spelling` is a route
+  anywhere else in the URL tree (`/grades/1st-grade`, not `/spelling-1st-grade`; `core-spelling` is a route
   *segment name* chosen for a different reason — see §11.4 — not a site-wide prefixing convention).
 - **Migration cost:** `/skills` is already the canonical, implemented, tested (`canonicalSkillRoutes.test.ts` per the architecture doc) route for 41 live pages plus the hub. A rename would require redirects, canonical-tag updates, sitemap regeneration, and internal-link updates across every Grade Unit, Gateway, and Skill page that links to it — for a benefit (one extra keyword in the path) that the evidence in §5 does not support as necessary.
 - **`/spelling-patterns` specifically:** rejected on the same semantic-scope grounds as the

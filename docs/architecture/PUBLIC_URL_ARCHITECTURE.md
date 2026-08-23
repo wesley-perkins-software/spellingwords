@@ -18,12 +18,12 @@ Canonical Grade Hubs, Grade-Strand Gateways, and member pages use a grade-first,
 
 Approved grade slugs are exactly:
 
-- `/kindergarten`
-- `/1st-grade`
-- `/2nd-grade`
-- `/3rd-grade`
-- `/4th-grade`
-- `/5th-grade`
+- `/grades/kindergarten`
+- `/grades/1st-grade`
+- `/grades/2nd-grade`
+- `/grades/3rd-grade`
+- `/grades/4th-grade`
+- `/grades/5th-grade`
 
 The canonical page resolver is `src/lib/content/canonicalGradeRoutes.ts`. It is the sole runtime source of truth for canonical K–5 grade curriculum paths. Stable content `id`, not source folder, `category`, filename, or frontmatter `urlSlug`, determines whether a page belongs to the grade-first architecture.
 

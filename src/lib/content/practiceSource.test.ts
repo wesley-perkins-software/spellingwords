@@ -20,16 +20,16 @@ describe('resolveGradeUnitPracticeSource', () => {
       id: 'kindergarten-first-words',
       classification: 'core-spelling',
       title: 'First Words',
-      href: '/kindergarten/core-spelling/first-words',
+      href: '/grades/kindergarten/core-spelling/first-words',
       grade: 'K',
       titleById,
     });
 
     expect(source.type).toBe('core');
     expect(source.title).toBe('First Words');
-    expect(source.href).toBe('/kindergarten/core-spelling/first-words');
+    expect(source.href).toBe('/grades/kindergarten/core-spelling/first-words');
     expect(source.grade).toBe('K');
-    expect(source.nextHref).toBe('/kindergarten/core-spelling/short-a-words');
+    expect(source.nextHref).toBe('/grades/kindergarten/core-spelling/short-a-words');
     expect(source.nextTitle).toBe('Short A Words');
   });
 
@@ -59,7 +59,7 @@ describe('resolveGradeUnitPracticeSource', () => {
     });
 
     expect(source.type).toBe('hfw');
-    expect(source.nextHref).toBe('/1st-grade/high-frequency-words/set-2');
+    expect(source.nextHref).toBe('/grades/1st-grade/high-frequency-words/set-2');
     expect(source.nextTitle).toBe('Grade 1 High-Frequency Words — Set 2');
   });
 

@@ -19,6 +19,7 @@ export async function GET() {
     '/about',
     '/accessibility',
     '/curriculum',
+    '/grades',
     '/play',
     '/practice-your-own-words',
     SKILLS_INDEX_PATH,
@@ -31,7 +32,7 @@ export async function GET() {
 
   const uniquePaths = new Set(paths);
   const expectedPathCount =
-    6 +
+    7 +
     Object.keys(STRAND_GATEWAY_PATHS).length +
     gradeConfig.length +
     1 +

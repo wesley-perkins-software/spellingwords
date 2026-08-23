@@ -38,7 +38,7 @@ const grade4Pages: readonly Grade4Page[] = [
     id: 'grade-4-measurement-words',
     slug: '4th-grade-measurement-words',
     title: '4th Grade Measurement Spelling Words',
-    path: '/4th-grade/themed-spelling-practice/measurement-words',
+    path: '/grades/4th-grade/themed-spelling-practice/measurement-words',
     words: ['inch', 'foot', 'yard', 'mile', 'ounce', 'pound', 'ton', 'cup', 'pint', 'quart', 'gallon'],
     noteWords: ['ounce'],
   },
@@ -46,7 +46,7 @@ const grade4Pages: readonly Grade4Page[] = [
     id: 'grade-4-solar-system-words',
     slug: '4th-grade-solar-system-words',
     title: '4th Grade Solar System Spelling Words',
-    path: '/4th-grade/themed-spelling-practice/solar-system-words',
+    path: '/grades/4th-grade/themed-spelling-practice/solar-system-words',
     words: ['planet', 'orbit', 'gravity', 'astronaut', 'galaxy', 'satellite', 'comet', 'asteroid', 'eclipse', 'meteor'],
     noteWords: ['astronaut', 'satellite'],
   },
@@ -54,7 +54,7 @@ const grade4Pages: readonly Grade4Page[] = [
     id: 'grade-4-career-occupation-words',
     slug: '4th-grade-career-occupation-words',
     title: '4th Grade Career & Occupation Spelling Words',
-    path: '/4th-grade/themed-spelling-practice/career-occupation-words',
+    path: '/grades/4th-grade/themed-spelling-practice/career-occupation-words',
     words: ['engineer', 'journalist', 'architect', 'scientist', 'plumber', 'mechanic', 'photographer', 'chef'],
     noteWords: ['scientist', 'plumber'],
   },
@@ -62,7 +62,7 @@ const grade4Pages: readonly Grade4Page[] = [
     id: 'grade-4-geometry-words',
     slug: '4th-grade-geometry-words',
     title: '4th Grade Geometry Spelling Words',
-    path: '/4th-grade/themed-spelling-practice/geometry-words',
+    path: '/grades/4th-grade/themed-spelling-practice/geometry-words',
     words: ['perimeter', 'area', 'quadrilateral', 'vertex', 'perpendicular', 'symmetry', 'angle', 'polygon'],
     noteWords: ['quadrilateral', 'perpendicular', 'symmetry'],
   },
@@ -124,7 +124,7 @@ describe('Grade 4 Themed Spelling Practice corpus', () => {
         grade: '4',
       });
     }
-    expect(page.path.split('/').slice(0, 3).join('/')).toBe('/4th-grade/themed-spelling-practice');
+    expect(page.path.split('/').slice(0, 3).join('/')).toBe('/grades/4th-grade/themed-spelling-practice');
   });
 
   it('protects spelling-critical facts on the completed pages', () => {

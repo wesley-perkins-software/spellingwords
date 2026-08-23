@@ -9,12 +9,12 @@ import { buildGradeHubModel } from './gradeHubModel';
 import type { SpellingListEntry } from './spellingLists';
 
 // The Grade Hub is composed from two files: the route/page shell
-// (src/pages/[gradeSlug].astro, which builds the model and JSON-LD) and the
+// (src/pages/grades/[gradeSlug].astro, which builds the model and JSON-LD) and the
 // shared renderer it delegates to (src/components/direction-a/GradeHubView.astro,
 // which renders the strand cards and adjacent-grade nav). Both are read here
 // so "one permanent renderer" assertions check the file that actually
 // contains the markup in question.
-const pageShell = readFileSync(join(process.cwd(), 'src/pages/[gradeSlug].astro'), 'utf8');
+const pageShell = readFileSync(join(process.cwd(), 'src/pages/grades/[gradeSlug].astro'), 'utf8');
 const renderer = readFileSync(
   join(process.cwd(), 'src/components/direction-a/GradeHubView.astro'),
   'utf8',
@@ -123,7 +123,7 @@ describe('canonical K–5 Grade Hub model', () => {
     })).toEqual([[undefined, '1'], ['K', '2'], ['1', '3'], ['2', '4'], ['3', '5'], ['4', undefined]]);
     expect(renderer).toContain('href={prev.hubHref}');
     expect(renderer).toContain('href={next.hubHref}');
-    expect(renderer).toContain('href="/#grades"');
+    expect(renderer).toContain('href="/grades"');
   });
 
   it('never gains direct member links from the cross-grade strand-gateway completeness refinement (2026-08-21)', () => {

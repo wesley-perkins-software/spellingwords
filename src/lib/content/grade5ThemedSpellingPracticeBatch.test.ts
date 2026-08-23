@@ -39,7 +39,7 @@ const grade5Pages: readonly Grade5Page[] = [
     id: 'grade-5-money-management-words',
     slug: '5th-grade-money-management-words',
     title: '5th Grade Money Management Spelling Words',
-    path: '/5th-grade/themed-spelling-practice/money-management-words',
+    path: '/grades/5th-grade/themed-spelling-practice/money-management-words',
     words: ['budget', 'income', 'expense', 'savings', 'interest', 'deposit', 'withdraw', 'credit', 'debit', 'borrow', 'balance', 'tax'],
     noteWords: ['savings', 'borrow'],
     contextWords: [],
@@ -48,7 +48,7 @@ const grade5Pages: readonly Grade5Page[] = [
     id: 'grade-5-ecosystem-environment-words',
     slug: '5th-grade-ecosystem-environment-words',
     title: '5th Grade Ecosystem & Environment Spelling Words',
-    path: '/5th-grade/themed-spelling-practice/ecosystem-environment-words',
+    path: '/grades/5th-grade/themed-spelling-practice/ecosystem-environment-words',
     words: ['habitat', 'ecosystem', 'organism', 'adaptation', 'population', 'predator', 'prey', 'extinct'],
     noteWords: ['prey', 'extinct'],
     contextWords: ['prey'],
@@ -57,7 +57,7 @@ const grade5Pages: readonly Grade5Page[] = [
     id: 'grade-5-fraction-decimal-words',
     slug: '5th-grade-fraction-decimal-words',
     title: '5th Grade Fraction & Decimal Spelling Words',
-    path: '/5th-grade/themed-spelling-practice/fraction-decimal-words',
+    path: '/grades/5th-grade/themed-spelling-practice/fraction-decimal-words',
     words: ['numerator', 'denominator', 'decimal', 'equivalent', 'percent', 'ratio', 'fraction', 'hundredths'],
     noteWords: ['denominator', 'hundredths'],
     contextWords: [],
@@ -66,7 +66,7 @@ const grade5Pages: readonly Grade5Page[] = [
     id: 'grade-5-community-civics-words',
     slug: '5th-grade-community-civics-words',
     title: '5th Grade Civics and Government Spelling Words',
-    path: '/5th-grade/themed-spelling-practice/community-civics-words',
+    path: '/grades/5th-grade/themed-spelling-practice/community-civics-words',
     words: ['citizen', 'law', 'amendment', 'justice', 'constitution', 'congress', 'election', 'representative', 'liberty', 'rights', 'independence', 'capital'],
     noteWords: ['rights', 'representative', 'capital'],
     contextWords: ['rights', 'capital'],
@@ -129,7 +129,7 @@ describe('Grade 5 Themed Spelling Practice corpus', () => {
         grade: '5',
       });
     }
-    expect(page.path.split('/').slice(0, 3).join('/')).toBe('/5th-grade/themed-spelling-practice');
+    expect(page.path.split('/').slice(0, 3).join('/')).toBe('/grades/5th-grade/themed-spelling-practice');
   });
 
   it('protects spelling-critical facts and exceptional context decisions', () => {

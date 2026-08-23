@@ -7,7 +7,7 @@ const gradeUnitWorldPage = readFileSync(
   'utf8',
 );
 const nonCoreMemberRenderer = readFileSync(
-  join(process.cwd(), 'src/pages/[gradeSlug]/[strand]/[slug].astro'),
+  join(process.cwd(), 'src/pages/grades/[gradeSlug]/[strand]/[slug].astro'),
   'utf8',
 );
 

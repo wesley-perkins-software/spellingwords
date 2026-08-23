@@ -33,7 +33,7 @@ describe('canonical grade routes', () => {
     expect(TRAILING_SLASH).toBe('never');
     for (const route of canonicalGradeRoutes) {
       expect(route.canonicalPath).not.toMatch(/\/$/);
-      expect(route.canonicalPath).toBe(`/${route.gradeSlug}/${route.classification}/${route.finalSlug}`);
+      expect(route.canonicalPath).toBe(`/grades/${route.gradeSlug}/${route.classification}/${route.finalSlug}`);
     }
     for (const grade of gradeConfig) {
       expect(getGradeHubPath(grade.grade)).toBe(grade.hubHref);
@@ -45,13 +45,13 @@ describe('canonical grade routes', () => {
     expect(gradeStrandGatewayPaths).toHaveLength(18);
     expect(new Set(gradeStrandGatewayPaths).size).toBe(18);
     for (const grade of gradeConfig) {
-      expect(gradeStrandGatewayPaths.filter((path) => path.startsWith(`/${grade.slug}/`))).toHaveLength(3);
+      expect(gradeStrandGatewayPaths.filter((path) => path.startsWith(`/grades/${grade.slug}/`))).toHaveLength(3);
     }
   });
 
   it('does not retain obsolete flat grade-resource paths', () => {
-    expect(canonicalGradeRoutes.some((route) => route.canonicalPath === '/kindergarten/short-a-words')).toBe(false);
-    expect(canonicalGradeRoutes.some((route) => route.canonicalPath === '/kindergarten/high-frequency-words-1')).toBe(false);
+    expect(canonicalGradeRoutes.some((route) => route.canonicalPath === '/grades/kindergarten/short-a-words')).toBe(false);
+    expect(canonicalGradeRoutes.some((route) => route.canonicalPath === '/grades/kindergarten/high-frequency-words-1')).toBe(false);
   });
 
   it('contains no duplicate canonical member URL', () => {
@@ -114,18 +114,18 @@ describe('canonical grade routes', () => {
   });
 
   it('resolves approved representative paths by stable content id', () => {
-    expect(getCanonicalListPathById('kindergarten-first-words')).toBe('/kindergarten/core-spelling/first-words');
-    expect(getCanonicalListPathById('kindergarten-short-a-words')).toBe('/kindergarten/core-spelling/short-a-words');
-    expect(getCanonicalListPathById('grade-1-floss-rule')).toBe('/1st-grade/core-spelling/floss-rule');
-    expect(getCanonicalListPathById('grade-1-high-frequency-words-set-1')).toBe('/1st-grade/high-frequency-words/set-1');
-    expect(getCanonicalListPathById('grade-1-weather-words')).toBe('/1st-grade/themed-spelling-practice/weather-words');
-    expect(getCanonicalListPathById('grade-2-long-e-ee-ea')).toBe('/2nd-grade/core-spelling/long-e-ee-ea');
-    expect(getCanonicalListPathById('grade-2-long-i-ie-igh')).toBe('/2nd-grade/core-spelling/long-i-ie-igh');
+    expect(getCanonicalListPathById('kindergarten-first-words')).toBe('/grades/kindergarten/core-spelling/first-words');
+    expect(getCanonicalListPathById('kindergarten-short-a-words')).toBe('/grades/kindergarten/core-spelling/short-a-words');
+    expect(getCanonicalListPathById('grade-1-floss-rule')).toBe('/grades/1st-grade/core-spelling/floss-rule');
+    expect(getCanonicalListPathById('grade-1-high-frequency-words-set-1')).toBe('/grades/1st-grade/high-frequency-words/set-1');
+    expect(getCanonicalListPathById('grade-1-weather-words')).toBe('/grades/1st-grade/themed-spelling-practice/weather-words');
+    expect(getCanonicalListPathById('grade-2-long-e-ee-ea')).toBe('/grades/2nd-grade/core-spelling/long-e-ee-ea');
+    expect(getCanonicalListPathById('grade-2-long-i-ie-igh')).toBe('/grades/2nd-grade/core-spelling/long-i-ie-igh');
     expect(getCanonicalListPathById('grade-2-r-controlled-er-ir-ur')).toBe(
-      '/2nd-grade/core-spelling/r-controlled-er-ir-ur',
+      '/grades/2nd-grade/core-spelling/r-controlled-er-ir-ur',
     );
     expect(getCanonicalListPathById('grade-3-suffix-spelling-changes')).toBe(
-      '/3rd-grade/core-spelling/suffix-spelling-changes',
+      '/grades/3rd-grade/core-spelling/suffix-spelling-changes',
     );
   });
 

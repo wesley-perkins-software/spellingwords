@@ -13,12 +13,12 @@ export interface GradeConfigEntry {
 }
 
 export const gradeConfig: readonly GradeConfigEntry[] = [
-  { grade: 'K', label: 'Kindergarten', shortLabel: 'Kindergarten', slug: 'kindergarten', hubHref: '/kindergarten' },
-  { grade: '1', label: '1st Grade', shortLabel: 'Grade 1', slug: '1st-grade', hubHref: '/1st-grade' },
-  { grade: '2', label: '2nd Grade', shortLabel: 'Grade 2', slug: '2nd-grade', hubHref: '/2nd-grade' },
-  { grade: '3', label: '3rd Grade', shortLabel: 'Grade 3', slug: '3rd-grade', hubHref: '/3rd-grade' },
-  { grade: '4', label: '4th Grade', shortLabel: 'Grade 4', slug: '4th-grade', hubHref: '/4th-grade' },
-  { grade: '5', label: '5th Grade', shortLabel: 'Grade 5', slug: '5th-grade', hubHref: '/5th-grade' },
+  { grade: 'K', label: 'Kindergarten', shortLabel: 'Kindergarten', slug: 'kindergarten', hubHref: '/grades/kindergarten' },
+  { grade: '1', label: '1st Grade', shortLabel: 'Grade 1', slug: '1st-grade', hubHref: '/grades/1st-grade' },
+  { grade: '2', label: '2nd Grade', shortLabel: 'Grade 2', slug: '2nd-grade', hubHref: '/grades/2nd-grade' },
+  { grade: '3', label: '3rd Grade', shortLabel: 'Grade 3', slug: '3rd-grade', hubHref: '/grades/3rd-grade' },
+  { grade: '4', label: '4th Grade', shortLabel: 'Grade 4', slug: '4th-grade', hubHref: '/grades/4th-grade' },
+  { grade: '5', label: '5th Grade', shortLabel: 'Grade 5', slug: '5th-grade', hubHref: '/grades/5th-grade' },
 ];
 
 /** Returns the previous/next grade in sequence, omitting either end where there is no neighbor. */

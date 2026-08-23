@@ -148,7 +148,7 @@ describe('curated spelling Skills browse index', () => {
 
     expect(viewSource).toMatch(/Browse by skill/);
     expect(viewSource).toMatch(/spelling concept/);
-    expect(viewSource).toContain('href="/#grades"');
+    expect(viewSource).toContain('href="/grades"');
     expect(viewSource).toMatch(/sequenced grade-level path/);
     expect(viewSource).not.toMatch(/Start with short vowels/i);
     expect(viewSource).not.toMatch(/Choose a specific spelling sound or pattern/i);

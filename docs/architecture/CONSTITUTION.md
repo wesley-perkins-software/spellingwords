@@ -446,3 +446,7 @@ A foundational change must be explicit. It should:
 - avoid silently changing architecture through implementation alone
 
 Implementation should not become architecture by accident. If the product model changes, the constitution must change with it.
+
+## Authorized pre-launch route decision — 2026-08-23
+
+Grade curriculum is canonically nested beneath `/grades`: the comparison page is `/grades`, Grade pages are `/grades/{grade}`, and every grade strand and unit continues beneath that Grade page. Cross-grade strand pages and grade-independent Skills remain top-level. The never-public root-grade route shape is retired without redirects.

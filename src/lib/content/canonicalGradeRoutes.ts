@@ -145,7 +145,7 @@ export const canonicalGradeRoutes: readonly CanonicalGradeRoute[] = CANONICAL_GR
       gradeSlug,
       section,
       finalSlug,
-      canonicalPath: `/${gradeSlug}/${GRADE_STRANDS[classification].routeSegment}/${finalSlug}`,
+      canonicalPath: `/grades/${gradeSlug}/${GRADE_STRANDS[classification].routeSegment}/${finalSlug}`,
       classification,
     };
   },
@@ -157,7 +157,7 @@ const routeByPath = new Map(canonicalGradeRoutes.map((route) => [`${route.gradeS
 export function getGradeHubPath(grade: GradeCode): string {
   const gradeEntry = gradeConfig.find((entry) => entry.grade === grade);
   if (!gradeEntry) throw new Error(`Unknown grade: ${grade}`);
-  return `/${gradeEntry.slug}`;
+  return gradeEntry.hubHref;
 }
 
 export function getCanonicalGradeRoutes(): readonly CanonicalGradeRoute[] {

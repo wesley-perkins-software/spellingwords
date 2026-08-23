@@ -67,7 +67,7 @@ describe('Grade 3 High-Frequency Words Sets 1–2 editorial pilot', () => {
       expect(source).toContain('contentRole: high-frequency-word-set');
       expect(source).toContain('category: high-frequency-words');
       expect(getCanonicalGradeRouteById(set.id)).toMatchObject({
-        canonicalPath: `/3rd-grade/high-frequency-words/set-${index + 1}`,
+        canonicalPath: `/grades/3rd-grade/high-frequency-words/set-${index + 1}`,
         classification: 'high-frequency-words',
       });
     });

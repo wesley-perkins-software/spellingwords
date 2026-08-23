@@ -13,12 +13,12 @@ describe('global site chrome', () => {
     expect(footer).toContain('gradeConfig.map');
 
     expect(gradeConfig.map((grade) => grade.hubHref)).toEqual([
-      '/kindergarten',
-      '/1st-grade',
-      '/2nd-grade',
-      '/3rd-grade',
-      '/4th-grade',
-      '/5th-grade',
+      '/grades/kindergarten',
+      '/grades/1st-grade',
+      '/grades/2nd-grade',
+      '/grades/3rd-grade',
+      '/grades/4th-grade',
+      '/grades/5th-grade',
     ]);
   });
 
@@ -47,7 +47,7 @@ describe('global site chrome', () => {
     }
     // Superseded once all three strand gateways exist (2026-08-21 amendment) — redundant with
     // the Grades footer column, which already links all six Grade Hubs.
-    expect(footer).not.toContain('href="/#grades"');
+    expect(footer).toContain('href="/grades"');
   });
 
   it('gives the global practice CTA an explicit desktop label and a compact mobile fallback, both pointing at the dedicated own-word page', () => {

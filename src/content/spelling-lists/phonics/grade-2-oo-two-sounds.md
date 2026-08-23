@@ -52,7 +52,7 @@ The letters **oo** do not sound the same in every word. This list helps second g
 
 The first group uses the sound in *moon, food,* and *zoo*; the second uses the sound in *book, good,* and *foot*. Practicing both groups teaches children to try the sound that makes a familiar word instead of assuming **oo** has only one pronunciation. The linked Skill page is the deeper reference.
 
-## How to practice this list
+### How to practice this list
 
 Read and sort the words into “like *moon*” and “like *book*.” Then show or dictate a mixed set and ask your child to name the anchor word with the same vowel sound.
 

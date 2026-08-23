@@ -52,7 +52,7 @@ These words extend Grade 3 prefix work with five beginnings found in longer Grad
 
 Some words separate into familiar written parts: *inter + act*, *sub + way*, *super + star*, *trans + plant/form/port*, and *anti + freeze*. In *intermission*, *international*, *submarine*, *supervise*, and *antibiotic*, the letters after the prefix are still worth preserving and checking even though the remainder is not necessarily a familiar standalone modern English word. Removing a prefix does not always leave a word that can be used by itself.
 
-## How to practice this list
+### How to practice this list
 
 Sort the words by their five prefixes. For each word, have your child underline the prefix, say the whole word, cover it, and write the prefix first. Then add the remaining written part without changing or dropping its letters. Compare the two parts separately: “Is the prefix right? Is the rest right?”
 

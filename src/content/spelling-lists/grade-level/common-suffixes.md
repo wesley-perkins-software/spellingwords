@@ -39,7 +39,7 @@ A suffix is a meaningful word part added after a base word. Knowing the suffix h
 
 It focuses on what the suffixes mean or do. If the base spelling changes before an ending, use [Spelling Rules for Adding Suffixes](/skills/suffix-spelling-changes) rather than trying to learn that mechanical change as a suffix meaning.
 
-## Suffixes that build new words
+### Suffixes that build new words
 
 Derivational suffixes can create a word with a new meaning or a different grammatical function.
 
@@ -59,7 +59,7 @@ Pairs make the contribution especially clear:
 - *kind + ness = kindness*; *dark + ness = darkness*
 - *enjoy + ment = enjoyment*; *move + ment = movement*
 
-## Comparison endings work differently
+### Comparison endings work differently
 
 The suffixes *-er* and *-est* in *faster* and *fastest* are inflectional: they give another form of the same describing word rather than deriving a separate vocabulary idea.
 
@@ -71,7 +71,7 @@ The suffixes *-er* and *-est* in *faster* and *fastest* are inflectional: they g
 
 This distinction prevents the vague claim that all suffixes “change meaning” in the same way. *Careless* builds a new word meaning “without enough care”; *faster* inflects *fast* so a writer can compare.
 
-## What to notice
+### What to notice
 
 - Isolate a real base word and a meaningful suffix: *help + ful*, not an accidental letter split.
 - Say what the suffix contributes, then check that explanation against the whole word.
@@ -79,7 +79,7 @@ This distinction prevents the vague claim that all suffixes “change meaning”
 - Do not assume that identical final letters always have the same structure. The *-er* in *faster* compares; the final letters in *winter* are not a comparative suffix.
 - A spelling change at the join is a separate question from the suffix's meaning or function.
 
-## Common mistakes and boundaries
+### Common mistakes and boundaries
 
 **Giving the suffix a meaning that does not fit the word.** Ask the learner to use the complete word in a sentence and explain the connection between the base and suffix.
 
@@ -89,7 +89,7 @@ This distinction prevents the vague claim that all suffixes “change meaning”
 
 **Assuming a suffix definition predicts the entire word.** A suffix supplies a clue, not a complete dictionary definition. The base, suffix, and sentence context work together.
 
-## A short teaching routine
+### A short teaching routine
 
 1. Write a familiar base word, such as *care*.
 2. Add one suffix card and read the equation: *care + ful = careful*.
@@ -99,6 +99,6 @@ This distinction prevents the vague claim that all suffixes “change meaning”
 
 If the learner struggles, cover the suffix and check whether the base word is recognizable. Then uncover the suffix, state its usual contribution, and test that contribution in a sentence. This shows whether the difficulty is identifying the base, recalling the suffix, or combining the meanings.
 
-## Signs the skill is becoming secure
+### Signs the skill is becoming secure
 
 Signs of security include separating a familiar word into a genuine base and suffix, explaining the suffix's contribution without over-literal definitions, building another word with the same suffix, and distinguishing derivational suffixes from comparative *-er/-est*. A learner should also recognize when an attachment causes a spelling problem that belongs to the separate rules Skill.

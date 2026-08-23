@@ -44,7 +44,7 @@ Long **e** can be spelled more than one way. This list helps second graders comp
 
 The list groups **ee** words such as *tree, feet,* and *sleep* before **ea** words such as *eat, team,* and *beach*. Children learn to keep both vowel letters and use a familiar word as a spelling anchor. The linked Skill page explains these patterns in more depth.
 
-## How to practice this list
+### How to practice this list
 
 Sort the words under **ee** or **ea**, then dictate a mixed set. Ask your child to underline the vowel team and compare an uncertain spelling with a known word such as *keep* or *team*.
 

@@ -52,7 +52,7 @@ Grade 5 begins by asking students to maintain the complete written structure of 
 
 The list builds on Grade 4 work with long words and related forms. Here, the challenge is to coordinate the whole spoken word with its meaningful parts and less-prominent internal vowels without assuming that every speaker divides or pronounces it in exactly the same way.
 
-## How to practice this list
+### How to practice this list
 
 Say or play the whole word naturally. Ask your child to identify a useful ending, meaningful written part, or spoken chunk, then hide the model and have them write the complete word from dictation. Compare the attempt by useful written parts: check the known ending, the beginning, and then the internal sequence. Finish the session by mixing words with different endings so they must choose the spelling structure rather than repeat one pattern.
 

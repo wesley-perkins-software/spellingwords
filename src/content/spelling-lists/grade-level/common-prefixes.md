@@ -37,7 +37,7 @@ words:
 
 [Un- and Re- Prefixes](/skills/un-and-re-prefixes) covers the foundational prefix pattern: a word part added to the front of a base word, without changing that base word's spelling. This page builds on that pattern with a wider set of prefixes that Grade 3 and Grade 4 students meet in longer, more academic words: *pre-*, *dis-*, *mis-*, *inter-*, *sub-*, *super-*, *trans-*, and *anti-*.
 
-## Prefixes that attach to a whole base word
+### Prefixes that attach to a whole base word
 
 Several of these prefixes work exactly like *un-* and *re-*: they attach to a complete, familiar English word.
 
@@ -49,26 +49,26 @@ Several of these prefixes work exactly like *un-* and *re-*: they attach to a co
 | *super-* | above / beyond the ordinary | *super- + star = superstar* | a performer whose skill goes beyond the ordinary |
 | *anti-* | against | *anti- + freeze = antifreeze* | a liquid that works against freezing |
 
-## Prefixes that attach to a root, not a whole word
+### Prefixes that attach to a root, not a whole word
 
 Two of this page's prefixes work differently. *Pre-* in *predict* attaches to *-dict-*, and *trans-* in *transport* attaches to *-port-*. *Dict* is a bound root: it does not normally stand alone as an English word. *Port* can be a stand-alone word meaning "harbor," but in *transport* it is a root with a different historical meaning, "carry." That makes *predict* "say beforehand" and *transport* "carry across." Some roots cannot stand alone, but whether the same letters appear as a word elsewhere is not a reliable test. Look at the element's role and meaning in the word you are studying. This is a preview of [Greek and Latin Roots](/skills/greek-and-latin-roots), where word parts like these are the main focus rather than an exception.
 
-## Telling dis- and mis- apart
+### Telling dis- and mis- apart
 
 *Dis-* usually means "not" or "the opposite of": *disagree* is the opposite of agreeing. *Mis-* usually means "wrongly" or "badly": *misread* means to read something incorrectly. Sentence context settles the rest — a student who *disagrees* with a plan doesn't support it; a student who *misreads* a word gets it wrong by accident rather than rejecting it on purpose.
 
-## Telling sub- and super- apart
+### Telling sub- and super- apart
 
 *Sub-* and *super-* are near-opposites that both show up constantly in school vocabulary, which makes them easy to mix up. *Sub-* means "under," as in *submarine* — a vessel that travels under the sea. *Super-* means "above" or "beyond the ordinary," as in *superstar* — someone whose skill goes beyond the ordinary.
 
-## What to notice
+### What to notice
 
 - Isolate the prefix first, then check whether what's left is a whole word (*agree*, *read*, *act*, *star*, *freeze*) or a root (*-dict-*, *-port-*).
 - A root's meaning still contributes to the whole word whether or not the same letters can stand alone elsewhere — knowing *-port-* means "carry" also helps with *import*.
 - These prefixes generally attach to the front without changing the rest of the word's spelling, the same as *un-*/*re-*.
 - Longer academic words sometimes add a suffix as well, such as *transportation* — that ending is a separate topic (see [Common Suffixes](/skills/common-suffixes)); this page focuses on the prefix at the front.
 
-## Common mistakes
+### Common mistakes
 
 **Assuming every prefix here attaches to a whole word.** That's true for *dis-*, *mis-*, *inter-*, *super-*, and *anti-*, but *pre-* and *trans-* in this set attach to a root instead. Ask what the remaining element means and what role it plays in this word; do not rely only on whether the same letters can be a free-standing word elsewhere.
 
@@ -76,7 +76,7 @@ Two of this page's prefixes work differently. *Pre-* in *predict* attaches to *-
 
 **Guessing a prefix's meaning from only one example.** *Inter-* means "between" in *interact*, but a student who has only seen *interact* may not recognize the same meaning in *international* (between nations) without making that connection explicit.
 
-## A short teaching routine
+### A short teaching routine
 
 1. Say the whole word, then separate the prefix from what follows.
 2. Ask whether what's left is a whole word or a root.
@@ -84,10 +84,10 @@ Two of this page's prefixes work differently. *Pre-* in *predict* attaches to *-
 4. Build a second word with the same prefix, if one is known.
 5. Spell the word in two chunks: prefix, then base word or root.
 
-## If a learner struggles
+### If a learner struggles
 
 If a learner can't identify the prefix, check whether they can already spell the word that follows it — for base-word prefixes like *dis-agree* or *super-star*, that word should already be familiar. For root-based prefixes like *pre-dict* and *trans-port*, a familiar free word may not supply the meaning the root has here, so instead check whether the learner can isolate the prefix consistently and treat the remaining letters as one chunk, even before they know the root's full meaning — root meanings are addressed in Greek and Latin Roots.
 
-## Signs the skill is becoming secure
+### Signs the skill is becoming secure
 
 Signs of security include separating a new word into its prefix and what follows, telling whether the remainder is a whole word or a root, explaining *dis-* versus *mis-* and *sub-* versus *super-* with a concrete example each, and noticing when a familiar prefix appears in an unfamiliar, longer word.

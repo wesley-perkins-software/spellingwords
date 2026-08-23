@@ -48,7 +48,7 @@ This list introduces two spellings for the vowel sound in *saw* and *cause*. A h
 
 **Aw** appears at the end in *saw* and *draw* and before **n** or **l** in *lawn* and *crawl*. **Au** appears inside *because, cause,* and *author*. Children learn to notice both the sound and its place. The linked Skill page provides the fuller explanation.
 
-## How to practice this list
+### How to practice this list
 
 Sort the words under **au** and **aw**. Before spelling, ask where the vowel sound occurs and what letter follows it; then mix the list and underline the chosen pattern.
 

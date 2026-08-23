@@ -48,7 +48,7 @@ Adding an ending becomes easier when a child learns to pause and inspect the bas
 
 This unit follows the Grade 3 Suffixes list, which introduces what common suffixes mean and do. Here the focus shifts to the spelling at the join between a familiar base and its suffix. Keeping all three decisions together helps a learner inspect the base first instead of applying one change to every word.
 
-## How to practice this list
+### How to practice this list
 
 Write the base word beside the finished word and mark what changed: _make → making_, _run → running_, or _carry → carried_. Mix the three groups and ask your child to name the base-word shape before choosing **drop**, **double**, **change**, or **attach unchanged**. Include an occasional unchanged comparison such as _rain → raining_, _hope → hopeful_, or _play → played_ without adding those words to the practice list.
 

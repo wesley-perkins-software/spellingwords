@@ -52,7 +52,7 @@ The first six words give Grade 5 students longer prefix-led spellings: *inter-* 
 
 The other six focus attention on suffixes and joins: *attractive* and *creative* use *-ive*, *responsible* uses *-ible*, *activity* uses *-ity*, *courageous* uses *-ous*, and *agreement* uses *-ment*. The join is not identical in every word. *Create* loses final *e* in *creative*; *active* becomes *activity*; *courage* loses final *e* in *courageous*; and *agree* keeps its final *e* in *agreement*. This extends earlier affix work by asking students to keep track of a prefix or suffix, the internal spelling, and the join within one longer word.
 
-## How to practice this list
+### How to practice this list
 
 Work with a small contrast, such as *transfer/transport* or *creative/activity*. Say the word, identify the prefix or suffix, cover the model, and have your child spell the complete word from dictation. Compare four locations in order: prefix, internal base or root spelling, suffix, and the join. Later, mix prefix-led and suffix-led words so they must decide which part provides the best spelling support.
 

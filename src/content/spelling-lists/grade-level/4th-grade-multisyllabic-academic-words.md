@@ -52,7 +52,7 @@ These twelve words appear in directions, explanations, and writing across school
 
 Look for stable written parts as well as spoken ones. *Communicate* and *organize* have recognizable endings; *include*, *improve*, and *provide* have useful beginning and ending chunks; and *knowledge*, *purpose*, and *strategy* contain letter choices that sound alone may not settle. Less-prominent vowels in words such as *consider* and *consequence* may be weakened in speech, so students need to check that no written part has disappeared.
 
-## How to practice this list
+### How to practice this list
 
 Work with three or four words at a time. Say a word naturally, tap or mark any spoken beats that help this learner, and then find a useful written part. The student writes the whole word from memory and compares it with the model from left to right. Ask, “Did every part make it onto the page?” rather than asking for repeated copying.
 

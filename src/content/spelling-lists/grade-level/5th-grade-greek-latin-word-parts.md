@@ -52,7 +52,7 @@ The Greek-derived words provide recognizable written parts: *photo* and *graph* 
 
 The Latin-derived words do the same work with roots or word parts such as *port* in *transportation*, *struct* in *construction* and *instruction*, *spect* in *inspection*, *dict* in *prediction*, *script* in *description*, and *rupt* in *interruption*. Some are bound roots: they carry a recognizable spelling even though they do not usually stand alone as modern English words. Grade 4 introduced recurring roots; this Grade 5 set asks students to coordinate them with prefixes and endings inside longer words.
 
-## How to practice this list
+### How to practice this list
 
 Choose two words that share a part or have comparable structures. Have your child mark or name the recognizable word part, cover the model, and spell the complete word from dictation. Compare the attempt in sections: prefix, root or combining form, ending, and any uncertain internal vowels or letters. Then mix Greek- and Latin-derived words so they must find the useful written part rather than rely on a memorized category.
 

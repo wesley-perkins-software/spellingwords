@@ -51,7 +51,7 @@ This list applies earlier suffix knowledge to longer Grade 4 words. *Breakable* 
 
 The Grade 3 Suffix Spelling Changes lesson teaches how to decide whether letters at a join double, drop, change, or attach directly. This lesson does not reteach that whole system. Instead, students use what they already know to keep three locations clear: the underlying or related spelling, the suffix itself, and the join between them. Related words can help when two endings sound similar: *connect* supports *connection*, *discuss* supports *discussion*, and *conclude* supports *conclusion*.
 
-## How to practice this list
+### How to practice this list
 
 Practice one suffix group at a time. Ask your child to identify the written ending, name a useful related word when one is familiar, and then write the whole word. During comparison, draw a light boundary before the suffix and check in this order: the underlying spelling, the suffix, then the join.
 

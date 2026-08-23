@@ -52,7 +52,7 @@ The letters **c** and **g** do not always have the sounds heard in *cat* and *ga
 
 The list shows soft **c** before **e, i,** or **y** in *city, face,* and *ice*, and soft **g** in *giant, page,* and *large*. Children learn to look at two letters together rather than guess from **c** or **g** alone. The linked Skill page covers the rule and its limits in depth.
 
-## How to practice this list
+### How to practice this list
 
 Have your child circle **c** or **g** and underline the letter immediately after it. Sort the words by soft **c** and soft **g**, then mix them and ask the child to read each word before spelling it.
 

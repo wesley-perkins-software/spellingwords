@@ -46,7 +46,7 @@ A word family contains words connected by a shared base or root. A **base word**
 
 This closing Grade 3 unit combines earlier work with prefixes, suffixes, and longer words. Recognizing a stable base or root gives learners another way to check a complex spelling before the Grade 4 sequence begins with more advanced multisyllabic words and later develops formal Greek and Latin root study.
 
-## How to practice this list
+### How to practice this list
 
 Sort the words into the four families and box the recurring spelling: *act, form, port,* or *sign*. Build the clearest words from parts—*re + form* or *act + ion*—then compare the less transparent words side by side. Cover the boxed unit, dictate a family member, and ask your child to restore the shared spelling before completing the rest of the word. Ask whether the words share a plausible meaning connection, but do not require the root to be a smaller standalone word.
 

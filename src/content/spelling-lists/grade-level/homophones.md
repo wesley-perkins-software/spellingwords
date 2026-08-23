@@ -37,7 +37,7 @@ words:
 
 Homophones are words that sound exactly alike but have different spellings and different meanings. Because the ear gets no clue at all — every spelling sounds identical — the only way to choose correctly is to decide what the word means in the sentence first. This is different from [Commonly Confused Words](/skills/commonly-confused-words), a related skill for words that get mixed up for reasons *other* than sounding identical, such as similar spelling or similar meaning; those pairs may or may not share a sound at all.
 
-## To, too, and two
+### To, too, and two
 
 | Word | Job in the sentence | Example |
 |---|---|---|
@@ -47,7 +47,7 @@ Homophones are words that sound exactly alike but have different spellings and d
 
 **Decision method:** ask what job the word is doing. Is it pointing somewhere or introducing an action (*to*)? Could it be replaced with "also" or "excessively" (*too*)? Is it a number you could count on your fingers (*two*)?
 
-## There, their, and they're
+### There, their, and they're
 
 | Word | Job in the sentence | Example |
 |---|---|---|
@@ -57,23 +57,23 @@ Homophones are words that sound exactly alike but have different spellings and d
 
 **Decision method:** try substituting "they are." If the sentence still makes sense, the word is *they're*. If the sentence is about who owns something, it's *their*. If it's about a place, it's *there*.
 
-## What to notice
+### What to notice
 
 - The spelling never comes from the sound — all the words in a homophone set sound the same.
 - Meaning has to be decided before spelling. Ask "what does this word mean here?" before writing a letter.
 - A meaning-based memory trick helps more than a sound-based one: *there* shares its first four letters with *here*, another place word; *their* shares letters with *heir*, a word about what belongs to someone.
 
-## Common mistakes
+### Common mistakes
 
 **Guessing from what "looks right."** Because every spelling in the set sounds identical, there's no shortcut — the sentence's meaning has to be checked directly.
 
 **Treating homophones and commonly confused words as the same problem.** Homophones are confused purely because of shared sound. [Commonly Confused Words](/skills/commonly-confused-words) covers pairs confused for other reasons, and some of those pairs don't sound alike at all.
 
-## Practice: editing for meaning
+### Practice: editing for meaning
 
 Read a short sentence aloud with a homophone left blank, such as "___ going to the park" or "That is ___ ball." Ask the learner to say what the missing word means before writing it — not just what it sounds like. Writing two finished sentences side by side, one for each spelling, makes the meaning difference concrete.
 
-## A short teaching routine
+### A short teaching routine
 
 1. Say a sentence containing one homophone from the set.
 2. Ask the learner to explain what the word means in that sentence.
@@ -83,6 +83,6 @@ Read a short sentence aloud with a homophone left blank, such as "___ going to t
 
 **If a learner struggles:** don't supply the correct spelling right away. Ask them to restate the sentence in their own words first — if they can explain what the sentence means, they usually already know which spelling it needs.
 
-## Signs the skill is becoming secure
+### Signs the skill is becoming secure
 
 Signs include correctly choosing between homophones in a new, unfamiliar sentence; explaining the meaning difference between two spellings in the learner's own words; and catching a homophone mix-up while rereading their own writing.

@@ -51,7 +51,7 @@ These words form five related families: *nation/national/nationality*, *muscle/m
 
 Related words often preserve a recognizable sequence of letters, but the whole base does not always remain unchanged. *Nation*, *national*, and *nationality* keep a visible family spelling even as the spoken emphasis changes. *Muscle* helps with *muscular*, but final *e* is not retained when the ending is added. The useful question is therefore not “Did the base always stay exactly the same?” but “Which letters remain recognizable, and what happens at the join?”
 
-## How to practice this list
+### How to practice this list
 
 Work within one family at a time. Show one known member, ask your child to point to the recognizable shared spelling, and then cover the model before they write a second member. Compare the shared letters first, then the ending and the join. Reverse the direction so *nationality* can support *national* just as *nation* can.
 

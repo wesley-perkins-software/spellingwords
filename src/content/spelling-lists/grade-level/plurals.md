@@ -36,7 +36,7 @@ words:
 
 Regular plural nouns follow a bounded spelling pattern: they add *-s* or *-es* to name more than one. This page is about nouns such as *cat → cats* and *box → boxes*. It does not teach possessive apostrophes, verb endings, or every irregular plural in English.
 
-## Start with the singular word
+### Start with the singular word
 
 Ask, “What is the word for one?” That singular form is the base for the plural spelling.
 
@@ -52,14 +52,14 @@ Most regular nouns add *-s*. Add *-es* when the singular ends in a hissing or bu
 
 The final *-s* in *cats* and *dogs* does not sound identical, but both plurals use the same letter. A child does not need to sort every plural pronunciation to choose the spelling. The useful listening question is narrower: **Does the singular end in the kind of sound that needs the extra syllable in *-es*?**
 
-## What to notice
+### What to notice
 
 - Keep the complete singular spelling visible: *lunch + es = lunches*.
 - Look at the end of the singular word, not the beginning.
 - Use *-es* after the hissing or buzzing endings commonly spelled *s, x, z, sh,* and *ch*; check the sound in less familiar words.
 - The apostrophe in *cat's* does not make a plural. The regular plural is *cats*.
 
-## Comparisons that prevent overgeneralizing
+### Comparisons that prevent overgeneralizing
 
 | Add *-s* | Add *-es* |
 |---|---|
@@ -69,7 +69,7 @@ The final *-s* in *cats* and *dogs* does not sound identical, but both plurals u
 
 Some nouns require a different change. A consonant plus final *y* can change before the plural ending (*baby → babies*), and some words have irregular plurals (*mouse → mice*). Those forms are not evidence that the regular *-s/-es* pattern is unreliable; they are outside this page's deliberately narrow starting pattern.
 
-## Common mistakes
+### Common mistakes
 
 **Writing only *-s* after a hissing ending.** A spelling such as *boxs* misses the extra syllable. Return to *box*, say *boxes* slowly, and mark *box + es*.
 
@@ -77,7 +77,7 @@ Some nouns require a different change. A consonant plus final *y* can change bef
 
 **Adding an apostrophe to make a plural.** Write *dogs* for more than one dog. An apostrophe has a different job and is not part of this regular plural pattern.
 
-## A short teaching routine
+### A short teaching routine
 
 1. Place one object beside a group and say the singular and plural: “one cup, two cups.”
 2. Write the singular word and underline its ending.
@@ -87,6 +87,6 @@ Some nouns require a different change. A consonant plus final *y* can change bef
 
 If the learner struggles, do not supply the ending immediately. Return to the singular word, have the learner identify its final letters and say the plural slowly, then compare it with one known example such as *book/books* or *box/boxes*. This reveals whether the difficulty is the base word, the ending condition, or the written ending.
 
-## Signs the pattern is becoming secure
+### Signs the pattern is becoming secure
 
 Signs of security include forming a new regular plural from a familiar singular noun, preserving every letter of the singular, choosing *-es* after the target endings, and explaining why *books* and *boxes* use different endings. A learner should also recognize that an unfamiliar irregular plural needs a different strategy rather than forcing this rule onto it.

@@ -48,7 +48,7 @@ The list moves beyond simple pairs. *There/their/they're* requires a three-way c
 
 This lesson follows multisyllabic spelling because learners are now writing longer sentences in which an accurately spelled word can still be the wrong word. It also draws directly on the earlier possessive and contraction work needed to interpret the apostrophes.
 
-## How to practice this list
+### How to practice this list
 
 Dictate a complete sentence and ask your child to explain the intended word before writing it. For a contraction, substitute its two full words and reread the sentence. For another pair, give a brief meaning cue or ask them to use both spellings in contrasting sentences. Mix all groups rather than practicing one pair repeatedly.
 

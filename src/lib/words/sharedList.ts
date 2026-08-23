@@ -1,6 +1,7 @@
 import { normalizeWordList } from './normalizeWordList';
 import { parseWordInput } from './parseWordInput';
 import { bytesToBase64Url, base64UrlToBytes } from './serialization';
+import { filterValidSpellingWords } from './validateWordInput';
 
 /**
  * Shareable spelling-list payload — the transport behind teacher/parent
@@ -267,7 +268,7 @@ export function decodeSharedList(fragmentPayload: string): DecodeSharedListResul
     return { ok: false, code: 'malformed', message: 'Payload title is not a string.' };
   }
 
-  const words = normalizeWordList(envelope.words);
+  const words = filterValidSpellingWords(normalizeWordList(envelope.words));
 
   if (words.length === 0) {
     return { ok: false, code: 'empty', message: 'Payload contains no words.' };

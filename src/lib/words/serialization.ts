@@ -1,3 +1,4 @@
+import { filterValidSpellingWords } from './validateWordInput';
 import { normalizeWordList } from './normalizeWordList';
 import { parseWordInput } from './parseWordInput';
 
@@ -232,7 +233,7 @@ export function decodeWordList(payload: string): DecodeResult {
     };
   }
 
-  const words = normalizeWordList(text.split(WORD_SEPARATOR));
+  const words = filterValidSpellingWords(normalizeWordList(text.split(WORD_SEPARATOR)));
 
   if (words.length === 0) {
     return { ok: false, code: 'empty', message: 'Payload contains no words.' };

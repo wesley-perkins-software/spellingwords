@@ -6,9 +6,11 @@
  */
 export {
   collapseWhitespace,
+  isSpellingCharacter,
   normalizeQuotes,
   normalizeUnicode,
   removeDiacritics,
+  sanitizeSpellingCharacters,
   stripEdgePunctuation,
   stripListMarker,
 } from './characters';
@@ -18,8 +20,12 @@ export type { NormalizeWordListOptions } from './normalizeWordList';
 export { dedupeWords } from './dedupeWords';
 export { compareWords, comparisonKey, getAnswerOutcome } from './compareWords';
 export type { AnswerOutcomeOptions } from './compareWords';
-export { parseWordInput } from './parseWordInput';
-export { validateWordInput } from './validateWordInput';
+export { parseWordInput, splitWordInputTokens } from './parseWordInput';
+export { validateWordInput, filterValidSpellingWords } from './validateWordInput';
+export { validateWordListInput } from './validateWordList';
+export type { InvalidWordEntry, WordListValidationResult } from './validateWordList';
+export { classifySpellingIssue, suggestSpellingFix } from './describeSpellingIssue';
+export type { SpellingIssueReason } from './describeSpellingIssue';
 export {
   MAX_PAYLOAD_LENGTH,
   MAX_WORD_COUNT,

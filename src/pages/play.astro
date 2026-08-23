@@ -444,7 +444,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
 </Layout>
 
 <script>
-  import { decodeWordList } from '@/lib/words';
+  import { decodeWordList, sanitizeSpellingCharacters } from '@/lib/words';
   import { getSentenceBankEntry } from '@/lib/sentenceBank';
   import { createSpeechController, selectPreferredVoice } from '@/modules/speech';
   import type { SpeechSynthesisVoiceAdapter } from '@/modules/speech';
@@ -1041,6 +1041,31 @@ import SiteFooter from '@/components/SiteFooter.astro';
   }
 
   // --- Event handlers ---
+
+  // Keep only characters that could ever legitimately appear in a spelling
+  // answer (letters, apostrophes, hyphens) as the student types, pastes,
+  // dictates, or autofills — invalid characters (digits, symbols, emoji)
+  // simply never accumulate, with no disruptive error message. Runs on the
+  // `input` event rather than `keydown` so it catches every way the value
+  // can change, not just physical key presses. Reapplied here even though
+  // spellingTestReducer also sanitizes defensively (see stateMachine.ts) —
+  // this is what keeps the *visible* field clean, not just the graded value.
+  function sanitizeAnswerField(): void {
+    const before = answerInput.value;
+    const sanitized = sanitizeSpellingCharacters(before);
+    if (sanitized === before) return;
+
+    // Preserve caret position: sanitizing just the text before the caret
+    // gives exactly how many of those characters survive (the sanitizer
+    // only ever looks backward, never at characters after the caret), so
+    // that length is where the caret belongs in the sanitized value.
+    const caret = answerInput.selectionStart ?? before.length;
+    const retainedBeforeCaret = sanitizeSpellingCharacters(before.slice(0, caret)).length;
+
+    answerInput.value = sanitized;
+    answerInput.setSelectionRange(retainedBeforeCaret, retainedBeforeCaret);
+  }
+
   function handleSubmit(): void {
     const answer = answerInput.value.trim();
 
@@ -1061,6 +1086,18 @@ import SiteFooter from '@/components/SiteFooter.astro';
     answerInput.readOnly = true;
 
     state = spellingTestReducer(state, submitAnswer(answer, Date.now()));
+
+    // Field sanitization above means this should only fire if the reducer
+    // was reached some other way than this handler — defense in depth, not
+    // a normal path. Treat it exactly like the empty-answer case above.
+    if (state.error === 'empty_answer') {
+      answerInput.readOnly = false;
+      answerError.textContent = 'Please type your answer.';
+      answerInput.value = '';
+      answerInput.focus();
+      return;
+    }
+
     renderFeedback();
   }
 
@@ -1102,6 +1139,8 @@ import SiteFooter from '@/components/SiteFooter.astro';
       );
     }
   });
+
+  answerInput.addEventListener('input', sanitizeAnswerField);
 
   answerInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') handleSubmit();

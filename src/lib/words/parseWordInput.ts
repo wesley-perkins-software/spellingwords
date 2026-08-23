@@ -9,8 +9,12 @@ import type { ParseOptions } from './types';
  * Splits on line breaks, strips a leading list marker per line, then splits each
  * line further on commas (and semicolons when requested). Returns raw,
  * un-normalized, possibly-empty tokens; normalization/filtering happens later.
+ *
+ * Exported so `validateWordListInput` can validate each raw entry
+ * individually (with useful per-entry feedback) using the exact same
+ * tokenization `parseWordInput` uses, rather than a second, competing split.
  */
-function splitIntoRawTokens(text: string, splitOnSemicolons: boolean): string[] {
+export function splitWordInputTokens(text: string, splitOnSemicolons = true): string[] {
   const lineDelimiters = /\r\n|\r|\n/;
   const inlineDelimiters = splitOnSemicolons ? /[,;]/ : /,/;
 
@@ -36,7 +40,7 @@ export function parseWordInput(text: string, options: ParseOptions = {}): string
     ...normalizeOptions
   } = options;
 
-  const words = splitIntoRawTokens(text, splitOnSemicolons)
+  const words = splitWordInputTokens(text, splitOnSemicolons)
     .map((token) => normalizeWord(token, normalizeOptions))
     .filter((word) => word.length > 0);
 

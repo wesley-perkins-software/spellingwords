@@ -50,7 +50,7 @@ The same vowel sound appears in *coin* and *boy*, but its spelling usually chang
 
 These words show **oi** inside a word, as in *coin, oil,* and *voice*, and **oy** at the end, as in *boy, joy,* and *toy*. *Enjoy* helps children notice the end of a syllable inside a longer word. The linked Skill page gives fuller guidance and exceptions.
 
-## How to practice this list
+### How to practice this list
 
 Say each word and ask whether the target sound comes inside the word or at the end. Sort under **oi** and **oy**, then mix the words for dictation and have your child underline the vowel team.
 

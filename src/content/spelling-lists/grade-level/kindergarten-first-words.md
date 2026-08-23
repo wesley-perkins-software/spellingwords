@@ -53,4 +53,4 @@ Success at this stage can look slow. Missing a middle or ending sound, reversing
 
 When a child can sound out and write most of these eight words with growing independence — needing only occasional help — they're ready to move on to Kindergarten Short A Words.
 
-There is no need for perfect speed or perfect spelling after one session. The important first step is using sounds to make and check a reasonable spelling attempt.
+> There is no need for perfect speed or perfect spelling after one session. The important first step is using sounds to make and check a reasonable spelling attempt.

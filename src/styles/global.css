@@ -167,6 +167,58 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* ── Direction A instructional prose ───────────────────────────
+     Shared editorial typography for the Grade Unit / HFW / Themed
+     "Why these words" / "What to notice" instructional body
+     (GradeUnitView.astro). The Markdown body always renders inside
+     a section that already has its own <h2>, so subsections here
+     start at h3 — see instructionalHeadingLevels.test.ts. */
+
+  .instruction-prose {
+    @apply max-w-[68ch] text-[1.06rem] leading-relaxed text-da-ink;
+  }
+
+  .instruction-prose > * + * {
+    @apply mt-4;
+  }
+
+  .instruction-prose strong {
+    @apply font-semibold;
+  }
+
+  .instruction-prose table {
+    @apply block max-w-full overflow-x-auto;
+  }
+
+  .instruction-prose ul,
+  .instruction-prose ol {
+    @apply ml-5 space-y-2 pl-1;
+  }
+
+  .instruction-prose ul {
+    @apply list-disc;
+  }
+
+  .instruction-prose ol {
+    @apply list-decimal;
+  }
+
+  .instruction-prose h3 {
+    @apply mt-8 mb-3 font-quicksand text-[1.15rem] font-bold text-da-ink md:mt-10;
+  }
+
+  .instruction-prose h3:first-child {
+    @apply mt-0;
+  }
+
+  .instruction-prose blockquote {
+    @apply mt-8 border-t border-da-border pt-5 text-da-ink;
+  }
+
+  .instruction-prose blockquote p {
+    @apply mt-0;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────

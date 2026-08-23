@@ -52,7 +52,7 @@ The sound in *out* and *cow* has two common spellings. Because position does not
 
 The list pairs common **ou** words such as *out, sound,* and *ground* with **ow** words such as *cow, now,* and *brown*. Children learn that **ow** can occur at the end or inside a word and can represent a different sound than it does in *snow*. The linked Skill page explores the pattern more fully.
 
-## How to practice this list
+### How to practice this list
 
 Sort the words by **ou** and **ow**, read each group, and then dictate them in mixed order. Ask your child to name a known word with the same spelling before checking an uncertain answer.
 

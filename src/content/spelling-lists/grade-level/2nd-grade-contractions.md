@@ -53,7 +53,7 @@ Contractions join two words and use an apostrophe to mark missing letters. These
 
 The list includes **not** contractions, pronoun-and-verb forms such as *I'm* and *we're*, and common forms such as *it's* and *that's*. Expanding each contraction makes the missing letters visible; *won't* is included as a useful exception. The linked Skill page provides the fuller reference.
 
-## How to practice this list
+### How to practice this list
 
 Say the two full words, write them, and cross out the letters that disappear. Join what remains with an apostrophe, then mix the contractions for dictation and ask your child to expand each one when checking.
 

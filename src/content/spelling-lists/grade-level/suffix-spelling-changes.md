@@ -37,7 +37,7 @@ words:
 
 Suffix spelling rules answer one mechanical question: **Does the base word change before this suffix is attached?** They do not explain what a suffix means; [Common Suffixes](/skills/common-suffixes) handles meaning and grammatical function. They also do not decide which verb form a sentence needs; [Words Ending in -ed and -ing](/skills/ed-and-ing) introduces those endings with unchanged-base examples. Three different starting shapes trigger three different checks.
 
-## 1. Double one final consonant
+### 1. Double one final consonant
 
 For a basic one-syllable word, check for one vowel sound followed by one final consonant. Before a suffix beginning with a vowel, the final consonant is often doubled.
 
@@ -51,7 +51,7 @@ Do **not** double merely because a word is short. Do not double after two final 
 
 Longer words bring stress-based conditions and regional variation, so this page's dependable starting rule is deliberately limited to clear one-syllable examples.
 
-## 2. Drop final silent *e*
+### 2. Drop final silent *e*
 
 When a base ends in final silent *e*, that *e* is usually dropped before a suffix that begins with a vowel.
 
@@ -63,7 +63,7 @@ When a base ends in final silent *e*, that *e* is usually dropped before a suffi
 
 The *e* usually stays before a suffix beginning with a consonant: *hope + ful = hopeful* and *care + less = careless*. This is a useful first boundary, not a claim without exceptions. Familiar forms such as *truly* and *ninth* show that some consonant-starting suffixes also involve a change, while words such as *changeable* may keep *e* to protect the intended consonant sound. Teach those as later word-specific refinements rather than weakening the clear starting comparison.
 
-## 3. Change consonant-plus-*y* to *i*
+### 3. Change consonant-plus-*y* to *i*
 
 When a base ends in a consonant followed by *y*, the *y* usually changes to *i* before many suffixes.
 
@@ -75,7 +75,7 @@ When a base ends in a consonant followed by *y*, the *y* usually changes to *i* 
 
 Keep *y* before *-ing*: *carry → carrying*. Also keep *y* when a vowel comes immediately before it: *play → played* and *joy → joyful*. These negative cases are part of the rule, not optional exceptions.
 
-## What to notice
+### What to notice
 
 Before adding anything, write the base word and inspect its final letters. Then ask:
 
@@ -86,7 +86,7 @@ Before adding anything, write the base word and inspect its final letters. Then 
 
 The checks are alternatives based on different base-word shapes. A learner should not attempt all three transformations on one word.
 
-## Common mistakes
+### Common mistakes
 
 **Doubling whenever a suffix begins with a vowel.** Compare *run/running* with *rain/raining* and name the missing short-vowel condition.
 
@@ -96,7 +96,7 @@ The checks are alternatives based on different base-word shapes. A learner shoul
 
 **Starting from the finished word alone.** Recover the base first. The visible equation makes it possible to explain a change instead of relying on memory.
 
-## A short teaching routine
+### A short teaching routine
 
 1. Give the learner a base-word card and a suffix card.
 2. Have the learner name the base's final shape before moving either card.
@@ -106,6 +106,6 @@ The checks are alternatives based on different base-word shapes. A learner shoul
 
 If the learner struggles, return to the unaltered base and ask only one diagnostic question at a time: What is the vowel sound? What are the final letters? What letter begins the suffix? Read back the constructed word, but let the learner choose the operation and repair it.
 
-## Signs the rules are becoming secure
+### Signs the rules are becoming secure
 
 Signs of security include recovering the base from a suffixed word, naming the condition before changing a spelling, applying the correct operation to a new clear example, and explaining why a close comparison does not change. The strongest evidence is a correct decision among **double, drop, change, or attach unchanged**, not success after practicing only one rule at a time.

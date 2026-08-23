@@ -54,7 +54,7 @@ Longer words become manageable when children listen for two spoken beats and spe
 
 The list includes words such as *rabbit* and *basket* with short-vowel parts, *paper* and *baby* with a long first vowel, and *winter* and *garden* with an r-controlled part. The new work is breaking apart and rebuilding the word, not learning a new vowel pattern. The linked Skill page explains the strategy more deeply.
 
-## How to practice this list
+### How to practice this list
 
 Say a word, clap its two beats, and have your child say and write one part at a time. After joining the parts, read the complete word and check that neither beat disappeared.
 

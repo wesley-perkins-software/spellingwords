@@ -53,7 +53,7 @@ These thirteen words form six contrasts that continue to cause errors in longer 
 
 Keep two kinds of error separate. A **selection error** happens when a learner writes a real word correctly but chooses the wrong member, such as *their* for *there*. A **spelling error** happens when the intended member is clear but its letters are wrong. The first calls for a quick meaning check; the second calls for focused spelling correction.
 
-## How to practice this list
+### How to practice this list
 
 Practice one contrast group with short oral sentences. Ask what the sentence means, have your child name the intended word, and then remove the model before they write it. For *there/their/they’re* and *its/it’s*, a brief expansion check can identify the contraction; stop there rather than turning the activity into a grammar lesson.
 

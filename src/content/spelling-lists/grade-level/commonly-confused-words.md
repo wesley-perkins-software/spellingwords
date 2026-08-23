@@ -39,7 +39,7 @@ words:
 
 Commonly confused words are pairs that get mixed up in writing for reasons beyond sound — similar spelling, similar meaning, or similar usage — not because they necessarily sound alike. This is different from [Homophones](/skills/homophones), a related skill for words that sound *exactly* the same and are confused purely because of that shared sound. Some commonly confused pairs, like *principal* and *principle*, happen to be true homophones too; others, like *than* and *then*, don't sound alike at all. Either way, the fix is the same: check the word's meaning and its job in the sentence, not its sound.
 
-## Affect and effect
+### Affect and effect
 
 *Affect* is usually a verb (an action); *effect* is usually a noun (a result). They're close in sound but not identical.
 
@@ -50,7 +50,7 @@ Commonly confused words are pairs that get mixed up in writing for reasons beyon
 
 **Decision method:** ask whether the sentence needs an action (*affect*) or a thing that happened (*effect*).
 
-## Principal and principle
+### Principal and principle
 
 *Principal* and *principle* sound exactly alike, so the choice can't come from sound or grammar — both words are nouns. It has to come from meaning alone.
 
@@ -61,7 +61,7 @@ Commonly confused words are pairs that get mixed up in writing for reasons beyon
 
 **Decision method:** ask whether the sentence is about a person (or something "main"), or about a rule or belief. A classic memory trick works here because it's tied to meaning: the school **principal** is your **pal**.
 
-## Advice and advise
+### Advice and advise
 
 *Advice* is a noun; *advise* is a verb. They're close in sound — *advice* ends with an /s/ sound, *advise* ends with a /z/ sound — but not identical.
 
@@ -72,7 +72,7 @@ Commonly confused words are pairs that get mixed up in writing for reasons beyon
 
 **Decision method:** ask whether the sentence needs a thing (*advice*) or an action (*advise*).
 
-## Than and then
+### Than and then
 
 *Than* and *then* don't sound alike at all — they have different vowel sounds. They're confused because they look almost identical in spelling and both appear constantly in everyday writing.
 
@@ -83,23 +83,23 @@ Commonly confused words are pairs that get mixed up in writing for reasons beyon
 
 **Decision method:** ask whether the sentence is comparing two things (*than*) or talking about time or order (*then*).
 
-## What to notice
+### What to notice
 
 - Some of these pairs sound close (*affect*/*effect*, *advice*/*advise*) but aren't identical — listen for the small sound difference as one clue, alongside meaning.
 - *Principal* and *principle* are true homophones, sounding exactly the same, which is why this skill can share a pair's sound profile with Homophones even though the two skills are separate.
 - *Than* and *then* prove this isn't only about sound: they're confused purely because of how similar they look on the page.
 
-## Common mistakes
+### Common mistakes
 
 **Trusting spell-check.** Every word in these pairs is a real, correctly spelled word, so a spelling checker won't catch a mix-up — only checking meaning will.
 
 **Treating this the same as homophone practice.** Not every commonly confused pair sounds alike, so a sound-based trick won't always work. [Homophones](/skills/homophones) covers the pairs that are confused purely by sound.
 
-## Practice: editing for meaning
+### Practice: editing for meaning
 
 Give the learner two finished sentences with the words swapped — one correct, one not — and ask them to find and fix the mistake by explaining what each word means, not just how it looks. This mirrors real self-editing better than filling in a blank alone.
 
-## A short teaching routine
+### A short teaching routine
 
 1. Introduce one pair and identify each word's part of speech or meaning.
 2. Write one example sentence for each word.
@@ -109,6 +109,6 @@ Give the learner two finished sentences with the words swapped — one correct, 
 
 **If a learner struggles:** ask them to identify the word's job in the sentence — is it naming a person or thing, describing an action, or comparing something — before asking them to spell it. Guessing which spelling "looks familiar" is the pattern to interrupt.
 
-## Signs the skill is becoming secure
+### Signs the skill is becoming secure
 
 Signs include correctly choosing between a confused pair in a new sentence, explaining the meaning or grammatical difference in the learner's own words, and catching a mix-up while revising their own writing.

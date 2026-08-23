@@ -41,7 +41,7 @@ A syllable is a spoken unit, usually organized around a vowel sound. A written w
 
 This page is about using syllables as one part of spelling a longer word. It does not promise that speech alone will reveal every letter or that one division rule will work for every word. English spelling also preserves familiar patterns and meaningful parts.
 
-## Start With the Spoken Word
+### Start With the Spoken Word
 
 Say the word naturally, then say it slowly without stretching it into extra syllables. Tap or mark each spoken part: _rab-bit_, _bas-ket_, _win-ter_. Next, look inside each part for a pattern you already know.
 
@@ -53,7 +53,7 @@ Say the word naturally, then say it slowly without stretching it into extra syll
 
 Open and closed syllable labels are useful clues, not guarantees for every English word. A **closed syllable** ends in one or more consonants and commonly has a short vowel, as in _rab_ and _ket_. An **open syllable** ends in a vowel; in many basic words, its vowel has a long sound. Stress, word history, and other spelling patterns can produce different results.
 
-## Open Syllables
+### Open Syllables
 
 In _robot_, the first syllable is open: _ro-bot_. The _o_ ends _ro_ and has its long sound. In _paper_, _pa-_ is open and its _a_ is long. In _music_, _mu-_ is open and uses the normal long-u sound heard in _use_.
 
@@ -61,19 +61,19 @@ When one consonant stands between two written vowels, trying the consonant with 
 
 An open first syllable does not guarantee that every later syllable is just as easy to spell. In _paper_, the first syllable is straightforward once you hear it as open — but the second syllable, _-per_, is unstressed: its vowel is reduced to a quick, unclear sound called schwa. Hearing "puhr" does not tell you the ending is spelled _-er_ rather than _-or_ or _-ar_. When a syllable is unstressed like this, spell it from a known pattern or word knowledge rather than trying to sound it out more carefully.
 
-## Words Ending in Consonant-LE
+### Words Ending in Consonant-LE
 
 At the end of words such as _table_ and _little_, a consonant plus _le_ forms the final syllable: _ta-ble_, _lit-tle_. The final _e_ is not pronounced as its own vowel sound; in many pronunciations, the ending sounds like /əl/, with the _l_ serving as the syllable's center.
 
 Work backward from the ending: circle consonant-_le_, say the first part, and join the parts again. Compare _ta + ble = table_ and _lit + tle = little_. The consonant immediately before _le_ belongs with the final syllable in this spelling convention. Words such as _while_ and _sale_ are outside this pattern because their endings do not form a separate syllable.
 
-## Syllables and Meaning Parts Can Overlap
+### Syllables and Meaning Parts Can Overlap
 
 Some longer words become easier when meaning supplies the clearest chunks. _Sunset_ is both _sun-set_ and the compound _sun + set = sunset_—spelling each small word correctly settles the whole word, the same strategy developed further on the [Compound Words Skill](/skills/compound-words). A word with a suffix may also preserve a known base spelling even when its spoken syllables are less obvious.
 
 Do not force every word into a base-and-affix equation: _rabbit_ is not built from two smaller words _rab_ and _bit_. Use meaningful parts only when they are real. The [Common Suffixes Skill](/skills/common-suffixes) develops that strategy further. The [R-Controlled ER, IR, and UR Words Skill](/skills/r-controlled-er-ir-ur-words) explains why the clear vowel-plus-_r_ sound in a word such as _her_ can sound weaker in an unstressed ending such as _winter_.
 
-## A Short Teaching Routine
+### A Short Teaching Routine
 
 1. **Say it normally.** Confirm the learner knows the word and its pronunciation.
 2. **Mark the syllables.** Tap once for each spoken part, using the whole pronunciation rather than the number of vowel letters.

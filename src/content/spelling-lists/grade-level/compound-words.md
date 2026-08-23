@@ -35,7 +35,7 @@ words:
 
 A compound word is built from two words whose meanings help form the larger word. This page uses **closed compounds**, which are written as one word: *sun + set = sunset*. The two-part meaning—not simply the word's length or number of syllables—is the defining feature.
 
-## Build meaning and spelling together
+### Build meaning and spelling together
 
 | First word | Second word | Compound | Meaning connection |
 |---|---|---|---|
@@ -46,13 +46,13 @@ A compound word is built from two words whose meanings help form the larger word
 
 The whole meaning is not always a word-for-word definition. A *butterfly* is not a fly made of butter. Even so, *butter* and *fly* are recognizable words in its established compound spelling. For early word building, transparent compounds such as *notebook* and *snowman* make the strategy clearer.
 
-## Compound parts are not ordinary syllables
+### Compound parts are not ordinary syllables
 
 Both compound parts must be real words that contribute to the compound's structure. *Sunset* can be analyzed as *sun + set*. Although *rabbit* also has two spoken syllables, *rab* and *bit* are not two words that build the meaning “rabbit,” so it is not a compound.
 
 The boundaries sometimes behave differently when spoken. In *cupcake*, the final *p* of *cup* meets the first *c* of *cake*, but both word spellings remain: *cup + cake = cupcake*. Looking at the meaningful parts can therefore reveal letters that a quick pronunciation might not make obvious.
 
-## What to notice
+### What to notice
 
 - Find two complete words, in the correct order.
 - Explain how their meanings connect to the whole word.
@@ -62,7 +62,7 @@ The boundaries sometimes behave differently when spoken. In *cupcake*, the final
 
 English also includes compounds conventionally written with a space or a hyphen. That formatting is a real feature of English vocabulary, but it is outside this page's demonstration set. When unsure how an unfamiliar compound is spaced, check a current dictionary rather than inventing a universal joining rule.
 
-## Useful comparisons
+### Useful comparisons
 
 | Genuine compound | Not a compound |
 |---|---|
@@ -72,7 +72,7 @@ English also includes compounds conventionally written with a space or a hyphen.
 
 These contrasts keep compound analysis grounded in meaning. They also prevent a learner from treating every longer word as the same kind of word-building problem.
 
-## Common mistakes
+### Common mistakes
 
 **Leaving a space in a closed compound.** Rebuild the two word cards, read the one combined idea, and slide the cards together before copying the word without a space.
 
@@ -82,7 +82,7 @@ These contrasts keep compound analysis grounded in meaning. They also prevent a 
 
 **Assuming every compound has a literal meaning.** Begin with transparent examples. If a familiar compound is less transparent, treat its structure as established vocabulary rather than forcing a false explanation.
 
-## A short teaching routine
+### A short teaching routine
 
 1. Say and write two familiar words on separate cards.
 2. Discuss what each word means.
@@ -92,6 +92,6 @@ These contrasts keep compound analysis grounded in meaning. They also prevent a 
 
 If the learner struggles, separate meaning from spelling. First confirm that each smaller word is known and can be spelled. Then ask the learner to rebuild the compound in order and read back exactly what was written. This identifies whether the difficulty is recognizing the structure, spelling one component, or joining the components.
 
-## Signs the skill is becoming secure
+### Signs the skill is becoming secure
 
 Signs of security include finding both words in a new transparent compound, explaining their connection to the whole meaning, preserving both spellings at the boundary, and distinguishing a genuine compound from an ordinary multisyllabic word. A learner should also understand that the no-space format belongs to the closed compounds taught here, not to every compound in English.

@@ -50,7 +50,7 @@ These ten words contain five recurring Latin-root spellings that can serve as an
 
 A root is a meaningful word part, and it does not have to stand alone as a modern English word. A familiar-looking string of letters is not automatically the same root wherever it appears, either. Here, the limited meanings—carry, say, look, break, and build—are useful mainly because they confirm why the paired words share a root spelling. The goal is spelling these families, not memorizing Latin history or a larger vocabulary system.
 
-## How to practice this list
+### How to practice this list
 
 Work with one pair at a time. Locate and box the shared root, read both words, and then cover one word. Write its root letters first, keeping their order, and add the surrounding prefix or suffix material separately. Compare the root before checking the letters around it. Reverse the direction on the next turn so either family member can support the other.
 

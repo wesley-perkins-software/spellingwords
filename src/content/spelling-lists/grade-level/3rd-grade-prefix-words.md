@@ -51,7 +51,7 @@ The list begins with five *un-* words and four *re-* words built on familiar bas
 
 This lesson follows Grade 2 work with contractions, where learners accounted for meaningful word parts and apostrophes. Here they preserve a base or root while adding something at the beginning; the next lesson applies the same word-part thinking to suffixes at the end.
 
-## How to practice this list
+### How to practice this list
 
 Say a word, ask your child to identify its prefix, and write the remaining base when it is a familiar word: *un + safe, re + play,* or *mis + read*. Add the prefix without changing that base, then read the finished word and explain its meaning. Sort the list by prefix before mixing the groups for dictation. For *dis-* and *mis-*, give a brief sentence so meaning helps them choose the intended beginning.
 

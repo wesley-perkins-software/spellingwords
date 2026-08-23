@@ -43,7 +43,7 @@ The vowel sound in *her, bird,* and *turn* can be spelled three ways. This list 
 
 The balanced groups show **er** in *her, fern,* and *term*; **ir** in *bird, first,* and *girl*; and **ur** in *turn, hurt,* and *burn*. Since the three patterns sound alike in these words, visual comparison and memory matter. The linked Skill page remains the canonical deep reference.
 
-## How to practice this list
+### How to practice this list
 
 Read each group, cover it, and dictate a mixed selection. When your child hesitates, ask for a known word from the same spelling group rather than asking them to sound it out again.
 

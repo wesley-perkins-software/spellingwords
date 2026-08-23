@@ -36,7 +36,7 @@ words:
 
 A contraction joins two words into a shorter written and spoken form. The apostrophe marks the position where one or more letters have been omitted. This page teaches common contraction patterns only; it uses just enough sentence meaning to help a learner expand and spell the correct form.
 
-## Match the apostrophe to the missing letters
+### Match the apostrophe to the missing letters
 
 | Two words | What is omitted | Contraction |
 |---|---|---|
@@ -48,20 +48,20 @@ A contraction joins two words into a shorter written and spoken form. The apostr
 
 The apostrophe does not simply go between the original words. It stands where the omitted material belongs in the shortened form. Expanding the contraction and crossing out the omitted letters makes that position visible.
 
-## Organize common patterns
+### Organize common patterns
 
-### Contractions with *not*
+#### Contractions with *not*
 
 In *can't, don't, didn't, isn't,* and *wasn't*, the contraction includes *not* and the apostrophe marks omitted letters. Most keep a recognizable first word. *Can't* expands to *cannot*, while *won't* is an irregular form of *will not* and must be remembered separately.
 
-### Short forms of *am, is,* and *are*
+#### Short forms of *am, is,* and *are*
 
 - *I am → I'm*
 - *she is → she's*
 - *we are → we're*
 - *they are → they're*
 
-### Short forms with *will*
+#### Short forms with *will*
 
 - *I will → I'll*
 - *she will → she'll*
@@ -69,7 +69,7 @@ In *can't, don't, didn't, isn't,* and *wasn't*, the contraction includes *not* a
 
 These groupings help a learner transfer a known apostrophe pattern to another pronoun without suggesting that every possible contraction behaves identically.
 
-## What to notice
+### What to notice
 
 - Begin with the two full words and say the intended sentence.
 - Identify the letters that disappear.
@@ -77,13 +77,13 @@ These groupings help a learner transfer a known apostrophe pattern to another pr
 - Treat capitalization as part of the spelling: *I'm* and *I'll* retain capital *I*.
 - Expand the finished contraction to check it.
 
-## Meaning can settle a spelling choice
+### Meaning can settle a spelling choice
 
 The contraction *it's* expands to *it is* or *it has*: “It's raining” means “It is raining.” The possessive word *its* has no apostrophe: “The dog wagged its tail.” This page does not become a general possessives lesson, but expansion is an essential spelling check when those two forms compete.
 
 Similarly, *she's* can represent *she is* or *she has*. The sentence supplies the expansion; the apostrophe spelling remains *she's*.
 
-## Common mistakes and exceptions
+### Common mistakes and exceptions
 
 **Leaving out the apostrophe.** Expand the contraction, mark the omitted letters, then place the apostrophe before copying the shortened form.
 
@@ -93,7 +93,7 @@ Similarly, *she's* can represent *she is* or *she has*. The sentence supplies th
 
 **Trying to build *won't* as *willn't*.** Teach *won't* as the familiar irregular contraction of *will not*, while still using expansion to confirm its meaning.
 
-## A short teaching routine
+### A short teaching routine
 
 1. Write the two full words in a short sentence.
 2. Read them aloud and identify which letters are omitted in the contraction.
@@ -103,6 +103,6 @@ Similarly, *she's* can represent *she is* or *she has*. The sentence supplies th
 
 If the learner struggles, return to the complete two-word form rather than correcting the apostrophe directly. Use letter tiles or crossed-out letters to make the omission visible. Then read back the learner's form and ask which full letters the apostrophe is meant to replace.
 
-## Signs the skill is becoming secure
+### Signs the skill is becoming secure
 
 Signs of security include expanding a familiar contraction, identifying omitted letters, placing the apostrophe from that evidence, preserving capitalization, and using sentence meaning to distinguish *it's* from *its*. A learner should also recognize *won't* as a bounded irregular form instead of extending it as a general pattern.

@@ -50,7 +50,7 @@ Six matched pairs make the ownership decision visible: *dog's/dogs', teacher's/t
 
 This lesson follows suffix spelling changes because a learner must first spell the noun correctly—especially *family/families*—and then mark possession. It also builds on Grade 2 contractions, but the apostrophe has a different job here: no letters are being omitted.
 
-## How to practice this list
+### How to practice this list
 
 Use short phrases such as “one dog's leash” and “several dogs' leashes.” Before writing, ask: **Who owns it? Is that noun singular or plural?** Have your child write the owner word first, check its plural form if needed, and only then add *'s* or a final apostrophe. Mix the possessives with plain plurals and familiar contractions so they must decide whether an apostrophe belongs at all.
 

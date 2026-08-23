@@ -51,7 +51,7 @@ The paired forms *bigger/biggest, faster/fastest,* and *easier/easiest* show how
 
 Unlike the Prefix Words lesson, these meaningful parts come after the base. Some examples attach directly, while others preserve a spelling change already made at the join: *big* becomes *bigger*, and *easy* becomes *easier*. The purpose here is to recognize and spell the suffixes and understand their jobs. The following Suffix Spelling Changes unit teaches how to decide among the changes themselves.
 
-## How to practice this list
+### How to practice this list
 
 First sort the words by suffix. For a comparison word, say the base and compare the two forms aloud and in writing: *fast, faster, fastest*. For the other groups, cover the suffix, identify the remaining base or useful word part, then restore the ending and explain what the finished word means. Mix the groups in short dictated sentences so meaning—not the order of the list—signals the needed suffix.
 

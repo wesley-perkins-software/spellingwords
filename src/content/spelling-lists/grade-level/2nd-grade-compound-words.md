@@ -50,7 +50,7 @@ Compound words let children spell a longer word by finding two smaller words the
 
 Each word joins two clear parts: *sun + shine, back + pack,* and *foot + ball*, for example. Children learn to hold both words in order and combine their meanings and spellings. The linked Skill page is the canonical deeper reference.
 
-## How to practice this list
+### How to practice this list
 
 Say a compound, ask your child to name its two smaller words, and spell each part separately. Then join the parts, reread the whole word, and check the meeting point.
 

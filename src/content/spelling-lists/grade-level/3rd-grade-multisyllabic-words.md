@@ -51,7 +51,7 @@ The list offers several ways into a long word. Compounds such as *afternoon, air
 
 This unit follows possessives, where learners managed a base or noun plus an ending. It now asks them to coordinate several spoken and meaningful parts in one word, preparing for the context-based choices in the next homophone lesson and for longer academic vocabulary in Grade 4.
 
-## How to practice this list
+### How to practice this list
 
 Say the whole word naturally and use the division that is useful for that learner: spoken syllables, a compound boundary, or a familiar base and ending. Have your child repeat the parts in order, write one part at a time, and reread the completed word. For a recurring ending, compare words side by side—*attention, connection,* and *information*—and cover everything except the uncertain part during correction.
 

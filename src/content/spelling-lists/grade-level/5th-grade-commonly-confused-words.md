@@ -52,7 +52,7 @@ These twelve words form six useful contrasts: *desert/dessert*, *affect/effect*,
 
 This unit extends earlier commonly confused word practice by combining meaning-based choices with close spelling contrasts. Meaning, and occasionally a word's job in a sentence, identifies which word is intended; accurate encoding must follow that decision. The instructional goal remains spelling, not a separate vocabulary or grammar lesson.
 
-## How to practice this list
+### How to practice this list
 
 Read a short sentence that makes one member of a pair clear, but do not show the target word. Ask your child to name the intended word and then spell it. Practice both members before mixing all six pairs in new sentences. A learner might spell the wrong real word correctly, choose the intended word but misspell it, or be uncertain about both the choice and its letter sequence; those attempts require different responses.
 

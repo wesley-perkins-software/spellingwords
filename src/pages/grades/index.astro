@@ -4,39 +4,44 @@ import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import { gradeConfig } from '@/lib/content/gradeConfig';
+import { gradeProgressionExamples } from '@/lib/content/gradeProgressionExamples';
 
 const chapters = [
   {
     marker: 'K', title: 'Kindergarten', kicker: 'Build the alphabetic foundation',
-    copy: 'Kindergarten begins with first words and short-vowel spelling, then brings the five short vowels together and introduces consonant digraphs. High-frequency sets and familiar themes give children additional places to notice letters, sounds, and complete written words.',
-    transition: 'The starting point: connect spoken sounds with letters and hold a whole word in mind.'
+    copy: 'Kindergarten begins with first words and short-vowel spelling, then brings the five short vowels together and introduces consonant digraphs. High-frequency word sets and familiar themes give children more places to notice letters, sounds, and complete written words.',
+    transition: 'The starting point: connect spoken sounds to letters and hold a whole word in mind.'
   },
   {
     marker: '1', title: '1st Grade', kicker: 'Consolidate patterns and extend the code',
-    copy: 'First grade strengthens short-vowel knowledge through the C/K and FLOSS rules, then expands into digraphs, blends, silent-e words, vowel teams, inflectional endings, r-controlled vowels, and dependable word endings such as tch and dge.',
-    transition: 'Compared with Kindergarten, students work across a wider range of patterns and begin choosing among spellings for the same sound.'
+    copy: 'First grade strengthens short-vowel spelling through the C/K and FLOSS rules, then extends into digraphs, blends, silent-e words, vowel teams, inflectional endings, r-controlled vowels, and reliable endings like tch and dge.',
+    transition: 'What changes: students now work across a wider range of patterns and start choosing among several spellings for the same sound.'
   },
   {
     marker: '2', title: '2nd Grade', kicker: 'Broaden patterns and word complexity',
-    copy: 'Second grade widens the vowel system with long-e, long-i, oi/oy, ou/ow, oo, and au/aw patterns. It also brings in soft C and G, two-syllable words, final stable le, silent letters, compound words, and contractions.',
-    transition: 'The shift is from mainly one-syllable pattern work toward longer words and more varied orthographic choices.'
+    copy: 'Second grade widens the vowel system with long e, long i, oi/oy, ou/ow, oo, and au/aw, and adds soft c and g, two-syllable words, final stable le, silent letters, compound words, and contractions.',
+    transition: 'What changes: mostly one-syllable pattern work gives way to longer words and a wider range of spelling choices.'
   },
   {
     marker: '3', title: '3rd Grade', kicker: 'Move from patterns into word structure',
-    copy: 'Third grade makes word parts more explicit. Prefixes, suffixes, suffix spelling changes, possessives, multisyllabic words, homophones, and root-word families show how spelling carries both sound and meaning.',
-    transition: 'Building on Grade 2’s broader code, students increasingly analyze how a word is constructed.'
+    copy: 'Third grade makes word parts explicit: prefixes, suffixes, suffix spelling changes, possessives, multisyllabic words, homophones, and root-word families like act, form, port, and sign.',
+    transition: 'What changes: students now analyze how a word is put together, not just how it sounds.'
   },
   {
     marker: '4', title: '4th Grade', kicker: 'Deepen morphology and academic spelling',
-    copy: 'Fourth grade develops multisyllabic academic spelling alongside advanced prefixes and suffixes, roots and patterns, commonly confused words, and derived words. Practice asks students to connect stable word parts with changes in form and meaning.',
-    transition: 'Compared with Grade 3, morphology becomes deeper and more integrated with longer, more academic words.'
+    copy: 'Fourth grade develops multisyllabic academic spelling alongside advanced prefixes and suffixes, Latin roots such as port, dict, spect, rupt, and struct, commonly confused words, and derived words.',
+    transition: 'What changes: morphology goes deeper — students connect stable Latin word parts to longer, more academic words.'
   },
   {
     marker: '5', title: '5th Grade', kicker: 'Integrate knowledge across complex words',
-    copy: 'Fifth grade brings earlier knowledge together through multisyllabic academic words, combined prefix-and-suffix work, Greek and Latin word parts, commonly confused words, and spelling changes across related words.',
-    transition: 'The capstone is flexible application: use sound, pattern, syllable, and meaning together when spelling increasingly sophisticated words.'
+    copy: 'Fifth grade brings everything together through multisyllabic academic words, combined prefix-and-suffix work, Greek and Latin word parts such as photo, graph, tele, and scope, commonly confused words, and spelling changes across related word families.',
+    transition: 'What changes: it becomes the capstone — sound, pattern, syllable, and meaning combine to spell increasingly sophisticated words.'
   },
-].map((chapter, index) => ({ ...chapter, href: gradeConfig[index].hubHref }));
+].map((chapter, index) => ({
+  ...chapter,
+  href: gradeConfig[index].hubHref,
+  example: gradeProgressionExamples[gradeConfig[index].grade].words,
+}));
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Grades' }];
 const breadcrumbJsonLd = {
@@ -56,35 +61,47 @@ const breadcrumbJsonLd = {
       <div class="mx-auto max-w-content-xl">
         <p class="font-quicksand text-sm font-bold uppercase tracking-[.12em] text-da-brand-strong">K–5 spelling</p>
         <h1 class="mt-3 max-w-4xl font-quicksand text-[clamp(2.35rem,6vw,4.5rem)] font-bold leading-[1.04] tracking-tight text-da-ink">Spelling Words by Grade</h1>
-        <p class="mt-6 max-w-3xl text-[1.15rem] leading-relaxed text-da-ink">Across elementary school, spelling develops from foundational sound–letter knowledge into a coordinated understanding of patterns, syllables, word parts, roots, derived words, and meaning. This guide shows what changes from one grade to the next in the SpellingWords curriculum.</p>
+        <p class="mt-6 max-w-3xl text-[1.15rem] leading-relaxed text-da-ink">Kindergarten starts by matching sounds to letters. By 5th grade, students are spelling multisyllabic academic words built from Greek and Latin word parts. This page walks through what changes at each grade in between — and links you to the grade you need.</p>
       </div>
     </section>
 
-    <section class="px-5 py-12 sm:px-6 md:py-16" aria-labelledby="arc-heading">
+    <section class="bg-da-canvas px-5 py-12 sm:px-6 md:py-16" aria-labelledby="arc-heading">
       <div class="mx-auto grid max-w-content-xl gap-7 md:grid-cols-[.7fr_1.3fr] md:gap-16">
         <h2 id="arc-heading" class="font-quicksand text-3xl font-bold text-da-ink">One connected progression</h2>
         <div class="space-y-4 text-[1.05rem] leading-relaxed text-da-ink">
-          <p>Early grades establish and expand the alphabetic code. The middle of the sequence adds longer words and makes prefixes, suffixes, and roots increasingly visible. Later grades integrate those tools in multisyllabic, derived, and academic words.</p>
-          <p>Each grade brings together Core Spelling, High-Frequency Words, and Themed Spelling Practice. Grade labels organize the curriculum; learners can revisit or move ahead to practice what fits their needs.</p>
+          <p>The early grades build and expand the alphabetic code: matching sounds to letters, then layering in digraphs, blends, and vowel patterns. The middle grades add word structure — prefixes, suffixes, syllables, and word parts that carry meaning as well as sound. The later grades bring all of it together in longer, more academic words, including word parts drawn from Greek and Latin.</p>
+          <p>At every grade, this comes together through Core Spelling, High-Frequency Words, and Themed Spelling Practice — grade labels organize the curriculum, but learners can move to whatever grade fits.</p>
         </div>
       </div>
     </section>
 
-    <section class="border-y border-da-border bg-da-surface-home px-5 py-14 sm:px-6 md:py-20" aria-label="Kindergarten through 5th Grade progression">
+    <section class="border-y border-da-border bg-da-surface-home px-5 py-14 sm:px-6 md:py-20">
+      <h2 class="sr-only">Grade-by-grade progression, Kindergarten through 5th Grade</h2>
       <ol class="mx-auto max-w-5xl list-none p-0">
-        {chapters.map((chapter, index) => (
-          <li class="relative grid gap-5 border-l-2 border-da-brand-tint pb-14 pl-8 last:pb-0 md:grid-cols-[10rem_1fr] md:gap-12 md:pl-12">
-            <div class="absolute -left-[1.35rem] top-0 flex h-10 w-10 items-center justify-center rounded-full border-2 border-da-brand bg-da-canvas font-quicksand text-lg font-bold text-da-brand-strong">{chapter.marker}</div>
-            <div><p class="text-sm font-bold uppercase tracking-[.08em] text-da-brand-strong">Stage {index + 1} of 6</p><h2 class="mt-1 font-quicksand text-2xl font-bold text-da-ink">{chapter.title}</h2></div>
+        {chapters.map((chapter) => (
+          <li class="relative grid grid-cols-1 gap-5 border-l-2 border-da-brand/30 pb-14 pl-7 last:pb-0 sm:pl-8 md:grid-cols-[10rem_1fr] md:gap-12 md:pl-12">
+            <div aria-hidden="true" class="absolute -left-[1.2rem] top-0 flex h-9 w-9 items-center justify-center rounded-full bg-da-brand-strong font-quicksand text-base font-bold text-da-canvas ring-4 ring-da-canvas sm:-left-[1.35rem] sm:h-11 sm:w-11 sm:text-lg">{chapter.marker}</div>
+            <div><h3 class="font-quicksand text-[1.7rem] font-bold text-da-ink">{chapter.title}</h3></div>
             <article>
-              <h3 class="font-quicksand text-xl font-bold text-da-ink">{chapter.kicker}</h3>
-              <p class="mt-3 text-base leading-relaxed text-da-ink">{chapter.copy}</p>
-              <p class="mt-3 border-l-4 border-da-coral pl-4 font-semibold leading-relaxed text-da-ink">{chapter.transition}</p>
+              <h4 class="font-quicksand text-xl font-bold text-da-ink">{chapter.kicker}</h4>
+              <p class="mt-3 text-[1.05rem] leading-relaxed text-da-ink">{chapter.copy}</p>
+              <p class="mt-3 text-[1.02rem] text-da-ink"><span class="font-bold">Example spellings:</span> {chapter.example.join(' · ')}</p>
+              <p class="mt-3 border-l-4 border-da-coral pl-4 text-[1.02rem] font-semibold leading-relaxed text-da-ink">{chapter.transition}</p>
               <a href={chapter.href} class="mt-5 inline-flex min-h-[44px] items-center font-bold text-da-brand-strong no-underline hover:underline">Explore {chapter.title} spelling <span aria-hidden="true">→</span></a>
             </article>
           </li>
         ))}
       </ol>
+    </section>
+
+    <section class="border-t border-da-border bg-da-canvas-sunken px-5 py-14 sm:px-6 md:py-20" aria-labelledby="synthesis-heading">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 id="synthesis-heading" class="font-quicksand text-3xl font-bold text-da-ink">Six grades, one system</h2>
+        <p class="mt-4 text-[1.05rem] leading-relaxed text-da-ink">No grade stands alone. The sound-and-letter work from Kindergarten still underlies the Greek and Latin word parts students spell in 5th grade — each grade adds a layer without replacing the one before it. Grade levels show where spelling patterns and concepts appear in the SpellingWords curriculum, and students can review earlier material or explore other grades when that practice is useful.</p>
+        <div class="mt-8">
+          <a href="/curriculum" class="font-bold text-da-brand-strong no-underline hover:underline">See how the full curriculum is organized <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
     </section>
   </main>
   <SiteFooter />

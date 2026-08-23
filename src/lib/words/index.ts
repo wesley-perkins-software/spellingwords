@@ -24,6 +24,8 @@ export { parseWordInput, splitWordInputTokens } from './parseWordInput';
 export { validateWordInput, filterValidSpellingWords } from './validateWordInput';
 export { validateWordListInput } from './validateWordList';
 export type { InvalidWordEntry, WordListValidationResult } from './validateWordList';
+export { classifySpellingIssue, suggestSpellingFix } from './describeSpellingIssue';
+export type { SpellingIssueReason } from './describeSpellingIssue';
 export {
   MAX_PAYLOAD_LENGTH,
   MAX_WORD_COUNT,

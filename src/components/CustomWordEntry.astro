@@ -90,6 +90,17 @@ const placeholderText = 'Type or paste your words here, one per line';
         Add at least 1 word to start practicing.
       </p>
 
+      <!-- Itemized invalid-entry feedback — one line per entry (not hidden
+           behind a "and N more" count) so a creator can see exactly what to
+           fix without guessing. Hidden and empty whenever the list has no
+           invalid entries. -->
+      <ul
+        id="input-issues"
+        class="mt-2 hidden flex-col gap-1 border-l-2 border-da-incorrect-border pl-3"
+        aria-live="polite"
+        aria-atomic="false"
+      ></ul>
+
       <Button id="btn-start" type="button" size="lg" class="mt-3.5" aria-label="Start a spelling practice session">
         Start Practicing <span aria-hidden="true">→</span>
       </Button>
@@ -185,13 +196,15 @@ const placeholderText = 'Type or paste your words here, one per line';
 <script>
   import {
     validateWordListInput,
+    classifySpellingIssue,
+    suggestSpellingFix,
     encodeWordList,
     decodeSharedList,
     encodeSharedList,
     MAX_WORD_COUNT,
     MAX_SHARED_WORD_COUNT,
   } from '@/lib/words';
-  import type { InvalidWordEntry } from '@/lib/words';
+  import type { InvalidWordEntry, SpellingIssueReason } from '@/lib/words';
   import { resolveCustomPracticeSource, resolveSharedPracticeSource } from '@/lib/content/practiceSource';
   import type { PracticeSource } from '@/types/spelling';
 
@@ -203,64 +216,128 @@ const placeholderText = 'Type or paste your words here, one per line';
     const textarea = document.getElementById('word-input') as HTMLTextAreaElement;
     const pill = document.getElementById('word-count-pill')!;
     const status = document.getElementById('input-status')!;
+    const issuesList = document.getElementById('input-issues') as HTMLUListElement;
     const btn = document.getElementById('btn-start') as HTMLButtonElement;
     const entryState = document.getElementById('entry-state')!;
 
-    function getWords(): string[] {
-      return validateWordListInput(textarea.value).words;
-    }
+    // Above this many invalid entries, itemize only the first few and
+    // summarize the rest — a small number of mistakes each get their own
+    // line (never hidden behind "and N more"), but a pasted wall of garbage
+    // still reads as one calm sentence, not a wall of bullets.
+    const MAX_ITEMIZED_ISSUES = 5;
+
+    // Copy for the structural reasons classifySpellingIssue can identify —
+    // "why" a line is invalid, not just "it's invalid" (the old generic
+    // "can use letters, apostrophes, and hyphens" line for every mistake).
+    const JOINER_ISSUE_COPY: Partial<Record<SpellingIssueReason, string>> = {
+      adjacent_apostrophes: 'has two apostrophes together',
+      adjacent_hyphens: 'has two hyphens together',
+      mixed_adjacent_joiners: 'has an apostrophe and a hyphen together',
+      leading_joiner: 'starts with a hyphen or apostrophe',
+      trailing_hyphen: 'ends with a hyphen with nothing after it',
+    };
+    const ALLOWED_CHARACTERS_NOTE = ' Spelling words can use letters, apostrophes, and hyphens.';
 
     // Contextual, per-entry feedback for a custom-list line that fails the
-    // spelling character policy — never a raw technical error code, and
-    // never a silent drop (unlike `/play`'s answer field, which sanitizes
-    // as the student types with no message at all).
+    // spelling character policy — names the specific structural problem
+    // where one is known, never a raw technical error code, and never a
+    // silent drop (unlike `/play`'s answer field, which sanitizes as the
+    // student types with no message at all).
     function describeInvalidEntry(entry: InvalidWordEntry): string {
-      const codes = entry.errors.map((e) => e.code);
-      if (codes.includes('contains_digits')) {
-        return `“${entry.raw}” contains a number. Spelling words can use letters, apostrophes, and hyphens.`;
+      const reason = classifySpellingIssue(entry);
+      const suggestion = suggestSpellingFix(entry, reason);
+      const trySuffix = suggestion ? ` Try “${suggestion}”.` : '';
+      const joinerNote = JOINER_ISSUE_COPY[reason];
+
+      switch (reason) {
+        case 'too_long':
+          return `“${entry.raw}” is too long to use as a spelling word.`;
+        case 'too_short':
+          return `“${entry.raw}” is too short to use as a spelling word.`;
+        case 'contains_digits':
+          return `“${entry.raw}” contains a number.${trySuffix || ALLOWED_CHARACTERS_NOTE}`;
+        case 'internal_space':
+          return `“${entry.raw}” has a space in it. Enter one word per line.`;
+        case 'unsupported_symbol':
+          return `“${entry.raw}” contains a symbol that isn’t part of a word.${trySuffix || ALLOWED_CHARACTERS_NOTE}`;
+        case 'unrecognized':
+          return `“${entry.raw}” isn’t a word Spelling Words can practice.${ALLOWED_CHARACTERS_NOTE}`;
+        default:
+          // adjacent_apostrophes / adjacent_hyphens / mixed_adjacent_joiners / leading_joiner / trailing_hyphen
+          return `“${entry.raw}” ${joinerNote}.${trySuffix}`;
       }
-      if (codes.includes('too_long')) {
-        return `“${entry.raw}” is too long to use as a spelling word.`;
+    }
+
+    function renderInvalidEntries(invalidEntries: InvalidWordEntry[]): void {
+      issuesList.textContent = '';
+      if (invalidEntries.length === 0) {
+        issuesList.classList.add('hidden');
+        issuesList.classList.remove('flex');
+        return;
       }
-      if (codes.includes('too_short')) {
-        return `“${entry.raw}” is too short to use as a spelling word.`;
+
+      const shown = invalidEntries.slice(0, MAX_ITEMIZED_ISSUES);
+      for (const entry of shown) {
+        const li = document.createElement('li');
+        li.className = 'font-mulish text-sm text-da-incorrect';
+        li.textContent = describeInvalidEntry(entry);
+        issuesList.appendChild(li);
       }
-      return `“${entry.raw}” isn’t a word Spelling Words can practice. Spelling words can use letters, apostrophes, and hyphens.`;
+      const remaining = invalidEntries.length - shown.length;
+      if (remaining > 0) {
+        const li = document.createElement('li');
+        li.className = 'font-mulish text-sm font-semibold text-da-incorrect';
+        li.textContent = `+${remaining} more ${remaining === 1 ? 'entry needs' : 'entries need'} fixing.`;
+        issuesList.appendChild(li);
+      }
+      issuesList.classList.remove('hidden');
+      issuesList.classList.add('flex');
     }
 
     function updateStatus(): void {
       const { words, invalidEntries } = validateWordListInput(textarea.value);
-      const count = words.length;
+      const validCount = words.length;
+      const invalidCount = invalidEntries.length;
 
-      pill.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
+      // The pill always distinguishes "ready to practice" from "needs
+      // fixing" rather than folding invalid lines into (or silently out
+      // of) a single word count — e.g. "1 word ready · 1 needs fixing".
+      pill.textContent =
+        invalidCount > 0
+          ? `${validCount} ${validCount === 1 ? 'word' : 'words'} ready · ${invalidCount} ${
+              invalidCount === 1 ? 'needs' : 'need'
+            } fixing`
+          : `${validCount} ${validCount === 1 ? 'word' : 'words'}`;
 
       // The word-count ceiling only ever appears here, at the moment it
       // actually matters — never as a number quoted in general page copy.
-      if (invalidEntries.length > 0) {
-        const extra =
-          invalidEntries.length > 1 ? ` (and ${invalidEntries.length - 1} more to fix)` : '';
-        status.textContent = `${describeInvalidEntry(invalidEntries[0])}${extra}`;
+      if (invalidCount > 0) {
+        status.textContent = '';
+        renderInvalidEntries(invalidEntries);
         status.classList.remove('text-da-ink-soft');
         status.classList.add('text-da-incorrect');
         btn.disabled = true;
-      } else if (count === 0) {
+      } else if (validCount === 0) {
+        renderInvalidEntries([]);
         status.textContent = 'Add at least 1 word to start practicing.';
         status.classList.remove('text-da-incorrect');
         status.classList.add('text-da-ink-soft');
         btn.disabled = true;
-      } else if (count > MAX_WORD_COUNT) {
+      } else if (validCount > MAX_WORD_COUNT) {
+        renderInvalidEntries([]);
         status.textContent = `This list is too long to practice at once. Shorten it to ${MAX_WORD_COUNT} words or fewer.`;
         status.classList.remove('text-da-ink-soft');
         status.classList.add('text-da-incorrect');
         btn.disabled = true;
       } else {
-        status.textContent = `${count} ${count === 1 ? 'word' : 'words'} ready to practice.`;
+        renderInvalidEntries([]);
+        status.textContent = `${validCount} ${validCount === 1 ? 'word' : 'words'} ready to practice.`;
         status.classList.remove('text-da-incorrect');
         status.classList.add('text-da-ink-soft');
         btn.disabled = false;
       }
 
-      if (isFull) updateShareAvailability(words, invalidEntries.length > 0);
+      if (isFull) updateShareAvailability(words, invalidCount > 0);
     }
 
     // A short, random, unguessable id — never contains the words themselves.
@@ -288,8 +365,10 @@ const placeholderText = 'Type or paste your words here, one per line';
     }
 
     function handleStart(): void {
-      const words = getWords();
-      if (words.length === 0 || words.length > MAX_WORD_COUNT) return;
+      const { words, invalidEntries } = validateWordListInput(textarea.value);
+      // Defense in depth to match the disabled button: never start a
+      // session on the valid subset while some lines still need fixing.
+      if (invalidEntries.length > 0 || words.length === 0 || words.length > MAX_WORD_COUNT) return;
 
       if (isFull) {
         startSessionHandoff(words, resolveCustomPracticeSource());
@@ -419,7 +498,10 @@ const placeholderText = 'Type or paste your words here, one per line';
       let lastSharePayload: string | null = null;
 
       function handleCreateLink(): void {
-        const words = getWords();
+        const { words, invalidEntries } = validateWordListInput(textarea.value);
+        // Defense in depth to match the disabled button: never share only
+        // the valid subset while some lines still need fixing.
+        if (invalidEntries.length > 0) return;
         const title = shareTitleInput.value.trim() || undefined;
         const result = encodeSharedList(words, title);
         if (!result.ok) {

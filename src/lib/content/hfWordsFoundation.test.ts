@@ -25,7 +25,7 @@ describe('High-Frequency Words editorial foundation', () => {
     );
     for (const route of routes) {
       expect(route.canonicalPath).toBe(
-        `/${route.gradeSlug}/high-frequency-words/set-${
+        `/grades/${route.gradeSlug}/high-frequency-words/set-${
           curriculumSets.find((set) => set.id === route.id)?.setNumber
         }`,
       );

@@ -89,7 +89,7 @@ describe('Themed Spelling Practice shared foundation', () => {
     // pattern is HFW-only, gated on isHighFrequencyWords); its gateway is
     // reached through the shared breadcrumb section link instead.
     expect(renderer).toContain(
-      '{ label: route.section, href: `/${route.gradeSlug}/${route.classification}` }',
+      '{ label: route.section, href: getGradeStrandPath(route.grade, route.classification) }',
     );
     expect(getThemedSpellingPracticeExploreMore(weatherId)).toHaveLength(3);
   });

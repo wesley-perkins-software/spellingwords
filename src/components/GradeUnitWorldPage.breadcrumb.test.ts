@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { getGradeHubPath, getGradeStrandPath } from '@/lib/content/canonicalGradeRoutes';
 
 const gradeUnitWorldPage = readFileSync(
   join(process.cwd(), 'src/components/GradeUnitWorldPage.astro'),
@@ -45,5 +46,32 @@ describe('Core Spelling member breadcrumb includes the Strand Gateway level', ()
     expect(nonCoreMemberRenderer).toContain("{ label: 'Home', href: '/' }");
     expect(nonCoreMemberRenderer).toMatch(/label: gradeHubForBreadcrumb\.label/);
     expect(nonCoreMemberRenderer).toMatch(/label: route\.section/);
+    expect(nonCoreMemberRenderer).toContain(
+      'href: getGradeStrandPath(route.grade, route.classification)',
+    );
+  });
+
+  it('resolves every grade and strand ancestor through the canonical /grades hierarchy', () => {
+    expect(getGradeHubPath('4')).toBe('/grades/4th-grade');
+    expect(getGradeStrandPath('4', 'themed-spelling-practice')).toBe(
+      '/grades/4th-grade/themed-spelling-practice',
+    );
+    expect(getGradeStrandPath('3', 'core-spelling')).toBe(
+      '/grades/3rd-grade/core-spelling',
+    );
+    expect(getGradeStrandPath('2', 'high-frequency-words')).toBe(
+      '/grades/2nd-grade/high-frequency-words',
+    );
+  });
+
+  it('uses the same canonical ancestor array for visible and JSON-LD breadcrumbs', () => {
+    expect(nonCoreMemberRenderer).toContain('<Breadcrumbs items={breadcrumbItems} />');
+    expect(nonCoreMemberRenderer).toContain('itemListElement: breadcrumbItems.map(');
+    expect(nonCoreMemberRenderer).not.toMatch(
+      /href:\s*`\/(?:kindergarten|[1-5](?:st|nd|rd|th)-grade)\//,
+    );
+    expect(gradeUnitWorldPage).not.toMatch(
+      /href:\s*`\/(?:kindergarten|[1-5](?:st|nd|rd|th)-grade)\//,
+    );
   });
 });

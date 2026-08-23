@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { getCanonicalGradeRoutes, getCanonicalGradeRouteByPath, getCanonicalListPath, getGradeHubPath } from '@/lib/content/canonicalGradeRoutes';
+import { getCanonicalGradeRoutes, getCanonicalGradeRouteByPath, getCanonicalListPath, getGradeHubPath, getGradeStrandPath } from '@/lib/content/canonicalGradeRoutes';
 import Layout from '@/layouts/Layout.astro';
 import { getCanonicalUrl } from '@/lib/canonicalUrl';
 import SiteHeader from '@/components/SiteHeader.astro';
@@ -79,7 +79,7 @@ const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Grades', href: '/grades' },
   { label: gradeHubForBreadcrumb.label, href: getGradeHubPath(route.grade) },
-  { label: route.section, href: `/${route.gradeSlug}/${route.classification}` },
+  { label: route.section, href: getGradeStrandPath(route.grade, route.classification) },
   { label: data.contentRole === 'high-frequency-word-set' ? `Set ${route.finalSlug.replace('set-', '')}` : data.title },
 ];
 
@@ -147,7 +147,7 @@ const extraNav = isHighFrequencyWords && related.length > 0
           const direction = targetNumber < currentNumber ? 'Previous' : 'Next';
           return { label: `${direction}: Set ${targetNumber}`, href: listLink(item) };
         }),
-        { label: `All ${gradeHubForBreadcrumb.label} High-Frequency Words`, href: `/${route.gradeSlug}/high-frequency-words` },
+        { label: `All ${gradeHubForBreadcrumb.label} High-Frequency Words`, href: getGradeStrandPath(route.grade, 'high-frequency-words') },
       ],
     }
   : undefined;

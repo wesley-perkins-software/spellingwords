@@ -55,7 +55,7 @@ const description = copy?.orientation ?? fallbackDescription;
 const wayfindingStrands = (Object.keys(GRADE_STRANDS) as GradeRouteClassification[]).filter(
   (candidate) => candidate !== strand,
 );
-const gatewayPath = `${getGradeHubPath(gradeEntry.grade)}/${descriptor.routeSegment}`;
+const gatewayPath = getGradeStrandPath(gradeEntry.grade, strand);
 const canonicalURL = getCanonicalUrl(gatewayPath, Astro.site);
 const breadcrumbItems = [
   { label: 'Home', href: '/' },

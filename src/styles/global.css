@@ -219,6 +219,53 @@
   .instruction-prose blockquote p {
     @apply mt-0;
   }
+
+  /* ── Skill-page extension of .instruction-prose ────────────────
+     Applied alongside the base class (instruction-prose instruction-prose--skill)
+     on canonical Skill pages, whose bodies lean on markdown tables far more
+     centrally than Grade Unit bodies do (word-family/comparison/root-equation
+     tables in most of the 41 canonical Skill files) and — in one file
+     (contractions.md) — a genuinely nested h4. Inline emphasis (*word*) is
+     left as inherited default italic rather than re-styled bold/non-italic:
+     it's used heavily and repeatedly within ordinary sentences across the
+     corpus (several per sentence in places), so a bold treatment would read
+     as visual noise rather than restraint. */
+
+  .instruction-prose--skill table {
+    @apply w-full border-collapse text-[0.95rem];
+    /* A wide table (e.g. the 4-column root/word-equation table) can need more
+       width than a narrow phone screen offers even after cells wrap; the base
+       .instruction-prose rule already makes the table horizontally scrollable
+       in that case (block + overflow-x-auto), but a scrollbar that only
+       appears mid-touch gives no visual hint more columns exist. Keep a thin
+       scrollbar always visible as that hint — a no-op on tables that fit. */
+    scrollbar-width: thin;
+  }
+
+  .instruction-prose--skill table::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .instruction-prose--skill table::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-da-border-strong;
+  }
+
+  .instruction-prose--skill th,
+  .instruction-prose--skill td {
+    @apply border-b border-da-border px-3 py-2 text-left align-top;
+  }
+
+  .instruction-prose--skill th {
+    @apply bg-da-surface-neutral font-quicksand text-[0.8rem] font-bold uppercase tracking-[0.04em] text-da-ink;
+  }
+
+  .instruction-prose--skill tbody tr:nth-child(even) td {
+    @apply bg-da-surface-neutral/40;
+  }
+
+  .instruction-prose--skill h4 {
+    @apply mt-5 mb-2 text-[0.98rem] font-bold text-da-ink-soft;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────

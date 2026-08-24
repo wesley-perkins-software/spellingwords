@@ -103,7 +103,7 @@ Three first-class editorial variants. Each is defined by what it does with the �
 
 ### Curriculum on-ramp and review units
 (Kindergarten First Words, Mixed CVC Review, and similar units that establish or check a broad capability rather than one narrow pattern, and legitimately have no canonical Skill — `skillIds` empty by design.)
-- §3.1 at full depth, plus §3.2 in full, except: obligation 3 is framed around the broad capability rather than a named pattern, and "go deeper on the pattern" (§6) is correctly absent, not forced.
+- §3.1 at full depth, plus §3.2 in full, except: obligation 3 is framed around the broad capability rather than a named pattern, and the Spelling Skill reference (§6) is correctly absent, not forced.
 - Obligation 5 (sequence-position rationale) tends to carry more weight here, since the unit's reason for existing *is* its sequence position rather than a discrete new pattern.
 
 ### Additional Practice / vocabulary-theme pages
@@ -122,22 +122,22 @@ For a **Core Spelling Grade Unit or on-ramp/review unit**:
 1. Hero and practice action
 2. "These spelling words are a good fit for students who…" *(conditional)*
 3. Word list
-4. Why these words? *(rationale prose; covers §3.1.2–3 and §3.2.5)*
-5. How to practice this list *(covers §3.1.4; ends with concise, observable move-on guidance per §3.2.6 — see §8; no separate "ready to move on" section)*
-6. Go deeper on the pattern *(conditional)*
+4. Spelling Skill reference *(conditional — one line + link per linked Skill, immediately after the word list; see §8, §10)*
+5. Why these words? *(rationale prose; covers §3.1.2–3 and §3.2.5)*
+6. How to practice this list *(covers §3.1.4; ends with concise, observable move-on guidance per §3.2.6 — see §8; no separate "ready to move on" section)*
 7. FAQ *(conditional — zero is normal)*
 8. Where to go from here
    - Review first *(all except the first Core unit)*
    - Next step *(all except the final Core unit)*
 11. Source attribution *(conditional)*
 
-For an **Additional Practice / vocabulary-theme page** (§3.1 only): positions 1, 3, 4 (reduced), 5 (brief, no move-on guidance), plus conditionally 6 (narrow), 7, 10, 11. Positions 2, 8, 9 do not apply.
+For an **Additional Practice / vocabulary-theme page** (§3.1 only): positions 1, 3, 4 (narrow, conditional), 5 (reduced), 6 (brief, no move-on guidance), plus conditionally 7, 10, 11. Positions 2, 8, 9 do not apply.
 
 **Fixed rules, both variants:**
 
 - The heading in position 2, where present, is preserved verbatim: **"These spelling words are a good fit for students who…"** Never renamed.
 - Core navigation order is always Review first → Next step. Explore more is prohibited on Core pages even when `relatedLists` is populated.
-- “Go deeper on the pattern” remains a separate Skill-support feature and is unaffected by the bottom navigation rule.
+- The Spelling Skill reference (position 4) is a **conceptual/reference relationship**, not a curriculum-sequence relationship — it must never be grouped, styled, or ordered alongside Review first / Next step / Explore more, and must never be treated as a "what's next" destination. It is placed in the main content flow, immediately after the word list and before "Why these words?", precisely so a reader understands *what this list contains* before being pointed to the durable concept explanation.
 
 ---
 
@@ -148,11 +148,11 @@ For an **Additional Practice / vocabulary-theme page** (§3.1 only): positions 1
 | Hero + practice action | Required | Required | Required |
 | "Good fit for students who…" | Conditional (genuine signal) | Conditional | Not applicable |
 | Word list | Required | Required | Required |
+| Spelling Skill reference | Conditional (`skillIds` resolves) | Not applicable (no Skill) | Conditional, narrow (§4) |
 | Why these words? | Required | Required | Required, reduced — topical rationale only |
 | — sequence-position rationale within it | Required | Required (often primary reason) | Not applicable |
 | How to practice this list | Required | Required | Required, brief |
 | — move-on guidance at its end | Required | Required | Not applicable |
-| Go deeper on the pattern | Conditional (`skillIds` resolves) | Not applicable (no Skill) | Conditional, narrow (§4) |
 | FAQ | Conditional, no floor | Conditional, no floor | Conditional, no floor |
 | Review First | Conditional (`prerequisiteLists` populated) | Conditional | Not applicable by default |
 | Ready for Next | Conditional (genuine destination, §10) | Conditional | Not applicable |
@@ -195,9 +195,9 @@ Applies to Core Spelling / on-ramp-review units; Additional Practice pages use o
 | Hero + practice action | Universal | What is this, how do I start? | Minimal — no paragraph copy | Rationale reasoning | `title`, `description`, `grade`, `category` |
 | "Good fit for students who…" | Conditional | Is my child ready to *start* this list? | 2–4 observable bullets | The move-on guidance at the end of "How to practice" (entry vs. exit — never merge) | `readinessSignals` |
 | Word list | Universal | What exactly will my child practice? | Complete and crawlable; normally 8–16 words, except where the frozen curriculum defines a larger coherent inventory | Per-word practice instructions | `words` |
+| Spelling Skill reference | Conditional — a **conceptual/reference relationship**, never curriculum-sequence navigation | Where can I learn the general concept in depth? | One short explanatory sentence + an explicit link per linked Skill (zero, one, or several); Skill title shown verbatim | The Skill page's explanation itself; must never be merged, grouped, or styled with Review First / Next Step / Explore More | `skillIds` |
 | Why these words? | Universal + sequence-critical | Why these words, why this sequence point, what's being practiced? | Functional, not fixed-length: long enough to cover selection + sequence position + instructional purpose; short enough not to become a second Skill article. On-ramp/review units may need more; narrow, familiar-pattern units may need less. No padding for consistency. | The Skill page's full conceptual treatment (§9) | Markdown body |
 | How to practice this list (including move-on guidance at its end) | Universal (+ sequence-critical for the closing guidance) | What do we do in a session, and how do we know we're ready to continue? | Functional — as short as the guidance genuinely is. The section opens with session-level guidance (what the adult/child do) and closes with a few concise, qualitative sentences on observable readiness to move on. Both live under this one heading; do not split into two visible sections. | The rationale's "why"; the Skill page's general pedagogy; the entry-readiness bullets above | Markdown body |
-| Go deeper on the pattern | Conditional | Where can I learn the general concept? | One line + link | The Skill page's explanation itself | `skillIds` |
 | FAQ | Conditional | Whatever genuine question remains unanswered | Zero to a small number; no floor, no ceiling target | Any section already answering the same question in the same form | `faq` |
 | Review First / Ready for Next / Also Worth Practicing | Sequence-critical (Review/Ready) + conditional (Also) | What came before, what's next, what else helps? | One line of framing per bucket + link cards | The Grade Hub's full roadmap | `prerequisiteLists`, `nextLists`, `relatedLists` |
 | Source attribution | Conditional | Where does this come from? | One line | — | `canonicalSource.publicAttribution` |
@@ -229,7 +229,7 @@ The boundary is not "any grade-neutral sentence is disallowed." A Grade Unit mus
 - **Also Worth Practicing** draws only from a populated `relatedLists`.
 - **Review First** draws only from a populated `prerequisiteLists`.
 - **Ordering, when multiple buckets are present:** Review First → Ready for Next → Also Worth Practicing, always; Ready for Next never appears after Also Worth Practicing.
-- **Go deeper on the pattern** is the only up-link (to the Skill layer); it never doubles as a "what's next" destination.
+- **The Spelling Skill reference is the only up-link** (to the Skill layer) and is categorically different from Review First / Ready for Next / Also Worth Practicing: those three answer "where in the curriculum sequence do I go," while the Skill reference answers "where do I learn the underlying concept." It must never be presented as, grouped with, styled like, or treated as a "what's next" destination — not visually (no shared container with the sequence-navigation cards) and not editorially (no ordering rule from this list applies to it). It renders in the main content flow (§5 position 4), not the sequence-navigation block.
 - No fourth, generic linking block is permitted (§6).
 - The move-on guidance at the end of "How to practice this list" (§8) may name which upcoming unit the evidence prepares the learner for, bridging naturally into the Ready for Next card immediately below it — this is a content link, not a navigation section of its own.
 
@@ -275,7 +275,7 @@ Copyable into every future Grade Unit content task. **Start by identifying the p
 - [ ] "How to practice this list" contains only session-level guidance, at a depth matching the variant; every sentence passes the session-vs-reasoning test (§9.6).
 - [ ] **For Core Spelling and on-ramp/review units only:** "How to practice this list" ends with concise, qualitative move-on guidance (no separate heading) — no score, percentage, speed target, or `masteryThreshold` reference. Not applicable to Additional Practice pages.
 - [ ] **When readiness signals genuinely exist:** "Good fit for students who…" heading text is exact, and its bullets are entry-only (not duplicating the move-on guidance).
-- [ ] **When a genuine Skill relationship exists:** "Go deeper on the pattern" appears; absent otherwise, and never forced on an Additional Practice page by topical overlap alone.
+- [ ] **When a genuine Skill relationship exists:** the Spelling Skill reference appears, positioned right after the word list; absent otherwise, and never forced on an Additional Practice page by topical overlap alone.
 - [ ] Every FAQ answers something no other visible section already answers in the same form; zero FAQs is acceptable; none were added to hit a count.
 - [ ] FAQ structured data contains only questions also visible on the page.
 - [ ] **When a genuine forward curriculum step exists (Core Spelling / on-ramp-review units):** Ready for Next appears and is never invented. **When genuine prerequisite/related relationships exist:** Review First / Also Worth Practicing appear. When multiple are present, order is Review First → Ready for Next → Also Worth Practicing.

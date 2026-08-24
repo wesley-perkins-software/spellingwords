@@ -2,8 +2,8 @@
 id: grade-1-open-syllables-final-y
 urlSlug: 1st-grade-open-syllables-final-y
 title: "Short Words with Long Vowels: Open Syllables and Final Y"
-description: 'Twelve short Grade 1 words that practice long vowels in open syllables and final y as a spelling for long i.'
-shortAnswer: 'An open syllable ends with its vowel sound; this Grade 1 unit practices short open-syllable words such as me, go, and hi, plus final y spelling long i in words such as my and fly.'
+description: 'Twelve short 1st Grade words that practice long vowels in open syllables and final y as a spelling for long i.'
+shortAnswer: 'An open syllable ends with its vowel sound; this 1st Grade unit practices short open-syllable words such as me, go, and hi, plus final y spelling long i in words such as my and fly.'
 category: phonics
 grade: "1"
 difficulty: beginner

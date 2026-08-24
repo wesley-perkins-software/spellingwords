@@ -23,7 +23,7 @@ featured: false
 readinessSignals:
   - 'can read and spell familiar vowel-team words'
   - 'can hear the shared vowel sound in “coin” and “toy”'
-  - 'have spelled other vowel-team words, such as ee or ea, earlier in Grade 2'
+  - 'have spelled other vowel-team words, such as ee or ea, earlier in 2nd Grade'
 faq:
   - question: "What is the OI/OY sound?"
     answer: "OI and OY usually spell a diphthong, which means the mouth glides from one vowel sound to another. Children hear it in words like 'oil,' 'boy,' and 'voice.'"

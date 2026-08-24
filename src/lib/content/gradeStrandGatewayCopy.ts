@@ -95,7 +95,7 @@ const grade3GatewayCopy: Record<GradeRouteClassification, GatewayCopyAuthor> = {
   'high-frequency-words': ({ memberCount, wordCount }) => ({
     orientation: `3rd Grade High-Frequency Words organizes ${wordCount} spellings into ${memberCount} sets of 12 words each.`,
     synthesis:
-      'High-frequency describes how often a word is encountered or used, not that its spelling is irregular — most Grade 3 high-frequency words follow familiar sound-spelling patterns, and children can rely on that knowledge for much of each word. The sets build cumulatively: early sets emphasize recognizable smaller words and bases inside longer spellings, such as some+thing and with+out, while later sets add contractions, homophones such as weather and whether, and syllable-by-syllable organization for words such as remember and certain.',
+      'High-frequency describes how often a word is encountered or used, not that its spelling is irregular — most 3rd Grade high-frequency words follow familiar sound-spelling patterns, and children can rely on that knowledge for much of each word. The sets build cumulatively: early sets emphasize recognizable smaller words and bases inside longer spellings, such as some+thing and with+out, while later sets add contractions, homophones such as weather and whether, and syllable-by-syllable organization for words such as remember and certain.',
     guidance: `Working through the ${memberCount} sets in order keeps the word count in each session manageable and matches the shift from base-and-part spelling in the early sets to contraction and homophone spelling in the later ones.`,
   }),
   'themed-spelling-practice': ({ memberCount }) => ({

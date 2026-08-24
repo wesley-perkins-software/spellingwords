@@ -1,9 +1,9 @@
 ---
 id: grade-1-high-frequency-words-set-3
 urlSlug: grade-1-high-frequency-words-set-3
-title: "Grade 1 High-Frequency Words — Set 3"
-description: "Grade 1 High-Frequency Words — Set 3 compares long-i spellings in why and by, vowel teams in how, about, and good, and silent-e patterns in make and home."
-shortAnswer: "Grade 1 Set 3 pairs why with by, compares ow, ou, and oo vowel spellings, and uses silent e in make and home."
+title: "1st Grade High-Frequency Words — Set 3"
+description: "1st Grade High-Frequency Words — Set 3 compares long-i spellings in why and by, vowel teams in how, about, and good, and silent-e patterns in make and home."
+shortAnswer: "1st Grade Set 3 pairs why with by, compares ow, ou, and oo vowel spellings, and uses silent e in make and home."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: '1'
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: 'Hybrid editorial'
-  tier: 'Grade 1 high-frequency words'
+  tier: '1st Grade high-frequency words'
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

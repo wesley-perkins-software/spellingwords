@@ -2,8 +2,8 @@
 id: grade-1-inflectional-endings-s-es
 urlSlug: 1st-grade-inflectional-endings-s-es
 title: "Inflectional Endings: -s and -es"
-description: 'Twelve Grade 1 plural words that practice preserving a base word and adding -s or -es.'
-shortAnswer: 'This Grade 1 unit teaches children to spell common plurals by preserving the base word, adding -s in many words, and adding -es after endings such as s, x, z, sh, and ch.'
+description: 'Twelve 1st Grade plural words that practice preserving a base word and adding -s or -es.'
+shortAnswer: 'This 1st Grade unit teaches children to spell common plurals by preserving the base word, adding -s in many words, and adding -es after endings such as s, x, z, sh, and ch.'
 contentRole: grade-unit
 category: phonics
 grade: "1"

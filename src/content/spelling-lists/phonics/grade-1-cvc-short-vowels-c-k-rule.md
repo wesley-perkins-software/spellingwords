@@ -2,9 +2,9 @@
 id: grade-1-cvc-short-vowels-c-k-rule
 urlSlug: 1st-grade-cvc-short-vowels-c-k-rule
 title: "CVC Short Vowel Review and The C/K Rule"
-description: 'Twelve Grade 1 words that review short vowels and practice choosing c, k, or final ck for the /k/ sound.'
+description: 'Twelve 1st Grade words that review short vowels and practice choosing c, k, or final ck for the /k/ sound.'
 contentRole: grade-unit
-shortAnswer: 'This opening Grade 1 unit reviews short-vowel spelling and practices a useful choice for /k/: c often comes before a, o, or u; k often comes before e or i; and ck often follows a single short-vowel letter at the end of a one-syllable word.'
+shortAnswer: 'This opening 1st Grade unit reviews short-vowel spelling and practices a useful choice for /k/: c often comes before a, o, or u; k often comes before e or i; and ck often follows a single short-vowel letter at the end of a one-syllable word.'
 category: phonics
 grade: "1"
 difficulty: beginner
@@ -38,7 +38,7 @@ words:
   - sack
 ---
 
-These words bring familiar short-vowel spelling into Grade 1 while adding a new decision: the /k/ sound can be written **c**, **k**, or **ck**. *Cat*, *cot*, *cup*, and *cap* place **c** before **a**, **o**, or **u**; *kid* and *kit* place **k** before **i**; and the remaining words place **ck** immediately after a single short-vowel letter at the end of a one-syllable word. These are useful generalizations, not promises about every English word.
+These words bring familiar short-vowel spelling into 1st Grade while adding a new decision: the /k/ sound can be written **c**, **k**, or **ck**. *Cat*, *cot*, *cup*, and *cap* place **c** before **a**, **o**, or **u**; *kid* and *kit* place **k** before **i**; and the remaining words place **ck** immediately after a single short-vowel letter at the end of a one-syllable word. These are useful generalizations, not promises about every English word.
 
 This lesson follows Kindergarten digraphs because children are ready to move beyond matching one sound with the first plausible letter. Listening for the vowel and noticing where /k/ occurs gives them a reasoned spelling choice and refreshes the short-vowel foundation needed for the ending patterns that follow.
 

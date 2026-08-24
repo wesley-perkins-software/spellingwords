@@ -2,7 +2,7 @@
 id: grade-2-long-i-ie-igh
 urlSlug: grade-2-long-i-ie-igh
 title: 'Long I Patterns: IE and IGH'
-description: 'A focused Grade 2 list contrasting final IE and IGH as spellings for long i, with familiar IGH word-family practice.'
+description: 'A focused 2nd Grade list contrasting final IE and IGH as spellings for long i, with familiar IGH word-family practice.'
 shortAnswer: 'Second graders extend long-i spelling beyond silent e and final y by practicing final IE in pie and tie and the IGH pattern in high, night, and light.'
 category: phonics
 grade: '2'

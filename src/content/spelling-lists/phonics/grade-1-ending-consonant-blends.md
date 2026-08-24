@@ -2,8 +2,8 @@
 id: grade-1-ending-consonant-blends
 urlSlug: 1st-grade-ending-consonant-blends
 title: "Ending Consonant Blends"
-description: 'Twelve Grade 1 words that practice hearing and spelling both consonant sounds at the ends of short words.'
-shortAnswer: 'An ending consonant blend has adjacent final consonants whose sounds remain identifiable; this Grade 1 unit teaches children to listen through the end and spell each consonant in order.'
+description: 'Twelve 1st Grade words that practice hearing and spelling both consonant sounds at the ends of short words.'
+shortAnswer: 'An ending consonant blend has adjacent final consonants whose sounds remain identifiable; this 1st Grade unit teaches children to listen through the end and spell each consonant in order.'
 contentRole: grade-unit
 category: phonics
 grade: "1"

@@ -2,7 +2,7 @@
 id: grade-3-suffix-spelling-changes
 urlSlug: 3rd-grade-suffix-spelling-changes
 title: 'Suffix Spelling Changes'
-description: 'A Grade 3 spelling list that teaches three changes before adding suffixes: dropping final e, doubling a final consonant, and changing final y to i.'
+description: 'A 3rd Grade spelling list that teaches three changes before adding suffixes: dropping final e, doubling a final consonant, and changing final y to i.'
 shortAnswer: 'Third graders inspect a base word before adding a suffix, then decide whether to drop final e, double the final consonant, or change final y to i.'
 contentRole: grade-unit
 category: grade-level
@@ -46,7 +46,7 @@ words:
 
 Adding an ending becomes easier when a child learns to pause and inspect the base word first. This list gives equal practice to three base-word changes. _Making, writing, hoped,_ and _smiled_ drop final silent _e_. _Running, stopped, sitting,_ and _planned_ double one final consonant after a short vowel. _Carried, cried, happier,_ and _funniest_ change consonant-plus-_y_ to _i_ before the suffix.
 
-This unit follows the Grade 3 Suffixes list, which introduces what common suffixes mean and do. Here the focus shifts to the spelling at the join between a familiar base and its suffix. Keeping all three decisions together helps a learner inspect the base first instead of applying one change to every word.
+This unit follows the 3rd Grade Suffixes list, which introduces what common suffixes mean and do. Here the focus shifts to the spelling at the join between a familiar base and its suffix. Keeping all three decisions together helps a learner inspect the base first instead of applying one change to every word.
 
 ### How to practice this list
 

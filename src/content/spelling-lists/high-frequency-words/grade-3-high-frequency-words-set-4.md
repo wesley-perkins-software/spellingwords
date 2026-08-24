@@ -1,9 +1,9 @@
 ---
 id: grade-3-high-frequency-words-set-4
 urlSlug: grade-3-high-frequency-words-set-4
-title: "Grade 3 High-Frequency Words — Set 4"
-description: "Grade 3 High-Frequency Words — Set 4 builds finally, probably, usually, really, and actually from bases plus ly, identifies compounds in sometimes and nothing, and contrasts the vowel spellings in believe, might, world, and once."
-shortAnswer: "Grade 3 Set 4 connects five ly words to their bases, uses the compounds sometimes and nothing, and gives focused support to believe, world, probably, and once."
+title: "3rd Grade High-Frequency Words — Set 4"
+description: "3rd Grade High-Frequency Words — Set 4 builds finally, probably, usually, really, and actually from bases plus ly, identifies compounds in sometimes and nothing, and contrasts the vowel spellings in believe, might, world, and once."
+shortAnswer: "3rd Grade Set 4 connects five ly words to their bases, uses the compounds sometimes and nothing, and gives focused support to believe, world, probably, and once."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "3"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 3 high-frequency words"
+  tier: "3rd Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

@@ -2,8 +2,8 @@
 id: grade-1-consonant-digraphs-final-ck
 urlSlug: 1st-grade-consonant-digraphs-final-ck
 title: "Consonant Digraphs and Final -ck"
-description: 'Twelve Grade 1 words that practice sh, ch, th, wh, and final ck as two-letter spellings representing one consonant sound.'
-shortAnswer: 'This Grade 1 unit practices consonant digraphs—two consonant letters representing one main sound—and reviews final ck after a short vowel.'
+description: 'Twelve 1st Grade words that practice sh, ch, th, wh, and final ck as two-letter spellings representing one consonant sound.'
+shortAnswer: 'This 1st Grade unit practices consonant digraphs—two consonant letters representing one main sound—and reviews final ck after a short vowel.'
 contentRole: grade-unit
 skillIds: ["digraph-sh-words", "digraph-ch-words", "digraph-th-words", "digraph-wh-words", "ck-tch-dge-word-endings"]
 category: phonics

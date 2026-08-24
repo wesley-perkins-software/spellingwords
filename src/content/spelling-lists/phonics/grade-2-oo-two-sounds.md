@@ -29,7 +29,7 @@ faq:
     answer: "English vowel teams do not always match one spelling to one sound. The oo team is one of the clearest examples: it spells a long sound in words like moon and a short sound in words like book, and children learn to tell them apart by listening, not by a rule they can see on the page."
   - question: "Is there a rule for which sound oo makes?"
     answer: "Not a reliable one. Some phonics programs note that oo before k (book, look) more often makes the short sound, but there are exceptions, so the most dependable strategy is listening to the word and trying both sounds if unsure."
-  - question: "How is this different from the oa and ow long-o pattern taught in Grade 1?"
+  - question: "How is this different from the oa and ow long-o pattern taught in 1st Grade?"
     answer: "Oa and ow spell one predictable sound. The oo team is different because it genuinely spells two sounds, which is why it gets its own focused lesson once children are ready to hold two options for one spelling."
   - question: "Should this list be split into two shorter lists?"
     answer: "No. Practicing both sounds together, in order, is the point of the lesson — it teaches children to check which sound fits rather than assuming oo always sounds the same way."

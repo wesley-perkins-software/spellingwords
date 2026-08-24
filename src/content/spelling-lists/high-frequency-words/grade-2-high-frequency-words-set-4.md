@@ -1,9 +1,9 @@
 ---
 id: grade-2-high-frequency-words-set-4
 urlSlug: grade-2-high-frequency-words-set-4
-title: "Grade 2 High-Frequency Words — Set 4"
-description: "Grade 2 High-Frequency Words — Set 4 builds with the compound someone, two-syllable words such as until and never, and distinctive spellings in answer, large, and learn."
-shortAnswer: "Grade 2 Set 4 uses compounds, syllables, doubled consonants, and vowel teams to organize someone, small, off, until, almost, began, and the set's less transparent words."
+title: "2nd Grade High-Frequency Words — Set 4"
+description: "2nd Grade High-Frequency Words — Set 4 builds with the compound someone, two-syllable words such as until and never, and distinctive spellings in answer, large, and learn."
+shortAnswer: "2nd Grade Set 4 uses compounds, syllables, doubled consonants, and vowel teams to organize someone, small, off, until, almost, began, and the set's less transparent words."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "2"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 2 high-frequency words"
+  tier: "2nd Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

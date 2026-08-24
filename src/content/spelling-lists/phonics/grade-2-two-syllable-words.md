@@ -28,9 +28,9 @@ faq:
   - question: "What is a syllable, in terms a parent can use?"
     answer: "A syllable is one beat of a word — the number of times your mouth opens for a vowel sound. Rabbit has two beats (rab-bit); paper has two beats (pa-per). Clapping the beats before spelling helps a child hear how many parts the word needs."
   - question: "Why does this list include words like winter and garden?"
-    answer: "Those words show that the second syllable can be an r-controlled syllable — the ar and or patterns established in Grade 1 and the er, ir, and ur patterns practiced earlier in Grade 2, now used inside longer words."
-  - question: "Does Grade 2 teach r-controlled vowels for the first time here?"
-    answer: "No. Grade 1 established ar and or, and an earlier Grade 2 unit teaches er, ir, and ur. This lesson applies that existing knowledge inside longer, two-syllable words; breaking and rebuilding the longer word is the new skill."
+    answer: "Those words show that the second syllable can be an r-controlled syllable — the ar and or patterns established in 1st Grade and the er, ir, and ur patterns practiced earlier in 2nd Grade, now used inside longer words."
+  - question: "Does 2nd Grade teach r-controlled vowels for the first time here?"
+    answer: "No. 1st Grade established ar and or, and an earlier 2nd Grade unit teaches er, ir, and ur. This lesson applies that existing knowledge inside longer, two-syllable words; breaking and rebuilding the longer word is the new skill."
   - question: "What is the difference between a closed and an open syllable in this list?"
     answer: "A closed syllable ends in a consonant and usually has a short vowel sound, as in the first syllable of rabbit. An open syllable ends in a vowel and usually has a long vowel sound, as in the first syllable of paper. Noticing which type a syllable is helps a child choose the right vowel sound."
 words:

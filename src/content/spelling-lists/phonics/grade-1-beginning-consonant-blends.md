@@ -2,8 +2,8 @@
 id: grade-1-beginning-consonant-blends
 urlSlug: 1st-grade-beginning-consonant-blends
 title: "Beginning Consonant Blends"
-description: 'Twelve Grade 1 words that practice hearing and spelling every consonant sound in beginning l-, r-, and s-blends.'
-shortAnswer: 'A beginning consonant blend has two or three adjacent consonants whose sounds remain identifiable; this Grade 1 unit teaches children to hear and spell each sound in order.'
+description: 'Twelve 1st Grade words that practice hearing and spelling every consonant sound in beginning l-, r-, and s-blends.'
+shortAnswer: 'A beginning consonant blend has two or three adjacent consonants whose sounds remain identifiable; this 1st Grade unit teaches children to hear and spell each sound in order.'
 contentRole: grade-unit
 category: phonics
 grade: "1"

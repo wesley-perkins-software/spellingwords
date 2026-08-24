@@ -2,7 +2,7 @@
 id: grade-3-possessives
 urlSlug: 3rd-grade-possessives
 title: "Possessive Words"
-description: "A Grade 3 possessives list that teaches the apostrophe -'s and -s' endings that show ownership, plus irregular plural possessives like children's."
+description: "A 3rd Grade possessives list that teaches the apostrophe -'s and -s' endings that show ownership, plus irregular plural possessives like children's."
 shortAnswer: "Third graders learn to add 's to show one owner and s' to show more than one owner, along with irregular plural possessives like children's."
 contentRole: grade-unit
 category: grade-level
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 3 core spelling"
+  tier: "3rd Grade core spelling"
 relatedLists: ["grade-2-contractions", "grade-3-homophones"]
 prerequisiteLists: []
 nextLists: []
@@ -48,7 +48,7 @@ An apostrophe can mark missing letters in a contraction or show a relationship s
 
 Six matched pairs make the ownership decision visible: *dog's/dogs', teacher's/teachers', boy's/boys', friend's/friends', family's/families',* and *child's/children's*. The first five pairs follow the regular pattern: add *'s* for one owner, and add just an apostrophe after the existing final *s* for more than one owner. The sixth pair breaks that pattern on purpose. *Children* is an irregular plural—it does not end in *s*—so its possessive still takes *'s*, the same ending as the singular *child's*. Spelling *children's* correctly means recognizing the irregular plural, not just adding an apostrophe after a final *s*.
 
-This lesson follows suffix spelling changes because a learner must first spell the noun correctly—especially *family/families*—and then mark possession. It also builds on Grade 2 contractions, but the apostrophe has a different job here: no letters are being omitted.
+This lesson follows suffix spelling changes because a learner must first spell the noun correctly—especially *family/families*—and then mark possession. It also builds on 2nd Grade contractions, but the apostrophe has a different job here: no letters are being omitted.
 
 ### How to practice this list
 

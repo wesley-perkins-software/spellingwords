@@ -27,7 +27,7 @@ faq:
   - question: "What makes these words appropriate for fifth grade?"
     answer: "The pairs on this list often appear in upper-elementary writing and require more than sound matching. Students must consider meaning, grammar, and context when choosing between advice and advise, affect and effect, or desert and dessert."
   - question: "How are these words different from fourth-grade commonly confused words?"
-    answer: "The Grade 5 list leans into more advanced choices that show up in reports, narratives, and opinion writing. Several pairs are not simple homophones, so students need careful vocabulary knowledge as well as spelling practice."
+    answer: "The 5th Grade list leans into more advanced choices that show up in reports, narratives, and opinion writing. Several pairs are not simple homophones, so students need careful vocabulary knowledge as well as spelling practice."
   - question: "What errors should adults watch for?"
     answer: "Watch for students choosing the more familiar spelling without checking the sentence. Loose and lose, past and passed, and advice and advise often need quick meaning checks during revision."
   - question: "How should students study this list?"

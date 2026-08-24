@@ -2,8 +2,8 @@
 id: grade-1-inflectional-endings-ed-ing
 urlSlug: 1st-grade-inflectional-endings-ed-ing
 title: "Inflectional Endings: -ed and -ing"
-description: 'Twelve Grade 1 verb forms that preserve a base word while adding the stable endings -ed and -ing.'
-shortAnswer: 'This Grade 1 unit teaches children to spell the base word first and add -ed or -ing; in this set the base stays unchanged even when -ed has different pronunciations.'
+description: 'Twelve 1st Grade verb forms that preserve a base word while adding the stable endings -ed and -ing.'
+shortAnswer: 'This 1st Grade unit teaches children to spell the base word first and add -ed or -ing; in this set the base stays unchanged even when -ed has different pronunciations.'
 contentRole: grade-unit
 category: phonics
 grade: "1"

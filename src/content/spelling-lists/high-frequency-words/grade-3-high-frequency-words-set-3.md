@@ -1,9 +1,9 @@
 ---
 id: grade-3-high-frequency-words-set-3
 urlSlug: grade-3-high-frequency-words-set-3
-title: "Grade 3 High-Frequency Words — Set 3"
-description: "Grade 3 High-Frequency Words — Set 3 compares the ear spelling in early and heard, uses familiar bases in become and later, and organizes less transparent spellings such as practice, built, difficult, and especially."
-shortAnswer: "Grade 3 Set 3 uses shared vowel spellings, bases and endings, doubled consonants, and syllable chunks to secure practice, early, heard, difficult, especially, and the other words in the set."
+title: "3rd Grade High-Frequency Words — Set 3"
+description: "3rd Grade High-Frequency Words — Set 3 compares the ear spelling in early and heard, uses familiar bases in become and later, and organizes less transparent spellings such as practice, built, difficult, and especially."
+shortAnswer: "3rd Grade Set 3 uses shared vowel spellings, bases and endings, doubled consonants, and syllable chunks to secure practice, early, heard, difficult, especially, and the other words in the set."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "3"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 3 high-frequency words"
+  tier: "3rd Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

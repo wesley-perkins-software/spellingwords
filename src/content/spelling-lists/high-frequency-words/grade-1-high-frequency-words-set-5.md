@@ -1,9 +1,9 @@
 ---
 id: grade-1-high-frequency-words-set-5
 urlSlug: grade-1-high-frequency-words-set-5
-title: "Grade 1 High-Frequency Words — Set 5"
-description: "Grade 1 High-Frequency Words — Set 5 contrasts ou in out with ay in day, groups short-vowel words and endings, and focuses on were, want, some, and find."
-shortAnswer: "Grade 1 Set 5 compares the vowel teams in out and day, maps several short-vowel words, and gives extra spelling attention to were, want, some, and find."
+title: "1st Grade High-Frequency Words — Set 5"
+description: "1st Grade High-Frequency Words — Set 5 contrasts ou in out with ay in day, groups short-vowel words and endings, and focuses on were, want, some, and find."
+shortAnswer: "1st Grade Set 5 compares the vowel teams in out and day, maps several short-vowel words, and gives extra spelling attention to were, want, some, and find."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: '1'
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: 'Hybrid editorial'
-  tier: 'Grade 1 high-frequency words'
+  tier: '1st Grade high-frequency words'
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

@@ -1,9 +1,9 @@
 ---
 id: grade-5-high-frequency-words-set-2
 urlSlug: grade-5-high-frequency-words-set-2
-title: "Grade 5 High-Frequency Words — Set 2"
-description: "Grade 5 High-Frequency Words — Set 2 connects action, suddenly, and natural to their bases, distinguishes effect from affect, and preserves the vowel sequences in piece and experience."
-shortAnswer: "Grade 5 Set 2 uses stable bases and endings in action, suddenly, and natural, then gives focused support to piece, effect, suppose, company, and experience."
+title: "5th Grade High-Frequency Words — Set 2"
+description: "5th Grade High-Frequency Words — Set 2 connects action, suddenly, and natural to their bases, distinguishes effect from affect, and preserves the vowel sequences in piece and experience."
+shortAnswer: "5th Grade Set 2 uses stable bases and endings in action, suddenly, and natural, then gives focused support to piece, effect, suppose, company, and experience."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "5"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 5 high-frequency words"
+  tier: "5th Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

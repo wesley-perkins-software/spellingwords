@@ -47,9 +47,9 @@ words:
   - enjoyable
 ---
 
-This list applies earlier suffix knowledge to longer Grade 4 words. *Breakable* and *enjoyable* use *-able*, while *visible* and *flexible* use *-ible*. *Creative* and *protective* end in *-ive*; *dangerous* and *famous* end in *-ous*; and the final group contrasts *-tion* in *connection*, *solution*, and *conclusion* with *-sion* in *discussion*.
+This list applies earlier suffix knowledge to longer 4th Grade words. *Breakable* and *enjoyable* use *-able*, while *visible* and *flexible* use *-ible*. *Creative* and *protective* end in *-ive*; *dangerous* and *famous* end in *-ous*; and the final group contrasts *-tion* in *connection*, *solution*, and *conclusion* with *-sion* in *discussion*.
 
-The Grade 3 Suffix Spelling Changes lesson teaches how to decide whether letters at a join double, drop, change, or attach directly. This lesson does not reteach that whole system. Instead, students use what they already know to keep three locations clear: the underlying or related spelling, the suffix itself, and the join between them. Related words can help when two endings sound similar: *connect* supports *connection*, *discuss* supports *discussion*, and *conclude* supports *conclusion*.
+The 3rd Grade Suffix Spelling Changes lesson teaches how to decide whether letters at a join double, drop, change, or attach directly. This lesson does not reteach that whole system. Instead, students use what they already know to keep three locations clear: the underlying or related spelling, the suffix itself, and the join between them. Related words can help when two endings sound similar: *connect* supports *connection*, *discuss* supports *discussion*, and *conclude* supports *conclusion*.
 
 ### How to practice this list
 

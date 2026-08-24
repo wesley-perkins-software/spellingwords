@@ -2,8 +2,8 @@
 id: grade-1-long-a-long-o-vowel-teams
 urlSlug: 1st-grade-long-a-long-o-vowel-teams
 title: "Long A and Long O Vowel Teams"
-description: 'Twelve Grade 1 words that practice ai and ay for long a and oa and ow for long o.'
-shortAnswer: 'This Grade 1 unit practices common long-vowel teams: ai and oa usually occur inside these short words, while ay and ow occur at the end.'
+description: 'Twelve 1st Grade words that practice ai and ay for long a and oa and ow for long o.'
+shortAnswer: 'This 1st Grade unit practices common long-vowel teams: ai and oa usually occur inside these short words, while ay and ow occur at the end.'
 category: phonics
 grade: "1"
 difficulty: beginner

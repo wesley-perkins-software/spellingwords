@@ -48,9 +48,9 @@ words:
   - technology
 ---
 
-Grade 5 begins by asking students to maintain the complete written structure of longer academic words. Six words — *information, investigation, organization, explanation, observation,* and *communication* — share the useful ending *-ation*. The rest widen the practice: *responsibility* ends in *-ibility*, *independent* in *-ent*, *environment* and *experiment* in *-ment*, *conclusion* in *-sion*, and *technology* in *-ology*. These known endings give a learner something reliable to hold onto while keeping every internal part in order.
+5th Grade begins by asking students to maintain the complete written structure of longer academic words. Six words — *information, investigation, organization, explanation, observation,* and *communication* — share the useful ending *-ation*. The rest widen the practice: *responsibility* ends in *-ibility*, *independent* in *-ent*, *environment* and *experiment* in *-ment*, *conclusion* in *-sion*, and *technology* in *-ology*. These known endings give a learner something reliable to hold onto while keeping every internal part in order.
 
-The list builds on Grade 4 work with long words and related forms. Here, the challenge is to coordinate the whole spoken word with its meaningful parts and less-prominent internal vowels without assuming that every speaker divides or pronounces it in exactly the same way.
+The list builds on 4th Grade work with long words and related forms. Here, the challenge is to coordinate the whole spoken word with its meaningful parts and less-prominent internal vowels without assuming that every speaker divides or pronounces it in exactly the same way.
 
 ### How to practice this list
 

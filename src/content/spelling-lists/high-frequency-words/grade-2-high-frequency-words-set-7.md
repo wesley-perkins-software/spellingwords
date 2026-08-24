@@ -1,9 +1,9 @@
 ---
 id: grade-2-high-frequency-words-set-7
 urlSlug: grade-2-high-frequency-words-set-7
-title: "Grade 2 High-Frequency Words — Set 7"
-description: "Grade 2 High-Frequency Words — Set 7 compares vowel teams in read, year, few, show, free, and house with silent-e spellings and pronunciation-changing words such as live."
-shortAnswer: "Grade 2 Set 7 sorts several spellings for long vowel sounds, reviews silent e and igh, and shows how the written forms of read and live stay fixed when pronunciation changes."
+title: "2nd Grade High-Frequency Words — Set 7"
+description: "2nd Grade High-Frequency Words — Set 7 compares vowel teams in read, year, few, show, free, and house with silent-e spellings and pronunciation-changing words such as live."
+shortAnswer: "2nd Grade Set 7 sorts several spellings for long vowel sounds, reviews silent e and igh, and shows how the written forms of read and live stay fixed when pronunciation changes."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "2"

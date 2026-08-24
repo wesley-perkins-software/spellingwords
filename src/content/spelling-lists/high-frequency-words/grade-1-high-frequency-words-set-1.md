@@ -1,9 +1,9 @@
 ---
 id: grade-1-high-frequency-words-set-1
 urlSlug: grade-1-high-frequency-words-set-1
-title: "Grade 1 High-Frequency Words — Set 1"
-description: "Grade 1 High-Frequency Words — Set 1 contrasts the vowel teams in they and down, reviews useful patterns in all and or, and gives extra attention to the less expected spellings in of, said, have, one, and what."
-shortAnswer: "Grade 1 Set 1 includes the vowel teams ey in they and ow in down, plus familiar patterns in all and or. Of, said, have, one, and what each have a less expected part to notice."
+title: "1st Grade High-Frequency Words — Set 1"
+description: "1st Grade High-Frequency Words — Set 1 contrasts the vowel teams in they and down, reviews useful patterns in all and or, and gives extra attention to the less expected spellings in of, said, have, one, and what."
+shortAnswer: "1st Grade Set 1 includes the vowel teams ey in they and ow in down, plus familiar patterns in all and or. Of, said, have, one, and what each have a less expected part to notice."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "1"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 1 high-frequency words"
+  tier: "1st Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

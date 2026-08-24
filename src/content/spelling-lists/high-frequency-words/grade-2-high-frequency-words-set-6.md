@@ -1,9 +1,9 @@
 ---
 id: grade-2-high-frequency-words-set-6
 urlSlug: grade-2-high-frequency-words-set-6
-title: "Grade 2 High-Frequency Words — Set 6"
-description: "Grade 2 High-Frequency Words — Set 6 contrasts silent-e and vowel-team spellings in use, take, too, and each with consonant patterns in must, went, think, and much."
-shortAnswer: "Grade 2 Set 6 organizes familiar consonant patterns and several long-vowel spellings, with focused support for use, work, done, and the meaning-dependent spelling too."
+title: "2nd Grade High-Frequency Words — Set 6"
+description: "2nd Grade High-Frequency Words — Set 6 contrasts silent-e and vowel-team spellings in use, take, too, and each with consonant patterns in must, went, think, and much."
+shortAnswer: "2nd Grade Set 6 organizes familiar consonant patterns and several long-vowel spellings, with focused support for use, work, done, and the meaning-dependent spelling too."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "2"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 2 high-frequency words"
+  tier: "2nd Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

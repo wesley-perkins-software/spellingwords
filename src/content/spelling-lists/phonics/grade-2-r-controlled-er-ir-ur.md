@@ -2,7 +2,7 @@
 id: grade-2-r-controlled-er-ir-ur
 urlSlug: grade-2-r-controlled-er-ir-ur
 title: 'R-Controlled Vowels: ER, IR, and UR'
-description: 'A focused Grade 2 practice list contrasting ER, IR, and UR as three common spellings for the same r-controlled sound.'
+description: 'A focused 2nd Grade practice list contrasting ER, IR, and UR as three common spellings for the same r-controlled sound.'
 shortAnswer: 'Second graders complete the basic r-controlled vowel set by practicing ER, IR, and UR in familiar one-syllable words before applying those spellings in longer words.'
 category: phonics
 grade: '2'
@@ -21,7 +21,7 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'can spell familiar ar and or words from Grade 1'
+  - 'can spell familiar ar and or words from 1st Grade'
   - 'can hear the shared r-controlled sound in “her,” “bird,” and “turn”'
   - 'will try er, ir, or ur on an unfamiliar word even when the guess turns out wrong'
 faq:

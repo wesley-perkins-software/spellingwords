@@ -2,7 +2,7 @@
 id: grade-3-root-word-families
 urlSlug: 3rd-grade-root-word-families
 title: "Root Word Families"
-description: "A Grade 3 word-family list for noticing stable base or root spellings in related words before deeper Greek and Latin root study in Grade 4."
+description: "A 3rd Grade word-family list for noticing stable base or root spellings in related words before deeper Greek and Latin root study in 4th Grade."
 shortAnswer: "Third graders compare families built around act, form, port, and sign, noticing recurring meaningful spelling units inside longer words."
 contentRole: grade-unit
 skillIds: ["greek-and-latin-roots"]
@@ -40,11 +40,11 @@ words:
   - design
 ---
 
-A word family contains words connected by a shared base or root. A **base word** such as *act* can stand alone, while a **root** is a recurring meaningful spelling unit that may not work as a separate word in the same way. This Grade 3 lesson focuses on noticing and preserving those units, not on memorizing their histories.
+A word family contains words connected by a shared base or root. A **base word** such as *act* can stand alone, while a **root** is a recurring meaningful spelling unit that may not work as a separate word in the same way. This 3rd Grade lesson focuses on noticing and preserving those units, not on memorizing their histories.
 
 *Act, action, active,* and *actor* form the clearest family: the free-standing base *act* stays visible as suffixes are added. *Form, inform,* and *reform* show the stable spelling *form* with prefixes. The *port* and *sign* groups ask for closer noticing. *Report/support* and *signal/design* contain recurring roots, but their modern meanings and pronunciations do not always make every connection obvious. The shared letters are worth preserving without claiming that any repeated letter sequence automatically carries a transparent meaning.
 
-This closing Grade 3 unit combines earlier work with prefixes, suffixes, and longer words. Recognizing a stable base or root gives learners another way to check a complex spelling before the Grade 4 sequence begins with more advanced multisyllabic words and later develops formal Greek and Latin root study.
+This closing 3rd Grade unit combines earlier work with prefixes, suffixes, and longer words. Recognizing a stable base or root gives learners another way to check a complex spelling before the 4th Grade sequence begins with more advanced multisyllabic words and later develops formal Greek and Latin root study.
 
 ### How to practice this list
 

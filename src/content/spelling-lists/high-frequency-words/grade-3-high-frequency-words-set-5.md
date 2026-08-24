@@ -1,9 +1,9 @@
 ---
 id: grade-3-high-frequency-words-set-5
 urlSlug: grade-3-high-frequency-words-set-5
-title: "Grade 3 High-Frequency Words — Set 5"
-description: "Grade 3 High-Frequency Words — Set 5 contrasts the homophones weather and whether, maps the contractions I'm, it's, and don't to their full forms, and uses stable syllables and vowel spellings in remember, certain, during, and money."
-shortAnswer: "Grade 3 Set 5 uses meaning to identify weather, expands three contractions to place their apostrophes, and organizes longer spellings through syllables and stable written chunks."
+title: "3rd Grade High-Frequency Words — Set 5"
+description: "3rd Grade High-Frequency Words — Set 5 contrasts the homophones weather and whether, maps the contractions I'm, it's, and don't to their full forms, and uses stable syllables and vowel spellings in remember, certain, during, and money."
+shortAnswer: "3rd Grade Set 5 uses meaning to identify weather, expands three contractions to place their apostrophes, and organizes longer spellings through syllables and stable written chunks."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "3"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 3 high-frequency words"
+  tier: "3rd Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

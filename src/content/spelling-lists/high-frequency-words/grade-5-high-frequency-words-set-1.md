@@ -1,9 +1,9 @@
 ---
 id: grade-5-high-frequency-words-set-1
 urlSlug: grade-5-high-frequency-words-set-1
-title: "Grade 5 High-Frequency Words — Set 1"
-description: "Grade 5 High-Frequency Words — Set 1 uses bases and endings in government and information, related forms for attention and beautiful, and stable written chunks in business, language, and interest."
-shortAnswer: "Grade 5 Set 1 organizes longer spellings with genuine word parts, related words, and written syllables that preserve weakly heard vowels in government, information, beautiful, and interest."
+title: "5th Grade High-Frequency Words — Set 1"
+description: "5th Grade High-Frequency Words — Set 1 uses bases and endings in government and information, related forms for attention and beautiful, and stable written chunks in business, language, and interest."
+shortAnswer: "5th Grade Set 1 organizes longer spellings with genuine word parts, related words, and written syllables that preserve weakly heard vowels in government, information, beautiful, and interest."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "5"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 5 high-frequency words"
+  tier: "5th Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

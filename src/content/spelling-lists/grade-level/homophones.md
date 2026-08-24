@@ -23,7 +23,7 @@ faq:
   - question: "Are homophones the same as commonly confused words?"
     answer: "No. Homophones sound exactly the same and are confused only because of that shared sound. Commonly Confused Words is a separate skill for pairs that get mixed up for other reasons — similar spelling, similar meaning, or similar usage — and that may or may not sound alike at all."
   - question: "Are to/too/two and there/their/they're the only homophones my child needs to know?"
-    answer: "No, they're just the clearest starting examples. Many more homophone pairs — your/you're, its/it's, right/write, and others — are introduced gradually in the Grade 2 and Grade 3 word lists, using the same meaning-first method taught here."
+    answer: "No, they're just the clearest starting examples. Many more homophone pairs — your/you're, its/it's, right/write, and others — are introduced gradually in the 2nd Grade and 3rd Grade word lists, using the same meaning-first method taught here."
   - question: "My child spelled the word correctly, so why was it still marked wrong?"
     answer: "With homophones, a correct spelling can still be the wrong word. Spell-checking tools won't catch this, because every homophone is a real, correctly spelled word — it's just not the one the sentence needs. That's why checking meaning matters as much as checking spelling."
 words:

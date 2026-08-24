@@ -50,7 +50,7 @@ words:
 
 The Greek-derived words provide recognizable written parts: *photo* and *graph* in *photography*, *bio* and *-logy* in *biology*, *geo* and *graph* in *geography*, and *tele-* in *telescope* and *telephone*. These parts support spelling because a learner can hold a familiar letter sequence inside a longer word.
 
-The Latin-derived words do the same work with roots or word parts such as *port* in *transportation*, *struct* in *construction* and *instruction*, *spect* in *inspection*, *dict* in *prediction*, *script* in *description*, and *rupt* in *interruption*. Some are bound roots: they carry a recognizable spelling even though they do not usually stand alone as modern English words. Grade 4 introduced recurring roots; this Grade 5 set asks students to coordinate them with prefixes and endings inside longer words.
+The Latin-derived words do the same work with roots or word parts such as *port* in *transportation*, *struct* in *construction* and *instruction*, *spect* in *inspection*, *dict* in *prediction*, *script* in *description*, and *rupt* in *interruption*. Some are bound roots: they carry a recognizable spelling even though they do not usually stand alone as modern English words. 4th Grade introduced recurring roots; this 5th Grade set asks students to coordinate them with prefixes and endings inside longer words.
 
 ### How to practice this list
 

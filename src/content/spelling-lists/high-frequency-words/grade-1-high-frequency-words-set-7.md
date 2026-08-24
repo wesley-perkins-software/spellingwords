@@ -1,9 +1,9 @@
 ---
 id: grade-1-high-frequency-words-set-7
 urlSlug: grade-1-high-frequency-words-set-7
-title: "Grade 1 High-Frequency Words — Set 7"
-description: "Grade 1 High-Frequency Words — Set 7 connects silent e in place and life, r-controlled spellings in part and hard, and the vowel teams in keep and room."
-shortAnswer: "Grade 1 Set 7 compares silent-e words, the ar pattern in part and hard, and the ee and oo teams in keep and room alongside several sound-mappable words."
+title: "1st Grade High-Frequency Words — Set 7"
+description: "1st Grade High-Frequency Words — Set 7 connects silent e in place and life, r-controlled spellings in part and hard, and the vowel teams in keep and room."
+shortAnswer: "1st Grade Set 7 compares silent-e words, the ar pattern in part and hard, and the ee and oo teams in keep and room alongside several sound-mappable words."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "1"

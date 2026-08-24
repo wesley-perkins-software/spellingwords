@@ -2,7 +2,7 @@
 id: grade-3-suffix-words
 urlSlug: 3rd-grade-suffix-words
 title: "Suffix Words"
-description: "A Grade 3 suffix word list with -er, -est, -ly, -ful, -less, -ness, and -ment — endings that change meaning and word use."
+description: "A 3rd Grade suffix word list with -er, -est, -ly, -ful, -less, -ness, and -ment — endings that change meaning and word use."
 shortAnswer: "Third graders practice suffixes like -er, -est, -ly, -ful, -less, -ness, and -ment because these endings change a base word's meaning or how it is used."
 contentRole: grade-unit
 category: grade-level

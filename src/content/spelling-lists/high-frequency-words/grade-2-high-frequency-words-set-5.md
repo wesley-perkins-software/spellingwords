@@ -1,9 +1,9 @@
 ---
 id: grade-2-high-frequency-words-set-5
 urlSlug: grade-2-high-frequency-words-set-5
-title: "Grade 2 High-Frequency Words — Set 5"
-description: "Grade 2 High-Frequency Words — Set 5 compares igh, oo, ay, and ee spellings and uses stable chunks to support young, other, together, and only."
-shortAnswer: "Grade 2 Set 5 groups high and light by igh, contrasts the vowel teams in took, say, and three, and pinpoints the less expected vowels in young, other, and together."
+title: "2nd Grade High-Frequency Words — Set 5"
+description: "2nd Grade High-Frequency Words — Set 5 compares igh, oo, ay, and ee spellings and uses stable chunks to support young, other, together, and only."
+shortAnswer: "2nd Grade Set 5 groups high and light by igh, contrasts the vowel teams in took, say, and three, and pinpoints the less expected vowels in young, other, and together."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "2"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 2 high-frequency words"
+  tier: "2nd Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

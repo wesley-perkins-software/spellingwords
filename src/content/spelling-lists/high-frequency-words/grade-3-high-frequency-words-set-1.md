@@ -1,9 +1,9 @@
 ---
 id: grade-3-high-frequency-words-set-1
 urlSlug: grade-3-high-frequency-words-set-1
-title: "Grade 3 High-Frequency Words — Set 1"
-description: "Grade 3 High-Frequency Words — Set 1 uses compounds and recognizable bases to organize longer words such as everyone, something, without, and children, then contrasts the ough spellings in enough and through."
-shortAnswer: "Grade 3 Set 1 builds longer spellings from whole words, bases, endings, and syllable chunks while giving special attention to friend, family, children, different, question, and the two pronunciations of ough."
+title: "3rd Grade High-Frequency Words — Set 1"
+description: "3rd Grade High-Frequency Words — Set 1 uses compounds and recognizable bases to organize longer words such as everyone, something, without, and children, then contrasts the ough spellings in enough and through."
+shortAnswer: "3rd Grade Set 1 builds longer spellings from whole words, bases, endings, and syllable chunks while giving special attention to friend, family, children, different, question, and the two pronunciations of ough."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "3"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 3 high-frequency words"
+  tier: "3rd Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

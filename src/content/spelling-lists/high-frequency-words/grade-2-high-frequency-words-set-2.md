@@ -1,9 +1,9 @@
 ---
 id: grade-2-high-frequency-words-set-2
 urlSlug: grade-2-high-frequency-words-set-2
-title: "Grade 2 High-Frequency Words — Set 2"
-description: "Grade 2 High-Frequency Words — Set 2 compares oo in school and book, applies familiar patterns in best, both, which, and around, and focuses on less transparent spellings such as should, because, been, and does."
-shortAnswer: "Grade 2 Set 2 contrasts the two sounds of oo in school and book, uses vowel teams and consonant patterns across the set, and gives extra attention to should, because, little, been, does, and these."
+title: "2nd Grade High-Frequency Words — Set 2"
+description: "2nd Grade High-Frequency Words — Set 2 compares oo in school and book, applies familiar patterns in best, both, which, and around, and focuses on less transparent spellings such as should, because, been, and does."
+shortAnswer: "2nd Grade Set 2 contrasts the two sounds of oo in school and book, uses vowel teams and consonant patterns across the set, and gives extra attention to should, because, little, been, does, and these."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "2"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 2 high-frequency words"
+  tier: "2nd Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

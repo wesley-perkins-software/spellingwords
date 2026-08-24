@@ -1,9 +1,9 @@
 ---
 id: grade-1-high-frequency-words-set-2
 urlSlug: grade-1-high-frequency-words-set-2
-title: "Grade 1 High-Frequency Words — Set 2"
-description: "Grade 1 High-Frequency Words — Set 2 compares wh in when and who, applies the final-ck pattern in back, and groups short-vowel words with the long-o spellings in no and over."
-shortAnswer: "Grade 1 Set 2 uses wh differently in when and who, ends back with ck, and contrasts several short-vowel spellings with long o in no and over."
+title: "1st Grade High-Frequency Words — Set 2"
+description: "1st Grade High-Frequency Words — Set 2 compares wh in when and who, applies the final-ck pattern in back, and groups short-vowel words with the long-o spellings in no and over."
+shortAnswer: "1st Grade Set 2 uses wh differently in when and who, ends back with ck, and contrasts several short-vowel spellings with long o in no and over."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "1"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 1 high-frequency words"
+  tier: "1st Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

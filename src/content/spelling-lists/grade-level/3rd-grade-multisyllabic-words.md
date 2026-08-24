@@ -2,8 +2,8 @@
 id: grade-3-multisyllabic-words
 urlSlug: 3rd-grade-multisyllabic-words
 title: "Multisyllabic Words"
-description: "A Grade 3 multisyllabic word list for spelling longer words through useful syllables, compounds, bases, suffixes, and recurring written parts."
-shortAnswer: "Third graders practice longer words by finding useful spoken and written parts, preparing them to manage more complex academic vocabulary in Grade 4."
+description: "A 3rd Grade multisyllabic word list for spelling longer words through useful syllables, compounds, bases, suffixes, and recurring written parts."
+shortAnswer: "Third graders practice longer words by finding useful spoken and written parts, preparing them to manage more complex academic vocabulary in 4th Grade."
 contentRole: grade-unit
 skillIds: ["multisyllabic-words"]
 category: grade-level
@@ -49,7 +49,7 @@ A multisyllabic word has more than one syllable. Third graders can make a longer
 
 The list offers several ways into a long word. Compounds such as *afternoon, airplane,* and *birthday* contain familiar words. *Attention, connection, information,* and *solution* share recurring endings that can be studied as stable written parts. *Building* contains a familiar base and suffix, while *different, suddenly,* and *usually* require attention to doubled consonants or vowel spellings that may be less clearly heard in everyday speech. The exact number and pronunciation of syllables can vary across dialects; the spelling task is to keep every useful written part in order, not to change a learner's accent.
 
-This unit follows possessives, where learners managed a base or noun plus an ending. It now asks them to coordinate several spoken and meaningful parts in one word, preparing for the context-based choices in the next homophone lesson and for longer academic vocabulary in Grade 4.
+This unit follows possessives, where learners managed a base or noun plus an ending. It now asks them to coordinate several spoken and meaningful parts in one word, preparing for the context-based choices in the next homophone lesson and for longer academic vocabulary in 4th Grade.
 
 ### How to practice this list
 

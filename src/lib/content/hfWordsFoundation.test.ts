@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { canonicalGradeRoutes } from './canonicalGradeRoutes';
+import { gradeConfig } from './gradeConfig';
 import { FROZEN_HF_WORDS_CURRICULUM, HF_WORDS_SET_IDS_BY_GRADE } from './hfWordsCurriculum';
 import { getHighFrequencyNeighbors } from './hfWordsSequence';
 
@@ -35,7 +36,7 @@ describe('High-Frequency Words editorial foundation', () => {
   it('uses canonical public names and HFW descriptions in every file', () => {
     for (const set of curriculumSets) {
       const markdown = readFileSync(new URL(`${set.id}.md`, contentDirectory), 'utf8');
-      const gradeLabel = set.grade === 'K' ? 'Kindergarten' : `Grade ${set.grade}`;
+      const gradeLabel = gradeConfig.find((g) => g.grade === set.grade)?.label;
       expect(markdown).toContain(`title: "${gradeLabel} High-Frequency Words — Set ${set.setNumber}"`);
       expect(markdown.toLowerCase()).toContain('description: "');
       expect(markdown.toLowerCase()).toContain('high-frequency words');

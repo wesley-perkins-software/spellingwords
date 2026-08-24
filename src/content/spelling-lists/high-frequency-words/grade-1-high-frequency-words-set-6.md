@@ -1,9 +1,9 @@
 ---
 id: grade-1-high-frequency-words-set-6
 urlSlug: grade-1-high-frequency-words-set-6
-title: "Grade 1 High-Frequency Words — Set 6"
-description: "Grade 1 High-Frequency Words — Set 6 compares silent-e words, the vowel teams in may and need, and consonant endings such as st, ng, and ll."
-shortAnswer: "Grade 1 Set 6 uses silent e in more, love, and name, vowel teams in may and need, and familiar consonant endings in most, long, last, and still."
+title: "1st Grade High-Frequency Words — Set 6"
+description: "1st Grade High-Frequency Words — Set 6 compares silent-e words, the vowel teams in may and need, and consonant endings such as st, ng, and ll."
+shortAnswer: "1st Grade Set 6 uses silent e in more, love, and name, vowel teams in may and need, and familiar consonant endings in most, long, last, and still."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: '1'
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: 'Hybrid editorial'
-  tier: 'Grade 1 high-frequency words'
+  tier: '1st Grade high-frequency words'
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

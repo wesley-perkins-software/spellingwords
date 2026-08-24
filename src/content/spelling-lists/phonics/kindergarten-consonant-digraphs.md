@@ -46,4 +46,4 @@ Say a word without showing it and ask which digraph is heard. Have your child sa
 
 Writing only one letter of a digraph is a normal early error: the child may hear one sound but not yet remember that its spelling needs two letters. Point to a known example, say the pair together, and let the child repair it. If the digraph is secure but the vowel or another consonant changes, listen to that part separately rather than reteaching the pair.
 
-When a child can spell these words in mixed order, preserve both letters of the target digraph while spelling the rest of the word, and correct an occasional omission after comparing with a known example, they are ready for the Grade 1 CVC and C/K Rule unit that follows in the Core sequence.
+When a child can spell these words in mixed order, preserve both letters of the target digraph while spelling the rest of the word, and correct an occasional omission after comparing with a known example, they are ready for the 1st Grade CVC and C/K Rule unit that follows in the Core sequence.

@@ -1,9 +1,9 @@
 ---
 id: grade-2-high-frequency-words-set-3
 urlSlug: grade-2-high-frequency-words-set-3
-title: "Grade 2 High-Frequency Words — Set 3"
-description: "Grade 2 High-Frequency Words — Set 3 uses silent e, vowel teams, endings, and useful chunks in words such as before, goes, story, great, between, made, and found."
-shortAnswer: "Grade 2 Set 3 connects silent-e words, vowel teams, and familiar endings while giving extra attention to the spellings of goes, word, great, and its."
+title: "2nd Grade High-Frequency Words — Set 3"
+description: "2nd Grade High-Frequency Words — Set 3 uses silent e, vowel teams, endings, and useful chunks in words such as before, goes, story, great, between, made, and found."
+shortAnswer: "2nd Grade Set 3 connects silent-e words, vowel teams, and familiar endings while giving extra attention to the spellings of goes, word, great, and its."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "2"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 2 high-frequency words"
+  tier: "2nd Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

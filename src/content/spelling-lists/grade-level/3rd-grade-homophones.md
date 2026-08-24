@@ -2,7 +2,7 @@
 id: grade-3-homophones
 urlSlug: 3rd-grade-homophones
 title: "Homophones and Commonly Confused Words"
-description: "A Grade 3 homophones list with commonly confused words that sound alike but have different spellings and meanings."
+description: "A 3rd Grade homophones list with commonly confused words that sound alike but have different spellings and meanings."
 shortAnswer: "Third graders practice homophones and commonly confused words so they can choose the spelling that matches the meaning of the sentence."
 contentRole: grade-unit
 skillIds: ["homophones"]
@@ -42,7 +42,7 @@ words:
   - herd
 ---
 
-Homophones are words that sound alike but have different meanings and spellings. Because sound alone cannot select the right member of a pair, this Grade 3 list practices making the choice inside a sentence.
+Homophones are words that sound alike but have different meanings and spellings. Because sound alone cannot select the right member of a pair, this 3rd Grade list practices making the choice inside a sentence.
 
 The list moves beyond simple pairs. *There/their/they're* requires a three-way choice, while *your/you're* and *its/it's* contrast a possessive form with a contraction. Expanding *they're, you're,* or *it's* reveals *they are, you are,* or *it is*. The remaining pairs—*right/write, new/knew, where/wear,* and *heard/herd*—show that sentence meaning is also necessary when neither word is a contraction.
 

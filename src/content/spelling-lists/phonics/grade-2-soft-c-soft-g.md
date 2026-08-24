@@ -27,10 +27,10 @@ readinessSignals:
 faq:
   - question: "What is the rule for soft c and soft g?"
     answer: "When c or g is followed by e, i, or y, it usually takes its soft sound: c says /s/ (city, ice) and g says /j/ (page, gem). Followed by a, o, u, or another consonant, they usually keep their hard sounds, as in cat and game."
-  - question: "How is this different from the c/k/ck lesson from Grade 1?"
-    answer: "The Grade 1 lesson taught how to spell the /k/ sound with c, k, or ck. This lesson teaches the opposite direction: what sound the letter c makes once it is already written, depending on the letter that follows it. The same applies to g."
-  - question: "Does this connect to the -dge ending from Grade 1?"
-    answer: "Yes. Words like bridge and edge use dge instead of a plain g for the /j/ sound after a short vowel — a related but separate pattern already taught in Grade 1. This lesson focuses on soft g in longer, more typical positions, like page and large."
+  - question: "How is this different from the c/k/ck lesson from 1st Grade?"
+    answer: "The 1st Grade lesson taught how to spell the /k/ sound with c, k, or ck. This lesson teaches the opposite direction: what sound the letter c makes once it is already written, depending on the letter that follows it. The same applies to g."
+  - question: "Does this connect to the -dge ending from 1st Grade?"
+    answer: "Yes. Words like bridge and edge use dge instead of a plain g for the /j/ sound after a short vowel — a related but separate pattern already taught in 1st Grade. This lesson focuses on soft g in longer, more typical positions, like page and large."
   - question: "Why are large and change on this list instead of a separate g-only list?"
     answer: "Practicing soft c and soft g together, in the same lesson, helps children apply one shared idea — the letter after c or g controls the sound — to two letters at once, instead of learning two unrelated rules."
 words:

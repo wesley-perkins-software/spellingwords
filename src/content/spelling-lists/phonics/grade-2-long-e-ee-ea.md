@@ -2,8 +2,8 @@
 id: grade-2-long-e-ee-ea
 urlSlug: grade-2-long-e-ee-ea
 title: 'Long E Vowel Teams: EE and EA'
-description: 'A focused Grade 2 practice list contrasting EE and EA as spellings for long e in familiar one-syllable words.'
-shortAnswer: 'Second graders practice two common ways to spell long e: EE in words such as feet and sleep, and EA in words such as team and beach. This familiar sound prepares them for more complex Grade 2 vowel patterns.'
+description: 'A focused 2nd Grade practice list contrasting EE and EA as spellings for long e in familiar one-syllable words.'
+shortAnswer: 'Second graders practice two common ways to spell long e: EE in words such as feet and sleep, and EA in words such as team and beach. This familiar sound prepares them for more complex 2nd Grade vowel patterns.'
 category: phonics
 grade: '2'
 difficulty: developing
@@ -21,7 +21,7 @@ prerequisiteLists: []
 nextLists: []
 featured: false
 readinessSignals:
-  - 'can spell familiar long-vowel words from Grade 1'
+  - 'can spell familiar long-vowel words from 1st Grade'
   - 'can hear the same long-e sound in “tree” and “beach” while noticing their different spellings'
   - 'can read familiar ee and ea words on sight, even if spelling a new one correctly is still inconsistent'
 faq: []

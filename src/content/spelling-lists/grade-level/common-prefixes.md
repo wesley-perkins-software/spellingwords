@@ -35,7 +35,7 @@ words:
   - antifreeze
 ---
 
-[Un- and Re- Prefixes](/skills/un-and-re-prefixes) covers the foundational prefix pattern: a word part added to the front of a base word, without changing that base word's spelling. This page builds on that pattern with a wider set of prefixes that Grade 3 and Grade 4 students meet in longer, more academic words: *pre-*, *dis-*, *mis-*, *inter-*, *sub-*, *super-*, *trans-*, and *anti-*.
+[Un- and Re- Prefixes](/skills/un-and-re-prefixes) covers the foundational prefix pattern: a word part added to the front of a base word, without changing that base word's spelling. This page builds on that pattern with a wider set of prefixes that 3rd Grade and 4th Grade students meet in longer, more academic words: *pre-*, *dis-*, *mis-*, *inter-*, *sub-*, *super-*, *trans-*, and *anti-*.
 
 ### Prefixes that attach to a whole base word
 

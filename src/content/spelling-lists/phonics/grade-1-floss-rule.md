@@ -2,8 +2,8 @@
 id: grade-1-floss-rule
 urlSlug: 1st-grade-floss-rule
 title: "The Floss Rule"
-description: 'Ten Grade 1 words that practice doubled f, l, s, and z after a short vowel in many one-syllable words.'
-shortAnswer: 'The FLOSS Rule is a useful Grade 1 generalization: many one-syllable words with one short vowel end with doubled f, l, s, or z, even though the doubled letters represent one final sound.'
+description: 'Ten 1st Grade words that practice doubled f, l, s, and z after a short vowel in many one-syllable words.'
+shortAnswer: 'The FLOSS Rule is a useful 1st Grade generalization: many one-syllable words with one short vowel end with doubled f, l, s, or z, even though the doubled letters represent one final sound.'
 contentRole: grade-unit
 skillIds: ["ck-tch-dge-word-endings"]
 category: phonics

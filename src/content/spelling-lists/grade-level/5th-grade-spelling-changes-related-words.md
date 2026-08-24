@@ -23,14 +23,14 @@ readinessSignals:
   - "notice that related words such as magic and magician share a spelling even when a sound shifts from /k/ to /sh/"
   - "are ready to reason about a whole word family's spelling rather than sounding out one word at a time"
 faq:
-  - question: "How is this different from Derived Words and Word Meaning in Grade 4?"
-    answer: "Grade 4's Derived Words and Word Meaning introduces recognizable spelling across related forms. This list continues with denser families, adds a changed join in athlete/athletic, and includes written c before -ian where pronunciation changes, as in music/musician."
+  - question: "How is this different from Derived Words and Word Meaning in 4th Grade?"
+    answer: "4th Grade's Derived Words and Word Meaning introduces recognizable spelling across related forms. This list continues with denser families, adds a changed join in athlete/athletic, and includes written c before -ian where pronunciation changes, as in music/musician."
   - question: "How is this different from the Greek and Latin Word Parts list?"
-    answer: "Greek and Latin Word Parts teaches recurring word parts, such as photo or graph, that appear inside many unrelated words. Spelling Changes in Related Words studies one base word at a time and traces its own family of related forms, the way Grade 4's Derived Words and Word Meaning did."
+    answer: "Greek and Latin Word Parts teaches recurring word parts, such as photo or graph, that appear inside many unrelated words. Spelling Changes in Related Words studies one base word at a time and traces its own family of related forms, the way 4th Grade's Derived Words and Word Meaning did."
   - question: "Why does the ending -ician sometimes surprise students?"
     answer: "In magician, musician, and electrician, the written c remains recognizable before -ian even though its pronunciation changes. Comparing each word with magic, music, or electric helps a learner retain that family spelling instead of relying on sound alone."
-  - question: "Why does this close the Grade 5 Core Spelling sequence?"
-    answer: "By the end of Grade 5, students have already practiced roots, affixes, and an accuracy check with Commonly Confused Words. This list asks them to bring all of that together — using meaning and word-family knowledge, not sound alone — which is the same integrated word-study skill middle school reading and writing will keep building on."
+  - question: "Why does this close the 5th Grade Core Spelling sequence?"
+    answer: "By the end of 5th Grade, students have already practiced roots, affixes, and an accuracy check with Commonly Confused Words. This list asks them to bring all of that together — using meaning and word-family knowledge, not sound alone — which is the same integrated word-study skill middle school reading and writing will keep building on."
 featured: false
 words:
   - critic
@@ -49,7 +49,7 @@ words:
 
 These words form five related families: *critic/critical/criticism*, *athlete/athletic/athleticism*, *magic/magician*, *music/musician*, and *electric/electrician*. Related words often preserve a recognizable family spelling, but pronunciation and the suffix join may change. The family relationship gives a learner useful evidence; it is not a promise that every letter in the complete base will always remain unchanged.
 
-*Critic, critical,* and *criticism* retain the recognizable spelling *critic* across all three forms. In the *athlete* family, the final *e* drops when *-ic* is added to make *athletic* and remains absent in *athleticism*. In *magic/magician*, *music/musician,* and *electric/electrician*, the written *c* remains recognizable even though its pronunciation changes before *-ian*. This extends Grade 4 related-word work by requiring students to inspect both shared family letters and the join.
+*Critic, critical,* and *criticism* retain the recognizable spelling *critic* across all three forms. In the *athlete* family, the final *e* drops when *-ic* is added to make *athletic* and remains absent in *athleticism*. In *magic/magician*, *music/musician,* and *electric/electrician*, the written *c* remains recognizable even though its pronunciation changes before *-ian*. This extends 4th Grade related-word work by requiring students to inspect both shared family letters and the join.
 
 ### How to practice this list
 

@@ -1,9 +1,9 @@
 ---
 id: grade-3-high-frequency-words-set-2
 urlSlug: grade-3-high-frequency-words-set-2
-title: "Grade 3 High-Frequency Words — Set 2"
-description: "Grade 3 High-Frequency Words — Set 2 connects thought and brought through ought, contrasts caught with aught, and organizes shorter words with doubled consonants, recognizable parts, and stable written chunks."
-shortAnswer: "Grade 3 Set 2 compares the ought and aught families, keeps doubled consonants in across and better, and uses meaningful or stable parts to secure subject, already, below, and toward."
+title: "3rd Grade High-Frequency Words — Set 2"
+description: "3rd Grade High-Frequency Words — Set 2 connects thought and brought through ought, contrasts caught with aught, and organizes shorter words with doubled consonants, recognizable parts, and stable written chunks."
+shortAnswer: "3rd Grade Set 2 compares the ought and aught families, keeps doubled consonants in across and better, and uses meaningful or stable parts to secure subject, already, below, and toward."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "3"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 3 high-frequency words"
+  tier: "3rd Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

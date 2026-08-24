@@ -3,8 +3,8 @@ id: grade-1-long-vowels-silent-e
 urlSlug: 1st-grade-long-vowels-silent-e
 contentRole: grade-unit
 title: "Long Vowels with Silent e (VCe)"
-description: 'Twelve Grade 1 VCe words that practice long a, i, o, and u with a final silent e.'
-shortAnswer: 'In many vowel-consonant-e words, the final e is silent and signals a long vowel sound; this Grade 1 unit practices the common long-a, long-i, long-o, and long-u forms.'
+description: 'Twelve 1st Grade VCe words that practice long a, i, o, and u with a final silent e.'
+shortAnswer: 'In many vowel-consonant-e words, the final e is silent and signals a long vowel sound; this 1st Grade unit practices the common long-a, long-i, long-o, and long-u forms.'
 category: phonics
 grade: "1"
 difficulty: beginner
@@ -39,7 +39,7 @@ words:
   - cute
 ---
 
-This list pairs common long-vowel spellings across four productive Grade 1 VCe groups: long **a** in *cake*, *make*, and *name*; long **i** in *bike*, *ride*, and *time*; long **o** in *rope*, *home*, and *bone*; and long **u** in *cube*, *mule*, and *cute*. Long **e** is not included because this final-**e** pattern is uncommon for that vowel.
+This list pairs common long-vowel spellings across four productive 1st Grade VCe groups: long **a** in *cake*, *make*, and *name*; long **i** in *bike*, *ride*, and *time*; long **o** in *rope*, *home*, and *bone*; and long **u** in *cube*, *mule*, and *cute*. Long **e** is not included because this final-**e** pattern is uncommon for that vowel.
 
 The unit follows short-vowel and blend work so children can compare complete word structures rather than focus on the vowel alone. In many VCe words, the final **e** is not pronounced as a separate sound but helps signal that the earlier vowel is long. This is a useful pattern, not a rule for every word ending in **e**. Long **u** also varies by word and accent: some speakers hear /yoo/ and others /oo/ in words of this type; both pronunciations can belong with the same written pattern.
 

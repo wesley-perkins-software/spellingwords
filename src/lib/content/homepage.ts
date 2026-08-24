@@ -102,7 +102,7 @@ export const HOMEPAGE_STRANDS = [
  */
 export const HOMEPAGE_PROGRESSION_STAGES = [
   {
-    grades: 'Kindergarten–Grade 1',
+    grades: 'Kindergarten–1st Grade',
     label: 'Foundation',
     description:
       'Matching sounds to letters, spelling simple one-syllable words, short vowels, consonant patterns, and the first long-vowel spellings.',

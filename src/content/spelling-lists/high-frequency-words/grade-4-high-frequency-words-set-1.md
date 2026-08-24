@@ -1,9 +1,9 @@
 ---
 id: grade-4-high-frequency-words-set-1
 urlSlug: grade-4-high-frequency-words-set-1
-title: "Grade 4 High-Frequency Words — Set 1"
-description: "Grade 4 High-Frequency Words — Set 1 uses meaningful parts in understand, happened, and known, then secures less clearly heard vowels and stable letter sequences in important, possible, general, and several."
-shortAnswer: "Grade 4 Set 1 connects words to bases and endings where they help, while using syllables and written chunks to protect the spellings of straight, example, idea, quite, and other less transparent words."
+title: "4th Grade High-Frequency Words — Set 1"
+description: "4th Grade High-Frequency Words — Set 1 uses meaningful parts in understand, happened, and known, then secures less clearly heard vowels and stable letter sequences in important, possible, general, and several."
+shortAnswer: "4th Grade Set 1 connects words to bases and endings where they help, while using syllables and written chunks to protect the spellings of straight, example, idea, quite, and other less transparent words."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "4"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 4 high-frequency words"
+  tier: "4th Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

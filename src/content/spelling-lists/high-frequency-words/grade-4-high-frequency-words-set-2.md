@@ -1,9 +1,9 @@
 ---
 id: grade-4-high-frequency-words-set-2
 urlSlug: grade-4-high-frequency-words-set-2
-title: "Grade 4 High-Frequency Words — Set 2"
-description: "Grade 4 High-Frequency Words — Set 2 connects within and however to familiar words, uses the base write in written, and distinguishes whether and whole from sound-alike spellings."
-shortAnswer: "Grade 4 Set 2 uses compounds, a base-and-ending relationship, doubled consonants, and stable vowel chunks to secure whether, though, written, common, reason, course, and the rest of the set."
+title: "4th Grade High-Frequency Words — Set 2"
+description: "4th Grade High-Frequency Words — Set 2 connects within and however to familiar words, uses the base write in written, and distinguishes whether and whole from sound-alike spellings."
+shortAnswer: "4th Grade Set 2 uses compounds, a base-and-ending relationship, doubled consonants, and stable vowel chunks to secure whether, though, written, common, reason, course, and the rest of the set."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "4"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 4 high-frequency words"
+  tier: "4th Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

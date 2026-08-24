@@ -48,7 +48,7 @@ words:
   - antibiotic
 ---
 
-These words extend Grade 3 prefix work with five beginnings found in longer Grade 4 words: *inter-*, *sub-*, *super-*, *trans-*, and *anti-*. The prefix is a dependable spelling anchor. Meaning can help confirm whether the intended word begins with the idea of between, under, above, across, or against, but the spelling task is to write that prefix accurately and preserve the letters that follow it.
+These words extend 3rd Grade prefix work with five beginnings found in longer 4th Grade words: *inter-*, *sub-*, *super-*, *trans-*, and *anti-*. The prefix is a dependable spelling anchor. Meaning can help confirm whether the intended word begins with the idea of between, under, above, across, or against, but the spelling task is to write that prefix accurately and preserve the letters that follow it.
 
 Some words separate into familiar written parts: *inter + act*, *sub + way*, *super + star*, *trans + plant/form/port*, and *anti + freeze*. In *intermission*, *international*, *submarine*, *supervise*, and *antibiotic*, the letters after the prefix are still worth preserving and checking even though the remainder is not necessarily a familiar standalone modern English word. Removing a prefix does not always leave a word that can be used by itself.
 

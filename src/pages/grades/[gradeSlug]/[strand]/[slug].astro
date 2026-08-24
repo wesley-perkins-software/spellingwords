@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { getCanonicalGradeRoutes, getCanonicalGradeRouteByPath, getCanonicalListPath, getGradeHubPath, getGradeStrandPath } from '@/lib/content/canonicalGradeRoutes';
+import { getCanonicalGradeRoutes, getCanonicalGradeRouteByPath, getCanonicalListPath, getGradeHubPath, getGradeStrandPath, GRADE_STRANDS } from '@/lib/content/canonicalGradeRoutes';
 import Layout from '@/layouts/Layout.astro';
 import { getCanonicalUrl } from '@/lib/canonicalUrl';
 import SiteHeader from '@/components/SiteHeader.astro';
@@ -15,8 +15,6 @@ import {
 } from '@/lib/content/spellingLists';
 import { getNonCoreNavigationModel } from '@/lib/content/nonCoreNavigation';
 import { resolveGradeUnitPracticeSource } from '@/lib/content/practiceSource';
-import { categoryLabels } from '@/lib/content/categoryMeta';
-import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 import GradeUnitView from '@/components/direction-a/GradeUnitView.astro';
 
@@ -68,11 +66,7 @@ const practiceSource = resolveGradeUnitPracticeSource({
   gradeById: (id) => allEntries.find((e) => e.data.id === id)?.data.grade,
 });
 
-const categoryLabel = isHighFrequencyWords
-  ? 'High-Frequency Words'
-  : isThemedSpellingPractice
-    ? 'Themed Spelling Practice'
-    : categoryLabels[data.category] ?? data.category;
+const categoryLabel = GRADE_STRANDS[route.classification].label;
 const gradeHubForBreadcrumb = gradeConfig.find((g) => g.grade === route.grade);
 if (!gradeHubForBreadcrumb) throw new Error(`No grade hub for grade ${route.grade}`);
 const breadcrumbItems = [
@@ -111,16 +105,11 @@ const faqJsonLd =
 
 const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
 
-const gradeDisplay = data.grade ? (data.grade === 'K' ? 'Kindergarten' : `Grade ${data.grade}`) : null;
+const gradeDisplay = gradeHubForBreadcrumb.label;
 
-// A Grade Unit adopts the sequencing-page presentation (roadmap step, word
-// sentences, Skill callout cards) only once it declares at least one
-// canonical Skill.
+// A Grade Unit adopts the sequencing-page presentation (word sentences,
+// Skill callout cards) only once it declares at least one canonical Skill.
 const isContractUnit = data.contentRole === 'grade-unit' && data.skillIds.length > 0;
-
-// "Kindergarten Spelling · Step N of M" context for core-progression Grade Units.
-const roadmapPosition = isContractUnit ? getKindergartenRoadmapPosition(data.id) : undefined;
-const gradeHub = gradeConfig.find((g) => g.grade === data.grade);
 
 // Grade Unit → its canonical reusable Skill(s) ("Go deeper"). Zero, one, or
 // several — a mixed-review unit may declare more than one.
@@ -180,8 +169,6 @@ const relatedGroups = isHighFrequencyWords
       strandLabel={categoryLabel}
       grade={data.grade}
       gradeLabel={gradeDisplay}
-      roadmapPosition={roadmapPosition}
-      gradeHubHref={gradeHub?.hubHref}
       playWords={playWords}
       playWordsJson={playWordsJson}
       practiceSource={practiceSource}

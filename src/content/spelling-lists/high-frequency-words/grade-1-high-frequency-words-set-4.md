@@ -1,9 +1,9 @@
 ---
 id: grade-1-high-frequency-words-set-4
 urlSlug: grade-1-high-frequency-words-set-4
-title: "Grade 1 High-Frequency Words — Set 4"
-description: "Grade 1 High-Frequency Words — Set 4 compares ew, ay, and ow in new, way, and now, uses silent e in time, and gives focused attention to where, your, and give."
-shortAnswer: "Grade 1 Set 4 contrasts the vowel spellings in new, way, and now, applies silent e in time, and marks the less expected parts of where, your, and give."
+title: "1st Grade High-Frequency Words — Set 4"
+description: "1st Grade High-Frequency Words — Set 4 compares ew, ay, and ow in new, way, and now, uses silent e in time, and gives focused attention to where, your, and give."
+shortAnswer: "1st Grade Set 4 contrasts the vowel spellings in new, way, and now, applies silent e in time, and marks the less expected parts of where, your, and give."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: '1'
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: 'Hybrid editorial'
-  tier: 'Grade 1 high-frequency words'
+  tier: '1st Grade high-frequency words'
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

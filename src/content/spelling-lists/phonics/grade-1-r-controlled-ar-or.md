@@ -2,8 +2,8 @@
 id: grade-1-r-controlled-ar-or
 urlSlug: 1st-grade-r-controlled-ar-or
 title: "R-Controlled Vowels: ar / or"
-description: 'Twelve Grade 1 words that practice the common r-controlled vowel spellings ar and or across varied consonant contexts.'
-shortAnswer: 'This Grade 1 unit practices ar and or, two common spellings in which a vowel followed by r has a sound different from its usual short or long sound; pronunciation may vary by accent.'
+description: 'Twelve 1st Grade words that practice the common r-controlled vowel spellings ar and or across varied consonant contexts.'
+shortAnswer: 'This 1st Grade unit practices ar and or, two common spellings in which a vowel followed by r has a sound different from its usual short or long sound; pronunciation may vary by accent.'
 contentRole: grade-unit
 category: phonics
 grade: "1"

@@ -24,7 +24,7 @@ readinessSignals:
   - "understand that some confusing words sound alike while others are confused because they look similar or are used in similar contexts"
   - "use academic and narrative writing often enough for word-choice errors to affect clarity"
 faq:
-  - question: "Why does this list review some Grade 3 words?"
+  - question: "Why does this list review some 3rd Grade words?"
     answer: "Words such as there, their, they're, its, and it's continue to cause errors in longer fourth-grade writing. Reviewing them alongside than, then, accept, except, affect, effect, principal, and principle helps students apply the same meaning-based thinking."
   - question: "Are commonly confused words always homophones?"
     answer: "No. Some sound alike, but others are confused because they look similar or appear in similar kinds of sentences. Fourth graders need to compare both spelling and meaning."
@@ -49,7 +49,7 @@ words:
   - principle
 ---
 
-These thirteen words form six contrasts that continue to cause errors in longer Grade 4 writing: *there/their/they’re*, *its/it’s*, *than/then*, *accept/except*, *affect/effect*, and *principal/principle*. Some sound alike; others look similar or occur in similar sentences. In every group, sentence meaning identifies the intended word, and then the student must spell that word accurately.
+These thirteen words form six contrasts that continue to cause errors in longer 4th Grade writing: *there/their/they’re*, *its/it’s*, *than/then*, *accept/except*, *affect/effect*, and *principal/principle*. Some sound alike; others look similar or occur in similar sentences. In every group, sentence meaning identifies the intended word, and then the student must spell that word accurately.
 
 Keep two kinds of error separate. A **selection error** happens when a learner writes a real word correctly but chooses the wrong member, such as *their* for *there*. A **spelling error** happens when the intended member is clear but its letters are wrong. The first calls for a quick meaning check; the second calls for focused spelling correction.
 

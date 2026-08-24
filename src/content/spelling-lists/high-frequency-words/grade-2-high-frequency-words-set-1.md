@@ -1,9 +1,9 @@
 ---
 id: grade-2-high-frequency-words-set-1
 urlSlug: grade-2-high-frequency-words-set-1
-title: "Grade 2 High-Frequency Words — Set 1"
-description: "Grade 2 High-Frequency Words — Set 1 connects any with many, could with would, and there with their while using silent letters and useful chunks in longer words."
-shortAnswer: "Grade 2 Set 1 groups the shared spellings in any and many and in could and would, distinguishes there from their, and uses chunks to secure longer words such as every, people, and going."
+title: "2nd Grade High-Frequency Words — Set 1"
+description: "2nd Grade High-Frequency Words — Set 1 connects any with many, could with would, and there with their while using silent letters and useful chunks in longer words."
+shortAnswer: "2nd Grade Set 1 groups the shared spellings in any and many and in could and would, distinguishes there from their, and uses chunks to secure longer words such as every, people, and going."
 contentRole: high-frequency-word-set
 category: high-frequency-words
 grade: "2"
@@ -17,7 +17,7 @@ masteryThreshold: 90
 sourceType: curated
 canonicalSource:
   name: "Hybrid editorial"
-  tier: "Grade 2 high-frequency words"
+  tier: "2nd Grade high-frequency words"
 relatedLists: []
 prerequisiteLists: []
 nextLists: []

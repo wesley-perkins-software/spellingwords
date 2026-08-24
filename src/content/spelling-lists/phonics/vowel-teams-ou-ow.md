@@ -31,7 +31,7 @@ faq:
     answer: "There is no rule as dependable as AI/AY or OI/OY. OW often appears at the end, but both spellings can appear in the middle of words, so common examples need repeated practice."
   - question: "How is this OW different from the OW in 'snow'?"
     answer: "The same letters can spell different sounds. In 'snow,' OW spells long O; in 'cow' and 'down,' OW spells the OU/OW diphthong."
-  - question: "What comes after OU/OW in the Grade 2 sequence?"
+  - question: "What comes after OU/OW in the 2nd Grade sequence?"
     answer: "The Two Sounds of oo, another vowel team that does not follow a simple position rule. OU/OW gives students practice noticing that one team can spell one sound two different ways before oo teaches that one spelling can make two different sounds."
 words:
   - brown

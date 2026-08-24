@@ -85,7 +85,7 @@ export const grade2Badges: Record<string, string> = {
 // `skillIds` (`grade-2-two-syllable-words`, `grade-2-silent-letter-words`,
 // `grade-2-soft-c-soft-g`, `vowel-teams-oi-oy`, `vowel-teams-ou-ow`,
 // `grade-2-oo-two-sounds`, `grade-2-au-aw-words`), so each correctly gets the
-// "Go deeper" Skill callout and shows example sentences in its word list, but
+// "Spelling Skill" reference callout and shows example sentences in its word list, but
 // none will show a step badge, and their Skills' reverse "Where this fits"
 // lookup will show "Grade 2" with no step count for that placement. This is a
 // pre-existing single-grade limitation, not something introduced by Grade 2 —

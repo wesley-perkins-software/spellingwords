@@ -61,10 +61,11 @@ const spellingLists = defineCollection({
       ])
       .optional(),
     // For grade-units only: stable ids of the reusable Skills this unit
-    // teaches (zero, one, or several). Powers the unit's "Go deeper" callout
-    // card(s) and each Skill's reverse-lookup "Where this fits in the
-    // curriculum" section (a Skill's placements are computed from this field
-    // on every grade-unit entry, never stored on the Skill itself).
+    // teaches (zero, one, or several). Powers the unit's "Spelling Skill"
+    // reference callout(s) and each Skill's reverse-lookup "Where this fits
+    // in the curriculum" section (a Skill's placements are computed from
+    // this field on every grade-unit entry, never stored on the Skill
+    // itself).
     skillIds: z.array(z.string()).default([]),
     category,
     grade: z.string().optional(),

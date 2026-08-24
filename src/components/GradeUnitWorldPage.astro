@@ -21,7 +21,6 @@ import {
 } from '@/lib/content/spellingLists';
 import { getCoreNavigationModel } from '@/lib/content/navigationSequence';
 import { resolveGradeUnitPracticeSource } from '@/lib/content/practiceSource';
-import { categoryLabels } from '@/lib/content/categoryMeta';
 import { getKindergartenRoadmapPosition } from '@/lib/content/kindergartenProgression';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 import {
@@ -74,8 +73,8 @@ const words = data.words.map((w) => (typeof w === 'string' ? w : w.word));
 
 const roadmapPosition = getKindergartenRoadmapPosition(data.id);
 const gradeHub = gradeConfig.find((g) => g.grade === data.grade);
-const gradeLabel = data.grade === 'K' ? 'Kindergarten' : data.grade ? `Grade ${data.grade}` : null;
-const categoryLabel = categoryLabels[data.category] ?? data.category;
+const gradeLabel = gradeHub?.label ?? null;
+const categoryLabel = GRADE_STRANDS['core-spelling'].label;
 
 function listLink(e: (typeof entries)[number]) {
   return getCanonicalListPath(e.data);

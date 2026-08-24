@@ -55,6 +55,13 @@ export interface SpeechOptions {
   onStart?: () => void;
   /** Called when this utterance ends, is cancelled, or errors — always fired at most once per speakWord() call. */
   onEnd?: () => void;
+  /**
+   * Diagnostic hook: called synchronously with the voice actually assigned to
+   * `utterance.voice` (explicit or fallback-selected), before `speak()` is
+   * called. Not used by production UI — wired up only by the dev-only
+   * `VoiceDiagnosticsPanel.astro` investigation aid via `play.astro`.
+   */
+  onVoiceResolved?: (voice: SpeechSynthesisVoiceAdapter | null) => void;
 }
 
 export interface VoicePreferences {

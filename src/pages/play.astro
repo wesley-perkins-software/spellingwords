@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
+import VoiceDiagnosticsPanel from '@/components/VoiceDiagnosticsPanel.astro';
 ---
 
 <Layout
@@ -441,6 +442,8 @@ import SiteFooter from '@/components/SiteFooter.astro';
   <div id="site-footer">
     <SiteFooter />
   </div>
+
+  {import.meta.env.DEV && <VoiceDiagnosticsPanel />}
 </Layout>
 
 <script>
@@ -448,6 +451,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
   import { getSentenceBankEntry } from '@/lib/sentenceBank';
   import { createSpeechController, selectPreferredVoice } from '@/modules/speech';
   import type { SpeechSynthesisVoiceAdapter } from '@/modules/speech';
+  import { recordSpeechEvent } from '@/modules/speech/devDiagnostics';
   import {
     spellingTestReducer,
     createInitialState,
@@ -782,8 +786,19 @@ import SiteFooter from '@/components/SiteFooter.astro';
   // (see speechController.speakWord) — forcing the browser's arbitrary default
   // voice for any word spoken before the cache warms. Coercing to undefined lets
   // the controller fall back to a live selectPreferredVoice() call instead.
-  function speechOptions(onStart?: () => void, onEnd?: () => void) {
-    return { voice: selectedVoice ?? undefined, rate: currentRate, onStart, onEnd };
+  function speechOptions(label: string, text: string, onStart?: () => void, onEnd?: () => void) {
+    return {
+      voice: selectedVoice ?? undefined,
+      rate: currentRate,
+      onStart,
+      onEnd,
+      // Dev-only diagnostic hook — see src/modules/speech/devDiagnostics.ts.
+      // import.meta.env.DEV is statically replaced at build time, so this
+      // branch (and its import) is stripped entirely from production builds.
+      ...(import.meta.env.DEV
+        ? { onVoiceResolved: (voice: SpeechSynthesisVoiceAdapter | null) => recordSpeechEvent(label, text, voice) }
+        : {}),
+    };
   }
 
   function instructionForIndex(): string {
@@ -829,6 +844,8 @@ import SiteFooter from '@/components/SiteFooter.astro';
     const result = speech.speakWord(
       current.word,
       speechOptions(
+        'word',
+        current.word,
         () => btnRepeat.setAttribute('aria-pressed', 'true'),
         () => btnRepeat.setAttribute('aria-pressed', 'false'),
       ),
@@ -842,6 +859,8 @@ import SiteFooter from '@/components/SiteFooter.astro';
         speech.speakWord(
           current.exampleSentence!,
           speechOptions(
+            'sentence',
+            current.exampleSentence!,
             () => btnSentence.setAttribute('aria-pressed', 'true'),
             () => btnSentence.setAttribute('aria-pressed', 'false'),
           ),
@@ -1123,6 +1142,8 @@ import SiteFooter from '@/components/SiteFooter.astro';
       speech.speakWord(
         word,
         speechOptions(
+          'repeat-word',
+          word,
           () => btnRepeat.setAttribute('aria-pressed', 'true'),
           () => btnRepeat.setAttribute('aria-pressed', 'false'),
         ),
@@ -1139,6 +1160,8 @@ import SiteFooter from '@/components/SiteFooter.astro';
       speech.speakWord(
         sentence,
         speechOptions(
+          'repeat-sentence',
+          sentence,
           () => btnSentence.setAttribute('aria-pressed', 'true'),
           () => btnSentence.setAttribute('aria-pressed', 'false'),
         ),

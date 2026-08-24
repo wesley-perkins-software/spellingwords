@@ -62,6 +62,7 @@ export function createSpeechController(
       const voices = getAvailableVoices(synthesis);
       utterance.voice = selectPreferredVoice(voices) ?? null;
     }
+    options?.onVoiceResolved?.(utterance.voice);
 
     if (options?.onStart || options?.onEnd) {
       utterance.onstart = options.onStart ?? null;

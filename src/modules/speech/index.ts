@@ -10,6 +10,7 @@ export type {
   SpeechSynthesisVoiceAdapter,
   VoicePreferences,
 } from './types.js';
+export type { RankedVoice } from './voiceSelection.js';
 
 export { createSpeechController } from './speechController.js';
-export { getAvailableVoices, loadVoices, selectPreferredVoice } from './voiceSelection.js';
+export { getAvailableVoices, loadVoices, rankVoices, selectPreferredVoice } from './voiceSelection.js';

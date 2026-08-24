@@ -24,7 +24,7 @@ const PRIORITY_VOICE_NAMES = [
 /** Name substrings that identify known low-quality synthesis engines. */
 const LOW_QUALITY_PATTERNS = ['espeak', 'festival', 'mbrola'];
 
-interface RankedVoice {
+export interface RankedVoice {
   voice: SpeechSynthesisVoiceAdapter;
   score: number;
   reasons: string[];
@@ -82,30 +82,15 @@ export function selectPreferredVoice(
 ): SpeechSynthesisVoiceAdapter | null {
   if (voices.length === 0) return null;
 
-  const langs = preferences?.langs ?? ['en-US'];
-  const preferredNames = preferences?.preferredNames ?? [];
-  const preferLocal = preferences?.preferLocal ?? true;
-
-  let bestVoice = voices[0];
-  let bestScore = scoreVoice(voices[0], langs, preferredNames, preferLocal);
-
-  for (let i = 1; i < voices.length; i++) {
-    const s = scoreVoice(voices[i], langs, preferredNames, preferLocal);
-    if (s > bestScore) {
-      bestScore = s;
-      bestVoice = voices[i];
-    }
-  }
+  const ranked = rankVoices(voices, preferences);
+  const bestVoice = ranked[0].voice;
 
   // Dev-mode diagnostics — stripped by bundler in production builds
   if (typeof import.meta !== 'undefined' && (import.meta as Record<string, unknown>).env &&
       ((import.meta as Record<string, { DEV?: boolean }>).env).DEV) {
-    const englishVoices = voices.filter((v) => v.lang.toLowerCase().startsWith('en'));
-    const ranked = englishVoices
-      .map((v) => scoreVoiceWithReasons(v, langs, preferredNames, preferLocal))
-      .sort((a, b) => b.score - a.score);
+    const englishRanked = ranked.filter((r) => r.voice.lang.toLowerCase().startsWith('en'));
     console.group('[VoiceSelection] ranked English voices');
-    ranked.forEach(({ voice, score, reasons }) => {
+    englishRanked.forEach(({ voice, score, reasons }) => {
       console.log(
         `  ${score.toString().padStart(4)}  ${voice.name} (${voice.lang})` +
         ` local=${voice.localService} default=${voice.default}` +
@@ -119,13 +104,24 @@ export function selectPreferredVoice(
   return bestVoice;
 }
 
-function scoreVoice(
-  voice: SpeechSynthesisVoiceAdapter,
-  langs: string[],
-  preferredNames: string[],
-  preferLocal: boolean,
-): number {
-  return scoreVoiceWithReasons(voice, langs, preferredNames, preferLocal).score;
+/**
+ * Scores and ranks every given voice against preferences, best first. Pure
+ * and side-effect free — the diagnostic panel (`VoiceDiagnosticsPanel.astro`,
+ * dev-only) reuses this directly so its displayed scores are guaranteed to
+ * match what `selectPreferredVoice()` actually does, rather than a
+ * hand-maintained duplicate of the scoring logic.
+ */
+export function rankVoices(
+  voices: SpeechSynthesisVoiceAdapter[],
+  preferences?: VoicePreferences,
+): RankedVoice[] {
+  const langs = preferences?.langs ?? ['en-US'];
+  const preferredNames = preferences?.preferredNames ?? [];
+  const preferLocal = preferences?.preferLocal ?? true;
+
+  return voices
+    .map((voice) => scoreVoiceWithReasons(voice, langs, preferredNames, preferLocal))
+    .sort((a, b) => b.score - a.score);
 }
 
 function scoreVoiceWithReasons(

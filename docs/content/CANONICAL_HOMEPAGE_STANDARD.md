@@ -1,18 +1,21 @@
 # Canonical Homepage Standard
 
-**Status:** Frozen production editorial and architecture authority. Revised following two approved
-reopening passes (see Source). Production conformance is pending; this standard does not itself
-authorize renderer, component, schema, or visual changes.
+**Status:** Frozen production editorial and architecture authority. Revised following three
+approved reopening passes (see Source). Production conformance is pending; this standard does not
+itself authorize renderer, component, schema, or visual changes.
 **Source:** Approved conclusions in `docs/content/CANONICAL_HOMEPAGE_STANDARD_RESEARCH.md`
 (v1 research plus the v2 adversarial stress-test pass, §24 of that document), as amended by the
 approved conclusions in `docs/content/CANONICAL_HOMEPAGE_STANDARD_RESEARCH_V2.md` (the reopening
-pass, §16 and §18 of that document), as further amended by the `## V3 Reopening Pass` section near
-the end of this document (approved by the site owner, adding four new owned sections — a strand
-explanation, a K–5 progression + U.S.-positioning statement, an audience section, and a homepage
-FAQ — and narrowing the anti-patterns and internal ownership rules that previously barred them).
-The V3 pass is recorded inline rather than as a fourth external research document, proportionate to
-its scope as one focused, already-approved content expansion rather than a new open research
-question. Where documents differ, the latest approved amendment governs.
+pass, §16 and §18 of that document), as further amended by the `## V3 Reopening Pass` section
+(approved by the site owner, adding four new owned sections — a strand explanation, a K–5
+progression + U.S.-positioning statement, an audience section, and a homepage FAQ — and narrowing
+the anti-patterns and internal ownership rules that previously barred them), as further amended by
+the `## V4 Reopening Pass` section near the end of this document (approved by the site owner,
+compressing three of those same four sections now that stronger canonical owners for their content
+exist elsewhere on the site). Each reopening pass is recorded inline rather than as a fourth-plus
+external research document, proportionate to its scope as one focused, already-approved content
+change rather than a new open research question. Where documents differ, the latest approved
+amendment governs.
 **Scope:** Exactly `/` (`src/pages/index.astro`), the single canonical homepage.
 **Does not govern:** the 6 Grade Hubs, the 18 Grade-Strand Gateways, the 105 Grade Unit/member
 pages, the Skills Hub, the 41 canonical Skill pages, the practice experience (`/play`), or visual
@@ -54,12 +57,11 @@ else on the page, with one stated exception:
 | Section | Owns (states once, here only) |
 |---|---|
 | Hero (Practice Your Own Words) | Product identity/scope statement (§4); free and no-account facts, stated once as an opening reassurance |
-| Browse by Grade | The three canonical curriculum strand *names*, bare, with no explanation (§5.2); the six per-grade curriculum-grounded teasers |
-| Curriculum-Organization *(added by the V3 reopening pass)* | The one place each strand is *explained* — a short definition plus a few real example concepts per strand (§5.2a) |
+| Browse by Grade | The three canonical curriculum strand *names*, bare, with no explanation (§5.2); the six per-grade curriculum-grounded teasers; the one teaser link to `/grades` ("See how spelling develops across K–5") that stands in for the former standalone Progression section (§5.4, superseded by the V4 reopening pass) |
+| Curriculum-Organization *(added by the V3 reopening pass, compressed by the V4 reopening pass)* | The one place each strand is named a second time, with a short one-clause role rather than a full definition and example list (§5.2a) — the full per-strand explanation now belongs solely to `/curriculum` |
 | Browse by Skill | The real Skill/family count; the representative Skill examples (§5.3) |
-| Progression *(added by the V3 reopening pass)* | The K–5 developmental-stage narrative and the U.S.-curriculum-positioning statement (§5.4) |
-| Audience *(added by the V3 reopening pass)* | Audience-segmented orientation for students/parents/teachers, and — relocated from the former standalone Closing section — the structured-organization claim and the free/no-account/no-gamification facts, stated once more as a closing reinforcement (§6) |
-| FAQ *(added by the V3 reopening pass)* | The homepage FAQ content and its `FAQPage` structured data (§5.5) |
+| Trust/Audience *(added by the V3 reopening pass as "Audience"; retitled and further compressed by the V4 reopening pass)* | One compact heading and closing paragraph carrying the structured-organization claim, the free/no-account/no-gamification facts, a brief audience mention, and a link to `/about` for the fuller per-audience orientation `/about` now owns (§6) |
+| FAQ *(added by the V3 reopening pass, trimmed by the V4 reopening pass)* | The homepage FAQ content (now 2 genuinely routing-level questions, not 4–6) and its `FAQPage` structured data (§5.5) |
 
 **Exception:** the free and no-account facts are the one pair of facts that **MAY** appear twice —
 once in the hero as an opening reassurance, once in the Audience section as a reinforcement
@@ -82,19 +84,26 @@ Every homepage implementation must provide:
 - the Practice Your Own Words interaction, hosted directly on the page, not merely linked (§5.1);
 - a Browse by Grade section exposing all six Grade Hubs, naming the three canonical curriculum
   strands once, bare, and giving each grade a short curriculum-grounded teaser (§5.2);
-- a Curriculum-Organization section explaining, exactly once, what Core Spelling, High-Frequency
-  Words, and Themed Spelling Practice each are, with a few real example concepts per strand (§5.2a)
-  *(added by the V3 reopening pass)*;
+- a Curriculum-Organization section naming, a second time, what Core Spelling, High-Frequency
+  Words, and Themed Spelling Practice each are, with a short one-clause role per strand rather than
+  a full definition (§5.2a) *(added by the V3 reopening pass; compressed by the V4 reopening pass,
+  which moved the full per-strand explanation to `/curriculum`)*;
 - a Browse by Skill section, coequal in document structure with Browse by Grade, routing to the
   Skills Hub, stating the real Skill count, and naming a small set of representative Skills
   spanning the K–5 range (§5.3);
-- a Progression section presenting a compact K–5 developmental-stage model and the
-  U.S.-curriculum-positioning statement (§5.4) *(added by the V3 reopening pass)*;
-- an Audience section with compact, non-duplicative orientation for students, parents, and
-  teachers, closing with the product's structured-organization claim and free/no-account/
-  no-gamification facts as supporting content (§6) *(added/relocated by the V3 reopening pass)*;
-- a homepage FAQ of 4–6 genuinely useful questions, with matching `FAQPage` structured data (§5.5)
-  *(added by the V3 reopening pass)*;
+- **no standalone Progression section** *(present under the V3 reopening pass; removed by the V4
+  reopening pass — `/grades` now owns the full K–5 developmental progression more thoroughly than
+  the homepage's compressed restatement did, and the one teaser link this section's job reduces to
+  ("See how spelling develops across K–5") already exists under Browse by Grade §5.2, so no second
+  occurrence is needed)*;
+- a compact Trust/Audience section carrying the product's structured-organization claim, the
+  free/no-account/no-gamification facts, and a brief audience mention, with a link to `/about` for
+  the fuller per-audience orientation (§6) *(added/relocated by the V3 reopening pass as "Audience";
+  further compressed by the V4 reopening pass, which moved the fuller per-audience copy to
+  `/about`)*;
+- a homepage FAQ of 2–6 genuinely useful questions, with matching `FAQPage` structured data (§5.5)
+  *(added by the V3 reopening pass at 4–6 questions; trimmed to 2 by the V4 reopening pass once the
+  four removed questions were found to duplicate deeper canonical pages)*;
 - standard metadata that accurately describes the visible page (§8);
 - structured data appropriate to the visible content (§8);
 - conformance to the section information-ownership hierarchy (§1): each required fact above stated
@@ -136,20 +145,22 @@ or Skills Hub content under this standard, because neither act explains, sequenc
 synthesizes what those names mean — it only tells a visitor the names exist, which is what makes
 the deeper Hub worth clicking.
 
-**Curriculum-Organization carve-out (added by the V3 reopening pass):** the narrow naming
-exception above is extended, once, to permit real but brief *explanation*: the homepage's
-Curriculum-Organization section (§5.2a) may state, exactly once, what each strand is (a short
-definition) and a few representative example concepts per strand. This carve-out exists because
-the site's earlier three-strand model asked visitors to click into a Grade Hub before learning
-what "Core Spelling," "High-Frequency Words," or "Themed Spelling Practice" even mean — feedback
-that visitors need enough strand context on the homepage itself to understand what they're
-browsing before committing to a click. This carve-out is deliberately narrow and does not reopen
-the rest of §3: the homepage still does not own unit-level strand sequencing, per-grade strand
-counts, the relationship *between* strands beyond bare listing order, the 12-family Skill
-taxonomy, or any individual Skill's description — all of that remains exclusively owned by the
-Grade Hub, Grade-Strand Gateways, and Skills Hub as stated above. A second strand explanation
-appearing anywhere else on the page (e.g., restated inside Browse by Grade or the Progression
-section) fails this standard even though the Curriculum-Organization section itself is permitted.
+**Curriculum-Organization carve-out (added by the V3 reopening pass; narrowed by the V4 reopening
+pass):** the narrow naming exception above is extended, once, to permit the homepage's
+Curriculum-Organization section (§5.2a) to name each strand a second time with a short one-clause
+role — not, as the V3 pass originally permitted, a full definition and example list. This carve-out
+originally existed because the site's earlier three-strand model asked visitors to click into a
+Grade Hub before learning what "Core Spelling," "High-Frequency Words," or "Themed Spelling
+Practice" even mean. `/curriculum` now closes that gap on its own, more thoroughly than a homepage
+section could without becoming exactly the "info-dump" this compression pass exists to avoid — so
+the homepage's job is reduced to orienting a visitor and linking onward, not fully explaining. This
+carve-out is deliberately narrow and does not reopen the rest of §3: the homepage still does not
+own unit-level strand sequencing, per-grade strand counts, the relationship *between* strands
+beyond bare listing order, the 12-family Skill taxonomy, or any individual Skill's description —
+all of that remains exclusively owned by the Grade Hub, Grade-Strand Gateways, `/curriculum`, and
+Skills Hub as stated above. A second strand mention appearing anywhere else on the page (e.g.,
+restated inside Browse by Grade) fails this standard even though the Curriculum-Organization
+section itself is permitted.
 
 ## 4. Product identity and scope statement
 
@@ -242,28 +253,24 @@ journeys. No fourth journey may be added by this standard or by homepage impleme
   purposes of this rule — reproduction means explaining what each strand contains or how they
   relate, not stating their names; that explanation belongs solely to §5.2a.
 
-### 5.2a Curriculum-Organization *(added by the V3 reopening pass)*
+### 5.2a Curriculum-Organization *(added by the V3 reopening pass; compressed by the V4 reopening pass)*
 
-- **MUST** appear as its own section, coming after Browse by Grade, explaining — exactly once on
-  the page — what Core Spelling, High-Frequency Words, and Themed Spelling Practice each are, in
-  one short definition per strand.
-- **SHOULD** include a small number of real example concepts per strand as recognition anchors
-  (e.g., Core: short vowels, silent e, vowel teams; Themed: real topic names drawn from actual
-  content, such as Animals or Careers), named as plain, non-hyperlinked text — **MUST NOT**
-  hyperlink to individual Grade Unit or Themed-list pages, consistent with §7's internal-linking
-  boundary (unchanged, not reopened by this pass).
-- **MAY** use different example formats per strand where that better fits the strand's nature (for
-  instance, real high-frequency words as HFW's examples rather than forcing HFW into the same
-  "pattern name" format Core's examples use) — this section is not required to present all three
-  strands with visually or structurally identical example lists.
-- **MUST NOT** state a per-strand count (e.g., a High-Frequency Words total word/set count) unless
-  that count materially helps a first-time visitor understand the strand, as opposed to existing
-  merely because it's documented elsewhere — stating a real fact for its own sake is exactly the
-  kind of "promoted statistic" this standard's §5.3 Skill-count rule already treats as acceptable
-  only when it aids orientation, not as a floor requiring every countable fact to be surfaced.
+- **MUST** appear as its own section, coming after Browse by Grade, naming — a second time on the
+  page — Core Spelling, High-Frequency Words, and Themed Spelling Practice, each with a short
+  one-clause role (e.g., "is the main grade-by-grade sequence") rather than a full definition.
+- **MUST NOT** include a per-strand example-concept list, a per-strand count, or any explanation
+  deeper than the one-clause role — that full explanation is `/curriculum`'s job as of the V4
+  reopening pass (see the V4 section below for why: `/curriculum` did not exist in comparable
+  strength when the V3 pass wrote this section, and now explains each strand, its selection
+  criteria, and its boundaries more thoroughly than a homepage section reasonably could without
+  becoming the "info-dump" this compression pass exists to avoid).
+- **SHOULD** link each strand name to its cross-grade top-level gateway (`/core-spelling`,
+  `/high-frequency-words`, `/themed-spelling-practice`), per the 2026-08-21 amendment to §7 — this
+  is now the section's primary navigational value, alongside a single link to `/curriculum` for the
+  full explanation.
 - **MUST NOT** explain unit-level sequencing within a strand, per-grade strand counts, or the
-  relationship between grade and strand beyond what §3's Curriculum-Organization carve-out
-  permits — that remains the Grade Hub's job.
+  relationship between grade and strand beyond a bare role clause — that remains the Grade Hub's
+  and `/curriculum`'s job.
 
 ### 5.3 Browse by Skill
 
@@ -301,75 +308,77 @@ journeys. No fourth journey may be added by this standard or by homepage impleme
   reopening pass — the frozen standard previously permitted this without expecting it; stating
   the real scale of the Skill library is now the expected default, not merely an option.)*
 
-### 5.4 Progression *(added by the V3 reopening pass)*
+### 5.4 Progression *(added by the V3 reopening pass; removed by the V4 reopening pass)*
 
-- **MUST** present a compact, three-stage developmental model of how K–5 spelling instruction
-  progresses (e.g., Kindergarten–Grade 1, Grades 2–3, Grades 4–5), grounded in
-  `docs/architecture/CONSTITUTION.md` §6's nine-point U.S. consensus list — the homepage may
-  group and summarize that list into three stages but **MUST NOT** reproduce it verbatim as a
-  homepage-owned taxonomy; the Constitution remains the source of truth for the full sequence.
-- **MUST** include, once, the U.S.-curriculum-positioning statement: that the curriculum is
-  designed around the spelling knowledge and grade-level progression commonly expected across
-  U.S. elementary education. This statement **MUST NOT** claim alignment with "all U.S.
-  standards," a specific named standard, or any other absolute/unsourced standards-alignment
-  claim — it must acknowledge, consistent with the Constitution, that no single national scope
-  and sequence exists and that this site does not copy one commercial curriculum.
-- **MUST NOT** duplicate a Grade Hub's grade-wide orientation, a Gateway's strand synthesis, or
-  the Curriculum-Organization section's strand explanations — this section's job is the
-  developmental arc across grades, not a restatement of what each strand or grade contains.
+**Superseded.** This section — a compact three-stage K–5 developmental model plus a
+U.S.-curriculum-positioning statement — no longer appears as its own homepage section. `/grades`
+independently grew, after the V3 pass was written, into a full six-chapter grade-by-grade
+progression page that covers this ground more thoroughly than a homepage section reasonably could.
+The one navigational job this section still needs to do — telling a visitor the progression exists
+and routing them to it — is satisfied by the existing "See how spelling develops across K–5" link
+under Browse by Grade (§5.2), so a second, content-bearing occurrence is no longer required. The
+U.S.-curriculum-positioning statement this section used to carry is now made, in fuller and more
+defensible form, in `/curriculum`'s boundaries section; the homepage's Trust/Audience section (§6)
+carries only a brief, non-absolute clause of it. See the V4 Reopening Pass section below for the
+full rationale.
 
-### 5.5 FAQ *(added by the V3 reopening pass)*
+### 5.5 FAQ *(added by the V3 reopening pass at 4–6 questions; trimmed by the V4 reopening pass)*
 
-- **MUST** contain 4–6 genuinely useful, visible questions and answers — never invisible/
+- **MUST** contain 2–6 genuinely useful, visible questions and answers — never invisible/
   hidden-from-sighted-users content, and never filler added solely to satisfy a schema type.
 - **MUST** have matching `FAQPage` structured data (§8) whose questions/answers are identical to
   the visible content — the structured-data-accuracy test in §8 applies here with no exemption.
 - **MUST NOT** duplicate explanation already owned by another section (the Curriculum-Organization
-  section, the Progression section, or a deeper page) beyond what a natural, concise FAQ answer
-  requires; an FAQ answer **MAY** restate a fact already established elsewhere in different words
-  if that is what makes the question self-contained, but **MUST NOT** become the place a new,
-  previously-absent explanation is introduced for the first time.
+  section or a deeper page) beyond what a natural, concise FAQ answer requires; an FAQ answer
+  **MAY** restate a fact already established elsewhere in different words if that is what makes the
+  question self-contained, but **MUST NOT** become the place a new, previously-absent explanation
+  is introduced for the first time. *(The floor was lowered from 4 to 2 by the V4 reopening pass
+  after four of the original six questions were found to fail this exact rule — each restated
+  explanation `/curriculum`, `/high-frequency-words`, or the hero interaction itself already
+  owned.)*
 
-## 6. Audience and closing content: product organization and trust
+## 6. Trust/Audience and closing content: product organization and trust
 
 *(Retitled by the V2 reopening pass from "Trust and credibility content." Retitled again and
-restructured by the V3 reopening pass: the closing trust content is no longer required as its own
-standalone section — see "Structural requirement" below — but is instead folded into a new
-Audience section, since a page that already closes with a Progression section (§5.4) making a
-"this is a real, structured curriculum" claim does not also need a separate standalone panel
-repeating that same claim. The underlying facts this section must cover are unchanged.)*
+restructured by the V3 reopening pass into a standalone Audience section, since a page that closed
+with a Progression section (§5.4) making a "this is a real, structured curriculum" claim didn't
+also need a separate standalone panel repeating it. Compressed and retitled once more by the V4
+reopening pass, now that Progression is gone (§5.4) and `/about` independently grew into a fuller
+per-audience page than this section was ever meant to be: the per-audience orientation is reduced
+to one brief mention, with a link to `/about` for the fuller treatment. The underlying facts this
+section must cover — structured-organization claim, free, no account, no gamification — are
+unchanged since V2.)*
 
-The homepage **MUST** include a compact Audience section — brief, non-duplicative orientation for
-students, parents, and teachers, describing what each finds useful on the site without becoming a
-"For Parents"/"For Teachers"/"For Students" page-length treatment for any one audience — and this
-section **MUST** close with a claim about the product's own organization: that it is built from
-real, distinct categories of spelling knowledge rather than an arbitrary or unstructured word
+The homepage **MUST** include one compact, heading-level section that (a) briefly orients students,
+parents, and teachers to what they'll find useful, in no more than a sentence or two total — not a
+"For Parents"/"For Teachers"/"For Students" page-length treatment, and not even the three-item list
+the V3 pass used — and (b) makes a claim about the product's own organization: that it is built
+from real, distinct categories of spelling knowledge rather than an arbitrary or unstructured word
 list, with the free, no-account, and no-gamification facts present as supporting trust content
-beneath or alongside that claim. *(The V2 reopening pass required this as its own standalone
-section; the V3 reopening pass folds it into the Audience section instead — see the retitling
-note above. Either placement satisfies the same underlying requirement: the claim and its
-supporting facts must appear together, once, not scattered across sections or promoted to their
-own independent major section.)*
+alongside that claim. This section **SHOULD** link to `/about`, which owns the fuller per-audience
+orientation this section no longer attempts to carry in full.
 
-**Structural requirement (revised by the V2 reopening pass, relocated by the V3 reopening pass):**
-the four facts formerly required as independent, equally-weighted items (structured/curated
-content, privacy/no account, no gamification, free) are no longer required to be presented as four
-separate, parallel items (e.g. a four-card grid), and are no longer required to live in their own
-standalone closing section — the V3 reopening pass permits (and the reference implementation
-uses) folding them into the tail of the Audience section instead. Wherever they appear, they
-**MUST** still all be present, but the **structured, curated organization** fact **MUST** lead —
-it is the section's primary claim, not one of four peers — with the remaining three facts (free,
-no account, no gamification) permitted to be consolidated into a single supporting sentence or
-clause. This is the one place on the page (besides the hero) where the free/no-account facts may
-appear, per §1's stated exception.
+**Structural requirement (revised by the V2 reopening pass, relocated by the V3 reopening pass,
+compressed by the V4 reopening pass):** the four facts formerly required as independent,
+equally-weighted items (structured/curated content, privacy/no account, no gamification, free) are
+not required to be presented as four separate, parallel items (e.g. a four-card grid), and are not
+required to live in their own standalone closing section — a single closing paragraph is
+sufficient, and is what the reference implementation now uses. Wherever they appear, they **MUST**
+still all be present, but the **structured, curated organization** fact **MUST** lead — it is the
+section's primary claim, not one of four peers — with the remaining three facts (free, no account,
+no gamification) permitted to be consolidated into a single supporting sentence or clause. This is
+the one place on the page (besides the hero) where the free/no-account facts may appear, per §1's
+stated exception.
 
-**Audience content (added by the V3 reopening pass):** the per-audience orientation (students,
-parents, teachers) **MUST** stay compact — a sentence or two per audience, not an enumerated
-feature list, and **MUST NOT** imply functionality the product does not have (e.g., teacher
-accounts, classroom management, gradebooks, assignment tracking). This narrows, rather than fully
-reverses, the former "no audience-segmented sections" anti-pattern (§9): a brief, unified Audience
-section naming what each group finds useful is permitted; a full page-length "For Teachers"
-treatment, or three separate major sections (one per audience), remains prohibited.
+**Audience content (added by the V3 reopening pass; compressed by the V4 reopening pass):** the
+per-audience orientation (students, parents, teachers) **MUST** stay compact — the V4 reopening
+pass narrows this from "a sentence or two per audience" to a single unified mention of all three
+(e.g., naming that students get calm practice while parents/teachers get an organized path to
+follow), since `/about` now exists to carry the fuller per-audience detail and a link there
+satisfies a visitor who wants it. This section **MUST NOT** imply functionality the product does
+not have (e.g., teacher accounts, classroom management, gradebooks, assignment tracking). A
+full page-length "For Teachers" treatment, or three separate major sections (one per audience),
+remains prohibited.
 
 Required content areas (each **MUST** be represented; exact wording is not frozen):
 
@@ -476,32 +485,38 @@ exist," and never solely for SEO/GEO/AEO/LLM consumption.
 The homepage **MUST NOT** contain:
 
 - a general "why spelling matters" essay or any spelling-education article content;
-- full explanations of Core Spelling, High-Frequency Words, or Themed Spelling Practice *outside*
-  the one permitted Curriculum-Organization section (§5.2a) — this bars a *second* strand
-  explanation anywhere else on the page, and bars going deeper than that section's short
-  definition-plus-examples format (unit-level sequencing, per-strand counts absent real visitor
-  value, or a stated priority between strands beyond listing order); it does not bar the single,
-  unexplained bare naming of the three strands in Browse by Grade (§5.2), nor the one Curriculum-
-  Organization section itself. *(Narrowed by the V3 reopening pass — see §5.2a and §3's carve-out
-  for the reasoning.)*
-- a K–5 curriculum progression map or any full cross-grade sequence *beyond* the one permitted,
-  compact three-stage Progression section (§5.4) — this bars reproducing the Constitution's full
-  nine-point sequence verbatim as a homepage-owned taxonomy, or a second progression treatment
-  anywhere else on the page; it does not bar the one three-stage summary itself. *(Narrowed by the
-  V3 reopening pass — see §5.4.)*
+- any explanation of Core Spelling, High-Frequency Words, or Themed Spelling Practice deeper than
+  the one permitted Curriculum-Organization section's short role-clause format (§5.2a) — this bars
+  a full definition, an example-concept list, unit-level sequencing, per-strand counts, or a stated
+  priority between strands beyond listing order, anywhere on the homepage, full stop; that depth
+  belongs solely to `/curriculum` as of the V4 reopening pass. It does not bar the single,
+  unexplained bare naming of the three strands in Browse by Grade (§5.2), nor the one
+  Curriculum-Organization section's role-clause naming itself. *(Narrowed by the V3 reopening pass,
+  then tightened back down by the V4 reopening pass once `/curriculum` became strong enough to be
+  the sole owner — see §5.2a and §3's carve-out for the reasoning.)*
+- a K–5 curriculum progression map or any cross-grade developmental narrative beyond the single
+  "See how spelling develops across K–5" teaser link under Browse by Grade (§5.2) — this bars any
+  standalone Progression section, stage model, or U.S.-positioning paragraph anywhere on the
+  homepage; `/grades` is the sole owner of that content as of the V4 reopening pass. *(The V3
+  reopening pass had narrowed this to permit one compact three-stage section; the V4 reopening pass
+  removed that section entirely once `/grades` grew strong enough to be the sole owner — see the
+  former §5.4, now superseded.)*
 - the full 12-family Skill taxonomy as a structural block, or any individual family's orientation
   copy — this bars enumerating all 12 families or explaining any one family; it does not bar
   stating the real Skill/family count, or naming a small set of individual representative Skills,
   both permitted by §5.3;
 - individual Skill-page or individual member-page links;
-- an audience-segmented section that goes beyond one compact, unified Audience treatment — this
-  bars a page-length "For Parents," "For Teachers," or "For Students" section, or three separate
-  major sections (one per audience); it does not bar the one compact, unified Audience section
-  permitted by §6. *(Narrowed by the V3 reopening pass — see §6.)*
-- an FAQ section beyond the one permitted, 4–6-question homepage FAQ (§5.5) — this bars a second
+- an audience-segmented section that goes beyond the one compact Trust/Audience treatment (§6) —
+  this bars a page-length "For Parents," "For Teachers," or "For Students" section, three separate
+  major sections (one per audience), or even the V3 pass's three-item audience grid; it does not
+  bar the one brief, unified audience mention permitted by §6, which links to `/about` for the
+  fuller per-audience detail. *(Narrowed by the V3 reopening pass, then further compressed by the
+  V4 reopening pass — see §6.)*
+- an FAQ section beyond the one permitted, 2–6-question homepage FAQ (§5.5) — this bars a second
   FAQ, an expanded FAQ used as a general content dumping ground, or FAQ content that introduces
   explanation owned by another section; it does not bar the one FAQ section itself. *(Narrowed by
-  the V3 reopening pass — see §5.5.)*
+  the V3 reopening pass at 4–6 questions; the floor was lowered to 2 by the V4 reopening pass — see
+  §5.5.)*
 - testimonials, unverifiable usage statistics, or "trusted by X" claims;
 - "popular lists" / "popular skills" sections (no genuine popularity signal exists in this
   repository to support one);
@@ -527,8 +542,8 @@ long as it preserves:
 - Browse by Grade and Browse by Skill each reachable via a proper, coequal heading, regardless of
   their relative visual size or treatment (§5.3);
 - the product identity/scope statement (§4);
-- the Curriculum-Organization, Progression, Audience, and FAQ sections and their owned content
-  (§5.2a, §5.4, §5.5, §6);
+- the Curriculum-Organization, Trust/Audience, and FAQ sections and their owned content (§5.2a,
+  §5.5, §6);
 - the closing content areas — the structured-organization claim and supporting trust facts,
   wherever placed (§6);
 - the internal-linking boundary (§7);
@@ -553,34 +568,37 @@ redesign without requiring a rewrite.
       comparable document-outline depth.
 - [ ] Any illustrative Skill-concept names are plain text, not hyperlinks, and span the K–5
       difficulty range rather than clustering at one level.
-- [ ] The Curriculum-Organization section explains each strand exactly once, with real example
-      concepts, and does not appear a second time elsewhere on the page. *(§5.2a, V3)*
-- [ ] The Progression section presents a compact three-stage K–5 model and includes the
-      U.S.-curriculum-positioning statement using defensible wording ("commonly expected across
-      U.S. elementary education," not "aligned with all U.S. standards" or equivalent). *(§5.4,
-      V3)*
-- [ ] The Audience section is compact (a sentence or two per audience), does not imply
-      functionality the product lacks, and closes with the structured-organization claim plus
-      free/no-account/no-gamification facts, stated as concrete facts, not comparative marketing,
-      with no claim that the site reflects the single correct way spelling is learned. *(§6)*
-- [ ] The FAQ has 4–6 genuinely useful, visible questions, with `FAQPage` structured data matching
-      the visible content exactly. *(§5.5, V3)*
-- [ ] No content owned by a Grade Hub, Gateway, Skill page, or Skills Hub is duplicated — bare
-      naming of the three strand names (Browse by Grade), the one Curriculum-Organization
-      explanation, and the Skill count plus representative Skill names (Browse by Skill) are
-      permitted; unit-level sequencing, per-strand counts absent real visitor value, and the full
-      12-family taxonomy are not.
+- [ ] The Curriculum-Organization section names each strand a second time with a short one-clause
+      role, not a full definition or example-concept list, and does not appear a second time
+      elsewhere on the page. *(§5.2a, narrowed V4)*
+- [ ] No standalone Progression section exists; the one "See how spelling develops across K–5"
+      teaser link under Browse by Grade routes to `/grades`, which owns the full developmental
+      model and the U.S.-curriculum-positioning statement. *(§5.4, superseded V4)*
+- [ ] The Trust/Audience section is one compact heading and closing paragraph — a brief, unified
+      audience mention (not a sentence per audience), a link to `/about` for the fuller per-audience
+      detail, and the structured-organization claim plus free/no-account/no-gamification facts,
+      stated as concrete facts, not comparative marketing, with no claim that the site reflects the
+      single correct way spelling is learned. *(§6, compressed V4)*
+- [ ] The FAQ has 2–6 genuinely useful, visible questions, with `FAQPage` structured data matching
+      the visible content exactly. *(§5.5, trimmed V4)*
+- [ ] No content owned by a Grade Hub, Gateway, Skill page, `/curriculum`, `/grades`, `/about`, or
+      Skills Hub is duplicated — bare naming of the three strand names (Browse by Grade), the one
+      Curriculum-Organization role-clause naming, and the Skill count plus representative Skill
+      names (Browse by Skill) are permitted; unit-level sequencing, per-strand counts absent real
+      visitor value, full per-strand definitions, the full developmental progression, the fuller
+      per-audience copy, and the full 12-family taxonomy are not — those now belong solely to their
+      respective canonical pages.
 - [ ] The three curriculum strand names (Core Spelling, High-Frequency Words, Themed Spelling
-      Practice) appear bare exactly once, in Browse by Grade, and explained exactly once, in the
-      Curriculum-Organization section — nowhere else.
+      Practice) appear bare exactly once, in Browse by Grade, and named again with only a
+      one-clause role, exactly once, in the Curriculum-Organization section — nowhere else.
 - [ ] The real Skill count appears exactly once on the page, in Browse by Skill.
 - [ ] Each grade card includes a short teaser (and optional focus line) traceable to the canonical
       K–5 Grade Unit curriculum, not an invented phrase chosen for how it sounds.
 - [ ] Visible homepage copy refers to "students," not "children" (audience-section labels
       "Parents"/"Teachers"/"Students" are section labels, not body-copy references, and are fine).
 - [ ] No required fact is repeated across sections beyond the stated free/no-account exception and
-      the strand-name bare/explained exception (§1).
-- [ ] No second FAQ, testimonial, methodology essay, second progression map, or page-length
+      the strand-name bare/role-clause exception (§1).
+- [ ] No second FAQ, testimonial, methodology essay, progression map, or page-length
       audience-segmented section is present beyond the one of each kind this standard permits.
 - [ ] Internal links from primary content go exactly one layer down (Grade Hubs, Skills Hub) and
       no deeper — including from the Curriculum-Organization section's example concepts, which
@@ -664,6 +682,85 @@ the ownership-note cross-reference); metadata requirements (§8, beyond the `FAQ
 
 ---
 
+## V4 Reopening Pass
+
+**Status:** Approved by the site owner as an explicit amendment to this standard, following
+`docs/architecture/CONSTITUTION.md` §20's Amendment Standard, on the recommendation of a combined
+speech-regression/homepage-audit review. Recorded inline for the same proportionality reason the
+V3 pass gives at the top of this document: one focused, already-approved content change, not a new
+open research question.
+
+**Principle changed:** the homepage's content depth, again — in the opposite direction from V3.
+The V3 pass deliberately added four sections (Curriculum-Organization, Progression, Audience, FAQ)
+because, at the time, no other page explained the three strands, the K–5 developmental arc, or the
+site's audience clearly enough for the homepage to link to instead — a visitor or an AI system
+reading only the homepage could not learn what SpellingWords.app actually is without visiting
+several pages and synthesizing it themselves. That gap has since closed: independently of this
+pass, `/grades` grew into a full six-chapter grade-by-grade progression page, `/curriculum` grew
+into a page that explains each strand's role, selection criteria, and boundaries, and `/about`
+grew into a page with its own fuller "who this serves" section. Each of the three deeper sections
+V3 added is now demonstrably weaker than an already-existing canonical page that covers the same
+ground — which is exactly the duplication §3 and §9 exist to prevent, just not visible until those
+destination pages matured. Independently, a site-owner review of the shipped homepage found it
+read as an "info-dump," which matches this same evidence rather than being merely a stylistic
+complaint.
+
+**Product reason for the change:** the homepage should go back toward what §1 already calls it — a
+"routing/orientation and confidence page" — trusting `/grades`, `/curriculum`, and `/about` to
+carry the depth they now own well, rather than each homepage section re-explaining what those pages
+already explain better. This is a compression of content depth, not a reversal of the three
+primary journeys (§5) or the underlying facts those sections established — every fact the removed
+or compressed content stated is still true and still stated somewhere on the site, just once, by
+its strongest owner, per the relocation discipline `docs/architecture/CONSTITUTION.md`'s amendment
+process expects (identify the owner, don't just delete the idea).
+
+**What changed, in one place:**
+
+- §1's ownership table drops the standalone Progression row (folded into Browse by Grade's
+  existing teaser link) and narrows Curriculum-Organization, Trust/Audience, and FAQ to their
+  compressed scope.
+- §2's required-content list updates to match: Curriculum-Organization is now role-clause naming,
+  not full definitions; Progression is removed outright (superseded by the existing Browse by Grade
+  teaser link); Trust/Audience is one paragraph with a link to `/about`; FAQ drops from 4–6 to 2–6
+  questions.
+- §3's Curriculum-Organization carve-out is narrowed from "a short definition plus example
+  concepts" to "a short one-clause role" — `/curriculum` is now the carve-out's sole full-depth
+  owner.
+- §5.2a (Curriculum-Organization) is rewritten to the role-clause format and drops the per-strand
+  example-concept list and per-strand count allowance.
+- §5.4 (Progression) is marked superseded: no standalone section remains; `/grades` is the sole
+  owner of the full developmental model and the U.S.-curriculum-positioning statement, and the
+  existing Browse by Grade teaser link is the section's only remaining trace on the homepage.
+- §5.5 (FAQ) lowers the floor from 4 to 2 questions, after finding four of the original six
+  restated explanation `/curriculum`, `/high-frequency-words`, or the hero interaction already
+  owned.
+- §6 is retitled "Trust/Audience," compressed from a three-item audience grid plus closing panel
+  into one heading and one closing paragraph, and gains a required link to `/about` for the fuller
+  per-audience orientation that page now owns.
+- §7 (internal-linking boundaries) is **not reopened** by this pass either — no new hyperlink depth
+  beyond the already-permitted per-strand gateway links and the new `/about` link from §6, both
+  one architectural layer down or a named peer supporting page, consistent with the existing
+  boundary's spirit.
+- §9's anti-patterns are tightened back down for the four items V3 had loosened: strand explanation
+  is capped at the role-clause format (not V3's definition-plus-examples format), any standalone
+  progression content is barred outright (not just capped at one three-stage section), the
+  audience-segmented bar now also excludes V3's own three-item grid, and the FAQ floor drops to 2.
+- §10 and §11 are updated to reference the surviving three added sections (Curriculum-Organization,
+  Trust/Audience, FAQ) instead of four, and their checklist items are rewritten to test the
+  compressed content rather than the V3-era fuller content.
+- `src/lib/content/homepage.ts` and `src/pages/index.astro` are the implementation this pass
+  actually shipped; `src/lib/content/homepage.test.ts` was updated in the same change to lock the
+  compressed structure rather than the V3-era one.
+
+**Not changed by this pass:** the three primary journeys (§5) and their relative priority; the
+Practice Your Own Words interaction and its behavior; all six Grade Hub links; the Browse by Grade
+and Browse by Skill sections themselves (beyond Browse by Grade's teaser link now also standing in
+for the removed Progression section); the Direction A visual/color system; the product
+identity/scope statement (§4); metadata requirements (§8); the underlying facts every compressed or
+removed section stated — each is still true and still stated once, by a stronger canonical owner.
+
+---
+
 ## Appendix: Reference homepage copy (non-frozen)
 
 **Status of this appendix: illustrative, not literal-frozen requirement.** Everything above this
@@ -672,8 +769,9 @@ standard. The Hero, Browse by Grade heading/body, and Browse by Skill copy below
 reference example from `docs/content/CANONICAL_HOMEPAGE_STANDARD_RESEARCH_V2.md` §12, reproduced
 here so implementers have a concrete, vetted starting point. The grade-card teasers and the
 closing-section copy shown below are the **pre-V3** reference copy, kept for historical context;
-they are superseded by the richer teasers and the Audience-section copy actually implemented under
-the V3 reopening pass (see `src/lib/content/homepage.ts` for the current reference copy). An
+they were superseded by the richer teasers and Audience-section copy implemented under the V3
+reopening pass, which were in turn superseded by the compressed strand/closing copy implemented
+under the V4 reopening pass (see `src/lib/content/homepage.ts` for the current reference copy). An
 implementation **MAY** use different exact wording as long as it satisfies the structural and
 factual requirements above (correct facts, correct section ownership, no repetition beyond the
 stated exceptions, no anti-pattern). Two exceptions are already governed elsewhere and are not
@@ -723,6 +821,7 @@ competitions. *(This claim now leads the Audience section instead of standing al
 
 ---
 
-**Status:** Frozen, as revised by the V2 reopening pass and further amended by the V3 reopening
-pass. Production conformance to this standard, including the amendments above, is pending
-implementation.
+**Status:** Frozen, as revised by the V2 reopening pass, further amended by the V3 reopening pass,
+and further amended by the V4 reopening pass. Production conformance to this standard, including
+the amendments above, is implemented as of the V4 pass (`src/lib/content/homepage.ts`,
+`src/pages/index.astro`, `src/lib/content/homepage.test.ts`).

@@ -776,8 +776,14 @@ import SiteFooter from '@/components/SiteFooter.astro';
   }
 
   // --- Render helpers ---
+  // `selectedVoice` starts out null and is only populated once initVoiceControls()'s
+  // async loadVoices() resolves. Passing that null through as an explicit `voice`
+  // would tell the controller "use no voice" and skip its own fallback selection
+  // (see speechController.speakWord) — forcing the browser's arbitrary default
+  // voice for any word spoken before the cache warms. Coercing to undefined lets
+  // the controller fall back to a live selectPreferredVoice() call instead.
   function speechOptions(onStart?: () => void, onEnd?: () => void) {
-    return { voice: selectedVoice, rate: currentRate, onStart, onEnd };
+    return { voice: selectedVoice ?? undefined, rate: currentRate, onStart, onEnd };
   }
 
   function instructionForIndex(): string {

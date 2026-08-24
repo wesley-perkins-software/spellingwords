@@ -9,11 +9,8 @@ import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 import {
   GRADE_ACCENT,
-  STRAND_ACCENT,
   ACCENT_BG_CLASS,
   ACCENT_INK_CLASS,
-  ACCENT_TINT_BG_CLASS,
-  ACCENT_BORDER_CLASS,
   type DaAccent,
 } from '@/lib/content/pilotContent';
 import {
@@ -23,10 +20,6 @@ import {
   HOMEPAGE_SKILL_COUNT,
   HOMEPAGE_REPRESENTATIVE_SKILLS,
   HOMEPAGE_STRANDS,
-  HOMEPAGE_PROGRESSION_STAGES,
-  HOMEPAGE_PROGRESSION_NOTE,
-  HOMEPAGE_US_POSITIONING,
-  HOMEPAGE_AUDIENCES,
   HOMEPAGE_CLOSING_STATEMENT,
   HOMEPAGE_FAQ,
 } from '@/lib/content/homepage';
@@ -57,15 +50,7 @@ const representativeSkillChips = HOMEPAGE_REPRESENTATIVE_SKILLS.map((label, inde
   tone: REPRESENTATIVE_SKILL_TONES[index % REPRESENTATIVE_SKILL_TONES.length],
 }));
 
-// Reuses the same strand->accent mapping Grade Unit pages already draw
-// from (STRAND_ACCENT), rather than inventing a fourth accent scheme just
-// for this homepage section — HOMEPAGE_STRANDS is written in the same
-// Core/HFW/Themed order as STRAND_ACCENT's own declaration.
-const strandAccents = Object.values(STRAND_ACCENT);
-const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
-  ...strand,
-  accent: strandAccents[index],
-}));
+const [coreStrand, hfwStrand, themedStrand] = HOMEPAGE_STRANDS;
 ---
 
 <Layout
@@ -180,42 +165,15 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
           >
             How the K–5 curriculum is organized
           </h2>
-          <p class="mt-2.5 text-[1.05rem] leading-relaxed text-da-ink-soft">
-            Each grade is organized into three complementary types of spelling practice.
+          <p class="mt-2.5 max-w-[62ch] text-[1.05rem] leading-relaxed text-da-ink-soft">
+            Each strand plays a different role: <a href={coreStrand.href} class="font-bold text-da-ink hover:text-da-brand-strong hover:underline">{coreStrand.name}</a>{' '}
+            {coreStrand.role}, <a href={hfwStrand.href} class="font-bold text-da-ink hover:text-da-brand-strong hover:underline">{hfwStrand.name}</a>{' '}
+            {hfwStrand.role}, and <a href={themedStrand.href} class="font-bold text-da-ink hover:text-da-brand-strong hover:underline">{themedStrand.name}</a>{' '}
+            {themedStrand.role}.
           </p>
         </div>
 
-        <div
-          class="grid grid-cols-1 gap-5 md:grid-cols-3"
-          role="list"
-          aria-label="The three curriculum strands"
-        >
-          {
-            strandCards.map(({ name, href, definition, examples, accent }) => (
-              <div
-                class:list={[
-                  'flex flex-col gap-3 rounded-2xl border p-6',
-                  ACCENT_TINT_BG_CLASS[accent],
-                  ACCENT_BORDER_CLASS[accent],
-                ]}
-                role="listitem"
-              >
-                <h3 class="font-quicksand text-lg font-bold text-da-ink">
-                  <a href={href} class="hover:text-da-brand-strong hover:underline">{name}</a>
-                </h3>
-                <p class="text-sm leading-relaxed text-da-ink-soft">{definition}</p>
-                <ul class="mt-auto flex flex-wrap gap-2 pt-1" aria-label={`Examples of ${name}`}>
-                  {examples.map((example) => (
-                    <li class="rounded-full border border-da-border bg-da-canvas-raised px-3 py-1 text-xs font-bold text-da-ink-soft">
-                      {example}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))
-          }
-        </div>
-        <p class="mt-8">
+        <p>
           <a
             href="/curriculum"
             class="inline-flex min-h-[44px] items-center font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand"
@@ -267,58 +225,13 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
       </div>
     </section>
 
-    <!-- ═══ PROGRESSION + U.S. POSITIONING ═══════════════════════ -->
-    <section
-      class="bg-da-surface-home px-5 py-14 sm:px-6 md:py-20"
-      aria-labelledby="progression-heading"
-    >
-      <div class="mx-auto max-w-content-xl">
-        <div class="mb-9 max-w-2xl">
-          <h2
-            id="progression-heading"
-            class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink"
-          >
-            How spelling develops from Kindergarten through 5th Grade
-          </h2>
-          <p class="mt-2.5 text-[1.05rem] leading-relaxed text-da-ink-soft">
-            {HOMEPAGE_PROGRESSION_NOTE}
-          </p>
-        </div>
-
-        <div
-          class="grid grid-cols-1 gap-5 md:grid-cols-3"
-          role="list"
-          aria-label="The three stages of K-5 spelling development"
-        >
-          {
-            HOMEPAGE_PROGRESSION_STAGES.map(({ grades, label, description }) => (
-              <div
-                class="flex flex-col gap-2 rounded-2xl border border-da-border bg-da-canvas-raised p-6 shadow-sm"
-                role="listitem"
-              >
-                <p class="font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-brand-strong">
-                  {grades}
-                </p>
-                <h3 class="font-quicksand text-lg font-bold text-da-ink">{label}</h3>
-                <p class="text-sm leading-relaxed text-da-ink-soft">{description}</p>
-              </div>
-            ))
-          }
-        </div>
-
-        <p class="mx-auto mt-9 max-w-[68ch] text-[0.95rem] leading-relaxed text-da-ink-soft">
-          {HOMEPAGE_US_POSITIONING}
-        </p>
-      </div>
-    </section>
-
-    <!-- ═══ AUDIENCE + CLOSING TRUST CONTENT ═══════════════════════ -->
+    <!-- ═══ TRUST / POSITIONING ══════════════════════════════════ -->
     <section
       id="how-it-works"
-      class="scroll-mt-[72px] px-5 py-14 sm:px-6 md:py-20"
+      class="scroll-mt-[72px] bg-da-surface-home px-5 py-14 sm:px-6 md:py-20"
       aria-labelledby="audience-heading"
     >
-      <div class="mx-auto max-w-content-xl">
+      <div class="mx-auto max-w-content-lg">
         <h2
           id="audience-heading"
           class="text-center font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink"
@@ -326,24 +239,19 @@ const strandCards = HOMEPAGE_STRANDS.map((strand, index) => ({
           Built for students, parents, and teachers
         </h2>
 
-        <div class="mx-auto mt-9 grid max-w-content-lg grid-cols-1 gap-6 sm:grid-cols-3">
-          {
-            HOMEPAGE_AUDIENCES.map(({ label, description }) => (
-              <div class="flex flex-col gap-1.5">
-                <h3 class="font-quicksand text-base font-bold text-da-ink">{label}</h3>
-                <p class="text-sm leading-relaxed text-da-ink-soft">{description}</p>
-              </div>
-            ))
-          }
-        </div>
-
         <div
-          class="mx-auto mt-10 max-w-content-lg rounded-2xl border border-da-brand bg-da-brand-tint px-6 py-8 text-center shadow-sm sm:px-10"
+          class="mx-auto mt-8 max-w-content-lg rounded-2xl border border-da-brand bg-da-brand-tint px-6 py-8 text-center shadow-sm sm:px-10"
         >
           <p class="text-[1.02rem] leading-relaxed text-da-ink-soft">
             {HOMEPAGE_CLOSING_STATEMENT}
           </p>
         </div>
+
+        <p class="mt-6 text-center text-[0.95rem] text-da-ink-soft">
+          <a href="/about" class="font-bold text-da-brand-strong no-underline hover:underline">
+            More about SpellingWords <span aria-hidden="true">→</span>
+          </a>
+        </p>
       </div>
     </section>
 

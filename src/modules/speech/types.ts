@@ -58,8 +58,10 @@ export interface SpeechOptions {
   /**
    * Diagnostic hook: called synchronously with the voice actually assigned to
    * `utterance.voice` (explicit or fallback-selected), before `speak()` is
-   * called. Not used by production UI — wired up only by the dev-only
-   * `VoiceDiagnosticsPanel.astro` investigation aid via `play.astro`.
+   * called. Not used by production UI — wired up only by `play.astro` for
+   * the temporary `VoiceDiagnosticsPanel.astro` investigation aid, which is
+   * itself inert for every visitor except a runtime `?voiceDiagnostics=1`
+   * opt-in (see `src/modules/speech/devDiagnostics.ts`).
    */
   onVoiceResolved?: (voice: SpeechSynthesisVoiceAdapter | null) => void;
 }

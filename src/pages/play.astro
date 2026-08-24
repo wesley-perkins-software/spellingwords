@@ -443,7 +443,7 @@ import VoiceDiagnosticsPanel from '@/components/VoiceDiagnosticsPanel.astro';
     <SiteFooter />
   </div>
 
-  {import.meta.env.DEV && <VoiceDiagnosticsPanel />}
+  <VoiceDiagnosticsPanel />
 </Layout>
 
 <script>
@@ -792,12 +792,11 @@ import VoiceDiagnosticsPanel from '@/components/VoiceDiagnosticsPanel.astro';
       rate: currentRate,
       onStart,
       onEnd,
-      // Dev-only diagnostic hook — see src/modules/speech/devDiagnostics.ts.
-      // import.meta.env.DEV is statically replaced at build time, so this
-      // branch (and its import) is stripped entirely from production builds.
-      ...(import.meta.env.DEV
-        ? { onVoiceResolved: (voice: SpeechSynthesisVoiceAdapter | null) => recordSpeechEvent(label, text, voice) }
-        : {}),
+      // Temporary diagnostic hook — see src/modules/speech/devDiagnostics.ts.
+      // recordSpeechEvent() no-ops unless isVoiceDiagnosticsEnabled() (a
+      // runtime ?voiceDiagnostics=1 opt-in), so this is a harmless no-op for
+      // every normal visitor, in every build, dev or production.
+      onVoiceResolved: (voice: SpeechSynthesisVoiceAdapter | null) => recordSpeechEvent(label, text, voice),
     };
   }
 

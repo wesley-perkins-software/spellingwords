@@ -61,114 +61,58 @@ export const HOMEPAGE_REPRESENTATIVE_SKILLS = [
 ] as const;
 
 /**
- * "How the K-5 curriculum is organized" section content — added under the
- * V3 reopening pass of docs/content/CANONICAL_HOMEPAGE_STANDARD.md §3/§9,
- * which previously barred any strand explanation on the homepage. Each
- * strand gets one short, accurate definition; example concepts are real
- * (drawn from actual canonical Skill/content names, not invented) and are
- * rendered as plain, non-hyperlinked text per §7 (unchanged, not reopened).
+ * "How the K-5 curriculum is organized" section content. Compressed under
+ * the V4 reopening pass of docs/content/CANONICAL_HOMEPAGE_STANDARD.md
+ * §5.2a/§9: /curriculum now owns the full per-strand explanation, so the
+ * homepage states each strand's name and one-clause role rather than a full
+ * definition and example list — enough to orient a first-time visitor
+ * without duplicating a page that already does this better. Each strand's
+ * name links to its cross-grade top-level gateway (2026-08-21 amendment,
+ * unaffected by V4).
  */
 export const HOMEPAGE_STRANDS = [
   {
     name: 'Core Spelling',
     href: '/core-spelling',
-    definition:
-      "Core Spelling is the main sequence for each grade — units ordered around the spelling concepts students are ready to practice, moving from sound-letter patterns toward syllables, word parts, and increasingly complex words.",
-    examples: ['Short vowels', 'Silent e', 'Vowel teams', 'Suffixes', 'Greek and Latin roots'],
+    role: 'is the main grade-by-grade sequence',
   },
   {
     name: 'High-Frequency Words',
     href: '/high-frequency-words',
-    definition:
-      "High-Frequency Words are spellings students meet often in reading and writing. Grouped into grade-level sets and practiced alongside Core Spelling, they get attention to both predictable sound-spelling patterns and the specific details worth extra notice — so common words become accurate and automatic, not just memorized as exceptions.",
-    examples: ['the', 'you', 'over', 'were'],
+    role: 'are common words practiced alongside it',
   },
   {
     name: 'Themed Spelling Practice',
     href: '/themed-spelling-practice',
-    definition:
-      'Themed Spelling Practice offers optional grade-level lists built around topics students already know from school and everyday life — useful additional practice, not part of the required Core sequence.',
-    examples: ['Animals', 'Colors', 'Weather', 'Careers', 'Measurement'],
-  },
-] as const;
-
-/**
- * "How spelling develops from Kindergarten through 5th Grade" — a 3-stage
- * model grouping the Constitution §6 nine-point U.S. consensus list
- * (docs/architecture/CONSTITUTION.md), plus the U.S.-positioning statement
- * folded into this section per the V3 reopening pass (rather than as a
- * separate section) to avoid repeating "this is a real, structured
- * curriculum" a third time on the page.
- */
-export const HOMEPAGE_PROGRESSION_STAGES = [
-  {
-    grades: 'Kindergarten–1st Grade',
-    label: 'Foundation',
-    description:
-      'Matching sounds to letters, spelling simple one-syllable words, short vowels, consonant patterns, and the first long-vowel spellings.',
-  },
-  {
-    grades: 'Grades 2–3',
-    label: 'Expansion',
-    description:
-      'Broader vowel patterns, syllable structure, word endings, prefixes and suffixes, and early multisyllabic spelling.',
-  },
-  {
-    grades: 'Grades 4–5',
-    label: 'Integration',
-    description:
-      'Morphology, roots and affixes, spelling changes across related words, and meaning-based choices in academic vocabulary.',
-  },
-] as const;
-
-export const HOMEPAGE_PROGRESSION_NOTE =
-  "Spelling development isn't simply a march from easy words to harder words — students gradually learn to use several kinds of information together: sounds, letter patterns, syllables, meaningful word parts, and relationships among words.";
-
-/**
- * Defensible U.S.-curriculum positioning, grounded in
- * docs/architecture/CONSTITUTION.md §6 ("broad U.S. consensus... without
- * copying one commercial curriculum... no single national scope and
- * sequence exists"). Deliberately avoids any "aligned with all U.S.
- * standards" or equivalent absolute claim.
- */
-export const HOMEPAGE_US_POSITIONING =
-  "This progression is designed around the spelling knowledge and grade-level progression commonly expected across U.S. elementary education — drawing on broad agreement among state standards and respected curricula about how spelling develops. No single national scope and sequence exists, and SpellingWords.app doesn't copy any one commercial curriculum; the goal is a coherent, defensible K–5 sequence, not a claim of alignment with a particular standard.";
-
-/**
- * "Built for students, parents, and teachers" — compact per-audience copy.
- * Added under the V3 reopening pass of §9 (previously barred outright as
- * "audience-segmented" content). The closing structured-organization and
- * free/no-account/no-gamification facts, formerly their own standalone
- * section, are folded into HOMEPAGE_CLOSING_STATEMENT below per §6's
- * revised structural requirement.
- */
-export const HOMEPAGE_AUDIENCES = [
-  {
-    label: 'Students',
-    description: 'Focused word lists, calm practice, and clear explanations of what each spelling pattern is and why it matters.',
-  },
-  {
-    label: 'Parents',
-    description: "An organized grade-level path, plus guidance on what your child is practicing and why — so you can support spelling at home without guesswork.",
-  },
-  {
-    label: 'Teachers',
-    description: 'Grade-level word lists and focused Skill references that can complement classroom spelling instruction and give students extra practice.',
+    role: 'is optional extra practice built around familiar topics',
   },
 ] as const;
 
 /**
  * The structured-organization claim (leads, per §6) plus the
- * free/no-account/no-gamification facts, relocated here from the old
- * standalone "More than a list of spelling words" closing panel.
+ * free/no-account/no-gamification facts, a compact audience mention, and a
+ * brief U.S.-curriculum-positioning clause — merged under the V4 reopening
+ * pass into one closing trust paragraph. The former standalone Progression
+ * section (three stage cards) and the longer per-audience copy are removed:
+ * /grades already owns the full K–5 developmental progression and /about
+ * already owns the fuller per-audience orientation, both more thoroughly
+ * than the homepage's compressed restatement did — see
+ * CANONICAL_HOMEPAGE_STANDARD.md's V4 pass for the full rationale.
  */
 export const HOMEPAGE_CLOSING_STATEMENT =
-  "SpellingWords.app is built from real, distinct categories of spelling knowledge — Core Spelling's grade-by-grade progression, High-Frequency Words, Themed practice, and grade-independent Skill references — not an arbitrary or unstructured word list. It's free to use, with no account, login, or personal information required, and no timers, points, streaks, or competitive mechanics — just calm, focused practice.";
+  "SpellingWords.app is built from real, distinct categories of spelling knowledge — Core Spelling's grade-by-grade progression, High-Frequency Words, Themed practice, and grade-independent Skills — not an arbitrary or unstructured word list, and it's grounded in the spelling knowledge commonly expected across U.S. elementary education. It's free to use, with no account, login, or personal information required, and no timers, points, streaks, or competitive mechanics — just calm, focused practice for students, with an organized path for parents and teachers to follow alongside them.";
 
 /**
- * Homepage FAQ — added under the V3 reopening pass of §8/§9 (previously
- * barred outright). 6 genuinely useful questions, not schema filler; kept
- * in sync with homepageFaqJsonLd below.
+ * Homepage FAQ. Trimmed under the V4 reopening pass of §5.5/§9 from 6 to 2
+ * questions: the four removed questions each restated explanation a deeper
+ * canonical page already owns more fully (the site-organization question
+ * duplicated the Curriculum-Organization section and /curriculum; the
+ * High-Frequency Words question duplicated the strand mention immediately
+ * above it and /high-frequency-words; the U.S.-positioning question
+ * duplicated /curriculum's own boundaries section; the "can I practice my
+ * own words" question restated what the hero interaction already shows).
+ * The two kept questions are genuine routing/orientation questions, not
+ * curriculum explanation. Kept in sync with homepageFaqJsonLd below.
  */
 export const HOMEPAGE_FAQ = [
   {
@@ -177,28 +121,9 @@ export const HOMEPAGE_FAQ = [
       "Start with your child's Grade Hub, which lays out Core Spelling in order alongside High-Frequency Words and Themed practice — or, if you already know the specific pattern they need, like silent e or prefixes, go straight to that Skill page.",
   },
   {
-    question: 'How is SpellingWords.app organized?',
-    answer:
-      'Each grade, Kindergarten through 5th, is organized into three strands: Core Spelling, the main sequence; High-Frequency Words, practiced alongside it; and Themed Spelling Practice, optional extra practice. Alongside the grade path, 41 canonical Skill pages explain individual spelling concepts independent of grade, and you can always practice a custom list of your own words.',
-  },
-  {
     question: 'What is the difference between browsing by Grade and browsing by Skill?',
     answer:
       'Browse by Grade to follow the structured K–5 spelling curriculum and practice the word lists taught at each grade. Browse by Skill when you want to focus on a specific spelling concept — such as short vowels, silent e, vowel teams, prefixes, or homophones — regardless of grade.',
-  },
-  {
-    question: 'What are High-Frequency Words?',
-    answer:
-      "Spellings students meet often in reading and writing. They're not the same as \"irregular\" words — some are entirely predictable from common spelling patterns, others need extra attention — and they're practiced alongside Core Spelling, not instead of it.",
-  },
-  {
-    question: 'Is SpellingWords.app designed for U.S. elementary students?',
-    answer:
-      'Yes. The K–5 curriculum is designed around the spelling knowledge and grade-level progression commonly expected across U.S. elementary education, though no single national standard exists and the site does not claim alignment with one particular set of standards.',
-  },
-  {
-    question: 'Can I practice my own spelling words?',
-    answer: 'Yes — enter or paste any list of words on the homepage and start practicing immediately, no account required.',
   },
 ] as const;
 

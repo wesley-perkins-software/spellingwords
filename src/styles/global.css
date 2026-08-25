@@ -1,4 +1,218 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Baloo+2:wght@600;700;800&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+/* ─────────────────────────────────────────────────────────────
+   SELF-HOSTED FONTS
+   Quicksand, Mulish, and Atkinson Hyperlegible are the only font
+   families actually rendered by the site (verified against every
+   .astro file). Files live in /public/fonts, subset to Latin +
+   Latin Extended-A, licensed under the SIL Open Font License —
+   see /public/fonts/OFL.txt. Quicksand/Mulish are variable fonts;
+   each weight gets its own discrete @font-face rule pointing at the
+   same file, matching exactly how Google's own served CSS pins
+   weights to a variable font — a collapsed "min max" font-weight
+   range on the same file measurably rendered heavier (verified via
+   getComputedStyle + bounding-rect diffing against the prior
+   Google-hosted build), so discrete rules are required here, not
+   an optimization to skip.
+   ───────────────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('/fonts/quicksand-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('/fonts/quicksand-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('/fonts/quicksand-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('/fonts/quicksand-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('/fonts/mulish-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('/fonts/mulish-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('/fonts/mulish-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('/fonts/mulish-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('/fonts/mulish-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('/fonts/mulish-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('/fonts/mulish-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('/fonts/mulish-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('/fonts/mulish-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('/fonts/mulish-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('/fonts/mulish-italic-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('/fonts/mulish-italic-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('/fonts/atkinson-hyperlegible-400-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('/fonts/atkinson-hyperlegible-400-latin-ext.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('/fonts/atkinson-hyperlegible-700-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('/fonts/atkinson-hyperlegible-700-latin-ext.woff2') format('woff2');
+}
 
 @tailwind base;
 @tailwind components;
@@ -32,113 +246,9 @@
 @layer components {
   /* ── Typography scale ──────────────────────────────────────── */
 
-  .text-display-xl {
-    @apply font-display font-bold text-ink tracking-[-0.025em] leading-[1.08];
-    font-size: clamp(36px, 6vw, 56px);
-  }
-
-  .text-display-lg {
-    @apply font-display font-semibold text-ink tracking-[-0.02em] leading-[1.12];
-    font-size: clamp(28px, 4vw, 40px);
-  }
-
-  .text-display-md {
-    @apply font-display font-semibold text-ink tracking-[-0.015em] leading-[1.2];
-    font-size: 24px;
-  }
-
-  .text-body-lg {
-    @apply font-sans font-normal text-ink leading-[1.7];
-    font-size: 18px;
-  }
-
-  .text-body {
-    @apply font-sans font-normal text-ink leading-[1.65];
-    font-size: 16px;
-  }
-
-  .text-caption {
-    @apply font-sans font-semibold text-ink-faint;
-    font-size: 13px;
-  }
-
   .text-word {
     @apply font-word font-normal text-ink tracking-[0.015em] leading-[1.6];
     font-size: 18px;
-  }
-
-  /* ── Button system ─────────────────────────────────────────── */
-
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2
-           rounded-full bg-brand-blue
-           px-6 py-3 min-h-[44px]
-           font-sans text-sm font-bold text-white
-           shadow-[0_8px_20px_-8px_rgba(47,111,237,0.45)]
-           transition
-           hover:bg-brand-blue-deep hover:-translate-y-px
-           hover:shadow-[0_12px_24px_-8px_rgba(47,111,237,0.55)]
-           active:translate-y-0
-           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue
-           disabled:cursor-not-allowed disabled:opacity-40;
-  }
-
-  .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2
-           rounded-full border border-line bg-transparent
-           px-6 py-3 min-h-[44px]
-           font-sans text-sm font-bold text-ink
-           transition
-           hover:bg-app-cloud hover:border-ink/20
-           active:bg-cream-deep
-           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue
-           disabled:cursor-not-allowed disabled:opacity-40;
-  }
-
-  .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2
-           rounded-full
-           px-4 py-2 min-h-[44px]
-           font-sans text-sm font-bold text-ink-soft
-           transition
-           hover:bg-app-cloud hover:text-ink
-           active:bg-cream-deep
-           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue;
-  }
-
-  /* Homepage CTA only — warm red, not reused elsewhere */
-  .btn-action {
-    @apply inline-flex items-center justify-center gap-2
-           rounded-full bg-brand-red
-           px-11 py-4 min-h-[52px]
-           font-display text-[21px] font-semibold text-white tracking-[0.01em]
-           shadow-[0_8px_28px_-6px_rgba(201,64,48,0.22)]
-           transition
-           hover:bg-brand-red-deep hover:-translate-y-0.5
-           hover:shadow-[0_14px_32px_-6px_rgba(201,64,48,0.35)]
-           active:translate-y-0
-           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red
-           disabled:cursor-not-allowed disabled:opacity-40;
-  }
-
-  /* ── Card system ───────────────────────────────────────────── */
-
-  .card {
-    @apply rounded-2xl border border-line bg-app-cloud
-           shadow-[0_2px_8px_-2px_rgba(43,35,24,0.08)];
-  }
-
-  .card-raised {
-    @apply rounded-2xl border border-line bg-app-cloud
-           shadow-[0_6px_20px_-6px_rgba(43,35,24,0.12)];
-  }
-
-  .card-interactive {
-    @apply rounded-2xl border border-line bg-app-cloud
-           shadow-[0_2px_8px_-2px_rgba(43,35,24,0.08)]
-           cursor-pointer transition
-           hover:-translate-y-1
-           hover:shadow-[0_12px_32px_-8px_rgba(43,35,24,0.18)];
   }
 
   /* ── Link utilities ────────────────────────────────────────── */

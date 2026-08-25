@@ -33,26 +33,33 @@ Architectural pattern: a statically generated Astro site with pure, framework-fr
 src/
 ├── pages/                    # File-based routes (page markup + inline <script> wiring)
 │   ├── index.astro           #   /                 home: hero, custom word input, list browser
-│   ├── play.astro            #   /play             interactive spelling test (?list=<encoded>)
-│   └── spelling-lists/
-│       ├── index.astro       #   /spelling-lists   browse all curated lists
-│       └── [category]/[slug].astro  # list detail pages, generated from content collections
-├── layouts/Layout.astro      # Master layout (head, fonts, shared chrome)
+│   ├── play.astro            #   /play             interactive spelling test (?list=<encoded> or ?session=<id>)
+│   ├── practice-your-own-words.astro  # /practice-your-own-words  custom + shared-list entry
+│   ├── grades/
+│   │   ├── index.astro       #   /grades
+│   │   ├── [gradeSlug].astro #   /grades/1st-grade                 grade hub
+│   │   ├── [gradeSlug]/[strand].astro       # /grades/1st-grade/core-spelling      strand gateway
+│   │   └── [gradeSlug]/[strand]/[slug].astro # /grades/1st-grade/core-spelling/floss-rule  grade unit
+│   └── skills/
+│       ├── index.astro       #   /skills
+│       └── [slug].astro      #   /skills/silent-e
+├── layouts/Layout.astro      # Master layout (head, canonical/OG tags, shared chrome)
 ├── components/               # Reusable .astro UI components (Breadcrumbs, CategoryChip, …)
 ├── lib/                      # Pure business logic (framework-free, fully unit-tested)
-│   ├── words/                #   parse / validate / normalize / compare / serialize words
-│   └── content/              #   content-collection query & category-metadata helpers
+│   ├── words/                #   parse / validate / normalize / compare / serialize / share words
+│   └── content/              #   content-collection query, canonical-route, and category helpers
 ├── modules/                  # Feature modules (pure logic + types, framework-free)
 │   ├── spellingTest/         #   test state machine, scoring, word ordering
-│   └── speech/               #   speechSynthesis controller + voice selection
+│   └── speech/                #   speechSynthesis controller + voice selection
 ├── content/
 │   ├── config.ts             # Content Collection schemas
-│   └── spelling-lists/       # Curated word lists as Markdown (phonics/, high-frequency-words/,
-│                             #   grade-level/, challenge/ — frontmatter drives routes)
+│   └── spelling-lists/       # Curated word lists as Markdown (grade-level/, high-frequency-words/,
+│                             #   phonics/ — frontmatter drives routes via canonicalGradeRoutes.ts /
+│                             #   canonicalSkillRoutes.ts, the single source of truth for URLs)
 ├── types/spelling.ts         # Core domain types
 ├── data/fixtures/            # Sample list fixtures not yet migrated to Markdown
-└── styles/global.css         # Tailwind directives, Google Fonts import, focus styles, paper grain
-public/                       # Static assets (currently HTML mockups)
+└── styles/global.css         # Tailwind directives, self-hosted @font-face rules, focus styles, paper grain
+public/                       # Static assets (favicons, manifest, self-hosted fonts, robots.txt)
 docs/                         # Product docs: CONTENT_ARCHITECTURE, LEARNING_MODEL,
                               #   CONTENT_STANDARDS, LIST_SPECIFICATIONS, LIBRARY_ROADMAP
 ```

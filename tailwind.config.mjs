@@ -166,18 +166,10 @@ export default {
         },
       },
       fontFamily: {
-        // Nunito — warm, rounded body font
-        sans:    ['"Nunito"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        // Fredoka — friendly display font for headlines and wordmark
-        display: ['"Fredoka"', 'ui-rounded', 'system-ui', 'sans-serif'],
-        // Baloo 2 — bouncier display face used only in Grade Unit "world" heroes
-        // (src/lib/theme/worldKits.ts). Not the site-wide display font — kept
-        // scoped to that one context rather than replacing Fredoka everywhere.
-        baloo: ['"Baloo 2"', 'ui-rounded', 'system-ui', 'sans-serif'],
         // Atkinson Hyperlegible — maximally legible for word display and textarea
         word:    ['"Atkinson Hyperlegible"', 'ui-sans-serif', 'sans-serif'],
         mono:    ['"Atkinson Hyperlegible"', 'ui-monospace', 'monospace'],
-        // Direction A typography — pilot pages only (see pilotContent.ts).
+        // Direction A typography — the site-wide type system (see pilotContent.ts).
         quicksand: ['"Quicksand"', 'ui-rounded', 'system-ui', 'sans-serif'],
         mulish:    ['"Mulish"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },

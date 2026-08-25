@@ -16,6 +16,15 @@ import SupportingPage from '@/components/SupportingPage.astro';
     intro="SpellingWords is intended to be usable by children and adults with a wide range of access needs, devices, and input methods. Accessibility is treated as an ongoing product responsibility rather than a one-time certification."
     currentPath="/accessibility"
   >
+    <section aria-labelledby="goal-heading">
+      <h2 id="goal-heading">Our accessibility goal</h2>
+      <p>
+        Our goal is to make SpellingWords usable in ways consistent with WCAG 2.2 Level AA guidance.
+        That is a direction for ongoing design, testing, and improvement—not a claim that the site
+        has been independently audited or currently conforms at a particular level.
+      </p>
+    </section>
+
     <section aria-labelledby="features-heading">
       <h2 id="features-heading">What the site currently supports</h2>
       <p>
@@ -63,14 +72,20 @@ import SupportingPage from '@/components/SupportingPage.astro';
           voice is processed locally can vary by browser and operating system.
         </li>
         <li>
+          Learners can start and repeat spoken prompts, but the current spelling-test experience
+          requires audible speech and does not provide a fully equivalent text-only prompt. The
+          curriculum and Skill reference pages remain available without audio.
+        </li>
+        <li>
           The August 2026 review was an internal engineering and product review, not an external
           accessibility certification. SpellingWords does not currently claim a WCAG conformance
           level.
         </li>
         <li>
-          The site does not currently provide a public accessibility-feedback channel. We will not
-          publish a placeholder address or form that cannot be supported. This statement will be
-          updated if a reliable channel is introduced.
+          The site does not currently provide a public accessibility-feedback channel. A real,
+          monitored way to report barriers remains an open launch item; we will not publish a
+          placeholder address or form that cannot be supported. This statement will be updated when
+          a reliable channel is introduced.
         </li>
       </ul>
     </section>

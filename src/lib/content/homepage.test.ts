@@ -205,10 +205,8 @@ describe('canonical homepage', () => {
     expect(homepageSource).toContain('<CustomWordEntry variant="compact"');
     expect(customWordEntrySource).toContain('id="word-input"');
     expect(customWordEntrySource).toContain('id="btn-start"');
-    // The homepage's compact variant keeps the legacy `/play?list=` transport
-    // (documented as intentional technical debt, not migrated by this
-    // change — see docs/planning/LAUNCH_SUPPORTING_PAGES_AND_GLOBAL_NAVIGATION_PLAN.md).
-    expect(customWordEntrySource).toContain("window.location.href = `/play?list=");
+    // Both custom-word entry points use an opaque session id so words never appear in the play URL.
+    expect(customWordEntrySource).toContain('window.location.href = `/play?session=${id}`');
   });
 
   it('emits the required homepage structured-data types, including FAQPage matching visible content', () => {

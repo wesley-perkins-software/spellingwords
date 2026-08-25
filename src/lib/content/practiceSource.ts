@@ -1,0 +1,85 @@
+import { getSequenceNeighbors } from './navigationSequence';
+import { getHighFrequencyNeighbors } from './hfWordsSequence';
+import { getCanonicalListPathById } from './canonicalGradeRoutes';
+import type { GradeRouteClassification } from './canonicalGradeRoutes';
+import type { PracticeSource, PracticeSourceType } from '@/types/spelling';
+
+const PRACTICE_SOURCE_TYPE_BY_CLASSIFICATION: Record<GradeRouteClassification, PracticeSourceType> = {
+  'core-spelling': 'core',
+  'high-frequency-words': 'hfw',
+  'themed-spelling-practice': 'themed',
+};
+
+/**
+ * Resolves the /play provenance for a Grade Unit / HFW set / Themed list
+ * session. `href` must be the entry's own canonical page — never a grade or
+ * strand gateway — so "Return to {title}" lands the student back exactly
+ * where they started. Only 'core-spelling' and 'high-frequency-words' ever
+ * carry a `nextHref`/`nextTitle`; Themed Spelling Practice has no next-in-
+ * sequence semantics (see docs/planning/CANONICAL_NAVIGATION_RELATIONSHIPS.md).
+ */
+export function resolveGradeUnitPracticeSource(args: {
+  id: string;
+  classification: GradeRouteClassification;
+  title: string;
+  href: string;
+  grade?: string;
+  titleById: (id: string) => string | undefined;
+  gradeById?: (id: string) => string | undefined;
+}): PracticeSource {
+  const { id, classification, title, href, grade, titleById, gradeById } = args;
+  const type = PRACTICE_SOURCE_TYPE_BY_CLASSIFICATION[classification];
+  const source: PracticeSource = { type, title, href, grade };
+
+  const nextId =
+    classification === 'core-spelling'
+      ? getSequenceNeighbors(id).nextId
+      : classification === 'high-frequency-words'
+        ? getHighFrequencyNeighbors(id).nextId
+        : undefined;
+
+  if (nextId) {
+    const nextHref = getCanonicalListPathById(nextId);
+    const nextTitle = titleById(nextId);
+    if (nextHref && nextTitle) {
+      source.nextHref = nextHref;
+      source.nextTitle = nextTitle;
+      source.nextGrade = gradeById?.(nextId);
+    }
+  }
+
+  return source;
+}
+
+/** Skill pages have no next-in-sequence — only a return link to the skill itself. */
+export function resolveSkillPracticeSource(args: { title: string; href: string }): PracticeSource {
+  return { type: 'skill', title: args.title, href: args.href };
+}
+
+/**
+ * Custom (pasted-word) sessions now return to the dedicated own-word practice
+ * page rather than dead-ending with no return destination.
+ */
+export function resolveCustomPracticeSource(): PracticeSource {
+  return { type: 'custom', title: 'Practice Your Own Words', href: '/practice-your-own-words' };
+}
+
+/**
+ * A session launched from a teacher/parent shared-link (`#list=...` on
+ * `/practice-your-own-words`). Unlike `resolveCustomPracticeSource`, `href`
+ * here **must** be the exact source URL the shared list was opened from
+ * (path + `#list=...` fragment, e.g.
+ * `/practice-your-own-words#list=2.eyJ2...`) — a results-screen action
+ * that says "← Return to {title}" is a promise to restore that exact
+ * shared list, not a generic link to the blank entry page. The caller
+ * (`CustomWordEntry.astro`) is responsible for capturing that exact URL at
+ * the moment it decodes the shared payload and passing it through
+ * unmodified here; this function never reconstructs or guesses it.
+ */
+export function resolveSharedPracticeSource(args: { title?: string; href: string }): PracticeSource {
+  return {
+    type: 'shared',
+    title: args.title ?? 'Practice Your Own Words',
+    href: args.href,
+  };
+}

@@ -1,0 +1,373 @@
+---
+// Direction A Grade Unit body — the unified visual template for pilot Grade
+// Unit pages, used by BOTH the standard-template renderer
+// ([gradeSlug]/[strand]/[slug].astro) and the Core Spelling renderer
+// (GradeUnitWorldPage.astro), replacing the old gradient-sky "world kit"
+// hero for pilot ids.
+//
+// Structure is deliberately promoted from the design-explore prototype
+// (design-explore/direction-a/skill.astro), not simplified from it: an
+// open, rule-separated editorial column plus a sticky related-learning
+// sidebar on desktop, a designed word-tile bank (not a plain text list).
+//
+// Color on this page follows a visual-weight hierarchy: strand is the
+// page's dominant color-owning accent (hero fill/border, the whole word-list
+// section, section eyebrow, sidebar card) — the surface a visitor should
+// still be able to identify with the word-list panel off-screen. Grade is
+// a second, deliberately subordinate layer: a neutral chip/label for
+// orientation, plus a very faint (6% opacity) full-bleed ambient wash behind
+// the whole page so grade reads as "which grade am I in" atmosphere without
+// ever competing with strand for visual weight. GRADE_ACCENT and
+// STRAND_ACCENT do reuse a few hues (see pilotContent.ts) — on those specific
+// grade/strand combinations the wash sits under a same-hue strand tint and
+// contributes no extra signal there, which is an acceptable trade-off since
+// the neutral chip stays the page's primary "which grade" cue regardless.
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+import Button from './Button.astro';
+import WordTileGrid from './WordTileGrid.astro';
+import type { SpellingListEntry } from '@/lib/content/spellingLists';
+import type { GradeRouteClassification } from '@/lib/content/canonicalGradeRoutes';
+import type { GradeCode } from '@/lib/content/gradeConfig';
+import {
+  STRAND_ACCENT,
+  GRADE_ACCENT,
+  ACCENT_BG_CLASS,
+  ACCENT_BORDER_CLASS,
+  ACCENT_INK_CLASS,
+  ACCENT_TINT_BG_CLASS,
+  ACCENT_WASH_BG_CLASS,
+  ACCENT_AMBIENT_BG_CLASS,
+} from '@/lib/content/pilotContent';
+import type { SpellingWord, PracticeSource } from '@/types/spelling';
+
+function isGradeCode(value: string): value is GradeCode {
+  return value in GRADE_ACCENT;
+}
+
+interface WordNoteItem {
+  word: string;
+  note: string;
+  contextExample?: string;
+  pronunciationNote?: string;
+}
+
+interface RelatedGroup {
+  heading: string;
+  items: SpellingListEntry[];
+}
+
+interface Props {
+  title: string;
+  description: string;
+  Content: AstroComponentFactory;
+  strand: GradeRouteClassification;
+  strandLabel: string;
+  /** Content's raw grade value (validated at content-collection time, but
+   *  typed as a plain string there). Still renders as a neutral chip
+   *  (gradeLabel), never a colored one — but also drives the page's faint
+   *  grade-owned ambient wash (see the module doc at the top of this file). */
+  grade?: string | null;
+  gradeLabel?: string | null;
+  playWords: SpellingWord[];
+  playWordsJson: string;
+  practiceSource: PracticeSource;
+  buttonId: string;
+  wordListHeading: string;
+  wordCount: number;
+  showSentences: boolean;
+  readinessSignals: readonly string[];
+  bodyHeading: string;
+  wordNotesHeading?: string;
+  wordNotes?: readonly WordNoteItem[];
+  conceptSkills: SpellingListEntry[];
+  faq: readonly { question: string; answer: string }[];
+  relatedGroups: RelatedGroup[];
+  listLink: (entry: SpellingListEntry) => string;
+  extraNav?: { heading: string; items: { label: string; href: string }[] };
+}
+
+const {
+  title,
+  description,
+  Content,
+  strand,
+  strandLabel,
+  grade,
+  gradeLabel,
+  playWords,
+  playWordsJson,
+  practiceSource,
+  buttonId,
+  wordListHeading,
+  wordCount,
+  showSentences,
+  readinessSignals,
+  bodyHeading,
+  wordNotesHeading,
+  wordNotes = [],
+  conceptSkills,
+  faq,
+  relatedGroups,
+  listLink,
+  extraNav,
+} = Astro.props;
+
+const strandAccent = STRAND_ACCENT[strand as GradeRouteClassification];
+const gradeAccent = grade && isGradeCode(grade) ? GRADE_ACCENT[grade] : null;
+const gradeAmbientClass = gradeAccent ? ACCENT_AMBIENT_BG_CLASS[gradeAccent] : '';
+
+const hasSidebar = relatedGroups.some((g: RelatedGroup) => g.items.length > 0) || Boolean(extraNav?.items.length);
+---
+
+<!-- Hero: strand-tinted fill/border (the page's dominant accent); a faint
+     grade-owned ambient wash runs behind this and the content below it. -->
+<section class:list={['px-5 pb-0 pt-6 sm:px-6 md:pt-8', gradeAmbientClass]}>
+  <div class="mx-auto max-w-[1100px]">
+    <div class:list={['relative overflow-hidden rounded-2xl border px-6 py-7 sm:px-9 sm:py-9', ACCENT_BORDER_CLASS[strandAccent], ACCENT_TINT_BG_CLASS[strandAccent]]}>
+      <p class="mb-2 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-ink-faint">
+        {gradeLabel ? `${gradeLabel} · ${strandLabel}` : strandLabel}
+      </p>
+
+      <h1 class="mt-3 max-w-[36ch] font-quicksand text-[clamp(1.9rem,4vw,2.6rem)] font-bold leading-[1.12] text-da-ink">{title}</h1>
+      <p class="mt-3 max-w-2xl text-[1.05rem] leading-relaxed text-da-ink-soft">{description}</p>
+
+      <div class="mt-6">
+        <Button
+          id={buttonId}
+          type="button"
+          data-words={playWordsJson}
+          data-list-title={title}
+          data-source={JSON.stringify(practiceSource)}
+          size="lg"
+          aria-label={`Practice these ${playWords.length} words in ${title}`}
+        >
+          Practice these words →
+        </Button>
+        <p id={`${buttonId}-status`} class="mt-3 text-sm text-da-incorrect" aria-live="polite" aria-atomic="true" />
+      </div>
+    </div>
+    <div class:list={['mt-6 h-[3px] w-16 rounded-full', ACCENT_BG_CLASS[strandAccent]]} aria-hidden="true"></div>
+  </div>
+</section>
+
+<div class:list={['px-5 pb-4 pt-8 sm:px-6 md:pt-10', gradeAmbientClass]}>
+  <div class:list={['mx-auto grid max-w-[1100px] gap-10', hasSidebar && 'lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start']}>
+    <div class="min-w-0">
+      {readinessSignals.length > 0 && (
+        <>
+          <section aria-labelledby="readiness-heading" class="mb-8">
+            <h2 id="readiness-heading" class="mb-3 font-quicksand text-xl font-bold text-da-ink">These spelling words are a good fit for students who...</h2>
+            <ul class="space-y-2.5 text-base leading-relaxed text-da-ink-soft">
+              {readinessSignals.map((signal: string) => (
+                <li class="flex items-start gap-2.5">
+                  <span aria-hidden="true" class="mt-0.5 flex-shrink-0 text-da-brand">✓</span>
+                  <span>{signal}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+          <hr class="my-8 border-t border-da-border" />
+        </>
+      )}
+
+      <!-- Word list — the page's strand crescendo: a soft strand wash holding
+           the more fully-tinted WordTileGrid panel, so this is the one
+           strongest color moment on the page (not just the tile panel). -->
+      <section
+        aria-labelledby="word-list-heading"
+        class:list={['mb-9 rounded-2xl p-4 sm:p-5', ACCENT_WASH_BG_CLASS[strandAccent]]}
+      >
+        <p class:list={['mb-1 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em]', ACCENT_INK_CLASS[strandAccent]]}>Word list</p>
+        <div class="mb-3 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+          <h2 id="word-list-heading" class="font-quicksand text-xl font-bold text-da-ink">{wordListHeading}</h2>
+          <p class="text-sm font-bold text-da-ink-faint">{gradeLabel ? `${gradeLabel} · ${strandLabel}` : strandLabel}</p>
+        </div>
+        <WordTileGrid words={playWords} accent={strandAccent} showSentences={showSentences} />
+        <p class="mt-2 text-sm font-semibold text-da-ink-faint">{wordCount} words</p>
+      </section>
+
+      <!-- Spelling Skill reference — a conceptual/reference relationship to
+           the canonical Skill page, deliberately distinct from the
+           sequence-navigation cards in the sidebar (see pilotContent.ts
+           module doc and CANONICAL_GRADE_UNIT_PAGE_STANDARD.md §10: this
+           link never doubles as "what's next"). Open, rule-only treatment
+           (no card fill) mirrors the same border-l-[3px] explainer pattern
+           SkillView.astro already uses for its own conceptual callouts. -->
+
+      {conceptSkills.length > 0 && (
+        <section aria-labelledby="skill-ref-heading" class:list={['mb-9 max-w-[68ch] border-l-[3px] pl-5 sm:pl-6', ACCENT_BORDER_CLASS[strandAccent]]}>
+          <p class:list={['mb-1 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em]', ACCENT_INK_CLASS[strandAccent]]}>
+            {conceptSkills.length > 1 ? 'Spelling Skills' : 'Spelling Skill'}
+          </p>
+          {conceptSkills.length === 1 ? (
+            <>
+              <h2 id="skill-ref-heading" class="font-quicksand text-xl font-bold text-da-ink">{conceptSkills[0].data.title}</h2>
+              <p class="mt-2 text-base leading-relaxed text-da-ink-soft">
+                Learn how this spelling pattern works, see examples, common mistakes, and teaching guidance.
+              </p>
+              <a href={listLink(conceptSkills[0])} class:list={['mt-3 inline-flex items-center gap-1 font-quicksand text-base font-bold hover:underline', ACCENT_INK_CLASS[strandAccent]]}>
+                Explore the {conceptSkills[0].data.title.replace(/ Words$/i, '')} skill →
+              </a>
+            </>
+          ) : (
+            <>
+              <h2 id="skill-ref-heading" class="font-quicksand text-xl font-bold text-da-ink">Spelling skills for this list</h2>
+              <p class="mt-2 text-base leading-relaxed text-da-ink-soft">
+                Learn how each pattern works, see examples, common mistakes, and teaching guidance.
+              </p>
+              <div class="mt-4 flex flex-col">
+                {conceptSkills.map((skill: SpellingListEntry, index: number) => (
+                  <div class:list={['flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 py-3', index > 0 && 'border-t border-da-border/60']}>
+                    <span class="font-quicksand text-base font-bold text-da-ink">{skill.data.title}</span>
+                    <a href={listLink(skill)} class:list={['text-sm font-bold hover:underline', ACCENT_INK_CLASS[strandAccent]]}>
+                      Explore skill →
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+        </section>
+      )}
+
+      <!-- Explanation -->
+      <section aria-labelledby="why-heading" class="mb-9 rounded-2xl bg-da-surface-cool p-6 sm:p-7">
+        <h2 id="why-heading" class="font-quicksand text-[1.3rem] font-bold text-da-ink">{bodyHeading}</h2>
+        <div class="instruction-prose mt-4">
+          <Content />
+        </div>
+      </section>
+
+      {wordNotes.length > 0 && (
+        <section aria-labelledby="word-notes-heading" class="mb-9">
+          <h2 id="word-notes-heading" class="mb-3 font-quicksand text-xl font-bold text-da-ink">{wordNotesHeading ?? 'Notes for particular words'}</h2>
+          <div class="space-y-3">
+            {wordNotes.map((item: WordNoteItem) => (
+              <article class="rounded-xl border border-da-border bg-da-canvas-raised px-5 py-4">
+                <h3 class="font-quicksand text-base font-bold text-da-ink">{item.word}</h3>
+                <p class="mt-1 text-base leading-relaxed text-da-ink-soft">{item.note}</p>
+                {item.contextExample && (
+                  <p class="mt-2 text-base leading-relaxed text-da-ink-soft">
+                    <strong class="font-semibold text-da-ink">In a sentence:</strong> {item.contextExample}
+                  </p>
+                )}
+                {item.pronunciationNote && (
+                  <p class="mt-2 text-sm leading-relaxed text-da-ink-soft">
+                    <strong class="font-semibold text-da-ink">Pronunciation note:</strong> {item.pronunciationNote}
+                  </p>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {faq.length > 0 && (
+        <>
+          <hr class="my-8 border-t border-da-border" />
+          <section aria-labelledby="faq-heading">
+            <p class="mb-1 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-ink-faint">Common questions</p>
+            <h2 id="faq-heading" class="mb-3 font-quicksand text-xl font-bold text-da-ink">Frequently asked questions</h2>
+            <dl class="flex flex-col">
+              {faq.map((item: { question: string; answer: string }) => (
+                <div class="border-t border-da-border py-5 first:border-t-0">
+                  <dt class="flex gap-2.5 font-quicksand text-base font-bold text-da-ink">
+                    <span aria-hidden="true" class="flex-shrink-0 text-da-brand">Q</span>
+                    {item.question}
+                  </dt>
+                  <dd class="ml-5 mt-1.5 text-base leading-relaxed text-da-ink-soft">{item.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        </>
+      )}
+    </div>
+
+    {hasSidebar && (
+      <aside class="flex flex-col gap-6 lg:sticky lg:top-24" aria-label="Curriculum navigation">
+        {relatedGroups.map((group: RelatedGroup) => group.items.length > 0 && (
+          <div class="flex flex-col gap-3">
+            <p class="text-xs font-bold uppercase tracking-[0.04em] text-da-ink-faint">{group.heading}</p>
+            {group.items.map((item: SpellingListEntry) => (
+              <a href={listLink(item)} class="flex flex-col gap-0.5 border-t border-da-border pt-3 no-underline first:border-t-0 first:pt-0">
+                <span class="font-quicksand text-base font-bold text-da-ink hover:underline">{item.data.title}</span>
+                <span class="text-sm font-semibold text-da-brand-strong">{item.data.words.length} words →</span>
+              </a>
+            ))}
+          </div>
+        ))}
+
+        {extraNav && extraNav.items.length > 0 && (
+          <div class="flex flex-col gap-3">
+            <p class="text-xs font-bold uppercase tracking-[0.04em] text-da-ink-faint">{extraNav.heading}</p>
+            {extraNav.items.map((item: { label: string; href: string }, index: number) => (
+              <a href={item.href} class:list={['font-quicksand text-base font-bold text-da-brand-strong no-underline hover:underline', index > 0 && 'border-t border-da-border pt-3']}>
+                {item.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </aside>
+    )}
+  </div>
+</div>
+
+<script>
+  import { encodeWordList } from '@/lib/words';
+
+  interface SpellingWordData {
+    word: string;
+    hint?: string;
+    exampleSentence?: string;
+    phonicsPattern?: string[];
+  }
+
+  function getSpellingWords(button: HTMLButtonElement): SpellingWordData[] {
+    try {
+      const parsed: unknown = JSON.parse(button.dataset.words ?? '[]');
+      if (!Array.isArray(parsed)) return [];
+      return parsed.filter(
+        (e): e is SpellingWordData =>
+          typeof e === 'object' && e !== null && typeof (e as SpellingWordData).word === 'string',
+      );
+    } catch {
+      return [];
+    }
+  }
+
+  function handleStart(event: Event): void {
+    const button = event.currentTarget as HTMLButtonElement;
+    const statusEl = document.getElementById(`${button.id}-status`);
+    const words = getSpellingWords(button);
+    if (words.length === 0) return;
+
+    const result = encodeWordList(words.map((w) => w.word));
+    if (!result.ok) {
+      if (statusEl) {
+        statusEl.textContent =
+          result.code === 'payload_too_long'
+            ? 'There are too many words to start automatically. Please try a shorter list.'
+            : 'Could not start this spelling test. Please try again.';
+      }
+      return;
+    }
+
+    const listTitle = button.dataset.listTitle ?? '';
+    try {
+      sessionStorage.setItem(`sw:words:${result.payload}`, JSON.stringify(words));
+      if (listTitle) sessionStorage.setItem(`sw:title:${result.payload}`, listTitle);
+      if (button.dataset.source) {
+        sessionStorage.setItem(`sw:source:${result.payload}`, button.dataset.source);
+      }
+    } catch {
+      /* quota exceeded or private browsing — non-fatal */
+    }
+
+    window.location.href = `/play?list=${result.payload}`;
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-words]').forEach((btn) => {
+    btn.addEventListener('click', handleStart);
+  });
+</script>

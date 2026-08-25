@@ -1,0 +1,193 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import SupportingPage from '@/components/SupportingPage.astro';
+---
+
+<Layout
+  title="Privacy Policy | SpellingWords"
+  description="Learn how SpellingWords handles custom spelling lists, browser storage, shared links, speech synthesis, cookies, analytics, and children's privacy."
+>
+  <SiteHeader currentPath="/privacy" />
+  <SupportingPage
+    eyebrow="Privacy"
+    title="Privacy Policy"
+    intro="SpellingWords is designed to provide K–5 spelling practice without accounts or profiles. This policy explains what the website processes today, including how custom words and shared lists work."
+    currentPath="/privacy"
+  >
+    <section aria-labelledby="summary-heading">
+      <h2 id="summary-heading">The short version</h2>
+      <ul>
+        <li>You do not need an account or login to use SpellingWords.</li>
+        <li>
+          SpellingWords uses Google Analytics 4 to understand website usage, such as visits, page
+          traffic, and general traffic sources. It is configured to exclude spelling-list data,
+          shared-list fragments, typed answers, and practice-session identifiers.
+        </li>
+        <li>
+          Custom practice words are kept in your browser's session storage while you practice.
+        </li>
+        <li>
+          Shared-list links contain the words and optional title in an encoded—not encrypted—form.
+        </li>
+        <li>
+          Do not put a child's name or other private information in a word list or list title.
+        </li>
+      </ul>
+      <p><strong>Last updated:</strong> August 25, 2026</p>
+    </section>
+
+    <section aria-labelledby="information-heading">
+      <h2 id="information-heading">Information the site handles</h2>
+      <h3>Information you enter</h3>
+      <p>
+        You may type or paste spelling words and, when creating a shared link, add an optional list
+        title. SpellingWords does not ask for a name, email address, school, account profile,
+        payment information, or other identifying details. Please use a neutral title such as “Week
+        4 Spelling” and do not enter personal or sensitive information.
+      </p>
+      <h3>Ordinary website requests</h3>
+      <p>
+        Like other websites, SpellingWords must receive a request from your browser to deliver a
+        page. The hosting and delivery infrastructure may process ordinary technical information
+        associated with that request, such as an IP address, requested page, date and time, browser
+        or device information, and security or diagnostic information. The extent and duration of
+        this processing can vary according to hosting configuration and provider practices.
+      </p>
+      <h3>Information not currently collected through product features</h3>
+      <p>
+        SpellingWords has no accounts, profiles, comments, public posts, purchases, advertising, or
+        contact form.
+      </p>
+    </section>
+
+    <section aria-labelledby="custom-heading">
+      <h2 id="custom-heading">Custom words and practice sessions</h2>
+      <p>
+        When you start a custom practice session, the words are saved in <code>sessionStorage</code
+        >, a browser storage area for the current tab or browsing session. The practice-page address
+        contains a random session identifier, not the words. SpellingWords does not save custom
+        practice lists to a site-operated database.
+      </p>
+      <p>
+        Session storage is normally cleared when the tab or browser session ends, though exact
+        behavior and controls vary by browser. You can also clear site data using your browser's
+        settings. If session storage is blocked, unavailable, or cleared, the practice session may
+        not load.
+      </p>
+    </section>
+
+    <section aria-labelledby="sharing-heading">
+      <h2 id="sharing-heading">Shared spelling-list links</h2>
+      <p>
+        A shared link places its words and optional title after the <code>#</code> symbol in the URL.
+        This part of a URL is called a fragment. Browsers do not include fragments in ordinary HTTP requests
+        to the website, so opening the link does not send the list to the SpellingWords server. The list
+        is decoded in the recipient's browser, and no shared-list copy is stored in a SpellingWords backend.
+      </p>
+      <p>
+        Encoding is not encryption. Anyone who has the complete link can open it and see the words
+        and title. A link may also remain in browser history, synced-browser data, messages, or any
+        service used to share it. Share links only with intended recipients and leave out names or
+        private information.
+      </p>
+    </section>
+
+    <section aria-labelledby="speech-heading">
+      <h2 id="speech-heading">Browser speech synthesis</h2>
+      <p>
+        SpellingWords uses the browser's speech-synthesis feature to speak words and sentences. The
+        text is handed to the browser's speech system; SpellingWords does not send it to a
+        site-operated speech API. Depending on the browser, operating system, selected voice, and
+        device settings, speech may be generated on the device or processed by a browser,
+        operating-system, or voice provider's service.
+      </p>
+    </section>
+
+    <section aria-labelledby="cookies-heading">
+      <h2 id="cookies-heading">Cookies, storage, and analytics</h2>
+      <h3>Cookies</h3>
+      <p>
+        SpellingWords does not set its own application cookies. It uses browser session storage as
+        described above. Google Analytics, described below, may use cookies or similar identifiers
+        to measure site usage.
+      </p>
+      <h3>Analytics</h3>
+      <p>
+        SpellingWords uses Google Analytics 4, a website-analytics service provided by Google, to
+        help understand how the site is used — for example, visits, page usage, traffic sources, and
+        device or browser information, as allowed by the configured Google Analytics property.
+        Google Analytics may use cookies or similar identifiers as part of this measurement. Google
+        has its own privacy and data-processing practices for the Google Analytics service, separate
+        from this policy.
+      </p>
+      <p>
+        The site's implementation is configured to exclude application-state data from what is sent
+        to Google Analytics: custom spelling-list payloads, shared-list link fragments, typed
+        spelling answers, and internal practice-session identifiers are intentionally left out of
+        the page addresses and events reported to analytics, even when they appear in your
+        browser's address bar. No user account is required to use SpellingWords, with or without
+        analytics enabled.
+      </p>
+    </section>
+
+    <section aria-labelledby="services-heading">
+      <h2 id="services-heading">Services provided by others</h2>
+      <ul>
+        <li><strong>Netlify</strong> provides website hosting and delivery.</li>
+        <li>
+          <strong>Browser and device speech services</strong> provide available synthesized voices and
+          may have their own data practices.
+        </li>
+      </ul>
+      <p>
+        SpellingWords may link to external websites for useful context or sources. Those sites and
+        services have their own privacy practices, which SpellingWords does not control.
+      </p>
+    </section>
+
+    <section aria-labelledby="children-heading">
+      <h2 id="children-heading">Children's privacy</h2>
+      <p>
+        SpellingWords is an educational website intended for K–5 students and the adults who support
+        them. Its current product is designed to minimize data collection: no account is needed, and
+        there is no profile, public posting feature, or backend storage for custom lists.
+      </p>
+      <p>
+        Children should use the site with appropriate parent, guardian, or educator guidance. Adults
+        creating lists should not include a child's name, contact details, school information, or
+        other personal information. Keeping lists non-personal helps preserve the data-minimizing way
+        the practice tools are designed to work.
+      </p>
+    </section>
+
+    <section aria-labelledby="retention-heading">
+      <h2 id="retention-heading">Retention and security</h2>
+      <p>
+        Custom practice data is retained in browser session storage rather than a SpellingWords
+        account or database. Shared lists exist in the links held by their creators and recipients;
+        SpellingWords does not retain backend copies. Analytics information collected through
+        Google Analytics is retained according to Google's own retention settings for the
+        configured property, not a SpellingWords-operated database. Hosting providers may process
+        ordinary request information as described above according to their configurations and
+        practices.
+      </p>
+      <p>
+        SpellingWords uses data minimization and a static, frontend-first design to reduce risk, but
+        no website or device can guarantee perfect security. Shared links should not be treated as
+        secret or secure storage.
+      </p>
+    </section>
+
+    <section aria-labelledby="changes-heading">
+      <h2 id="changes-heading">Changes to this policy</h2>
+      <p>
+        This policy will be updated when the site's data practices materially change, including
+        before or when accounts, forms, cloud saving, advertising, or additional relevant services
+        are introduced. The updated policy will show a new “Last updated” date.
+      </p>
+    </section>
+  </SupportingPage>
+  <SiteFooter />
+</Layout>

@@ -1,0 +1,101 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import SupportingPage from '@/components/SupportingPage.astro';
+---
+
+<Layout
+  title="Accessibility at SpellingWords"
+  description="Read about the accessibility goals, verified features, and current limitations of the SpellingWords K–5 spelling website."
+>
+  <SiteHeader currentPath="/accessibility" />
+  <SupportingPage
+    eyebrow="Accessibility"
+    title="Accessibility at SpellingWords"
+    intro="SpellingWords is intended to be usable by children and adults with a wide range of access needs, devices, and input methods. Accessibility is treated as an ongoing product responsibility supported by continued design, testing, and improvement."
+    currentPath="/accessibility"
+  >
+    <section aria-labelledby="goal-heading">
+      <h2 id="goal-heading">Our accessibility goal</h2>
+      <p>
+        Our goal is to make SpellingWords usable in ways consistent with WCAG 2.2 Level AA guidance.
+        We continue to test and improve the site as its content, navigation, and practice tools evolve.
+      </p>
+    </section>
+
+    <section aria-labelledby="features-heading">
+      <h2 id="features-heading">What the site currently supports</h2>
+      <p>
+        The site has been reviewed across its production page templates, global navigation,
+        supporting pages, and interactive practice flow. Checks include keyboard operation, focus
+        movement, responsive layouts, reduced-motion behavior, semantic document structure,
+        accessible names, status announcements, and programmatic color-contrast testing.
+      </p>
+      <ul>
+        <li>A skip link provides a direct route to the main content on every production page.</li>
+        <li>
+          Navigation, word-list controls, and spelling-practice controls can be operated with a
+          keyboard; visible focus indicates the current control.
+        </li>
+        <li>
+          The Grades and mobile navigation disclosures use buttons or native disclosure controls,
+          expose their expanded state, and can be closed with Escape.
+        </li>
+        <li>
+          Practice screens move focus to the next relevant input or button, and important errors and
+          feedback use live status announcements.
+        </li>
+        <li>
+          Headings, landmarks, lists, labels, and breadcrumb navigation provide page structure
+          without depending on visual layout alone.
+        </li>
+        <li>
+          Layouts adapt to narrow screens and enlarged content, while interactive targets in global
+          navigation and core practice controls are sized for touch.
+        </li>
+        <li>
+          Site animation and transition duration is minimized when the device requests reduced
+          motion.
+        </li>
+        <li>Correct and incorrect practice feedback uses text and symbols as well as color.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="limits-heading">
+      <h2 id="limits-heading">Current limitations and dependencies</h2>
+      <ul>
+        <li>
+          Interactive spelling practice depends on the browser's speech-synthesis support and the
+          voices installed or provided by the device. Voice quality, pronunciation, and whether a
+          voice is processed locally can vary by browser and operating system.
+        </li>
+        <li>
+          Learners can start and repeat spoken prompts, but the current spelling-test experience
+          requires audible speech and does not provide a fully equivalent text-only prompt. The
+          curriculum and Skill reference pages remain available without audio.
+        </li>
+        <li>
+          Accessibility behavior can vary across browsers, devices, assistive technologies, zoom
+          settings, and combinations of those technologies.
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="approach-heading">
+      <h2 id="approach-heading">How accessibility work continues</h2>
+      <p>
+        New navigation, page templates, and practice interactions should be checked with keyboard
+        input, narrow and enlarged layouts, reduced motion, accessible-name inspection, and
+        automated tests where appropriate before release. Material known limitations should be
+        documented on this page as they are identified.
+      </p>
+      <p>
+        Accessibility needs can overlap with individual learning needs, but they are not the same
+        thing. Parents and educators should use their knowledge of a child when choosing a grade,
+        word set, device, and amount of practice.
+      </p>
+    </section>
+  </SupportingPage>
+  <SiteFooter />
+</Layout>

@@ -1,0 +1,26 @@
+---
+// Neutral, non-interactive "specimen" token list for sample words — Direction A.
+// Deliberately styled to read as inert reference content, never as a button or
+// filter: rounded-md (not the pill radius Chip/Button use), neutral canvas/ink
+// tones regardless of strand accent, no hover state. Used by Core Spelling,
+// High-Frequency Words, and the Skills Hub wherever a lesson/set/Skill shows a
+// handful of example words. Fill uses da-border (not da-canvas-sunken) so the
+// specimen reads as a distinct surface against both the warm page canvas and
+// a white/raised tile, rather than blending into either.
+interface Props {
+  words: readonly string[];
+  class?: string;
+}
+
+const { words, class: className = '' } = Astro.props;
+---
+
+<ul class:list={['flex flex-wrap gap-1.5', className]}>
+  {words.map((word) => (
+    <li
+      class="rounded-md border border-da-border-strong bg-da-border px-2 py-0.5 font-word text-[0.8rem] text-da-ink-soft"
+    >
+      {word}
+    </li>
+  ))}
+</ul>

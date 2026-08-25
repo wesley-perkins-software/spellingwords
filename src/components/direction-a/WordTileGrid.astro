@@ -1,0 +1,89 @@
+---
+// The designed word-bank treatment from the Direction A prototype
+// (design-explore/direction-a/skill.astro's .word-list-panel/.word-list) —
+// a tinted strand/family-colored panel holding individual white word
+// tiles, not a plain text list in a white box. Shared by Grade Unit and
+// Skill pages so the site's central spelling-word artifact stays
+// consistent everywhere it appears.
+import type { DaAccent } from '@/lib/content/pilotContent';
+import { ACCENT_BORDER_CLASS, ACCENT_TINT_BG_CLASS } from '@/lib/content/pilotContent';
+import type { SpellingWord } from '@/types/spelling';
+
+interface Props {
+  words: SpellingWord[];
+  accent: DaAccent;
+  /** Core Spelling "contract" units show each word with its example
+   *  sentence (word + sentence rows) instead of a plain tile grid. */
+  showSentences?: boolean;
+}
+
+const { words, accent, showSentences = false } = Astro.props;
+
+// Content-aware column density: a fixed grid-cols-N breakpoint ladder
+// doesn't know how long this particular list's words are, so a
+// short-word list (cat, dog, pig) and a long-word list
+// (responsibility, investigation) got the same column count and the
+// long words could overflow their tile on narrow screens. Instead, size
+// each column's minimum width off the longest word actually in *this*
+// list, then let CSS grid's auto-fit expand to as many columns as
+// genuinely fit — dense on short lists, fewer/wider columns on long
+// ones, and it naturally opens up further at sm/md/lg without a second
+// breakpoint ladder to maintain.
+//
+// minmax()'s floor is a hard lower bound — auto-fit only ever grows a
+// track above it, never below — so each tier below is set to the actual
+// widest render of a real corpus word at that length, not an estimate
+// from character count. That render was measured directly (Playwright,
+// headless Chromium, this component's live font/weight/padding) across
+// every word in every canonical list (`words:` arrays under
+// src/content/spelling-lists/**), at both the mobile (1.15rem) and sm+
+// (1.25rem) tile font sizes — since the same inline floor applies at
+// every breakpoint, each tier uses the larger (sm+) requirement plus a
+// ~12px allowance for cross-browser font-metric variance. Prior tiers
+// were sized well under this and let "understand", "government", and
+// other 8-14 letter words wrap mid-word at common tablet/mobile widths.
+// Longest real words seen: 14 letters ("transportation",
+// "responsibility", "representative"); the previous ">12" bucket is
+// unchanged as the ceiling for that range. [overflow-wrap:anywhere]
+// below stays only as a defensive fallback for future pathological
+// content (e.g. a single word far outside this tiering), not the
+// normal case.
+const longestWordLength = Math.max(0, ...words.map((word) => word.word.length));
+const tileMinWidth =
+  longestWordLength <= 4
+    ? '5.75rem'
+    : longestWordLength <= 6
+      ? '7.75rem'
+      : longestWordLength <= 8
+        ? '9.25rem'
+        : longestWordLength <= 10
+          ? '10.5rem'
+          : longestWordLength <= 12
+            ? '11.75rem'
+            : '12.75rem';
+---
+
+<div class:list={['rounded-2xl border p-4 sm:p-5 md:p-6', ACCENT_TINT_BG_CLASS[accent], ACCENT_BORDER_CLASS[accent]]}>
+  {showSentences ? (
+    <ul class="flex flex-col gap-2" aria-label="Words in this list">
+      {words.map((word) => (
+        <li class="flex flex-col gap-1 rounded-xl border border-da-border bg-da-canvas-raised px-5 py-3.5 shadow-sm sm:flex-row sm:items-baseline sm:gap-5">
+          <span class="w-24 shrink-0 font-quicksand text-lg font-bold leading-snug text-da-ink sm:text-xl">{word.word}</span>
+          {word.exampleSentence && <span class="text-sm leading-relaxed text-da-ink-soft sm:text-base">{word.exampleSentence}</span>}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <ul
+      class="grid gap-2.5 sm:gap-3"
+      style={`grid-template-columns: repeat(auto-fit, minmax(${tileMinWidth}, 1fr));`}
+      aria-label="Words in this list"
+    >
+      {words.map((word) => (
+        <li class="min-w-0 rounded-xl border border-da-border bg-da-canvas-raised px-2 py-3.5 text-center font-quicksand text-[1.15rem] font-bold leading-snug text-da-ink shadow-sm [overflow-wrap:anywhere] sm:py-4 sm:text-xl">
+          {word.word}
+        </li>
+      ))}
+    </ul>
+  )}
+</div>

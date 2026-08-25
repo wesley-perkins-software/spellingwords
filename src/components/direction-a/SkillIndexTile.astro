@@ -1,0 +1,43 @@
+---
+// Direction A Skills Hub destination tile — replaces the old rounded-full
+// Skill link-pill with a compact, editorial reference tile: modest
+// rounded-xl surface, restrained left accent bar, dominant title, and (for
+// most Skills) 3-4 inert example words. The title is the only interactive
+// element; a "stretched link" (the ::after on the anchor) extends the click/
+// tap target to the full tile without pulling the example words into the
+// link's accessible name — they stay ordinary, readable list content next
+// to it, not swallowed into a single verbose link label.
+import WordSpecimen from './WordSpecimen.astro';
+import { ACCENT_BEFORE_BG_CLASS, ACCENT_INK_CLASS, type DaAccent } from '@/lib/content/pilotContent';
+
+interface Props {
+  title: string;
+  href: string;
+  examples: readonly string[];
+  clarifier?: string;
+  accent: DaAccent;
+}
+
+const { title, href, examples, clarifier, accent } = Astro.props;
+---
+
+<div
+  class:list={[
+    'group relative flex min-h-[44px] flex-col gap-1.5 rounded-xl border border-da-border bg-da-canvas-raised py-3 pl-4 pr-3 shadow-sm transition-shadow hover:shadow-card focus-within:shadow-card before:absolute before:inset-y-2 before:left-0 before:w-1 before:rounded-full',
+    ACCENT_BEFORE_BG_CLASS[accent],
+  ]}
+>
+  <div class="flex items-start justify-between gap-2">
+    <p class="font-quicksand text-[1.02rem] font-bold leading-snug text-da-ink">
+      <a href={href} class="after:absolute after:inset-0 hover:underline">{title}</a>
+    </p>
+    <span
+      aria-hidden="true"
+      class:list={['mt-0.5 shrink-0 text-lg leading-none transition-transform group-hover:translate-x-0.5', ACCENT_INK_CLASS[accent]]}
+    >
+      →
+    </span>
+  </div>
+  {clarifier && <p class="text-[0.85rem] leading-snug text-da-ink-faint">{clarifier}</p>}
+  <WordSpecimen words={examples} />
+</div>

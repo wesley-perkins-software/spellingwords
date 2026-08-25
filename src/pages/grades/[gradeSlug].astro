@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { getCanonicalUrl } from '@/lib/canonicalUrl';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { isPublished } from '@/lib/content/spellingLists';
+import { gradeConfig, getAdjacentGrades } from '@/lib/content/gradeConfig';
+import type { GradeConfigEntry } from '@/lib/content/gradeConfig';
+import { buildGradeHubModel } from '@/lib/content/gradeHubModel';
+import GradeHubView from '@/components/direction-a/GradeHubView.astro';
+
+export async function getStaticPaths() {
+  return gradeConfig.map((gradeEntry) => ({
+    params: { gradeSlug: gradeEntry.slug },
+    props: { gradeEntry },
+  }));
+}
+
+const { gradeEntry } = Astro.props as { gradeEntry: GradeConfigEntry };
+const { grade, label } = gradeEntry;
+const { prev, next } = getAdjacentGrades(grade);
+
+const entries = (await getCollection('spelling-lists')).filter(isPublished);
+const hub = buildGradeHubModel(grade, entries);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Grades', href: '/grades' },
+  { label },
+];
+
+const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
+
+const itemListElements = hub.strands.map((strand, index) => ({
+  '@type': 'ListItem',
+  position: index + 1,
+  url: new URL(strand.href, canonicalURL.origin).toString(),
+  name: `${label} ${strand.label}`,
+}));
+
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `${label} Spelling Word Lists`,
+  numberOfItems: hub.strands.length,
+  itemListElement: itemListElements,
+};
+---
+
+<Layout
+  title={`${label} Spelling Words | SpellingWords`}
+  description={hub.metaDescription}
+  jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
+>
+  <SiteHeader variant="discovery" currentPath={gradeEntry.hubHref} />
+
+  <main id="main-content">
+    <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+    <GradeHubView label={label} hub={hub} prev={prev} next={next} />
+  </main>
+
+  <SiteFooter />
+</Layout>

@@ -1,0 +1,177 @@
+---
+// The one real Grade Unit page template for Core Spelling — every Core
+// Spelling Grade Unit renders through this exact component, parameterized
+// only by which content entry it's given. See docs/architecture/CONTENT_MODEL.md
+// §3 for the Grade Unit contract this implements:
+//   stable id, one curriculum grade, roadmap placement, grade-specific
+//   title/objective, parent-friendly explanation, one primary Practice Set
+//   (8-16 words), prerequisite/next sequence context, zero..n linked Skills,
+//   status.
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { getCanonicalUrl } from '@/lib/canonicalUrl';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import SourceAttribution from '@/components/SourceAttribution.astro';
+import {
+  isPublished,
+  resolveListRefs,
+  toPlayableWords,
+} from '@/lib/content/spellingLists';
+import { getCoreNavigationModel } from '@/lib/content/navigationSequence';
+import { resolveGradeUnitPracticeSource } from '@/lib/content/practiceSource';
+import { gradeConfig } from '@/lib/content/gradeConfig';
+import {
+  getCanonicalGradeRouteById,
+  getCanonicalListPath,
+  getGradeHubPath,
+  getGradeStrandPath,
+  GRADE_STRANDS,
+} from '@/lib/content/canonicalGradeRoutes';
+import GradeUnitView from '@/components/direction-a/GradeUnitView.astro';
+
+interface Props {
+  listId: string;
+}
+
+const { listId } = Astro.props;
+
+const entries = (await getCollection('spelling-lists')).filter(isPublished);
+const entry = entries.find((e) => e.data.id === listId);
+
+if (!entry) {
+  throw new Error(`GradeUnitWorldPage: "${listId}" not found in the spelling-lists collection.`);
+}
+const canonicalGradeRoute = getCanonicalGradeRouteById(entry.data.id);
+if (canonicalGradeRoute?.classification !== 'core-spelling') {
+  throw new Error(
+    `GradeUnitWorldPage: "${listId}" is not a canonical Core Spelling route.`,
+  );
+}
+
+const { data } = entry;
+const { Content } = await entry.render();
+
+// Review First / Next Step are derived from the canonical CORE_SPELLING_SEQUENCE
+// array, not authored frontmatter — see docs/planning/CANONICAL_NAVIGATION_RELATIONSHIPS.md.
+// Core Spelling intentionally has no Explore More bucket. `relatedLists`
+// remains available to the non-Core renderers, but it is never resolved here.
+const navigation = getCoreNavigationModel(data.id);
+if (!navigation) throw new Error(`GradeUnitWorldPage: "${data.id}" is missing from CORE_SPELLING_SEQUENCE.`);
+const prerequisites = resolveListRefs(navigation.reviewIds, entries);
+const next = resolveListRefs(navigation.nextIds, entries);
+const conceptSkills = data.skillIds
+  .map((id) => entries.find((e) => e.data.id === id))
+  .filter((e): e is (typeof entries)[number] => e !== undefined);
+
+const playWords = toPlayableWords(entry);
+const playWordsJson = JSON.stringify(playWords);
+
+const words = data.words.map((w) => (typeof w === 'string' ? w : w.word));
+
+const gradeHub = gradeConfig.find((g) => g.grade === data.grade);
+const gradeLabel = gradeHub?.label ?? null;
+const categoryLabel = GRADE_STRANDS['core-spelling'].label;
+
+function listLink(e: (typeof entries)[number]) {
+  return getCanonicalListPath(e.data);
+}
+
+const practiceSource = resolveGradeUnitPracticeSource({
+  id: data.id,
+  classification: 'core-spelling',
+  title: data.title,
+  href: canonicalGradeRoute.canonicalPath,
+  grade: data.grade,
+  titleById: (id) => entries.find((e) => e.data.id === id)?.data.title,
+  gradeById: (id) => entries.find((e) => e.data.id === id)?.data.grade,
+});
+
+if (!canonicalGradeRoute || !gradeHub) {
+  throw new Error(`GradeUnitWorldPage: "${data.id}" has no canonical grade route or grade hub.`);
+}
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Grades', href: '/grades' },
+  { label: gradeHub.label, href: getGradeHubPath(canonicalGradeRoute.grade) },
+  {
+    label: GRADE_STRANDS['core-spelling'].label,
+    href: getGradeStrandPath(canonicalGradeRoute.grade, 'core-spelling'),
+  },
+  { label: data.title },
+];
+
+const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
+
+const faqJsonLd =
+  data.faq.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: data.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
+      }
+    : null;
+
+const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
+---
+
+<Layout
+  title={`${data.title} — spellingwords`}
+  description={data.description}
+  ogType="article"
+  jsonLd={jsonLdBlocks}
+>
+  <SiteHeader variant="discovery" currentPath={getGradeHubPath(canonicalGradeRoute.grade)} />
+  <main id="main-content">
+    <div class="mx-auto max-w-[1100px] px-5 pt-8 sm:px-6 md:pt-10">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+    <GradeUnitView
+      title={data.title}
+      description={data.description}
+      Content={Content}
+      strand="core-spelling"
+      strandLabel={categoryLabel}
+      grade={data.grade}
+      gradeLabel={gradeLabel}
+      playWords={playWords}
+      playWordsJson={playWordsJson}
+      practiceSource={practiceSource}
+      buttonId={`btn-pilot-practice-${data.id}`}
+      wordListHeading={`The ${words.length} words to practice in this step`}
+      wordCount={words.length}
+      showSentences={false}
+      readinessSignals={data.readinessSignals}
+      bodyHeading="Why these words — and what they teach"
+      conceptSkills={conceptSkills}
+      faq={data.faq}
+      relatedGroups={[
+        { heading: 'Review first', items: prerequisites },
+        { heading: 'Next step', items: next },
+      ]}
+      listLink={listLink}
+    />
+    {data.canonicalSource?.publicAttribution && (
+      <div class="mx-auto max-w-[1100px] px-5 py-8 sm:px-6">
+        <SourceAttribution source={data.canonicalSource} />
+      </div>
+    )}
+  </main>
+  <SiteFooter />
+</Layout>

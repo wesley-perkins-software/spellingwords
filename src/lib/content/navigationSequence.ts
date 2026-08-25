@@ -1,0 +1,58 @@
+import { CORE_SPELLING_SEQUENCE } from './coreSpellingSequence';
+
+export type SequenceNeighbors = {
+  prerequisiteId?: string;
+  nextId?: string;
+};
+
+export type CoreNavigationModel = {
+  reviewIds: readonly string[];
+  nextIds: readonly string[];
+  exploreIds: readonly string[];
+};
+
+/**
+ * Precomputed id -> index lookups for both canonical sequences, built once
+ * at module load rather than per call.
+ */
+const CORE_SPELLING_INDEX: ReadonlyMap<string, number> = new Map(
+  CORE_SPELLING_SEQUENCE.map((id, index) => [id, index]),
+);
+
+/**
+ * Returns the Review First (`prerequisiteId`) and Next Step (`nextId`) ids
+ * for a page, derived from its position in whichever canonical sequence
+ * (`CORE_SPELLING_SEQUENCE`) it belongs to.
+ *
+ * A page absent from both sequences — every Themed Spelling Practice page, every
+ * combined-roadmap sibling, every reusable Skill page — returns `{}`, which
+ * is exactly correct: those pages never have a Review First or Next Step.
+ * High-Frequency Words use their separate, grade-contained Explore More
+ * helper and therefore never enter this prerequisite/next-step model.
+ */
+export function getSequenceNeighbors(id: string): SequenceNeighbors {
+  const coreIndex = CORE_SPELLING_INDEX.get(id);
+  if (coreIndex !== undefined) {
+    return {
+      prerequisiteId: CORE_SPELLING_SEQUENCE[coreIndex - 1],
+      nextId: CORE_SPELLING_SEQUENCE[coreIndex + 1],
+    };
+  }
+
+  return {};
+}
+
+/**
+ * The complete bottom-navigation model for a canonical Core page. Keeping
+ * the empty Explore More bucket in this resolved model makes the product rule
+ * explicit and testable instead of leaving it to template branching.
+ */
+export function getCoreNavigationModel(id: string): CoreNavigationModel | undefined {
+  if (!CORE_SPELLING_INDEX.has(id)) return undefined;
+  const { prerequisiteId, nextId } = getSequenceNeighbors(id);
+  return {
+    reviewIds: prerequisiteId ? [prerequisiteId] : [],
+    nextIds: nextId ? [nextId] : [],
+    exploreIds: [],
+  };
+}

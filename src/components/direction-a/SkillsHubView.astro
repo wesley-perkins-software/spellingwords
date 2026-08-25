@@ -1,0 +1,152 @@
+---
+// Direction A Skills Hub — browses the frozen Skill taxonomy grouped by
+// family. Editorial reference-library treatment: no rounded-full pills
+// anywhere. Skills render as a responsive grid of compact SkillIndexTiles
+// (title + a few inert example words) rather than a wrapped row of
+// link-pills. Four "chapter" dividers group the 12 canonical families for
+// scanability — purely visual/editorial labels, not a new taxonomy level: no
+// ids, no anchors, no schema, same frozen family/Skill order underneath.
+// Heading outline is H1 (page) -> H2 (editorial chapter) -> H3 (canonical
+// family); family is the primary structural unit inside each chapter, so it
+// carries more visual weight than a chapter break a reader only passes once.
+import AtmosphereBand from './AtmosphereBand.astro';
+import SkillIndexTile from './SkillIndexTile.astro';
+import { ACCENT_BORDER_CLASS, SKILL_FAMILY_ACCENT } from '@/lib/content/pilotContent';
+
+interface SkillLink {
+  title: string;
+  href: string;
+  examples: readonly string[];
+  clarifier?: string;
+}
+
+interface Family {
+  title: string;
+  description: string;
+  guidance: string;
+  anchorId: string;
+  skills: SkillLink[];
+}
+
+interface Props {
+  families: Family[];
+  skillCount: number;
+  familyCount: number;
+}
+
+const { families, skillCount, familyCount } = Astro.props;
+
+// Visual-only chapter grouping. Family membership/order is untouched — this
+// only decides which light divider precedes which run of family sections.
+// The descriptor is one plain sentence naming the families it groups, not a
+// second layer of teaching copy.
+const CHAPTERS: { label: string; descriptor: string; familyTitles: string[] }[] = [
+  {
+    label: 'Foundational sounds and spelling patterns',
+    descriptor:
+      'Short vowel sounds, consonant digraphs and blends, common spelling conventions, and silent e.',
+    familyTitles: [
+      'Short Vowels',
+      'Consonant Digraphs',
+      'Consonant Blends',
+      'Common Spelling Patterns',
+      'Silent E',
+    ],
+  },
+  {
+    label: 'Vowel patterns',
+    descriptor: 'Vowel team spellings and vowel sounds shaped by a following r.',
+    familyTitles: ['Vowel Teams', 'R-Controlled Vowels'],
+  },
+  {
+    label: 'Longer words and word building',
+    descriptor: 'Syllables, word endings, prefixes, and Greek and Latin roots.',
+    familyTitles: [
+      'Multisyllabic Words',
+      'Word Building and Endings',
+      'Prefixes',
+      'Greek and Latin Roots',
+    ],
+  },
+  {
+    label: 'Meaning and easily confused spellings',
+    descriptor: 'Homophones and other words that are easy to mix up by sound or meaning.',
+    familyTitles: ['Homophones and Commonly Confused Words'],
+  },
+];
+
+const chapterForFamily = new Map<string, (typeof CHAPTERS)[number]>();
+for (const chapter of CHAPTERS) {
+  for (const familyTitle of chapter.familyTitles) {
+    chapterForFamily.set(familyTitle, chapter);
+  }
+}
+---
+
+<AtmosphereBand tone="skill" ariaLabel="Spelling Practice by Skill" class="mt-6 rounded-3xl md:mt-8">
+  <header class="max-w-2xl">
+    <p class="font-mulish text-xs font-bold uppercase tracking-[0.16em] text-da-ink-faint">
+      Spelling Skills
+    </p>
+    <h1 class="mt-2 font-quicksand text-[clamp(1.9rem,4vw,2.5rem)] font-bold leading-[1.1] text-da-ink">
+      Spelling Practice by Skill
+    </h1>
+    <p class="mt-4 text-[1.05rem] leading-relaxed text-da-ink-soft">
+      Browse by skill when you already know or recognize the spelling concept your child needs,
+      from sound-spelling patterns and conventions to word parts and meaning-based choices. Every
+      Skill page is grade-independent: it explains how the pattern works, gives examples and common
+      mistakes, and links back to grade-level practice where it fits. If you want a sequenced grade-level path instead,{' '}
+      <a href="/grades" class="font-bold text-da-brand-strong hover:underline">browse by grade</a>.
+    </p>
+    <p class="mt-4 font-mulish text-xs font-bold uppercase tracking-[0.14em] text-da-ink-faint">
+      {skillCount} Skills across {familyCount} families
+    </p>
+  </header>
+</AtmosphereBand>
+
+<div class="mx-auto max-w-3xl px-5 py-10 sm:px-6 md:py-14">
+  <div class="flex flex-col gap-10">
+    {families.map((family, index) => {
+      const accent = SKILL_FAMILY_ACCENT[family.title] ?? 'brand';
+      const chapter = chapterForFamily.get(family.title);
+      const isFirstInChapter = chapter && chapterForFamily.get(families[index - 1]?.title) !== chapter;
+
+      return (
+        <>
+          {isFirstInChapter && (
+            <div class:list={['border-t border-da-border pt-8', index > 0 && 'mt-4']}>
+              <h2 class="font-mulish text-xs font-bold uppercase tracking-[0.14em] text-da-ink-faint">
+                {chapter.label}
+              </h2>
+              <p class="mt-1.5 max-w-xl text-sm leading-relaxed text-da-ink-faint">{chapter.descriptor}</p>
+            </div>
+          )}
+          <section id={family.anchorId} aria-labelledby={`${family.anchorId}-heading`} class="scroll-mt-24">
+            <h3
+              id={`${family.anchorId}-heading`}
+              class:list={['inline-block border-b-2 pb-1.5 font-quicksand text-xl font-bold tracking-tight text-da-ink', ACCENT_BORDER_CLASS[accent]]}
+            >
+              {family.title}
+            </h3>
+            <p class="mt-3 max-w-xl text-[0.95rem] leading-relaxed text-da-ink-soft">
+              {family.description} {family.guidance}
+            </p>
+            <ul class="mt-5 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
+              {family.skills.map((skill) => (
+                <li>
+                  <SkillIndexTile
+                    title={skill.title}
+                    href={skill.href}
+                    examples={skill.examples}
+                    clarifier={skill.clarifier}
+                    accent={accent}
+                  />
+                </li>
+              ))}
+            </ul>
+          </section>
+        </>
+      );
+    })}
+  </div>
+</div>

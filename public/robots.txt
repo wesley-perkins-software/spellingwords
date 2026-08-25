@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Keep this origin in sync with SITE_ORIGIN in src/lib/siteOrigin.ts and
+# `site` in astro.config.mjs — this static file has no build step to share it.
+Sitemap: https://spellingwords.app/sitemap.xml

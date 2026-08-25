@@ -1,0 +1,197 @@
+---
+import { getCollection } from 'astro:content';
+import { getCanonicalGradeRoutes, getCanonicalGradeRouteByPath, getCanonicalListPath, getGradeHubPath, getGradeStrandPath, GRADE_STRANDS } from '@/lib/content/canonicalGradeRoutes';
+import Layout from '@/layouts/Layout.astro';
+import { getCanonicalUrl } from '@/lib/canonicalUrl';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import SourceAttribution from '@/components/SourceAttribution.astro';
+import GradeUnitWorldPage from '@/components/GradeUnitWorldPage.astro';
+import {
+  isPublished,
+  resolveListRefs,
+  toPlayableWords,
+} from '@/lib/content/spellingLists';
+import { getNonCoreNavigationModel } from '@/lib/content/nonCoreNavigation';
+import { resolveGradeUnitPracticeSource } from '@/lib/content/practiceSource';
+import { gradeConfig } from '@/lib/content/gradeConfig';
+import GradeUnitView from '@/components/direction-a/GradeUnitView.astro';
+
+export async function getStaticPaths() {
+  const entries = (await getCollection('spelling-lists')).filter(isPublished);
+  const entriesById = new Map(entries.map((entry) => [entry.data.id, entry]));
+
+  return getCanonicalGradeRoutes().map((route) => {
+    const entry = entriesById.get(route.id);
+    if (!entry) throw new Error(`Canonical grade route ${route.id} does not resolve to a published spelling list.`);
+    return {
+      params: { gradeSlug: route.gradeSlug, strand: route.classification, slug: route.finalSlug },
+      props: { entry, allEntries: entries },
+    };
+  });
+}
+
+const { entry, allEntries } = Astro.props;
+const { data } = entry;
+
+const route = getCanonicalGradeRouteByPath(Astro.params.gradeSlug!, Astro.params.strand!, Astro.params.slug!);
+if (!route) throw new Error(`No canonical grade route for ${Astro.params.gradeSlug}/${Astro.params.strand}/${Astro.params.slug}`);
+const isCoreSpelling = route.classification === 'core-spelling';
+const isHighFrequencyWords = route.classification === 'high-frequency-words';
+const isThemedSpellingPractice = route.classification === 'themed-spelling-practice';
+
+const { Content } = await entry.render();
+
+// Classification comes from the canonical route manifest. High-Frequency
+// Words use grade-contained adjacency; Themed Spelling Practice uses an explicit
+// editorial map. Neither non-Core model reads scattered relatedLists metadata.
+const nonCoreNavigation = getNonCoreNavigationModel(route.classification, data.id);
+const related = resolveListRefs(nonCoreNavigation?.exploreIds ?? [], allEntries);
+
+const playWords = toPlayableWords(entry);
+const playWordsJson = JSON.stringify(playWords);
+
+function listLink(e: (typeof allEntries)[number]) {
+  return getCanonicalListPath(e.data);
+}
+
+const practiceSource = resolveGradeUnitPracticeSource({
+  id: data.id,
+  classification: route.classification,
+  title: data.title,
+  href: route.canonicalPath,
+  grade: data.grade,
+  titleById: (id) => allEntries.find((e) => e.data.id === id)?.data.title,
+  gradeById: (id) => allEntries.find((e) => e.data.id === id)?.data.grade,
+});
+
+const categoryLabel = GRADE_STRANDS[route.classification].label;
+const gradeHubForBreadcrumb = gradeConfig.find((g) => g.grade === route.grade);
+if (!gradeHubForBreadcrumb) throw new Error(`No grade hub for grade ${route.grade}`);
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Grades', href: '/grades' },
+  { label: gradeHubForBreadcrumb.label, href: getGradeHubPath(route.grade) },
+  { label: route.section, href: getGradeStrandPath(route.grade, route.classification) },
+  { label: data.contentRole === 'high-frequency-word-set' ? `Set ${route.finalSlug.replace('set-', '')}` : data.title },
+];
+
+const canonicalURL = getCanonicalUrl(Astro.url.pathname, Astro.site);
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
+
+const faqJsonLd =
+  data.faq.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: data.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
+      }
+    : null;
+
+const jsonLdBlocks = [breadcrumbJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])];
+
+const gradeDisplay = gradeHubForBreadcrumb.label;
+
+// A Grade Unit adopts the sequencing-page presentation (word sentences,
+// Skill callout cards) only once it declares at least one canonical Skill.
+const isContractUnit = data.contentRole === 'grade-unit' && data.skillIds.length > 0;
+
+// Grade Unit → its canonical reusable Skill(s) ("Go deeper"). Zero, one, or
+// several — a mixed-review unit may declare more than one.
+const conceptSkills = isContractUnit
+  ? data.skillIds
+      .map((id) => allEntries.find((e) => e.data.id === id))
+      .filter((entry): entry is (typeof allEntries)[number] => entry !== undefined)
+  : [];
+
+const bodyHeading = isHighFrequencyWords || isThemedSpellingPractice
+  ? 'What to notice when spelling these words'
+  : 'Why these words — and what they teach';
+
+// View model adapted to whichever of HFW set-navigation / themed word notes /
+// concept-skill callouts this entry actually has.
+const extraNav = isHighFrequencyWords && related.length > 0
+  ? {
+      heading: 'Continue with this grade',
+      items: [
+        ...related.map((item) => {
+          const targetRoute = getCanonicalGradeRoutes().find((candidate) => candidate.id === item.data.id);
+          const currentNumber = Number(route.finalSlug.replace('set-', ''));
+          const targetNumber = Number(targetRoute?.finalSlug.replace('set-', ''));
+          const direction = targetNumber < currentNumber ? 'Previous' : 'Next';
+          return { label: `${direction}: Set ${targetNumber}`, href: listLink(item) };
+        }),
+        { label: `All ${gradeHubForBreadcrumb.label} High-Frequency Words`, href: getGradeStrandPath(route.grade, 'high-frequency-words') },
+      ],
+    }
+  : undefined;
+
+const relatedGroups = isHighFrequencyWords
+  ? []
+  : [{ heading: isThemedSpellingPractice ? 'More themed spelling practice' : 'Explore more', items: related }];
+
+---
+
+{isCoreSpelling && <GradeUnitWorldPage listId={data.id} />}
+
+{!isCoreSpelling && (
+<Layout
+  title={`${data.title} | SpellingWords`}
+  description={data.description}
+  ogType="article"
+  jsonLd={jsonLdBlocks}
+>
+  <SiteHeader variant="discovery" currentPath={getGradeHubPath(route.grade)} />
+  <main id="main-content">
+    <div class="mx-auto max-w-[1100px] px-5 pt-8 sm:px-6 md:pt-10">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+    <GradeUnitView
+      title={data.title}
+      description={data.description}
+      Content={Content}
+      strand={route.classification}
+      strandLabel={categoryLabel}
+      grade={data.grade}
+      gradeLabel={gradeDisplay}
+      playWords={playWords}
+      playWordsJson={playWordsJson}
+      practiceSource={practiceSource}
+      buttonId={`btn-pilot-practice-${data.id}`}
+      wordListHeading={isContractUnit ? `The ${data.words.length} words to practice in this step` : `All ${data.words.length} words in this list`}
+      wordCount={data.words.length}
+      showSentences={isContractUnit}
+      readinessSignals={!isHighFrequencyWords && !isThemedSpellingPractice ? data.readinessSignals : []}
+      bodyHeading={bodyHeading}
+      wordNotesHeading="Notes for particular words"
+      wordNotes={isHighFrequencyWords ? data.hfwWordNotes : isThemedSpellingPractice ? data.wordNotes : []}
+      conceptSkills={conceptSkills}
+      faq={data.faq}
+      relatedGroups={relatedGroups}
+      listLink={listLink}
+      extraNav={extraNav}
+    />
+    {data.canonicalSource?.publicAttribution && (
+      <div class="mx-auto max-w-[1100px] px-5 py-8 sm:px-6">
+        <SourceAttribution source={data.canonicalSource} />
+      </div>
+    )}
+  </main>
+  <SiteFooter />
+</Layout>
+)}

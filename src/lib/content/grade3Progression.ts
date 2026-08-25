@@ -1,0 +1,60 @@
+/**
+ * Curated Grade 3 Core Spelling order, hand-maintained like `gradeConfig.ts`/
+ * `gradeHubCopy.ts` rather than derived from content frontmatter. This is the
+ * only export consumed outside this file today — it feeds `CURATED_GRADE_ORDER`
+ * in `gradeUnitSequence.ts`, which powers the cross-grade K-5 Grade Unit
+ * sequence (world-kit assignment). The Grade 3 hub itself is driven directly
+ * by the canonical grade route manifest, independent of this file.
+ *
+ * The Suffix Spelling Changes unit is a single roadmap entry
+ * (`grade-3-suffix-spelling-changes`, contentRole: grade-unit).
+ */
+export const GRADE_3_CORE_IDS: readonly string[] = [
+  'grade-3-prefix-words',
+  'grade-3-suffix-words',
+  'grade-3-suffix-spelling-changes',
+  'grade-3-possessives',
+  'grade-3-multisyllabic-words',
+  'grade-3-homophones',
+  'grade-3-root-word-families',
+];
+
+/**
+ * Grade 3 High-Frequency Words, published. Documentation only — `high-frequency-word-set` is
+ * not a `grade-unit`, so these ids never enter `buildGradeUnitSequence()`.
+ * The Grade 3 hub's High-Frequency Words section is driven directly by
+ * the canonical grade route manifest, independent of this file.
+ */
+export const GRADE_3_HFW_SET_IDS: readonly string[] = [
+  'grade-3-high-frequency-words-set-1',
+  'grade-3-high-frequency-words-set-2',
+  'grade-3-high-frequency-words-set-3',
+  'grade-3-high-frequency-words-set-4',
+  'grade-3-high-frequency-words-set-5',
+];
+
+/**
+ * Off-hub Grade 3 vocabulary and legacy-reclassified library content.
+ * Documentation only — `vocabulary-theme` (and undeclared `contentRole`) is
+ * not a `grade-unit`, so these ids never enter `buildGradeUnitSequence()`.
+ */
+export const GRADE_3_VOCABULARY_IDS: readonly string[] = [];
+
+/**
+ * Card badge label, independent of `category` — matches the convention in
+ * `grade1Progression.ts`/`grade2Progression.ts`.
+ */
+export const grade3Badges: Record<string, string> = {
+  'grade-3-prefix-words': 'Core Unit',
+  'grade-3-suffix-words': 'Core Unit',
+  'grade-3-suffix-spelling-changes': 'Core Unit',
+  'grade-3-possessives': 'Core Unit',
+  'grade-3-multisyllabic-words': 'Core Unit',
+  'grade-3-homophones': 'Core Unit',
+  'grade-3-root-word-families': 'Core Unit',
+  'grade-3-high-frequency-words-set-1': 'High-Frequency Words',
+  'grade-3-high-frequency-words-set-2': 'High-Frequency Words',
+  'grade-3-high-frequency-words-set-3': 'High-Frequency Words',
+  'grade-3-high-frequency-words-set-4': 'High-Frequency Words',
+  'grade-3-high-frequency-words-set-5': 'High-Frequency Words',
+};

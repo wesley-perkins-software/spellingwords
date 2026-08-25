@@ -1,0 +1,1306 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+---
+
+<Layout
+  title="Spelling Test | SpellingWords"
+  description="Take your custom spelling test. Hear each word spoken aloud and type your answer."
+>
+  <Fragment slot="head">
+    <!-- Runs synchronously in <head>, before <body> (including the
+         orientation section below) is parsed or painted. This site is
+         fully static (astro.config.mjs output: 'static'), so play.html is
+         byte-identical for every query string — there is no render-time
+         request to inspect server-side, and the deferred module script at
+         the bottom of this page runs too late to prevent a first-paint
+         flash. Marking <html> here, synchronously and pre-paint, lets the
+         plain CSS rule below hide the orientation screen before it is ever
+         painted for a state-bearing /play?session=... or /play?list=...
+         load — no JS timing hacks, no visible swap. -->
+    <script is:inline>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        if (params.has('session') || params.has('list')) {
+          document.documentElement.classList.add('sw-play-has-state');
+        }
+      })();
+    </script>
+  </Fragment>
+  <style>
+    /* Paired with the inline script above: hides the bare-/play
+       orientation screen before first paint whenever the URL carries
+       practice state (valid, invalid, or expired session/list), so it
+       never flashes before the real practice screen or error screen. */
+    :global(html.sw-play-has-state) #screen-orientation {
+      display: none;
+    }
+  </style>
+
+  <SiteHeader variant="practice" />
+
+  <main id="main-content">
+    <!-- Error / unsupported screens live outside the practice shell — they
+         never need the ad-rail grid or the session progress bar. Padding
+         lives on each section (not a shared wrapper) so an empty wrapper
+         never reserves blank vertical space while both are hidden. -->
+    <!-- Error screen -->
+    <section
+      id="screen-error"
+      class="hidden mx-auto max-w-xl px-6 py-12 text-center md:py-16"
+      aria-labelledby="error-heading"
+    >
+        <div class="flex flex-col items-center gap-6">
+          <div
+            class="flex h-16 w-16 items-center justify-center rounded-2xl bg-da-incorrect-bg text-da-incorrect"
+            aria-hidden="true"
+          >
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              ><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"
+              ></line></svg
+            >
+          </div>
+          <div class="flex flex-col gap-2">
+            <h1 id="error-heading" class="font-quicksand text-2xl font-bold text-da-ink">
+              No word list found
+            </h1>
+            <p id="error-message" class="text-base text-da-ink-soft"></p>
+          </div>
+          <a
+            href="/"
+            class="rounded-xl bg-da-brand px-6 py-3 font-quicksand text-sm font-bold text-white no-underline transition hover:bg-da-brand-strong"
+          >
+            ← Enter new words
+          </a>
+        </div>
+    </section>
+
+    <!-- Orientation screen — the canonical, crawlable content for a bare
+         /play visit (no ?session= or ?list=). It is NOT hidden by default,
+         so it is present in the static HTML for crawlers and no-JS
+         visitors before any script runs; init() below hides it immediately
+         if a valid practice session is actually found. An invalid/expired
+         session or list still uses the error screen above, not this one —
+         this screen exists specifically for the truly-bare canonical URL. -->
+    <section
+      id="screen-orientation"
+      class="mx-auto max-w-2xl px-6 py-12 text-center md:py-16"
+      aria-labelledby="orientation-heading"
+    >
+      <div class="flex flex-col items-center gap-6">
+        <h1 id="orientation-heading" class="font-quicksand text-3xl font-bold text-da-ink">
+          Practice spelling words
+        </h1>
+        <p class="max-w-[52ch] font-mulish text-base text-da-ink-soft">
+          This page is where a spelling practice session runs — each word read aloud, then
+          typed, with no timer and no score pressure. Start a session from one of the pages
+          below and it will open here.
+        </p>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <a
+            href="/practice-your-own-words"
+            class="rounded-xl bg-da-brand px-6 py-3 font-quicksand text-sm font-bold text-white no-underline transition hover:bg-da-brand-strong"
+          >
+            Practice your own words
+          </a>
+          <a
+            href="/grades"
+            class="rounded-xl border-2 border-da-brand px-6 py-3 font-quicksand text-sm font-bold text-da-brand-strong no-underline transition hover:bg-da-brand-tint"
+          >
+            Browse by grade
+          </a>
+          <a
+            href="/skills"
+            class="rounded-xl border-2 border-da-brand px-6 py-3 font-quicksand text-sm font-bold text-da-brand-strong no-underline transition hover:bg-da-brand-tint"
+          >
+            Browse by skill
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Unsupported browser screen -->
+    <section
+      id="screen-unsupported"
+      class="hidden mx-auto max-w-xl px-6 py-12 text-center md:py-16"
+      aria-labelledby="unsupported-heading"
+    >
+      <div class="flex flex-col items-center gap-6">
+        <div
+          class="flex h-16 w-16 items-center justify-center rounded-2xl bg-da-sun-tint text-da-ink-soft"
+          aria-hidden="true"
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            ><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line
+              x1="23"
+              y1="9"
+              x2="17"
+              y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg
+          >
+        </div>
+        <div class="flex flex-col gap-2">
+          <h1 id="unsupported-heading" class="font-quicksand text-2xl font-bold text-da-ink">
+            Audio not supported
+          </h1>
+          <p class="text-base text-da-ink-soft">
+            Audio spelling tests are not supported in this browser.<br />
+            Please try a modern browser with speech support.
+          </p>
+        </div>
+        <a
+          href="/"
+          class="rounded-xl bg-da-brand px-6 py-3 font-quicksand text-sm font-bold text-white no-underline transition hover:bg-da-brand-strong"
+        >
+          ← Go back
+        </a>
+      </div>
+    </section>
+
+    <!-- Practice shell — a restrained, full-bleed cool-blue band gives the
+         active ready/question/feedback/results states a single, stable
+         environment rather than floating on the same canvas as editorial
+         pages.
+
+         GOVERNING INVARIANT: the practice stage's own center must equal the
+         viewport's center at every width, whether zero, one, or two future
+         ad rails are present. This is achieved with a permanently 3-column
+         grid — minmax(0,1fr) / minmax(0,672px) / minmax(0,1fr) — used
+         unchanged at every breakpoint. The two outer tracks are `fr`, so
+         they always split whatever space remains equally; the fixed 672px
+         center track is therefore always exactly centered, regardless of
+         whether the side tracks are empty, hold one rail, or hold two.
+         (A prior version of this shell centered a [rail, stage] pair as one
+         fixed-width group at the "one rail" breakpoint, which shifted the
+         stage itself off-center — that is exactly the bug this structure
+         is designed to make impossible: the stage's track never changes
+         size or position based on rail presence, only the rail elements'
+         visibility does.)
+
+         Rail visibility (documented here, not just in code, per the
+         redesign brief's request to record safe rail widths/gutters):
+           - below 1440px:        both rails hidden — side tracks sit empty.
+           - 1440px – 1759px:     left rail may appear (~300px, hugging the
+                                   stage's left gutter); right stays empty.
+                                   1440px is chosen with a real safety
+                                   margin over the ~1432px geometric minimum
+                                   at which a 300px rail plus its 32px
+                                   gutter first fits in the side track.
+           - 1760px and wider:    right rail may also appear, symmetric with
+                                   the left. (Both sides are always the same
+                                   width, so nothing geometrically requires
+                                   deferring the right rail this long — it's
+                                   a deliberate, cautious product staging,
+                                   not a layout constraint.)
+         Rails are empty, inert placeholders (no ad code). No outer max-width
+         caps this shell — peripheral space is intentionally left to grow
+         unbounded on very wide screens, per "peripheral regions consume
+         only the space naturally remaining."
+
+         Vertical centering: this shell is min-height'd to the viewport
+         height below the practice header (100dvh minus the header's real
+         measured height, kept in --practice-header-h by the script below,
+         with a sensible fallback) and centers its single child on that
+         cross axis. Every screen — ready, question, feedback, results — is
+         a child of #practice-stage-inner below, so all four automatically
+         share one centering discipline: short content (a perfect-score
+         results card, the ready screen) centers within the available
+         height; content taller than the available height simply grows the
+         (min-height, not fixed-height) shell past the viewport, and the
+         page scrolls normally — no clipping, no one-off transforms. -->
+    <div
+      id="practice-stage"
+      class="hidden min-h-[calc(100dvh-var(--practice-header-h,4.5rem))] items-center bg-da-brand-tint py-8 md:py-12"
+    >
+      <div class="w-full px-4 md:px-6">
+        <div class="grid grid-cols-[minmax(0,1fr)_minmax(0,672px)_minmax(0,1fr)] gap-8">
+          <aside
+            id="rail-left"
+            class="col-start-1 hidden min-[1440px]:block w-[300px] justify-self-end"
+            aria-hidden="true"
+          ></aside>
+
+          <div id="practice-stage-inner" class="col-start-2 min-w-0 w-full max-w-content-md justify-self-center">
+            <!-- Shared session progress — visible during question AND feedback, hidden otherwise -->
+            <div id="session-progress" class="hidden mb-5 flex flex-col gap-2">
+              <p
+                id="progress"
+                class="font-quicksand text-sm font-bold text-da-ink-soft"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+              </p>
+              <div class="h-3 rounded-full bg-da-canvas-sunken overflow-hidden">
+                <div
+                  id="progress-bar"
+                  class="h-full rounded-full bg-da-brand transition-[width] duration-400"
+                  style="width: 0%"
+                >
+                </div>
+              </div>
+            </div>
+
+            <!-- Begin screen — content-driven height, like question/feedback;
+                 the practice stage stays centered as a whole rather than
+                 forcing every screen to share one inner-card height. -->
+            <section
+              id="screen-begin"
+              class="hidden flex flex-col gap-4"
+              aria-labelledby="begin-heading"
+            >
+              <div class="flex flex-col items-center justify-center gap-7 rounded-2xl border border-da-border bg-da-canvas-raised px-7 py-8 text-center shadow-md md:px-8 md:py-9">
+                <div class="flex flex-col items-center gap-3">
+                  <p class="font-mulish text-base font-bold text-da-ink-soft tracking-wide">Ready to practice</p>
+                  <h1 id="begin-heading" class="font-quicksand text-3xl font-bold text-da-ink leading-snug"></h1>
+                  <p id="begin-word-count" class="font-mulish text-base text-da-ink-soft"></p>
+                </div>
+                <p id="begin-instructions" class="max-w-[36ch] font-mulish text-base text-da-ink-soft"></p>
+                <a
+                  id="begin-source-link"
+                  href="#"
+                  class="hidden font-mulish text-sm font-bold text-da-brand-strong no-underline hover:underline"
+                ></a>
+              </div>
+
+              <button
+                id="btn-begin"
+                type="button"
+                class="w-full min-h-[44px] rounded-xl bg-da-coral px-10 py-4 font-quicksand text-[19px] font-bold text-white tracking-[0.01em] shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0"
+              >
+                Start practice <span aria-hidden="true">→</span>
+              </button>
+            </section>
+
+            <!-- Question screen — content-driven height: the white card sizes
+                 to its own content (listening controls, instruction, input)
+                 instead of stretching to fill a fixed floor, so Check
+                 Spelling sits right beneath it with no dead space between. -->
+            <section
+              id="screen-question"
+              class="hidden flex flex-col gap-4"
+              aria-labelledby="question-heading"
+            >
+              <!-- White interaction surface — the focused workbook card inside the cool stage -->
+              <div
+                class="rounded-2xl border border-da-border bg-da-canvas-raised shadow-md px-7 py-8 md:px-8 md:py-9 flex flex-col gap-7"
+              >
+                <h1 id="question-heading" class="sr-only">Type the word you hear</h1>
+
+                <!-- Hear Word / Hear Sentence — one coherent listening-control
+                     group. Hear Word is primary (solid brand blue); Hear
+                     Sentence is secondary but equally reachable — same
+                     height, same rounded-rectangle shape language as the
+                     rest of the page, no oversized circular icon. -->
+                <div class="flex flex-col gap-2.5 sm:flex-row">
+                  <button
+                    id="btn-repeat"
+                    type="button"
+                    aria-pressed="false"
+                    class="flex min-h-[56px] flex-1 items-center justify-center gap-2.5 rounded-xl bg-da-brand px-5 font-quicksand text-base font-bold text-white transition hover:bg-da-brand-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand aria-pressed:bg-da-brand-strong"
+                    aria-label="Hear the word again"
+                  >
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M4 10v4h3.5L12 17.5v-11L7.5 10H4z"></path>
+                      <path d="M15.5 9a3.5 3.5 0 010 6"></path>
+                      <path d="M18 6.5a7 7 0 010 11"></path>
+                    </svg>
+                    Hear word
+                  </button>
+
+                  <button
+                    id="btn-sentence"
+                    type="button"
+                    aria-pressed="false"
+                    class="hidden min-h-[56px] flex-1 items-center justify-center gap-2.5 rounded-xl border-[1.5px] border-da-border-strong bg-da-canvas-sunken px-5 font-quicksand text-base font-bold text-da-ink-soft transition hover:bg-da-brand-tint hover:text-da-brand-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand aria-pressed:bg-da-brand-tint aria-pressed:text-da-brand-strong"
+                    aria-label="Hear the word used in a sentence again"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    Hear sentence
+                  </button>
+                </div>
+                <!-- Shown only when no example sentence exists for this word -->
+                <p id="no-sentence-note" class="hidden -mt-4 text-center font-mulish text-sm font-semibold text-da-ink-soft" aria-live="polite">
+                  No sentence available for this word.
+                </p>
+
+                <!-- Answer input -->
+                <div class="flex flex-col gap-2">
+                  <p id="question-instruction" class="text-center text-base font-bold text-da-ink"></p>
+                  <input
+                    id="answer-input"
+                    type="text"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    placeholder="Type the word"
+                    class="w-full rounded-xl border-[2.5px] border-da-border-strong bg-da-canvas px-5 py-4 text-center font-word text-3xl font-semibold text-da-ink tracking-wide placeholder:font-mulish placeholder:font-normal placeholder:text-da-ink-faint/60 transition focus:border-da-brand focus:outline-none"
+                    aria-label="Your answer"
+                  />
+                  <p
+                    id="answer-error"
+                    class="min-h-[1.25rem] px-1 text-center text-sm font-semibold text-da-incorrect"
+                    aria-live="polite"
+                    role="alert"
+                  >
+                  </p>
+                </div>
+              </div>
+
+              <!-- Primary action — grid row 2, same slot as Continue button on feedback screen -->
+              <button
+                id="btn-submit"
+                type="button"
+                class="w-full min-h-[44px] rounded-xl bg-da-coral px-6 py-4 font-quicksand text-xl font-bold text-white shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0"
+              >
+                Check Spelling
+              </button>
+            </section>
+
+            <!-- Feedback screen — content-driven height, same as question screen -->
+            <section
+              id="screen-feedback"
+              class="hidden flex flex-col gap-4 text-center"
+              aria-labelledby="feedback-heading"
+              aria-live="assertive"
+            >
+              <!-- Visually hidden heading updated for screen readers -->
+              <h1 id="feedback-heading" class="sr-only"></h1>
+
+              <!-- Content zone — centered vertically in the 1fr row -->
+              <div class="flex flex-col items-center justify-center gap-4 rounded-2xl px-6 py-8 md:px-8">
+                <!-- Correct answer: icon + word, calm phrase below -->
+                <div id="feedback-correct-layout" class="hidden w-full flex-col items-center gap-4 rounded-2xl border border-da-correct-border bg-da-correct-bg px-6 py-8 md:px-8">
+                  <span class="flex h-14 w-14 items-center justify-center rounded-full bg-da-correct text-white" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M8 12.5l2.5 2.5L16 9"></path>
+                    </svg>
+                  </span>
+                  <div class="flex flex-col items-center gap-1">
+                    <p id="feedback-correct-phrase" class="font-quicksand text-xl font-bold text-da-correct">
+                    </p>
+                    <p
+                      id="feedback-correct-word"
+                      class="font-word text-5xl font-bold tracking-tight leading-none text-da-ink mt-1"
+                    >
+                    </p>
+                  </div>
+                  <!-- Shown only for a caseMismatch outcome — the spelling is
+                       correct (counts toward the score) but the canonical
+                       word's capitalization is worth a calm reminder. Never a
+                       third results tier: same green correct styling. -->
+                  <p
+                    id="feedback-capitalization-note"
+                    class="hidden mt-1 font-mulish text-sm font-semibold text-da-ink-soft"
+                  ></p>
+                </div>
+
+                <!-- Incorrect answer: icon + phrase, then a labeled comparison —
+                     never a strikethrough. The student's own spelling stays
+                     fully legible; the correct spelling reads as visually
+                     dominant through size and color, not by crossing anything
+                     out. -->
+                <div id="feedback-incorrect-layout" class="hidden w-full flex-col items-center gap-3 rounded-2xl border border-da-incorrect-border bg-da-incorrect-bg px-6 py-8 md:px-8">
+                  <span class="flex h-14 w-14 items-center justify-center rounded-full bg-da-incorrect text-white" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M12 8v5"></path>
+                      <circle cx="12" cy="16" r="0.75" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                  </span>
+                  <p
+                    id="feedback-incorrect-phrase"
+                    class="font-quicksand text-xl font-bold text-da-incorrect"
+                  >
+                  </p>
+                  <dl class="mt-1 flex flex-col gap-3">
+                    <div class="flex flex-col items-center gap-0.5">
+                      <dt class="font-quicksand text-xs font-bold uppercase tracking-[0.06em] text-da-ink-faint">Your spelling</dt>
+                      <dd id="feedback-attempt" class="font-word text-2xl font-bold text-da-ink-soft"></dd>
+                    </div>
+                    <div class="flex flex-col items-center gap-0.5">
+                      <dt class="font-quicksand text-xs font-bold uppercase tracking-[0.06em] text-da-ink-faint">Correct spelling</dt>
+                      <dd
+                        id="feedback-incorrect-word"
+                        class="font-word text-4xl font-bold tracking-tight leading-none text-da-correct"
+                      >
+                      </dd>
+                    </div>
+                  </dl>
+                  <p id="feedback-detail" class="mt-1 font-mulish text-sm font-semibold text-da-ink-soft"></p>
+                </div>
+              </div>
+
+              <!-- Continue button — auto row, anchors at bottom like Check Spelling on question screen -->
+              <button
+                id="btn-next"
+                type="button"
+                aria-label="Continue to next word"
+                class="w-full min-h-[44px] rounded-xl bg-da-coral px-8 py-4 font-quicksand text-xl font-bold text-white shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0 disabled:opacity-40 disabled:cursor-default disabled:translate-y-0"
+              >
+                Continue →
+              </button>
+            </section>
+
+            <!-- Results screen -->
+            <section id="screen-results" class="hidden" aria-labelledby="results-heading">
+              <div
+                id="results-content"
+                class="flex flex-col items-center gap-6 rounded-2xl border border-da-brand border-t-4 bg-da-canvas-raised px-6 py-9 shadow-md text-center md:px-9"
+              >
+                <!-- Outcome zone -->
+                <div>
+                  <h1
+                    id="results-heading"
+                    class="font-quicksand text-3xl font-bold text-da-brand-strong leading-tight"
+                  >
+                  </h1>
+                  <p id="results-summary" class="mt-3 text-lg font-semibold text-da-ink-soft"></p>
+                </div>
+
+                <!-- Missed words — a neutral, non-interactive specimen list
+                     (not pill-shaped chips) since these words aren't
+                     clickable; hidden entirely for perfect sessions. -->
+                <div
+                  id="results-missed-section"
+                  class="hidden w-full flex flex-col items-center gap-3"
+                >
+                  <p class="font-quicksand text-sm font-bold uppercase tracking-[0.05em] text-da-ink-faint">Words to practice again</p>
+                  <ul
+                    id="results-missed-list"
+                    class="flex flex-wrap justify-center gap-1.5"
+                    aria-label="Words to practice again"
+                  >
+                  </ul>
+                </div>
+
+                <!-- Action zone — populated and ordered by renderResults() via resolveResultsActions() -->
+                <div id="results-action-zone" class="flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <aside
+            id="rail-right"
+            class="col-start-3 hidden min-[1760px]:block w-[300px] justify-self-start"
+            aria-hidden="true"
+          ></aside>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer">
+    <SiteFooter />
+  </div>
+</Layout>
+
+<script>
+  import { decodeWordList, sanitizeSpellingCharacters } from '@/lib/words';
+  import { getSentenceBankEntry } from '@/lib/sentenceBank';
+  import { createSpeechController, selectPreferredVoice } from '@/modules/speech';
+  import type { SpeechSynthesisVoiceAdapter } from '@/modules/speech';
+  import {
+    spellingTestReducer,
+    createInitialState,
+    initializeTest,
+    startTest,
+    submitAnswer,
+    nextWord,
+    reviewMissed,
+  } from '@/modules/spellingTest/stateMachine';
+  import type { TestState } from '@/modules/spellingTest/types';
+  import { resolveResultsActions } from '@/modules/spellingTest/resultsActions';
+  import type { ResultsAction } from '@/modules/spellingTest/resultsActions';
+  import { getPracticeIntroCopy } from '@/modules/spellingTest/practiceIntro';
+  import type { PracticeSource } from '@/types/spelling';
+
+  // --- DOM refs ---
+  const $ = (id: string) => document.getElementById(id)!;
+
+  const screenError = $('screen-error');
+  const screenOrientation = $('screen-orientation');
+  const screenUnsupported = $('screen-unsupported');
+  const screenBegin = $('screen-begin');
+  const screenQuestion = $('screen-question');
+  const screenFeedback = $('screen-feedback');
+  const screenResults = $('screen-results');
+  const practiceStage = $('practice-stage');
+
+  const allScreens = [
+    screenError,
+    screenOrientation,
+    screenUnsupported,
+    screenBegin,
+    screenQuestion,
+    screenFeedback,
+    screenResults,
+  ];
+
+  const beginHeading = $('begin-heading');
+  const beginWordCount = $('begin-word-count');
+  const beginInstructions = $('begin-instructions');
+  const beginSourceLink = $('begin-source-link') as HTMLAnchorElement;
+  const progressEl = $('progress');
+  const questionInstruction = $('question-instruction');
+  const answerInput = $('answer-input') as HTMLInputElement;
+  const answerError = $('answer-error');
+  const feedbackHeading = $('feedback-heading');
+  const feedbackCorrectLayout = $('feedback-correct-layout');
+  const feedbackCorrectWord = $('feedback-correct-word');
+  const feedbackCorrectPhrase = $('feedback-correct-phrase');
+  const feedbackCapitalizationNote = $('feedback-capitalization-note');
+  const feedbackIncorrectLayout = $('feedback-incorrect-layout');
+  const feedbackIncorrectPhrase = $('feedback-incorrect-phrase');
+  const feedbackAttempt = $('feedback-attempt');
+  const feedbackIncorrectWord = $('feedback-incorrect-word');
+  const feedbackDetail = $('feedback-detail');
+  const progressBar = $('progress-bar') as HTMLElement;
+  const sessionProgress = $('session-progress');
+  const resultsHeading = $('results-heading');
+  const resultsSummary = $('results-summary');
+  const resultsMissedSection = $('results-missed-section');
+  const resultsMissedList = $('results-missed-list');
+  const resultsActionZone = $('results-action-zone');
+  const btnBegin = $('btn-begin') as HTMLButtonElement;
+  const btnRepeat = $('btn-repeat') as HTMLButtonElement;
+  const btnSentence = $('btn-sentence') as HTMLButtonElement;
+  const noSentenceNote = $('no-sentence-note');
+  const btnSubmit = $('btn-submit') as HTMLButtonElement;
+  const btnNext = $('btn-next') as HTMLButtonElement;
+  const errorMessage = $('error-message');
+  const practiceExitLink = document.getElementById('practice-exit-link') as HTMLAnchorElement | null;
+
+  // --- Module state ---
+  const speech = createSpeechController();
+  let state: TestState = createInitialState();
+  let originalWords: string[] = [];
+  let originalRichWords: { word: string; exampleSentence?: string }[] = [];
+  let practiceSource: PracticeSource = { type: 'custom' };
+
+  let selectedVoice: SpeechSynthesisVoiceAdapter | null = null;
+  const currentRate = 1.0;
+
+  // Pending auto-sentence timeout handle — cancelled whenever we move to a new word
+  let sentenceTimeout: ReturnType<typeof setTimeout> | null = null;
+
+  function cancelPendingSentence(): void {
+    if (sentenceTimeout !== null) {
+      clearTimeout(sentenceTimeout);
+      sentenceTimeout = null;
+    }
+  }
+
+  // Clears the "speaking" pressed-state on whichever listening button
+  // triggered the current utterance, wherever speech might have stopped.
+  function clearSpeakingState(): void {
+    btnRepeat.setAttribute('aria-pressed', 'false');
+    btnSentence.setAttribute('aria-pressed', 'false');
+  }
+
+  // --- Warm, varied feedback copy ---
+  // A calm adult helping a child — not a scoreboard. We rotate through these
+  // so the same phrase doesn't land twice in a row and start to feel canned.
+  const CORRECT_PHRASES = [
+    'Well spelled.',
+    'Good listening.',
+    "That's it exactly.",
+    'Correct.',
+    'Just right.',
+    "You've got it.",
+  ];
+  const INCORRECT_PHRASES = [
+    'A good attempt.',
+    "That's a tricky one.",
+    'Close — good effort.',
+    'Worth another look.',
+    'Nearly there.',
+  ];
+  const NOT_PERFECT_HEADLINES = [
+    'Good practice today.',
+    'Worth another pass.',
+    'Nice effort today.',
+    'Good effort today.',
+    'Keep going.',
+    "That's the way.",
+  ];
+
+  let lastCorrectPhrase = -1;
+  let lastIncorrectPhrase = -1;
+  let lastNotPerfectHeadline = -1;
+
+  // Delay before the Continue button becomes active on incorrect answers —
+  // enforces a brief reading moment without auto-advancing.
+  let nextWordDelayTimeout: ReturnType<typeof setTimeout> | null = null;
+
+  function pickPhrase(pool: string[], lastIndex: number, remember: (i: number) => void): string {
+    let i = Math.floor(Math.random() * pool.length);
+    if (pool.length > 1 && i === lastIndex) i = (i + 1) % pool.length;
+    remember(i);
+    return pool[i];
+  }
+
+  // --- Screen management ---
+  const siteFooter = document.getElementById('site-footer');
+  // Every practice-stage screen is an "immersive" state — ready, question,
+  // feedback, and results all share the same quiet, chrome-suppressed shell.
+  const immersiveScreens = [screenBegin, screenQuestion, screenFeedback, screenResults];
+
+  const practiceScreens = [screenQuestion, screenFeedback];
+
+  function showScreen(target: HTMLElement): void {
+    for (const screen of allScreens) {
+      screen.classList.toggle('hidden', screen !== target);
+      screen.classList.remove('screen-entering');
+    }
+    const showStage = immersiveScreens.includes(target);
+    practiceStage.classList.toggle('hidden', !showStage);
+    // 'hidden' (display:none) and 'flex' must be toggled together, never
+    // left both present — Tailwind's cascade order would otherwise let
+    // 'flex' win and defeat 'hidden'.
+    practiceStage.classList.toggle('flex', showStage);
+    siteFooter?.classList.toggle('hidden', showStage);
+    sessionProgress.classList.toggle('hidden', !practiceScreens.includes(target));
+    updateExitLink(target);
+    // Trigger reflow so the animation restarts each time
+    void (target as HTMLElement).offsetHeight;
+    target.classList.add('screen-entering');
+  }
+
+  // The practice header's exit link is contextual: it offers to return to
+  // the exact page the session started from wherever we know one, and its
+  // label changes once a session is actually in progress.
+  function updateExitLink(target: HTMLElement): void {
+    if (!practiceExitLink) return;
+    const hasSource = Boolean(practiceSource.href && practiceSource.title);
+
+    if (target === screenQuestion || target === screenFeedback) {
+      practiceExitLink.textContent = 'Exit practice';
+      practiceExitLink.href = hasSource ? practiceSource.href! : '/';
+    } else if (target === screenBegin && hasSource) {
+      practiceExitLink.textContent = `← Back to ${practiceSource.title}`;
+      practiceExitLink.href = practiceSource.href!;
+    } else {
+      practiceExitLink.textContent = '← New list';
+      practiceExitLink.href = '/practice-your-own-words';
+    }
+  }
+
+  function showError(message: string): void {
+    errorMessage.textContent = message;
+    showScreen(screenError);
+  }
+
+  // --- Voice setup ---
+  async function initVoiceControls(): Promise<void> {
+    const allVoices = await speech.loadVoices();
+    selectedVoice = selectPreferredVoice(allVoices);
+  }
+
+  // --- Initialization ---
+  function init(): void {
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session');
+    const payload = params.get('list');
+
+    // Two hand-off transports land here:
+    //  - `?session=<opaque id>`: word data lives only in sessionStorage,
+    //    never in this URL — used by both custom-word entry points and by
+    //    shared lists so a shared link's words don't end
+    //    up back in a query string after being received via a privacy-
+    //    conscious URL fragment. Required: there is no query fallback, so a
+    //    lost/expired session (e.g. sessionStorage unavailable, or this URL
+    //    opened in a different tab) surfaces the same "no word list" error.
+    //  - `?list=<payload>`: the original transport, retained for curated list
+    //    pages. User-entered custom words no longer use this query transport.
+    let storageKey: string;
+    if (sessionId) {
+      storageKey = sessionId;
+      let sessionWords: string[] | null = null;
+      try {
+        const stored = sessionStorage.getItem(`sw:session-words:${sessionId}`);
+        if (stored) {
+          const parsed: unknown = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.every((w) => typeof w === 'string') && parsed.length > 0) {
+            sessionWords = parsed as string[];
+          }
+        }
+      } catch {
+        /* sessionStorage unavailable or parse failed */
+      }
+      if (!sessionWords) {
+        showError(
+          'Your practice session could not be found. Please go back to Practice Your Own Words and start again.',
+        );
+        return;
+      }
+      originalWords = sessionWords;
+    } else if (payload) {
+      storageKey = payload;
+      const decoded = decodeWordList(payload);
+      if (!decoded.ok) {
+        showError('The word list could not be loaded. Please go back and try again.');
+        return;
+      }
+      originalWords = decoded.words;
+    } else {
+      // Bare /play — no ?session= or ?list= at all. This is the canonical,
+      // crawlable URL (it's the one entry in the sitemap), so it gets a
+      // real orientation screen rather than the error screen used for an
+      // actually-invalid/expired session or list.
+      showScreen(screenOrientation);
+      return;
+    }
+
+    if (!speech.isSpeechSupported()) {
+      showScreen(screenUnsupported);
+      return;
+    }
+
+    // Try to recover rich SpellingWord data (with exampleSentence) stored by curated list pages.
+    let richWords: { word: string; exampleSentence?: string }[] | null = null;
+    try {
+      const stored = sessionStorage.getItem(`sw:words:${storageKey}`);
+      if (stored) {
+        const parsed: unknown = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.every((e) => typeof e?.word === 'string')) {
+          richWords = parsed as { word: string; exampleSentence?: string }[];
+        }
+      }
+    } catch {
+      /* sessionStorage unavailable or parse failed — fall through to plain words */
+    }
+
+    // For custom lists (no sessionStorage entry), enrich words from the sentence bank.
+    // Curated list words already carry their exampleSentence inside richWords — never overwrite those.
+    if (!richWords) {
+      richWords = originalWords.map((w) => {
+        const entry = getSentenceBankEntry(w);
+        return entry ? { word: w, exampleSentence: entry.exampleSentence } : { word: w };
+      });
+    }
+
+    originalRichWords = richWords;
+
+    // Resolve session provenance, written by the page that launched practice,
+    // before initializing the state machine — grading needs to know whether
+    // this is a custom session (unverifiable casing) or a curated one
+    // (canonical, meaningfully-capitalized casing) up front.
+    try {
+      const stored = sessionStorage.getItem(`sw:source:${storageKey}`);
+      if (stored) {
+        const parsed: unknown = JSON.parse(stored);
+        if (parsed && typeof parsed === 'object' && typeof (parsed as PracticeSource).type === 'string') {
+          practiceSource = parsed as PracticeSource;
+        }
+      }
+    } catch {
+      /* sessionStorage unavailable or parse failed — default 'custom' source stands */
+    }
+
+    state = spellingTestReducer(
+      createInitialState(),
+      initializeTest(richWords, {
+        shuffle: true,
+        meaningfulCapitalization: practiceSource.type !== 'custom',
+      }),
+    );
+
+    const count = originalWords.length;
+
+    // Resolve session title: curated list title from sessionStorage, else custom fallback
+    let sessionTitle = 'Your Spelling Words';
+    try {
+      const stored = sessionStorage.getItem(`sw:title:${storageKey}`);
+      if (stored) sessionTitle = stored;
+    } catch {
+      /* sessionStorage unavailable — use fallback */
+    }
+
+    beginHeading.textContent = sessionTitle;
+    beginWordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`;
+    beginInstructions.textContent = getPracticeIntroCopy(richWords);
+    if (practiceSource.href && practiceSource.title) {
+      beginSourceLink.textContent = `← Back to ${practiceSource.title}`;
+      beginSourceLink.href = practiceSource.href;
+      beginSourceLink.classList.remove('hidden');
+    }
+    showScreen(screenBegin);
+
+    // Load voices in the background — does not require a user gesture
+    initVoiceControls();
+  }
+
+  // --- Render helpers ---
+  // `selectedVoice` starts out null and is only populated once initVoiceControls()'s
+  // async loadVoices() resolves. Passing that null through as an explicit `voice`
+  // would tell the controller "use no voice" and skip its own fallback selection
+  // (see speechController.speakWord) — forcing the browser's arbitrary default
+  // voice for any word spoken before the cache warms. Coercing to undefined lets
+  // the controller fall back to a live selectPreferredVoice() call instead.
+  function speechOptions(onStart?: () => void, onEnd?: () => void) {
+    return { voice: selectedVoice ?? undefined, rate: currentRate, onStart, onEnd };
+  }
+
+  function instructionForIndex(): string {
+    return 'Listen, then type the word.';
+  }
+
+  function renderQuestion(): void {
+    const current = state.words[state.currentIndex];
+    const total = state.words.length;
+    const pos = state.currentIndex + 1;
+
+    progressEl.textContent = `Word ${pos} of ${total}`;
+    progressBar.style.width = `${(pos / total) * 100}%`;
+    questionInstruction.textContent = instructionForIndex();
+    answerInput.readOnly = false;
+    answerInput.value = '';
+    answerError.textContent = '';
+
+    // Show sentence button only when this word has an example sentence
+    const hasSentence = Boolean(current.exampleSentence);
+    btnSentence.classList.toggle('hidden', !hasSentence);
+    btnSentence.classList.toggle('flex', hasSentence);
+    noSentenceNote.classList.toggle('hidden', hasSentence);
+
+    showScreen(screenQuestion);
+    // Focus synchronously, in the same task as the triggering click/tap
+    // (Continue, Start, Practice again/missed) rather than deferring via
+    // requestAnimationFrame — staying inside the original user-gesture task
+    // is what gives iOS Safari/Android Chrome the best chance of reopening
+    // the software keyboard without the student having to tap the field
+    // again. showScreen()'s class toggle above is synchronous, so the input
+    // is already visible/focusable by this point.
+    answerInput.focus();
+
+    // Cancel any pending sentence from the previous word, then speak this word.
+    // After a short natural pause, auto-speak the sentence if one exists.
+    // This immediate word pronunciation is the core "listen, then type"
+    // mechanism, not incidental autoplay — see docs/LEARNING_MODEL.md.
+    cancelPendingSentence();
+    speech.cancelSpeech();
+    clearSpeakingState();
+
+    const result = speech.speakWord(
+      current.word,
+      speechOptions(
+        () => btnRepeat.setAttribute('aria-pressed', 'true'),
+        () => btnRepeat.setAttribute('aria-pressed', 'false'),
+      ),
+    );
+    if (!result.ok) {
+      answerError.textContent =
+        'Audio is not available right now. Try "Hear Word", or check your device sound.';
+    } else if (hasSentence) {
+      sentenceTimeout = setTimeout(() => {
+        sentenceTimeout = null;
+        speech.speakWord(
+          current.exampleSentence!,
+          speechOptions(
+            () => btnSentence.setAttribute('aria-pressed', 'true'),
+            () => btnSentence.setAttribute('aria-pressed', 'false'),
+          ),
+        );
+      }, 1000);
+    }
+  }
+
+  function renderFeedback(): void {
+    const correct = state.lastAnswerCorrect;
+    const outcome = state.lastAnswerOutcome;
+    const currentWord = state.words[state.currentIndex].word;
+    const lastAttempt = state.attempts[state.attempts.length - 1];
+    const submittedAnswer = lastAttempt?.answer ?? '';
+
+    const isLast = state.currentIndex === state.words.length - 1;
+    const continueLabel = isLast ? 'See results' : 'Continue to next word';
+    btnNext.setAttribute('aria-label', continueLabel);
+
+    // Update shared progress immediately when feedback renders
+    const pos = state.currentIndex + 1;
+    const total = state.words.length;
+    progressEl.textContent = `Word ${pos} of ${total}`;
+    progressBar.style.width = `${(pos / total) * 100}%`;
+
+    if (correct) {
+      // Correct: icon + phrase, word beneath.
+      feedbackCorrectLayout.classList.remove('hidden');
+      feedbackCorrectLayout.classList.add('flex');
+      feedbackIncorrectLayout.classList.add('hidden');
+      feedbackIncorrectLayout.classList.remove('flex');
+
+      feedbackCorrectWord.textContent = currentWord;
+      const phrase = pickPhrase(CORRECT_PHRASES, lastCorrectPhrase, (i) => (lastCorrectPhrase = i));
+      feedbackCorrectPhrase.textContent = phrase;
+
+      // Case-mismatch: the spelling is correct (counts toward the score),
+      // but the canonical word's capitalization is worth a calm reminder.
+      // Not a third results tier — same green correct layout, one extra line.
+      const isCaseMismatch = outcome === 'caseMismatch';
+      feedbackCapitalizationNote.classList.toggle('hidden', !isCaseMismatch);
+      feedbackCapitalizationNote.textContent = isCaseMismatch
+        ? `Remember the capital letter. You wrote: ${submittedAnswer}. Write it as: ${currentWord}.`
+        : '';
+
+      // SR label covers both the outcome and the word
+      feedbackHeading.textContent = isCaseMismatch
+        ? `Correct. ${currentWord}. ${phrase} Remember the capital letter. You wrote ${submittedAnswer}. Write it as ${currentWord}.`
+        : `Correct. ${currentWord}. ${phrase}`;
+
+      showScreen(screenFeedback);
+      btnNext.disabled = false;
+      btnNext.textContent = isLast ? 'See Results →' : 'Continue →';
+      requestAnimationFrame(() => btnNext.focus());
+    } else {
+      // Incorrect: icon + phrase, then a labeled your-spelling/correct-spelling
+      // comparison — never color alone: both spellings carry text labels too.
+      feedbackIncorrectLayout.classList.remove('hidden');
+      feedbackIncorrectLayout.classList.add('flex');
+      feedbackCorrectLayout.classList.add('hidden');
+      feedbackCorrectLayout.classList.remove('flex');
+
+      const phrase = pickPhrase(
+        INCORRECT_PHRASES,
+        lastIncorrectPhrase,
+        (i) => (lastIncorrectPhrase = i),
+      );
+      feedbackIncorrectPhrase.textContent = phrase;
+      feedbackAttempt.textContent = submittedAnswer || '—';
+      feedbackIncorrectWord.textContent = currentWord;
+      // Missed words never re-enter the queue mid-session — they only
+      // surface in the results screen's "Practice missed words" action —
+      // so this copy describes what actually happens, not a mid-run retry.
+      feedbackDetail.textContent = 'You can practice this word again at the end.';
+
+      // SR label covers outcome, attempt, and correct word
+      feedbackHeading.textContent = `${phrase} You wrote ${submittedAnswer}. The correct spelling is ${currentWord}.`;
+
+      showScreen(screenFeedback);
+
+      // Disable Continue for 600ms — enforces a minimum reading moment
+      btnNext.disabled = true;
+      btnNext.textContent = isLast ? 'See Results →' : 'Continue →';
+      if (nextWordDelayTimeout) clearTimeout(nextWordDelayTimeout);
+      nextWordDelayTimeout = setTimeout(() => {
+        nextWordDelayTimeout = null;
+        btnNext.disabled = false;
+        btnNext.focus();
+      }, 600);
+    }
+  }
+
+  // CSS class sets for primary / secondary / tertiary results actions
+  const PRIMARY_BTN_CLS =
+    'w-full min-h-[44px] rounded-xl bg-da-coral px-6 py-4 font-quicksand text-lg font-bold text-white no-underline text-center shadow-[0_8px_20px_-8px_rgba(255,138,91,0.55)] transition hover:bg-da-coral-strong hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-coral active:translate-y-0 sm:w-auto';
+  const SECONDARY_BTN_CLS =
+    'w-full min-h-[44px] rounded-xl border-2 border-da-brand bg-da-canvas-raised px-6 py-3.5 font-quicksand text-base font-bold text-da-brand-strong no-underline text-center transition hover:bg-da-brand-tint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-da-brand active:scale-[0.98] sm:w-auto';
+  const TERTIARY_LINK_CLS =
+    'w-full min-h-[44px] flex items-center justify-center rounded-xl px-6 py-3.5 font-quicksand text-base font-bold text-da-ink-soft no-underline text-center transition hover:bg-da-surface-neutral hover:text-da-ink sm:w-auto';
+
+  // Non-pill, neutral "specimen" treatment for missed words — matching
+  // WordSpecimen.astro's inert reference-content styling, since these words
+  // are not interactive.
+  function buildMissedWordSpecimens(missedWords: { word: string }[]): void {
+    resultsMissedList.textContent = '';
+    for (const w of missedWords) {
+      const li = document.createElement('li');
+      li.textContent = w.word;
+      li.className =
+        'rounded-md border border-da-border-strong bg-da-border px-2.5 py-1 font-word text-sm text-da-ink-soft select-none';
+      resultsMissedList.appendChild(li);
+    }
+  }
+
+  function buildResultsAction(action: ResultsAction): HTMLElement {
+    if (action.kind === 'reviewMissed') {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.id = 'btn-review-missed';
+      btn.textContent = action.label;
+      btn.className = PRIMARY_BTN_CLS;
+      btn.addEventListener('click', handleReviewMissed);
+      return btn;
+    }
+    if (action.kind === 'retryFull') {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.id = 'btn-retry-full';
+      btn.textContent = action.label;
+      // retryFull is primary only when it's the first action in the list
+      // (a perfect session with no next-unit progression available).
+      btn.className = SECONDARY_BTN_CLS;
+      btn.addEventListener('click', handleRetryFull);
+      return btn;
+    }
+    // continueNext / sourceReturn — plain navigation links
+    const a = document.createElement('a');
+    a.textContent = action.label;
+    a.href = action.href ?? '/';
+    a.className = action.kind === 'continueNext' ? PRIMARY_BTN_CLS : TERTIARY_LINK_CLS;
+    return a;
+  }
+
+  function renderResults(): void {
+    const result = state.result!;
+    const missedCount = result.missedWords.length;
+    const isPerfect = missedCount === 0;
+
+    // Adaptive headline — perfect gets a fixed phrase; not-perfect rotates through
+    // a pool so the same line doesn't land twice in a row across sessions.
+    if (isPerfect) {
+      resultsHeading.textContent = 'You got every word.';
+    } else {
+      resultsHeading.textContent = pickPhrase(
+        NOT_PERFECT_HEADLINES,
+        lastNotPerfectHeadline,
+        (i) => (lastNotPerfectHeadline = i),
+      );
+    }
+
+    // Performance summary — no percentage, natural grammar
+    if (isPerfect) {
+      if (result.total === 1) {
+        resultsSummary.textContent = 'You spelled the word correctly.';
+      } else if (result.total === 2) {
+        resultsSummary.textContent = 'You spelled both words correctly.';
+      } else {
+        resultsSummary.textContent = `You spelled all ${result.total} words correctly.`;
+      }
+    } else {
+      const wordLabel = result.total === 1 ? 'word' : 'words';
+      resultsSummary.textContent = `You spelled ${result.correct} of ${result.total} ${wordLabel} correctly.`;
+    }
+
+    if (isPerfect) {
+      resultsMissedSection.classList.add('hidden');
+    } else {
+      buildMissedWordSpecimens(result.missedWords);
+      resultsMissedSection.classList.remove('hidden');
+    }
+
+    // Rebuild action zone from resolveResultsActions() so DOM order matches
+    // the visual/keyboard priority: primary action first.
+    resultsActionZone.textContent = '';
+    const actions = resolveResultsActions(result, practiceSource);
+    let firstFocusTarget: HTMLElement | null = null;
+    actions.forEach((action, index) => {
+      const el = buildResultsAction(action);
+      // Anchors (continueNext/sourceReturn) already carry the right class
+      // for their fixed position. Buttons (reviewMissed/retryFull) only
+      // need promoting to primary styling when they lead — reviewMissed
+      // always leads when present; retryFull leads only in a perfect
+      // session with no next-unit progression to offer.
+      if (index === 0 && el instanceof HTMLButtonElement) {
+        el.className = PRIMARY_BTN_CLS;
+      }
+      if (index === 0) firstFocusTarget = el;
+      resultsActionZone.appendChild(el);
+    });
+
+    showScreen(screenResults);
+    requestAnimationFrame(() => firstFocusTarget?.focus());
+  }
+
+  // --- Event handlers ---
+
+  // Keep only characters that could ever legitimately appear in a spelling
+  // answer (letters, apostrophes, hyphens) as the student types, pastes,
+  // dictates, or autofills — invalid characters (digits, symbols, emoji)
+  // simply never accumulate, with no disruptive error message. Runs on the
+  // `input` event rather than `keydown` so it catches every way the value
+  // can change, not just physical key presses. Reapplied here even though
+  // spellingTestReducer also sanitizes defensively (see stateMachine.ts) —
+  // this is what keeps the *visible* field clean, not just the graded value.
+  function sanitizeAnswerField(): void {
+    const before = answerInput.value;
+    const sanitized = sanitizeSpellingCharacters(before);
+    if (sanitized === before) return;
+
+    // Preserve caret position: sanitizing just the text before the caret
+    // gives exactly how many of those characters survive (the sanitizer
+    // only ever looks backward, never at characters after the caret), so
+    // that length is where the caret belongs in the sanitized value.
+    const caret = answerInput.selectionStart ?? before.length;
+    const retainedBeforeCaret = sanitizeSpellingCharacters(before.slice(0, caret)).length;
+
+    answerInput.value = sanitized;
+    answerInput.setSelectionRange(retainedBeforeCaret, retainedBeforeCaret);
+  }
+
+  function handleSubmit(): void {
+    const answer = answerInput.value.trim();
+
+    if (!answer) {
+      answerError.textContent = 'Please type your answer.';
+      answerInput.focus();
+      return;
+    }
+
+    // Cancel any pending auto-sentence before showing feedback
+    cancelPendingSentence();
+    speech.cancelSpeech();
+    clearSpeakingState();
+
+    // Non-editable (not disabled) through feedback — stays focusable/stable
+    // rather than blurring outright, so as little keyboard churn happens as
+    // the browser allows. See renderQuestion(), which clears this.
+    answerInput.readOnly = true;
+
+    state = spellingTestReducer(state, submitAnswer(answer, Date.now()));
+
+    // Field sanitization above means this should only fire if the reducer
+    // was reached some other way than this handler — defense in depth, not
+    // a normal path. Treat it exactly like the empty-answer case above.
+    if (state.error === 'empty_answer') {
+      answerInput.readOnly = false;
+      answerError.textContent = 'Please type your answer.';
+      answerInput.value = '';
+      answerInput.focus();
+      return;
+    }
+
+    renderFeedback();
+  }
+
+  btnBegin.addEventListener('click', () => {
+    state = spellingTestReducer(state, startTest(Date.now()));
+    renderQuestion();
+  });
+
+  // Always re-speak the current word directly from state — never repeatWord(),
+  // which would replay whatever was last spoken (could be a sentence).
+  btnRepeat.addEventListener('click', () => {
+    const word = state.words[state.currentIndex]?.word;
+    if (word) {
+      cancelPendingSentence();
+      speech.cancelSpeech();
+      clearSpeakingState();
+      speech.speakWord(
+        word,
+        speechOptions(
+          () => btnRepeat.setAttribute('aria-pressed', 'true'),
+          () => btnRepeat.setAttribute('aria-pressed', 'false'),
+        ),
+      );
+    }
+  });
+
+  btnSentence.addEventListener('click', () => {
+    const sentence = state.words[state.currentIndex]?.exampleSentence;
+    if (sentence) {
+      cancelPendingSentence();
+      speech.cancelSpeech();
+      clearSpeakingState();
+      speech.speakWord(
+        sentence,
+        speechOptions(
+          () => btnSentence.setAttribute('aria-pressed', 'true'),
+          () => btnSentence.setAttribute('aria-pressed', 'false'),
+        ),
+      );
+    }
+  });
+
+  answerInput.addEventListener('input', sanitizeAnswerField);
+
+  answerInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleSubmit();
+  });
+
+  btnSubmit.addEventListener('click', handleSubmit);
+
+  function handleNext(): void {
+    if (btnNext.disabled) return;
+    if (nextWordDelayTimeout) {
+      clearTimeout(nextWordDelayTimeout);
+      nextWordDelayTimeout = null;
+    }
+    cancelPendingSentence();
+    speech.cancelSpeech();
+    clearSpeakingState();
+    state = spellingTestReducer(state, nextWord(Date.now()));
+    if (state.status === 'awaitingAnswer') {
+      renderQuestion();
+    } else if (state.status === 'complete') {
+      renderResults();
+    }
+  }
+
+  btnNext.addEventListener('click', handleNext);
+
+  // Right-arrow key advances from feedback screen — keeps hands on keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' && !screenFeedback.classList.contains('hidden')) {
+      handleNext();
+    }
+  });
+
+  // "Practice full list again" — replays the original session from the start.
+  function handleRetryFull(): void {
+    state = spellingTestReducer(
+      createInitialState(),
+      initializeTest(originalRichWords, {
+        shuffle: true,
+        meaningfulCapitalization: practiceSource.type !== 'custom',
+      }),
+    );
+    state = spellingTestReducer(state, startTest(Date.now()));
+    renderQuestion();
+  }
+
+  // "Practice missed words" — actually re-drives the tested REVIEW_MISSED
+  // action, which starts a fresh session containing only the words missed
+  // in the previous pass (with their original sentence/hint data intact).
+  function handleReviewMissed(): void {
+    state = spellingTestReducer(state, reviewMissed({ shuffle: true }));
+    renderQuestion();
+  }
+
+  // --- Viewport-fit ---
+  // Keeps --practice-header-h in sync with the real, rendered practice
+  // header height so #practice-stage's min-height (100dvh minus this
+  // variable) always matches "the viewport below the header," accounting
+  // for whatever the header actually measures at this width/zoom — rather
+  // than a guessed constant.
+  function updateHeaderHeightVar(): void {
+    const header = document.querySelector('header');
+    if (!header) return;
+    document.documentElement.style.setProperty(
+      '--practice-header-h',
+      `${header.getBoundingClientRect().height}px`,
+    );
+  }
+  updateHeaderHeightVar();
+  window.addEventListener('resize', updateHeaderHeightVar);
+  // window's resize doesn't reliably fire when a mobile soft keyboard
+  // opens/closes — visualViewport's does. Keeping --practice-header-h accurate
+  // through that transition is the one narrowly-scoped use of
+  // visualViewport here (no separate full-layout recalculation).
+  window.visualViewport?.addEventListener('resize', updateHeaderHeightVar);
+
+  // --- Boot ---
+  init();
+</script>

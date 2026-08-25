@@ -1,0 +1,119 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import GradeStrandGatewayView from '@/components/direction-a/GradeStrandGatewayView.astro';
+import { isPublished } from '@/lib/content/spellingLists';
+import { gradeConfig, type GradeConfigEntry } from '@/lib/content/gradeConfig';
+import {
+  GRADE_STRANDS,
+  getCanonicalGradeRoutes,
+  getGradeHubPath,
+  getGradeStrandPath,
+  type GradeRouteClassification,
+} from '@/lib/content/canonicalGradeRoutes';
+import { getCanonicalUrl } from '@/lib/canonicalUrl';
+import { getGradeStrandGatewayCopy, getGatewayCardDescription } from '@/lib/content/gradeStrandGatewayCopy';
+
+export async function getStaticPaths() {
+  return gradeConfig.flatMap((gradeEntry) =>
+    (Object.keys(GRADE_STRANDS) as GradeRouteClassification[]).map((strand) => ({
+      params: { gradeSlug: gradeEntry.slug, strand },
+      props: { gradeEntry, strand },
+    })),
+  );
+}
+
+const { gradeEntry, strand } = Astro.props as {
+  gradeEntry: GradeConfigEntry;
+  strand: GradeRouteClassification;
+};
+const descriptor = GRADE_STRANDS[strand];
+const allEntries = (await getCollection('spelling-lists')).filter(isPublished);
+const entriesById = new Map(allEntries.map((entry) => [entry.data.id, entry]));
+const routes = getCanonicalGradeRoutes().filter(
+  (route) => route.grade === gradeEntry.grade && route.classification === strand,
+);
+const resourceEntries = routes.map((route) => {
+  const entry = entriesById.get(route.id);
+  if (!entry) throw new Error(`Gateway could not resolve ${route.id}`);
+  return { route, entry };
+});
+const wordCount = resourceEntries.reduce((total, resource) => total + resource.entry.data.words.length, 0);
+const fallbackDescription = strand === 'core-spelling'
+  ? `Explore the ${descriptor.label} sequence for ${gradeEntry.label} across ${resourceEntries.length} carefully ordered spelling units.`
+  : strand === 'high-frequency-words'
+    ? `Practice ${wordCount} ${gradeEntry.label} High-Frequency Words across ${resourceEntries.length} manageable spelling sets.`
+    : `Choose from ${resourceEntries.length} optional ${gradeEntry.label} spelling lists organized around familiar themes.`;
+const copy = getGradeStrandGatewayCopy(gradeEntry.grade, strand, {
+  memberCount: resourceEntries.length,
+  wordCount,
+});
+const description = copy?.orientation ?? fallbackDescription;
+const wayfindingStrands = (Object.keys(GRADE_STRANDS) as GradeRouteClassification[]).filter(
+  (candidate) => candidate !== strand,
+);
+const gatewayPath = getGradeStrandPath(gradeEntry.grade, strand);
+const canonicalURL = getCanonicalUrl(gatewayPath, Astro.site);
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Grades', href: '/grades' },
+  { label: gradeEntry.label, href: getGradeHubPath(gradeEntry.grade) },
+  { label: descriptor.label },
+];
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem', position: index + 1, name: item.label,
+    ...(item.href ? { item: new URL(item.href, canonicalURL.origin).toString() } : {}),
+  })),
+};
+const itemListJsonLd = {
+  '@context': 'https://schema.org', '@type': 'ItemList',
+  name: `${gradeEntry.label} ${descriptor.label}`,
+  numberOfItems: resourceEntries.length,
+  itemListElement: resourceEntries.map(({ route, entry }, index) => ({
+    '@type': 'ListItem', position: index + 1,
+    url: new URL(route.canonicalPath, canonicalURL.origin).toString(), name: entry.data.title,
+  })),
+};
+
+const resources = resourceEntries.map(({ route, entry }) => ({
+  href: route.canonicalPath,
+  title: entry.data.title,
+  description: getGatewayCardDescription(strand, entry.data.description, entry.data.shortAnswer),
+  wordCount: entry.data.words.length,
+}));
+
+const wayfindingLinks = wayfindingStrands.map((relatedStrand) => ({
+  label: `${gradeEntry.label} ${GRADE_STRANDS[relatedStrand].label}`,
+  href: getGradeStrandPath(gradeEntry.grade, relatedStrand),
+}));
+---
+
+<Layout
+  title={`${gradeEntry.label} ${descriptor.label} | SpellingWords`}
+  description={description}
+  jsonLd={[breadcrumbJsonLd, itemListJsonLd]}
+>
+  <SiteHeader variant="discovery" currentPath={gatewayPath} />
+  <main id="main-content">
+    <div class="mx-auto max-w-3xl px-5 pt-8 sm:px-6">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+    <GradeStrandGatewayView
+      gradeLabel={gradeEntry.label}
+      strand={strand}
+      strandLabel={descriptor.label}
+      description={description}
+      synthesis={copy?.synthesis}
+      guidance={copy?.guidance}
+      resources={resources}
+      wayfindingLinks={wayfindingLinks}
+    />
+  </main>
+  <SiteFooter />
+</Layout>

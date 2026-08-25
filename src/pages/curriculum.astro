@@ -1,0 +1,136 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import SupportingPage from '@/components/SupportingPage.astro';
+---
+
+<Layout
+  title="Our K–5 Spelling Curriculum | SpellingWords"
+  description="See how the SpellingWords K–5 curriculum organizes Core Spelling, High-Frequency Words, Themed Spelling Practice, and reusable spelling Skills."
+>
+  <SiteHeader currentPath="/curriculum" />
+  <SupportingPage
+    eyebrow="Our approach"
+    title="Our Spelling Curriculum"
+    intro="The SpellingWords curriculum is a K–5 progression built around spelling knowledge commonly developed in U.S. elementary education. It is designed to help families and educators choose focused, age-appropriate practice—not to make a universal standards-alignment claim."
+    currentPath="/curriculum"
+  >
+    <section aria-labelledby="organize-heading">
+      <h2 id="organize-heading">How each grade is organized</h2>
+      <p>
+        Every Grade Hub brings together three complementary kinds of spelling work. They have
+        different jobs, so one does not replace the others.
+      </p>
+      <div class="supporting-cards">
+        <div class="supporting-card">
+          <h3><a href="/core-spelling">Core Spelling</a></h3>
+          <p>
+            An ordered path through transferable sound, pattern, syllable, and word-building
+            knowledge appropriate to that grade.
+          </p>
+        </div>
+        <div class="supporting-card">
+          <h3><a href="/high-frequency-words">High-Frequency Words</a></h3>
+          <p>
+            Focused sets for words children encounter often in reading and writing, including
+            spellings that need careful attention beyond a simple sound-by-sound strategy.
+          </p>
+        </div>
+        <div class="supporting-card">
+          <h3><a href="/themed-spelling-practice">Themed Spelling Practice</a></h3>
+          <p>
+            Additional grade-level sets that connect spelling work to familiar school topics while
+            still giving children concrete spelling features to notice and practice.
+          </p>
+        </div>
+      </div>
+      <p>
+        See each strand's K–5 progression on its own page, or
+        <a href="/grades">choose a grade</a> to see the three strands in grade context.
+      </p>
+    </section>
+
+    <section aria-labelledby="progression-heading">
+      <h2 id="progression-heading">A progression from sound to structure</h2>
+      <p>
+        Early practice emphasizes hearing sounds in words and representing them with letters: short
+        vowels, consonants, digraphs, blends, and common endings. The path then expands into
+        long-vowel patterns, vowel teams, r-controlled vowels, syllable patterns, and inflectional
+        endings.
+      </p>
+      <p>
+        In later grades, students increasingly work with multisyllabic words, prefixes, suffixes,
+        spelling changes when word parts are added, related-word families, and Greek and Latin
+        roots. Grade placement reflects a practical K–5 learning sequence; individual schools and
+        learners may introduce or revisit concepts at different times.
+      </p>
+      <p><a href="/grades">Explore the complete Kindergarten through 5th Grade progression →</a></p>
+    </section>
+
+    <section aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills are reusable references, not another grade sequence</h2>
+      <p>
+        The <a href="/skills">Spelling Skills library</a> contains 41 canonical reference pages across
+        12 families. A Skill page explains one reusable concept—such as short A, vowel teams, prefixes,
+        or homophones—without assigning that knowledge to only one grade.
+      </p>
+      <p>
+        Grade Units provide the sequenced practice context. Skill pages provide the deeper,
+        grade-independent explanation. Links between them help an adult or student move from “what
+        comes next?” to “how does this pattern work?” without creating duplicate lessons.
+      </p>
+    </section>
+
+    <section aria-labelledby="selection-heading">
+      <h2 id="selection-heading">How words and concepts are selected</h2>
+      <p>
+        A curriculum page must have a genuine spelling purpose. For Core Spelling, that usually
+        means a transferable phonics, orthographic, syllable, or word-building pattern. For
+        High-Frequency Words, it means purposeful attention to common written words. Themed sets
+        must still contain defensible spelling work for the stated grade rather than functioning
+        only as vocabulary lists.
+      </p>
+      <p>
+        Content is checked for grade fit, coherent word selection, accurate pattern explanations,
+        useful practice notes, duplication, and relationships to earlier and later learning. The
+        site favors a smaller, more trustworthy spelling library over pages created only to cover a
+        popular topic or search phrase.
+      </p>
+    </section>
+
+    <section aria-labelledby="boundaries-heading">
+      <h2 id="boundaries-heading">What the curriculum does—and does not—claim</h2>
+      <ul>
+        <li>
+          It focuses on spelling, not general vocabulary, grammar, reading comprehension, or writing
+          instruction.
+        </li>
+        <li>
+          It is a supplemental K–5 resource, not a replacement for a teacher's judgment or a
+          school's adopted program.
+        </li>
+        <li>
+          It reflects spelling knowledge and progression commonly expected in U.S. elementary
+          education, but it does not claim universal alignment with every state, district, or
+          standards framework.
+        </li>
+        <li>
+          Grade labels are useful starting points, not limits: students may need review from an
+          earlier grade or a more advanced Skill reference.
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="next-heading">
+      <h2 id="next-heading">Choose the path that matches the need</h2>
+      <p>
+        Start with <a href="/grades">Spelling by Grade</a> for a sequenced path, use
+        <a href="/skills">Browse by Skill</a> for a specific concept, or
+        <a href="/practice-your-own-words">practice your own words</a> when a school or family list is
+        already selected.
+      </p>
+    </section>
+  </SupportingPage>
+  <SiteFooter />
+</Layout>

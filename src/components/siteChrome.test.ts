@@ -20,6 +20,23 @@ describe('global site chrome', () => {
       '/grades/4th-grade',
       '/grades/5th-grade',
     ]);
+
+    expect(gradeConfig.map((grade) => grade.label)).toEqual([
+      'Kindergarten',
+      '1st Grade',
+      '2nd Grade',
+      '3rd Grade',
+      '4th Grade',
+      '5th Grade',
+    ]);
+  });
+
+  it('never links a legacy or non-canonical grade route shape', () => {
+    for (const chrome of [header, footer]) {
+      expect(chrome).not.toMatch(/href="\/grade-/);
+      expect(chrome).not.toMatch(/href="\/grades\/grade-/);
+      expect(chrome).not.toMatch(/href="\/grades\/[0-9]"/);
+    }
   });
 
   it('uses disclosure buttons and explicit expanded state for desktop and mobile navigation', () => {
@@ -69,5 +86,24 @@ describe('global site chrome', () => {
     expect(footer).toContain('href="/practice-your-own-words"');
     expect(footer).toContain('Practice Your Own Words');
     expect(footer).not.toContain('href="/#practice"');
+  });
+
+  it('heads the footer trust/support column with "About & Support", not the bare brand name', () => {
+    expect(footer).toContain('About &amp; Support');
+    expect(footer).not.toMatch(/id="footer-spellingwords-heading"[^>]*>\s*SpellingWords\s*</);
+  });
+
+  it('gives the mobile menu the same active-state signal as desktop, without misusing aria-current on the Grades disclosure', () => {
+    // Mobile Skills/Curriculum links and the current grade link reflect
+    // currentPath via aria-current, mirroring the desktop nav.
+    expect(header).toContain("isSkillsActive ? 'page' : undefined");
+    expect(header).toContain("isCurriculumActive ? 'page' : undefined");
+    expect(header).toContain("currentGrade?.grade === grade.grade ? 'page' : undefined");
+
+    // The Grades disclosure trigger (button on desktop, summary on mobile)
+    // represents a section, not a single destination — it must never carry
+    // aria-current="page" itself, only the real current-grade link should.
+    expect(header).not.toMatch(/data-grades-toggle[\s\S]{0,400}aria-current/);
+    expect(header).not.toMatch(/<summary[\s\S]{0,200}aria-current/);
   });
 });

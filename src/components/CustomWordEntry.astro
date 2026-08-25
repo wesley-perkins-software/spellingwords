@@ -1,9 +1,9 @@
 ---
 // Shared own-word entry tool: the homepage hero's tool (`variant="compact"`,
-// unchanged behavior) and the dedicated /practice-your-own-words page's tool
+// compact presentation) and the dedicated /practice-your-own-words page's tool
 // (`variant="full"`, which also adds shared-link creation and inspecting an
 // incoming shared list). One implementation avoids the two diverging copies
-// this extraction exists to prevent — all parsing/encoding logic stays in
+// this extraction exists to prevent — all parsing and sharing logic stays in
 // `@/lib/words` / `@/lib/content/practiceSource`; nothing is duplicated here.
 import Button from '@/components/direction-a/Button.astro';
 
@@ -198,7 +198,6 @@ const placeholderText = 'Type or paste your words here, one per line';
     validateWordListInput,
     classifySpellingIssue,
     suggestSpellingFix,
-    encodeWordList,
     decodeSharedList,
     encodeSharedList,
     MAX_WORD_COUNT,
@@ -348,10 +347,9 @@ const placeholderText = 'Type or paste your words here, one per line';
       return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
     }
 
-    // Starts a session via the opaque `?session=` hand-off: word data lives
-    // only in sessionStorage, never in the /play URL itself (unlike the
-    // legacy `?list=` transport the homepage's compact variant still uses —
-    // see docs/planning/LAUNCH_SUPPORTING_PAGES_AND_GLOBAL_NAVIGATION_PLAN.md).
+    // Starts a custom session via an opaque `?session=` hand-off: word data
+    // lives only in sessionStorage, never in the /play URL itself. Both the
+    // homepage and dedicated own-word page use this privacy-conscious path.
     function startSessionHandoff(words: string[], source: PracticeSource, title?: string): void {
       const id = newSessionId();
       try {
@@ -370,28 +368,7 @@ const placeholderText = 'Type or paste your words here, one per line';
       // session on the valid subset while some lines still need fixing.
       if (invalidEntries.length > 0 || words.length === 0 || words.length > MAX_WORD_COUNT) return;
 
-      if (isFull) {
-        startSessionHandoff(words, resolveCustomPracticeSource());
-        return;
-      }
-
-      // Compact (homepage) variant: unchanged legacy `?list=` hand-off.
-      const result = encodeWordList(words);
-      if (!result.ok) {
-        status.textContent =
-          result.code === 'payload_too_long'
-            ? 'Word list is too long to encode. Please shorten some words.'
-            : 'Could not create test. Please check your word list.';
-        return;
-      }
-
-      try {
-        sessionStorage.setItem(`sw:source:${result.payload}`, JSON.stringify(resolveCustomPracticeSource()));
-      } catch {
-        /* sessionStorage unavailable — non-fatal */
-      }
-
-      window.location.href = `/play?list=${result.payload}`;
+      startSessionHandoff(words, resolveCustomPracticeSource());
     }
 
     textarea.addEventListener('input', updateStatus);

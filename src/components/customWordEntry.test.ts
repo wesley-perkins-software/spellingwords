@@ -4,6 +4,12 @@ import { describe, expect, it } from 'vitest';
 const source = readFileSync(new URL('./CustomWordEntry.astro', import.meta.url), 'utf8');
 
 describe('CustomWordEntry', () => {
+  it('keeps user-entered words out of the play URL in both compact and full variants', () => {
+    expect(source).toContain('startSessionHandoff(words, resolveCustomPracticeSource())');
+    expect(source).not.toContain('encodeWordList,');
+    expect(source).not.toContain('window.location.href = `/play?list=');
+  });
+
   it('surfaces the ordinary practice word limit only contextually, once a list actually exceeds it', () => {
     expect(source).toContain('This list is too long to practice at once. Shorten it to');
     // Never a blunt, always-visible "Maximum N words" style message.

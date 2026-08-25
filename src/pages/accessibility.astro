@@ -13,16 +13,24 @@ import SupportingPage from '@/components/SupportingPage.astro';
   <SupportingPage
     eyebrow="Accessibility"
     title="Accessibility at SpellingWords"
-    intro="SpellingWords is intended to be usable by children and adults with a wide range of access needs, devices, and input methods. Accessibility is treated as an ongoing product responsibility rather than a one-time certification."
+    intro="SpellingWords is intended to be usable by children and adults with a wide range of access needs, devices, and input methods. Accessibility is treated as an ongoing product responsibility supported by continued design, testing, and improvement."
     currentPath="/accessibility"
   >
+    <section aria-labelledby="goal-heading">
+      <h2 id="goal-heading">Our accessibility goal</h2>
+      <p>
+        Our goal is to make SpellingWords usable in ways consistent with WCAG 2.2 Level AA guidance.
+        We continue to test and improve the site as its content, navigation, and practice tools evolve.
+      </p>
+    </section>
+
     <section aria-labelledby="features-heading">
       <h2 id="features-heading">What the site currently supports</h2>
       <p>
-        A review completed on August 21, 2026 checked the production page templates, global
-        navigation, supporting pages, and interactive practice flow. The review included keyboard
-        operation, focus movement, responsive layouts, reduced-motion behavior, semantic document
-        structure, accessible names, status announcements, and programmatic color-contrast checks.
+        The site has been reviewed across its production page templates, global navigation,
+        supporting pages, and interactive practice flow. Checks include keyboard operation, focus
+        movement, responsive layouts, reduced-motion behavior, semantic document structure,
+        accessible names, status announcements, and programmatic color-contrast testing.
       </p>
       <ul>
         <li>A skip link provides a direct route to the main content on every production page.</li>
@@ -63,14 +71,13 @@ import SupportingPage from '@/components/SupportingPage.astro';
           voice is processed locally can vary by browser and operating system.
         </li>
         <li>
-          The August 2026 review was an internal engineering and product review, not an external
-          accessibility certification. SpellingWords does not currently claim a WCAG conformance
-          level.
+          Learners can start and repeat spoken prompts, but the current spelling-test experience
+          requires audible speech and does not provide a fully equivalent text-only prompt. The
+          curriculum and Skill reference pages remain available without audio.
         </li>
         <li>
-          The site does not currently provide a public accessibility-feedback channel. We will not
-          publish a placeholder address or form that cannot be supported. This statement will be
-          updated if a reliable channel is introduced.
+          Accessibility behavior can vary across browsers, devices, assistive technologies, zoom
+          settings, and combinations of those technologies.
         </li>
       </ul>
     </section>
@@ -81,7 +88,7 @@ import SupportingPage from '@/components/SupportingPage.astro';
         New navigation, page templates, and practice interactions should be checked with keyboard
         input, narrow and enlarged layouts, reduced motion, accessible-name inspection, and
         automated tests where appropriate before release. Material known limitations should be
-        recorded here rather than hidden behind a general compliance claim.
+        documented on this page as they are identified.
       </p>
       <p>
         Accessibility needs can overlap with individual learning needs, but they are not the same

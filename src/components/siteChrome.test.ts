@@ -32,12 +32,17 @@ describe('global site chrome', () => {
     expect(header).toContain('setMobileOpen(false, true)');
   });
 
-  it('links only implemented editorial destinations and keeps legal placeholders out', () => {
-    for (const path of ['/about', '/curriculum', '/accessibility', '/skills']) {
+  it('links every implemented editorial and legal destination without inventing Contact', () => {
+    for (const path of [
+      '/about',
+      '/curriculum',
+      '/accessibility',
+      '/skills',
+      '/privacy',
+      '/terms',
+    ]) {
       expect(`${header}\n${footer}`).toContain(`href="${path}"`);
     }
-    expect(footer).not.toContain('href="/privacy"');
-    expect(footer).not.toContain('href="/terms"');
     expect(footer).not.toContain('href="/contact"');
   });
 
@@ -60,9 +65,9 @@ describe('global site chrome', () => {
     expect(header).not.toContain('href="/#practice"');
   });
 
-  it('points the footer\'s Practice Your Own Words link at the dedicated page, not the homepage anchor', () => {
+  it("points the footer's Practice Your Own Words link at the dedicated page, not the homepage anchor", () => {
     expect(footer).toContain('href="/practice-your-own-words"');
-    expect(footer).toContain('Practice Your Own Words</a>');
+    expect(footer).toContain('Practice Your Own Words');
     expect(footer).not.toContain('href="/#practice"');
   });
 });

@@ -651,16 +651,14 @@ import SiteFooter from '@/components/SiteFooter.astro';
 
     // Two hand-off transports land here:
     //  - `?session=<opaque id>`: word data lives only in sessionStorage,
-    //    never in this URL — used by /practice-your-own-words (both typed
-    //    and shared lists) specifically so a shared link's words don't end
+    //    never in this URL — used by both custom-word entry points and by
+    //    shared lists so a shared link's words don't end
     //    up back in a query string after being received via a privacy-
     //    conscious URL fragment. Required: there is no query fallback, so a
     //    lost/expired session (e.g. sessionStorage unavailable, or this URL
     //    opened in a different tab) surfaces the same "no word list" error.
-    //  - `?list=<payload>`: the original, still-supported transport — the
-    //    homepage's compact entry tool and curated list pages. See
-    //    docs/planning/LAUNCH_SUPPORTING_PAGES_AND_GLOBAL_NAVIGATION_PLAN.md
-    //    for why both exist rather than one being migrated wholesale.
+    //  - `?list=<payload>`: the original transport, retained for curated list
+    //    pages. User-entered custom words no longer use this query transport.
     let storageKey: string;
     if (sessionId) {
       storageKey = sessionId;

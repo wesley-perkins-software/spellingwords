@@ -93,8 +93,11 @@ export const SKILL_FAMILY_ACCENT: Record<string, DaAccent> = {
  * `sprout` (yellow-green) and `fern` (spring green) both read as more green
  * than gold/teal, so Kindergarten, Grade 1, and Grade 2 collapsed into three
  * near-identical greens. Kindergarten and Grade 2 are back on `sun` and
- * `teal` — their original, intended sun/gold and teal identities. `green`
- * (Grade 1), `pink` (Grade 4), and `plum` (Grade 5) are unaffected.
+ * `teal` — their original, intended sun/gold and teal identities. `teal`
+ * itself was also shifted bluer (tailwind.config.mjs) since its original hue
+ * still sat too close to `green` to read as clearly distinct at grade-card
+ * weight. `green` (Grade 1), `pink` (Grade 4), and `plum` (Grade 5) are
+ * unaffected.
  */
 export const GRADE_ACCENT: Record<GradeCode, DaAccent> = {
   K: 'sun',

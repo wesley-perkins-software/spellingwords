@@ -90,9 +90,13 @@ export default {
           sun: '#ffc24b',
           'sun-tint': '#fff5df',
           'sun-ink': '#7a5300',
-          teal: '#2fb6a3',
-          'teal-tint': '#e2f7f4',
-          'teal-ink': '#0d5c50',
+          // Shifted bluer (was #2fb6a3) — at grade-card weight the original
+          // teal sat too close to `green`'s hue (140°) to read as clearly
+          // distinct at a glance; this leans more cyan-blue (187°) while
+          // staying a restrained teal, not a bright cyan.
+          teal: '#1f9fb0',
+          'teal-tint': '#e2f5f7',
+          'teal-ink': '#0b5865',
           pink: '#ff6b8a',
           'pink-tint': '#ffe6ec',
           'pink-ink': '#a01d3f',
@@ -135,7 +139,7 @@ export default {
           // template; only this whisper of cast should differ.
           'surface-grade-k': '#fdf9f0',
           'surface-grade-1': '#f3f9f5',
-          'surface-grade-2': '#f0f8f7',
+          'surface-grade-2': '#eef7f9',
           'surface-grade-3': '#f5f4fc',
           'surface-grade-4': '#fbf3f5',
           'surface-grade-5': '#f7f3fa',

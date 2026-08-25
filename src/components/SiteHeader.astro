@@ -171,7 +171,12 @@ const currentGrade = gradeConfig.find(
       >
         <div class="mx-auto max-w-content-xl">
           <details class="group" data-mobile-grades>
-            <summary class="flex min-h-[48px] cursor-pointer list-none items-center justify-between rounded-lg px-3 py-2 font-bold text-da-ink [&::-webkit-details-marker]:hidden">
+            <summary
+              class:list={[
+                'flex min-h-[48px] cursor-pointer list-none items-center justify-between rounded-lg px-3 py-2 font-bold [&::-webkit-details-marker]:hidden',
+                isGradeActive ? 'text-da-brand' : 'text-da-ink',
+              ]}
+            >
               Grades
               <svg
                 class="h-4 w-4 transition-transform group-open:rotate-180"
@@ -189,7 +194,13 @@ const currentGrade = gradeConfig.find(
                 <li>
                   <a
                     href={grade.hubHref}
-                    class="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-bold text-da-ink-soft no-underline hover:bg-da-brand-tint hover:text-da-brand-strong"
+                    class:list={[
+                      'flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-bold no-underline hover:bg-da-brand-tint hover:text-da-brand-strong',
+                      currentGrade?.grade === grade.grade
+                        ? 'bg-da-brand-tint text-da-brand-strong'
+                        : 'text-da-ink-soft',
+                    ]}
+                    aria-current={currentGrade?.grade === grade.grade ? 'page' : undefined}
                   >
                     {grade.label}
                   </a>
@@ -209,7 +220,11 @@ const currentGrade = gradeConfig.find(
             <li>
               <a
                 href="/skills"
-                class="flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold text-da-ink no-underline hover:bg-da-surface-neutral"
+                class:list={[
+                  'flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold no-underline hover:bg-da-surface-neutral',
+                  isSkillsActive ? 'text-da-brand' : 'text-da-ink',
+                ]}
+                aria-current={isSkillsActive ? 'page' : undefined}
               >
                 Skills
               </a>
@@ -217,7 +232,11 @@ const currentGrade = gradeConfig.find(
             <li>
               <a
                 href="/curriculum"
-                class="flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold text-da-ink no-underline hover:bg-da-surface-neutral"
+                class:list={[
+                  'flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold no-underline hover:bg-da-surface-neutral',
+                  isCurriculumActive ? 'text-da-brand' : 'text-da-ink',
+                ]}
+                aria-current={isCurriculumActive ? 'page' : undefined}
               >
                 Curriculum
               </a>

@@ -37,20 +37,13 @@ import type { GradeRouteClassification } from './canonicalGradeRoutes';
  *   very dark ink  — da-ink/da-ink-soft (tailwind.config.mjs). Primary
  *                    reading text site-wide; never grayed out by default.
  *
- * The collision rule here is hue disjointness, not just weight: no
- * GRADE_ACCENT value may equal any STRAND_ACCENT value, full stop — a
- * visitor combines any grade with any strand, so any shared hue between the
- * two axes collides somewhere. (An earlier version of this module accepted
- * three exact collisions — Kindergarten/Core Spelling, Grade 2/High-
- * Frequency Words, Grade 3/Themed Spelling Practice all shared one hue each
- * — reasoning that grade never appeared at comparable weight to strand in
- * the same composition. Once grade gained its own ambient wash on Grade Unit
- * pages, that reasoning no longer held: a grade wash and a strand-tinted
- * section of the *same* hue on the *same* page reads as one flat color, not
- * two coexisting identities. See `sprout`/`fern`/`orchid` below.) Skill-
- * family may still share hues with grade/strand, since Skill pages never
- * render a grade or strand accent alongside it. What none of grade/strand/
- * Skill-family may ever do is reach into brand or coral, at any weight.
+ * Grade and strand each draw from the same shared hue pool and may reuse a
+ * hue where their page roles never put both axes at comparable visual
+ * weight in the same spot (see GradeUnitView.astro, where grade renders as
+ * a neutral chip rather than a color-owning accent). Skill-family may also
+ * share hues with grade/strand, since Skill pages never render a grade or
+ * strand accent alongside it. What none of grade/strand/Skill-family may
+ * ever do is reach into brand or coral, at any weight.
  */
 export type DaAccent =
   | 'brand'
@@ -60,10 +53,7 @@ export type DaAccent =
   | 'pink'
   | 'periwinkle'
   | 'green'
-  | 'plum'
-  | 'sprout'
-  | 'fern'
-  | 'orchid';
+  | 'plum';
 
 export const STRAND_ACCENT: Record<GradeRouteClassification, DaAccent> = {
   'core-spelling': 'sun',
@@ -96,22 +86,21 @@ export const SKILL_FAMILY_ACCENT: Record<string, DaAccent> = {
  * the strand accent those same pages give dominant color ownership to.
  * Canonical Skill pages are grade-independent and never use this map.
  *
- * Every value here must be hue-disjoint from every STRAND_ACCENT value
- * (sun/teal/periwinkle) — see the module doc above for why. `green` (Grade
- * 1) and `plum` (Grade 5) were already safe. `sprout` (Kindergarten), `fern`
- * (Grade 2), and `orchid` (Grade 3) replace what used to be sun/teal/
- * periwinkle reused 1:1 from Core Spelling/High-Frequency Words/Themed
- * Spelling Practice — those three exact collisions were tolerable only back
- * when grade carried no page-level color of its own; once Grade Unit pages
- * gained a grade-owned ambient wash, a same-hue grade wash sitting behind a
- * same-hue strand-tinted section would visually fuse into one flat color
- * instead of two legible layers. `pink` (Grade 4) was already safe too.
+ * Kindergarten/1st/2nd Grade must read as an unmistakably distinct warm
+ * gold / green / teal progression at a glance — an earlier revision gave
+ * Kindergarten and Grade 2 grade-only hues (`sprout`, `fern`) to keep every
+ * GRADE_ACCENT value hue-disjoint from every STRAND_ACCENT value, but
+ * `sprout` (yellow-green) and `fern` (spring green) both read as more green
+ * than gold/teal, so Kindergarten, Grade 1, and Grade 2 collapsed into three
+ * near-identical greens. Kindergarten and Grade 2 are back on `sun` and
+ * `teal` — their original, intended sun/gold and teal identities. `green`
+ * (Grade 1), `pink` (Grade 4), and `plum` (Grade 5) are unaffected.
  */
 export const GRADE_ACCENT: Record<GradeCode, DaAccent> = {
-  K: 'sprout',
+  K: 'sun',
   '1': 'green',
-  '2': 'fern',
-  '3': 'orchid',
+  '2': 'teal',
+  '3': 'periwinkle',
   '4': 'pink',
   '5': 'plum',
 };
@@ -150,9 +139,6 @@ export const ACCENT_BG_CLASS: Record<DaAccent, string> = {
   periwinkle: 'bg-da-periwinkle',
   green: 'bg-da-green',
   plum: 'bg-da-plum',
-  sprout: 'bg-da-sprout',
-  fern: 'bg-da-fern',
-  orchid: 'bg-da-orchid',
 };
 
 export const ACCENT_TINT_BG_CLASS: Record<DaAccent, string> = {
@@ -164,9 +150,6 @@ export const ACCENT_TINT_BG_CLASS: Record<DaAccent, string> = {
   periwinkle: 'bg-da-periwinkle-tint',
   green: 'bg-da-green-tint',
   plum: 'bg-da-plum-tint',
-  sprout: 'bg-da-sprout-tint',
-  fern: 'bg-da-fern-tint',
-  orchid: 'bg-da-orchid-tint',
 };
 
 export const ACCENT_BORDER_CLASS: Record<DaAccent, string> = {
@@ -178,9 +161,6 @@ export const ACCENT_BORDER_CLASS: Record<DaAccent, string> = {
   periwinkle: 'border-da-periwinkle',
   green: 'border-da-green',
   plum: 'border-da-plum',
-  sprout: 'border-da-sprout',
-  fern: 'border-da-fern',
-  orchid: 'border-da-orchid',
 };
 
 export const ACCENT_INK_CLASS: Record<DaAccent, string> = {
@@ -192,9 +172,6 @@ export const ACCENT_INK_CLASS: Record<DaAccent, string> = {
   periwinkle: 'text-da-periwinkle-ink',
   green: 'text-da-green-ink',
   plum: 'text-da-plum-ink',
-  sprout: 'text-da-sprout-ink',
-  fern: 'text-da-fern-ink',
-  orchid: 'text-da-orchid-ink',
 };
 
 /** Same accent as a low-opacity wash over the canvas, for large surfaces
@@ -210,9 +187,6 @@ export const ACCENT_WASH_BG_CLASS: Record<DaAccent, string> = {
   periwinkle: 'bg-da-periwinkle/20',
   green: 'bg-da-green/20',
   plum: 'bg-da-plum/20',
-  sprout: 'bg-da-sprout/20',
-  fern: 'bg-da-fern/20',
-  orchid: 'bg-da-orchid/20',
 };
 
 /** A much fainter tier than ACCENT_WASH_BG_CLASS, for full-bleed page-level
@@ -229,9 +203,6 @@ export const ACCENT_AMBIENT_BG_CLASS: Record<DaAccent, string> = {
   periwinkle: 'bg-da-periwinkle/[0.06]',
   green: 'bg-da-green/[0.06]',
   plum: 'bg-da-plum/[0.06]',
-  sprout: 'bg-da-sprout/[0.06]',
-  fern: 'bg-da-fern/[0.06]',
-  orchid: 'bg-da-orchid/[0.06]',
 };
 
 /** Same accent bg color, expressed as a `before:` pseudo-element variant —
@@ -248,7 +219,4 @@ export const ACCENT_BEFORE_BG_CLASS: Record<DaAccent, string> = {
   periwinkle: 'before:bg-da-periwinkle',
   green: 'before:bg-da-green',
   plum: 'before:bg-da-plum',
-  sprout: 'before:bg-da-sprout',
-  fern: 'before:bg-da-fern',
-  orchid: 'before:bg-da-orchid',
 };

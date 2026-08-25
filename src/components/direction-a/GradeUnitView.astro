@@ -15,12 +15,13 @@
 // section, section eyebrow, sidebar card) — the surface a visitor should
 // still be able to identify with the word-list panel off-screen. Grade is
 // a second, deliberately subordinate layer: a neutral chip/label for
-// orientation, plus (since GRADE_ACCENT and STRAND_ACCENT are now
-// hue-disjoint — see pilotContent.ts) a very faint full-bleed ambient wash
-// behind the whole page so grade reads as "which grade am I in" atmosphere
-// without ever competing with strand for visual weight. Because the two
-// axes no longer share hues, this wash can safely run underneath a
-// strand-tinted section without the two fusing into one flat color.
+// orientation, plus a very faint (6% opacity) full-bleed ambient wash behind
+// the whole page so grade reads as "which grade am I in" atmosphere without
+// ever competing with strand for visual weight. GRADE_ACCENT and
+// STRAND_ACCENT do reuse a few hues (see pilotContent.ts) — on those specific
+// grade/strand combinations the wash sits under a same-hue strand tint and
+// contributes no extra signal there, which is an acceptable trade-off since
+// the neutral chip stays the page's primary "which grade" cue regardless.
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import Button from './Button.astro';
 import WordTileGrid from './WordTileGrid.astro';

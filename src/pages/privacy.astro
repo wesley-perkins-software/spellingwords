@@ -21,7 +21,9 @@ import SupportingPage from '@/components/SupportingPage.astro';
       <ul>
         <li>You do not need an account or login to use SpellingWords.</li>
         <li>
-          SpellingWords does not currently use Google Analytics or another site-analytics service.
+          SpellingWords uses Google Analytics 4 to understand website usage, such as visits, page
+          traffic, and general traffic sources. It is configured to exclude spelling-list data,
+          shared-list fragments, typed answers, and practice-session identifiers.
         </li>
         <li>
           Custom practice words are kept in your browser's session storage while you practice.
@@ -56,7 +58,7 @@ import SupportingPage from '@/components/SupportingPage.astro';
       <h3>Information not currently collected through product features</h3>
       <p>
         SpellingWords has no accounts, profiles, comments, public posts, purchases, advertising, or
-        contact form. It does not currently use a site-analytics service.
+        contact form.
       </p>
     </section>
 
@@ -107,17 +109,26 @@ import SupportingPage from '@/components/SupportingPage.astro';
       <h2 id="cookies-heading">Cookies, storage, and analytics</h2>
       <h3>Cookies</h3>
       <p>
-        SpellingWords does not currently set application or analytics cookies. It uses browser
-        session storage as described above. This policy will be reviewed before adding a service
-        that uses cookies or similar identifiers.
+        SpellingWords does not set its own application cookies. It uses browser session storage as
+        described above. Google Analytics, described below, may use cookies or similar identifiers
+        to measure site usage.
       </p>
       <h3>Analytics</h3>
       <p>
-        SpellingWords does not currently use Google Analytics or another site-analytics service. We
-        may add analytics in the future to understand general site usage and improve the service. If
-        analytics is enabled, this policy will be updated before or when that change takes effect to
-        describe the service used, the information collected, how it is used, any cookies or similar
-        technologies involved, relevant user choices, and applicable retention practices.
+        SpellingWords uses Google Analytics 4, a website-analytics service provided by Google, to
+        help understand how the site is used — for example, visits, page usage, traffic sources, and
+        device or browser information, as allowed by the configured Google Analytics property.
+        Google Analytics may use cookies or similar identifiers as part of this measurement. Google
+        has its own privacy and data-processing practices for the Google Analytics service, separate
+        from this policy.
+      </p>
+      <p>
+        The site's implementation is configured to exclude application-state data from what is sent
+        to Google Analytics: custom spelling-list payloads, shared-list link fragments, typed
+        spelling answers, and internal practice-session identifiers are intentionally left out of
+        the page addresses and events reported to analytics, even when they appear in your
+        browser's address bar. No user account is required to use SpellingWords, with or without
+        analytics enabled.
       </p>
     </section>
 
@@ -156,9 +167,11 @@ import SupportingPage from '@/components/SupportingPage.astro';
       <p>
         Custom practice data is retained in browser session storage rather than a SpellingWords
         account or database. Shared lists exist in the links held by their creators and recipients;
-        SpellingWords does not retain backend copies. No analytics retention period applies because
-        analytics is not active. Hosting providers may process ordinary request information as
-        described above according to their configurations and practices.
+        SpellingWords does not retain backend copies. Analytics information collected through
+        Google Analytics is retained according to Google's own retention settings for the
+        configured property, not a SpellingWords-operated database. Hosting providers may process
+        ordinary request information as described above according to their configurations and
+        practices.
       </p>
       <p>
         SpellingWords uses data minimization and a static, frontend-first design to reduce risk, but
@@ -171,8 +184,8 @@ import SupportingPage from '@/components/SupportingPage.astro';
       <h2 id="changes-heading">Changes to this policy</h2>
       <p>
         This policy will be updated when the site's data practices materially change, including
-        before or when analytics, accounts, forms, cloud saving, advertising, or additional relevant
-        services are introduced. The updated policy will show a new “Last updated” date.
+        before or when accounts, forms, cloud saving, advertising, or additional relevant services
+        are introduced. The updated policy will show a new “Last updated” date.
       </p>
     </section>
   </SupportingPage>

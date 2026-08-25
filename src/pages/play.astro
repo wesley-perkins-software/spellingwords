@@ -5,7 +5,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
 ---
 
 <Layout
-  title="Spelling Test — spellingwords"
+  title="Spelling Test | SpellingWords"
   description="Take your custom spelling test. Hear each word spoken aloud and type your answer."
 >
   <SiteHeader variant="practice" />
@@ -53,6 +53,50 @@ import SiteFooter from '@/components/SiteFooter.astro';
             ← Enter new words
           </a>
         </div>
+    </section>
+
+    <!-- Orientation screen — the canonical, crawlable content for a bare
+         /play visit (no ?session= or ?list=). It is NOT hidden by default,
+         so it is present in the static HTML for crawlers and no-JS
+         visitors before any script runs; init() below hides it immediately
+         if a valid practice session is actually found. An invalid/expired
+         session or list still uses the error screen above, not this one —
+         this screen exists specifically for the truly-bare canonical URL. -->
+    <section
+      id="screen-orientation"
+      class="mx-auto max-w-2xl px-6 py-12 text-center md:py-16"
+      aria-labelledby="orientation-heading"
+    >
+      <div class="flex flex-col items-center gap-6">
+        <h1 id="orientation-heading" class="font-quicksand text-3xl font-bold text-da-ink">
+          Practice spelling words
+        </h1>
+        <p class="max-w-[52ch] font-mulish text-base text-da-ink-soft">
+          This page is where a spelling practice session runs — each word read aloud, then
+          typed, with no timer and no score pressure. Start a session from one of the pages
+          below and it will open here.
+        </p>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <a
+            href="/practice-your-own-words"
+            class="rounded-xl bg-da-brand px-6 py-3 font-quicksand text-sm font-bold text-white no-underline transition hover:bg-da-brand-strong"
+          >
+            Practice your own words
+          </a>
+          <a
+            href="/grades"
+            class="rounded-xl border-2 border-da-brand px-6 py-3 font-quicksand text-sm font-bold text-da-brand-strong no-underline transition hover:bg-da-brand-tint"
+          >
+            Browse by grade
+          </a>
+          <a
+            href="/skills"
+            class="rounded-xl border-2 border-da-brand px-6 py-3 font-quicksand text-sm font-bold text-da-brand-strong no-underline transition hover:bg-da-brand-tint"
+          >
+            Browse by skill
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- Unsupported browser screen -->
@@ -467,6 +511,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
   const $ = (id: string) => document.getElementById(id)!;
 
   const screenError = $('screen-error');
+  const screenOrientation = $('screen-orientation');
   const screenUnsupported = $('screen-unsupported');
   const screenBegin = $('screen-begin');
   const screenQuestion = $('screen-question');
@@ -476,6 +521,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
 
   const allScreens = [
     screenError,
+    screenOrientation,
     screenUnsupported,
     screenBegin,
     screenQuestion,
@@ -690,7 +736,11 @@ import SiteFooter from '@/components/SiteFooter.astro';
       }
       originalWords = decoded.words;
     } else {
-      showError('No word list found. Please go back and enter your words.');
+      // Bare /play — no ?session= or ?list= at all. This is the canonical,
+      // crawlable URL (it's the one entry in the sitemap), so it gets a
+      // real orientation screen rather than the error screen used for an
+      // actually-invalid/expired session or list.
+      showScreen(screenOrientation);
       return;
     }
 

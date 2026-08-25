@@ -26,9 +26,13 @@ describe('practice-your-own-words page', () => {
     expect(pageSource).toContain('<CustomWordEntry variant="full"');
   });
 
-  it('does not emit BreadcrumbList structured data, matching the about.astro precedent', () => {
-    expect(pageSource).not.toContain('BreadcrumbList');
-    expect(pageSource).not.toContain('jsonLd=');
+  it('emits BreadcrumbList structured data matching the visible breadcrumb', () => {
+    expect(pageSource).toContain('BreadcrumbList');
+    expect(pageSource).toContain('jsonLd={breadcrumbJsonLd}');
+    expect(pageSource).toContain(
+      "breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Practice Your Own Words' }]",
+    );
+    expect(pageSource).toContain('<Breadcrumbs items={breadcrumbItems} />');
   });
 
   it('lets the tool dominate the page rather than routing it through the narrow supporting-page prose template used by pages like /about', () => {

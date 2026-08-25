@@ -4,11 +4,21 @@ import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import CustomWordEntry from '@/components/CustomWordEntry.astro';
+
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Practice Your Own Words' }];
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem', position: index + 1, name: item.label,
+    ...(item.href ? { item: new URL(item.href, Astro.site ?? 'https://spellingwords.app').toString() } : {}),
+  })),
+};
 ---
 
 <Layout
   title="Practice Your Own Spelling Words | SpellingWords"
   description="Type or paste any spelling list and start practicing immediately in your browser — no account needed. Create a free link to share the same list with a class."
+  jsonLd={breadcrumbJsonLd}
 >
   <SiteHeader currentPath="/practice-your-own-words" />
 
@@ -19,7 +29,7 @@ import CustomWordEntry from '@/components/CustomWordEntry.astro';
          read as a dominant, first-class workspace rather than a widget
          embedded in an article. -->
     <div class="mx-auto max-w-content-xl px-5 pt-8 sm:px-6 md:pt-10">
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Practice Your Own Words' }]} />
+      <Breadcrumbs items={breadcrumbItems} />
     </div>
 
     <header class="px-5 pb-8 pt-8 sm:px-6 md:pb-10 md:pt-12">

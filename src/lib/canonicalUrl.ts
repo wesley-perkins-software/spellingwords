@@ -1,3 +1,5 @@
+import { SITE_ORIGIN } from '@/lib/siteOrigin';
+
 /**
  * Centralized canonical-URL construction. `Astro.url.pathname` does not
  * directly give the clean, no-trailing-slash public path the project's
@@ -12,9 +14,10 @@
  * the canonical tag, og:url, and breadcrumb JSON-LD agree with that public
  * URL instead of the build artifact's filename.
  */
+
 export function getCanonicalUrl(pathname: string, site: string | URL | undefined): URL {
   let clean = pathname.replace(/\.html$/, '');
   if (clean.length > 1) clean = clean.replace(/\/$/, '');
   if (clean === '') clean = '/';
-  return new URL(clean, site ?? 'https://spellingwords.app');
+  return new URL(clean, site ?? SITE_ORIGIN);
 }

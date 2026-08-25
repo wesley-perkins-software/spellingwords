@@ -6,11 +6,10 @@ import {
 import { getCanonicalSkillRoutes, SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
 import { STRAND_GATEWAY_PATHS } from '@/lib/content/strandGatewayRoutes';
-
-const SITE = 'https://spellingwords.app';
+import { SITE_ORIGIN } from '@/lib/siteOrigin';
 
 function url(path: string) {
-  return `${SITE}${path}`;
+  return `${SITE_ORIGIN}${path}`;
 }
 
 export async function GET() {

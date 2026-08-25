@@ -90,9 +90,13 @@ export default {
           sun: '#ffc24b',
           'sun-tint': '#fff5df',
           'sun-ink': '#7a5300',
-          teal: '#2fb6a3',
-          'teal-tint': '#e2f7f4',
-          'teal-ink': '#0d5c50',
+          // Shifted bluer (was #2fb6a3) — at grade-card weight the original
+          // teal sat too close to `green`'s hue (140°) to read as clearly
+          // distinct at a glance; this leans more cyan-blue (187°) while
+          // staying a restrained teal, not a bright cyan.
+          teal: '#1f9fb0',
+          'teal-tint': '#e2f5f7',
+          'teal-ink': '#0b5865',
           pink: '#ff6b8a',
           'pink-tint': '#ffe6ec',
           'pink-ink': '#a01d3f',
@@ -112,28 +116,6 @@ export default {
           plum: '#8659a8',
           'plum-tint': '#f2eaf8',
           'plum-ink': '#5a3878',
-          // Grade-only hues — added to resolve exact hue collisions between
-          // GRADE_ACCENT and STRAND_ACCENT (Kindergarten/sun, Grade 2/teal,
-          // Grade 3/periwinkle previously shared a hue 1:1 with Core Spelling,
-          // High-Frequency Words, and Themed Practice respectively — see
-          // pilotContent.ts). Strand keeps its original sun/teal/periwinkle,
-          // since strand is the higher-prominence, more widely-used axis;
-          // these three replace only the colliding GRADE_ACCENT slots.
-          // sprout (Kindergarten) — yellow-green, sits in the open gap between
-          // sun and green; kept warm/springlike, never neon.
-          sprout: '#a4c251',
-          'sprout-tint': '#f1f5e5',
-          'sprout-ink': '#5a6f20',
-          // fern (Grade 2) — a cooler, deeper spring green than sprout or
-          // green, sitting between green and teal without reading as either.
-          fern: '#60bc4e',
-          'fern-tint': '#e8f4e6',
-          'fern-ink': '#2c6321',
-          // orchid (Grade 3) — magenta-violet, sits in the open gap between
-          // plum and pink; distinct from periwinkle's blue-violet lean.
-          orchid: '#d369c2',
-          'orchid-tint': '#f6e4f3',
-          'orchid-ink': '#7a1f6b',
 
           correct: '#1f6b34',
           'correct-bg': '#e3f3e4',
@@ -155,12 +137,10 @@ export default {
           // the strand-card tints below: the goal is "I moved into another
           // grade," not "this page is green." Every Grade Hub shares the same
           // template; only this whisper of cast should differ.
-          // k/2/3 re-derived from sprout/fern/orchid (was sun/teal/periwinkle)
-          // to match the GRADE_ACCENT reassignment above.
-          'surface-grade-k': '#f8faf5',
+          'surface-grade-k': '#fdf9f0',
           'surface-grade-1': '#f3f9f5',
-          'surface-grade-2': '#f6faf5',
-          'surface-grade-3': '#faf5f9',
+          'surface-grade-2': '#eef7f9',
+          'surface-grade-3': '#f5f4fc',
           'surface-grade-4': '#fbf3f5',
           'surface-grade-5': '#f7f3fa',
         },

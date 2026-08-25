@@ -8,6 +8,36 @@ import SiteFooter from '@/components/SiteFooter.astro';
   title="Spelling Test | SpellingWords"
   description="Take your custom spelling test. Hear each word spoken aloud and type your answer."
 >
+  <Fragment slot="head">
+    <!-- Runs synchronously in <head>, before <body> (including the
+         orientation section below) is parsed or painted. This site is
+         fully static (astro.config.mjs output: 'static'), so play.html is
+         byte-identical for every query string — there is no render-time
+         request to inspect server-side, and the deferred module script at
+         the bottom of this page runs too late to prevent a first-paint
+         flash. Marking <html> here, synchronously and pre-paint, lets the
+         plain CSS rule below hide the orientation screen before it is ever
+         painted for a state-bearing /play?session=... or /play?list=...
+         load — no JS timing hacks, no visible swap. -->
+    <script is:inline>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        if (params.has('session') || params.has('list')) {
+          document.documentElement.classList.add('sw-play-has-state');
+        }
+      })();
+    </script>
+  </Fragment>
+  <style>
+    /* Paired with the inline script above: hides the bare-/play
+       orientation screen before first paint whenever the URL carries
+       practice state (valid, invalid, or expired session/list), so it
+       never flashes before the real practice screen or error screen. */
+    :global(html.sw-play-has-state) #screen-orientation {
+      display: none;
+    }
+  </style>
+
   <SiteHeader variant="practice" />
 
   <main id="main-content">

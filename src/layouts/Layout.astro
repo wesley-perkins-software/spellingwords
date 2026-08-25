@@ -56,6 +56,11 @@ const ogImageURL = new URL('/og-image.png', Astro.site ?? canonicalURL).href;
     {jsonLdBlocks.map((block) => (
       <script type="application/ld+json" set:html={JSON.stringify(block)} />
     ))}
+
+    <!-- Optional per-page early <head> content — e.g. a synchronous,
+         pre-paint inline script that must run before <body> is parsed.
+         See src/pages/play.astro for the motivating case. -->
+    <slot name="head" />
   </head>
   <body class="min-h-screen bg-da-canvas text-da-ink font-mulish" data-theme="direction-a">
     <a

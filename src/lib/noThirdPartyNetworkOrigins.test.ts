@@ -6,23 +6,19 @@ import { describe, expect, it } from 'vitest';
  * Regression guard for the font self-hosting decision and the reviewed GA4
  * installation: scans page/component/style source for network origins and
  * script signatures that must never appear outside the one approved
- * analytics module, so a future change can't silently reintroduce a Google
- * Fonts network dependency or add a second/unreviewed analytics or tag
- * manager integration without anyone noticing.
+ * analytics component, so a future change can't silently reintroduce a
+ * Google Fonts network dependency or add a second/unreviewed analytics or
+ * tag manager integration without anyone noticing.
  */
 
 const SCAN_DIRS = ['src', 'public'];
 const SCAN_EXTENSIONS = new Set(['.astro', '.css', '.ts', '.tsx', '.html']);
 const EXCLUDED_DIRS = new Set(['node_modules', 'dist', '.git']);
 
-// The single reviewed location allowed to reference the GA4 loader origin,
-// call gtag(), or reference the measurement id / <GoogleAnalytics /> usage
-// directly (implementation file plus its colocated test). Everything else
+// The single reviewed location allowed to reference the GA4 loader origin
+// or call gtag() directly: the canonical inline snippet. Everything else
 // in src/ and public/ must stay clean.
-const APPROVED_ANALYTICS_FILES = new Set([
-  path.join('src', 'lib', 'analytics', 'initGoogleAnalytics.ts'),
-  path.join('src', 'lib', 'analytics', 'initGoogleAnalytics.test.ts'),
-]);
+const APPROVED_ANALYTICS_FILES = new Set([path.join('src', 'components', 'GoogleAnalytics.astro')]);
 
 // This guard file itself necessarily contains the forbidden strings as
 // pattern/regex literals used to scan for them — exclude it from its own scan.

@@ -15,21 +15,27 @@ const SCAN_DIRS = ['src', 'public'];
 const SCAN_EXTENSIONS = new Set(['.astro', '.css', '.ts', '.tsx', '.html']);
 const EXCLUDED_DIRS = new Set(['node_modules', 'dist', '.git']);
 
-// The single reviewed location allowed to reference the GA4 loader origin
-// or call gtag() directly: the canonical inline snippet. Everything else
-// in src/ and public/ must stay clean.
-const APPROVED_ANALYTICS_FILES = new Set([path.join('src', 'components', 'GoogleAnalytics.astro')]);
+// The reviewed locations allowed to call gtag() directly: the canonical
+// inline page-view snippet, and the typed custom-event module that wraps it
+// (see src/lib/analytics/events.ts's module doc — no other file may call
+// gtag() or accept an arbitrary event/parameter dictionary). Only the inline
+// snippet may reference the GA4 loader origin itself.
+const APPROVED_ANALYTICS_FILES = new Set([
+  path.join('src', 'components', 'GoogleAnalytics.astro'),
+  path.join('src', 'lib', 'analytics', 'events.ts'),
+]);
+const APPROVED_GA_LOADER_FILES = new Set([path.join('src', 'components', 'GoogleAnalytics.astro')]);
 
 // This guard file itself necessarily contains the forbidden strings as
 // pattern/regex literals used to scan for them — exclude it from its own scan.
 const SELF_PATH = path.join('src', 'lib', 'noThirdPartyNetworkOrigins.test.ts');
 
-const FORBIDDEN_PATTERNS: { label: string; pattern: RegExp; exemptApproved?: boolean }[] = [
+const FORBIDDEN_PATTERNS: { label: string; pattern: RegExp; exemptFiles?: Set<string> }[] = [
   { label: 'Google Fonts stylesheet origin', pattern: /fonts\.googleapis\.com/ },
   { label: 'Google Fonts file origin', pattern: /fonts\.gstatic\.com/ },
-  { label: 'gtag.js loader', pattern: /googletagmanager\.com/, exemptApproved: true },
+  { label: 'gtag.js loader', pattern: /googletagmanager\.com/, exemptFiles: APPROVED_GA_LOADER_FILES },
   { label: 'Google Analytics collect endpoint', pattern: /google-analytics\.com/ },
-  { label: 'gtag() call', pattern: /\bgtag\s*\(/, exemptApproved: true },
+  { label: 'gtag() call', pattern: /\bgtag\s*\(/, exemptFiles: APPROVED_ANALYTICS_FILES },
   { label: 'Google Tag Manager container id', pattern: /GTM-[A-Z0-9]+/ },
 ];
 
@@ -62,12 +68,12 @@ describe('no third-party network origins in source', () => {
     expect(filesToScan.length).toBeGreaterThan(50);
   });
 
-  for (const { label, pattern, exemptApproved } of FORBIDDEN_PATTERNS) {
+  for (const { label, pattern, exemptFiles } of FORBIDDEN_PATTERNS) {
     it(`contains no ${label} outside the approved analytics module`, () => {
       const offenders = filesToScan
         .filter((file) => pattern.test(readFileSync(file, 'utf-8')))
         .map((file) => path.relative(repoRoot, file))
-        .filter((relativeFile) => !(exemptApproved && APPROVED_ANALYTICS_FILES.has(relativeFile)));
+        .filter((relativeFile) => !exemptFiles?.has(relativeFile));
 
       expect(offenders).toEqual([]);
     });

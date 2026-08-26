@@ -1,10 +1,30 @@
 ---
+import { GA_MEASUREMENT_ID } from '@/lib/analytics/measurementId';
 
+const PRODUCTION_HOSTNAME = 'spellingwords.app';
 ---
 
-<script>
-  import { initGoogleAnalytics } from '@/lib/analytics/initGoogleAnalytics';
-  import { GA_MEASUREMENT_ID } from '@/lib/analytics/measurementId';
+<script is:inline define:vars={{ measurementId: GA_MEASUREMENT_ID, PRODUCTION_HOSTNAME }}>
+  (function () {
+    // GA must only ever run on the live production host — never localhost
+    // or a Netlify deploy preview/branch deploy.
+    if (window.location.hostname !== PRODUCTION_HOSTNAME) return;
 
-  initGoogleAnalytics(GA_MEASUREMENT_ID);
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    // page_location is reduced to origin + pathname so state-bearing URL
+    // data (?session=, ?list=, #list=) is never sent to GA.
+    gtag('config', measurementId, {
+      page_location: window.location.origin + window.location.pathname,
+    });
+  })();
 </script>

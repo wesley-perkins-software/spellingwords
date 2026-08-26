@@ -1,5 +1,6 @@
 import { gradeConfig, type GradeCode } from './gradeConfig';
 import { getCanonicalSkillRoutes } from './canonicalSkillRoutes';
+import { SPELLING_SKILL_FAMILIES } from './spellingSkills';
 
 export const HOMEPAGE_URL = 'https://spellingwords.app/';
 
@@ -46,19 +47,45 @@ export const homepageGradeHubs = gradeConfig.map(({ grade, label, hubHref }) => 
 /** Real, programmatically sourced count of canonical Skill pages. */
 export const HOMEPAGE_SKILL_COUNT = getCanonicalSkillRoutes().length;
 
+/** Real, programmatically sourced count of canonical Skill families. */
+export const HOMEPAGE_SKILL_FAMILY_COUNT = SPELLING_SKILL_FAMILIES.length;
+
 /**
  * Representative Skill concepts named as plain text on the homepage,
  * spanning the K–5 difficulty range (early skills through late-elementary
  * skills) per docs/content/CANONICAL_HOMEPAGE_STANDARD.md §5.3.
  */
-export const HOMEPAGE_REPRESENTATIVE_SKILLS = [
-  'short vowels',
-  'silent e',
-  'prefixes',
-  'suffixes',
-  'Greek and Latin roots',
-  'homophones',
+export const HOMEPAGE_SKILL_FAMILIES = SPELLING_SKILL_FAMILIES.map(({ title }) => title);
+
+/**
+ * One compact overview of the K–5 developmental arc. The concepts are
+ * canonical Skill Family titles; /grades remains the owner of the detailed
+ * grade-by-grade progression.
+ */
+export const HOMEPAGE_PROGRESSION_STAGES = [
+  {
+    label: 'Foundation',
+    grades: 'K–1',
+    concepts: ['Short Vowels', 'Consonant Digraphs', 'Consonant Blends', 'Silent E'],
+  },
+  {
+    label: 'Expansion',
+    grades: 'Grades 2–3',
+    concepts: ['Vowel Teams', 'R-Controlled Vowels', 'Word Building and Endings', 'Prefixes'],
+  },
+  {
+    label: 'Integration',
+    grades: 'Grades 4–5',
+    concepts: [
+      'Multisyllabic Words',
+      'Greek and Latin Roots',
+      'Homophones and Commonly Confused Words',
+    ],
+  },
 ] as const;
+
+export const HOMEPAGE_PROGRESSION_INTRO =
+  'Spelling develops from sound-to-spelling foundations into broader patterns, longer words, and meaningful word parts. These three stages show that K–5 arc at a glance.';
 
 /**
  * "How the K-5 curriculum is organized" section content. Compressed under

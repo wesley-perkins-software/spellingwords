@@ -3,22 +3,19 @@ import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Button from '@/components/direction-a/Button.astro';
-import Chip from '@/components/direction-a/Chip.astro';
 import CustomWordEntry from '@/components/CustomWordEntry.astro';
 import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
-import {
-  GRADE_ACCENT,
-  ACCENT_BG_CLASS,
-  ACCENT_INK_CLASS,
-  type DaAccent,
-} from '@/lib/content/pilotContent';
+import { GRADE_ACCENT, ACCENT_BG_CLASS, ACCENT_INK_CLASS } from '@/lib/content/pilotContent';
 import {
   homepageGradeHubs,
   homepageJsonLd,
   homepageFaqJsonLd,
   HOMEPAGE_SKILL_COUNT,
-  HOMEPAGE_REPRESENTATIVE_SKILLS,
+  HOMEPAGE_SKILL_FAMILY_COUNT,
+  HOMEPAGE_SKILL_FAMILIES,
+  HOMEPAGE_PROGRESSION_STAGES,
+  HOMEPAGE_PROGRESSION_INTRO,
   HOMEPAGE_STRANDS,
   HOMEPAGE_CLOSING_STATEMENT,
   HOMEPAGE_FAQ,
@@ -28,26 +25,6 @@ const gradeCards = homepageGradeHubs.map((hub, index) => ({
   ...hub,
   numeral: gradeConfig[index].grade,
   accent: GRADE_ACCENT[gradeConfig[index].grade],
-}));
-
-// Illustrative examples of the range of Skills on offer — drawn from the
-// homepage's own permanent HOMEPAGE_REPRESENTATIVE_SKILLS list (also used
-// in the prose above). These are category labels, not individual
-// Skill-page destinations (per the same
-// design-explore/direction-a mockup this section is drawn from), so they
-// stay as plain decorative Chips — the "Browse Spelling Skills" button
-// remains the one real link, to the canonical Skills index.
-const REPRESENTATIVE_SKILL_TONES: readonly DaAccent[] = [
-  'teal',
-  'periwinkle',
-  'sun',
-  'teal',
-  'periwinkle',
-  'sun',
-];
-const representativeSkillChips = HOMEPAGE_REPRESENTATIVE_SKILLS.map((label, index) => ({
-  label: label.charAt(0).toUpperCase() + label.slice(1),
-  tone: REPRESENTATIVE_SKILL_TONES[index % REPRESENTATIVE_SKILL_TONES.length],
 }));
 
 const [coreStrand, hfwStrand, themedStrand] = HOMEPAGE_STRANDS;
@@ -142,11 +119,6 @@ const [coreStrand, hfwStrand, themedStrand] = HOMEPAGE_STRANDS;
             ))
           }
         </div>
-        <p class="mt-7 text-center">
-          <a href="/grades" class="font-bold text-da-brand-strong no-underline hover:underline">
-            See how spelling develops across K–5 <span aria-hidden="true">→</span>
-          </a>
-        </p>
       </div>
     </section>
 
@@ -166,9 +138,21 @@ const [coreStrand, hfwStrand, themedStrand] = HOMEPAGE_STRANDS;
             How the K–5 curriculum is organized
           </h2>
           <p class="mt-2.5 max-w-[62ch] text-[1.05rem] leading-relaxed text-da-ink-soft">
-            Each strand plays a different role: <a href={coreStrand.href} class="font-bold text-da-ink hover:text-da-brand-strong hover:underline">{coreStrand.name}</a>{' '}
-            {coreStrand.role}, <a href={hfwStrand.href} class="font-bold text-da-ink hover:text-da-brand-strong hover:underline">{hfwStrand.name}</a>{' '}
-            {hfwStrand.role}, and <a href={themedStrand.href} class="font-bold text-da-ink hover:text-da-brand-strong hover:underline">{themedStrand.name}</a>{' '}
+            Each strand plays a different role: <a
+              href={coreStrand.href}
+              class="font-bold text-da-ink hover:text-da-brand-strong hover:underline"
+              >{coreStrand.name}</a
+            >{' '}
+            {coreStrand.role}, <a
+              href={hfwStrand.href}
+              class="font-bold text-da-ink hover:text-da-brand-strong hover:underline"
+              >{hfwStrand.name}</a
+            >{' '}
+            {hfwStrand.role}, and <a
+              href={themedStrand.href}
+              class="font-bold text-da-ink hover:text-da-brand-strong hover:underline"
+              >{themedStrand.name}</a
+            >{' '}
             {themedStrand.role}.
           </p>
         </div>
@@ -179,6 +163,62 @@ const [coreStrand, hfwStrand, themedStrand] = HOMEPAGE_STRANDS;
             class="inline-flex min-h-[44px] items-center font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand"
           >
             Read about our spelling curriculum <span class="ml-1" aria-hidden="true">→</span>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ K-5 SPELLING PROGRESSION ══════════════════════════════ -->
+    <section
+      class="bg-da-surface-home px-5 py-14 sm:px-6 md:py-20"
+      aria-labelledby="progression-heading"
+    >
+      <div class="mx-auto max-w-content-xl">
+        <div class="mb-9 max-w-2xl">
+          <p
+            class="mb-2 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-brand-strong"
+          >
+            One connected progression
+          </p>
+          <h2
+            id="progression-heading"
+            class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink"
+          >
+            How spelling develops across K–5
+          </h2>
+          <p class="mt-2.5 max-w-[62ch] text-[1.05rem] leading-relaxed text-da-ink-soft">
+            {HOMEPAGE_PROGRESSION_INTRO}
+          </p>
+        </div>
+
+        <ol
+          class="grid grid-cols-1 border-y border-da-border md:grid-cols-3"
+          aria-label="Three stages of K–5 spelling development"
+        >
+          {
+            HOMEPAGE_PROGRESSION_STAGES.map(({ label, grades, concepts }, index) => (
+              <li
+                class:list={[
+                  'relative py-6 md:px-7 md:first:pl-0 md:last:pr-0',
+                  index > 0 && 'border-t border-da-border md:border-l md:border-t-0',
+                ]}
+              >
+                <p class="font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-brand-strong">
+                  <span aria-hidden="true">0{index + 1} · </span>
+                  {grades}
+                </p>
+                <h3 class="mt-1 font-quicksand text-xl font-bold text-da-ink">{label}</h3>
+                <p class="mt-3 text-sm font-semibold leading-relaxed text-da-ink-soft">
+                  {concepts.join(' · ')}
+                </p>
+              </li>
+            ))
+          }
+        </ol>
+
+        <p class="mt-7">
+          <a href="/grades" class="font-bold text-da-brand-strong no-underline hover:underline">
+            Explore the full K–5 spelling progression <span aria-hidden="true">→</span>
           </a>
         </p>
       </div>
@@ -201,23 +241,28 @@ const [coreStrand, hfwStrand, themedStrand] = HOMEPAGE_STRANDS;
             Browse by Skill
           </h2>
           <p class="mt-2.5 max-w-[54ch] text-[1.05rem] leading-relaxed text-da-ink-soft">
-            Already know what to work on? Explore {HOMEPAGE_SKILL_COUNT} spelling skills, from {
-              HOMEPAGE_REPRESENTATIVE_SKILLS[0]
-            } and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {
-              HOMEPAGE_REPRESENTATIVE_SKILLS[3]
-            }, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]}
-            — go straight to the specific spelling skill your student needs.
+            Already know what to work on? Explore {HOMEPAGE_SKILL_COUNT} spelling skills across {
+              HOMEPAGE_SKILL_FAMILY_COUNT
+            } skill families, from foundational sound patterns to advanced word structure. Browse the
+            full library to find the concept your student needs.
           </p>
           <Button href={SKILLS_INDEX_PATH} variant="outline" class="mt-6">
             Browse Spelling Skills <span aria-hidden="true">→</span>
           </Button>
         </div>
 
-        <ul class="flex flex-wrap gap-3" aria-label="Examples of spelling skills">
+        <ul
+          class="grid grid-cols-1 gap-x-8 sm:grid-cols-2"
+          aria-label="Representative spelling concepts"
+        >
           {
-            representativeSkillChips.map((chip) => (
-              <li>
-                <Chip tone={chip.tone}>{chip.label}</Chip>
+            HOMEPAGE_SKILL_FAMILIES.map((skill) => (
+              <li class="flex items-start gap-3 border-b border-da-teal/25 py-3 text-[0.95rem] font-semibold leading-snug text-da-ink">
+                <span
+                  class="mt-[0.48rem] h-1.5 w-1.5 shrink-0 rounded-full bg-da-teal"
+                  aria-hidden="true"
+                />
+                <span>{skill}</span>
               </li>
             ))
           }

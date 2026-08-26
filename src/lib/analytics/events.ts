@@ -1,5 +1,6 @@
 import type { GradeCode } from '@/lib/content/gradeConfig';
 import type { PracticeSourceType } from '@/types/spelling';
+import { getCanonicalSkillRouteBySlug } from '@/lib/content/canonicalSkillRoutes';
 import { PRODUCTION_HOSTNAME } from './measurementId';
 import { getSkillFamilyId, isCuratedSpellingSkillId, type SkillFamilyId } from './skillFamilyIds';
 
@@ -57,7 +58,9 @@ export function extractSkillIdFromHref(href: string | undefined): string | undef
   if (!href) return undefined;
   const match = /^\/skills\/([a-z0-9-]+)\/?$/.exec(href);
   const slug = match?.[1];
-  return slug && isCuratedSpellingSkillId(slug) ? slug : undefined;
+  if (!slug) return undefined;
+  const route = getCanonicalSkillRouteBySlug(slug);
+  return route && isCuratedSpellingSkillId(route.id) ? route.id : undefined;
 }
 
 // ---- Internal transport -------------------------------------------------

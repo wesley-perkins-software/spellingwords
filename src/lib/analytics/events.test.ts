@@ -1,5 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import * as events from './events';
+import { canonicalSkillRoutes } from '@/lib/content/canonicalSkillRoutes';
+import { getSkillFamilyId } from './skillFamilyIds';
 import {
   toPracticeSourceDim,
   toGradeDim,
@@ -307,8 +309,36 @@ describe('toGradeDim', () => {
 });
 
 describe('extractSkillIdFromHref', () => {
-  it('extracts a valid canonical skill slug', () => {
-    expect(extractSkillIdFromHref('/skills/silent-e-long-a')).toBe('silent-e-long-a');
+  it('resolves an unchanged canonical slug to its stable Skill ID', () => {
+    expect(extractSkillIdFromHref('/skills/short-a-words')).toBe('short-a-words');
+  });
+
+  it.each([
+    ['ch-digraph-words', 'digraph-ch-words'],
+    ['sh-digraph-words', 'digraph-sh-words'],
+    ['th-digraph-words', 'digraph-th-words'],
+    ['wh-digraph-words', 'digraph-wh-words'],
+    ['long-a-silent-e', 'silent-e-long-a'],
+    ['long-i-silent-e', 'silent-e-long-i'],
+    ['long-o-silent-e', 'silent-e-long-o'],
+    ['long-u-silent-e', 'silent-e-long-u'],
+    ['ai-ay-vowel-teams', 'vowel-teams-ai-ay'],
+    ['ee-ea-vowel-teams', 'vowel-teams-ee-ea'],
+    ['oa-ow-vowel-teams', 'vowel-teams-oa-ow'],
+    ['r-controlled-ar-words', 'r-controlled-ar'],
+    ['r-controlled-or-words', 'r-controlled-or'],
+    ['r-controlled-er-ir-ur-words', 'r-controlled-er-ir-ur'],
+  ] as const)('resolves renamed canonical slug %s to stable Skill ID %s', (slug, id) => {
+    expect(extractSkillIdFromHref(`/skills/${slug}`)).toBe(id);
+  });
+
+  it('resolves all 41 canonical routes to their intended stable Skill ID and family', () => {
+    expect(canonicalSkillRoutes).toHaveLength(41);
+    for (const route of canonicalSkillRoutes) {
+      const skillId = extractSkillIdFromHref(route.canonicalPath);
+      expect(skillId, route.canonicalPath).toBe(route.id);
+      expect(getSkillFamilyId(skillId!), route.id).toBeDefined();
+    }
   });
 
   it('rejects a non-canonical slug even if the path shape matches', () => {
@@ -317,8 +347,34 @@ describe('extractSkillIdFromHref', () => {
 
   it('rejects anything that is not a bare /skills/{slug} path', () => {
     expect(extractSkillIdFromHref('/skills')).toBeUndefined();
+    expect(extractSkillIdFromHref('/skills/silent-e-long-a')).toBeUndefined();
     expect(extractSkillIdFromHref('/grades/1st-grade/core-spelling/floss-rule')).toBeUndefined();
     expect(extractSkillIdFromHref(undefined)).toBeUndefined();
+  });
+
+  it('retains stable Skill context across every run-scoped event after /play navigation', () => {
+    const { calls } = stubProductionWindow();
+    const skillId = extractSkillIdFromHref('/skills/long-a-silent-e');
+    const context = { practiceSource: 'skill' as const, skillId };
+
+    trackPracticeStart({ ...context, runType: 'initial', listSize: 10 });
+    trackAnswerSubmit({ ...context, runType: 'initial' });
+    trackAudioRequest({ ...context, audioType: 'word', runType: 'initial' });
+    trackPracticeComplete({ ...context, runType: 'initial', correctCount: 9, totalCount: 10 });
+    trackPracticeRestart(context);
+    trackPracticeStart({ ...context, runType: 'retry', listSize: 1 });
+    trackPracticeReviewStart(context);
+    trackPracticeStart({ ...context, runType: 'review', listSize: 1 });
+
+    for (const [, , params] of calls) {
+      expect(params).toMatchObject({
+        practice_source: 'skill',
+        skill_id: 'silent-e-long-a',
+        skill_family: 'silent_e',
+      });
+    }
+    expect(calls.filter(([, name]) => name === 'practice_start').map(([, , params]) => params.run_type))
+      .toEqual(['initial', 'retry', 'review']);
   });
 });
 

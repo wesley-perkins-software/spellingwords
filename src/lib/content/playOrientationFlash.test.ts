@@ -17,6 +17,21 @@ const playSource = readFileSync(join(process.cwd(), 'src/pages/play.astro'), 'ut
 const layoutSource = readFileSync(join(process.cwd(), 'src/layouts/Layout.astro'), 'utf8');
 
 describe('/play orientation screen — no flash on a state-bearing load', () => {
+  it('emits one canonical H1 while runtime-state screens use subordinate headings', () => {
+    expect(playSource.match(/<h1(?:\s|>)/g)).toHaveLength(1);
+    expect(playSource).toMatch(/<h1\s+id="orientation-heading"/);
+    for (const id of [
+      'error-heading',
+      'unsupported-heading',
+      'begin-heading',
+      'question-heading',
+      'feedback-heading',
+      'results-heading',
+    ]) {
+      expect(playSource).toMatch(new RegExp(`<h2(?:\\s[^>]*)?id="${id}"|<h2\\s+id="${id}"`));
+    }
+  });
+
   it('Layout provides a head slot for early, pre-paint content', () => {
     expect(layoutSource).toMatch(/<slot name="head" \/>/);
     // The head slot must be inside <head>, before </head>.

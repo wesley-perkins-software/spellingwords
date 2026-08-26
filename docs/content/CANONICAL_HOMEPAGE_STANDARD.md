@@ -1,8 +1,8 @@
 # Canonical Homepage Standard
 
-**Status:** Frozen production editorial and architecture authority. Revised following three
-approved reopening passes (see Source). Production conformance is pending; this standard does not
-itself authorize renderer, component, schema, or visual changes.
+**Status:** Production editorial and architecture authority. Revised through the approved V5
+reopening pass. V5 restores exactly one compact progression section and permits all twelve
+canonical Skill Family names as unlinked homepage orientation content.
 **Source:** Approved conclusions in `docs/content/CANONICAL_HOMEPAGE_STANDARD_RESEARCH.md`
 (v1 research plus the v2 adversarial stress-test pass, §24 of that document), as amended by the
 approved conclusions in `docs/content/CANONICAL_HOMEPAGE_STANDARD_RESEARCH_V2.md` (the reopening
@@ -57,9 +57,10 @@ else on the page, with one stated exception:
 | Section | Owns (states once, here only) |
 |---|---|
 | Hero (Practice Your Own Words) | Product identity/scope statement (§4); free and no-account facts, stated once as an opening reassurance |
-| Browse by Grade | The three canonical curriculum strand *names*, bare, with no explanation (§5.2); the six per-grade curriculum-grounded teasers; the one teaser link to `/grades` ("See how spelling develops across K–5") that stands in for the former standalone Progression section (§5.4, superseded by the V4 reopening pass) |
+| Browse by Grade | The three canonical curriculum strand *names*, bare, with no explanation (§5.2), plus the six per-grade curriculum-grounded teasers |
 | Curriculum-Organization *(added by the V3 reopening pass, compressed by the V4 reopening pass)* | The one place each strand is named a second time, with a short one-clause role rather than a full definition and example list (§5.2a) — the full per-strand explanation now belongs solely to `/curriculum` |
-| Browse by Skill | The real Skill/family count; the representative Skill examples (§5.3) |
+| Progression *(restored V5)* | One compact three-stage overview and the sole homepage progression CTA to `/grades` (§5.4) |
+| Browse by Skill | The real Skill/family counts and all twelve canonical family names as unlinked orientation content (§5.3) |
 | Trust/Audience *(added by the V3 reopening pass as "Audience"; retitled and further compressed by the V4 reopening pass)* | One compact heading and closing paragraph carrying the structured-organization claim, the free/no-account/no-gamification facts, a brief audience mention, and a link to `/about` for the fuller per-audience orientation `/about` now owns (§6) |
 | FAQ *(added by the V3 reopening pass, trimmed by the V4 reopening pass)* | The homepage FAQ content (now 2 genuinely routing-level questions, not 4–6) and its `FAQPage` structured data (§5.5) |
 
@@ -69,7 +70,7 @@ alongside the no-gamification fact. The three strand names are the one other pai
 permitted to appear twice, by design, in two different forms: once *bare* in Browse by Grade
 (naming only, no explanation), and once *explained* in the new Curriculum-Organization section
 (§3's narrow naming exception, extended below). Every other required fact governed by this table
-(the Skill count, the representative Skill examples, the structured-organization claim) **MUST**
+(the Skill/family counts, the twelve Skill Family names, the structured-organization claim) **MUST**
 appear in exactly one place. An implementation that states the strand names in both the hero and
 Browse by Grade, explains a strand anywhere other than the Curriculum-Organization section, or
 states the Skill count in both the hero and Browse by Skill, fails this standard even if each
@@ -89,13 +90,10 @@ Every homepage implementation must provide:
   a full definition (§5.2a) *(added by the V3 reopening pass; compressed by the V4 reopening pass,
   which moved the full per-strand explanation to `/curriculum`)*;
 - a Browse by Skill section, coequal in document structure with Browse by Grade, routing to the
-  Skills Hub, stating the real Skill count, and naming a small set of representative Skills
-  spanning the K–5 range (§5.3);
-- **no standalone Progression section** *(present under the V3 reopening pass; removed by the V4
-  reopening pass — `/grades` now owns the full K–5 developmental progression more thoroughly than
-  the homepage's compressed restatement did, and the one teaser link this section's job reduces to
-  ("See how spelling develops across K–5") already exists under Browse by Grade §5.2, so no second
-  occurrence is needed)*;
+  Skills Hub, stating the real Skill and family counts, and naming all twelve canonical Skill
+  Families as unlinked orientation content (§5.3);
+- exactly one compact Progression section with the three approved stages, canonical representative
+  concepts, and a link to `/grades` for the detailed progression (§5.4);
 - a compact Trust/Audience section carrying the product's structured-organization claim, the
   free/no-account/no-gamification facts, and a brief audience mention, with a link to `/about` for
   the fuller per-audience orientation (§6) *(added/relocated by the V3 reopening pass as "Audience";
@@ -123,24 +121,26 @@ Every homepage implementation must provide:
 
 **DOES NOT OWN, and must not duplicate:**
 
-- Grade-wide orientation, unit-level strand *sequencing* (which units come in what order within a
-  strand), or any grade's curriculum sequence — owned by the Grade Hub
+- Detailed grade-wide orientation, unit-level strand *sequencing* (which units come in what order
+  within a strand), or any grade's curriculum sequence beyond §5.4's compact overview — owned by
+  the Grade Hub
   (`CANONICAL_GRADE_HUB_STANDARD.md`) and the Grade-Strand Gateways
   (`CANONICAL_GRADE_STRAND_GATEWAY_STANDARD.md`).
-- The 12-family/41-Skill taxonomy, family-level orientation, or any individual Skill's
-  description — owned exclusively by the Skills Hub (`CANONICAL_SKILLS_HUB_STANDARD.md`).
+- Detailed 12-family/41-Skill taxonomy, family descriptions, family navigation, or any individual
+  Skill description — owned exclusively by the Skills Hub (`CANONICAL_SKILLS_HUB_STANDARD.md`).
+  V5 permits one unlinked naming of all twelve families for homepage orientation.
 - Pattern explanations, teaching routines, mistakes/exceptions, or word-list instruction — owned
   by individual Skill pages (`CANONICAL_SKILL_PAGE_STANDARD.md`) and Grade Unit/member pages.
 - Practice mechanics themselves — owned by the practice experience (`/play`).
 
-A homepage implementation that reproduces any of the above — even briefly, even "just a summary"
-— fails this standard regardless of how accurate the summary is. Route to the owning layer instead.
+A homepage implementation that reproduces any of the detailed content above beyond V5's compact
+progression and unlinked family-name exceptions fails this standard regardless of accuracy. Route to the owning layer instead.
 
 **Narrow naming exception (added by the V2 reopening pass):** duplication, as governed by this
 section, begins at *explanation* — describing what a strand or Skill is, how it works, its
 counts, or its relationship to its siblings. It does not begin at *naming*. Stating the three
-strand names once in Browse by Grade (§5.2), or stating the real Skill/family count and a small
-set of representative Skill names once in Browse by Skill (§5.3), is not duplication of Grade Hub
+strand names once in Browse by Grade (§5.2), or stating the real Skill/family counts and all twelve
+canonical family names once in Browse by Skill (§5.3), is not duplication of Grade Hub
 or Skills Hub content under this standard, because neither act explains, sequences, or
 synthesizes what those names mean — it only tells a visitor the names exist, which is what makes
 the deeper Hub worth clicking.
@@ -199,7 +199,7 @@ Grade-Strand Gateways, strands, or Skill families anywhere on this statement. Th
 been narrowed: the identity/scope statement itself still should not enumerate strand or family
 names (see the ownership guidance above — that specificity belongs to Browse by Grade and Browse
 by Skill), but the homepage as a whole is no longer barred from ever naming the three strands or a
-small set of representative Skills; see §3's narrow naming exception, §5.2, and §5.3.
+complete canonical Skill Family name set; see §3's naming exception, §5.2, and §5.3.
 
 ## 5. The three primary journeys
 
@@ -294,33 +294,34 @@ journeys. No fourth journey may be added by this standard or by homepage impleme
 
 - **SHOULD** include a short orientation sentence naming when to choose skill-first browsing over
   grade-first browsing (e.g., already knowing the specific pattern a student needs).
-- **SHOULD** use a small number of representative spelling concepts (e.g., short vowels, silent e,
-  prefixes, suffixes, Greek and Latin roots, homophones) as recognition anchors, named as plain
-  text — **MUST NOT** hyperlink these names to individual Skill pages, since that would create an
-  unauthorized second entry point into Skill content outside the Skills Hub. No specific count is
-  frozen by this standard; use as many as make skill-first browsing concrete without becoming a
-  partial directory. The chosen examples **SHOULD** span the K–5 difficulty range (early skills
-  through late-elementary skills) rather than clustering at one difficulty level, so the examples
-  themselves signal breadth. *(Range requirement added by the V2 reopening pass.)*
+- **MUST** name all twelve canonical Skill Families, sourced directly from
+  `SPELLING_SKILL_FAMILIES`, as compact plain-text recognition anchors. These names **MUST NOT** be
+  hyperlinked, described, given per-family counts, or presented with family-specific actions. This
+  complete name set communicates breadth but is not a second Skills directory: `/skills` remains
+  the only homepage destination for selecting a family or individual Skill. *(Expanded from a
+  representative subset by the V5 reopening pass.)*
 - **SHOULD** state the real, programmatically sourced count of Skills and/or families (e.g., "41
   spelling skills") as a concrete orientation fact, not a promoted statistic. This is the sole
   homepage location where this count appears (§1). *(Elevated from MAY to SHOULD by the V2
   reopening pass — the frozen standard previously permitted this without expecting it; stating
   the real scale of the Skill library is now the expected default, not merely an option.)*
 
-### 5.4 Progression *(added by the V3 reopening pass; removed by the V4 reopening pass)*
+### 5.4 Progression *(added by V3, removed by V4, restored in compact form by V5)*
 
-**Superseded.** This section — a compact three-stage K–5 developmental model plus a
-U.S.-curriculum-positioning statement — no longer appears as its own homepage section. `/grades`
-independently grew, after the V3 pass was written, into a full six-chapter grade-by-grade
-progression page that covers this ground more thoroughly than a homepage section reasonably could.
-The one navigational job this section still needs to do — telling a visitor the progression exists
-and routing them to it — is satisfied by the existing "See how spelling develops across K–5" link
-under Browse by Grade (§5.2), so a second, content-bearing occurrence is no longer required. The
-U.S.-curriculum-positioning statement this section used to carry is now made, in fuller and more
-defensible form, in `/curriculum`'s boundaries section; the homepage's Trust/Audience section (§6)
-carries only a brief, non-absolute clause of it. See the V4 Reopening Pass section below for the
-full rationale.
+- **MUST** appear exactly once, after Curriculum-Organization and before Browse by Skill.
+- **MUST** contain exactly three stages: Foundation (K–1), Expansion (Grades 2–3), and Integration
+  (Grades 4–5).
+- **MUST** use the approved canonical concepts: Short Vowels, Consonant Digraphs, Consonant Blends,
+  and Silent E for Foundation; Vowel Teams, R-Controlled Vowels, Word Building and Endings, and
+  Prefixes for Expansion; and Multisyllabic Words, Greek and Latin Roots, and Homophones and
+  Commonly Confused Words for Integration.
+- **MUST** remain an editorial overview rather than three heavy cards, a Grade Hub, or a detailed
+  sequence. It may name concepts but must not explain patterns, enumerate units, or provide
+  per-grade curriculum detail.
+- **MUST** contain the sole homepage progression CTA, linking to `/grades`, which remains the owner
+  of the detailed Kindergarten-through-5th-Grade progression.
+- **MUST NOT** restore the former long U.S.-curriculum-positioning paragraph or create a second
+  progression treatment elsewhere on the homepage.
 
 ### 5.5 FAQ *(added by the V3 reopening pass at 4–6 questions; trimmed by the V4 reopening pass)*
 
@@ -494,17 +495,11 @@ The homepage **MUST NOT** contain:
   Curriculum-Organization section's role-clause naming itself. *(Narrowed by the V3 reopening pass,
   then tightened back down by the V4 reopening pass once `/curriculum` became strong enough to be
   the sole owner — see §5.2a and §3's carve-out for the reasoning.)*
-- a K–5 curriculum progression map or any cross-grade developmental narrative beyond the single
-  "See how spelling develops across K–5" teaser link under Browse by Grade (§5.2) — this bars any
-  standalone Progression section, stage model, or U.S.-positioning paragraph anywhere on the
-  homepage; `/grades` is the sole owner of that content as of the V4 reopening pass. *(The V3
-  reopening pass had narrowed this to permit one compact three-stage section; the V4 reopening pass
-  removed that section entirely once `/grades` grew strong enough to be the sole owner — see the
-  former §5.4, now superseded.)*
-- the full 12-family Skill taxonomy as a structural block, or any individual family's orientation
-  copy — this bars enumerating all 12 families or explaining any one family; it does not bar
-  stating the real Skill/family count, or naming a small set of individual representative Skills,
-  both permitted by §5.3;
+- a second K–5 curriculum progression map, a progression treatment outside §5.4, or progression
+  content deeper than §5.4's three-stage concept overview; `/grades` remains the detailed owner;
+- a homepage Skill directory, family navigation, family descriptions, per-family counts, or
+  family-specific actions. Naming all twelve canonical families once as unlinked orientation
+  content is required by §5.3 and is not a directory;
 - individual Skill-page or individual member-page links;
 - an audience-segmented section that goes beyond the one compact Trust/Audience treatment (§6) —
   this bars a page-length "For Parents," "For Teachers," or "For Students" section, three separate
@@ -566,14 +561,14 @@ redesign without requiring a rewrite.
       in primary homepage content.
 - [ ] Browse by Grade and Browse by Skill each have their own heading and orientation content, at
       comparable document-outline depth.
-- [ ] Any illustrative Skill-concept names are plain text, not hyperlinks, and span the K–5
-      difficulty range rather than clustering at one level.
+- [ ] All twelve canonical Skill Family names appear once as plain, unlinked text sourced from
+      `SPELLING_SKILL_FAMILIES`, without descriptions or family-specific actions.
 - [ ] The Curriculum-Organization section names each strand a second time with a short one-clause
       role, not a full definition or example-concept list, and does not appear a second time
       elsewhere on the page. *(§5.2a, narrowed V4)*
-- [ ] No standalone Progression section exists; the one "See how spelling develops across K–5"
-      teaser link under Browse by Grade routes to `/grades`, which owns the full developmental
-      model and the U.S.-curriculum-positioning statement. *(§5.4, superseded V4)*
+- [ ] Exactly one Progression section exists between Curriculum-Organization and Browse by Skill;
+      it has exactly the three approved stages, uses canonical concepts, and links once to
+      `/grades`, which owns the detailed developmental model. *(§5.4, restored V5)*
 - [ ] The Trust/Audience section is one compact heading and closing paragraph — a brief, unified
       audience mention (not a sentence per audience), a link to `/about` for the fuller per-audience
       detail, and the structured-organization claim plus free/no-account/no-gamification facts,
@@ -591,7 +586,8 @@ redesign without requiring a rewrite.
 - [ ] The three curriculum strand names (Core Spelling, High-Frequency Words, Themed Spelling
       Practice) appear bare exactly once, in Browse by Grade, and named again with only a
       one-clause role, exactly once, in the Curriculum-Organization section — nowhere else.
-- [ ] The real Skill count appears exactly once on the page, in Browse by Skill.
+- [ ] The real Skill and Skill Family counts appear exactly once on the page, in Browse by Skill,
+      and are programmatically sourced.
 - [ ] Each grade card includes a short teaser (and optional focus line) traceable to the canonical
       K–5 Grade Unit curriculum, not an invented phrase chosen for how it sounds.
 - [ ] Visible homepage copy refers to "students," not "children" (audience-section labels
@@ -821,7 +817,30 @@ competitions. *(This claim now leads the Audience section instead of standing al
 
 ---
 
-**Status:** Frozen, as revised by the V2 reopening pass, further amended by the V3 reopening pass,
-and further amended by the V4 reopening pass. Production conformance to this standard, including
-the amendments above, is implemented as of the V4 pass (`src/lib/content/homepage.ts`,
-`src/pages/index.astro`, `src/lib/content/homepage.test.ts`).
+## V5 Reopening Pass
+
+**Status:** Approved by the site owner as an explicit post-V4 amendment. Where V4 and V5 differ,
+V5 governs.
+
+V4's compression improved discipline but removed too much visible educational depth. V5 restores
+one compact Progression section and expands Browse by Skill to name all twelve canonical Skill
+Families without restoring the former card-heavy or repetitive content.
+
+- Progression appears exactly once between Curriculum-Organization and Browse by Skill, using the
+  three stages and canonical concepts in §5.4. Its sole CTA routes to `/grades`.
+- Browse by Skill states programmatic totals for Skills and families and names all twelve families
+  as plain, unlinked orientation content. `/skills` remains its sole destination.
+- `/grades` still owns detailed progression. `/skills` still owns family descriptions, navigation,
+  and the individual Skill directory.
+- The Browse by Grade progression teaser moves into the Progression section so no second treatment
+  remains.
+- V4's concise strand roles, six unchanged Grade cards, compact Trust/Audience copy, two-question
+  FAQ, Direction A visual discipline, and static rendering remain in force.
+- Audience matrices, long U.S.-positioning copy, family links, individual Skill links, stat cards,
+  testimonials, marketing grids, and additional client-side JavaScript remain prohibited.
+
+---
+
+**Status:** Revised through the approved V5 reopening pass. Production conformance is implemented
+in `src/lib/content/homepage.ts`, `src/pages/index.astro`, and
+`src/lib/content/homepage.test.ts`.

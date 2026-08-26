@@ -7,7 +7,9 @@ import {
   HOMEPAGE_URL,
   HOMEPAGE_SKILL_COUNT,
   HOMEPAGE_SKILL_FAMILY_COUNT,
-  HOMEPAGE_REPRESENTATIVE_SKILLS,
+  HOMEPAGE_SKILL_FAMILIES,
+  HOMEPAGE_PROGRESSION_STAGES,
+  HOMEPAGE_PROGRESSION_INTRO,
   HOMEPAGE_STRANDS,
   HOMEPAGE_CLOSING_STATEMENT,
   HOMEPAGE_FAQ,
@@ -96,7 +98,7 @@ describe('canonical homepage', () => {
     expect(SKILLS_INDEX_PATH).toBe('/skills');
   });
 
-  it('states the real Skill and family counts once, in Browse by Skill, with plain-text representative examples', () => {
+  it('states the real Skill and family counts once and shows all canonical families as plain text', () => {
     expect(HOMEPAGE_SKILL_COUNT).toBe(getCanonicalSkillRoutes().length);
     expect(HOMEPAGE_SKILL_COUNT).toBe(41);
     expect(HOMEPAGE_SKILL_FAMILY_COUNT).toBe(SPELLING_SKILL_FAMILIES.length);
@@ -108,21 +110,19 @@ describe('canonical homepage', () => {
     expect(homepageSource.match(/HOMEPAGE_SKILL_FAMILY_COUNT/g)).toHaveLength(2);
     expect(homepageSource).toContain('skill families');
 
-    expect(HOMEPAGE_REPRESENTATIVE_SKILLS).toEqual([
-      'Short Vowels',
-      'Consonant Digraphs',
-      'Silent E',
-      'Vowel Teams',
-      'R-Controlled Vowels',
-      'Word Building and Endings',
-      'Prefixes',
-      'Greek and Latin Roots',
-      'Homophones and Commonly Confused Words',
-    ]);
+    expect(HOMEPAGE_SKILL_FAMILIES).toEqual(SPELLING_SKILL_FAMILIES.map(({ title }) => title));
+    expect(HOMEPAGE_SKILL_FAMILIES).toHaveLength(12);
 
-    expect(homepageSource).toContain('HOMEPAGE_REPRESENTATIVE_SKILLS.map');
+    expect(homepageSource).toContain('HOMEPAGE_SKILL_FAMILIES.map');
     expect(homepageSource).toContain('<span>{skill}</span>');
     expect(homepageSource).not.toContain('<Chip');
+
+    const skillSection = homepageSource.match(
+      /BROWSE BY SKILL[\s\S]*?(?=TRUST \/ POSITIONING)/,
+    )![0];
+    expect(skillSection.match(/href=/g)).toHaveLength(1);
+    expect(skillSection).toContain('href={SKILLS_INDEX_PATH}');
+    expect(skillSection).not.toContain('<script');
     for (const skillLink of getCanonicalSkillRoutes()) {
       expect(homepageSource).not.toContain(`href="${skillLink.canonicalPath}"`);
     }
@@ -140,12 +140,34 @@ describe('canonical homepage', () => {
     expect(homepageSource).not.toContain('{examples.map');
   });
 
-  it('no longer carries a standalone Progression section — /grades owns the full K–5 developmental progression, linked once from Browse by Grade', () => {
-    expect(homepageSource).not.toMatch(/id="progression-heading"/);
-    expect(homepageSource).not.toContain('HOMEPAGE_PROGRESSION_STAGES');
+  it('carries exactly one compact, canonical three-stage progression and routes to the detailed /grades owner', () => {
+    expect(homepageSource.match(/id="progression-heading"/g)).toHaveLength(1);
+    expect(homepageSource).toMatch(
+      /<h2[^>]*id="progression-heading"[^>]*>\s*How spelling develops across K–5\s*<\/h2>/,
+    );
+    expect(HOMEPAGE_PROGRESSION_STAGES).toHaveLength(3);
+    expect(HOMEPAGE_PROGRESSION_STAGES.map(({ label, grades }) => ({ label, grades }))).toEqual([
+      { label: 'Foundation', grades: 'K–1' },
+      { label: 'Expansion', grades: 'Grades 2–3' },
+      { label: 'Integration', grades: 'Grades 4–5' },
+    ]);
+    const canonicalFamilyTitles = new Set(SPELLING_SKILL_FAMILIES.map(({ title }) => title));
+    for (const stage of HOMEPAGE_PROGRESSION_STAGES) {
+      expect(stage.concepts.length).toBeGreaterThanOrEqual(3);
+      for (const concept of stage.concepts) expect(canonicalFamilyTitles.has(concept)).toBe(true);
+    }
+    expect(HOMEPAGE_PROGRESSION_INTRO).toContain('sound-to-spelling foundations');
+    expect(homepageSource).toContain('HOMEPAGE_PROGRESSION_STAGES.map');
+    expect(homepageSource).toContain("{concepts.join(' · ')}");
     expect(homepageSource).not.toContain('HOMEPAGE_US_POSITIONING');
-    // The one teaser link to /grades still exists, under Browse by Grade.
-    expect(homepageSource).toContain('See how spelling develops across K–5');
+
+    const progressionSection = homepageSource.match(
+      /K-5 SPELLING PROGRESSION[\s\S]*?(?=BROWSE BY SKILL)/,
+    )![0];
+    expect(progressionSection.match(/href=/g)).toHaveLength(1);
+    expect(progressionSection).toContain('href="/grades"');
+    expect(progressionSection).not.toContain('<script');
+    expect(homepageSource).not.toContain('See how spelling develops across K–5');
     expect(homepageSource.match(/href="\/grades"/g)).toHaveLength(1);
   });
 

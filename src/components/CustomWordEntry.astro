@@ -206,6 +206,15 @@ const placeholderText = 'Type or paste your words here, one per line';
   import type { InvalidWordEntry, SpellingIssueReason } from '@/lib/words';
   import { resolveCustomPracticeSource, resolveSharedPracticeSource } from '@/lib/content/practiceSource';
   import type { PracticeSource } from '@/types/spelling';
+  import {
+    trackCustomListReady,
+    trackPracticeLaunch,
+    trackSharedLinkCreate,
+    trackShare,
+    trackSharedListOpen,
+    trackSharedListInvalid,
+  } from '@/lib/analytics/events';
+  import type { SharedListInvalidReason } from '@/lib/analytics/events';
 
   const root = document.querySelector<HTMLElement>('[data-custom-word-entry]');
   if (root) {
@@ -228,6 +237,11 @@ const placeholderText = 'Type or paste your words here, one per line';
     // Copy for the structural reasons classifySpellingIssue can identify —
     // "why" a line is invalid, not just "it's invalid" (the old generic
     // "can use letters, apostrophes, and hyphens" line for every mistake).
+    // Fires custom_list_ready once per page lifecycle, the first time the
+    // list becomes valid — not on every invalid→valid→invalid oscillation
+    // while someone is still editing.
+    let customListReadyFired = false;
+
     const JOINER_ISSUE_COPY: Partial<Record<SpellingIssueReason, string>> = {
       adjacent_apostrophes: 'has two apostrophes together',
       adjacent_hyphens: 'has two hyphens together',
@@ -334,6 +348,10 @@ const placeholderText = 'Type or paste your words here, one per line';
         status.classList.remove('text-da-incorrect');
         status.classList.add('text-da-ink-soft');
         btn.disabled = false;
+        if (!customListReadyFired) {
+          customListReadyFired = true;
+          trackCustomListReady({ listSize: validCount });
+        }
       }
 
       if (isFull) updateShareAvailability(words, invalidCount > 0);
@@ -368,6 +386,7 @@ const placeholderText = 'Type or paste your words here, one per line';
       // session on the valid subset while some lines still need fixing.
       if (invalidEntries.length > 0 || words.length === 0 || words.length > MAX_WORD_COUNT) return;
 
+      trackPracticeLaunch({ practiceSource: 'custom', listSize: words.length });
       startSessionHandoff(words, resolveCustomPracticeSource());
     }
 
@@ -441,6 +460,13 @@ const placeholderText = 'Type or paste your words here, one per line';
         entryState.classList.add('hidden');
       }
 
+      // Coarse, closed reason bucket for shared_list_invalid — every decode
+      // failure except an explicit version mismatch reads as 'malformed'
+      // (empty, oversized, non-JSON, wrong-shape payloads all land here).
+      function sharedListInvalidReason(code: string): SharedListInvalidReason {
+        return code === 'unsupported_version' ? 'incompatible_version' : 'malformed';
+      }
+
       // Fragments are never sent to the server and don't exist at build
       // time — reading and decoding this is entirely a client concern.
       const match = /^#list=(.+)$/.exec(window.location.hash);
@@ -448,13 +474,16 @@ const placeholderText = 'Type or paste your words here, one per line';
         const decoded = decodeSharedList(match[1]);
         if (decoded.ok) {
           showSharedReady(decoded.words, decoded.title);
+          trackSharedListOpen({ listSize: decoded.words.length });
         } else {
+          trackSharedListInvalid({ reason: sharedListInvalidReason(decoded.code) });
           showSharedError('This link is damaged or was created by a newer version of the site. Ask for a new link, or enter the words yourself below.');
         }
       }
 
       btnSharedStart.addEventListener('click', () => {
         if (!decodedShared) return;
+        trackPracticeLaunch({ practiceSource: 'shared', listSize: decodedShared.words.length });
         startSessionHandoff(
           decodedShared.words,
           resolveSharedPracticeSource({ title: decodedShared.title, href: decodedShared.sourceHref }),
@@ -486,6 +515,7 @@ const placeholderText = 'Type or paste your words here, one per line';
           return;
         }
         lastSharePayload = result.payload;
+        trackSharedLinkCreate();
         const url = `${window.location.origin}/practice-your-own-words#list=${result.payload}`;
         shareUrlField.value = url;
         shareUrlWrapper.classList.add('hidden');
@@ -503,6 +533,8 @@ const placeholderText = 'Type or paste your words here, one per line';
         try {
           await navigator.clipboard.writeText(url);
           shareStatus.textContent = 'Link copied.';
+          // Only a successful clipboard write counts as actual distribution.
+          trackShare({ method: 'copy_link' });
         } catch {
           shareUrlWrapper.classList.remove('hidden');
           btnShowLink.setAttribute('aria-expanded', 'true');
@@ -517,6 +549,11 @@ const placeholderText = 'Type or paste your words here, one per line';
         if (!url || !('share' in navigator)) return;
         (navigator as Navigator & { share: (data: { url: string; title?: string }) => Promise<void> })
           .share({ url, title: shareTitleInput.value.trim() || 'Spelling practice list' })
+          .then(() => {
+            // Only a resolved share promise counts — a user cancelling the
+            // native share sheet rejects the promise and must not fire this.
+            trackShare({ method: 'web_share' });
+          })
           .catch(() => {
             /* user cancelled or share failed — Copy Link remains available */
           });

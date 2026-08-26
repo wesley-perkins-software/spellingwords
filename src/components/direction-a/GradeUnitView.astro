@@ -315,6 +315,24 @@ const hasSidebar = relatedGroups.some((g: RelatedGroup) => g.items.length > 0) |
 
 <script>
   import { encodeWordList } from '@/lib/words';
+  import { trackPracticeLaunch, toPracticeSourceDim, toGradeDim } from '@/lib/analytics/events';
+  import type { PracticeSourceType } from '@/types/spelling';
+
+  // Reads only `type`/`grade` off the button's serialized PracticeSource —
+  // never anything else from it (never the title, href, or the object
+  // itself) — for the practice_launch event fired just below.
+  function readLaunchContext(button: HTMLButtonElement): { type: PracticeSourceType; grade?: string } {
+    try {
+      const parsed: unknown = JSON.parse(button.dataset.source ?? '{}');
+      if (parsed && typeof parsed === 'object' && typeof (parsed as { type?: unknown }).type === 'string') {
+        const { type, grade } = parsed as { type: PracticeSourceType; grade?: unknown };
+        return { type, grade: typeof grade === 'string' ? grade : undefined };
+      }
+    } catch {
+      /* malformed dataset — fall through without source context */
+    }
+    return { type: 'custom' };
+  }
 
   interface SpellingWordData {
     word: string;
@@ -363,6 +381,13 @@ const hasSidebar = relatedGroups.some((g: RelatedGroup) => g.items.length > 0) |
     } catch {
       /* quota exceeded or private browsing — non-fatal */
     }
+
+    const { type, grade } = readLaunchContext(button);
+    trackPracticeLaunch({
+      practiceSource: toPracticeSourceDim(type),
+      grade: toGradeDim(grade),
+      listSize: words.length,
+    });
 
     window.location.href = `/play?list=${result.payload}`;
   }

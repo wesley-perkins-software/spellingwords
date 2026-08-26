@@ -28,6 +28,9 @@ interface Props {
   practiceBankWords?: SpellingWord[] | null;
   practiceDescription?: string | null;
   practiceSource: PracticeSource;
+  /** Canonical Skill id (e.g. `long-o-silent-e`) — used only for the
+   *  practice_launch analytics event, never rendered. */
+  skillId: string;
   buttonId: string;
   faq: readonly { question: string; answer: string }[];
   curriculumPlacements: readonly { unit: SpellingListEntry; position?: { step: number; total: number }; gradeLabel?: string }[];
@@ -51,6 +54,7 @@ const {
   practiceBankWords,
   practiceDescription,
   practiceSource,
+  skillId,
   buttonId,
   faq,
   curriculumPlacements,
@@ -129,7 +133,7 @@ const {
       <div class="mt-6 border-t border-da-border pt-6" role="group" aria-labelledby="practice-heading">
         <h3 id="practice-heading" class="font-quicksand text-xl font-bold text-da-ink">Practice {title}</h3>
         <p class="mt-2 max-w-2xl text-base leading-relaxed text-da-ink">{practiceDescription}</p>
-        <Button id={buttonId} type="button" data-words={JSON.stringify(practiceBankWords)} data-skill-title={title} data-source={JSON.stringify(practiceSource)} class="mt-5">
+        <Button id={buttonId} type="button" data-words={JSON.stringify(practiceBankWords)} data-skill-title={title} data-source={JSON.stringify(practiceSource)} data-skill-id={skillId} class="mt-5">
           Practice {title}
         </Button>
         <p id={`${buttonId}-status`} class="sr-only" role="status" aria-live="polite" />
@@ -231,6 +235,7 @@ const {
 <script>
   import { encodeWordList } from '@/lib/words';
   import { selectSkillPracticeSession } from '@/lib/content/skillPracticeBanks';
+  import { trackPracticeLaunch } from '@/lib/analytics/events';
 
   const SESSION_SIZE = 10;
 
@@ -275,6 +280,8 @@ const {
     } catch {
       /* quota exceeded or private browsing — non-fatal */
     }
+
+    trackPracticeLaunch({ practiceSource: 'skill', skillId: button.dataset.skillId, listSize: session.length });
 
     window.location.href = `/play?list=${result.payload}`;
   }

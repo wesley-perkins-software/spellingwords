@@ -536,6 +536,20 @@ import SiteFooter from '@/components/SiteFooter.astro';
   import type { ResultsAction } from '@/modules/spellingTest/resultsActions';
   import { getPracticeIntroCopy } from '@/modules/spellingTest/practiceIntro';
   import type { PracticeSource } from '@/types/spelling';
+  import {
+    toPracticeSourceDim,
+    toGradeDim,
+    extractSkillIdFromHref,
+    trackPracticeStart,
+    trackPracticeRestart,
+    trackPracticeReviewStart,
+    trackAnswerSubmit,
+    trackPracticeComplete,
+    trackPracticeContinueNext,
+    trackAudioRequest,
+    trackPracticeInitFailure,
+  } from '@/lib/analytics/events';
+  import type { RunType } from '@/lib/analytics/events';
 
   // --- DOM refs ---
   const $ = (id: string) => document.getElementById(id)!;
@@ -599,6 +613,27 @@ import SiteFooter from '@/components/SiteFooter.astro';
   let originalWords: string[] = [];
   let originalRichWords: { word: string; exampleSentence?: string }[] = [];
   let practiceSource: PracticeSource = { type: 'custom' };
+
+  // --- Analytics: run context -----------------------------------------
+  // Which of the three run "shapes" is currently active — set at the one
+  // moment each run begins (initial Start, Retry, Review) and read by every
+  // run-scoped event fired while that run is in progress.
+  let currentRunType: RunType = 'initial';
+  // Guards the very first practice_start against a double-fire (e.g. a
+  // rapid double-click on Start Practice before the screen swaps away).
+  let initialStartFired = false;
+
+  function analyticsRunContext(): {
+    practiceSource: ReturnType<typeof toPracticeSourceDim>;
+    grade?: ReturnType<typeof toGradeDim>;
+    skillId?: string;
+  } {
+    return {
+      practiceSource: toPracticeSourceDim(practiceSource.type),
+      grade: toGradeDim(practiceSource.grade),
+      skillId: practiceSource.type === 'skill' ? extractSkillIdFromHref(practiceSource.href) : undefined,
+    };
+  }
 
   let selectedVoice: SpeechSynthesisVoiceAdapter | null = null;
   const currentRate = 1.0;
@@ -751,6 +786,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
         /* sessionStorage unavailable or parse failed */
       }
       if (!sessionWords) {
+        trackPracticeInitFailure({ reason: 'session_not_found' });
         showError(
           'Your practice session could not be found. Please go back to Practice Your Own Words and start again.',
         );
@@ -761,6 +797,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
       storageKey = payload;
       const decoded = decodeWordList(payload);
       if (!decoded.ok) {
+        trackPracticeInitFailure({ reason: 'list_invalid' });
         showError('The word list could not be loaded. Please go back and try again.');
         return;
       }
@@ -1060,6 +1097,13 @@ import SiteFooter from '@/components/SiteFooter.astro';
     a.textContent = action.label;
     a.href = action.href ?? '/';
     a.className = action.kind === 'continueNext' ? PRIMARY_BTN_CLS : TERTIARY_LINK_CLS;
+    if (action.kind === 'continueNext') {
+      a.dataset.resultsAction = 'continue-next';
+      a.addEventListener('click', () => {
+        const { practiceSource: source, grade } = analyticsRunContext();
+        trackPracticeContinueNext({ practiceSource: source, grade, runType: currentRunType });
+      });
+    }
     return a;
   }
 
@@ -1182,11 +1226,20 @@ import SiteFooter from '@/components/SiteFooter.astro';
       return;
     }
 
+    if (state.status === 'feedback') {
+      trackAnswerSubmit({ ...analyticsRunContext(), runType: currentRunType });
+    }
+
     renderFeedback();
   }
 
   btnBegin.addEventListener('click', () => {
     state = spellingTestReducer(state, startTest(Date.now()));
+    if (!initialStartFired) {
+      initialStartFired = true;
+      currentRunType = 'initial';
+      trackPracticeStart({ ...analyticsRunContext(), runType: 'initial', listSize: state.words.length });
+    }
     renderQuestion();
   });
 
@@ -1205,6 +1258,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
           () => btnRepeat.setAttribute('aria-pressed', 'false'),
         ),
       );
+      trackAudioRequest({ audioType: 'word', ...analyticsRunContext(), runType: currentRunType });
     }
   });
 
@@ -1221,6 +1275,7 @@ import SiteFooter from '@/components/SiteFooter.astro';
           () => btnSentence.setAttribute('aria-pressed', 'false'),
         ),
       );
+      trackAudioRequest({ audioType: 'sentence', ...analyticsRunContext(), runType: currentRunType });
     }
   });
 
@@ -1245,6 +1300,13 @@ import SiteFooter from '@/components/SiteFooter.astro';
     if (state.status === 'awaitingAnswer') {
       renderQuestion();
     } else if (state.status === 'complete') {
+      const result = state.result!;
+      trackPracticeComplete({
+        ...analyticsRunContext(),
+        runType: currentRunType,
+        correctCount: result.correct,
+        totalCount: result.total,
+      });
       renderResults();
     }
   }
@@ -1259,7 +1321,12 @@ import SiteFooter from '@/components/SiteFooter.astro';
   });
 
   // "Practice full list again" — replays the original session from the start.
+  // Fires practice_restart (the user's chosen action) and then a fresh
+  // practice_start{run_type:'retry'} for the run it produces — two distinct
+  // signals from one synchronous handler, not a duplicate (see the
+  // measurement plan's run-model design: action events vs. run-start events).
   function handleRetryFull(): void {
+    trackPracticeRestart(analyticsRunContext());
     state = spellingTestReducer(
       createInitialState(),
       initializeTest(originalRichWords, {
@@ -1268,14 +1335,22 @@ import SiteFooter from '@/components/SiteFooter.astro';
       }),
     );
     state = spellingTestReducer(state, startTest(Date.now()));
+    currentRunType = 'retry';
+    trackPracticeStart({ ...analyticsRunContext(), runType: 'retry', listSize: state.words.length });
     renderQuestion();
   }
 
   // "Practice missed words" — actually re-drives the tested REVIEW_MISSED
   // action, which starts a fresh session containing only the words missed
   // in the previous pass (with their original sentence/hint data intact).
+  // Matches the reducer's own no-op guard: no events fire when there's
+  // nothing to review (the button isn't offered in that case anyway).
   function handleReviewMissed(): void {
+    if (!state.result || state.result.missedWords.length === 0) return;
+    trackPracticeReviewStart(analyticsRunContext());
     state = spellingTestReducer(state, reviewMissed({ shuffle: true }));
+    currentRunType = 'review';
+    trackPracticeStart({ ...analyticsRunContext(), runType: 'review', listSize: state.words.length });
     renderQuestion();
   }
 

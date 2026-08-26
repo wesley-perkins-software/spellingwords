@@ -1,5 +1,6 @@
 import { gradeConfig, type GradeCode } from './gradeConfig';
 import { getCanonicalSkillRoutes } from './canonicalSkillRoutes';
+import { SPELLING_SKILL_FAMILIES } from './spellingSkills';
 
 export const HOMEPAGE_URL = 'https://spellingwords.app/';
 
@@ -46,18 +47,24 @@ export const homepageGradeHubs = gradeConfig.map(({ grade, label, hubHref }) => 
 /** Real, programmatically sourced count of canonical Skill pages. */
 export const HOMEPAGE_SKILL_COUNT = getCanonicalSkillRoutes().length;
 
+/** Real, programmatically sourced count of canonical Skill families. */
+export const HOMEPAGE_SKILL_FAMILY_COUNT = SPELLING_SKILL_FAMILIES.length;
+
 /**
  * Representative Skill concepts named as plain text on the homepage,
  * spanning the K–5 difficulty range (early skills through late-elementary
  * skills) per docs/content/CANONICAL_HOMEPAGE_STANDARD.md §5.3.
  */
 export const HOMEPAGE_REPRESENTATIVE_SKILLS = [
-  'short vowels',
-  'silent e',
-  'prefixes',
-  'suffixes',
-  'Greek and Latin roots',
-  'homophones',
+  'Short Vowels',
+  'Consonant Digraphs',
+  'Silent E',
+  'Vowel Teams',
+  'R-Controlled Vowels',
+  'Word Building and Endings',
+  'Prefixes',
+  'Greek and Latin Roots',
+  'Homophones and Commonly Confused Words',
 ] as const;
 
 /**

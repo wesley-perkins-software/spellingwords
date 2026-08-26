@@ -6,6 +6,7 @@ import { gradeConfig } from './gradeConfig';
 import {
   HOMEPAGE_URL,
   HOMEPAGE_SKILL_COUNT,
+  HOMEPAGE_SKILL_FAMILY_COUNT,
   HOMEPAGE_REPRESENTATIVE_SKILLS,
   HOMEPAGE_STRANDS,
   HOMEPAGE_CLOSING_STATEMENT,
@@ -14,6 +15,7 @@ import {
   homepageJsonLd,
   homepageFaqJsonLd,
 } from './homepage';
+import { SPELLING_SKILL_FAMILIES } from './spellingSkills';
 import { gradeStrandGatewayPaths, getCanonicalGradeRoutes } from './canonicalGradeRoutes';
 
 const homepageSource = readFileSync(join(process.cwd(), 'src/pages/index.astro'), 'utf8');
@@ -94,28 +96,33 @@ describe('canonical homepage', () => {
     expect(SKILLS_INDEX_PATH).toBe('/skills');
   });
 
-  it('states the real Skill count exactly once, in Browse by Skill, with plain-text representative examples', () => {
+  it('states the real Skill and family counts once, in Browse by Skill, with plain-text representative examples', () => {
     expect(HOMEPAGE_SKILL_COUNT).toBe(getCanonicalSkillRoutes().length);
     expect(HOMEPAGE_SKILL_COUNT).toBe(41);
+    expect(HOMEPAGE_SKILL_FAMILY_COUNT).toBe(SPELLING_SKILL_FAMILIES.length);
+    expect(HOMEPAGE_SKILL_FAMILY_COUNT).toBe(12);
     // "HOMEPAGE_SKILL_COUNT" appears twice in source: once in the import, once
     // where it is rendered — the count itself is stated exactly once on the page.
     expect(homepageSource.match(/HOMEPAGE_SKILL_COUNT/g)).toHaveLength(2);
     expect(homepageSource).toContain('{HOMEPAGE_SKILL_COUNT}');
+    expect(homepageSource.match(/HOMEPAGE_SKILL_FAMILY_COUNT/g)).toHaveLength(2);
+    expect(homepageSource).toContain('skill families');
 
     expect(HOMEPAGE_REPRESENTATIVE_SKILLS).toEqual([
-      'short vowels',
-      'silent e',
-      'prefixes',
-      'suffixes',
-      'Greek and Latin roots',
-      'homophones',
+      'Short Vowels',
+      'Consonant Digraphs',
+      'Silent E',
+      'Vowel Teams',
+      'R-Controlled Vowels',
+      'Word Building and Endings',
+      'Prefixes',
+      'Greek and Latin Roots',
+      'Homophones and Commonly Confused Words',
     ]);
 
-    // Each representative example is rendered from the shared array by index,
-    // as plain text, and never as an individual Skill-page hyperlink.
-    for (let i = 0; i < HOMEPAGE_REPRESENTATIVE_SKILLS.length; i++) {
-      expect(homepageSource).toContain(`HOMEPAGE_REPRESENTATIVE_SKILLS[${i}]`);
-    }
+    expect(homepageSource).toContain('HOMEPAGE_REPRESENTATIVE_SKILLS.map');
+    expect(homepageSource).toContain('<span>{skill}</span>');
+    expect(homepageSource).not.toContain('<Chip');
     for (const skillLink of getCanonicalSkillRoutes()) {
       expect(homepageSource).not.toContain(`href="${skillLink.canonicalPath}"`);
     }

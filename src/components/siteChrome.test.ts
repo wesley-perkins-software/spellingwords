@@ -159,23 +159,26 @@ describe('global site chrome', () => {
     expect(footer).not.toMatch(/id="footer-spellingwords-heading"[^>]*>\s*SpellingWords\s*</);
   });
 
-  it('keeps Curriculum inside the mobile Explore group, unlike the desktop top-level placement', () => {
+  it('gives Curriculum the same top-level (not-in-Explore) placement on mobile as on desktop', () => {
     const mobileSection = header.split('aria-label="Mobile navigation"')[1] ?? '';
     const exploreLabelIndex = mobileSection.indexOf('Explore');
+    const exploreGroupEnd = mobileSection.indexOf('</div>', exploreLabelIndex);
     const supportingDividerIndex = mobileSection.indexOf('href="/about"');
     expect(exploreLabelIndex).toBeGreaterThan(-1);
-    expect(supportingDividerIndex).toBeGreaterThan(exploreLabelIndex);
+    expect(exploreGroupEnd).toBeGreaterThan(exploreLabelIndex);
+    expect(supportingDividerIndex).toBeGreaterThan(exploreGroupEnd);
 
-    const mobileExploreGroup = mobileSection.slice(exploreLabelIndex, supportingDividerIndex);
-    for (const path of [
-      '/skills',
-      '/core-spelling',
-      '/high-frequency-words',
-      '/themed-spelling-practice',
-      '/curriculum',
-    ]) {
+    const mobileExploreGroup = mobileSection.slice(exploreLabelIndex, exploreGroupEnd);
+    for (const path of ['/skills', '/core-spelling', '/high-frequency-words', '/themed-spelling-practice']) {
       expect(mobileExploreGroup).toContain(`href="${path}"`);
     }
+    // Curriculum must not be grouped under the Explore label — it sits as
+    // its own top-level item between Explore and the supporting links,
+    // mirroring its top-level placement in the desktop nav.
+    expect(mobileExploreGroup).not.toContain('href="/curriculum"');
+
+    const curriculumSection = mobileSection.slice(exploreGroupEnd, supportingDividerIndex);
+    expect(curriculumSection).toContain('href="/curriculum"');
   });
 
   it('gives the mobile menu the same active-state signal as desktop, without misusing aria-current on the Grades disclosure', () => {

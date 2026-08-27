@@ -351,20 +351,22 @@ const currentGrade = gradeConfig.find(
                   Themed Spelling Practice
                 </a>
               </li>
-              <li>
-                <a
-                  href="/curriculum"
-                  class:list={[
-                    'flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold no-underline hover:bg-da-surface-neutral',
-                    isCurriculumActive ? 'text-da-brand' : 'text-da-ink',
-                  ]}
-                  aria-current={isCurriculumActive ? 'page' : undefined}
-                >
-                  Curriculum
-                </a>
-              </li>
             </ul>
           </div>
+          <ul class="m-0 list-none border-t border-da-border p-0 pt-2">
+            <li>
+              <a
+                href="/curriculum"
+                class:list={[
+                  'flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold no-underline hover:bg-da-surface-neutral',
+                  isCurriculumActive ? 'text-da-brand' : 'text-da-ink',
+                ]}
+                aria-current={isCurriculumActive ? 'page' : undefined}
+              >
+                Curriculum
+              </a>
+            </li>
+          </ul>
           <ul class="m-0 mt-3 list-none border-t border-da-border p-0 pt-2">
             <li>
               <a

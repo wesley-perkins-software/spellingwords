@@ -42,11 +42,77 @@ describe('global site chrome', () => {
   it('uses disclosure buttons and explicit expanded state for desktop and mobile navigation', () => {
     expect(header).toContain('aria-controls="desktop-grades-panel"');
     expect(header).toContain('data-grades-toggle');
+    expect(header).toContain('aria-controls="desktop-explore-panel"');
+    expect(header).toContain('data-explore-toggle');
     expect(header).toContain('aria-controls="mobile-navigation"');
     expect(header).toContain('data-mobile-menu-toggle');
     expect(header).toContain("event.key !== 'Escape'");
-    expect(header).toContain('setGradesOpen(false, true)');
+    expect(header).toContain('setDisclosureOpen(openEntry, false, true)');
     expect(header).toContain('setMobileOpen(false, true)');
+  });
+
+  it('closes any other open desktop disclosure when one is opened, so Grades and Explore never overlap', () => {
+    expect(header).toContain('function closeAllDisclosures');
+    expect(header).toContain('closeAllDisclosures(entry)');
+  });
+
+  describe('desktop Explore disclosure', () => {
+    const desktopSection = header.split('aria-label="Mobile navigation"')[0];
+    const panelStart = desktopSection.indexOf('id="desktop-explore-panel"');
+    const panelEnd = desktopSection.indexOf('</ul>', panelStart);
+    const explorePanel = desktopSection.slice(panelStart, panelEnd);
+
+    it('exists as a real disclosure, not a link, distinct from the Grades disclosure', () => {
+      expect(panelStart).toBeGreaterThan(-1);
+      expect(desktopSection).toContain('data-explore-toggle');
+      expect(desktopSection).toMatch(/data-explore-toggle[\s\S]{0,200}Explore/);
+    });
+
+    it('contains exactly the four approved strand/skill destinations, and nothing else', () => {
+      for (const path of [
+        '/skills',
+        '/core-spelling',
+        '/high-frequency-words',
+        '/themed-spelling-practice',
+      ]) {
+        expect(explorePanel).toContain(`href="${path}"`);
+      }
+
+      // No individual skills, skill families, grade units, grade-specific
+      // strand gateways, or supporting pages — the panel is not a sitemap.
+      expect(explorePanel).not.toMatch(/href="\/skills\/[^"]/);
+      expect(explorePanel).not.toMatch(/href="\/grades/);
+      expect(explorePanel).not.toContain('href="/curriculum"');
+      expect(explorePanel).not.toContain('href="/about"');
+      expect(explorePanel).not.toContain('href="/accessibility"');
+      expect(explorePanel).not.toContain('href="/privacy"');
+      expect(explorePanel).not.toContain('href="/terms"');
+    });
+
+    it('keeps Curriculum as its own top-level desktop destination, outside Explore', () => {
+      const curriculumOutsideExplore = desktopSection
+        .slice(panelEnd)
+        .includes('href="/curriculum"');
+      expect(curriculumOutsideExplore).toBe(true);
+    });
+
+    it('never repeats a Skills/strand destination elsewhere in the desktop nav', () => {
+      for (const path of [
+        '/skills',
+        '/core-spelling',
+        '/high-frequency-words',
+        '/themed-spelling-practice',
+      ]) {
+        const occurrences = desktopSection.split(`href="${path}"`).length - 1;
+        expect(occurrences).toBe(1);
+      }
+    });
+
+    it('drives the Explore trigger active state from all four strand/skill routes', () => {
+      expect(header).toContain(
+        'isExploreActive =\n  isSkillsActive || isCoreSpellingActive || isHighFrequencyActive || isThemedActive',
+      );
+    });
   });
 
   it('links every implemented editorial and legal destination without inventing Contact', () => {
@@ -91,6 +157,27 @@ describe('global site chrome', () => {
   it('heads the footer trust/support column with "About & Support", not the bare brand name', () => {
     expect(footer).toContain('About &amp; Support');
     expect(footer).not.toMatch(/id="footer-spellingwords-heading"[^>]*>\s*SpellingWords\s*</);
+  });
+
+  it('groups Curriculum with the supporting links on mobile, not inside the Explore label group', () => {
+    const mobileSection = header.split('aria-label="Mobile navigation"')[1] ?? '';
+    const exploreLabelIndex = mobileSection.indexOf('Explore');
+    const exploreGroupEnd = mobileSection.indexOf('</div>', exploreLabelIndex);
+    const curriculumIndex = mobileSection.indexOf('href="/curriculum"', exploreGroupEnd);
+    const aboutIndex = mobileSection.indexOf('href="/about"');
+    expect(exploreLabelIndex).toBeGreaterThan(-1);
+    expect(exploreGroupEnd).toBeGreaterThan(exploreLabelIndex);
+
+    const mobileExploreGroup = mobileSection.slice(exploreLabelIndex, exploreGroupEnd);
+    for (const path of ['/skills', '/core-spelling', '/high-frequency-words', '/themed-spelling-practice']) {
+      expect(mobileExploreGroup).toContain(`href="${path}"`);
+    }
+    // Curriculum must not be grouped under the Explore label — it now sits
+    // with About/Accessibility below a single divider, not as its own
+    // isolated top-level item and not mixed into content discovery.
+    expect(mobileExploreGroup).not.toContain('href="/curriculum"');
+    expect(curriculumIndex).toBeGreaterThan(exploreGroupEnd);
+    expect(aboutIndex).toBeGreaterThan(curriculumIndex);
   });
 
   it('gives the mobile menu the same active-state signal as desktop, without misusing aria-current on the Grades disclosure', () => {

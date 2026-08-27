@@ -6,7 +6,8 @@ import { gradeConfig } from './gradeConfig';
 import {
   HOMEPAGE_URL,
   HOMEPAGE_SKILL_COUNT,
-  HOMEPAGE_REPRESENTATIVE_SKILLS,
+  HOMEPAGE_SKILL_FAMILY_COUNT,
+  HOMEPAGE_SKILL_FAMILIES,
   HOMEPAGE_STRANDS,
   HOMEPAGE_CLOSING_STATEMENT,
   HOMEPAGE_FAQ,
@@ -15,6 +16,7 @@ import {
   homepageFaqJsonLd,
 } from './homepage';
 import { gradeStrandGatewayPaths, getCanonicalGradeRoutes } from './canonicalGradeRoutes';
+import { SPELLING_SKILL_FAMILIES } from './spellingSkills';
 
 const homepageSource = readFileSync(join(process.cwd(), 'src/pages/index.astro'), 'utf8');
 const customWordEntrySource = readFileSync(
@@ -82,9 +84,9 @@ describe('canonical homepage', () => {
     ]);
     for (const strand of HOMEPAGE_STRANDS) expect(strand.role.length).toBeGreaterThan(0);
     expect(homepageSource).toContain('coreStrand.name');
-    expect(homepageSource).toContain('hfwStrand.name');
-    expect(homepageSource).toContain('themedStrand.name');
+    expect(homepageSource).toContain('strand.name');
     expect(homepageSource).toContain('href={coreStrand.href}');
+    expect(homepageSource).toContain('href={strand.href}');
   });
 
   it('presents grade and skill browsing as coequal semantic sections', () => {
@@ -94,43 +96,52 @@ describe('canonical homepage', () => {
     expect(SKILLS_INDEX_PATH).toBe('/skills');
   });
 
-  it('states the real Skill count exactly once, in Browse by Skill, with plain-text representative examples', () => {
+  it('states the real Skill and Skill Family counts exactly once, in Browse by Skill, and names all twelve canonical Skill Families as unlinked plain text', () => {
     expect(HOMEPAGE_SKILL_COUNT).toBe(getCanonicalSkillRoutes().length);
     expect(HOMEPAGE_SKILL_COUNT).toBe(41);
     // "HOMEPAGE_SKILL_COUNT" appears twice in source: once in the import, once
     // where it is rendered — the count itself is stated exactly once on the page.
     expect(homepageSource.match(/HOMEPAGE_SKILL_COUNT/g)).toHaveLength(2);
     expect(homepageSource).toContain('{HOMEPAGE_SKILL_COUNT}');
+    expect(homepageSource.match(/HOMEPAGE_SKILL_FAMILY_COUNT/g)).toHaveLength(2);
+    expect(homepageSource).toContain('{HOMEPAGE_SKILL_FAMILY_COUNT}');
 
-    expect(HOMEPAGE_REPRESENTATIVE_SKILLS).toEqual([
-      'short vowels',
-      'silent e',
-      'prefixes',
-      'suffixes',
-      'Greek and Latin roots',
-      'homophones',
-    ]);
+    // All twelve family names are sourced programmatically from
+    // SPELLING_SKILL_FAMILIES (the same taxonomy /skills renders from), not
+    // duplicated as a separate hardcoded list that could drift.
+    expect(HOMEPAGE_SKILL_FAMILY_COUNT).toBe(12);
+    expect(HOMEPAGE_SKILL_FAMILIES).toEqual(SPELLING_SKILL_FAMILIES.map((f) => f.title));
 
-    // Each representative example is rendered from the shared array by index,
-    // as plain text, and never as an individual Skill-page hyperlink.
-    for (let i = 0; i < HOMEPAGE_REPRESENTATIVE_SKILLS.length; i++) {
-      expect(homepageSource).toContain(`HOMEPAGE_REPRESENTATIVE_SKILLS[${i}]`);
-    }
+    // Family names render as plain text, from the shared data source (never
+    // hyperlinked, never described, never given a per-family count) —
+    // /skills remains the sole destination for selecting a family or Skill.
+    expect(homepageSource).toContain('HOMEPAGE_SKILL_FAMILIES');
+    expect(homepageSource).toContain('skillFamilyRows.map');
     for (const skillLink of getCanonicalSkillRoutes()) {
       expect(homepageSource).not.toContain(`href="${skillLink.canonicalPath}"`);
     }
   });
 
-  it('names the three curriculum strands with a compact role clause, linking each to its cross-grade gateway', () => {
+  it('names the three curriculum strands with a full description and example concepts, linking each to its cross-grade gateway', () => {
     expect(homepageSource).toMatch(
       /<h2[^>]*id="curriculum-org-heading"[^>]*>\s*How the K–5 curriculum is organized\s*<\/h2>/,
     );
     for (const strand of HOMEPAGE_STRANDS) {
       expect(strand.role.length).toBeGreaterThan(0);
+      expect(strand.description.length).toBeGreaterThan(0);
+      expect(strand.examples.length).toBeGreaterThanOrEqual(3);
     }
-    // No per-strand example-chip list remains — that depth now lives solely
-    // on /curriculum, which already explains each strand fully.
-    expect(homepageSource).not.toContain('{examples.map');
+    // Each strand's description and example list are rendered from the
+    // shared data source, not restated as separate hardcoded copy.
+    expect(homepageSource).toContain('coreStrand.description');
+    expect(homepageSource).toContain('coreStrand.examples.map');
+    expect(homepageSource).toContain('strand.description');
+    expect(homepageSource).toContain('strand.examples.map');
+    // Example concepts stay plain text — never a hyperlink to an individual
+    // Skill or Grade Unit page.
+    for (const skillLink of getCanonicalSkillRoutes()) {
+      expect(homepageSource).not.toContain(`href="${skillLink.canonicalPath}"`);
+    }
   });
 
   it('no longer carries a standalone Progression section — /grades owns the full K–5 developmental progression, linked once from Browse by Grade', () => {

@@ -1,5 +1,6 @@
 import { gradeConfig, type GradeCode } from './gradeConfig';
 import { getCanonicalSkillRoutes } from './canonicalSkillRoutes';
+import { SPELLING_SKILL_FAMILIES } from './spellingSkills';
 
 export const HOMEPAGE_URL = 'https://spellingwords.app/';
 
@@ -46,45 +47,52 @@ export const homepageGradeHubs = gradeConfig.map(({ grade, label, hubHref }) => 
 /** Real, programmatically sourced count of canonical Skill pages. */
 export const HOMEPAGE_SKILL_COUNT = getCanonicalSkillRoutes().length;
 
-/**
- * Representative Skill concepts named as plain text on the homepage,
- * spanning the K–5 difficulty range (early skills through late-elementary
- * skills) per docs/content/CANONICAL_HOMEPAGE_STANDARD.md §5.3.
- */
-export const HOMEPAGE_REPRESENTATIVE_SKILLS = [
-  'short vowels',
-  'silent e',
-  'prefixes',
-  'suffixes',
-  'Greek and Latin roots',
-  'homophones',
-] as const;
+/** Real, programmatically sourced count of canonical Skill families. */
+export const HOMEPAGE_SKILL_FAMILY_COUNT = SPELLING_SKILL_FAMILIES.length;
 
 /**
- * "How the K-5 curriculum is organized" section content. Compressed under
- * the V4 reopening pass of docs/content/CANONICAL_HOMEPAGE_STANDARD.md
- * §5.2a/§9: /curriculum now owns the full per-strand explanation, so the
- * homepage states each strand's name and one-clause role rather than a full
- * definition and example list — enough to orient a first-time visitor
- * without duplicating a page that already does this better. Each strand's
+ * All twelve canonical Skill Family names, sourced directly from
+ * `SPELLING_SKILL_FAMILIES` (the same taxonomy the Skills Hub renders from)
+ * rather than duplicated as a local literal — named once, in listed order,
+ * as plain unlinked orientation content per
+ * docs/content/CANONICAL_HOMEPAGE_STANDARD.md §5.3 (V5 reopening pass).
+ */
+export const HOMEPAGE_SKILL_FAMILIES = SPELLING_SKILL_FAMILIES.map((family) => family.title);
+
+/**
+ * "How the K-5 curriculum is organized" section content. Restored to a full
+ * per-strand description plus a handful of example concepts/words/topics
+ * under the V5 reopening pass of docs/content/CANONICAL_HOMEPAGE_STANDARD.md
+ * §5.2a/§9 — the V4 pass's one-clause role proved too thin to communicate
+ * real curriculum substance; `/curriculum` still owns the deeper, full
+ * explanation (selection criteria, boundaries, sequencing). Each strand's
  * name links to its cross-grade top-level gateway (2026-08-21 amendment,
- * unaffected by V4).
+ * unaffected by V4 or V5).
  */
 export const HOMEPAGE_STRANDS = [
   {
     name: 'Core Spelling',
     href: '/core-spelling',
     role: 'is the main grade-by-grade sequence',
+    description:
+      'Core Spelling is the main sequence for each grade — units ordered around the spelling concepts students are ready to practice, moving from sound-letter patterns toward syllables, word parts, and increasingly complex words.',
+    examples: ['Short vowels', 'Silent e', 'Vowel teams', 'Suffixes', 'Greek and Latin roots'],
   },
   {
     name: 'High-Frequency Words',
     href: '/high-frequency-words',
     role: 'are common words practiced alongside it',
+    description:
+      'High-Frequency Words are spellings students meet often in reading and writing. Grouped into grade-level sets and practiced alongside Core Spelling, they get attention to both predictable sound-spelling patterns and the specific details worth extra notice — so common words become accurate and automatic, not just memorized as exceptions.',
+    examples: ['the', 'you', 'over', 'were'],
   },
   {
     name: 'Themed Spelling Practice',
     href: '/themed-spelling-practice',
     role: 'is optional extra practice built around familiar topics',
+    description:
+      'Themed Spelling Practice offers optional grade-level lists built around topics students already know from school and everyday life — useful additional practice, not part of the required Core sequence.',
+    examples: ['Animals', 'Colors', 'Weather', 'Careers', 'Numbers'],
   },
 ] as const;
 

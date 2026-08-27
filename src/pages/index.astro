@@ -3,7 +3,6 @@ import Layout from '@/layouts/Layout.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import Button from '@/components/direction-a/Button.astro';
-import Chip from '@/components/direction-a/Chip.astro';
 import CustomWordEntry from '@/components/CustomWordEntry.astro';
 import { SKILLS_INDEX_PATH } from '@/lib/content/canonicalSkillRoutes';
 import { gradeConfig } from '@/lib/content/gradeConfig';
@@ -11,14 +10,18 @@ import {
   GRADE_ACCENT,
   ACCENT_BG_CLASS,
   ACCENT_INK_CLASS,
-  type DaAccent,
+  ACCENT_TINT_BG_CLASS,
+  ACCENT_BORDER_CLASS,
+  STRAND_ACCENT,
+  SKILL_FAMILY_ACCENT,
 } from '@/lib/content/pilotContent';
 import {
   homepageGradeHubs,
   homepageJsonLd,
   homepageFaqJsonLd,
   HOMEPAGE_SKILL_COUNT,
-  HOMEPAGE_REPRESENTATIVE_SKILLS,
+  HOMEPAGE_SKILL_FAMILY_COUNT,
+  HOMEPAGE_SKILL_FAMILIES,
   HOMEPAGE_STRANDS,
   HOMEPAGE_CLOSING_STATEMENT,
   HOMEPAGE_FAQ,
@@ -30,27 +33,18 @@ const gradeCards = homepageGradeHubs.map((hub, index) => ({
   accent: GRADE_ACCENT[gradeConfig[index].grade],
 }));
 
-// Illustrative examples of the range of Skills on offer — drawn from the
-// homepage's own permanent HOMEPAGE_REPRESENTATIVE_SKILLS list (also used
-// in the prose above). These are category labels, not individual
-// Skill-page destinations (per the same
-// design-explore/direction-a mockup this section is drawn from), so they
-// stay as plain decorative Chips — the "Browse Spelling Skills" button
-// remains the one real link, to the canonical Skills index.
-const REPRESENTATIVE_SKILL_TONES: readonly DaAccent[] = [
-  'teal',
-  'periwinkle',
-  'sun',
-  'teal',
-  'periwinkle',
-  'sun',
-];
-const representativeSkillChips = HOMEPAGE_REPRESENTATIVE_SKILLS.map((label, index) => ({
-  label: label.charAt(0).toUpperCase() + label.slice(1),
-  tone: REPRESENTATIVE_SKILL_TONES[index % REPRESENTATIVE_SKILL_TONES.length],
-}));
-
 const [coreStrand, hfwStrand, themedStrand] = HOMEPAGE_STRANDS;
+const strandAccents = {
+  [coreStrand.href]: STRAND_ACCENT['core-spelling'],
+  [hfwStrand.href]: STRAND_ACCENT['high-frequency-words'],
+  [themedStrand.href]: STRAND_ACCENT['themed-spelling-practice'],
+} as const;
+
+const skillFamilyRows = HOMEPAGE_SKILL_FAMILIES.map((title, index) => ({
+  number: String(index + 1).padStart(2, '0'),
+  title,
+  accent: SKILL_FAMILY_ACCENT[title] ?? 'brand',
+}));
 ---
 
 <Layout
@@ -166,14 +160,114 @@ const [coreStrand, hfwStrand, themedStrand] = HOMEPAGE_STRANDS;
             How the K–5 curriculum is organized
           </h2>
           <p class="mt-2.5 max-w-[62ch] text-[1.05rem] leading-relaxed text-da-ink-soft">
-            Each strand plays a different role: <a href={coreStrand.href} class="font-bold text-da-ink hover:text-da-brand-strong hover:underline">{coreStrand.name}</a>{' '}
-            {coreStrand.role}, <a href={hfwStrand.href} class="font-bold text-da-ink hover:text-da-brand-strong hover:underline">{hfwStrand.name}</a>{' '}
-            {hfwStrand.role}, and <a href={themedStrand.href} class="font-bold text-da-ink hover:text-da-brand-strong hover:underline">{themedStrand.name}</a>{' '}
-            {themedStrand.role}.
+            Each grade combines three complementary types of practice — one required sequence, and
+            two kinds of practice alongside it.
           </p>
         </div>
 
-        <p>
+        <div
+          class="overflow-hidden rounded-3xl border border-da-border bg-da-canvas-raised shadow-sm"
+        >
+          <!-- Core Spelling — the main sequence, given the strongest visual weight. -->
+          <div
+            class:list={[
+              'border-b border-da-border p-7 sm:p-9',
+              ACCENT_TINT_BG_CLASS[strandAccents[coreStrand.href]],
+            ]}
+          >
+            <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start lg:gap-12">
+              <div>
+                <p
+                  class:list={[
+                    'font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em]',
+                    ACCENT_INK_CLASS[strandAccents[coreStrand.href]],
+                  ]}
+                >
+                  <span aria-hidden="true">01 · </span>The main sequence
+                </p>
+                <h3 class="mt-1.5">
+                  <a
+                    href={coreStrand.href}
+                    class="font-quicksand text-[clamp(1.4rem,2.4vw,1.75rem)] font-bold text-da-ink hover:underline"
+                  >
+                    {coreStrand.name}
+                  </a>
+                </h3>
+                <p class="mt-2.5 max-w-[58ch] text-[1.02rem] leading-relaxed text-da-ink-soft">
+                  {coreStrand.description}
+                </p>
+              </div>
+
+              <ul
+                class="flex flex-wrap gap-2 lg:max-w-[16rem] lg:justify-end"
+                aria-label={`Example ${coreStrand.name} concepts`}
+              >
+                {
+                  coreStrand.examples.map((example) => (
+                    <li
+                      class:list={[
+                        'rounded-full border-[1.5px] bg-da-canvas-raised px-3.5 py-1.5 text-sm font-bold leading-none text-da-ink',
+                        ACCENT_BORDER_CLASS[strandAccents[coreStrand.href]],
+                      ]}
+                    >
+                      {example}
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+
+          <!-- High-Frequency Words and Themed Spelling Practice — coequal companions, quieter treatment. -->
+          <div class="grid grid-cols-1 sm:grid-cols-2">
+            {
+              [hfwStrand, themedStrand].map((strand, index) => (
+                <div
+                  class:list={[
+                    'p-6 sm:p-8',
+                    ACCENT_TINT_BG_CLASS[strandAccents[strand.href]],
+                    index === 0 && 'border-b border-da-border sm:border-b-0 sm:border-r',
+                  ]}
+                >
+                  <p
+                    class:list={[
+                      'font-quicksand text-[0.72rem] font-bold uppercase tracking-[0.08em]',
+                      ACCENT_INK_CLASS[strandAccents[strand.href]],
+                    ]}
+                  >
+                    <span aria-hidden="true">{index === 0 ? '02' : '03'} · </span>
+                    {index === 0 ? 'Alongside the sequence' : 'Optional extra practice'}
+                  </p>
+                  <h3 class="mt-1.5">
+                    <a
+                      href={strand.href}
+                      class="font-quicksand text-lg font-bold text-da-ink hover:underline"
+                    >
+                      {strand.name}
+                    </a>
+                  </h3>
+                  <p class="mt-2 text-sm leading-relaxed text-da-ink-soft">{strand.description}</p>
+
+                  <ul class="mt-4 flex flex-wrap gap-2" aria-label={`Example ${strand.name}`}>
+                    {strand.examples.map((example) => (
+                      <li
+                        class:list={[
+                          'rounded-full border-[1.5px] bg-da-canvas-raised px-3 py-1 text-[0.82rem] font-bold leading-none text-da-ink',
+                          strand.href === hfwStrand.href && 'font-word',
+                          ACCENT_BORDER_CLASS[strandAccents[strand.href]],
+                        ]}
+                      >
+                        {example}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <p class="mt-7">
           <a
             href="/curriculum"
             class="inline-flex min-h-[44px] items-center font-bold text-da-brand-strong underline decoration-2 underline-offset-4 hover:text-da-brand"
@@ -190,38 +284,53 @@ const [coreStrand, hfwStrand, themedStrand] = HOMEPAGE_STRANDS;
       class="scroll-mt-[72px] bg-da-teal-tint px-5 py-14 sm:px-6 md:py-20"
       aria-labelledby="skill-heading"
     >
-      <div
-        class="mx-auto grid max-w-content-xl gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-16"
-      >
-        <div>
-          <h2
-            id="skill-heading"
-            class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink"
-          >
-            Browse by Skill
-          </h2>
-          <p class="mt-2.5 max-w-[54ch] text-[1.05rem] leading-relaxed text-da-ink-soft">
-            Already know what to work on? Explore {HOMEPAGE_SKILL_COUNT} spelling skills, from {
-              HOMEPAGE_REPRESENTATIVE_SKILLS[0]
-            } and {HOMEPAGE_REPRESENTATIVE_SKILLS[1]} to {HOMEPAGE_REPRESENTATIVE_SKILLS[2]}, {
-              HOMEPAGE_REPRESENTATIVE_SKILLS[3]
-            }, {HOMEPAGE_REPRESENTATIVE_SKILLS[4]}, and {HOMEPAGE_REPRESENTATIVE_SKILLS[5]}
-            — go straight to the specific spelling skill your student needs.
-          </p>
-          <Button href={SKILLS_INDEX_PATH} variant="outline" class="mt-6">
+      <div class="mx-auto max-w-content-xl">
+        <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end lg:justify-between lg:gap-16">
+          <div>
+            <h2
+              id="skill-heading"
+              class="font-quicksand text-[clamp(1.7rem,3vw,2.15rem)] font-bold text-da-ink"
+            >
+              Browse by Skill
+            </h2>
+            <p class="mt-2.5 max-w-[56ch] text-[1.05rem] leading-relaxed text-da-ink-soft">
+              Already know what to work on? Explore {HOMEPAGE_SKILL_COUNT} spelling skills across
+              {' '}
+              {HOMEPAGE_SKILL_FAMILY_COUNT} skill families spanning foundational sound patterns to advanced
+              word structure — go straight to the specific concept your student needs.
+            </p>
+          </div>
+          <Button href={SKILLS_INDEX_PATH} variant="outline" class="lg:mb-1">
             Browse Spelling Skills <span aria-hidden="true">→</span>
           </Button>
         </div>
 
-        <ul class="flex flex-wrap gap-3" aria-label="Examples of spelling skills">
-          {
-            representativeSkillChips.map((chip) => (
-              <li>
-                <Chip tone={chip.tone}>{chip.label}</Chip>
-              </li>
-            ))
-          }
-        </ul>
+        <div
+          class="mt-9 rounded-3xl border border-da-border bg-da-canvas-raised px-6 py-2 shadow-sm sm:px-8"
+        >
+          <ol
+            class="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-3 lg:gap-x-10"
+            aria-label="All twelve canonical spelling skill families"
+          >
+            {
+              skillFamilyRows.map(({ number, title, accent }) => (
+                <li class="flex items-baseline gap-3 border-b border-da-border py-3.5 last:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-0 lg:[&:nth-last-child(-n+3)]:border-b-0">
+                  <span
+                    class="font-quicksand text-xs font-bold tabular-nums text-da-ink-faint"
+                    aria-hidden="true"
+                  >
+                    {number}
+                  </span>
+                  <span
+                    class:list={['h-1.5 w-1.5 shrink-0 rounded-full', ACCENT_BG_CLASS[accent]]}
+                    aria-hidden="true"
+                  />
+                  <span class="text-[0.95rem] font-bold leading-snug text-da-ink">{title}</span>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
       </div>
     </section>
 

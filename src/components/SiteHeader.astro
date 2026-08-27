@@ -11,6 +11,9 @@ const { variant = 'discovery', currentPath = '' } = Astro.props;
 
 const isSkillsActive = currentPath === '/skills' || currentPath.startsWith('/skills/');
 const isCurriculumActive = currentPath === '/curriculum';
+const isCoreSpellingActive = currentPath === '/core-spelling';
+const isHighFrequencyActive = currentPath === '/high-frequency-words';
+const isThemedActive = currentPath === '/themed-spelling-practice';
 const isGradeActive = gradeConfig.some(
   (grade) => currentPath === grade.hubHref || currentPath.startsWith(`${grade.hubHref}/`),
 );
@@ -216,35 +219,78 @@ const currentGrade = gradeConfig.find(
               </li>
             </ul>
           </details>
-          <ul class="m-0 list-none border-t border-da-border p-0 pt-2">
-            <li>
-              <a
-                href="/skills"
-                class:list={[
-                  'flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold no-underline hover:bg-da-surface-neutral',
-                  isSkillsActive ? 'text-da-brand' : 'text-da-ink',
-                ]}
-                aria-current={isSkillsActive ? 'page' : undefined}
-              >
-                Skills
-              </a>
-            </li>
-            <li>
-              <a
-                href="/curriculum"
-                class:list={[
-                  'flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold no-underline hover:bg-da-surface-neutral',
-                  isCurriculumActive ? 'text-da-brand' : 'text-da-ink',
-                ]}
-                aria-current={isCurriculumActive ? 'page' : undefined}
-              >
-                Curriculum
-              </a>
-            </li>
+          <div class="border-t border-da-border pt-3">
+            <p class="mb-1 px-3 font-quicksand text-[0.78rem] font-bold uppercase tracking-[0.08em] text-da-ink-faint">
+              Explore
+            </p>
+            <ul class="m-0 list-none p-0">
+              <li>
+                <a
+                  href="/skills"
+                  class:list={[
+                    'flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold no-underline hover:bg-da-surface-neutral',
+                    isSkillsActive ? 'text-da-brand' : 'text-da-ink',
+                  ]}
+                  aria-current={isSkillsActive ? 'page' : undefined}
+                >
+                  Skills
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/core-spelling"
+                  class:list={[
+                    'flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold no-underline hover:bg-da-surface-neutral',
+                    isCoreSpellingActive ? 'text-da-brand' : 'text-da-ink',
+                  ]}
+                  aria-current={isCoreSpellingActive ? 'page' : undefined}
+                >
+                  Core Spelling
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/high-frequency-words"
+                  class:list={[
+                    'flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold no-underline hover:bg-da-surface-neutral',
+                    isHighFrequencyActive ? 'text-da-brand' : 'text-da-ink',
+                  ]}
+                  aria-current={isHighFrequencyActive ? 'page' : undefined}
+                >
+                  High-Frequency Words
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/themed-spelling-practice"
+                  class:list={[
+                    'flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold no-underline hover:bg-da-surface-neutral',
+                    isThemedActive ? 'text-da-brand' : 'text-da-ink',
+                  ]}
+                  aria-current={isThemedActive ? 'page' : undefined}
+                >
+                  Themed Spelling Practice
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/curriculum"
+                  class:list={[
+                    'flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold no-underline hover:bg-da-surface-neutral',
+                    isCurriculumActive ? 'text-da-brand' : 'text-da-ink',
+                  ]}
+                  aria-current={isCurriculumActive ? 'page' : undefined}
+                >
+                  Curriculum
+                </a>
+              </li>
+            </ul>
+          </div>
+          <ul class="m-0 mt-3 list-none border-t border-da-border p-0 pt-2">
             <li>
               <a
                 href="/about"
-                class="flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold text-da-ink no-underline hover:bg-da-surface-neutral"
+                class="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-[0.94rem] font-bold text-da-ink-faint no-underline hover:bg-da-surface-neutral"
               >
                 About
               </a>
@@ -252,7 +298,7 @@ const currentGrade = gradeConfig.find(
             <li>
               <a
                 href="/accessibility"
-                class="flex min-h-[48px] items-center rounded-lg px-3 py-2 font-bold text-da-ink no-underline hover:bg-da-surface-neutral"
+                class="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-[0.94rem] font-bold text-da-ink-faint no-underline hover:bg-da-surface-neutral"
               >
                 Accessibility
               </a>

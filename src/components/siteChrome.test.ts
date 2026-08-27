@@ -159,26 +159,25 @@ describe('global site chrome', () => {
     expect(footer).not.toMatch(/id="footer-spellingwords-heading"[^>]*>\s*SpellingWords\s*</);
   });
 
-  it('gives Curriculum the same top-level (not-in-Explore) placement on mobile as on desktop', () => {
+  it('groups Curriculum with the supporting links on mobile, not inside the Explore label group', () => {
     const mobileSection = header.split('aria-label="Mobile navigation"')[1] ?? '';
     const exploreLabelIndex = mobileSection.indexOf('Explore');
     const exploreGroupEnd = mobileSection.indexOf('</div>', exploreLabelIndex);
-    const supportingDividerIndex = mobileSection.indexOf('href="/about"');
+    const curriculumIndex = mobileSection.indexOf('href="/curriculum"', exploreGroupEnd);
+    const aboutIndex = mobileSection.indexOf('href="/about"');
     expect(exploreLabelIndex).toBeGreaterThan(-1);
     expect(exploreGroupEnd).toBeGreaterThan(exploreLabelIndex);
-    expect(supportingDividerIndex).toBeGreaterThan(exploreGroupEnd);
 
     const mobileExploreGroup = mobileSection.slice(exploreLabelIndex, exploreGroupEnd);
     for (const path of ['/skills', '/core-spelling', '/high-frequency-words', '/themed-spelling-practice']) {
       expect(mobileExploreGroup).toContain(`href="${path}"`);
     }
-    // Curriculum must not be grouped under the Explore label — it sits as
-    // its own top-level item between Explore and the supporting links,
-    // mirroring its top-level placement in the desktop nav.
+    // Curriculum must not be grouped under the Explore label — it now sits
+    // with About/Accessibility below a single divider, not as its own
+    // isolated top-level item and not mixed into content discovery.
     expect(mobileExploreGroup).not.toContain('href="/curriculum"');
-
-    const curriculumSection = mobileSection.slice(exploreGroupEnd, supportingDividerIndex);
-    expect(curriculumSection).toContain('href="/curriculum"');
+    expect(curriculumIndex).toBeGreaterThan(exploreGroupEnd);
+    expect(aboutIndex).toBeGreaterThan(curriculumIndex);
   });
 
   it('gives the mobile menu the same active-state signal as desktop, without misusing aria-current on the Grades disclosure', () => {

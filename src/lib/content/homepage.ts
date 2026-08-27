@@ -92,7 +92,7 @@ export const HOMEPAGE_STRANDS = [
     role: 'is optional extra practice built around familiar topics',
     description:
       'Themed Spelling Practice offers optional grade-level lists built around topics students already know from school and everyday life — useful additional practice, not part of the required Core sequence.',
-    examples: ['Animals', 'Colors', 'Weather', 'Careers', 'Measurement'],
+    examples: ['Animals', 'Colors', 'Weather', 'Careers', 'Numbers'],
   },
 ] as const;
 

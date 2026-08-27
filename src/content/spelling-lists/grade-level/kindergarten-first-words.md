@@ -21,7 +21,7 @@ nextLists: []
 featured: true
 readinessSignals:
   - 'can name or write many letters and give their most common sounds'
-  - 'can hear the first sound in a familiar word such as “sun”'
+  - 'can hear the first sound in a familiar word such as “cat”'
   - 'can use a letter sound to make a sensible first spelling attempt with only occasional help'
 faq:
   - question: 'Are these really the first words kindergarteners learn to spell?'

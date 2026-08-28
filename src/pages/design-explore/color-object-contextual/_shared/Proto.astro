@@ -1,0 +1,220 @@
+---
+// Shared layout + design-token system for "Word as Color Object — A1:
+// Contextual chromatic environments."
+//
+// Hypothesis under test: the canvas hue can rotate by product context
+// (discovery / curriculum / reference) around one coherent teal-rooted
+// family while every other token — the ColorWord fill palette, the paper
+// surface, ink roles, radii, focus ring — stays fixed. Only `--canvas`,
+// `--canvas-deep`, `--canvas-deeper` and `--border` shift per env; nothing
+// about the word-as-color-object grammar itself changes.
+//
+// Self-contained: does NOT import production global.css or tailwind.config tokens.
+interface Props {
+  title: string;
+  description: string;
+  env?: 'home' | 'grade' | 'skill';
+}
+const { title, description, env = 'home' } = Astro.props;
+---
+
+<html lang="en" data-env={env}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Inter:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style is:global>
+      /* ============================================================
+         WORD AS COLOR OBJECT — A1: contextual chromatic environments
+         Canvas philosophy: one teal-rooted hue family that rotates by
+         product context, held at a constant value/saturation recipe.
+         The expressive fill palette (coral/sunflower/periwinkle/lime)
+         and paper/ink roles never change — they are the connective
+         tissue across environments, not the canvas.
+         ============================================================ */
+      :root {
+        /* Home / discovery — the anchor hue, unchanged from the parent */
+        --canvas: #2b7a72;
+        --canvas-deep: #1b4b46;
+        --canvas-deeper: #123632;
+        --border: #3f8f86;
+        --border-strong: #5fb0a6;
+
+        --ink: #f5fbf9;
+        --ink-soft: #e6f6f1;
+        --ink-faint: #9fd0c7;
+
+        --paper: #fbf6ec;
+        --paper-ink: #123632;
+        --paper-ink-soft: #4b6f6a;
+        --paper-border: #d9cba3;
+
+        --focus-ring: #ffc53d;
+
+        /* Preview hues for the two other contexts, used only as subtle
+           section-background tints on the homepage so a visitor can see
+           the contextual shift is coming before they ever click through —
+           without the homepage adopting either environment outright. */
+        --preview-grade: #275f7e;
+        --preview-skill: #3c7a52;
+
+        --coral: #ff6b4a;
+        --sunflower: #ffc53d;
+        --periwinkle: #7c8cff;
+        --lime: #c6ff5e;
+
+        --status-correct-bg: #dff7c0;
+        --status-correct-ink: #1f4a12;
+        --status-incorrect-bg: #ffe1d6;
+        --status-incorrect-ink: #6e2b13;
+
+        --font-display: 'Bricolage Grotesque', 'Arial Black', sans-serif;
+        --font-body: 'Inter', system-ui, sans-serif;
+        --font-word: 'Atkinson Hyperlegible', 'Inter', system-ui, sans-serif;
+
+        --radius-sm: 10px;
+        --radius-md: 16px;
+        --radius-lg: 28px;
+
+        color-scheme: dark;
+      }
+
+      /* Grade Hub / curriculum — hue rotated cooler and bluer: structure,
+         sequence, "the syllabus." Same lightness/chroma recipe as home. */
+      :root[data-env='grade'] {
+        --canvas: #275f7e;
+        --canvas-deep: #163b4f;
+        --canvas-deeper: #0e2733;
+        --border: #3e829f;
+        --border-strong: #5aa3bd;
+        --ink-faint: #a3cddb;
+      }
+
+      /* Skill / reference — hue rotated warmer and greener: reading,
+         growth, "the field guide entry." Slightly lighter mid-value so
+         long paragraphs of ink-soft text keep comfortable contrast. */
+      :root[data-env='skill'] {
+        --canvas: #3c7a52;
+        --canvas-deep: #234a30;
+        --canvas-deeper: #17311f;
+        --border: #559469;
+        --border-strong: #71b285;
+        --ink-faint: #b6dcc0;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--canvas);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--focus-ring);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -3rem;
+        background: var(--paper);
+        color: var(--paper-ink);
+        padding: 0.75rem 1.25rem;
+        border-radius: var(--radius-sm);
+        font-weight: 700;
+        z-index: 100;
+        transition: top 0.15s ease;
+      }
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      .wrap {
+        max-width: 1180px;
+        margin-inline: auto;
+        padding-inline: clamp(1.25rem, 4vw, 3rem);
+      }
+
+      .proto-badge {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(3px);
+        color: #fff;
+        font-family: var(--font-body);
+        font-size: 9.5px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        padding: 4px 9px;
+        border-radius: 999px;
+        opacity: 0.75;
+        pointer-events: none;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <span class="proto-badge" aria-hidden="true"
+      >Design exploration — Word as Color Object / A1: Contextual environments</span
+    >
+  </body>
+</html>

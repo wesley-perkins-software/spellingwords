@@ -1,0 +1,72 @@
+---
+// Decorative "word as color object" typographic treatment.
+// FOR MARKETING / HEADLINE / BRAND CONTEXTS ONLY — never for the practice
+// word or a word a student must read accurately (use WordDisplay for that).
+//
+// A2-specific change from the parent: the stroke behind each fill uses
+// `--stroke-ink` rather than a hardcoded dark canvas-deeper, because this
+// variation's Skill environment is a LIGHT mineral-teal canvas — the fill
+// needs a light halo there instead of a dark one to keep the shape crisp.
+interface Props {
+  word: string;
+  fill?: 'coral' | 'sunflower' | 'periwinkle' | 'lime';
+  ghostFill?: 'coral' | 'sunflower' | 'periwinkle' | 'lime';
+  size?: string;
+  ghost?: boolean;
+  ghostOffset?: string;
+  rotate?: string;
+  as?: 'span' | 'div';
+}
+const {
+  word,
+  fill = 'sunflower',
+  ghostFill = 'periwinkle',
+  size = 'clamp(2.5rem, 9vw, 7rem)',
+  ghost = true,
+  ghostOffset = '0.09em',
+  rotate = '0deg',
+  as = 'span',
+} = Astro.props;
+const Tag = as;
+---
+
+<Tag
+  class="color-word"
+  data-text={word}
+  style={`--fill: var(--${fill}); --ghost-fill: var(--${ghostFill}); --size: ${size}; --ghost-x: ${ghostOffset}; --rotate: ${rotate};`}
+>
+  {ghost && <span class="cw-ghost" aria-hidden="true">{word}</span>}
+  <span class="cw-face">{word}</span>
+</Tag>
+
+<style>
+  .color-word {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--size);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    transform: rotate(var(--rotate));
+    isolation: isolate;
+  }
+
+  .cw-ghost {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    color: var(--ghost-fill);
+    opacity: 0.5;
+    transform: translate(var(--ghost-x), calc(var(--ghost-x) * 0.7)) scale(1.04);
+    pointer-events: none;
+  }
+
+  .cw-face {
+    position: relative;
+    display: inline-block;
+    color: var(--fill);
+    -webkit-text-stroke: max(2px, 0.018em) var(--stroke-ink);
+    paint-order: stroke fill;
+  }
+</style>

@@ -1,0 +1,229 @@
+---
+// Shared layout + design-token system for "Word as Color Object — A2:
+// One hue family, different values."
+//
+// Hypothesis under test: identity comes from a single teal hue (172°)
+// held constant everywhere, expressed at dramatically different
+// value/saturation per context instead of rotating hue. Discovery keeps
+// the parent's mid-value dark teal; the Skill/reference environment moves
+// to a much lighter, desaturated "mineral" teal — testing whether a LIGHT
+// canvas can still carry the word-as-color-object thesis, which the
+// parent only ever expresses on a dark ground.
+//
+// Self-contained: does NOT import production global.css or tailwind.config tokens.
+interface Props {
+  title: string;
+  description: string;
+  env?: 'home' | 'skill';
+}
+const { title, description, env = 'home' } = Astro.props;
+---
+
+<html lang="en" data-env={env}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Inter:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style is:global>
+      /* ============================================================
+         WORD AS COLOR OBJECT — A2: one hue family, different values
+         Every context stays on hue 172 (the parent's teal). Only value
+         and saturation move — dark & mid for discovery, light & mineral
+         for reading. The expressive fill palette itself never changes.
+         ============================================================ */
+      :root {
+        /* Home / discovery — identical recipe to the parent: mid-value,
+           saturated, dark canvas. */
+        --canvas: #2b7a72;
+        --canvas-deep: #1b4b46;
+        --canvas-deeper: #123632;
+        --border: #3f8f86;
+        --border-strong: #5fb0a6;
+
+        --ink: #f5fbf9;
+        --ink-soft: #e6f6f1;
+        --ink-faint: #9fd0c7;
+
+        --paper: #fbf6ec;
+        --paper-ink: #123632;
+        --paper-ink-soft: #4b6f6a;
+        --paper-border: #d9cba3;
+
+        --stroke-ink: #123632;
+        --focus-ring: #ffc53d;
+        /* Fixed dark ink for text sitting on saturated accent fills
+           (buttons, pills) — stays dark regardless of which canvas
+           value/lightness this environment uses. */
+        --ink-on-accent: #14302b;
+        /* Sunflower reads as accent TEXT (headings, nav-current, link
+           color) on the dark discovery canvas; on the light mineral
+           canvas a paler amber fails contrast as text, so this token
+           swaps to a deep ochre there while sunflower itself stays
+           reserved for fills/backgrounds in both environments. */
+        --accent-text: #ffc53d;
+
+        --coral: #ff6b4a;
+        --sunflower: #ffc53d;
+        --periwinkle: #7c8cff;
+        --lime: #c6ff5e;
+
+        --status-correct-bg: #dff7c0;
+        --status-correct-ink: #1f4a12;
+        --status-incorrect-bg: #ffe1d6;
+        --status-incorrect-ink: #6e2b13;
+
+        --font-display: 'Bricolage Grotesque', 'Arial Black', sans-serif;
+        --font-body: 'Inter', system-ui, sans-serif;
+        --font-word: 'Atkinson Hyperlegible', 'Inter', system-ui, sans-serif;
+
+        --radius-sm: 10px;
+        --radius-md: 16px;
+        --radius-lg: 28px;
+
+        color-scheme: dark;
+      }
+
+      /* Skill / reference — same hue (172°), pushed to a light, desaturated
+         "mineral" value: a pale teal-gray ground that reads as quarried
+         stone rather than a tinted white page. Ink flips to dark-on-light,
+         and the ColorWord stroke flips from a dark halo to a white one so
+         saturated fills stay crisp against the light ground. */
+      :root[data-env='skill'] {
+        --canvas: #e7f1ee;
+        --canvas-deep: #d5e6e2;
+        --canvas-deeper: #c1d9d3;
+        --border: #b3d0c8;
+        --border-strong: #8fb8ac;
+
+        --ink: #17322d;
+        --ink-soft: #3d5c56;
+        --ink-faint: #6c8983;
+
+        --paper: #ffffff;
+        --paper-ink: #17322d;
+        --paper-ink-soft: #4b6f6a;
+        --paper-border: #c1d9d3;
+
+        --stroke-ink: #ffffff;
+        --accent-text: #8a5a12;
+
+        color-scheme: light;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--canvas);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--focus-ring);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -3rem;
+        background: var(--paper);
+        color: var(--paper-ink);
+        padding: 0.75rem 1.25rem;
+        border-radius: var(--radius-sm);
+        font-weight: 700;
+        z-index: 100;
+        transition: top 0.15s ease;
+        border: 1px solid var(--paper-border);
+      }
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      .wrap {
+        max-width: 1180px;
+        margin-inline: auto;
+        padding-inline: clamp(1.25rem, 4vw, 3rem);
+      }
+
+      .proto-badge {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(3px);
+        color: #fff;
+        font-family: var(--font-body);
+        font-size: 9.5px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        padding: 4px 9px;
+        border-radius: 999px;
+        opacity: 0.75;
+        pointer-events: none;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <span class="proto-badge" aria-hidden="true"
+      >Design exploration — Word as Color Object / A2: One hue, different values</span
+    >
+  </body>
+</html>

@@ -1,0 +1,124 @@
+/* DESIGN EXPLORATION — Direction H: "Threshold" (round 4 synthesis). Scoped under .explore-h.
+   Signature idea: the scoop is reserved EXCLUSIVELY for arrival tiles (hero, grade identity,
+   practice tray) — the single most important tile in any composition. Everywhere else is
+   calm, rectilinear mosaic. Shape itself becomes a hierarchy signal: curved = "you've
+   arrived somewhere," rectilinear = "this is structured content or navigation." */
+.explore-h {
+  --canvas: #fafafa;
+  --surface: #ffffff;
+  --border: #ececec;
+
+  --ink: #1c1a17;
+  --ink-soft: #58524a;
+  --ink-faint: #8d867c;
+
+  --brand: #d6336c;
+  --grade-k: #ef5a3c;
+  --grade-1: #f0a530;
+  --grade-2: #6fae3e;
+  --grade-3: #239e93;
+  --grade-4: #4f63d9;
+  --grade-5: #a34fc7;
+
+  --env: var(--brand);
+
+  --correct: #2f9e5e;
+  --incorrect: #e2583f;
+
+  --radius: 14px;
+
+  --font-display: 'Figtree', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-word: 'Inter', system-ui, sans-serif;
+
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+.explore-h h1, .explore-h h2, .explore-h h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.012em;
+  margin: 0;
+}
+.explore-h p { margin: 0; }
+
+.explore-h .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+.explore-h .wrap--narrow { max-width: 780px; }
+
+.explore-h__header { background: var(--canvas); }
+.explore-h__header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.explore-h__wordmark { font-family: var(--font-display); font-weight: 800; font-size: 19px; }
+.explore-h__wordmark .accent { color: var(--brand); }
+.explore-h__nav { display: flex; gap: 4px; flex-wrap: wrap; }
+.explore-h__nav a {
+  text-decoration: none; font-size: 14px; font-weight: 700; color: var(--ink-soft);
+  padding: 8px 14px; border-radius: 999px;
+}
+.explore-h__nav a:hover { background: #f0f0ee; color: var(--ink); }
+
+/* Arrival tile: the scoop, used ONLY for hero / grade-identity / practice-tray. */
+.arrival {
+  background: var(--env);
+  color: #fff;
+  border-radius: 0 0 55% 15% / 0 0 50px 18px;
+  position: relative;
+}
+.arrival--sm { border-radius: 0 0 55% 15% / 0 0 20px 7px; }
+
+/* Working tile: rectilinear mosaic, for everything else. */
+.tile { border-radius: var(--radius); }
+.tile--neutral { background: var(--surface); border: 1px solid var(--border); }
+
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+
+.section-head { border-left: 4px solid var(--env); padding-left: 14px; margin-bottom: 16px; }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display);
+  font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.05em;
+  padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,0.22); color: #fff;
+}
+.tag {
+  display: inline-block; font-size: 11.5px; font-weight: 700; padding: 3px 10px;
+  border-radius: 999px; background: color-mix(in srgb, var(--env) 14%, #fff); color: var(--env);
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border-radius: 999px; font-family: var(--font-display); font-weight: 700;
+  text-decoration: none; border: none; cursor: pointer; transition: transform 0.15s ease;
+}
+.btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.btn--primary { background: var(--ink); color: #fff; padding: 16px 28px; font-size: 16.5px; }
+.btn--primary:hover { transform: translateY(-1px); }
+.btn--on-env { background: #fff; color: var(--env); padding: 15px 26px; font-size: 16px; }
+.btn--on-env:hover { transform: translateY(-1px); }
+.btn--ghost-on-env {
+  background: rgba(255,255,255,0.16); border: 1.5px solid rgba(255,255,255,0.4); color: #fff;
+  padding: 12px 20px; font-size: 14.5px;
+}
+.btn--ghost-on-env:hover { background: rgba(255,255,255,0.26); }
+
+.answer-input:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+
+.explore-h__footer { padding: 30px 0 44px; color: var(--ink-faint); font-size: 13px; }
+
+.grade-mosaic { display: grid; gap: 5px; grid-template-columns: repeat(6, 1fr); }
+@media (max-width: 900px) { .grade-mosaic { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .grade-mosaic { grid-template-columns: repeat(2, 1fr); } }
+
+@media (max-width: 700px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+}

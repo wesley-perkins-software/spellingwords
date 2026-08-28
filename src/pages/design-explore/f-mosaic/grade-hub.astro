@@ -1,0 +1,59 @@
+---
+import Layout from './_Layout.astro';
+
+const strands = [
+  { title: 'Core Spelling', tile: 'var(--tile-2)', light: true, items: ['Short A Words', 'Long A Silent E Words', 'Soft C and Soft G'] },
+  { title: 'High-Frequency Words', tile: 'var(--tile-4)', light: false, items: ['Set 1', 'Set 2', 'Set 3'] },
+  { title: 'Themed Spelling Practice', tile: 'var(--tile-6)', light: false, items: ['Animal Words', 'Weather Words'] },
+];
+---
+
+<Layout title="Grade 1">
+  <header class="explore-f__header">
+    <div class="explore-f__header-inner">
+      <span class="explore-f__wordmark">spelling<span class="accent">words</span></span>
+      <nav class="explore-f__nav">
+        <a href="#">Grades</a>
+        <a href="#">Skills</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" style="padding: 8px 24px 72px;">
+    <div class="mosaic grade-hub-mosaic" style="margin-bottom: 30px;">
+      <div class="tile" style="background: var(--tile-2); color: var(--tile-2-ink); display: flex; flex-direction: column; justify-content: center; padding: 24px;">
+        <span style="font-family: var(--font-display); font-weight: 800; font-size: 52px; line-height: 1;">1</span>
+        <p style="margin-top: 8px; font-weight: 700; font-size: 14px;">Grade 1</p>
+      </div>
+      <div class="panel" style="padding: 24px 26px; display: flex; flex-direction: column; justify-content: center;">
+        <p style="font-size: 13px; color: var(--ink-faint); font-weight: 600; margin-bottom: 10px;">Home / Grade 1</p>
+        <p style="font-size: 15.5px; color: var(--ink-soft); line-height: 1.6;">
+          A path through Core Spelling patterns, everyday High-Frequency Words, and Themed Practice —
+          arranged so the first steps build the skills later ones depend on.
+        </p>
+      </div>
+    </div>
+
+    <div class="wrap--narrow" style="margin: 0;">
+      {strands.map((strand) => (
+        <section style="margin-bottom: 22px;">
+          <div class={`tile ${strand.light ? 'tile--light-ink' : ''}`} style={`background: ${strand.tile}; padding: 12px 18px; margin-bottom: 5px; font-family: var(--font-display); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.03em;`}>
+            {strand.title}
+          </div>
+          <div class="panel">
+            {strand.items.map((item, i) => (
+              <a href="#" style={`display: flex; align-items: center; justify-content: space-between; padding: 15px 18px; text-decoration: none; color: inherit; ${i < strand.items.length - 1 ? 'border-bottom: 1px solid #f0eee9;' : ''}`}>
+                <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px;">{item}</span>
+                <span style={`color: ${strand.tile}; font-weight: 800;`}>→</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </main>
+
+  <footer class="explore-f__footer">
+    <div class="wrap">← Kindergarten &nbsp;&nbsp;&nbsp; Grade 2 →</div>
+  </footer>
+</Layout>

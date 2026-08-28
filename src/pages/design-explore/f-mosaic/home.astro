@@ -1,0 +1,100 @@
+---
+import Layout from './_Layout.astro';
+
+const grades = [
+  { g: 'K', tile: 'var(--tile-1)', light: false, desc: 'First sounds, letters, and three-letter words.' },
+  { g: '1', tile: 'var(--tile-2)', light: true, desc: 'Silent e, letter teams, everyday high-frequency words.' },
+  { g: '2', tile: 'var(--tile-3)', light: false, desc: 'Blends, digraphs, and longer word families.' },
+  { g: '3', tile: 'var(--tile-4)', light: false, desc: 'Prefixes, suffixes, and multi-syllable patterns.' },
+  { g: '4', tile: 'var(--tile-5)', light: false, desc: 'Latin roots and more demanding spelling patterns.' },
+  { g: '5', tile: 'var(--tile-6)', light: false, desc: 'Advanced patterns getting students ready for middle school.' },
+];
+
+const skills = ['Short A Words', 'Long A Silent E Words', 'Soft C and Soft G', 'Consonant Blends', 'Silent Letters'];
+---
+
+<Layout title="Home">
+  <header class="explore-f__header">
+    <div class="explore-f__header-inner">
+      <span class="explore-f__wordmark">spelling<span class="accent">words</span></span>
+      <nav class="explore-f__nav">
+        <a href="#grades">Grades</a>
+        <a href="#skills">Skills</a>
+        <a href="#">How it works</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap" style="padding: 8px 24px 8px;">
+      <div class="hero-mosaic">
+        <div class="tile m-headline" style="background: var(--tile-5); display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 34px;">
+          <span class="badge" style="background: rgba(255,255,255,0.2); align-self: flex-start;">Practice · Any List</span>
+          <h1 style="font-size: clamp(28px, 3.6vw, 42px); line-height: 1.08;">
+            Spelling practice, pieced together with color.
+          </h1>
+          <p style="font-size: 16px; opacity: 0.92; max-width: 46ch; line-height: 1.6;">
+            Paste your own list or follow a grade-level path. Hear each word, then type it.
+            No timers, no points.
+          </p>
+        </div>
+
+        <div class="panel m-input" style="display: flex; flex-direction: column; overflow: hidden;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid #eee;">
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.03em;">Your Words</span>
+            <span style="font-size: 12px; font-weight: 700; background: var(--tile-5); color: #fff; padding: 3px 9px; border-radius: 999px;">0</span>
+          </div>
+          <textarea
+            rows="5"
+            placeholder="Type or paste your words here, one per line"
+            style="flex: 1; width: 100%; border: none; resize: none; padding: 16px 18px; font-family: var(--font-word); font-size: 16px; color: var(--ink); background: transparent;"
+          ></textarea>
+          <div style="padding: 14px 18px; border-top: 1px solid #eee;">
+            <button type="button" class="btn btn--primary" style="width: 100%;">Start Practicing</button>
+          </div>
+        </div>
+
+        <div class="tile m-tag-a tile--light-ink" style="background: var(--tile-2); display: flex; align-items: center; font-family: var(--font-display); font-weight: 700; font-size: 15px;">
+          Hear it, then spell it.
+        </div>
+        <div class="tile m-tag-b" style="background: var(--tile-1); display: flex; align-items: center; font-family: var(--font-display); font-weight: 700; font-size: 15px;">
+          No accounts. No timers.
+        </div>
+      </div>
+    </section>
+
+    <section id="grades" class="wrap" style="padding: 48px 24px 20px;">
+      <h2 style="font-size: 26px; margin-bottom: 8px;">Browse by Grade</h2>
+      <p style="color: var(--ink-soft); max-width: 60ch; margin-bottom: 22px;">
+        A Kindergarten&ndash;5th grade path across Core Spelling, High-Frequency Words, and Themed Practice.
+      </p>
+      <div class="mosaic grade-mosaic">
+        {grades.map((item) => (
+          <a href="#" class={`tile ${item.light ? 'tile--light-ink' : ''}`} style={`background: ${item.tile}; text-decoration: none; padding: 20px 16px; min-height: 150px; display: flex; flex-direction: column; justify-content: space-between;`}>
+            <span style="font-family: var(--font-display); font-weight: 800; font-size: 30px; line-height: 1;">{item.g}</span>
+            <p style="font-size: 12.5px; opacity: 0.95; line-height: 1.4;">{item.desc}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section id="skills" class="wrap" style="padding: 34px 24px 56px;">
+      <h2 style="font-size: 26px; margin-bottom: 8px;">Browse by Skill</h2>
+      <p style="color: var(--ink-soft); max-width: 60ch; margin-bottom: 20px;">
+        Already know what to work on? Explore 41 spelling skills, each with its own practice bank.
+      </p>
+      <div class="mosaic" style="grid-template-columns: 1fr;">
+        {skills.map((s, i) => (
+          <a href="#" class="tile" style={`background: ${['var(--tile-4)', 'var(--tile-3)', 'var(--tile-5)', 'var(--tile-6)', 'var(--tile-1)'][i % 5]}; display: flex; align-items: center; justify-content: space-between; text-decoration: none; padding: 16px 20px;`}>
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: 16px;">{s}</span>
+            <span style="font-weight: 800;">→</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <footer class="explore-f__footer">
+    <div class="wrap">No accounts. No timers. Just spelling.</div>
+  </footer>
+</Layout>

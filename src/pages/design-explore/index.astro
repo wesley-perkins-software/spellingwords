@@ -1,0 +1,117 @@
+---
+const round1 = [
+  {
+    slug: 'a-spoken-shape',
+    name: 'A — Spoken Shape (round 1, rejected)',
+    desc: 'Voice/sound-led. A "listening stage" isolates the active word; small sound marks replace chip pills.',
+  },
+  {
+    slug: 'b-signage-system',
+    name: 'B — Signage System (round 1, superseded by B2)',
+    desc: 'Wayfinding/institutional-signage-led. Bold flat color blocks per grade, confident numerals, no gradients.',
+  },
+  {
+    slug: 'c-quiet-system',
+    name: 'C — Quiet System (round 1, rejected)',
+    desc: 'Restrained, tokenized. A single left-edge color rail replaces every pill/badge; near-no shadow.',
+  },
+];
+
+const round2 = [
+  {
+    slug: 'b2-signal-garden',
+    name: 'B2 — Signal Garden (round 2, evolved from B)',
+    desc: 'Warm full-bleed color fields per grade/category; a recurring "arch" panel shape; rounder confident type.',
+  },
+  {
+    slug: 'd-word-atlas',
+    name: 'D — Word Atlas (round 2, new)',
+    desc: 'Classification/field-guide plates with crisp double-rule borders, saturated category color bands, classic serif + mono taxonomy codes.',
+  },
+  {
+    slug: 'e-pattern-ink',
+    name: 'E — Pattern Ink (round 2, new)',
+    desc: 'Pattern-carrying letters get a gold mark added on top of full-strength ink — nothing dims. Deep ink ground, vivid color-block sections.',
+  },
+];
+
+const round3 = [
+  {
+    slug: 'b3-signal-garden-evolved',
+    name: 'B3 — Signal Garden Evolved (round 3, evolved from B2)',
+    desc: 'Whole-page color environments (not just cards) per grade/category; the arch becomes an architectural "doorway" transition between color and calm reading zones.',
+  },
+  {
+    slug: 'f-mosaic',
+    name: 'F — Mosaic (round 3, new)',
+    desc: 'The layout itself is a modular grid of solid color panels connected by a thin grout-like seam — color as structure, not atmosphere.',
+  },
+  {
+    slug: 'g-spectrum',
+    name: 'G — Spectrum (round 3, new)',
+    desc: 'One engineered K-5 hue progression, sliced consistently as a header spine and per-grade gradient — mostly flat and calm everywhere else.',
+  },
+];
+
+const round4 = [
+  {
+    slug: 'b4-signal-garden-deep',
+    name: 'B4 — Signal Garden, Deeply Evolved (round 4)',
+    desc: 'Discrete saturated environments (not one enormous field) on a neutral canvas; asymmetric "scoop" motif; simplified color semantics (grade hue or one brand hue, never both at once).',
+  },
+  {
+    slug: 'f2-mosaic-deep',
+    name: 'F2 — Mosaic, Deeply Evolved (round 4)',
+    desc: 'Dominant/supporting/neutral color hierarchy — max ~2 saturated hues active at once, full palette reserved for genuine differentiation (Browse by Grade).',
+  },
+  {
+    slug: 'h-threshold',
+    name: 'H — Threshold (round 4 synthesis)',
+    desc: 'Principle synthesis: the scoop is reserved exclusively for "arrival" tiles (hero, grade identity, practice tray); everything else is calm rectilinear mosaic. Shape itself signals hierarchy.',
+  },
+];
+
+const directions = [...round4, ...round3, ...round2, ...round1];
+const surfaces = [
+  { slug: 'home', name: 'Homepage' },
+  { slug: 'skill', name: 'Skill / reference' },
+  { slug: 'play-question', name: 'Practice question' },
+  { slug: 'grade-hub', name: 'Grade hub' },
+];
+---
+
+<!-- DESIGN EXPLORATION PROTOTYPE — throwaway, not production code. Index of all direction/surface combinations. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Design Exploration Index</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 24px; color: #16171a; }
+      h1 { font-size: 22px; }
+      .note { color: #666; font-size: 14px; margin-bottom: 32px; }
+      section { margin-bottom: 32px; }
+      h2 { font-size: 17px; margin-bottom: 4px; }
+      p.desc { color: #555; font-size: 14px; margin: 0 0 12px; }
+      ul { list-style: none; padding: 0; display: flex; gap: 10px; flex-wrap: wrap; }
+      a { display: inline-block; padding: 8px 14px; border: 1px solid #ddd; border-radius: 6px; text-decoration: none; color: #16171a; font-size: 14px; }
+      a:hover { background: #f2f2f2; }
+    </style>
+  </head>
+  <body>
+    <h1>SpellingWords.app — Visual Direction Exploration</h1>
+    <p class="note">Throwaway prototypes, not production. Not linked from the real site nav; noindex on every page.</p>
+    {directions.map((d) => (
+      <section>
+        <h2>{d.name}</h2>
+        <p class="desc">{d.desc}</p>
+        <ul>
+          {surfaces.map((s) => (
+            <li><a href={`/design-explore/${d.slug}/${s.slug}`}>{s.name}</a></li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </body>
+</html>

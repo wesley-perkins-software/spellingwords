@@ -1,0 +1,69 @@
+---
+const grades = [
+  { g: 'K', color: '#ef5a3c' },
+  { g: '1', color: '#f0a530' },
+  { g: '2', color: '#6fae3e' },
+  { g: '3', color: '#239e93' },
+  { g: '4', color: '#4f63d9' },
+  { g: '5', color: '#a34fc7' },
+];
+---
+<!-- CANVAS STUDY — throwaway. B4-A: neutral cool-white canvas, color as discrete large regions only. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Canvas Study B4-A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+<style>
+  :root { --brand: #d6336c; --ink: #1c1712; --ink-soft: #5c5148; --border: #e7e5e1; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fbfbfa; color: var(--ink); font-family: 'Inter', sans-serif; }
+  h1,h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; margin: 0; }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
+  nav { display: flex; gap: 16px; font-weight: 700; font-size: 14px; color: var(--ink-soft); }
+  .scoop { background: var(--brand); color: #fff; border-radius: 0 0 60% 60% / 0 0 40px 40px; padding: 56px 24px 70px; text-align: center; }
+  .badge { display: inline-block; background: rgba(255,255,255,0.22); padding: 6px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 18px; }
+  .lede { max-width: 46ch; margin: 14px auto 0; opacity: 0.9; line-height: 1.6; }
+  .card { background: #fff; border: 1px solid var(--border); border-radius: 18px; max-width: 520px; margin: -40px auto 0; position: relative; z-index: 2; box-shadow: 0 20px 40px -20px rgba(0,0,0,0.15); overflow: hidden; }
+  .card-head { background: var(--brand); color: #fff; padding: 14px 20px; font-weight: 700; font-size: 13px; text-transform: uppercase; }
+  textarea { width: 100%; border: none; padding: 18px 20px; font-family: inherit; font-size: 17px; resize: none; }
+  section { padding: 48px 24px; }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .tile { border-radius: 14px; padding: 18px; color: #fff; min-height: 110px; }
+  .tile span { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 26px; }
+  .skills { background: #fbfbfa; border-top: 1px solid var(--border); }
+  .skills-inner { background: var(--brand); border-radius: 0 0 60% 60% / 0 0 34px 34px; padding: 36px 24px 46px; color: #fff; text-align: center; margin: 0 -24px; }
+  .list { background: #fff; border: 1px solid var(--border); border-radius: 14px; max-width: 700px; margin: -26px auto 0; position: relative; z-index: 2; }
+  .row { display: flex; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid var(--border); font-weight: 600; }
+</style>
+</head>
+<body>
+  <header><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;">spelling<span style="color:#d6336c;">words</span></div><nav><a href="#">Grades</a><a href="#">Skills</a></nav></header>
+  <div class="scoop">
+    <span class="badge">Practice · Any List</span>
+    <h1 style="font-size: 42px; line-height: 1.08;">One color, arriving with intention.</h1>
+    <p class="lede">Paste your own list or follow a grade-level path. Color shows up where it matters — then gets out of the way.</p>
+  </div>
+  <div class="card"><div class="card-head">Your Words</div><textarea rows="3" placeholder="Type or paste your words here, one per line"></textarea></div>
+
+  <section class="wrap">
+    <h2 style="font-size: 24px; margin-bottom: 20px;">Browse by Grade</h2>
+    <div class="grid">
+      {grades.map(g => <div class="tile" style={`background:${g.color}`}><span>{g.g}</span></div>)}
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="skills-inner">
+      <h2 style="font-size: 24px; color: #fff;">Browse by Skill</h2>
+    </div>
+    <div class="list">
+      {['Short A Words','Long A Silent E Words','Soft C and Soft G'].map((s,i,arr) => <div class="row" style={i===arr.length-1?'border-bottom:none':''}>{s} <span>→</span></div>)}
+    </div>
+    <div style="height:40px"></div>
+  </section>
+</body>
+</html>

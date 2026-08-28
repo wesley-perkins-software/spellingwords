@@ -1,0 +1,72 @@
+---
+const grades = [
+  { g: 'K', color: '#ff6b4a' },
+  { g: '1', color: '#ffb238' },
+  { g: '2', color: '#34a884' },
+  { g: '3', color: '#3f7cc0' },
+  { g: '4', color: '#8c5fc7' },
+  { g: '5', color: '#ea5aa0' },
+];
+---
+<!-- CANVAS STUDY — throwaway. F2-A: crisp near-white canvas, strict dominant/supporting/contrast/neutral hierarchy. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Canvas Study F2-A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Figtree:wght@700;800&display=swap" rel="stylesheet" />
+<style>
+  :root { --dominant: #8c5fc7; --supporting: #34a884; --contrast: #ffb238; --ink: #1c1b1f; --ink-soft: #57545c; --border: #ececec; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fafafa; color: var(--ink); font-family: 'Work Sans', sans-serif; }
+  h1,h2 { font-family: 'Figtree', sans-serif; font-weight: 800; margin: 0; }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
+  nav { display: flex; gap: 16px; font-weight: 700; font-size: 14px; color: var(--ink-soft); }
+  .mosaic { display: grid; gap: 4px; }
+  .hero { grid-template-columns: 1.4fr 1fr; }
+  .tile { border-radius: 16px; padding: 30px; }
+  .dom { background: var(--dominant); color: #fff; }
+  .neutral-panel { background: #fff; border: 1px solid var(--border); }
+  section { padding: 44px 24px; }
+  .grid6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
+  .g-tile { border-radius: 14px; padding: 16px; background: #fff; border: 1px solid var(--border); min-height: 100px; }
+  .g-tile.on { background: var(--dominant); color: #fff; border: none; }
+  .g-tile span { font-family: 'Figtree', sans-serif; font-weight: 800; font-size: 24px; }
+  .list { background: #fff; border: 1px solid var(--border); border-radius: 14px; max-width: 700px; }
+  .row { display: flex; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid var(--border); font-weight: 600; }
+  .tag { font-size: 11px; font-weight: 700; background: var(--contrast); color: #241b02; padding: 2px 8px; border-radius: 999px; }
+</style>
+</head>
+<body>
+  <header><div style="font-family:'Figtree',sans-serif;font-weight:800;">spelling<span style="color:#8c5fc7;">words</span></div><nav><a href="#">Grades</a><a href="#">Skills</a></nav></header>
+  <div class="wrap">
+    <div class="mosaic hero">
+      <div class="tile dom">
+        <span style="display:inline-block;background:rgba(255,255,255,0.2);padding:5px 12px;border-radius:999px;font-size:12px;font-weight:700;text-transform:uppercase;margin-bottom:16px;">Practice · Any List</span>
+        <h1 style="font-size: 34px; line-height: 1.1;">One dominant color. Everything else rests.</h1>
+        <p style="opacity:0.9; max-width: 42ch; line-height: 1.6; margin-top: 12px;">Paste your own list or follow a grade path. The eye gets exactly one place to land.</p>
+      </div>
+      <div class="tile neutral-panel">
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; color: var(--ink-soft); margin-bottom: 10px;">Your Words</div>
+        <textarea rows="5" placeholder="Type or paste your words here" style="width:100%;border:none;font-family:inherit;font-size:16px;resize:none;padding:0;"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <section class="wrap">
+    <h2 style="font-size: 22px; margin-bottom: 16px;">Browse by Grade</h2>
+    <div class="grid6">
+      {grades.map((g,i) => <div class={`g-tile ${i===1?'on':''}`}><span style={i===1?'color:#fff':`color:${g.color}`}>{g.g}</span></div>)}
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2 style="font-size: 22px; margin-bottom: 16px;">Browse by Skill</h2>
+    <div class="list">
+      {['Short A Words','Long A Silent E Words','Soft C and Soft G'].map((s,i,arr) => <div class="row" style={i===arr.length-1?'border-bottom:none':''}>{s} <span class="tag">Phonics</span></div>)}
+    </div>
+  </section>
+</body>
+</html>

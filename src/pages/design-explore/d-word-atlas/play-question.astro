@@ -1,0 +1,61 @@
+---
+import Layout from './_Layout.astro';
+---
+
+<Layout title="Practice">
+  <header class="explore-d__header">
+    <div class="explore-d__header-inner">
+      <span class="explore-d__wordmark" style="font-size: 15px;">spelling<span class="accent">words</span></span>
+      <a href="#" class="mono" style="font-size: 13px; color: var(--ink-soft); text-decoration: none;">← NEW LIST</a>
+    </div>
+  </header>
+
+  <main class="wrap wrap--narrow" style="padding: 32px 24px 64px; display: flex; flex-direction: column; gap: 32px;">
+    <section style="display: flex; align-items: center; gap: 14px;">
+      <span class="classification">Specimen 3 / 10</span>
+      <div style="flex: 1; height: 4px; background: var(--border); border-radius: 999px; overflow: hidden;">
+        <div style="width: 30%; height: 100%; background: var(--phonics);"></div>
+      </div>
+    </section>
+
+    <section class="plate">
+      <div class="plate-band" style="background: var(--phonics);">
+        <span>Field Notes · Grade 1 Phonics</span>
+        <span>Cat. GR.01-PH-02</span>
+      </div>
+      <div style="padding: 30px 26px; display: flex; flex-direction: column; gap: 20px;">
+        <p style="color: var(--ink-soft); font-size: 15px;">Listen carefully and type what you hear.</p>
+
+        <input
+          type="text"
+          class="answer-input"
+          placeholder="Type the word"
+          style="width: 100%; background: var(--bg); border: 1.5px solid var(--border-strong); border-radius: 3px; padding: 16px 20px; font-family: var(--font-word); font-size: 26px; font-weight: 600; color: var(--ink);"
+        />
+
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button type="button" class="btn btn--outline">🔊 Hear word again</button>
+          <button type="button" class="btn btn--outline">💬 Hear sentence again</button>
+        </div>
+      </div>
+    </section>
+
+    <button type="button" class="btn btn--primary" style="width: 100%; padding: 17px;">
+      Submit Answer
+    </button>
+
+    <!-- Feedback state (correct) -->
+    <section>
+      <p class="mono" style="font-size: 12px; color: var(--ink-faint); margin-bottom: 12px;">FEEDBACK STATE — CORRECT</p>
+      <div class="plate">
+        <div class="plate-band" style="background: var(--correct);">
+          <span>Confirmed match</span><span>✓</span>
+        </div>
+        <div style="padding: 30px 26px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+          <span style="font-family: var(--font-word); font-weight: 700; font-size: 38px;">cake</span>
+          <p style="color: var(--ink-soft); font-size: 14.5px;">Well spelled.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

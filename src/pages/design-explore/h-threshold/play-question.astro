@@ -1,0 +1,44 @@
+---
+import Layout from './_Layout.astro';
+---
+
+<Layout title="Practice" env="var(--grade-1)">
+  <header class="explore-h__header" style="padding: 4px 0;">
+    <div class="explore-h__header-inner">
+      <span class="explore-h__wordmark" style="font-size: 15px;">spelling<span class="accent">words</span></span>
+      <a href="#" style="font-size: 14px; font-weight: 700; color: var(--ink-soft); text-decoration: none;">← New list</a>
+    </div>
+  </header>
+
+  <main class="wrap wrap--narrow" style="padding: 16px 24px 64px;">
+    <section style="display: flex; align-items: center; gap: 14px; margin-bottom: 22px;">
+      <span class="badge" style="background: var(--ink); color: #fff;">Word 3 / 10</span>
+      <div style="flex: 1; height: 6px; background: var(--border); border-radius: 999px; overflow: hidden;">
+        <div style="width: 30%; height: 100%; background: var(--grade-1);"></div>
+      </div>
+    </section>
+
+    <!-- The practice tray is an arrival moment — the whole point of the visit. -->
+    <div class="arrival" style="padding: 32px 30px 44px; display: flex; flex-direction: column; gap: 20px;">
+      <p style="opacity: 0.92; font-size: 15px; font-weight: 600;">Listen carefully and type what you hear.</p>
+      <input type="text" class="answer-input" placeholder="Type the word" style="width: 100%; background: #fff; border: none; border-radius: 14px; padding: 17px 20px; font-family: var(--font-word); font-size: 27px; font-weight: 700; color: var(--ink);" />
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button type="button" class="btn btn--ghost-on-env">🔊 Hear word again</button>
+        <button type="button" class="btn btn--ghost-on-env">💬 Hear sentence again</button>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn--primary" style="width: 100%; padding: 17px; margin-top: -24px; position: relative; z-index: 2; background: var(--ink);">
+      Submit Answer
+    </button>
+
+    <section style="margin-top: 34px;">
+      <p style="font-size: 12.5px; font-weight: 700; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px;">Feedback state — correct</p>
+      <div class="arrival" style="background: var(--correct); padding: 34px 30px 42px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <span style="width: 40px; height: 40px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; color: var(--correct); font-weight: 800;">✓</span>
+        <span style="font-family: var(--font-word); font-weight: 800; font-size: 36px; color: #fff;">cake</span>
+        <p style="opacity: 0.92; font-size: 14.5px; font-weight: 600;">Well spelled.</p>
+      </div>
+    </section>
+  </main>
+</Layout>

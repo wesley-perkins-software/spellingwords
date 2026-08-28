@@ -1,0 +1,29 @@
+---
+import '../_shared.css';
+import './_tokens.css';
+
+interface Props {
+  title: string;
+  env?: string;
+}
+const { title, env = 'var(--env-home)' } = Astro.props;
+---
+
+<!-- DESIGN EXPLORATION PROTOTYPE — throwaway, not production code. Direction B3: "Signal Garden Evolved" (round 3). -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title} — Signal Garden Evolved</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="explore-b3" style={`--env: ${env};`}>
+    <slot />
+  </body>
+</html>

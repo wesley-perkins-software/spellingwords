@@ -1,0 +1,160 @@
+/* DESIGN EXPLORATION — Direction E: "Pattern Ink". Throwaway, scoped under .explore-e only. */
+.explore-e {
+  --bg: #211b16;
+  --surface: #2b241d;
+  --surface-raised: #362d24;
+  --border: rgba(255, 255, 255, 0.1);
+
+  --ink: #f6f0e4;
+  --ink-soft: #cabfae;
+  --ink-faint: #93897a;
+
+  /* Category color fields — rich and saturated, used as full section/card backgrounds */
+  --phonics: #1f6e63;
+  --hfw: #b5461f;
+  --grade-core: #3c3f9e;
+  --themed: #9c3568;
+
+  /* The mark: added emphasis for pattern-carrying letters. Never removes weight from other letters. */
+  --mark: #ffbf3f;
+  --mark-ink: #211b16;
+
+  --correct: #3fa876;
+  --incorrect: #e2664a;
+
+  --radius: 20px;
+
+  --font-display: 'Zilla Slab', Georgia, serif;
+  --font-body: 'Karla', system-ui, sans-serif;
+  --font-word: 'Karla', system-ui, sans-serif;
+
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+.explore-e h1, .explore-e h2, .explore-e h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+.explore-e p { margin: 0; }
+
+.explore-e .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.explore-e .wrap--narrow { max-width: 760px; }
+
+.explore-e__header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.explore-e__header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.explore-e__wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+}
+.explore-e__wordmark .accent { color: var(--mark); }
+.explore-e__nav { display: flex; gap: 4px; flex-wrap: wrap; }
+.explore-e__nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+.explore-e__nav a:hover { background: rgba(255,255,255,0.06); color: var(--ink); }
+
+/* Pattern-marked word: default letters at full ink weight/contrast; pattern letters get
+   gold color + heavier weight ADDED on top — nothing is dimmed or ghosted. */
+.pword { font-family: var(--font-word); font-weight: 600; }
+.pword .mark { color: var(--mark); font-weight: 800; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.field {
+  border-radius: var(--radius);
+  color: #fff;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 13px;
+  border-radius: 999px;
+  color: #fff;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:focus-visible { outline: 3px solid var(--mark); outline-offset: 2px; }
+.btn--primary {
+  background: var(--mark);
+  color: var(--mark-ink);
+  padding: 16px 28px;
+  font-size: 16.5px;
+  box-shadow: 0 10px 26px -10px rgba(255, 191, 63, 0.35);
+}
+.btn--primary:hover { transform: translateY(-1px); }
+.btn--on-color {
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  padding: 14px 22px;
+  font-size: 15px;
+}
+.btn--on-color:hover { background: rgba(255,255,255,0.22); }
+.btn--ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink);
+  padding: 12px 20px;
+  font-size: 14.5px;
+}
+.btn--ghost:hover { background: var(--surface-raised); }
+
+.answer-input:focus-visible {
+  outline: 3px solid var(--mark);
+  outline-offset: 2px;
+}
+
+.explore-e__footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0 40px;
+  color: var(--ink-faint);
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+}

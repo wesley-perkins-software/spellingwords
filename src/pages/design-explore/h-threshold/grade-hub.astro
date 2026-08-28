@@ -1,0 +1,56 @@
+---
+import Layout from './_Layout.astro';
+
+const strands = [
+  { title: 'Core Spelling', items: ['Short A Words', 'Long A Silent E Words', 'Soft C and Soft G'] },
+  { title: 'High-Frequency Words', items: ['Set 1', 'Set 2', 'Set 3'] },
+  { title: 'Themed Spelling Practice', items: ['Animal Words', 'Weather Words'] },
+];
+---
+
+<Layout title="Grade 1" env="var(--grade-1)">
+  <header class="explore-h__header">
+    <div class="explore-h__header-inner">
+      <span class="explore-h__wordmark">spelling<span class="accent">words</span></span>
+      <nav class="explore-h__nav">
+        <a href="#">Grades</a>
+        <a href="#">Skills</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Grade identity: the single arrival tile of this page. -->
+  <div class="arrival" style="padding: 32px 24px 44px;">
+    <div class="wrap wrap--narrow">
+      <p style="font-size: 13px; opacity: 0.75; font-weight: 600; margin-bottom: 12px;">Home / Grade 1</p>
+      <span style="font-family: var(--font-display); font-weight: 800; font-size: 52px; line-height: 1;">1</span>
+      <h1 style="font-size: clamp(24px, 3.4vw, 32px); margin: 8px 0 10px;">Grade 1 Spelling Words</h1>
+      <p style="opacity: 0.92; font-size: 15px; line-height: 1.6; max-width: 62ch;">
+        A path through Core Spelling patterns, everyday High-Frequency Words, and Themed Practice.
+      </p>
+    </div>
+  </div>
+
+  <main class="wrap wrap--narrow" style="padding: 30px 24px 72px;">
+    {strands.map((strand) => (
+      <section style="margin-bottom: 22px;">
+        <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
+          <h2 style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft);">{strand.title}</h2>
+          <span class="tag">{strand.items.length}</span>
+        </div>
+        <div class="panel">
+          {strand.items.map((item, i) => (
+            <a href="#" style={`display: flex; align-items: center; justify-content: space-between; padding: 15px 18px; text-decoration: none; color: inherit; ${i < strand.items.length - 1 ? 'border-bottom: 1px solid var(--border);' : ''}`}>
+              <span style="font-family: var(--font-display); font-weight: 700; font-size: 15px;">{item}</span>
+              <span style="color: var(--grade-1); font-weight: 800;">→</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
+
+  <footer class="explore-h__footer">
+    <div class="wrap">← Kindergarten &nbsp;&nbsp;&nbsp; Grade 2 →</div>
+  </footer>
+</Layout>

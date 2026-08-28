@@ -1,0 +1,71 @@
+---
+import Layout from './_Layout.astro';
+
+const strands = [
+  {
+    title: 'Core Spelling',
+    mark: 'mark-a',
+    items: ['Short A Words', 'Long A Silent E Words', 'Soft C and Soft G'],
+  },
+  {
+    title: 'High-Frequency Words',
+    mark: 'mark-b',
+    items: ['Set 1', 'Set 2', 'Set 3'],
+  },
+  {
+    title: 'Themed Spelling Practice',
+    mark: 'mark-c',
+    items: ['Animal Words', 'Weather Words'],
+  },
+];
+---
+
+<Layout title="Grade 1">
+  <header class="explore-a__header">
+    <div class="explore-a__header-inner">
+      <span class="explore-a__wordmark">spelling<span class="accent">words</span></span>
+      <nav class="explore-a__nav">
+        <a href="#">Grades</a>
+        <a href="#">Skills</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap wrap--narrow" style="padding: 40px 24px 72px;">
+    <p style="font-size: 13px; color: var(--text-tertiary); margin-bottom: 18px;">Home / Grade 1</p>
+    <h1 style="font-size: clamp(30px, 4vw, 42px); margin-bottom: 14px;">Grade 1 Spelling Words</h1>
+    <p style="font-size: 16px; color: var(--text-secondary); line-height: 1.6; max-width: 62ch; margin-bottom: 40px;">
+      A path through Core Spelling patterns, everyday High-Frequency Words, and Themed Practice —
+      arranged so the first steps build the skills later ones depend on.
+    </p>
+
+    {strands.map((strand) => (
+      <section style="margin-bottom: 36px;">
+        <div class="soundmark" style={`color: var(--${strand.mark}); margin-bottom: 14px;`}>
+          <span class="dot"></span><span class="dot"></span>
+          <span class="soundmark--label">{strand.title}</span>
+        </div>
+        <div class="card">
+          {strand.items.map((item, i) => (
+            <a href="#" style={`display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; text-decoration: none; color: inherit; ${i < strand.items.length - 1 ? 'border-bottom: 1px solid var(--border);' : ''}`}>
+              <span style="font-family: var(--font-display); font-weight: 600; font-size: 16px;">{item}</span>
+              <span style={`color: var(--${strand.mark}); font-weight: 700;`}>→</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <div class="card" style="padding: 20px 22px; border-left: 3px solid var(--accent); margin-top: 12px;">
+      <p style="font-weight: 700; margin-bottom: 6px;">Where to begin</p>
+      <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.6;">
+        Most Grade 1 students start with Core Spelling, then use High-Frequency Words alongside it
+        each week.
+      </p>
+    </div>
+  </main>
+
+  <footer class="explore-a__footer">
+    <div class="wrap">← Kindergarten &nbsp;&nbsp;&nbsp; Grade 2 →</div>
+  </footer>
+</Layout>

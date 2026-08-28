@@ -1,0 +1,93 @@
+---
+import Layout from './_Layout.astro';
+
+const grades = [
+  { g: 'K', from: 'var(--spec-k)', to: 'var(--spec-1)', desc: 'First sounds, letters, and three-letter words.' },
+  { g: '1', from: 'var(--spec-1)', to: 'var(--spec-2)', desc: 'Silent e, letter teams, everyday high-frequency words.' },
+  { g: '2', from: 'var(--spec-2)', to: 'var(--spec-3)', desc: 'Blends, digraphs, and longer word families.' },
+  { g: '3', from: 'var(--spec-3)', to: 'var(--spec-4)', desc: 'Prefixes, suffixes, and multi-syllable patterns.' },
+  { g: '4', from: 'var(--spec-4)', to: 'var(--spec-5)', desc: 'Latin roots and more demanding spelling patterns.' },
+  { g: '5', from: 'var(--spec-5)', to: 'var(--spec-4)', desc: 'Advanced patterns getting students ready for middle school.' },
+];
+
+const skills = ['Short A Words', 'Long A Silent E Words', 'Soft C and Soft G', 'Consonant Blends', 'Silent Letters'];
+---
+
+<Layout title="Home">
+  <header class="explore-g__header">
+    <div class="explore-g__header-inner">
+      <span class="explore-g__wordmark">spelling<span class="accent">words</span></span>
+      <nav class="explore-g__nav">
+        <a href="#grades">Grades</a>
+        <a href="#skills">Skills</a>
+        <a href="#">How it works</a>
+      </nav>
+    </div>
+    <div class="explore-g__spine"></div>
+  </header>
+
+  <main>
+    <section class="wrap" style="padding: 60px 24px 52px; text-align: center;">
+      <div class="wrap--narrow" style="margin: 0 auto; display: flex; flex-direction: column; gap: 18px; align-items: center;">
+        <span class="badge" style="background: var(--spec-3);">Practice · Any List</span>
+        <h1 style="font-size: clamp(32px, 4.6vw, 50px); line-height: 1.08;">
+          One path, six colors, every word.
+        </h1>
+        <p style="font-size: 17px; color: var(--ink-soft); max-width: 46ch; line-height: 1.6;">
+          Paste your own list, or follow the Kindergarten&ndash;5th grade path — each grade its own
+          place on the spectrum. Hear each word, then type it.
+        </p>
+
+        <div class="panel" style="width: 100%; max-width: 540px; text-align: left; overflow: hidden; margin-top: 8px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--border);">
+            <span style="font-size: 13px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.04em;">Your words</span>
+            <span style="font-size: 12px; font-weight: 700; background: var(--spec-3); color: #fff; padding: 4px 10px; border-radius: 999px;">0 words</span>
+          </div>
+          <textarea
+            rows="4"
+            placeholder="Type or paste your words here, one per line"
+            style="width: 100%; border: none; resize: none; padding: 16px 20px; font-family: var(--font-word); font-size: 18px; color: var(--ink); background: transparent;"
+          ></textarea>
+        </div>
+
+        <button type="button" class="btn btn--primary" style="margin-top: 4px; background: var(--spine);">Start Practicing</button>
+      </div>
+    </section>
+
+    <section id="grades" class="wrap" style="padding: 44px 24px;">
+      <h2 style="font-size: 26px; margin-bottom: 8px;">Browse by Grade</h2>
+      <p style="color: var(--ink-soft); max-width: 60ch; margin-bottom: 26px;">
+        A Kindergarten&ndash;5th grade path across Core Spelling, High-Frequency Words, and Themed Practice —
+        each grade is its own slice of one continuous spectrum.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px;">
+        {grades.map((item) => (
+          <a href="#" class="slice" style={`background: linear-gradient(135deg, ${item.from}, ${item.to}); padding: 22px; text-decoration: none;`}>
+            <span style="font-family: var(--font-display); font-weight: 800; font-size: 36px; line-height: 1;">{item.g}</span>
+            <p style="margin-top: 10px; font-size: 14px; opacity: 0.95; line-height: 1.5;">{item.desc}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section id="skills" class="wrap" style="padding: 20px 24px 64px;">
+      <h2 style="font-size: 26px; margin-bottom: 8px;">Browse by Skill</h2>
+      <p style="color: var(--ink-soft); max-width: 60ch; margin-bottom: 22px;">
+        Already know what to work on? Explore 41 spelling skills, each with its own practice bank.
+      </p>
+      <div class="panel" style="overflow: hidden;">
+        <div style="height: 4px; background: var(--spine);"></div>
+        {skills.map((s, i) => (
+          <a href="#" style={`display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; text-decoration: none; color: inherit; ${i < skills.length - 1 ? 'border-bottom: 1px solid var(--border);' : ''}`}>
+            <span style="font-family: var(--font-display); font-weight: 700; font-size: 16px;">{s}</span>
+            <span style="color: var(--spec-4); font-weight: 800;">→</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <footer class="explore-g__footer">
+    <div class="wrap">No accounts. No timers. Just spelling.</div>
+  </footer>
+</Layout>

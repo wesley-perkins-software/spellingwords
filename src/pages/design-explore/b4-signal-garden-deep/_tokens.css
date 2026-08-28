@@ -1,0 +1,184 @@
+/* DESIGN EXPLORATION — Direction B4: "Signal Garden, Deeply Evolved" (round 4). Scoped under .explore-b4. */
+.explore-b4 {
+  /* Canvas: neutral, cool, near-white — NOT a warm cream/pink wash. Color arrives only in
+     discrete, bounded environment regions and recedes to this neutral between them. */
+  --canvas: #fbfbfa;
+  --surface: #ffffff;
+  --border: #e7e5e1;
+
+  --ink: #1c1712;
+  --ink-soft: #5c5148;
+  --ink-faint: #8f8378;
+
+  /* Two persistent color meanings only:
+     1. Grade identity (six hues) — used ONLY for grade-specific moments.
+     2. Brand color — used for anything NOT grade-specific: homepage, Skills, primary actions/focus. */
+  --brand: #d6336c;
+  --grade-k: #ef5a3c;
+  --grade-1: #f0a530;
+  --grade-2: #6fae3e;
+  --grade-3: #239e93;
+  --grade-4: #4f63d9;
+  --grade-5: #a34fc7;
+
+  /* The active environment for this page/moment. */
+  --env: var(--brand);
+
+  --correct: #2f9e5e;
+  --incorrect: #e2583f;
+
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-word: 'Inter', system-ui, sans-serif;
+
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+.explore-b4 h1, .explore-b4 h2, .explore-b4 h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.explore-b4 p { margin: 0; }
+
+.explore-b4 .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+.explore-b4 .wrap--narrow { max-width: 780px; }
+
+.explore-b4__header {
+  background: var(--canvas);
+  position: relative;
+  z-index: 5;
+}
+.explore-b4__header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.explore-b4__wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+}
+.explore-b4__wordmark .accent { color: var(--brand); }
+.explore-b4__nav { display: flex; gap: 4px; flex-wrap: wrap; }
+.explore-b4__nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+.explore-b4__nav a:hover { background: var(--surface); color: var(--brand); }
+
+/* The Scoop — evolved from the round-3 arch. Asymmetric, always leaning the same direction,
+   so it reads as "our shape" rather than generic rounded-bottom. Proportional at every scale:
+   the ratio of curve depth to width stays constant whether it's a hero, a tile, or a badge. */
+.scoop {
+  background: var(--env);
+  color: #fff;
+  border-radius: 0 0 55% 15% / 0 0 64px 22px;
+  position: relative;
+}
+.scoop--tile { border-radius: 0 0 55% 15% / 0 0 26px 9px; }
+.scoop--sm { border-radius: 0 0 55% 15% / 0 0 14px 5px; }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+/* Section heading rule — the device that carries color into dense content WITHOUT
+   wrapping paragraphs in colored cards. */
+.section-head {
+  border-left: 4px solid var(--env);
+  padding-left: 14px;
+  margin-bottom: 16px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+}
+.tag {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--env) 14%, #fff);
+  color: var(--env);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.btn--primary {
+  background: var(--ink);
+  color: #fff;
+  padding: 16px 28px;
+  font-size: 16.5px;
+}
+.btn--primary:hover { transform: translateY(-1px); }
+.btn--on-env {
+  background: #fff;
+  color: var(--env);
+  padding: 15px 26px;
+  font-size: 16px;
+}
+.btn--on-env:hover { transform: translateY(-1px); }
+.btn--ghost-on-env {
+  background: rgba(255,255,255,0.16);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 14.5px;
+}
+.btn--ghost-on-env:hover { background: rgba(255,255,255,0.26); }
+
+.answer-input:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.explore-b4__footer {
+  padding: 30px 0 44px;
+  color: var(--ink-faint);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+}

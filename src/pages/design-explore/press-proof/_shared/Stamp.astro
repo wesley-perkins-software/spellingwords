@@ -1,0 +1,54 @@
+---
+// Reusable ink-outline "stamp" mark — used for CORRECT / TRY AGAIN feedback and
+// decorative homepage word stamps. Flat fill, thick outline, slight rotation.
+// No gradients, no blur, no drop-shadow filter — a hard offset shadow only.
+interface Props {
+  text: string;
+  color?: 'mint' | 'berry' | 'ink';
+  rotate?: number;
+  size?: 'md' | 'lg';
+}
+const { text, color = 'ink', rotate = -6, size = 'md' } = Astro.props;
+---
+
+<span class={`stamp stamp-${color} stamp-${size}`} style={`--rotate: ${rotate}deg`}>
+  {text}
+</span>
+
+<style>
+  .stamp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border: 3px solid currentColor;
+    border-radius: var(--radius-md);
+    padding: 0.5em 1em;
+    transform: rotate(var(--rotate));
+    background: var(--canvas-raised);
+  }
+
+  .stamp-md {
+    font-size: 1.05rem;
+  }
+
+  .stamp-lg {
+    font-size: 1.6rem;
+    padding: 0.4em 1.1em;
+  }
+
+  .stamp-mint {
+    color: var(--mint);
+  }
+
+  .stamp-berry {
+    color: var(--berry);
+  }
+
+  .stamp-ink {
+    color: var(--ink);
+  }
+</style>

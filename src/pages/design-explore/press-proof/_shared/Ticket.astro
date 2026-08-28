@@ -1,0 +1,47 @@
+---
+// Reusable "ticket stub" shape — a clipped-corner, optionally perforated rectangle.
+// Used for grade wayfinding chips and the /play progress readout.
+interface Props {
+  label: string;
+  color?: 'cobalt' | 'marigold' | 'mint' | 'berry';
+  notched?: boolean;
+}
+const { label, color = 'marigold', notched = false } = Astro.props;
+---
+
+<span class={`ticket ticket-${color} ${notched ? 'is-notched' : ''}`}>
+  {label}
+</span>
+
+<style>
+  .ticket {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-proof);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    padding: 0.5rem 0.9rem;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius-sm);
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+    color: var(--ink);
+  }
+
+  .is-notched {
+    border-left-style: dashed;
+  }
+
+  .ticket-cobalt {
+    background: var(--cobalt-tint);
+  }
+  .ticket-marigold {
+    background: var(--marigold-tint);
+  }
+  .ticket-mint {
+    background: var(--mint-tint);
+  }
+  .ticket-berry {
+    background: var(--berry-tint);
+  }
+</style>

@@ -1,0 +1,446 @@
+---
+import Proto from './_shared/Proto.astro';
+import Header from './_shared/Header.astro';
+import Footer from './_shared/Footer.astro';
+import Ticket from './_shared/Ticket.astro';
+import Stamp from './_shared/Stamp.astro';
+---
+
+<Proto
+  title="Practice — Press Proof"
+  description="Design exploration: Press Proof static mock of the spelling practice loop — question, correct, incorrect, and results states."
+>
+  <Header currentPath="/design-explore/press-proof/practice.html" />
+
+  <main id="main">
+    <div class="wrap page">
+      <!-- ============ QUESTION STATE ============ -->
+      <section class="state-block" aria-labelledby="q-heading">
+        <p class="state-block-label">1 · Question</p>
+        <div class="stage" aria-labelledby="stage-heading">
+          <h1 id="stage-heading" class="visually-hidden">Spelling practice</h1>
+
+          <div class="stage-top">
+            <span class="strand-tag">Soft C and Soft G</span>
+            <Ticket label="No. 3 of 6" color="marigold" />
+          </div>
+
+          <div class="stage-audio">
+            <button type="button" class="seal-btn" aria-label="Play the word">
+              <span class="seal-ring seal-ring-1" aria-hidden="true"></span>
+              <span class="seal-ring seal-ring-2" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+                <path d="M5 9v6h4l5 5V4L9 9H5z" fill="currentColor" />
+              </svg>
+            </button>
+            <p class="stage-audio-caption">Listen, then type the word you hear</p>
+          </div>
+
+          <form class="stage-form" aria-label="Type the word">
+            <label class="visually-hidden" for="answer-input">Type the word you hear</label>
+            <input
+              id="answer-input"
+              class="stage-input"
+              type="text"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="Type what you hear"
+              value="gian"
+            />
+            <div class="tick-row" aria-hidden="true">
+              <span class="tick is-filled"></span>
+              <span class="tick is-filled"></span>
+              <span class="tick is-filled"></span>
+              <span class="tick is-filled"></span>
+              <span class="tick"></span>
+            </div>
+            <div class="stage-actions">
+              <button type="button" class="btn btn-ghost stage-ghost">
+                <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+                  <path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor" />
+                </svg>
+                Hear it again
+              </button>
+              <button type="submit" class="btn btn-flame">Check my spelling</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ============ CORRECT STATE ============ -->
+      <section class="state-block" aria-labelledby="correct-heading">
+        <p class="state-block-label">2 · Correct feedback</p>
+        <div class="stage stage-feedback">
+          <h2 id="correct-heading" class="visually-hidden">Correct answer</h2>
+          <div class="feedback-word-row">
+            <span class="feedback-word">page</span>
+            <Stamp text="Correct" color="mint" rotate={-6} size="lg" />
+          </div>
+          <p class="feedback-note">Well spelled. Soft g, right before the silent e.</p>
+          <div class="stage-actions stage-actions-center">
+            <button type="button" class="btn btn-cobalt">Next word</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ INCORRECT STATE ============ -->
+      <section class="state-block" aria-labelledby="incorrect-heading">
+        <p class="state-block-label">3 · Needs another look</p>
+        <div class="stage stage-feedback">
+          <h2 id="incorrect-heading" class="visually-hidden">Incorrect answer</h2>
+          <div class="feedback-word-row">
+            <span class="feedback-word feedback-word-muted">jim</span>
+            <Stamp text="Try again" color="berry" rotate={5} size="lg" />
+          </div>
+          <div class="proof-mark-row">
+            <p class="proof-mark-label">The word is spelled:</p>
+            <p class="proof-mark-word">
+              <span class="proof-mark-plain">g</span><span class="proof-mark-circled">y</span><span
+                class="proof-mark-plain">m</span
+              >
+            </p>
+          </div>
+          <p class="feedback-note">Gym uses a g for that /j/ sound, not a j — same soft-g pattern as giant and page.</p>
+          <div class="stage-actions stage-actions-center">
+            <button type="button" class="btn btn-cobalt">Next word</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ RESULTS STATE ============ -->
+      <section class="state-block" aria-labelledby="results-heading">
+        <p class="state-block-label">4 · Results</p>
+        <div class="stage stage-results">
+          <h2 id="results-heading">Nice work — that's the set.</h2>
+          <p class="results-summary">You spelled 5 of 6 words in Soft C and Soft G. Here's the proof sheet.</p>
+
+          <ul class="proof-sheet-list">
+            <li><span class="ps-word">city</span><span class="ps-mark ps-mark-correct" aria-label="Correct">✓</span></li>
+            <li><span class="ps-word">ice</span><span class="ps-mark ps-mark-correct" aria-label="Correct">✓</span></li>
+            <li><span class="ps-word">icy</span><span class="ps-mark ps-mark-correct" aria-label="Correct">✓</span></li>
+            <li><span class="ps-word">giant</span><span class="ps-mark ps-mark-correct" aria-label="Correct">✓</span></li>
+            <li><span class="ps-word">page</span><span class="ps-mark ps-mark-correct" aria-label="Correct">✓</span></li>
+            <li><span class="ps-word">gym</span><span class="ps-mark ps-mark-incorrect" aria-label="Needed another look">↻</span></li>
+          </ul>
+
+          <div class="stage-actions stage-actions-center">
+            <a class="btn btn-ghost" href="/design-explore/press-proof/skill.html">Back to Soft C and Soft G</a>
+            <button type="button" class="btn btn-flame">Practice this set again</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+
+  <style>
+    .page {
+      padding-block: clamp(2rem, 5vw, 3rem) clamp(3rem, 6vw, 5rem);
+      max-width: 640px;
+    }
+
+    .state-block {
+      margin-bottom: 2.75rem;
+    }
+
+    .state-block-label {
+      font-family: var(--font-proof);
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+
+    /* ============ STAGE — light "proof sheet", not a dark theater ============ */
+    .stage {
+      position: relative;
+      background: var(--canvas-raised);
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.75rem, 5vw, 2.75rem) clamp(1.5rem, 5vw, 2.5rem);
+      box-shadow: var(--shadow-hard);
+      text-align: center;
+      clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+    }
+
+    .stage-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .strand-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.7rem;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--ink-soft);
+    }
+
+    .stage-audio {
+      margin-bottom: 2.25rem;
+    }
+
+    .seal-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 5.25rem;
+      height: 5.25rem;
+      border-radius: 50%;
+      background: var(--cobalt-tint);
+      color: var(--cobalt-deep);
+      border: 3px solid var(--cobalt);
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+    .seal-btn:hover {
+      transform: scale(1.04);
+    }
+
+    .seal-ring {
+      position: absolute;
+      border: 2px solid var(--cobalt);
+      border-radius: 50%;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .seal-ring-1 {
+      inset: -10px;
+    }
+    .seal-ring-2 {
+      inset: -20px;
+      opacity: 0.18;
+    }
+
+    .stage-audio-caption {
+      margin-top: 1.1rem;
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+
+    .stage-form {
+      max-width: 380px;
+      margin-inline: auto;
+    }
+
+    .stage-input {
+      width: 100%;
+      text-align: center;
+      background: var(--canvas-sunken);
+      border: 2px solid var(--ink);
+      border-radius: var(--radius-md);
+      color: var(--ink);
+      font-family: var(--font-word);
+      font-size: 1.65rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 0.85rem 1rem;
+    }
+
+    .stage-input:focus-visible {
+      outline-offset: 2px;
+    }
+
+    .tick-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.65rem;
+    }
+
+    .tick {
+      width: 1.6rem;
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+    }
+    .tick.is-filled {
+      background: var(--cobalt);
+    }
+
+    .stage-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+      margin-top: 1.6rem;
+    }
+
+    .stage-actions-center {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .stage-ghost {
+      border-color: transparent;
+      box-shadow: none;
+      color: var(--ink-soft);
+      padding: 0.5rem 0.75rem;
+    }
+    .stage-ghost:hover {
+      box-shadow: none;
+      transform: none;
+      color: var(--ink);
+    }
+
+    /* ============ FEEDBACK STATES ============ */
+    .stage-feedback {
+      padding-block: clamp(2rem, 5vw, 2.75rem);
+    }
+
+    .feedback-word-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .feedback-word {
+      font-family: var(--font-word);
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .feedback-word-muted {
+      color: var(--ink-faint);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      text-decoration-color: var(--berry);
+    }
+
+    .proof-mark-row {
+      margin: 0 auto 1.25rem;
+    }
+
+    .proof-mark-label {
+      font-size: 0.82rem;
+      color: var(--ink-faint);
+      margin-bottom: 0.5rem;
+    }
+
+    .proof-mark-word {
+      font-family: var(--font-word);
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .proof-mark-plain {
+      padding: 0 0.02em;
+    }
+
+    .proof-mark-circled {
+      position: relative;
+      display: inline-block;
+      padding: 0 0.12em;
+    }
+    .proof-mark-circled::after {
+      content: '';
+      position: absolute;
+      inset: -0.14em -0.2em;
+      border: 2.5px solid var(--berry);
+      border-radius: 50%;
+      transform: rotate(-6deg);
+    }
+
+    .feedback-note {
+      max-width: 42ch;
+      margin: 0 auto;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    /* ============ RESULTS ============ */
+    .stage-results h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .results-summary {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      margin-bottom: 1.75rem;
+    }
+
+    .proof-sheet-list {
+      list-style: none;
+      margin: 0 0 0.5rem;
+      padding: 0;
+      max-width: 320px;
+      margin-inline: auto;
+      text-align: left;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .proof-sheet-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--canvas-raised);
+    }
+    .proof-sheet-list li:last-child {
+      border-bottom: none;
+    }
+
+    .ps-word {
+      font-family: var(--font-proof);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .ps-mark {
+      font-weight: 700;
+      width: 1.6rem;
+      height: 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    .ps-mark-correct {
+      color: var(--mint-text);
+      border: 2px solid var(--mint);
+    }
+    .ps-mark-incorrect {
+      color: var(--berry-text);
+      border: 2px solid var(--berry);
+    }
+
+    @media (max-width: 640px) {
+      .stage-input {
+        font-size: 1.35rem;
+      }
+      .feedback-word {
+        font-size: 1.9rem;
+      }
+      .proof-mark-word {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</Proto>

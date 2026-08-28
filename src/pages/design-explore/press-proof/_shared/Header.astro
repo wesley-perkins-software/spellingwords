@@ -1,0 +1,128 @@
+---
+interface Props {
+  currentPath?: string;
+}
+const { currentPath = '' } = Astro.props;
+
+const links = [
+  { href: '/design-explore/press-proof/', label: 'Home' },
+  { href: '/design-explore/press-proof/grade-hub.html', label: 'Grades' },
+  { href: '/design-explore/press-proof/skill.html', label: 'Skills' },
+  { href: '/design-explore/press-proof/practice.html', label: 'Practice' },
+];
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="/design-explore/press-proof/">
+      <span class="wordmark-stamp" aria-hidden="true">SW</span>
+      SpellingWords
+    </a>
+    <nav class="head-nav" aria-label="Primary">
+      <ul>
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}>
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <a class="btn btn-flame header-cta" href="/design-explore/press-proof/practice.html"
+      >Start practicing</a
+    >
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 2px solid var(--ink);
+    background: var(--canvas-raised);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 0.85rem;
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--ink);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .wordmark-stamp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    background: var(--marigold-tint);
+    font-family: var(--font-proof);
+    font-size: 0.72rem;
+    font-weight: 700;
+    transform: rotate(-4deg);
+  }
+
+  .head-nav {
+    flex: 1;
+  }
+
+  .head-nav ul {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .head-nav a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding: 0.4rem 0.1rem;
+    border-bottom: 2px solid transparent;
+  }
+
+  .head-nav a:hover {
+    color: var(--ink);
+  }
+
+  .head-nav a[aria-current='page'] {
+    color: var(--cobalt);
+    border-bottom-color: var(--cobalt);
+  }
+
+  .header-cta {
+    flex-shrink: 0;
+    font-size: 0.86rem;
+    padding: 0.6rem 1.1rem;
+  }
+
+  @media (max-width: 720px) {
+    .head-nav {
+      display: none;
+    }
+    .header-cta {
+      margin-left: auto;
+    }
+  }
+</style>
